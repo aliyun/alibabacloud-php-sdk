@@ -13,6 +13,7 @@ class dialogue extends Model
      * @var sentences[]
      */
     public $sentences;
+
     /**
      * @var string
      */
@@ -36,7 +37,7 @@ class dialogue extends Model
         if (null !== $this->sentences) {
             if (\is_array($this->sentences)) {
                 $res['Sentences'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->sentences as $item1) {
                     $res['Sentences'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class dialogue extends Model
         if (isset($map['Sentences'])) {
             if (!empty($map['Sentences'])) {
                 $model->sentences = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Sentences'] as $item1) {
                     $model->sentences[$n1++] = sentences::fromMap($item1);
                 }

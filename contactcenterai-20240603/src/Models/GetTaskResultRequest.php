@@ -12,13 +12,14 @@ class GetTaskResultRequest extends Model
      * @var string[]
      */
     public $requiredFieldList;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'requiredFieldList' => 'requiredFieldList',
-        'taskId'            => 'taskId',
+        'taskId' => 'taskId',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class GetTaskResultRequest extends Model
         if (null !== $this->requiredFieldList) {
             if (\is_array($this->requiredFieldList)) {
                 $res['requiredFieldList'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->requiredFieldList as $item1) {
                     $res['requiredFieldList'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class GetTaskResultRequest extends Model
         if (isset($map['requiredFieldList'])) {
             if (!empty($map['requiredFieldList'])) {
                 $model->requiredFieldList = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['requiredFieldList'] as $item1) {
                     $model->requiredFieldList[$n1++] = $item1;
                 }

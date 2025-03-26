@@ -15,33 +15,38 @@ class RunCompletionRequest extends Model
      * @var dialogue
      */
     public $dialogue;
+
     /**
      * @var fields[]
      */
     public $fields;
+
     /**
      * @var string
      */
     public $modelCode;
+
     /**
      * @var serviceInspection
      */
     public $serviceInspection;
+
     /**
      * @var bool
      */
     public $stream;
+
     /**
      * @var int[]
      */
     public $templateIds;
     protected $_name = [
-        'dialogue'          => 'Dialogue',
-        'fields'            => 'Fields',
-        'modelCode'         => 'ModelCode',
+        'dialogue' => 'Dialogue',
+        'fields' => 'Fields',
+        'modelCode' => 'ModelCode',
         'serviceInspection' => 'ServiceInspection',
-        'stream'            => 'Stream',
-        'templateIds'       => 'TemplateIds',
+        'stream' => 'Stream',
+        'templateIds' => 'TemplateIds',
     ];
 
     public function validate()
@@ -71,7 +76,7 @@ class RunCompletionRequest extends Model
         if (null !== $this->fields) {
             if (\is_array($this->fields)) {
                 $res['Fields'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->fields as $item1) {
                     $res['Fields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -93,7 +98,7 @@ class RunCompletionRequest extends Model
         if (null !== $this->templateIds) {
             if (\is_array($this->templateIds)) {
                 $res['TemplateIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->templateIds as $item1) {
                     $res['TemplateIds'][$n1++] = $item1;
                 }
@@ -118,7 +123,7 @@ class RunCompletionRequest extends Model
         if (isset($map['Fields'])) {
             if (!empty($map['Fields'])) {
                 $model->fields = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Fields'] as $item1) {
                     $model->fields[$n1++] = fields::fromMap($item1);
                 }
@@ -140,7 +145,7 @@ class RunCompletionRequest extends Model
         if (isset($map['TemplateIds'])) {
             if (!empty($map['TemplateIds'])) {
                 $model->templateIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['TemplateIds'] as $item1) {
                     $model->templateIds[$n1++] = $item1;
                 }

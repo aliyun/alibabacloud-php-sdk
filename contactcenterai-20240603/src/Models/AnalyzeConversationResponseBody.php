@@ -12,48 +12,56 @@ class AnalyzeConversationResponseBody extends Model
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorInfo;
+
     /**
      * @var string
      */
     public $finishReason;
+
     /**
      * @var string
      */
     public $inputTokens;
+
     /**
      * @var string
      */
     public $outputTokens;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $text;
+
     /**
      * @var string
      */
     public $totalTokens;
     protected $_name = [
-        'errorCode'    => 'errorCode',
-        'errorInfo'    => 'errorInfo',
+        'errorCode' => 'errorCode',
+        'errorInfo' => 'errorInfo',
         'finishReason' => 'finishReason',
-        'inputTokens'  => 'inputTokens',
+        'inputTokens' => 'inputTokens',
         'outputTokens' => 'outputTokens',
-        'requestId'    => 'requestId',
-        'success'      => 'success',
-        'text'         => 'text',
-        'totalTokens'  => 'totalTokens',
+        'requestId' => 'requestId',
+        'success' => 'success',
+        'text' => 'text',
+        'totalTokens' => 'totalTokens',
     ];
 
     public function validate()

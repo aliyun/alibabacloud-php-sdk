@@ -13,27 +13,31 @@ class data extends Model
      * @var string
      */
     public $audioModelCode;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $vocabularyId;
+
     /**
      * @var wordWeightList[]
      */
     public $wordWeightList;
     protected $_name = [
         'audioModelCode' => 'audioModelCode',
-        'description'    => 'description',
-        'name'           => 'name',
-        'vocabularyId'   => 'vocabularyId',
+        'description' => 'description',
+        'name' => 'name',
+        'vocabularyId' => 'vocabularyId',
         'wordWeightList' => 'wordWeightList',
     ];
 
@@ -67,7 +71,7 @@ class data extends Model
         if (null !== $this->wordWeightList) {
             if (\is_array($this->wordWeightList)) {
                 $res['wordWeightList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->wordWeightList as $item1) {
                     $res['wordWeightList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class data extends Model
         if (isset($map['wordWeightList'])) {
             if (!empty($map['wordWeightList'])) {
                 $model->wordWeightList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['wordWeightList'] as $item1) {
                     $model->wordWeightList[$n1++] = wordWeightList::fromMap($item1);
                 }

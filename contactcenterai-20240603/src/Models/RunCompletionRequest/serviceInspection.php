@@ -13,18 +13,20 @@ class serviceInspection extends Model
      * @var inspectionContents[]
      */
     public $inspectionContents;
+
     /**
      * @var string
      */
     public $inspectionIntroduction;
+
     /**
      * @var string
      */
     public $sceneIntroduction;
     protected $_name = [
-        'inspectionContents'     => 'InspectionContents',
+        'inspectionContents' => 'InspectionContents',
         'inspectionIntroduction' => 'InspectionIntroduction',
-        'sceneIntroduction'      => 'SceneIntroduction',
+        'sceneIntroduction' => 'SceneIntroduction',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class serviceInspection extends Model
         if (null !== $this->inspectionContents) {
             if (\is_array($this->inspectionContents)) {
                 $res['InspectionContents'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->inspectionContents as $item1) {
                     $res['InspectionContents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class serviceInspection extends Model
         if (isset($map['InspectionContents'])) {
             if (!empty($map['InspectionContents'])) {
                 $model->inspectionContents = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['InspectionContents'] as $item1) {
                     $model->inspectionContents[$n1++] = inspectionContents::fromMap($item1);
                 }

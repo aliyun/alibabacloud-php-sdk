@@ -74,6 +74,7 @@ class ContactCenterAI extends OpenApiClient
      * @param request - AnalyzeConversationRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AnalyzeConversationResponse
      *
      * @param string                     $workspaceId
@@ -142,18 +143,18 @@ class ContactCenterAI extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AnalyzeConversation',
-            'version'     => '2024-06-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/analyze_conversation',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AnalyzeConversation',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/analyze_conversation',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AnalyzeConversationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -166,6 +167,7 @@ class ContactCenterAI extends OpenApiClient
      * 根据类型调用大模型.
      *
      * @param request - AnalyzeConversationRequest
+     *
      * @returns AnalyzeConversationResponse
      *
      * @param string                     $workspaceId
@@ -188,6 +190,7 @@ class ContactCenterAI extends OpenApiClient
      * @param request - AnalyzeImageRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AnalyzeImageResponse
      *
      * @param string              $workspaceId
@@ -216,18 +219,18 @@ class ContactCenterAI extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AnalyzeImage',
-            'version'     => '2024-06-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/analyzeImage',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AnalyzeImage',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/analyzeImage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AnalyzeImageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -240,6 +243,7 @@ class ContactCenterAI extends OpenApiClient
      * 图片分析.
      *
      * @param request - AnalyzeImageRequest
+     *
      * @returns AnalyzeImageResponse
      *
      * @param string              $workspaceId
@@ -262,6 +266,7 @@ class ContactCenterAI extends OpenApiClient
      * @param request - CreateTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTaskResponse
      *
      * @param string            $workspaceId
@@ -318,18 +323,18 @@ class ContactCenterAI extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTask',
-            'version'     => '2024-06-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/createTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateTask',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/createTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -342,6 +347,7 @@ class ContactCenterAI extends OpenApiClient
      * 创建语音文件调用llm任务
      *
      * @param request - CreateTaskRequest
+     *
      * @returns CreateTaskResponse
      *
      * @param string            $workspaceId
@@ -364,6 +370,7 @@ class ContactCenterAI extends OpenApiClient
      * @param request - CreateVocabRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVocabResponse
      *
      * @param CreateVocabRequest $request
@@ -398,18 +405,18 @@ class ContactCenterAI extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateVocab',
-            'version'     => '2024-06-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/vocab/createVocab',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateVocab',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/vocab/createVocab',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVocabResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -422,6 +429,7 @@ class ContactCenterAI extends OpenApiClient
      * 创建热词.
      *
      * @param request - CreateVocabRequest
+     *
      * @returns CreateVocabResponse
      *
      * @param CreateVocabRequest $request
@@ -442,6 +450,7 @@ class ContactCenterAI extends OpenApiClient
      * @param request - DeleteVocabRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVocabResponse
      *
      * @param DeleteVocabRequest $request
@@ -464,18 +473,18 @@ class ContactCenterAI extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVocab',
-            'version'     => '2024-06-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/vocab/deleteVocab',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteVocab',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/vocab/deleteVocab',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVocabResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -488,6 +497,7 @@ class ContactCenterAI extends OpenApiClient
      * 删删除热词.
      *
      * @param request - DeleteVocabRequest
+     *
      * @returns DeleteVocabResponse
      *
      * @param DeleteVocabRequest $request
@@ -508,6 +518,7 @@ class ContactCenterAI extends OpenApiClient
      * @param tmpReq - GetTaskResultRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTaskResultResponse
      *
      * @param GetTaskResultRequest $tmpReq
@@ -536,18 +547,18 @@ class ContactCenterAI extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTaskResult',
-            'version'     => '2024-06-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/ccai/app/getTaskResult',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTaskResult',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/ccai/app/getTaskResult',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -560,6 +571,7 @@ class ContactCenterAI extends OpenApiClient
      * 语音文件调用大模型获取结果.
      *
      * @param request - GetTaskResultRequest
+     *
      * @returns GetTaskResultResponse
      *
      * @param GetTaskResultRequest $request
@@ -580,6 +592,7 @@ class ContactCenterAI extends OpenApiClient
      * @param request - GetVocabRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVocabResponse
      *
      * @param GetVocabRequest $request
@@ -602,18 +615,18 @@ class ContactCenterAI extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetVocab',
-            'version'     => '2024-06-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/vocab/getVocab',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetVocab',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/vocab/getVocab',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetVocabResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -626,6 +639,7 @@ class ContactCenterAI extends OpenApiClient
      * 获取热词.
      *
      * @param request - GetVocabRequest
+     *
      * @returns GetVocabResponse
      *
      * @param GetVocabRequest $request
@@ -646,6 +660,7 @@ class ContactCenterAI extends OpenApiClient
      * @param request - ListVocabRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVocabResponse
      *
      * @param ListVocabRequest $request
@@ -664,18 +679,18 @@ class ContactCenterAI extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListVocab',
-            'version'     => '2024-06-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/vocab/listVocab',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListVocab',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/vocab/listVocab',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVocabResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -688,6 +703,7 @@ class ContactCenterAI extends OpenApiClient
      * 热词列表.
      *
      * @param request - ListVocabRequest
+     *
      * @returns ListVocabResponse
      *
      * @param ListVocabRequest $request
@@ -708,6 +724,7 @@ class ContactCenterAI extends OpenApiClient
      * @param request - RunCompletionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RunCompletionResponse
      *
      * @param string               $workspaceId
@@ -748,18 +765,18 @@ class ContactCenterAI extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunCompletion',
-            'version'     => '2024-06-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/completion',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunCompletion',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/completion',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunCompletionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -772,6 +789,7 @@ class ContactCenterAI extends OpenApiClient
      * CCAI服务面API.
      *
      * @param request - RunCompletionRequest
+     *
      * @returns RunCompletionResponse
      *
      * @param string               $workspaceId
@@ -794,6 +812,7 @@ class ContactCenterAI extends OpenApiClient
      * @param request - RunCompletionMessageRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RunCompletionMessageResponse
      *
      * @param string                      $workspaceId
@@ -822,18 +841,18 @@ class ContactCenterAI extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunCompletionMessage',
-            'version'     => '2024-06-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/completion_message',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RunCompletionMessage',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/ccai/app/' . Url::percentEncode($appId) . '/completion_message',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunCompletionMessageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -846,6 +865,7 @@ class ContactCenterAI extends OpenApiClient
      * CCAI服务面API.
      *
      * @param request - RunCompletionMessageRequest
+     *
      * @returns RunCompletionMessageResponse
      *
      * @param string                      $workspaceId
@@ -868,6 +888,7 @@ class ContactCenterAI extends OpenApiClient
      * @param request - UpdateVocabRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateVocabResponse
      *
      * @param UpdateVocabRequest $request
@@ -902,18 +923,18 @@ class ContactCenterAI extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVocab',
-            'version'     => '2024-06-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/vocab/updateVocab',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateVocab',
+            'version' => '2024-06-03',
+            'protocol' => 'HTTPS',
+            'pathname' => '/vocab/updateVocab',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateVocabResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -926,6 +947,7 @@ class ContactCenterAI extends OpenApiClient
      * 修改热词.
      *
      * @param request - UpdateVocabRequest
+     *
      * @returns UpdateVocabResponse
      *
      * @param UpdateVocabRequest $request

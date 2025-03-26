@@ -13,33 +13,38 @@ class data extends Model
      * @var asrResult[]
      */
     public $asrResult;
+
     /**
      * @var string
      */
     public $extra;
+
     /**
      * @var string
      */
     public $taskErrorMessage;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskStatus;
+
     /**
      * @var string
      */
     public $text;
     protected $_name = [
-        'asrResult'        => 'asrResult',
-        'extra'            => 'extra',
+        'asrResult' => 'asrResult',
+        'extra' => 'extra',
         'taskErrorMessage' => 'taskErrorMessage',
-        'taskId'           => 'taskId',
-        'taskStatus'       => 'taskStatus',
-        'text'             => 'text',
+        'taskId' => 'taskId',
+        'taskStatus' => 'taskStatus',
+        'text' => 'text',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class data extends Model
         if (null !== $this->asrResult) {
             if (\is_array($this->asrResult)) {
                 $res['asrResult'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->asrResult as $item1) {
                     $res['asrResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class data extends Model
         if (isset($map['asrResult'])) {
             if (!empty($map['asrResult'])) {
                 $model->asrResult = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['asrResult'] as $item1) {
                     $model->asrResult[$n1++] = asrResult::fromMap($item1);
                 }

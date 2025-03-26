@@ -12,48 +12,56 @@ class transcription extends Model
      * @var string
      */
     public $asrModelCode;
+
     /**
      * @var int
      */
     public $autoSplit;
+
     /**
      * @var int
      */
     public $clientChannel;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var int
      */
     public $serviceChannel;
+
     /**
      * @var string[]
      */
     public $serviceChannelKeywords;
+
     /**
      * @var string
      */
     public $vocabularyId;
+
     /**
      * @var string
      */
     public $voiceFileUrl;
     protected $_name = [
-        'asrModelCode'           => 'asrModelCode',
-        'autoSplit'              => 'autoSplit',
-        'clientChannel'          => 'clientChannel',
-        'fileName'               => 'fileName',
-        'level'                  => 'level',
-        'serviceChannel'         => 'serviceChannel',
+        'asrModelCode' => 'asrModelCode',
+        'autoSplit' => 'autoSplit',
+        'clientChannel' => 'clientChannel',
+        'fileName' => 'fileName',
+        'level' => 'level',
+        'serviceChannel' => 'serviceChannel',
         'serviceChannelKeywords' => 'serviceChannelKeywords',
-        'vocabularyId'           => 'vocabularyId',
-        'voiceFileUrl'           => 'voiceFileUrl',
+        'vocabularyId' => 'vocabularyId',
+        'voiceFileUrl' => 'voiceFileUrl',
     ];
 
     public function validate()
@@ -94,7 +102,7 @@ class transcription extends Model
         if (null !== $this->serviceChannelKeywords) {
             if (\is_array($this->serviceChannelKeywords)) {
                 $res['serviceChannelKeywords'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->serviceChannelKeywords as $item1) {
                     $res['serviceChannelKeywords'][$n1++] = $item1;
                 }
@@ -147,7 +155,7 @@ class transcription extends Model
         if (isset($map['serviceChannelKeywords'])) {
             if (!empty($map['serviceChannelKeywords'])) {
                 $model->serviceChannelKeywords = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['serviceChannelKeywords'] as $item1) {
                     $model->serviceChannelKeywords[$n1++] = $item1;
                 }

@@ -12,13 +12,14 @@ class messages extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $role;
     protected $_name = [
         'content' => 'Content',
-        'role'    => 'Role',
+        'role' => 'Role',
     ];
 
     public function validate()

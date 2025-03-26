@@ -12,6 +12,7 @@ class categoryTags extends Model
      * @var string
      */
     public $tagDesc;
+
     /**
      * @var string
      */

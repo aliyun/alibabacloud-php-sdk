@@ -12,13 +12,14 @@ class GetTaskResultShrinkRequest extends Model
      * @var string
      */
     public $requiredFieldListShrink;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'requiredFieldListShrink' => 'requiredFieldList',
-        'taskId'                  => 'taskId',
+        'taskId' => 'taskId',
     ];
 
     public function validate()

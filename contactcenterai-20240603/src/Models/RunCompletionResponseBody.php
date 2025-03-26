@@ -12,33 +12,38 @@ class RunCompletionResponseBody extends Model
      * @var string
      */
     public $finishReason;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $text;
+
     /**
      * @var string
      */
     public $inputTokens;
+
     /**
      * @var string
      */
     public $outputTokens;
+
     /**
      * @var string
      */
     public $totalTokens;
     protected $_name = [
         'finishReason' => 'FinishReason',
-        'requestId'    => 'RequestId',
-        'text'         => 'Text',
-        'inputTokens'  => 'inputTokens',
+        'requestId' => 'RequestId',
+        'text' => 'Text',
+        'inputTokens' => 'inputTokens',
         'outputTokens' => 'outputTokens',
-        'totalTokens'  => 'totalTokens',
+        'totalTokens' => 'totalTokens',
     ];
 
     public function validate()

@@ -12,6 +12,7 @@ class sentences extends Model
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */

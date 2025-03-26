@@ -12,13 +12,14 @@ class wordWeightList extends Model
      * @var int
      */
     public $weight;
+
     /**
      * @var string
      */
     public $word;
     protected $_name = [
         'weight' => 'weight',
-        'word'   => 'word',
+        'word' => 'word',
     ];
 
     public function validate()

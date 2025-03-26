@@ -13,18 +13,20 @@ class RunCompletionMessageRequest extends Model
      * @var messages[]
      */
     public $messages;
+
     /**
      * @var string
      */
     public $modelCode;
+
     /**
      * @var bool
      */
     public $stream;
     protected $_name = [
-        'messages'  => 'Messages',
+        'messages' => 'Messages',
         'modelCode' => 'ModelCode',
-        'stream'    => 'Stream',
+        'stream' => 'Stream',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class RunCompletionMessageRequest extends Model
         if (null !== $this->messages) {
             if (\is_array($this->messages)) {
                 $res['Messages'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->messages as $item1) {
                     $res['Messages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class RunCompletionMessageRequest extends Model
         if (isset($map['Messages'])) {
             if (!empty($map['Messages'])) {
                 $model->messages = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Messages'] as $item1) {
                     $model->messages[$n1++] = messages::fromMap($item1);
                 }

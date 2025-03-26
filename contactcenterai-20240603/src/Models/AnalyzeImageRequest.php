@@ -12,18 +12,20 @@ class AnalyzeImageRequest extends Model
      * @var string[]
      */
     public $imageUrls;
+
     /**
      * @var string[]
      */
     public $resultTypes;
+
     /**
      * @var bool
      */
     public $stream;
     protected $_name = [
-        'imageUrls'   => 'imageUrls',
+        'imageUrls' => 'imageUrls',
         'resultTypes' => 'resultTypes',
-        'stream'      => 'stream',
+        'stream' => 'stream',
     ];
 
     public function validate()
@@ -43,7 +45,7 @@ class AnalyzeImageRequest extends Model
         if (null !== $this->imageUrls) {
             if (\is_array($this->imageUrls)) {
                 $res['imageUrls'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->imageUrls as $item1) {
                     $res['imageUrls'][$n1++] = $item1;
                 }
@@ -53,7 +55,7 @@ class AnalyzeImageRequest extends Model
         if (null !== $this->resultTypes) {
             if (\is_array($this->resultTypes)) {
                 $res['resultTypes'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->resultTypes as $item1) {
                     $res['resultTypes'][$n1++] = $item1;
                 }
@@ -78,7 +80,7 @@ class AnalyzeImageRequest extends Model
         if (isset($map['imageUrls'])) {
             if (!empty($map['imageUrls'])) {
                 $model->imageUrls = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['imageUrls'] as $item1) {
                     $model->imageUrls[$n1++] = $item1;
                 }
@@ -88,7 +90,7 @@ class AnalyzeImageRequest extends Model
         if (isset($map['resultTypes'])) {
             if (!empty($map['resultTypes'])) {
                 $model->resultTypes = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['resultTypes'] as $item1) {
                     $model->resultTypes[$n1++] = $item1;
                 }

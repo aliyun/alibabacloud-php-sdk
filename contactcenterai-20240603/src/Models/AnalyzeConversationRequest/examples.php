@@ -13,12 +13,13 @@ class examples extends Model
      * @var string
      */
     public $output;
+
     /**
      * @var sentences[]
      */
     public $sentences;
     protected $_name = [
-        'output'    => 'output',
+        'output' => 'output',
         'sentences' => 'sentences',
     ];
 
@@ -40,7 +41,7 @@ class examples extends Model
         if (null !== $this->sentences) {
             if (\is_array($this->sentences)) {
                 $res['sentences'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->sentences as $item1) {
                     $res['sentences'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class examples extends Model
         if (isset($map['sentences'])) {
             if (!empty($map['sentences'])) {
                 $model->sentences = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['sentences'] as $item1) {
                     $model->sentences[$n1++] = sentences::fromMap($item1);
                 }

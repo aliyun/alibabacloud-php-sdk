@@ -13,23 +13,26 @@ class fields extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $desc;
+
     /**
      * @var enumValues[]
      */
     public $enumValues;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
-        'code'       => 'code',
-        'desc'       => 'desc',
+        'code' => 'code',
+        'desc' => 'desc',
         'enumValues' => 'enumValues',
-        'name'       => 'name',
+        'name' => 'name',
     ];
 
     public function validate()
@@ -54,7 +57,7 @@ class fields extends Model
         if (null !== $this->enumValues) {
             if (\is_array($this->enumValues)) {
                 $res['enumValues'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->enumValues as $item1) {
                     $res['enumValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class fields extends Model
         if (isset($map['enumValues'])) {
             if (!empty($map['enumValues'])) {
                 $model->enumValues = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['enumValues'] as $item1) {
                     $model->enumValues[$n1++] = enumValues::fromMap($item1);
                 }

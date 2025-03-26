@@ -1,3 +1,6 @@
+2025-03-26 Version: 3.4.2
+- Generated php 2024-06-03 for ContactCenterAI.
+
 2025-02-25 Version: 3.4.1
 - Update API CreateTask: update param body.
 

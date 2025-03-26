@@ -17,53 +17,62 @@ class CreateTaskRequest extends Model
      * @var string
      */
     public $customPrompt;
+
     /**
      * @var dialogue
      */
     public $dialogue;
+
     /**
      * @var examples
      */
     public $examples;
+
     /**
      * @var fields[]
      */
     public $fields;
+
     /**
      * @var string
      */
     public $modelCode;
+
     /**
      * @var string[]
      */
     public $resultTypes;
+
     /**
      * @var serviceInspection
      */
     public $serviceInspection;
+
     /**
      * @var string
      */
     public $taskType;
+
     /**
      * @var string[]
      */
     public $templateIds;
+
     /**
      * @var transcription
      */
     public $transcription;
     protected $_name = [
-        'customPrompt'      => 'customPrompt',
-        'dialogue'          => 'dialogue',
-        'examples'          => 'examples',
-        'fields'            => 'fields',
-        'modelCode'         => 'modelCode',
-        'resultTypes'       => 'resultTypes',
+        'customPrompt' => 'customPrompt',
+        'dialogue' => 'dialogue',
+        'examples' => 'examples',
+        'fields' => 'fields',
+        'modelCode' => 'modelCode',
+        'resultTypes' => 'resultTypes',
         'serviceInspection' => 'serviceInspection',
-        'taskType'          => 'taskType',
-        'templateIds'       => 'templateIds',
-        'transcription'     => 'transcription',
+        'taskType' => 'taskType',
+        'templateIds' => 'templateIds',
+        'transcription' => 'transcription',
     ];
 
     public function validate()
@@ -110,7 +119,7 @@ class CreateTaskRequest extends Model
         if (null !== $this->fields) {
             if (\is_array($this->fields)) {
                 $res['fields'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->fields as $item1) {
                     $res['fields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -124,7 +133,7 @@ class CreateTaskRequest extends Model
         if (null !== $this->resultTypes) {
             if (\is_array($this->resultTypes)) {
                 $res['resultTypes'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->resultTypes as $item1) {
                     $res['resultTypes'][$n1++] = $item1;
                 }
@@ -142,7 +151,7 @@ class CreateTaskRequest extends Model
         if (null !== $this->templateIds) {
             if (\is_array($this->templateIds)) {
                 $res['templateIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->templateIds as $item1) {
                     $res['templateIds'][$n1++] = $item1;
                 }
@@ -179,7 +188,7 @@ class CreateTaskRequest extends Model
         if (isset($map['fields'])) {
             if (!empty($map['fields'])) {
                 $model->fields = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['fields'] as $item1) {
                     $model->fields[$n1++] = fields::fromMap($item1);
                 }
@@ -193,7 +202,7 @@ class CreateTaskRequest extends Model
         if (isset($map['resultTypes'])) {
             if (!empty($map['resultTypes'])) {
                 $model->resultTypes = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['resultTypes'] as $item1) {
                     $model->resultTypes[$n1++] = $item1;
                 }
@@ -211,7 +220,7 @@ class CreateTaskRequest extends Model
         if (isset($map['templateIds'])) {
             if (!empty($map['templateIds'])) {
                 $model->templateIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['templateIds'] as $item1) {
                     $model->templateIds[$n1++] = $item1;
                 }

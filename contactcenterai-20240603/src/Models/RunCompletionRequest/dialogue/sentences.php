@@ -12,18 +12,20 @@ class sentences extends Model
      * @var string
      */
     public $chatId;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $text;
     protected $_name = [
         'chatId' => 'ChatId',
-        'role'   => 'Role',
-        'text'   => 'Text',
+        'role' => 'Role',
+        'text' => 'Text',
     ];
 
     public function validate()

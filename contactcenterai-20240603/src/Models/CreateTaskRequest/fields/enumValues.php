@@ -12,12 +12,13 @@ class enumValues extends Model
      * @var string
      */
     public $desc;
+
     /**
      * @var string
      */
     public $enumValue;
     protected $_name = [
-        'desc'      => 'desc',
+        'desc' => 'desc',
         'enumValue' => 'enumValue',
     ];
 

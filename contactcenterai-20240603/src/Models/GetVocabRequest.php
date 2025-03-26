@@ -12,13 +12,14 @@ class GetVocabRequest extends Model
      * @var string
      */
     public $vocabularyId;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'vocabularyId' => 'vocabularyId',
-        'workspaceId'  => 'workspaceId',
+        'workspaceId' => 'workspaceId',
     ];
 
     public function validate()
