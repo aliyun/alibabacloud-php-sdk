@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddExtCodeSignRequest extends Model
 {
     /**
-     * @description 扩展码A3
-     *
-     * This parameter is required.
-     * @example 01
-     *
      * @var string
      */
     public $extCode;
@@ -34,41 +29,41 @@ class AddExtCodeSignRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description 签名
-     *
-     * This parameter is required.
-     * @example 示例值
-     *
      * @var string
      */
     public $signName;
     protected $_name = [
-        'extCode'              => 'ExtCode',
-        'ownerId'              => 'OwnerId',
+        'extCode' => 'ExtCode',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'signName'             => 'SignName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'signName' => 'SignName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->extCode) {
             $res['ExtCode'] = $this->extCode;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+
         if (null !== $this->signName) {
             $res['SignName'] = $this->signName;
         }
@@ -76,26 +71,30 @@ class AddExtCodeSignRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddExtCodeSignRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExtCode'])) {
             $model->extCode = $map['ExtCode'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
+
         if (isset($map['SignName'])) {
             $model->signName = $map['SignName'];
         }

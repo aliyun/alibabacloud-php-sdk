@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendDetailsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendDetailsResponseBody\smsSendDetailDTOs\smsSendDetailDTO;
-use AlibabaCloud\Tea\Model;
 
 class smsSendDetailDTOs extends Model
 {
@@ -19,17 +19,21 @@ class smsSendDetailDTOs extends Model
 
     public function validate()
     {
+        if (\is_array($this->smsSendDetailDTO)) {
+            Model::validateArray($this->smsSendDetailDTO);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->smsSendDetailDTO) {
-            $res['SmsSendDetailDTO'] = [];
-            if (null !== $this->smsSendDetailDTO && \is_array($this->smsSendDetailDTO)) {
-                $n = 0;
-                foreach ($this->smsSendDetailDTO as $item) {
-                    $res['SmsSendDetailDTO'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->smsSendDetailDTO)) {
+                $res['SmsSendDetailDTO'] = [];
+                $n1 = 0;
+                foreach ($this->smsSendDetailDTO as $item1) {
+                    $res['SmsSendDetailDTO'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class smsSendDetailDTOs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return smsSendDetailDTOs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SmsSendDetailDTO'])) {
             if (!empty($map['SmsSendDetailDTO'])) {
                 $model->smsSendDetailDTO = [];
-                $n                       = 0;
-                foreach ($map['SmsSendDetailDTO'] as $item) {
-                    $model->smsSendDetailDTO[$n++] = null !== $item ? smsSendDetailDTO::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SmsSendDetailDTO'] as $item1) {
+                    $model->smsSendDetailDTO[$n1++] = smsSendDetailDTO::fromMap($item1);
                 }
             }
         }

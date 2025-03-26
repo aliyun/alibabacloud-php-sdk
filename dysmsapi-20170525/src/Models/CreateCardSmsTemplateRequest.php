@@ -4,83 +4,64 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCardSmsTemplateRequest extends Model
 {
     /**
-     * @description The mobile phone manufacturer. Valid values:
-     *
-     *   **HuaWei**: HUAWEI
-     *   **XiaoMi**: Xiaomi
-     *   **OPPO**: OPPO
-     *   **VIVO**: vivo
-     *   **MEIZU**: MEIZU
-     *
-     * > If this parameter is not specified, the system automatically specifies a supported mobile phone manufacturer.
-     * @example XiaoMi
-     *
      * @var string
      */
     public $factorys;
 
     /**
-     * @description The description of the message template.
-     *
-     * @example Image and Text Template
-     *
      * @var string
      */
     public $memo;
 
     /**
-     * @description The content of the card message template.
-     *
-     * >
-     *
-     *   For information about fields such as Template, ExtendInfo, TemplateContent, TmpCard, and Action, see [Parameters of card message templates](https://help.aliyun.com/document_detail/434929.html).
-     *
-     *   Message template content varies based on the template type. For more information, see [Sample message templates](https://help.aliyun.com/document_detail/435361.html).
-     *
-     * This parameter is required.
-     * @example {
-     * }
      * @var mixed[]
      */
     public $template;
 
     /**
-     * @description The name of the card message template.
-     *
-     * This parameter is required.
-     * @example Aliyun Image and Text Template
-     *
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'factorys'     => 'Factorys',
-        'memo'         => 'Memo',
-        'template'     => 'Template',
+        'factorys' => 'Factorys',
+        'memo' => 'Memo',
+        'template' => 'Template',
         'templateName' => 'TemplateName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->template)) {
+            Model::validateArray($this->template);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->factorys) {
             $res['Factorys'] = $this->factorys;
         }
+
         if (null !== $this->memo) {
             $res['Memo'] = $this->memo;
         }
+
         if (null !== $this->template) {
-            $res['Template'] = $this->template;
+            if (\is_array($this->template)) {
+                $res['Template'] = [];
+                foreach ($this->template as $key1 => $value1) {
+                    $res['Template'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
         }
@@ -88,23 +69,31 @@ class CreateCardSmsTemplateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCardSmsTemplateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Factorys'])) {
             $model->factorys = $map['Factorys'];
         }
+
         if (isset($map['Memo'])) {
             $model->memo = $map['Memo'];
         }
+
         if (isset($map['Template'])) {
-            $model->template = $map['Template'];
+            if (!empty($map['Template'])) {
+                $model->template = [];
+                foreach ($map['Template'] as $key1 => $value1) {
+                    $model->template[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];
         }

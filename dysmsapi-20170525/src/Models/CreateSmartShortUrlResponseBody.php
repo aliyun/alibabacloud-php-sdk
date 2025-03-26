@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmartShortUrlResponseBody\model_;
-use AlibabaCloud\Tea\Model;
 
 class CreateSmartShortUrlResponseBody extends Model
 {
     /**
-     * @example 示例值示例值示例值
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example 示例值示例值示例值
-     *
      * @var string
      */
     public $message;
@@ -29,40 +25,45 @@ class CreateSmartShortUrlResponseBody extends Model
     public $model;
 
     /**
-     * @example 示例值示例值
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'model'     => 'Model',
+        'code' => 'Code',
+        'message' => 'Message',
+        'model' => 'Model',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->model)) {
+            Model::validateArray($this->model);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->model) {
-            $res['Model'] = [];
-            if (null !== $this->model && \is_array($this->model)) {
-                $n = 0;
-                foreach ($this->model as $item) {
-                    $res['Model'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->model)) {
+                $res['Model'] = [];
+                $n1 = 0;
+                foreach ($this->model as $item1) {
+                    $res['Model'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -70,29 +71,32 @@ class CreateSmartShortUrlResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSmartShortUrlResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Model'])) {
             if (!empty($map['Model'])) {
                 $model->model = [];
-                $n            = 0;
-                foreach ($map['Model'] as $item) {
-                    $model->model[$n++] = null !== $item ? model_::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Model'] as $item1) {
+                    $model->model[$n1++] = model_::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

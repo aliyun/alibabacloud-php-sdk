@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateReportResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The details of the data returned.
-     *
      * @var mixed[][]
      */
     public $model;
@@ -20,29 +18,53 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->model)) {
+            Model::validateArray($this->model);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->model) {
-            $res['model'] = $this->model;
+            if (\is_array($this->model)) {
+                $res['model'] = [];
+                $n1 = 0;
+                foreach ($this->model as $item1) {
+                    if (\is_array($item1)) {
+                        $res['model'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['model'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['model'])) {
             if (!empty($map['model'])) {
-                $model->model = $map['model'];
+                $model->model = [];
+                $n1 = 0;
+                foreach ($map['model'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->model[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->model[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
 

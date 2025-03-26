@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models\GetMediaResourceIdResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The download URL of the resource.
-     *
-     * @example http://test-example.com/download.jpg
-     *
      * @var string
      */
     public $resUrlDownload;
 
     /**
-     * @description The resource ID.
-     *
-     * @example SMS_14571****
-     *
      * @var int
      */
     public $resourceId;
     protected $_name = [
         'resUrlDownload' => 'ResUrlDownload',
-        'resourceId'     => 'ResourceId',
+        'resourceId' => 'ResourceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resUrlDownload) {
             $res['ResUrlDownload'] = $this->resUrlDownload;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
@@ -47,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResUrlDownload'])) {
             $model->resUrlDownload = $map['ResUrlDownload'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }

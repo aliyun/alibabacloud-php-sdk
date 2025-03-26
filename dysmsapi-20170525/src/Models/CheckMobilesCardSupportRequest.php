@@ -4,42 +4,50 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckMobilesCardSupportRequest extends Model
 {
     /**
-     * @description The list of mobile phone numbers that receive messages.
-     *
-     * This parameter is required.
      * @var mixed[][]
      */
     public $mobiles;
 
     /**
-     * @description The code of the message template. You can view the template code in the **Template Code** column on the **Templates** tab of the **Go China** page in the Alibaba Cloud SMS console.
-     *
-     * This parameter is required.
-     * @example CARD_SMS_****
-     *
      * @var string
      */
     public $templateCode;
     protected $_name = [
-        'mobiles'      => 'Mobiles',
+        'mobiles' => 'Mobiles',
         'templateCode' => 'TemplateCode',
     ];
 
     public function validate()
     {
+        if (\is_array($this->mobiles)) {
+            Model::validateArray($this->mobiles);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mobiles) {
-            $res['Mobiles'] = $this->mobiles;
+            if (\is_array($this->mobiles)) {
+                $res['Mobiles'] = [];
+                $n1 = 0;
+                foreach ($this->mobiles as $item1) {
+                    if (\is_array($item1)) {
+                        $res['Mobiles'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['Mobiles'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
         }
@@ -47,19 +55,29 @@ class CheckMobilesCardSupportRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckMobilesCardSupportRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Mobiles'])) {
             if (!empty($map['Mobiles'])) {
-                $model->mobiles = $map['Mobiles'];
+                $model->mobiles = [];
+                $n1 = 0;
+                foreach ($map['Mobiles'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->mobiles[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->mobiles[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
+
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];
         }

@@ -4,47 +4,46 @@
 
 namespace AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendStatisticsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendStatisticsResponseBody\data\targetList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The details of the data returned.
-     *
      * @var targetList[]
      */
     public $targetList;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $totalSize;
     protected $_name = [
         'targetList' => 'TargetList',
-        'totalSize'  => 'TotalSize',
+        'totalSize' => 'TotalSize',
     ];
 
     public function validate()
     {
+        if (\is_array($this->targetList)) {
+            Model::validateArray($this->targetList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->targetList) {
-            $res['TargetList'] = [];
-            if (null !== $this->targetList && \is_array($this->targetList)) {
-                $n = 0;
-                foreach ($this->targetList as $item) {
-                    $res['TargetList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->targetList)) {
+                $res['TargetList'] = [];
+                $n1 = 0;
+                foreach ($this->targetList as $item1) {
+                    $res['TargetList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalSize) {
             $res['TotalSize'] = $this->totalSize;
         }
@@ -52,23 +51,24 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TargetList'])) {
             if (!empty($map['TargetList'])) {
                 $model->targetList = [];
-                $n                 = 0;
-                foreach ($map['TargetList'] as $item) {
-                    $model->targetList[$n++] = null !== $item ? targetList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TargetList'] as $item1) {
+                    $model->targetList[$n1++] = targetList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalSize'])) {
             $model->totalSize = $map['TotalSize'];
         }
