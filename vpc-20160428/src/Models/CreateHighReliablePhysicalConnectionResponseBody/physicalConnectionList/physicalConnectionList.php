@@ -12,13 +12,14 @@ class physicalConnectionList extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionNo;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'regionNo'   => 'RegionNo',
+        'regionNo' => 'RegionNo',
     ];
 
     public function validate()

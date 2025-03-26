@@ -12,12 +12,13 @@ class CreateSnatEntryResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $snatEntryId;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'snatEntryId' => 'SnatEntryId',
     ];
 

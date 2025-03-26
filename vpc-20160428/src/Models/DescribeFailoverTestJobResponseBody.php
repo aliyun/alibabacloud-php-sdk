@@ -13,13 +13,14 @@ class DescribeFailoverTestJobResponseBody extends Model
      * @var failoverTestJobModel
      */
     public $failoverTestJobModel;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'failoverTestJobModel' => 'FailoverTestJobModel',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

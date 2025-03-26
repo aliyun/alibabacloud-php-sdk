@@ -12,13 +12,14 @@ class CheckCanAllocateVpcPrivateIpAddressResponseBody extends Model
      * @var bool
      */
     public $canAllocate;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'canAllocate' => 'CanAllocate',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

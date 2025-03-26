@@ -12,77 +12,91 @@ class UpdateTrafficMirrorFilterRuleAttributeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $destinationPortRange;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $ruleAction;
+
     /**
      * @var string
      */
     public $sourceCidrBlock;
+
     /**
      * @var string
      */
     public $sourcePortRange;
+
     /**
      * @var string
      */
     public $trafficMirrorFilterRuleId;
     protected $_name = [
-        'clientToken'               => 'ClientToken',
-        'destinationCidrBlock'      => 'DestinationCidrBlock',
-        'destinationPortRange'      => 'DestinationPortRange',
-        'dryRun'                    => 'DryRun',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'priority'                  => 'Priority',
-        'protocol'                  => 'Protocol',
-        'regionId'                  => 'RegionId',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
-        'ruleAction'                => 'RuleAction',
-        'sourceCidrBlock'           => 'SourceCidrBlock',
-        'sourcePortRange'           => 'SourcePortRange',
+        'clientToken' => 'ClientToken',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
+        'destinationPortRange' => 'DestinationPortRange',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'priority' => 'Priority',
+        'protocol' => 'Protocol',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'ruleAction' => 'RuleAction',
+        'sourceCidrBlock' => 'SourceCidrBlock',
+        'sourcePortRange' => 'SourcePortRange',
         'trafficMirrorFilterRuleId' => 'TrafficMirrorFilterRuleId',
     ];
 

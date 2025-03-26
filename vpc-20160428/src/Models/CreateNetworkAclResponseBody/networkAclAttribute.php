@@ -15,53 +15,62 @@ class networkAclAttribute extends Model
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var egressAclEntries
      */
     public $egressAclEntries;
+
     /**
      * @var ingressAclEntries
      */
     public $ingressAclEntries;
+
     /**
      * @var string
      */
     public $networkAclId;
+
     /**
      * @var string
      */
     public $networkAclName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var resources
      */
     public $resources;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'creationTime'      => 'CreationTime',
-        'description'       => 'Description',
-        'egressAclEntries'  => 'EgressAclEntries',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'egressAclEntries' => 'EgressAclEntries',
         'ingressAclEntries' => 'IngressAclEntries',
-        'networkAclId'      => 'NetworkAclId',
-        'networkAclName'    => 'NetworkAclName',
-        'regionId'          => 'RegionId',
-        'resources'         => 'Resources',
-        'status'            => 'Status',
-        'vpcId'             => 'VpcId',
+        'networkAclId' => 'NetworkAclId',
+        'networkAclName' => 'NetworkAclName',
+        'regionId' => 'RegionId',
+        'resources' => 'Resources',
+        'status' => 'Status',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

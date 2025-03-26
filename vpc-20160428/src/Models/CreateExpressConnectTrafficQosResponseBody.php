@@ -12,12 +12,13 @@ class CreateExpressConnectTrafficQosResponseBody extends Model
      * @var string
      */
     public $qosId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'qosId'     => 'QosId',
+        'qosId' => 'QosId',
         'requestId' => 'RequestId',
     ];
 

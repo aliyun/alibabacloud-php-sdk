@@ -12,18 +12,20 @@ class ipList extends Model
      * @var string
      */
     public $allocationId;
+
     /**
      * @var string
      */
     public $ipAddress;
+
     /**
      * @var string
      */
     public $usingStatus;
     protected $_name = [
         'allocationId' => 'AllocationId',
-        'ipAddress'    => 'IpAddress',
-        'usingStatus'  => 'UsingStatus',
+        'ipAddress' => 'IpAddress',
+        'usingStatus' => 'UsingStatus',
     ];
 
     public function validate()

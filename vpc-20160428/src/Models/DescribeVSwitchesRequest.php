@@ -13,93 +13,110 @@ class DescribeVSwitchesRequest extends Model
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var bool
      */
     public $enableIpv6;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routeTableId;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vSwitchName;
+
     /**
      * @var int
      */
     public $vSwitchOwnerId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'dryRun'               => 'DryRun',
-        'enableIpv6'           => 'EnableIpv6',
-        'isDefault'            => 'IsDefault',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'dryRun' => 'DryRun',
+        'enableIpv6' => 'EnableIpv6',
+        'isDefault' => 'IsDefault',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routeTableId'         => 'RouteTableId',
-        'tag'                  => 'Tag',
-        'vSwitchId'            => 'VSwitchId',
-        'vSwitchName'          => 'VSwitchName',
-        'vSwitchOwnerId'       => 'VSwitchOwnerId',
-        'vpcId'                => 'VpcId',
-        'zoneId'               => 'ZoneId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeTableId' => 'RouteTableId',
+        'tag' => 'Tag',
+        'vSwitchId' => 'VSwitchId',
+        'vSwitchName' => 'VSwitchName',
+        'vSwitchOwnerId' => 'VSwitchOwnerId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -164,7 +181,7 @@ class DescribeVSwitchesRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -253,7 +270,7 @@ class DescribeVSwitchesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

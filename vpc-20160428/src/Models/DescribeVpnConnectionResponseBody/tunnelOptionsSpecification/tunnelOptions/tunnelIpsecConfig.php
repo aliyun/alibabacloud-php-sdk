@@ -12,23 +12,26 @@ class tunnelIpsecConfig extends Model
      * @var string
      */
     public $ipsecAuthAlg;
+
     /**
      * @var string
      */
     public $ipsecEncAlg;
+
     /**
      * @var string
      */
     public $ipsecLifetime;
+
     /**
      * @var string
      */
     public $ipsecPfs;
     protected $_name = [
-        'ipsecAuthAlg'  => 'IpsecAuthAlg',
-        'ipsecEncAlg'   => 'IpsecEncAlg',
+        'ipsecAuthAlg' => 'IpsecAuthAlg',
+        'ipsecEncAlg' => 'IpsecEncAlg',
         'ipsecLifetime' => 'IpsecLifetime',
-        'ipsecPfs'      => 'IpsecPfs',
+        'ipsecPfs' => 'IpsecPfs',
     ];
 
     public function validate()

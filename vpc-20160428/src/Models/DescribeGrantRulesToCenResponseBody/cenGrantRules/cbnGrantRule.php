@@ -12,18 +12,20 @@ class cbnGrantRule extends Model
      * @var string
      */
     public $cenInstanceId;
+
     /**
      * @var int
      */
     public $cenOwnerId;
+
     /**
      * @var string
      */
     public $creationTime;
     protected $_name = [
         'cenInstanceId' => 'CenInstanceId',
-        'cenOwnerId'    => 'CenOwnerId',
-        'creationTime'  => 'CreationTime',
+        'cenOwnerId' => 'CenOwnerId',
+        'creationTime' => 'CreationTime',
     ];
 
     public function validate()

@@ -14,93 +14,110 @@ class vSwitch extends Model
      * @var int
      */
     public $availableIpAddressCount;
+
     /**
      * @var string
      */
     public $cidrBlock;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $enabledIpv6;
+
     /**
      * @var string
      */
     public $ipv6CidrBlock;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var string
      */
     public $networkAclId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var routeTable
      */
     public $routeTable;
+
     /**
      * @var string
      */
     public $shareType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vSwitchName;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'availableIpAddressCount' => 'AvailableIpAddressCount',
-        'cidrBlock'               => 'CidrBlock',
-        'creationTime'            => 'CreationTime',
-        'description'             => 'Description',
-        'enabledIpv6'             => 'EnabledIpv6',
-        'ipv6CidrBlock'           => 'Ipv6CidrBlock',
-        'isDefault'               => 'IsDefault',
-        'networkAclId'            => 'NetworkAclId',
-        'ownerId'                 => 'OwnerId',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'routeTable'              => 'RouteTable',
-        'shareType'               => 'ShareType',
-        'status'                  => 'Status',
-        'tags'                    => 'Tags',
-        'vSwitchId'               => 'VSwitchId',
-        'vSwitchName'             => 'VSwitchName',
-        'vpcId'                   => 'VpcId',
-        'zoneId'                  => 'ZoneId',
+        'cidrBlock' => 'CidrBlock',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'enabledIpv6' => 'EnabledIpv6',
+        'ipv6CidrBlock' => 'Ipv6CidrBlock',
+        'isDefault' => 'IsDefault',
+        'networkAclId' => 'NetworkAclId',
+        'ownerId' => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'routeTable' => 'RouteTable',
+        'shareType' => 'ShareType',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'vSwitchId' => 'VSwitchId',
+        'vSwitchName' => 'VSwitchName',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

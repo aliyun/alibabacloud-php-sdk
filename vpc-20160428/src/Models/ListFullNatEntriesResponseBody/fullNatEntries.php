@@ -12,68 +12,80 @@ class fullNatEntries extends Model
      * @var string
      */
     public $accessIp;
+
     /**
      * @var string
      */
     public $accessPort;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $fullNatEntryDescription;
+
     /**
      * @var string
      */
     public $fullNatEntryId;
+
     /**
      * @var string
      */
     public $fullNatEntryName;
+
     /**
      * @var string
      */
     public $fullNatEntryStatus;
+
     /**
      * @var string
      */
     public $fullNatTableId;
+
     /**
      * @var string
      */
     public $ipProtocol;
+
     /**
      * @var string
      */
     public $natIp;
+
     /**
      * @var string
      */
     public $natIpPort;
+
     /**
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $networkInterfaceType;
     protected $_name = [
-        'accessIp'                => 'AccessIp',
-        'accessPort'              => 'AccessPort',
-        'creationTime'            => 'CreationTime',
+        'accessIp' => 'AccessIp',
+        'accessPort' => 'AccessPort',
+        'creationTime' => 'CreationTime',
         'fullNatEntryDescription' => 'FullNatEntryDescription',
-        'fullNatEntryId'          => 'FullNatEntryId',
-        'fullNatEntryName'        => 'FullNatEntryName',
-        'fullNatEntryStatus'      => 'FullNatEntryStatus',
-        'fullNatTableId'          => 'FullNatTableId',
-        'ipProtocol'              => 'IpProtocol',
-        'natIp'                   => 'NatIp',
-        'natIpPort'               => 'NatIpPort',
-        'networkInterfaceId'      => 'NetworkInterfaceId',
-        'networkInterfaceType'    => 'NetworkInterfaceType',
+        'fullNatEntryId' => 'FullNatEntryId',
+        'fullNatEntryName' => 'FullNatEntryName',
+        'fullNatEntryStatus' => 'FullNatEntryStatus',
+        'fullNatTableId' => 'FullNatTableId',
+        'ipProtocol' => 'IpProtocol',
+        'natIp' => 'NatIp',
+        'natIpPort' => 'NatIpPort',
+        'networkInterfaceId' => 'NetworkInterfaceId',
+        'networkInterfaceType' => 'NetworkInterfaceType',
     ];
 
     public function validate()

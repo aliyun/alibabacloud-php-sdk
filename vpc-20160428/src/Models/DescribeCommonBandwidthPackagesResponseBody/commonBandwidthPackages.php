@@ -31,7 +31,7 @@ class commonBandwidthPackages extends Model
         if (null !== $this->commonBandwidthPackage) {
             if (\is_array($this->commonBandwidthPackage)) {
                 $res['CommonBandwidthPackage'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->commonBandwidthPackage as $item1) {
                     $res['CommonBandwidthPackage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class commonBandwidthPackages extends Model
         if (isset($map['CommonBandwidthPackage'])) {
             if (!empty($map['CommonBandwidthPackage'])) {
                 $model->commonBandwidthPackage = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['CommonBandwidthPackage'] as $item1) {
                     $model->commonBandwidthPackage[$n1++] = commonBandwidthPackage::fromMap($item1);
                 }

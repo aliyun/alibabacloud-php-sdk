@@ -12,17 +12,19 @@ class CreateVpcPrefixListResponseBody extends Model
      * @var string
      */
     public $prefixListId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'prefixListId'    => 'PrefixListId',
-        'requestId'       => 'RequestId',
+        'prefixListId' => 'PrefixListId',
+        'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

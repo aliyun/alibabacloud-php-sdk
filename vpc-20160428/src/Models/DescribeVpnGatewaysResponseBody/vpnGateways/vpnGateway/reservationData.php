@@ -12,38 +12,44 @@ class reservationData extends Model
      * @var string
      */
     public $reservationEndTime;
+
     /**
      * @var string
      */
     public $reservationIpsec;
+
     /**
      * @var int
      */
     public $reservationMaxConnections;
+
     /**
      * @var string
      */
     public $reservationOrderType;
+
     /**
      * @var string
      */
     public $reservationSpec;
+
     /**
      * @var string
      */
     public $reservationSsl;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'reservationEndTime'        => 'ReservationEndTime',
-        'reservationIpsec'          => 'ReservationIpsec',
+        'reservationEndTime' => 'ReservationEndTime',
+        'reservationIpsec' => 'ReservationIpsec',
         'reservationMaxConnections' => 'ReservationMaxConnections',
-        'reservationOrderType'      => 'ReservationOrderType',
-        'reservationSpec'           => 'ReservationSpec',
-        'reservationSsl'            => 'ReservationSsl',
-        'status'                    => 'Status',
+        'reservationOrderType' => 'ReservationOrderType',
+        'reservationSpec' => 'ReservationSpec',
+        'reservationSsl' => 'ReservationSsl',
+        'status' => 'Status',
     ];
 
     public function validate()

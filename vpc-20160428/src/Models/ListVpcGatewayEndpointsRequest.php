@@ -13,63 +13,74 @@ class ListVpcGatewayEndpointsRequest extends Model
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $endpointName;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'endpointId'           => 'EndpointId',
-        'endpointName'         => 'EndpointName',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'endpointId' => 'EndpointId',
+        'endpointName' => 'EndpointName',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'serviceName'          => 'ServiceName',
-        'tags'                 => 'Tags',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'serviceName' => 'ServiceName',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -130,7 +141,7 @@ class ListVpcGatewayEndpointsRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -195,7 +206,7 @@ class ListVpcGatewayEndpointsRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

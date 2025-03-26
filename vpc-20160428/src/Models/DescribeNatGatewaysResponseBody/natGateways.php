@@ -31,7 +31,7 @@ class natGateways extends Model
         if (null !== $this->natGateway) {
             if (\is_array($this->natGateway)) {
                 $res['NatGateway'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->natGateway as $item1) {
                     $res['NatGateway'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class natGateways extends Model
         if (isset($map['NatGateway'])) {
             if (!empty($map['NatGateway'])) {
                 $model->natGateway = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['NatGateway'] as $item1) {
                     $model->natGateway[$n1++] = natGateway::fromMap($item1);
                 }

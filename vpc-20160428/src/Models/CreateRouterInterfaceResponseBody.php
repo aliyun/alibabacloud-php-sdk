@@ -12,17 +12,19 @@ class CreateRouterInterfaceResponseBody extends Model
      * @var int
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $routerInterfaceId;
     protected $_name = [
-        'orderId'           => 'OrderId',
-        'requestId'         => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
         'routerInterfaceId' => 'RouterInterfaceId',
     ];
 

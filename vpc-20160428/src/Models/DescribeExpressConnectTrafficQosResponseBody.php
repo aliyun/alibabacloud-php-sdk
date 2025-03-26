@@ -13,32 +13,37 @@ class DescribeExpressConnectTrafficQosResponseBody extends Model
      * @var string
      */
     public $count;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var qosList[]
      */
     public $qosList;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'count'      => 'Count',
+        'count' => 'Count',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'qosList'    => 'QosList',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'qosList' => 'QosList',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -68,7 +73,7 @@ class DescribeExpressConnectTrafficQosResponseBody extends Model
         if (null !== $this->qosList) {
             if (\is_array($this->qosList)) {
                 $res['QosList'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->qosList as $item1) {
                     $res['QosList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +114,7 @@ class DescribeExpressConnectTrafficQosResponseBody extends Model
         if (isset($map['QosList'])) {
             if (!empty($map['QosList'])) {
                 $model->qosList = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['QosList'] as $item1) {
                     $model->qosList[$n1++] = qosList::fromMap($item1);
                 }

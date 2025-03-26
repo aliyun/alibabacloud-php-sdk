@@ -16,63 +16,74 @@ class networkAclAttribute extends Model
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var egressAclEntries
      */
     public $egressAclEntries;
+
     /**
      * @var ingressAclEntries
      */
     public $ingressAclEntries;
+
     /**
      * @var string
      */
     public $networkAclId;
+
     /**
      * @var string
      */
     public $networkAclName;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var resources
      */
     public $resources;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'creationTime'      => 'CreationTime',
-        'description'       => 'Description',
-        'egressAclEntries'  => 'EgressAclEntries',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'egressAclEntries' => 'EgressAclEntries',
         'ingressAclEntries' => 'IngressAclEntries',
-        'networkAclId'      => 'NetworkAclId',
-        'networkAclName'    => 'NetworkAclName',
-        'ownerId'           => 'OwnerId',
-        'regionId'          => 'RegionId',
-        'resources'         => 'Resources',
-        'status'            => 'Status',
-        'tags'              => 'Tags',
-        'vpcId'             => 'VpcId',
+        'networkAclId' => 'NetworkAclId',
+        'networkAclName' => 'NetworkAclName',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resources' => 'Resources',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

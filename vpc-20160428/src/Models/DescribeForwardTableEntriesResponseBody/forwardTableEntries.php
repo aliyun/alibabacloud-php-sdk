@@ -31,7 +31,7 @@ class forwardTableEntries extends Model
         if (null !== $this->forwardTableEntry) {
             if (\is_array($this->forwardTableEntry)) {
                 $res['ForwardTableEntry'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->forwardTableEntry as $item1) {
                     $res['ForwardTableEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class forwardTableEntries extends Model
         if (isset($map['ForwardTableEntry'])) {
             if (!empty($map['ForwardTableEntry'])) {
                 $model->forwardTableEntry = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ForwardTableEntry'] as $item1) {
                     $model->forwardTableEntry[$n1++] = forwardTableEntry::fromMap($item1);
                 }

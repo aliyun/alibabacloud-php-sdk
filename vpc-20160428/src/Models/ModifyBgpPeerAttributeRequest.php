@@ -12,58 +12,68 @@ class ModifyBgpPeerAttributeRequest extends Model
      * @var int
      */
     public $bfdMultiHop;
+
     /**
      * @var string
      */
     public $bgpGroupId;
+
     /**
      * @var string
      */
     public $bgpPeerId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $enableBfd;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $peerIpAddress;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'bfdMultiHop'          => 'BfdMultiHop',
-        'bgpGroupId'           => 'BgpGroupId',
-        'bgpPeerId'            => 'BgpPeerId',
-        'clientToken'          => 'ClientToken',
-        'enableBfd'            => 'EnableBfd',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'peerIpAddress'        => 'PeerIpAddress',
-        'regionId'             => 'RegionId',
+        'bfdMultiHop' => 'BfdMultiHop',
+        'bgpGroupId' => 'BgpGroupId',
+        'bgpPeerId' => 'BgpPeerId',
+        'clientToken' => 'ClientToken',
+        'enableBfd' => 'EnableBfd',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'peerIpAddress' => 'PeerIpAddress',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

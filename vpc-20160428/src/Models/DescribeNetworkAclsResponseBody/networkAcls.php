@@ -31,7 +31,7 @@ class networkAcls extends Model
         if (null !== $this->networkAcl) {
             if (\is_array($this->networkAcl)) {
                 $res['NetworkAcl'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->networkAcl as $item1) {
                     $res['NetworkAcl'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class networkAcls extends Model
         if (isset($map['NetworkAcl'])) {
             if (!empty($map['NetworkAcl'])) {
                 $model->networkAcl = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['NetworkAcl'] as $item1) {
                     $model->networkAcl[$n1++] = networkAcl::fromMap($item1);
                 }

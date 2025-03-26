@@ -12,13 +12,14 @@ class logDelivery extends Model
      * @var string
      */
     public $logDeliveryType;
+
     /**
      * @var string
      */
     public $logDestination;
     protected $_name = [
         'logDeliveryType' => 'LogDeliveryType',
-        'logDestination'  => 'LogDestination',
+        'logDestination' => 'LogDestination',
     ];
 
     public function validate()

@@ -13,78 +13,92 @@ class CreatePublicIpAddressPoolRequest extends Model
      * @var string
      */
     public $bizType;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $isp;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string[]
      */
     public $securityProtectionTypes;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string[]
      */
     public $zones;
     protected $_name = [
-        'bizType'                 => 'BizType',
-        'clientToken'             => 'ClientToken',
-        'description'             => 'Description',
-        'dryRun'                  => 'DryRun',
-        'isp'                     => 'Isp',
-        'name'                    => 'Name',
-        'ownerAccount'            => 'OwnerAccount',
-        'ownerId'                 => 'OwnerId',
-        'regionId'                => 'RegionId',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
+        'bizType' => 'BizType',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'dryRun' => 'DryRun',
+        'isp' => 'Isp',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'securityProtectionTypes' => 'SecurityProtectionTypes',
-        'tag'                     => 'Tag',
-        'zones'                   => 'Zones',
+        'tag' => 'Tag',
+        'zones' => 'Zones',
     ];
 
     public function validate()
@@ -155,7 +169,7 @@ class CreatePublicIpAddressPoolRequest extends Model
         if (null !== $this->securityProtectionTypes) {
             if (\is_array($this->securityProtectionTypes)) {
                 $res['SecurityProtectionTypes'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->securityProtectionTypes as $item1) {
                     $res['SecurityProtectionTypes'][$n1++] = $item1;
                 }
@@ -165,7 +179,7 @@ class CreatePublicIpAddressPoolRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -175,7 +189,7 @@ class CreatePublicIpAddressPoolRequest extends Model
         if (null !== $this->zones) {
             if (\is_array($this->zones)) {
                 $res['Zones'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->zones as $item1) {
                     $res['Zones'][$n1++] = $item1;
                 }
@@ -244,7 +258,7 @@ class CreatePublicIpAddressPoolRequest extends Model
         if (isset($map['SecurityProtectionTypes'])) {
             if (!empty($map['SecurityProtectionTypes'])) {
                 $model->securityProtectionTypes = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['SecurityProtectionTypes'] as $item1) {
                     $model->securityProtectionTypes[$n1++] = $item1;
                 }
@@ -254,7 +268,7 @@ class CreatePublicIpAddressPoolRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }
@@ -264,7 +278,7 @@ class CreatePublicIpAddressPoolRequest extends Model
         if (isset($map['Zones'])) {
             if (!empty($map['Zones'])) {
                 $model->zones = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Zones'] as $item1) {
                     $model->zones[$n1++] = $item1;
                 }

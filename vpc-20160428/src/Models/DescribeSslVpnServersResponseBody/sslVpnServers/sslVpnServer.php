@@ -12,103 +12,122 @@ class sslVpnServer extends Model
      * @var string
      */
     public $cipher;
+
     /**
      * @var string
      */
     public $clientIpPool;
+
     /**
      * @var bool
      */
     public $compress;
+
     /**
      * @var int
      */
     public $connections;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var bool
      */
     public $enableMultiFactorAuth;
+
     /**
      * @var string
      */
     public $IDaaSApplicationId;
+
     /**
      * @var string
      */
     public $IDaaSInstanceId;
+
     /**
      * @var string
      */
     public $IDaaSInstanceVersion;
+
     /**
      * @var string
      */
     public $IDaaSRegionId;
+
     /**
      * @var string
      */
     public $internetIp;
+
     /**
      * @var string
      */
     public $localSubnet;
+
     /**
      * @var int
      */
     public $maxConnections;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $proto;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $sslVpnServerId;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'cipher'                => 'Cipher',
-        'clientIpPool'          => 'ClientIpPool',
-        'compress'              => 'Compress',
-        'connections'           => 'Connections',
-        'createTime'            => 'CreateTime',
+        'cipher' => 'Cipher',
+        'clientIpPool' => 'ClientIpPool',
+        'compress' => 'Compress',
+        'connections' => 'Connections',
+        'createTime' => 'CreateTime',
         'enableMultiFactorAuth' => 'EnableMultiFactorAuth',
-        'IDaaSApplicationId'    => 'IDaaSApplicationId',
-        'IDaaSInstanceId'       => 'IDaaSInstanceId',
-        'IDaaSInstanceVersion'  => 'IDaaSInstanceVersion',
-        'IDaaSRegionId'         => 'IDaaSRegionId',
-        'internetIp'            => 'InternetIp',
-        'localSubnet'           => 'LocalSubnet',
-        'maxConnections'        => 'MaxConnections',
-        'name'                  => 'Name',
-        'port'                  => 'Port',
-        'proto'                 => 'Proto',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'sslVpnServerId'        => 'SslVpnServerId',
-        'vpnGatewayId'          => 'VpnGatewayId',
+        'IDaaSApplicationId' => 'IDaaSApplicationId',
+        'IDaaSInstanceId' => 'IDaaSInstanceId',
+        'IDaaSInstanceVersion' => 'IDaaSInstanceVersion',
+        'IDaaSRegionId' => 'IDaaSRegionId',
+        'internetIp' => 'InternetIp',
+        'localSubnet' => 'LocalSubnet',
+        'maxConnections' => 'MaxConnections',
+        'name' => 'Name',
+        'port' => 'Port',
+        'proto' => 'Proto',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sslVpnServerId' => 'SslVpnServerId',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()

@@ -13,18 +13,20 @@ class CreateNetworkAclResponseBody extends Model
      * @var networkAclAttribute
      */
     public $networkAclAttribute;
+
     /**
      * @var string
      */
     public $networkAclId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'networkAclAttribute' => 'NetworkAclAttribute',
-        'networkAclId'        => 'NetworkAclId',
-        'requestId'           => 'RequestId',
+        'networkAclId' => 'NetworkAclId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

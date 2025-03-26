@@ -12,14 +12,17 @@ class CreatePublicIpAddressPoolResponseBody extends Model
      * @var string
      */
     public $publicIpAddressPoolId;
+
     /**
      * @var string
      */
     public $pulbicIpAddressPoolId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class CreatePublicIpAddressPoolResponseBody extends Model
     protected $_name = [
         'publicIpAddressPoolId' => 'PublicIpAddressPoolId',
         'pulbicIpAddressPoolId' => 'PulbicIpAddressPoolId',
-        'requestId'             => 'RequestId',
-        'resourceGroupId'       => 'ResourceGroupId',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

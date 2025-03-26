@@ -12,78 +12,92 @@ class DescribeSnatTableEntriesRequest extends Model
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string[]
      */
     public $networkInterfaceIds;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $snatEntryId;
+
     /**
      * @var string
      */
     public $snatEntryName;
+
     /**
      * @var string
      */
     public $snatIp;
+
     /**
      * @var string
      */
     public $snatTableId;
+
     /**
      * @var string
      */
     public $sourceCIDR;
+
     /**
      * @var string
      */
     public $sourceVSwitchId;
     protected $_name = [
-        'natGatewayId'         => 'NatGatewayId',
-        'networkInterfaceIds'  => 'NetworkInterfaceIds',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
+        'natGatewayId' => 'NatGatewayId',
+        'networkInterfaceIds' => 'NetworkInterfaceIds',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'snatEntryId'          => 'SnatEntryId',
-        'snatEntryName'        => 'SnatEntryName',
-        'snatIp'               => 'SnatIp',
-        'snatTableId'          => 'SnatTableId',
-        'sourceCIDR'           => 'SourceCIDR',
-        'sourceVSwitchId'      => 'SourceVSwitchId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'snatEntryId' => 'SnatEntryId',
+        'snatEntryName' => 'SnatEntryName',
+        'snatIp' => 'SnatIp',
+        'snatTableId' => 'SnatTableId',
+        'sourceCIDR' => 'SourceCIDR',
+        'sourceVSwitchId' => 'SourceVSwitchId',
     ];
 
     public function validate()
@@ -104,7 +118,7 @@ class DescribeSnatTableEntriesRequest extends Model
         if (null !== $this->networkInterfaceIds) {
             if (\is_array($this->networkInterfaceIds)) {
                 $res['NetworkInterfaceIds'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->networkInterfaceIds as $item1) {
                     $res['NetworkInterfaceIds'][$n1++] = $item1;
                 }
@@ -181,7 +195,7 @@ class DescribeSnatTableEntriesRequest extends Model
         if (isset($map['NetworkInterfaceIds'])) {
             if (!empty($map['NetworkInterfaceIds'])) {
                 $model->networkInterfaceIds = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['NetworkInterfaceIds'] as $item1) {
                     $model->networkInterfaceIds[$n1++] = $item1;
                 }

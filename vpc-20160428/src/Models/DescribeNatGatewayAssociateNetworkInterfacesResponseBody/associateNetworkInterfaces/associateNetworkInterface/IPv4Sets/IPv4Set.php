@@ -12,13 +12,14 @@ class IPv4Set extends Model
      * @var string
      */
     public $IPv4Address;
+
     /**
      * @var bool
      */
     public $primary;
     protected $_name = [
         'IPv4Address' => 'IPv4Address',
-        'primary'     => 'Primary',
+        'primary' => 'Primary',
     ];
 
     public function validate()

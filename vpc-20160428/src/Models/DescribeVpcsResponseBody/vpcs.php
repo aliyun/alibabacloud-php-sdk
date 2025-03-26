@@ -31,7 +31,7 @@ class vpcs extends Model
         if (null !== $this->vpc) {
             if (\is_array($this->vpc)) {
                 $res['Vpc'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->vpc as $item1) {
                     $res['Vpc'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class vpcs extends Model
         if (isset($map['Vpc'])) {
             if (!empty($map['Vpc'])) {
                 $model->vpc = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Vpc'] as $item1) {
                     $model->vpc[$n1++] = vpc::fromMap($item1);
                 }

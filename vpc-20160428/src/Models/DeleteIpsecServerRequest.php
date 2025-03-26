@@ -12,23 +12,26 @@ class DeleteIpsecServerRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ipsecServerId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
-        'dryRun'        => 'DryRun',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'ipsecServerId' => 'IpsecServerId',
-        'regionId'      => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

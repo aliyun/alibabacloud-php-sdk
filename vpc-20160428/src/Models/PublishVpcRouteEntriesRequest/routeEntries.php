@@ -12,13 +12,14 @@ class routeEntries extends Model
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $routeTableId;
     protected $_name = [
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'routeTableId'         => 'RouteTableId',
+        'routeTableId' => 'RouteTableId',
     ];
 
     public function validate()

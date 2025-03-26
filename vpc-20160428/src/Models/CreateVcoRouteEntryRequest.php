@@ -12,58 +12,68 @@ class CreateVcoRouteEntryRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $nextHop;
+
     /**
      * @var string
      */
     public $overlayMode;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routeDest;
+
     /**
      * @var string
      */
     public $vpnConnectionId;
+
     /**
      * @var int
      */
     public $weight;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'description'          => 'Description',
-        'nextHop'              => 'NextHop',
-        'overlayMode'          => 'OverlayMode',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'nextHop' => 'NextHop',
+        'overlayMode' => 'OverlayMode',
+        'ownerAccount' => 'OwnerAccount',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routeDest'            => 'RouteDest',
-        'vpnConnectionId'      => 'VpnConnectionId',
-        'weight'               => 'Weight',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeDest' => 'RouteDest',
+        'vpnConnectionId' => 'VpnConnectionId',
+        'weight' => 'Weight',
     ];
 
     public function validate()

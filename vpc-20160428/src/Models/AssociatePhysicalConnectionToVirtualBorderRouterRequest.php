@@ -12,88 +12,104 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
      * @var string
      */
     public $circuitCode;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $enableIpv6;
+
     /**
      * @var string
      */
     public $localGatewayIp;
+
     /**
      * @var string
      */
     public $localIpv6GatewayIp;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $peerGatewayIp;
+
     /**
      * @var string
      */
     public $peerIpv6GatewayIp;
+
     /**
      * @var string
      */
     public $peeringIpv6SubnetMask;
+
     /**
      * @var string
      */
     public $peeringSubnetMask;
+
     /**
      * @var string
      */
     public $physicalConnectionId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $vbrId;
+
     /**
      * @var string
      */
     public $vlanId;
     protected $_name = [
-        'circuitCode'           => 'CircuitCode',
-        'clientToken'           => 'ClientToken',
-        'enableIpv6'            => 'EnableIpv6',
-        'localGatewayIp'        => 'LocalGatewayIp',
-        'localIpv6GatewayIp'    => 'LocalIpv6GatewayIp',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'peerGatewayIp'         => 'PeerGatewayIp',
-        'peerIpv6GatewayIp'     => 'PeerIpv6GatewayIp',
+        'circuitCode' => 'CircuitCode',
+        'clientToken' => 'ClientToken',
+        'enableIpv6' => 'EnableIpv6',
+        'localGatewayIp' => 'LocalGatewayIp',
+        'localIpv6GatewayIp' => 'LocalIpv6GatewayIp',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'peerGatewayIp' => 'PeerGatewayIp',
+        'peerIpv6GatewayIp' => 'PeerIpv6GatewayIp',
         'peeringIpv6SubnetMask' => 'PeeringIpv6SubnetMask',
-        'peeringSubnetMask'     => 'PeeringSubnetMask',
-        'physicalConnectionId'  => 'PhysicalConnectionId',
-        'regionId'              => 'RegionId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'vbrId'                 => 'VbrId',
-        'vlanId'                => 'VlanId',
+        'peeringSubnetMask' => 'PeeringSubnetMask',
+        'physicalConnectionId' => 'PhysicalConnectionId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vbrId' => 'VbrId',
+        'vlanId' => 'VlanId',
     ];
 
     public function validate()

@@ -31,7 +31,7 @@ class globalAccelerationInstances extends Model
         if (null !== $this->globalAccelerationInstance) {
             if (\is_array($this->globalAccelerationInstance)) {
                 $res['GlobalAccelerationInstance'] = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($this->globalAccelerationInstance as $item1) {
                     $res['GlobalAccelerationInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class globalAccelerationInstances extends Model
         if (isset($map['GlobalAccelerationInstance'])) {
             if (!empty($map['GlobalAccelerationInstance'])) {
                 $model->globalAccelerationInstance = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($map['GlobalAccelerationInstance'] as $item1) {
                     $model->globalAccelerationInstance[$n1++] = globalAccelerationInstance::fromMap($item1);
                 }

@@ -13,23 +13,26 @@ class ListPublicIpAddressPoolCidrBlocksResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var publicIpPoolCidrBlockList[]
      */
     public $publicIpPoolCidrBlockList;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'nextToken'                 => 'NextToken',
+        'nextToken' => 'NextToken',
         'publicIpPoolCidrBlockList' => 'PublicIpPoolCidrBlockList',
-        'requestId'                 => 'RequestId',
-        'totalCount'                => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -50,7 +53,7 @@ class ListPublicIpAddressPoolCidrBlocksResponseBody extends Model
         if (null !== $this->publicIpPoolCidrBlockList) {
             if (\is_array($this->publicIpPoolCidrBlockList)) {
                 $res['PublicIpPoolCidrBlockList'] = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($this->publicIpPoolCidrBlockList as $item1) {
                     $res['PublicIpPoolCidrBlockList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -83,7 +86,7 @@ class ListPublicIpAddressPoolCidrBlocksResponseBody extends Model
         if (isset($map['PublicIpPoolCidrBlockList'])) {
             if (!empty($map['PublicIpPoolCidrBlockList'])) {
                 $model->publicIpPoolCidrBlockList = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($map['PublicIpPoolCidrBlockList'] as $item1) {
                     $model->publicIpPoolCidrBlockList[$n1++] = publicIpPoolCidrBlockList::fromMap($item1);
                 }

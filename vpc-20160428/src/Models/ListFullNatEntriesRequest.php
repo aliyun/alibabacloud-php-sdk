@@ -12,83 +12,98 @@ class ListFullNatEntriesRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $fullNatEntryId;
+
     /**
      * @var string[]
      */
     public $fullNatEntryNames;
+
     /**
      * @var string
      */
     public $fullNatTableId;
+
     /**
      * @var string
      */
     public $ipProtocol;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string
      */
     public $natIp;
+
     /**
      * @var string
      */
     public $natIpPort;
+
     /**
      * @var string[]
      */
     public $networkInterfaceIds;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'fullNatEntryId'       => 'FullNatEntryId',
-        'fullNatEntryNames'    => 'FullNatEntryNames',
-        'fullNatTableId'       => 'FullNatTableId',
-        'ipProtocol'           => 'IpProtocol',
-        'maxResults'           => 'MaxResults',
-        'natGatewayId'         => 'NatGatewayId',
-        'natIp'                => 'NatIp',
-        'natIpPort'            => 'NatIpPort',
-        'networkInterfaceIds'  => 'NetworkInterfaceIds',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'fullNatEntryId' => 'FullNatEntryId',
+        'fullNatEntryNames' => 'FullNatEntryNames',
+        'fullNatTableId' => 'FullNatTableId',
+        'ipProtocol' => 'IpProtocol',
+        'maxResults' => 'MaxResults',
+        'natGatewayId' => 'NatGatewayId',
+        'natIp' => 'NatIp',
+        'natIpPort' => 'NatIpPort',
+        'networkInterfaceIds' => 'NetworkInterfaceIds',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -116,7 +131,7 @@ class ListFullNatEntriesRequest extends Model
         if (null !== $this->fullNatEntryNames) {
             if (\is_array($this->fullNatEntryNames)) {
                 $res['FullNatEntryNames'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->fullNatEntryNames as $item1) {
                     $res['FullNatEntryNames'][$n1++] = $item1;
                 }
@@ -150,7 +165,7 @@ class ListFullNatEntriesRequest extends Model
         if (null !== $this->networkInterfaceIds) {
             if (\is_array($this->networkInterfaceIds)) {
                 $res['NetworkInterfaceIds'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->networkInterfaceIds as $item1) {
                     $res['NetworkInterfaceIds'][$n1++] = $item1;
                 }
@@ -203,7 +218,7 @@ class ListFullNatEntriesRequest extends Model
         if (isset($map['FullNatEntryNames'])) {
             if (!empty($map['FullNatEntryNames'])) {
                 $model->fullNatEntryNames = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['FullNatEntryNames'] as $item1) {
                     $model->fullNatEntryNames[$n1++] = $item1;
                 }
@@ -237,7 +252,7 @@ class ListFullNatEntriesRequest extends Model
         if (isset($map['NetworkInterfaceIds'])) {
             if (!empty($map['NetworkInterfaceIds'])) {
                 $model->networkInterfaceIds = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['NetworkInterfaceIds'] as $item1) {
                     $model->networkInterfaceIds[$n1++] = $item1;
                 }

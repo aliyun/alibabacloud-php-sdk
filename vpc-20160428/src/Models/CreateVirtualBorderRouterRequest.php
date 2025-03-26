@@ -13,113 +13,134 @@ class CreateVirtualBorderRouterRequest extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $circuitCode;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $enableIpv6;
+
     /**
      * @var string
      */
     public $localGatewayIp;
+
     /**
      * @var string
      */
     public $localIpv6GatewayIp;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $peerGatewayIp;
+
     /**
      * @var string
      */
     public $peerIpv6GatewayIp;
+
     /**
      * @var string
      */
     public $peeringIpv6SubnetMask;
+
     /**
      * @var string
      */
     public $peeringSubnetMask;
+
     /**
      * @var string
      */
     public $physicalConnectionId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var int
      */
     public $vbrOwnerId;
+
     /**
      * @var int
      */
     public $vlanId;
     protected $_name = [
-        'bandwidth'             => 'Bandwidth',
-        'circuitCode'           => 'CircuitCode',
-        'clientToken'           => 'ClientToken',
-        'description'           => 'Description',
-        'enableIpv6'            => 'EnableIpv6',
-        'localGatewayIp'        => 'LocalGatewayIp',
-        'localIpv6GatewayIp'    => 'LocalIpv6GatewayIp',
-        'name'                  => 'Name',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'peerGatewayIp'         => 'PeerGatewayIp',
-        'peerIpv6GatewayIp'     => 'PeerIpv6GatewayIp',
+        'bandwidth' => 'Bandwidth',
+        'circuitCode' => 'CircuitCode',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'enableIpv6' => 'EnableIpv6',
+        'localGatewayIp' => 'LocalGatewayIp',
+        'localIpv6GatewayIp' => 'LocalIpv6GatewayIp',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'peerGatewayIp' => 'PeerGatewayIp',
+        'peerIpv6GatewayIp' => 'PeerIpv6GatewayIp',
         'peeringIpv6SubnetMask' => 'PeeringIpv6SubnetMask',
-        'peeringSubnetMask'     => 'PeeringSubnetMask',
-        'physicalConnectionId'  => 'PhysicalConnectionId',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'tags'                  => 'Tags',
-        'vbrOwnerId'            => 'VbrOwnerId',
-        'vlanId'                => 'VlanId',
+        'peeringSubnetMask' => 'PeeringSubnetMask',
+        'physicalConnectionId' => 'PhysicalConnectionId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tags' => 'Tags',
+        'vbrOwnerId' => 'VbrOwnerId',
+        'vlanId' => 'VlanId',
     ];
 
     public function validate()
@@ -212,7 +233,7 @@ class CreateVirtualBorderRouterRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -317,7 +338,7 @@ class CreateVirtualBorderRouterRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

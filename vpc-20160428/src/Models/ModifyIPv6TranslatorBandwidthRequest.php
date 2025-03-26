@@ -12,48 +12,56 @@ class ModifyIPv6TranslatorBandwidthRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ipv6TranslatorId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'autoPay'              => 'AutoPay',
-        'bandwidth'            => 'Bandwidth',
-        'clientToken'          => 'ClientToken',
-        'ipv6TranslatorId'     => 'Ipv6TranslatorId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'autoPay' => 'AutoPay',
+        'bandwidth' => 'Bandwidth',
+        'clientToken' => 'ClientToken',
+        'ipv6TranslatorId' => 'Ipv6TranslatorId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

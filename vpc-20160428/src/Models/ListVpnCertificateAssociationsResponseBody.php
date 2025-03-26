@@ -13,27 +13,31 @@ class ListVpnCertificateAssociationsResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var vpnCertificateRelations[]
      */
     public $vpnCertificateRelations;
     protected $_name = [
-        'maxResults'              => 'MaxResults',
-        'nextToken'               => 'NextToken',
-        'requestId'               => 'RequestId',
-        'totalCount'              => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'vpnCertificateRelations' => 'VpnCertificateRelations',
     ];
 
@@ -67,7 +71,7 @@ class ListVpnCertificateAssociationsResponseBody extends Model
         if (null !== $this->vpnCertificateRelations) {
             if (\is_array($this->vpnCertificateRelations)) {
                 $res['VpnCertificateRelations'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->vpnCertificateRelations as $item1) {
                     $res['VpnCertificateRelations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class ListVpnCertificateAssociationsResponseBody extends Model
         if (isset($map['VpnCertificateRelations'])) {
             if (!empty($map['VpnCertificateRelations'])) {
                 $model->vpnCertificateRelations = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['VpnCertificateRelations'] as $item1) {
                     $model->vpnCertificateRelations[$n1++] = vpnCertificateRelations::fromMap($item1);
                 }

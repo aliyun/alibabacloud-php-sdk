@@ -12,28 +12,32 @@ class vpnCertificateRelations extends Model
      * @var string
      */
     public $associationTime;
+
     /**
      * @var string
      */
     public $certificateId;
+
     /**
      * @var string
      */
     public $certificateType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
         'associationTime' => 'AssociationTime',
-        'certificateId'   => 'CertificateId',
+        'certificateId' => 'CertificateId',
         'certificateType' => 'CertificateType',
-        'regionId'        => 'RegionId',
-        'vpnGatewayId'    => 'VpnGatewayId',
+        'regionId' => 'RegionId',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()

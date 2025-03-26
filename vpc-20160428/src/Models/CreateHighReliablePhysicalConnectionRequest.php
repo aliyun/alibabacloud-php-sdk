@@ -14,73 +14,86 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var apList[]
      */
     public $apList;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string[]
      */
     public $deviceAdvancedCapacity;
+
     /**
      * @var string
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $highReliableType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $portType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'acceptLanguage'         => 'AcceptLanguage',
-        'apList'                 => 'ApList',
-        'clientToken'            => 'ClientToken',
+        'acceptLanguage' => 'AcceptLanguage',
+        'apList' => 'ApList',
+        'clientToken' => 'ClientToken',
         'deviceAdvancedCapacity' => 'DeviceAdvancedCapacity',
-        'dryRun'                 => 'DryRun',
-        'highReliableType'       => 'HighReliableType',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'portType'               => 'PortType',
-        'regionId'               => 'RegionId',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'tag'                    => 'Tag',
+        'dryRun' => 'DryRun',
+        'highReliableType' => 'HighReliableType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'portType' => 'PortType',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -107,7 +120,7 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
         if (null !== $this->apList) {
             if (\is_array($this->apList)) {
                 $res['ApList'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->apList as $item1) {
                     $res['ApList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -121,7 +134,7 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
         if (null !== $this->deviceAdvancedCapacity) {
             if (\is_array($this->deviceAdvancedCapacity)) {
                 $res['DeviceAdvancedCapacity'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->deviceAdvancedCapacity as $item1) {
                     $res['DeviceAdvancedCapacity'][$n1++] = $item1;
                 }
@@ -167,7 +180,7 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -192,7 +205,7 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
         if (isset($map['ApList'])) {
             if (!empty($map['ApList'])) {
                 $model->apList = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['ApList'] as $item1) {
                     $model->apList[$n1++] = apList::fromMap($item1);
                 }
@@ -206,7 +219,7 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
         if (isset($map['DeviceAdvancedCapacity'])) {
             if (!empty($map['DeviceAdvancedCapacity'])) {
                 $model->deviceAdvancedCapacity = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['DeviceAdvancedCapacity'] as $item1) {
                     $model->deviceAdvancedCapacity[$n1++] = $item1;
                 }
@@ -252,7 +265,7 @@ class CreateHighReliablePhysicalConnectionRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

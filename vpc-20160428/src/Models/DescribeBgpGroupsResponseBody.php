@@ -13,27 +13,31 @@ class DescribeBgpGroupsResponseBody extends Model
      * @var bgpGroups
      */
     public $bgpGroups;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'bgpGroups'  => 'BgpGroups',
+        'bgpGroups' => 'BgpGroups',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 

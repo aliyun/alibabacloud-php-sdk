@@ -12,53 +12,62 @@ class ListPublicIpAddressPoolCidrBlocksRequest extends Model
      * @var string
      */
     public $cidrBlock;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $publicIpAddressPoolId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'cidrBlock'             => 'CidrBlock',
-        'dryRun'                => 'DryRun',
-        'maxResults'            => 'MaxResults',
-        'nextToken'             => 'NextToken',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
+        'cidrBlock' => 'CidrBlock',
+        'dryRun' => 'DryRun',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'publicIpAddressPoolId' => 'PublicIpAddressPoolId',
-        'regionId'              => 'RegionId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

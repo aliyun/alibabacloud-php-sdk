@@ -31,7 +31,7 @@ class virtualBorderRouterSet extends Model
         if (null !== $this->virtualBorderRouterType) {
             if (\is_array($this->virtualBorderRouterType)) {
                 $res['VirtualBorderRouterType'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->virtualBorderRouterType as $item1) {
                     $res['VirtualBorderRouterType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class virtualBorderRouterSet extends Model
         if (isset($map['VirtualBorderRouterType'])) {
             if (!empty($map['VirtualBorderRouterType'])) {
                 $model->virtualBorderRouterType = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['VirtualBorderRouterType'] as $item1) {
                     $model->virtualBorderRouterType[$n1++] = virtualBorderRouterType::fromMap($item1);
                 }

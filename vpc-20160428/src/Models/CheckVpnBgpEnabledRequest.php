@@ -12,28 +12,32 @@ class CheckVpnBgpEnabledRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'ownerAccount' => 'OwnerAccount',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

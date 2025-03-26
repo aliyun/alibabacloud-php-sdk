@@ -12,13 +12,14 @@ class ModifyRouterInterfaceSpecResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $spec;
     protected $_name = [
         'requestId' => 'RequestId',
-        'spec'      => 'Spec',
+        'spec' => 'Spec',
     ];
 
     public function validate()

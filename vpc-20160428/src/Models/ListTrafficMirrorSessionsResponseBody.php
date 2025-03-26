@@ -13,22 +13,25 @@ class ListTrafficMirrorSessionsResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
+
     /**
      * @var trafficMirrorSessions[]
      */
     public $trafficMirrorSessions;
     protected $_name = [
-        'nextToken'             => 'NextToken',
-        'requestId'             => 'RequestId',
-        'totalCount'            => 'TotalCount',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'trafficMirrorSessions' => 'TrafficMirrorSessions',
     ];
 
@@ -58,7 +61,7 @@ class ListTrafficMirrorSessionsResponseBody extends Model
         if (null !== $this->trafficMirrorSessions) {
             if (\is_array($this->trafficMirrorSessions)) {
                 $res['TrafficMirrorSessions'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->trafficMirrorSessions as $item1) {
                     $res['TrafficMirrorSessions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -91,7 +94,7 @@ class ListTrafficMirrorSessionsResponseBody extends Model
         if (isset($map['TrafficMirrorSessions'])) {
             if (!empty($map['TrafficMirrorSessions'])) {
                 $model->trafficMirrorSessions = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['TrafficMirrorSessions'] as $item1) {
                     $model->trafficMirrorSessions[$n1++] = trafficMirrorSessions::fromMap($item1);
                 }

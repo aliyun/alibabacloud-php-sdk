@@ -31,7 +31,7 @@ class ipv6Addresses extends Model
         if (null !== $this->ipv6Address) {
             if (\is_array($this->ipv6Address)) {
                 $res['Ipv6Address'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->ipv6Address as $item1) {
                     $res['Ipv6Address'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class ipv6Addresses extends Model
         if (isset($map['Ipv6Address'])) {
             if (!empty($map['Ipv6Address'])) {
                 $model->ipv6Address = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Ipv6Address'] as $item1) {
                     $model->ipv6Address[$n1++] = ipv6Address::fromMap($item1);
                 }

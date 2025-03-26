@@ -12,12 +12,13 @@ class removeInstanceList extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
     ];
 

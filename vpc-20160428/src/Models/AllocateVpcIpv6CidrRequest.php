@@ -12,48 +12,56 @@ class AllocateVpcIpv6CidrRequest extends Model
      * @var string
      */
     public $addressPoolType;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ipv6CidrBlock;
+
     /**
      * @var string
      */
     public $ipv6Isp;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'addressPoolType'      => 'AddressPoolType',
-        'clientToken'          => 'ClientToken',
-        'ipv6CidrBlock'        => 'Ipv6CidrBlock',
-        'ipv6Isp'              => 'Ipv6Isp',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'addressPoolType' => 'AddressPoolType',
+        'clientToken' => 'ClientToken',
+        'ipv6CidrBlock' => 'Ipv6CidrBlock',
+        'ipv6Isp' => 'Ipv6Isp',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

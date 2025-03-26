@@ -12,83 +12,98 @@ class ruleList extends Model
      * @var string
      */
     public $dstCidr;
+
     /**
      * @var string
      */
     public $dstIPv6Cidr;
+
     /**
      * @var string
      */
     public $dstPortRange;
+
     /**
      * @var int
      */
     public $matchDscp;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $qosId;
+
     /**
      * @var string
      */
     public $queueId;
+
     /**
      * @var int
      */
     public $remarkingDscp;
+
     /**
      * @var string
      */
     public $ruleDescription;
+
     /**
      * @var string
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $srcCidr;
+
     /**
      * @var string
      */
     public $srcIPv6Cidr;
+
     /**
      * @var string
      */
     public $srcPortRange;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'dstCidr'         => 'DstCidr',
-        'dstIPv6Cidr'     => 'DstIPv6Cidr',
-        'dstPortRange'    => 'DstPortRange',
-        'matchDscp'       => 'MatchDscp',
-        'priority'        => 'Priority',
-        'protocol'        => 'Protocol',
-        'qosId'           => 'QosId',
-        'queueId'         => 'QueueId',
-        'remarkingDscp'   => 'RemarkingDscp',
+        'dstCidr' => 'DstCidr',
+        'dstIPv6Cidr' => 'DstIPv6Cidr',
+        'dstPortRange' => 'DstPortRange',
+        'matchDscp' => 'MatchDscp',
+        'priority' => 'Priority',
+        'protocol' => 'Protocol',
+        'qosId' => 'QosId',
+        'queueId' => 'QueueId',
+        'remarkingDscp' => 'RemarkingDscp',
         'ruleDescription' => 'RuleDescription',
-        'ruleId'          => 'RuleId',
-        'ruleName'        => 'RuleName',
-        'srcCidr'         => 'SrcCidr',
-        'srcIPv6Cidr'     => 'SrcIPv6Cidr',
-        'srcPortRange'    => 'SrcPortRange',
-        'status'          => 'Status',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'srcCidr' => 'SrcCidr',
+        'srcIPv6Cidr' => 'SrcIPv6Cidr',
+        'srcPortRange' => 'SrcPortRange',
+        'status' => 'Status',
     ];
 
     public function validate()

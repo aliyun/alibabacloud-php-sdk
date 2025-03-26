@@ -12,17 +12,19 @@ class CreateSslVpnClientCertResponseBody extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $sslVpnClientCertId;
     protected $_name = [
-        'name'               => 'Name',
-        'requestId'          => 'RequestId',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
         'sslVpnClientCertId' => 'SslVpnClientCertId',
     ];
 

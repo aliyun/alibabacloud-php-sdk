@@ -12,22 +12,25 @@ class AllocateIpv6AddressResponseBody extends Model
      * @var string
      */
     public $ipv6Address;
+
     /**
      * @var string
      */
     public $ipv6AddressId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'ipv6Address'     => 'Ipv6Address',
-        'ipv6AddressId'   => 'Ipv6AddressId',
-        'requestId'       => 'RequestId',
+        'ipv6Address' => 'Ipv6Address',
+        'ipv6AddressId' => 'Ipv6AddressId',
+        'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

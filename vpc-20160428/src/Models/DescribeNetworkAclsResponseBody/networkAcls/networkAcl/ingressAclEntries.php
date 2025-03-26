@@ -31,7 +31,7 @@ class ingressAclEntries extends Model
         if (null !== $this->ingressAclEntry) {
             if (\is_array($this->ingressAclEntry)) {
                 $res['IngressAclEntry'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->ingressAclEntry as $item1) {
                     $res['IngressAclEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class ingressAclEntries extends Model
         if (isset($map['IngressAclEntry'])) {
             if (!empty($map['IngressAclEntry'])) {
                 $model->ingressAclEntry = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['IngressAclEntry'] as $item1) {
                     $model->ingressAclEntry[$n1++] = ingressAclEntry::fromMap($item1);
                 }

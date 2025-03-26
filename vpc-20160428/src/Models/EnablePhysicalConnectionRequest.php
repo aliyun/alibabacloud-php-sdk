@@ -12,43 +12,50 @@ class EnablePhysicalConnectionRequest extends Model
      * @var bool
      */
     public $byPassSp;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $physicalConnectionId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'byPassSp'             => 'ByPassSp',
-        'clientToken'          => 'ClientToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'byPassSp' => 'ByPassSp',
+        'clientToken' => 'ClientToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'physicalConnectionId' => 'PhysicalConnectionId',
-        'regionId'             => 'RegionId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

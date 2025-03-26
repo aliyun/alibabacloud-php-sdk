@@ -13,88 +13,104 @@ class CreateFlowLogRequest extends Model
      * @var int
      */
     public $aggregationInterval;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $flowLogName;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var string
      */
     public $logStoreName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string[]
      */
     public $trafficPath;
+
     /**
      * @var string
      */
     public $trafficType;
     protected $_name = [
-        'aggregationInterval'  => 'AggregationInterval',
-        'description'          => 'Description',
-        'flowLogName'          => 'FlowLogName',
-        'ipVersion'            => 'IpVersion',
-        'logStoreName'         => 'LogStoreName',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'projectName'          => 'ProjectName',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'resourceId'           => 'ResourceId',
+        'aggregationInterval' => 'AggregationInterval',
+        'description' => 'Description',
+        'flowLogName' => 'FlowLogName',
+        'ipVersion' => 'IpVersion',
+        'logStoreName' => 'LogStoreName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'projectName' => 'ProjectName',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceId' => 'ResourceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'resourceType'         => 'ResourceType',
-        'tag'                  => 'Tag',
-        'trafficPath'          => 'TrafficPath',
-        'trafficType'          => 'TrafficType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType' => 'ResourceType',
+        'tag' => 'Tag',
+        'trafficPath' => 'TrafficPath',
+        'trafficType' => 'TrafficType',
     ];
 
     public function validate()
@@ -170,7 +186,7 @@ class CreateFlowLogRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -180,7 +196,7 @@ class CreateFlowLogRequest extends Model
         if (null !== $this->trafficPath) {
             if (\is_array($this->trafficPath)) {
                 $res['TrafficPath'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->trafficPath as $item1) {
                     $res['TrafficPath'][$n1++] = $item1;
                 }
@@ -261,7 +277,7 @@ class CreateFlowLogRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }
@@ -271,7 +287,7 @@ class CreateFlowLogRequest extends Model
         if (isset($map['TrafficPath'])) {
             if (!empty($map['TrafficPath'])) {
                 $model->trafficPath = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['TrafficPath'] as $item1) {
                     $model->trafficPath[$n1++] = $item1;
                 }

@@ -12,13 +12,14 @@ class ModifyVpcPrefixListResponseBody extends Model
      * @var string
      */
     public $prefixListId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'prefixListId' => 'PrefixListId',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

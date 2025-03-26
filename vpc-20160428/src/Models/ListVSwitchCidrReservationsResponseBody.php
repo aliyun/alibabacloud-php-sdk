@@ -13,27 +13,31 @@ class ListVSwitchCidrReservationsResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var vSwitchCidrReservations[]
      */
     public $vSwitchCidrReservations;
     protected $_name = [
-        'maxResults'              => 'MaxResults',
-        'nextToken'               => 'NextToken',
-        'requestId'               => 'RequestId',
-        'totalCount'              => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'vSwitchCidrReservations' => 'VSwitchCidrReservations',
     ];
 
@@ -67,7 +71,7 @@ class ListVSwitchCidrReservationsResponseBody extends Model
         if (null !== $this->vSwitchCidrReservations) {
             if (\is_array($this->vSwitchCidrReservations)) {
                 $res['VSwitchCidrReservations'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->vSwitchCidrReservations as $item1) {
                     $res['VSwitchCidrReservations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class ListVSwitchCidrReservationsResponseBody extends Model
         if (isset($map['VSwitchCidrReservations'])) {
             if (!empty($map['VSwitchCidrReservations'])) {
                 $model->vSwitchCidrReservations = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['VSwitchCidrReservations'] as $item1) {
                     $model->vSwitchCidrReservations[$n1++] = vSwitchCidrReservations::fromMap($item1);
                 }

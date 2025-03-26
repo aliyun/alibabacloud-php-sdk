@@ -12,17 +12,19 @@ class CreateNatIpResponseBody extends Model
      * @var string
      */
     public $natIp;
+
     /**
      * @var string
      */
     public $natIpId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'natIp'     => 'NatIp',
-        'natIpId'   => 'NatIpId',
+        'natIp' => 'NatIp',
+        'natIpId' => 'NatIpId',
         'requestId' => 'RequestId',
     ];
 

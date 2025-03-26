@@ -13,78 +13,92 @@ class DescribeRouteTableListRequest extends Model
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routeTableId;
+
     /**
      * @var string
      */
     public $routeTableName;
+
     /**
      * @var string
      */
     public $routeTableType;
+
     /**
      * @var string
      */
     public $routerId;
+
     /**
      * @var string
      */
     public $routerType;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routeTableId'         => 'RouteTableId',
-        'routeTableName'       => 'RouteTableName',
-        'routeTableType'       => 'RouteTableType',
-        'routerId'             => 'RouterId',
-        'routerType'           => 'RouterType',
-        'tag'                  => 'Tag',
-        'vpcId'                => 'VpcId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeTableId' => 'RouteTableId',
+        'routeTableName' => 'RouteTableName',
+        'routeTableType' => 'RouteTableType',
+        'routerId' => 'RouterId',
+        'routerType' => 'RouterType',
+        'tag' => 'Tag',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -153,7 +167,7 @@ class DescribeRouteTableListRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -230,7 +244,7 @@ class DescribeRouteTableListRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

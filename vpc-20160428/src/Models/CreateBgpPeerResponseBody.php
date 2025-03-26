@@ -12,6 +12,7 @@ class CreateBgpPeerResponseBody extends Model
      * @var string
      */
     public $bgpPeerId;
+
     /**
      * @var string
      */

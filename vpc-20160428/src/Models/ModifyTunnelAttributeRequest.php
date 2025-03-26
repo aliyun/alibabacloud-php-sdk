@@ -13,48 +13,56 @@ class ModifyTunnelAttributeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $tunnelId;
+
     /**
      * @var tunnelOptionsSpecification
      */
     public $tunnelOptionsSpecification;
+
     /**
      * @var string
      */
     public $vpnConnectionId;
     protected $_name = [
-        'clientToken'                => 'ClientToken',
-        'ownerAccount'               => 'OwnerAccount',
-        'ownerId'                    => 'OwnerId',
-        'regionId'                   => 'RegionId',
-        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
-        'resourceOwnerId'            => 'ResourceOwnerId',
-        'tunnelId'                   => 'TunnelId',
+        'clientToken' => 'ClientToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tunnelId' => 'TunnelId',
         'tunnelOptionsSpecification' => 'TunnelOptionsSpecification',
-        'vpnConnectionId'            => 'VpnConnectionId',
+        'vpnConnectionId' => 'VpnConnectionId',
     ];
 
     public function validate()

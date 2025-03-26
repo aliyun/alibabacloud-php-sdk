@@ -13,37 +13,43 @@ class DescribeIPv6TranslatorAclListAttributesResponseBody extends Model
      * @var aclEntries
      */
     public $aclEntries;
+
     /**
      * @var string
      */
     public $aclId;
+
     /**
      * @var string
      */
     public $aclName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'aclEntries' => 'AclEntries',
-        'aclId'      => 'AclId',
-        'aclName'    => 'AclName',
+        'aclId' => 'AclId',
+        'aclName' => 'AclName',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 

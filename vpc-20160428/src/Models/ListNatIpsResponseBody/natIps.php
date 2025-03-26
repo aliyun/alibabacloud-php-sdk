@@ -12,43 +12,50 @@ class natIps extends Model
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string
      */
     public $natIp;
+
     /**
      * @var string
      */
     public $natIpCidr;
+
     /**
      * @var string
      */
     public $natIpDescription;
+
     /**
      * @var string
      */
     public $natIpId;
+
     /**
      * @var string
      */
     public $natIpName;
+
     /**
      * @var string
      */
     public $natIpStatus;
     protected $_name = [
-        'isDefault'        => 'IsDefault',
-        'natGatewayId'     => 'NatGatewayId',
-        'natIp'            => 'NatIp',
-        'natIpCidr'        => 'NatIpCidr',
+        'isDefault' => 'IsDefault',
+        'natGatewayId' => 'NatGatewayId',
+        'natIp' => 'NatIp',
+        'natIpCidr' => 'NatIpCidr',
         'natIpDescription' => 'NatIpDescription',
-        'natIpId'          => 'NatIpId',
-        'natIpName'        => 'NatIpName',
-        'natIpStatus'      => 'NatIpStatus',
+        'natIpId' => 'NatIpId',
+        'natIpName' => 'NatIpName',
+        'natIpStatus' => 'NatIpStatus',
     ];
 
     public function validate()

@@ -14,52 +14,61 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var egressRules[]
      */
     public $egressRules;
+
     /**
      * @var ingressRules[]
      */
     public $ingressRules;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $trafficMirrorFilterId;
     protected $_name = [
-        'clientToken'           => 'ClientToken',
-        'dryRun'                => 'DryRun',
-        'egressRules'           => 'EgressRules',
-        'ingressRules'          => 'IngressRules',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'regionId'              => 'RegionId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'egressRules' => 'EgressRules',
+        'ingressRules' => 'IngressRules',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'trafficMirrorFilterId' => 'TrafficMirrorFilterId',
     ];
 
@@ -88,7 +97,7 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
         if (null !== $this->egressRules) {
             if (\is_array($this->egressRules)) {
                 $res['EgressRules'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->egressRules as $item1) {
                     $res['EgressRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -98,7 +107,7 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
         if (null !== $this->ingressRules) {
             if (\is_array($this->ingressRules)) {
                 $res['IngressRules'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->ingressRules as $item1) {
                     $res['IngressRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -151,7 +160,7 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
         if (isset($map['EgressRules'])) {
             if (!empty($map['EgressRules'])) {
                 $model->egressRules = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['EgressRules'] as $item1) {
                     $model->egressRules[$n1++] = egressRules::fromMap($item1);
                 }
@@ -161,7 +170,7 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
         if (isset($map['IngressRules'])) {
             if (!empty($map['IngressRules'])) {
                 $model->ingressRules = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['IngressRules'] as $item1) {
                     $model->ingressRules[$n1++] = ingressRules::fromMap($item1);
                 }

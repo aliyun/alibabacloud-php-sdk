@@ -12,23 +12,26 @@ class CreateDefaultVpcResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $routeTableId;
+
     /**
      * @var string
      */
     public $VRouterId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'routeTableId' => 'RouteTableId',
-        'VRouterId'    => 'VRouterId',
-        'vpcId'        => 'VpcId',
+        'VRouterId' => 'VRouterId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

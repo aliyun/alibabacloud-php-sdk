@@ -12,38 +12,44 @@ class DescribeVpnGatewayAvailableZonesRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $spec;
     protected $_name = [
-        'acceptLanguage'       => 'AcceptLanguage',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'acceptLanguage' => 'AcceptLanguage',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'spec'                 => 'Spec',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'spec' => 'Spec',
     ];
 
     public function validate()

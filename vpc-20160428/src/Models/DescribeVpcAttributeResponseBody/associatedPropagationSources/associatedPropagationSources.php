@@ -12,28 +12,32 @@ class associatedPropagationSources extends Model
      * @var bool
      */
     public $routePropagated;
+
     /**
      * @var string
      */
     public $sourceInstanceId;
+
     /**
      * @var int
      */
     public $sourceOwnerId;
+
     /**
      * @var string
      */
     public $sourceType;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'routePropagated'  => 'RoutePropagated',
+        'routePropagated' => 'RoutePropagated',
         'sourceInstanceId' => 'SourceInstanceId',
-        'sourceOwnerId'    => 'SourceOwnerId',
-        'sourceType'       => 'SourceType',
-        'status'           => 'Status',
+        'sourceOwnerId' => 'SourceOwnerId',
+        'sourceType' => 'SourceType',
+        'status' => 'Status',
     ];
 
     public function validate()

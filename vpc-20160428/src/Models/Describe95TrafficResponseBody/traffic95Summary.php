@@ -13,33 +13,38 @@ class traffic95Summary extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $fifthPeakBandwidth;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $internetChargeType;
+
     /**
      * @var string
      */
     public $minimumConsumeBandwidth;
+
     /**
      * @var traffic95DetailList
      */
     public $traffic95DetailList;
     protected $_name = [
-        'bandwidth'               => 'Bandwidth',
-        'fifthPeakBandwidth'      => 'FifthPeakBandwidth',
-        'instanceId'              => 'InstanceId',
-        'internetChargeType'      => 'InternetChargeType',
+        'bandwidth' => 'Bandwidth',
+        'fifthPeakBandwidth' => 'FifthPeakBandwidth',
+        'instanceId' => 'InstanceId',
+        'internetChargeType' => 'InternetChargeType',
         'minimumConsumeBandwidth' => 'MinimumConsumeBandwidth',
-        'traffic95DetailList'     => 'Traffic95DetailList',
+        'traffic95DetailList' => 'Traffic95DetailList',
     ];
 
     public function validate()

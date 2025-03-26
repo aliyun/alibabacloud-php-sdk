@@ -12,23 +12,26 @@ class backendServer extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serverId;
+
     /**
      * @var string
      */
     public $serverIpAddress;
+
     /**
      * @var string
      */
     public $serverType;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'serverId'        => 'ServerId',
+        'regionId' => 'RegionId',
+        'serverId' => 'ServerId',
         'serverIpAddress' => 'ServerIpAddress',
-        'serverType'      => 'ServerType',
+        'serverType' => 'ServerType',
     ];
 
     public function validate()

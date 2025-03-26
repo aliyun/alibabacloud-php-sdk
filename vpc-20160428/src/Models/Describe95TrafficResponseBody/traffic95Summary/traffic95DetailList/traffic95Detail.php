@@ -12,23 +12,26 @@ class traffic95Detail extends Model
      * @var string
      */
     public $billBandwidth;
+
     /**
      * @var string
      */
     public $inBandwidth;
+
     /**
      * @var string
      */
     public $outBandwidth;
+
     /**
      * @var string
      */
     public $time;
     protected $_name = [
         'billBandwidth' => 'BillBandwidth',
-        'inBandwidth'   => 'InBandwidth',
-        'outBandwidth'  => 'OutBandwidth',
-        'time'          => 'Time',
+        'inBandwidth' => 'InBandwidth',
+        'outBandwidth' => 'OutBandwidth',
+        'time' => 'Time',
     ];
 
     public function validate()

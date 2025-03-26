@@ -15,208 +15,248 @@ class virtualBorderRouterType extends Model
      * @var string
      */
     public $accessPointId;
+
     /**
      * @var string
      */
     public $activationTime;
+
     /**
      * @var associatedCens
      */
     public $associatedCens;
+
     /**
      * @var associatedPhysicalConnections
      */
     public $associatedPhysicalConnections;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $circuitCode;
+
     /**
      * @var string
      */
     public $cloudBoxInstanceId;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $detectMultiplier;
+
     /**
      * @var string
      */
     public $eccId;
+
     /**
      * @var string
      */
     public $ecrAttatchStatus;
+
     /**
      * @var string
      */
     public $ecrId;
+
     /**
      * @var string
      */
     public $ecrOwnerId;
+
     /**
      * @var bool
      */
     public $enableIpv6;
+
     /**
      * @var string
      */
     public $localGatewayIp;
+
     /**
      * @var string
      */
     public $localIpv6GatewayIp;
+
     /**
      * @var int
      */
     public $minRxInterval;
+
     /**
      * @var int
      */
     public $minTxInterval;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $PConnVbrChargeType;
+
     /**
      * @var string
      */
     public $PConnVbrExpireTime;
+
     /**
      * @var string
      */
     public $peerGatewayIp;
+
     /**
      * @var string
      */
     public $peerIpv6GatewayIp;
+
     /**
      * @var string
      */
     public $peeringIpv6SubnetMask;
+
     /**
      * @var string
      */
     public $peeringSubnetMask;
+
     /**
      * @var string
      */
     public $physicalConnectionBusinessStatus;
+
     /**
      * @var string
      */
     public $physicalConnectionId;
+
     /**
      * @var string
      */
     public $physicalConnectionOwnerUid;
+
     /**
      * @var string
      */
     public $physicalConnectionStatus;
+
     /**
      * @var string
      */
     public $recoveryTime;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $routeTableId;
+
     /**
      * @var bool
      */
     public $sitelinkEnable;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $terminationTime;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $vbrId;
+
     /**
      * @var int
      */
     public $vlanId;
+
     /**
      * @var string
      */
     public $vlanInterfaceId;
     protected $_name = [
-        'accessPointId'                    => 'AccessPointId',
-        'activationTime'                   => 'ActivationTime',
-        'associatedCens'                   => 'AssociatedCens',
-        'associatedPhysicalConnections'    => 'AssociatedPhysicalConnections',
-        'bandwidth'                        => 'Bandwidth',
-        'circuitCode'                      => 'CircuitCode',
-        'cloudBoxInstanceId'               => 'CloudBoxInstanceId',
-        'creationTime'                     => 'CreationTime',
-        'description'                      => 'Description',
-        'detectMultiplier'                 => 'DetectMultiplier',
-        'eccId'                            => 'EccId',
-        'ecrAttatchStatus'                 => 'EcrAttatchStatus',
-        'ecrId'                            => 'EcrId',
-        'ecrOwnerId'                       => 'EcrOwnerId',
-        'enableIpv6'                       => 'EnableIpv6',
-        'localGatewayIp'                   => 'LocalGatewayIp',
-        'localIpv6GatewayIp'               => 'LocalIpv6GatewayIp',
-        'minRxInterval'                    => 'MinRxInterval',
-        'minTxInterval'                    => 'MinTxInterval',
-        'name'                             => 'Name',
-        'PConnVbrChargeType'               => 'PConnVbrChargeType',
-        'PConnVbrExpireTime'               => 'PConnVbrExpireTime',
-        'peerGatewayIp'                    => 'PeerGatewayIp',
-        'peerIpv6GatewayIp'                => 'PeerIpv6GatewayIp',
-        'peeringIpv6SubnetMask'            => 'PeeringIpv6SubnetMask',
-        'peeringSubnetMask'                => 'PeeringSubnetMask',
+        'accessPointId' => 'AccessPointId',
+        'activationTime' => 'ActivationTime',
+        'associatedCens' => 'AssociatedCens',
+        'associatedPhysicalConnections' => 'AssociatedPhysicalConnections',
+        'bandwidth' => 'Bandwidth',
+        'circuitCode' => 'CircuitCode',
+        'cloudBoxInstanceId' => 'CloudBoxInstanceId',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'detectMultiplier' => 'DetectMultiplier',
+        'eccId' => 'EccId',
+        'ecrAttatchStatus' => 'EcrAttatchStatus',
+        'ecrId' => 'EcrId',
+        'ecrOwnerId' => 'EcrOwnerId',
+        'enableIpv6' => 'EnableIpv6',
+        'localGatewayIp' => 'LocalGatewayIp',
+        'localIpv6GatewayIp' => 'LocalIpv6GatewayIp',
+        'minRxInterval' => 'MinRxInterval',
+        'minTxInterval' => 'MinTxInterval',
+        'name' => 'Name',
+        'PConnVbrChargeType' => 'PConnVbrChargeType',
+        'PConnVbrExpireTime' => 'PConnVbrExpireTime',
+        'peerGatewayIp' => 'PeerGatewayIp',
+        'peerIpv6GatewayIp' => 'PeerIpv6GatewayIp',
+        'peeringIpv6SubnetMask' => 'PeeringIpv6SubnetMask',
+        'peeringSubnetMask' => 'PeeringSubnetMask',
         'physicalConnectionBusinessStatus' => 'PhysicalConnectionBusinessStatus',
-        'physicalConnectionId'             => 'PhysicalConnectionId',
-        'physicalConnectionOwnerUid'       => 'PhysicalConnectionOwnerUid',
-        'physicalConnectionStatus'         => 'PhysicalConnectionStatus',
-        'recoveryTime'                     => 'RecoveryTime',
-        'resourceGroupId'                  => 'ResourceGroupId',
-        'routeTableId'                     => 'RouteTableId',
-        'sitelinkEnable'                   => 'SitelinkEnable',
-        'status'                           => 'Status',
-        'tags'                             => 'Tags',
-        'terminationTime'                  => 'TerminationTime',
-        'type'                             => 'Type',
-        'vbrId'                            => 'VbrId',
-        'vlanId'                           => 'VlanId',
-        'vlanInterfaceId'                  => 'VlanInterfaceId',
+        'physicalConnectionId' => 'PhysicalConnectionId',
+        'physicalConnectionOwnerUid' => 'PhysicalConnectionOwnerUid',
+        'physicalConnectionStatus' => 'PhysicalConnectionStatus',
+        'recoveryTime' => 'RecoveryTime',
+        'resourceGroupId' => 'ResourceGroupId',
+        'routeTableId' => 'RouteTableId',
+        'sitelinkEnable' => 'SitelinkEnable',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'terminationTime' => 'TerminationTime',
+        'type' => 'Type',
+        'vbrId' => 'VbrId',
+        'vlanId' => 'VlanId',
+        'vlanInterfaceId' => 'VlanInterfaceId',
     ];
 
     public function validate()

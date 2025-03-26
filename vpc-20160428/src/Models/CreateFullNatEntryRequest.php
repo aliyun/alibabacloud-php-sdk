@@ -12,83 +12,98 @@ class CreateFullNatEntryRequest extends Model
      * @var string
      */
     public $accessIp;
+
     /**
      * @var string
      */
     public $accessPort;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $fullNatEntryDescription;
+
     /**
      * @var string
      */
     public $fullNatEntryName;
+
     /**
      * @var string
      */
     public $fullNatTableId;
+
     /**
      * @var string
      */
     public $ipProtocol;
+
     /**
      * @var string
      */
     public $natIp;
+
     /**
      * @var string
      */
     public $natIpPort;
+
     /**
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'accessIp'                => 'AccessIp',
-        'accessPort'              => 'AccessPort',
-        'clientToken'             => 'ClientToken',
-        'dryRun'                  => 'DryRun',
+        'accessIp' => 'AccessIp',
+        'accessPort' => 'AccessPort',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'fullNatEntryDescription' => 'FullNatEntryDescription',
-        'fullNatEntryName'        => 'FullNatEntryName',
-        'fullNatTableId'          => 'FullNatTableId',
-        'ipProtocol'              => 'IpProtocol',
-        'natIp'                   => 'NatIp',
-        'natIpPort'               => 'NatIpPort',
-        'networkInterfaceId'      => 'NetworkInterfaceId',
-        'ownerAccount'            => 'OwnerAccount',
-        'ownerId'                 => 'OwnerId',
-        'regionId'                => 'RegionId',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
+        'fullNatEntryName' => 'FullNatEntryName',
+        'fullNatTableId' => 'FullNatTableId',
+        'ipProtocol' => 'IpProtocol',
+        'natIp' => 'NatIp',
+        'natIpPort' => 'NatIpPort',
+        'networkInterfaceId' => 'NetworkInterfaceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

@@ -12,63 +12,74 @@ class UpdateIpsecServerRequest extends Model
      * @var string
      */
     public $clientIpPool;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $dryRun;
+
     /**
      * @var bool
      */
     public $effectImmediately;
+
     /**
      * @var string
      */
     public $ikeConfig;
+
     /**
      * @var string
      */
     public $ipsecConfig;
+
     /**
      * @var string
      */
     public $ipsecServerId;
+
     /**
      * @var string
      */
     public $ipsecServerName;
+
     /**
      * @var string
      */
     public $localSubnet;
+
     /**
      * @var string
      */
     public $psk;
+
     /**
      * @var bool
      */
     public $pskEnabled;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clientIpPool'      => 'ClientIpPool',
-        'clientToken'       => 'ClientToken',
-        'dryRun'            => 'DryRun',
+        'clientIpPool' => 'ClientIpPool',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'effectImmediately' => 'EffectImmediately',
-        'ikeConfig'         => 'IkeConfig',
-        'ipsecConfig'       => 'IpsecConfig',
-        'ipsecServerId'     => 'IpsecServerId',
-        'ipsecServerName'   => 'IpsecServerName',
-        'localSubnet'       => 'LocalSubnet',
-        'psk'               => 'Psk',
-        'pskEnabled'        => 'PskEnabled',
-        'regionId'          => 'RegionId',
+        'ikeConfig' => 'IkeConfig',
+        'ipsecConfig' => 'IpsecConfig',
+        'ipsecServerId' => 'IpsecServerId',
+        'ipsecServerName' => 'IpsecServerName',
+        'localSubnet' => 'LocalSubnet',
+        'psk' => 'Psk',
+        'pskEnabled' => 'PskEnabled',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

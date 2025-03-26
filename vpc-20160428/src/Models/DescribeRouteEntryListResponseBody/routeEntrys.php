@@ -31,7 +31,7 @@ class routeEntrys extends Model
         if (null !== $this->routeEntry) {
             if (\is_array($this->routeEntry)) {
                 $res['RouteEntry'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->routeEntry as $item1) {
                     $res['RouteEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class routeEntrys extends Model
         if (isset($map['RouteEntry'])) {
             if (!empty($map['RouteEntry'])) {
                 $model->routeEntry = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['RouteEntry'] as $item1) {
                     $model->routeEntry[$n1++] = routeEntry::fromMap($item1);
                 }

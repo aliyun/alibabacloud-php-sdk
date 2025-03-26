@@ -12,43 +12,50 @@ class RemoveCommonBandwidthPackageIpRequest extends Model
      * @var string
      */
     public $bandwidthPackageId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ipInstanceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'bandwidthPackageId'   => 'BandwidthPackageId',
-        'clientToken'          => 'ClientToken',
-        'ipInstanceId'         => 'IpInstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'bandwidthPackageId' => 'BandwidthPackageId',
+        'clientToken' => 'ClientToken',
+        'ipInstanceId' => 'IpInstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

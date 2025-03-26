@@ -30,7 +30,7 @@ class vSwitchIds extends Model
         if (null !== $this->vSwitchId) {
             if (\is_array($this->vSwitchId)) {
                 $res['VSwitchId'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->vSwitchId as $item1) {
                     $res['VSwitchId'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class vSwitchIds extends Model
         if (isset($map['VSwitchId'])) {
             if (!empty($map['VSwitchId'])) {
                 $model->vSwitchId = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['VSwitchId'] as $item1) {
                     $model->vSwitchId[$n1++] = $item1;
                 }

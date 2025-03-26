@@ -12,68 +12,80 @@ class CreateIPv6TranslatorRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $pricingCycle;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $spec;
     protected $_name = [
-        'autoPay'              => 'AutoPay',
-        'bandwidth'            => 'Bandwidth',
-        'clientToken'          => 'ClientToken',
-        'duration'             => 'Duration',
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'payType'              => 'PayType',
-        'pricingCycle'         => 'PricingCycle',
-        'regionId'             => 'RegionId',
+        'autoPay' => 'AutoPay',
+        'bandwidth' => 'Bandwidth',
+        'clientToken' => 'ClientToken',
+        'duration' => 'Duration',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'payType' => 'PayType',
+        'pricingCycle' => 'PricingCycle',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'spec'                 => 'Spec',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'spec' => 'Spec',
     ];
 
     public function validate()

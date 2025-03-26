@@ -12,43 +12,50 @@ class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'ipVersion'            => 'IpVersion',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'privateIpAddress'     => 'PrivateIpAddress',
-        'regionId'             => 'RegionId',
+        'ipVersion' => 'IpVersion',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'vSwitchId'            => 'VSwitchId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()

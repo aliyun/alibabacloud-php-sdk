@@ -12,17 +12,19 @@ class CreateIpv6GatewayResponseBody extends Model
      * @var string
      */
     public $ipv6GatewayId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'ipv6GatewayId'   => 'Ipv6GatewayId',
-        'requestId'       => 'RequestId',
+        'ipv6GatewayId' => 'Ipv6GatewayId',
+        'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

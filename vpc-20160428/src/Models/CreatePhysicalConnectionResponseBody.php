@@ -12,13 +12,14 @@ class CreatePhysicalConnectionResponseBody extends Model
      * @var string
      */
     public $physicalConnectionId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'physicalConnectionId' => 'PhysicalConnectionId',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

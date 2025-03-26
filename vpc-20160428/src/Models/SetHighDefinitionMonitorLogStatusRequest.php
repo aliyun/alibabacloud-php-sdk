@@ -12,53 +12,62 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $logProject;
+
     /**
      * @var string
      */
     public $logStore;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'instanceId'           => 'InstanceId',
-        'instanceType'         => 'InstanceType',
-        'logProject'           => 'LogProject',
-        'logStore'             => 'LogStore',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'instanceType' => 'InstanceType',
+        'logProject' => 'LogProject',
+        'logStore' => 'LogStore',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'status'               => 'Status',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'status' => 'Status',
     ];
 
     public function validate()

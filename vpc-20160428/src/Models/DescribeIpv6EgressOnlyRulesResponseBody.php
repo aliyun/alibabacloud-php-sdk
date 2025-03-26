@@ -13,28 +13,32 @@ class DescribeIpv6EgressOnlyRulesResponseBody extends Model
      * @var ipv6EgressOnlyRules
      */
     public $ipv6EgressOnlyRules;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'ipv6EgressOnlyRules' => 'Ipv6EgressOnlyRules',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'requestId'           => 'RequestId',
-        'totalCount'          => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

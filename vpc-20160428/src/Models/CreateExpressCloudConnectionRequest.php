@@ -12,83 +12,98 @@ class CreateExpressCloudConnectionRequest extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $contactMail;
+
     /**
      * @var string
      */
     public $contactTel;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $IDCardNo;
+
     /**
      * @var string
      */
     public $idcSP;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $peerCity;
+
     /**
      * @var string
      */
     public $peerLocation;
+
     /**
      * @var string
      */
     public $portType;
+
     /**
      * @var string
      */
     public $redundantEccId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'bandwidth'            => 'Bandwidth',
-        'contactMail'          => 'ContactMail',
-        'contactTel'           => 'ContactTel',
-        'description'          => 'Description',
-        'IDCardNo'             => 'IDCardNo',
-        'idcSP'                => 'IdcSP',
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'peerCity'             => 'PeerCity',
-        'peerLocation'         => 'PeerLocation',
-        'portType'             => 'PortType',
-        'redundantEccId'       => 'RedundantEccId',
-        'regionId'             => 'RegionId',
+        'bandwidth' => 'Bandwidth',
+        'contactMail' => 'ContactMail',
+        'contactTel' => 'ContactTel',
+        'description' => 'Description',
+        'IDCardNo' => 'IDCardNo',
+        'idcSP' => 'IdcSP',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'peerCity' => 'PeerCity',
+        'peerLocation' => 'PeerLocation',
+        'portType' => 'PortType',
+        'redundantEccId' => 'RedundantEccId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

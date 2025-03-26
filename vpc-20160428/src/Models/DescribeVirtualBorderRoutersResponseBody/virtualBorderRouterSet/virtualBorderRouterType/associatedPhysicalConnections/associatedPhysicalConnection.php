@@ -12,78 +12,92 @@ class associatedPhysicalConnection extends Model
      * @var string
      */
     public $circuitCode;
+
     /**
      * @var bool
      */
     public $enableIpv6;
+
     /**
      * @var string
      */
     public $localGatewayIp;
+
     /**
      * @var string
      */
     public $localIpv6GatewayIp;
+
     /**
      * @var string
      */
     public $peerGatewayIp;
+
     /**
      * @var string
      */
     public $peerIpv6GatewayIp;
+
     /**
      * @var string
      */
     public $peeringIpv6SubnetMask;
+
     /**
      * @var string
      */
     public $peeringSubnetMask;
+
     /**
      * @var string
      */
     public $physicalConnectionBusinessStatus;
+
     /**
      * @var string
      */
     public $physicalConnectionId;
+
     /**
      * @var string
      */
     public $physicalConnectionOwnerUid;
+
     /**
      * @var string
      */
     public $physicalConnectionStatus;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $vlanId;
+
     /**
      * @var string
      */
     public $vlanInterfaceId;
     protected $_name = [
-        'circuitCode'                      => 'CircuitCode',
-        'enableIpv6'                       => 'EnableIpv6',
-        'localGatewayIp'                   => 'LocalGatewayIp',
-        'localIpv6GatewayIp'               => 'LocalIpv6GatewayIp',
-        'peerGatewayIp'                    => 'PeerGatewayIp',
-        'peerIpv6GatewayIp'                => 'PeerIpv6GatewayIp',
-        'peeringIpv6SubnetMask'            => 'PeeringIpv6SubnetMask',
-        'peeringSubnetMask'                => 'PeeringSubnetMask',
+        'circuitCode' => 'CircuitCode',
+        'enableIpv6' => 'EnableIpv6',
+        'localGatewayIp' => 'LocalGatewayIp',
+        'localIpv6GatewayIp' => 'LocalIpv6GatewayIp',
+        'peerGatewayIp' => 'PeerGatewayIp',
+        'peerIpv6GatewayIp' => 'PeerIpv6GatewayIp',
+        'peeringIpv6SubnetMask' => 'PeeringIpv6SubnetMask',
+        'peeringSubnetMask' => 'PeeringSubnetMask',
         'physicalConnectionBusinessStatus' => 'PhysicalConnectionBusinessStatus',
-        'physicalConnectionId'             => 'PhysicalConnectionId',
-        'physicalConnectionOwnerUid'       => 'PhysicalConnectionOwnerUid',
-        'physicalConnectionStatus'         => 'PhysicalConnectionStatus',
-        'status'                           => 'Status',
-        'vlanId'                           => 'VlanId',
-        'vlanInterfaceId'                  => 'VlanInterfaceId',
+        'physicalConnectionId' => 'PhysicalConnectionId',
+        'physicalConnectionOwnerUid' => 'PhysicalConnectionOwnerUid',
+        'physicalConnectionStatus' => 'PhysicalConnectionStatus',
+        'status' => 'Status',
+        'vlanId' => 'VlanId',
+        'vlanInterfaceId' => 'VlanInterfaceId',
     ];
 
     public function validate()

@@ -12,73 +12,86 @@ class bgpGroup extends Model
      * @var string
      */
     public $authKey;
+
     /**
      * @var string
      */
     public $bgpGroupId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $hold;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var string
      */
     public $isFake;
+
     /**
      * @var string
      */
     public $keepalive;
+
     /**
      * @var string
      */
     public $localAsn;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $peerAsn;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $routeLimit;
+
     /**
      * @var string
      */
     public $routerId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'authKey'     => 'AuthKey',
-        'bgpGroupId'  => 'BgpGroupId',
+        'authKey' => 'AuthKey',
+        'bgpGroupId' => 'BgpGroupId',
         'description' => 'Description',
-        'hold'        => 'Hold',
-        'ipVersion'   => 'IpVersion',
-        'isFake'      => 'IsFake',
-        'keepalive'   => 'Keepalive',
-        'localAsn'    => 'LocalAsn',
-        'name'        => 'Name',
-        'peerAsn'     => 'PeerAsn',
-        'regionId'    => 'RegionId',
-        'routeLimit'  => 'RouteLimit',
-        'routerId'    => 'RouterId',
-        'status'      => 'Status',
+        'hold' => 'Hold',
+        'ipVersion' => 'IpVersion',
+        'isFake' => 'IsFake',
+        'keepalive' => 'Keepalive',
+        'localAsn' => 'LocalAsn',
+        'name' => 'Name',
+        'peerAsn' => 'PeerAsn',
+        'regionId' => 'RegionId',
+        'routeLimit' => 'RouteLimit',
+        'routerId' => 'RouterId',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -14,62 +14,73 @@ class UpdateNetworkAclEntriesRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var egressAclEntries[]
      */
     public $egressAclEntries;
+
     /**
      * @var ingressAclEntries[]
      */
     public $ingressAclEntries;
+
     /**
      * @var string
      */
     public $networkAclId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var bool
      */
     public $updateEgressAclEntries;
+
     /**
      * @var bool
      */
     public $updateIngressAclEntries;
     protected $_name = [
-        'clientToken'             => 'ClientToken',
-        'dryRun'                  => 'DryRun',
-        'egressAclEntries'        => 'EgressAclEntries',
-        'ingressAclEntries'       => 'IngressAclEntries',
-        'networkAclId'            => 'NetworkAclId',
-        'ownerAccount'            => 'OwnerAccount',
-        'ownerId'                 => 'OwnerId',
-        'regionId'                => 'RegionId',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
-        'updateEgressAclEntries'  => 'UpdateEgressAclEntries',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'egressAclEntries' => 'EgressAclEntries',
+        'ingressAclEntries' => 'IngressAclEntries',
+        'networkAclId' => 'NetworkAclId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'updateEgressAclEntries' => 'UpdateEgressAclEntries',
         'updateIngressAclEntries' => 'UpdateIngressAclEntries',
     ];
 
@@ -98,7 +109,7 @@ class UpdateNetworkAclEntriesRequest extends Model
         if (null !== $this->egressAclEntries) {
             if (\is_array($this->egressAclEntries)) {
                 $res['EgressAclEntries'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->egressAclEntries as $item1) {
                     $res['EgressAclEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -108,7 +119,7 @@ class UpdateNetworkAclEntriesRequest extends Model
         if (null !== $this->ingressAclEntries) {
             if (\is_array($this->ingressAclEntries)) {
                 $res['IngressAclEntries'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->ingressAclEntries as $item1) {
                     $res['IngressAclEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -169,7 +180,7 @@ class UpdateNetworkAclEntriesRequest extends Model
         if (isset($map['EgressAclEntries'])) {
             if (!empty($map['EgressAclEntries'])) {
                 $model->egressAclEntries = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['EgressAclEntries'] as $item1) {
                     $model->egressAclEntries[$n1++] = egressAclEntries::fromMap($item1);
                 }
@@ -179,7 +190,7 @@ class UpdateNetworkAclEntriesRequest extends Model
         if (isset($map['IngressAclEntries'])) {
             if (!empty($map['IngressAclEntries'])) {
                 $model->ingressAclEntries = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['IngressAclEntries'] as $item1) {
                     $model->ingressAclEntries[$n1++] = ingressAclEntries::fromMap($item1);
                 }

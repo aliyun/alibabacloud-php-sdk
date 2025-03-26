@@ -12,13 +12,14 @@ class CreateVbrHaResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vbrHaId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'vbrHaId'   => 'VbrHaId',
+        'vbrHaId' => 'VbrHaId',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class services extends Model
      * @var string
      */
     public $defaultPolicyDocument;
+
     /**
      * @var string
      */
     public $serviceDomain;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var bool
      */
     public $supportPolicy;
     protected $_name = [
         'defaultPolicyDocument' => 'DefaultPolicyDocument',
-        'serviceDomain'         => 'ServiceDomain',
-        'serviceId'             => 'ServiceId',
-        'serviceName'           => 'ServiceName',
-        'supportPolicy'         => 'SupportPolicy',
+        'serviceDomain' => 'ServiceDomain',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
+        'supportPolicy' => 'SupportPolicy',
     ];
 
     public function validate()

@@ -12,58 +12,68 @@ class ModifyVSwitchAttributeRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $enableIPv6;
+
     /**
      * @var int
      */
     public $ipv6CidrBlock;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vSwitchName;
+
     /**
      * @var string
      */
     public $vpcIpv6CidrBlock;
     protected $_name = [
-        'description'          => 'Description',
-        'enableIPv6'           => 'EnableIPv6',
-        'ipv6CidrBlock'        => 'Ipv6CidrBlock',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'description' => 'Description',
+        'enableIPv6' => 'EnableIPv6',
+        'ipv6CidrBlock' => 'Ipv6CidrBlock',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'vSwitchId'            => 'VSwitchId',
-        'vSwitchName'          => 'VSwitchName',
-        'vpcIpv6CidrBlock'     => 'VpcIpv6CidrBlock',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vSwitchId' => 'VSwitchId',
+        'vSwitchName' => 'VSwitchName',
+        'vpcIpv6CidrBlock' => 'VpcIpv6CidrBlock',
     ];
 
     public function validate()

@@ -12,58 +12,68 @@ class ModifyExpressCloudConnectionAttributeRequest extends Model
      * @var string
      */
     public $bgpAs;
+
     /**
      * @var string
      */
     public $ceIp;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $eccId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $peIp;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'bgpAs'                => 'BgpAs',
-        'ceIp'                 => 'CeIp',
-        'description'          => 'Description',
-        'eccId'                => 'EccId',
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'peIp'                 => 'PeIp',
-        'regionId'             => 'RegionId',
+        'bgpAs' => 'BgpAs',
+        'ceIp' => 'CeIp',
+        'description' => 'Description',
+        'eccId' => 'EccId',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'peIp' => 'PeIp',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

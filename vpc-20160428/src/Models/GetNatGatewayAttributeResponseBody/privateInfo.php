@@ -12,28 +12,32 @@ class privateInfo extends Model
      * @var string
      */
     public $eniInstanceId;
+
     /**
      * @var string
      */
     public $izNo;
+
     /**
      * @var int
      */
     public $maxBandwidth;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $vswitchId;
     protected $_name = [
-        'eniInstanceId'    => 'EniInstanceId',
-        'izNo'             => 'IzNo',
-        'maxBandwidth'     => 'MaxBandwidth',
+        'eniInstanceId' => 'EniInstanceId',
+        'izNo' => 'IzNo',
+        'maxBandwidth' => 'MaxBandwidth',
         'privateIpAddress' => 'PrivateIpAddress',
-        'vswitchId'        => 'VswitchId',
+        'vswitchId' => 'VswitchId',
     ];
 
     public function validate()

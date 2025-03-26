@@ -12,53 +12,62 @@ class ModifyCustomerGatewayAttributeRequest extends Model
      * @var string
      */
     public $authKey;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $customerGatewayId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'authKey'              => 'AuthKey',
-        'clientToken'          => 'ClientToken',
-        'customerGatewayId'    => 'CustomerGatewayId',
-        'description'          => 'Description',
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'authKey' => 'AuthKey',
+        'clientToken' => 'ClientToken',
+        'customerGatewayId' => 'CustomerGatewayId',
+        'description' => 'Description',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

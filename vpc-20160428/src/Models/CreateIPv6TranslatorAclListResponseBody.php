@@ -12,12 +12,13 @@ class CreateIPv6TranslatorAclListResponseBody extends Model
      * @var string
      */
     public $aclId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'aclId'     => 'AclId',
+        'aclId' => 'AclId',
         'requestId' => 'RequestId',
     ];
 

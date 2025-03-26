@@ -13,53 +13,62 @@ class routeEntry extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var nextHops
      */
     public $nextHops;
+
     /**
      * @var string
      */
     public $routeEntryId;
+
     /**
      * @var string
      */
     public $routeEntryName;
+
     /**
      * @var string
      */
     public $routeTableId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'description'          => 'Description',
+        'description' => 'Description',
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'instanceId'           => 'InstanceId',
-        'nextHopType'          => 'NextHopType',
-        'nextHops'             => 'NextHops',
-        'routeEntryId'         => 'RouteEntryId',
-        'routeEntryName'       => 'RouteEntryName',
-        'routeTableId'         => 'RouteTableId',
-        'status'               => 'Status',
-        'type'                 => 'Type',
+        'instanceId' => 'InstanceId',
+        'nextHopType' => 'NextHopType',
+        'nextHops' => 'NextHops',
+        'routeEntryId' => 'RouteEntryId',
+        'routeEntryName' => 'RouteEntryName',
+        'routeTableId' => 'RouteTableId',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()

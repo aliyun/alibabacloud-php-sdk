@@ -12,12 +12,13 @@ class CreateExpressCloudConnectionResponseBody extends Model
      * @var string
      */
     public $eccId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'eccId'     => 'EccId',
+        'eccId' => 'EccId',
         'requestId' => 'RequestId',
     ];
 

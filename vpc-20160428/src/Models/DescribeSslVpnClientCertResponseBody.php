@@ -12,68 +12,80 @@ class DescribeSslVpnClientCertResponseBody extends Model
      * @var string
      */
     public $caCert;
+
     /**
      * @var string
      */
     public $clientCert;
+
     /**
      * @var string
      */
     public $clientConfig;
+
     /**
      * @var string
      */
     public $clientKey;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $sslVpnClientCertId;
+
     /**
      * @var string
      */
     public $sslVpnServerId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'caCert'             => 'CaCert',
-        'clientCert'         => 'ClientCert',
-        'clientConfig'       => 'ClientConfig',
-        'clientKey'          => 'ClientKey',
-        'createTime'         => 'CreateTime',
-        'endTime'            => 'EndTime',
-        'name'               => 'Name',
-        'regionId'           => 'RegionId',
-        'requestId'          => 'RequestId',
-        'resourceGroupId'    => 'ResourceGroupId',
+        'caCert' => 'CaCert',
+        'clientCert' => 'ClientCert',
+        'clientConfig' => 'ClientConfig',
+        'clientKey' => 'ClientKey',
+        'createTime' => 'CreateTime',
+        'endTime' => 'EndTime',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
         'sslVpnClientCertId' => 'SslVpnClientCertId',
-        'sslVpnServerId'     => 'SslVpnServerId',
-        'status'             => 'Status',
+        'sslVpnServerId' => 'SslVpnServerId',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -12,42 +12,49 @@ class DescribeExpressConnectTrafficQosQueueRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $qosId;
+
     /**
      * @var string[]
      */
     public $queueIdList;
+
     /**
      * @var string[]
      */
     public $queueNameList;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'qosId'                => 'QosId',
-        'queueIdList'          => 'QueueIdList',
-        'queueNameList'        => 'QueueNameList',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'qosId' => 'QosId',
+        'queueIdList' => 'QueueIdList',
+        'queueNameList' => 'QueueNameList',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
     ];
 
@@ -84,7 +91,7 @@ class DescribeExpressConnectTrafficQosQueueRequest extends Model
         if (null !== $this->queueIdList) {
             if (\is_array($this->queueIdList)) {
                 $res['QueueIdList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->queueIdList as $item1) {
                     $res['QueueIdList'][$n1++] = $item1;
                 }
@@ -94,7 +101,7 @@ class DescribeExpressConnectTrafficQosQueueRequest extends Model
         if (null !== $this->queueNameList) {
             if (\is_array($this->queueNameList)) {
                 $res['QueueNameList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->queueNameList as $item1) {
                     $res['QueueNameList'][$n1++] = $item1;
                 }
@@ -139,7 +146,7 @@ class DescribeExpressConnectTrafficQosQueueRequest extends Model
         if (isset($map['QueueIdList'])) {
             if (!empty($map['QueueIdList'])) {
                 $model->queueIdList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['QueueIdList'] as $item1) {
                     $model->queueIdList[$n1++] = $item1;
                 }
@@ -149,7 +156,7 @@ class DescribeExpressConnectTrafficQosQueueRequest extends Model
         if (isset($map['QueueNameList'])) {
             if (!empty($map['QueueNameList'])) {
                 $model->queueNameList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['QueueNameList'] as $item1) {
                     $model->queueNameList[$n1++] = $item1;
                 }

@@ -15,37 +15,43 @@ class vpnConnectionConfig extends Model
      * @var ikeConfig
      */
     public $ikeConfig;
+
     /**
      * @var ipsecConfig
      */
     public $ipsecConfig;
+
     /**
      * @var string
      */
     public $local;
+
     /**
      * @var string
      */
     public $localSubnet;
+
     /**
      * @var string
      */
     public $remote;
+
     /**
      * @var string
      */
     public $remoteSubnet;
+
     /**
      * @var tunnelsConfig
      */
     public $tunnelsConfig;
     protected $_name = [
-        'ikeConfig'     => 'IkeConfig',
-        'ipsecConfig'   => 'IpsecConfig',
-        'local'         => 'Local',
-        'localSubnet'   => 'LocalSubnet',
-        'remote'        => 'Remote',
-        'remoteSubnet'  => 'RemoteSubnet',
+        'ikeConfig' => 'IkeConfig',
+        'ipsecConfig' => 'IpsecConfig',
+        'local' => 'Local',
+        'localSubnet' => 'LocalSubnet',
+        'remote' => 'Remote',
+        'remoteSubnet' => 'RemoteSubnet',
         'tunnelsConfig' => 'TunnelsConfig',
     ];
 

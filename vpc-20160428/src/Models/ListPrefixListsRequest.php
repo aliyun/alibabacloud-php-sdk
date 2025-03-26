@@ -13,58 +13,68 @@ class ListPrefixListsRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string[]
      */
     public $prefixListIds;
+
     /**
      * @var string
      */
     public $prefixListName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'prefixListIds'        => 'PrefixListIds',
-        'prefixListName'       => 'PrefixListName',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'prefixListIds' => 'PrefixListIds',
+        'prefixListName' => 'PrefixListName',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tags'                 => 'Tags',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -100,7 +110,7 @@ class ListPrefixListsRequest extends Model
         if (null !== $this->prefixListIds) {
             if (\is_array($this->prefixListIds)) {
                 $res['PrefixListIds'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->prefixListIds as $item1) {
                     $res['PrefixListIds'][$n1++] = $item1;
                 }
@@ -130,7 +140,7 @@ class ListPrefixListsRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -167,7 +177,7 @@ class ListPrefixListsRequest extends Model
         if (isset($map['PrefixListIds'])) {
             if (!empty($map['PrefixListIds'])) {
                 $model->prefixListIds = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['PrefixListIds'] as $item1) {
                     $model->prefixListIds[$n1++] = $item1;
                 }
@@ -197,7 +207,7 @@ class ListPrefixListsRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

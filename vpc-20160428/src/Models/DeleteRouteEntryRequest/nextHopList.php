@@ -12,12 +12,13 @@ class nextHopList extends Model
      * @var string
      */
     public $nextHopId;
+
     /**
      * @var string
      */
     public $nextHopType;
     protected $_name = [
-        'nextHopId'   => 'NextHopId',
+        'nextHopId' => 'NextHopId',
         'nextHopType' => 'NextHopType',
     ];
 

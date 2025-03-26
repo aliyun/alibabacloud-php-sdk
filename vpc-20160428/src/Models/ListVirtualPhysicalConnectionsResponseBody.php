@@ -13,27 +13,31 @@ class ListVirtualPhysicalConnectionsResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var virtualPhysicalConnections[]
      */
     public $virtualPhysicalConnections;
     protected $_name = [
-        'count'                      => 'Count',
-        'nextToken'                  => 'NextToken',
-        'requestId'                  => 'RequestId',
-        'totalCount'                 => 'TotalCount',
+        'count' => 'Count',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'virtualPhysicalConnections' => 'VirtualPhysicalConnections',
     ];
 
@@ -67,7 +71,7 @@ class ListVirtualPhysicalConnectionsResponseBody extends Model
         if (null !== $this->virtualPhysicalConnections) {
             if (\is_array($this->virtualPhysicalConnections)) {
                 $res['VirtualPhysicalConnections'] = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($this->virtualPhysicalConnections as $item1) {
                     $res['VirtualPhysicalConnections'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class ListVirtualPhysicalConnectionsResponseBody extends Model
         if (isset($map['VirtualPhysicalConnections'])) {
             if (!empty($map['VirtualPhysicalConnections'])) {
                 $model->virtualPhysicalConnections = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($map['VirtualPhysicalConnections'] as $item1) {
                     $model->virtualPhysicalConnections[$n1++] = virtualPhysicalConnections::fromMap($item1);
                 }

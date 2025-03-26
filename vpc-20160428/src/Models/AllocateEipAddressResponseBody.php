@@ -12,27 +12,31 @@ class AllocateEipAddressResponseBody extends Model
      * @var string
      */
     public $allocationId;
+
     /**
      * @var string
      */
     public $eipAddress;
+
     /**
      * @var int
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'allocationId'    => 'AllocationId',
-        'eipAddress'      => 'EipAddress',
-        'orderId'         => 'OrderId',
-        'requestId'       => 'RequestId',
+        'allocationId' => 'AllocationId',
+        'eipAddress' => 'EipAddress',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

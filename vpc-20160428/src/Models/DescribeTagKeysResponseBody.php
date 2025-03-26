@@ -13,10 +13,12 @@ class DescribeTagKeysResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var tagKeys
      */
@@ -24,7 +26,7 @@ class DescribeTagKeysResponseBody extends Model
     protected $_name = [
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
-        'tagKeys'   => 'TagKeys',
+        'tagKeys' => 'TagKeys',
     ];
 
     public function validate()

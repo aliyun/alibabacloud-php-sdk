@@ -12,12 +12,13 @@ class availableZoneIdList extends Model
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $zoneName;
     protected $_name = [
-        'zoneId'   => 'ZoneId',
+        'zoneId' => 'ZoneId',
         'zoneName' => 'ZoneName',
     ];
 

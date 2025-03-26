@@ -31,7 +31,7 @@ class associatedPropagationSources extends Model
         if (null !== $this->associatedPropagationSources) {
             if (\is_array($this->associatedPropagationSources)) {
                 $res['AssociatedPropagationSources'] = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($this->associatedPropagationSources as $item1) {
                     $res['AssociatedPropagationSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class associatedPropagationSources extends Model
         if (isset($map['AssociatedPropagationSources'])) {
             if (!empty($map['AssociatedPropagationSources'])) {
                 $model->associatedPropagationSources = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($map['AssociatedPropagationSources'] as $item1) {
                     $model->associatedPropagationSources[$n1++] = self::fromMap($item1);
                 }

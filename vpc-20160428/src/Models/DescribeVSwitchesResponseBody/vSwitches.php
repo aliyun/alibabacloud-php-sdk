@@ -31,7 +31,7 @@ class vSwitches extends Model
         if (null !== $this->vSwitch) {
             if (\is_array($this->vSwitch)) {
                 $res['VSwitch'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->vSwitch as $item1) {
                     $res['VSwitch'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class vSwitches extends Model
         if (isset($map['VSwitch'])) {
             if (!empty($map['VSwitch'])) {
                 $model->vSwitch = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['VSwitch'] as $item1) {
                     $model->vSwitch[$n1++] = vSwitch::fromMap($item1);
                 }

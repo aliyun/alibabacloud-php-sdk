@@ -13,38 +13,44 @@ class VRouter extends Model
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var routeTableIds
      */
     public $routeTableIds;
+
     /**
      * @var string
      */
     public $VRouterId;
+
     /**
      * @var string
      */
     public $VRouterName;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'creationTime'  => 'CreationTime',
-        'description'   => 'Description',
-        'regionId'      => 'RegionId',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'regionId' => 'RegionId',
         'routeTableIds' => 'RouteTableIds',
-        'VRouterId'     => 'VRouterId',
-        'VRouterName'   => 'VRouterName',
-        'vpcId'         => 'VpcId',
+        'VRouterId' => 'VRouterId',
+        'VRouterName' => 'VRouterName',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

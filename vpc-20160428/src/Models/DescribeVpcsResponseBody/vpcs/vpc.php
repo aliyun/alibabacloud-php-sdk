@@ -19,123 +19,146 @@ class vpc extends Model
      * @var string
      */
     public $cenStatus;
+
     /**
      * @var string
      */
     public $cidrBlock;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $dhcpOptionsSetId;
+
     /**
      * @var string
      */
     public $dhcpOptionsSetStatus;
+
     /**
      * @var string
      */
     public $dnsHostnameStatus;
+
     /**
      * @var bool
      */
     public $enabledIpv6;
+
     /**
      * @var string
      */
     public $ipv6CidrBlock;
+
     /**
      * @var ipv6CidrBlocks
      */
     public $ipv6CidrBlocks;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var natGatewayIds
      */
     public $natGatewayIds;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var routerTableIds
      */
     public $routerTableIds;
+
     /**
      * @var secondaryCidrBlocks
      */
     public $secondaryCidrBlocks;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var userCidrs
      */
     public $userCidrs;
+
     /**
      * @var string
      */
     public $VRouterId;
+
     /**
      * @var vSwitchIds
      */
     public $vSwitchIds;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $vpcName;
     protected $_name = [
-        'cenStatus'            => 'CenStatus',
-        'cidrBlock'            => 'CidrBlock',
-        'creationTime'         => 'CreationTime',
-        'description'          => 'Description',
-        'dhcpOptionsSetId'     => 'DhcpOptionsSetId',
+        'cenStatus' => 'CenStatus',
+        'cidrBlock' => 'CidrBlock',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'dhcpOptionsSetId' => 'DhcpOptionsSetId',
         'dhcpOptionsSetStatus' => 'DhcpOptionsSetStatus',
-        'dnsHostnameStatus'    => 'DnsHostnameStatus',
-        'enabledIpv6'          => 'EnabledIpv6',
-        'ipv6CidrBlock'        => 'Ipv6CidrBlock',
-        'ipv6CidrBlocks'       => 'Ipv6CidrBlocks',
-        'isDefault'            => 'IsDefault',
-        'natGatewayIds'        => 'NatGatewayIds',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'routerTableIds'       => 'RouterTableIds',
-        'secondaryCidrBlocks'  => 'SecondaryCidrBlocks',
-        'status'               => 'Status',
-        'tags'                 => 'Tags',
-        'userCidrs'            => 'UserCidrs',
-        'VRouterId'            => 'VRouterId',
-        'vSwitchIds'           => 'VSwitchIds',
-        'vpcId'                => 'VpcId',
-        'vpcName'              => 'VpcName',
+        'dnsHostnameStatus' => 'DnsHostnameStatus',
+        'enabledIpv6' => 'EnabledIpv6',
+        'ipv6CidrBlock' => 'Ipv6CidrBlock',
+        'ipv6CidrBlocks' => 'Ipv6CidrBlocks',
+        'isDefault' => 'IsDefault',
+        'natGatewayIds' => 'NatGatewayIds',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'routerTableIds' => 'RouterTableIds',
+        'secondaryCidrBlocks' => 'SecondaryCidrBlocks',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'userCidrs' => 'UserCidrs',
+        'VRouterId' => 'VRouterId',
+        'vSwitchIds' => 'VSwitchIds',
+        'vpcId' => 'VpcId',
+        'vpcName' => 'VpcName',
     ];
 
     public function validate()

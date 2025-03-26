@@ -13,63 +13,74 @@ class ipv6Gateway extends Model
      * @var string
      */
     public $businessStatus;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
     /**
      * @var string
      */
     public $ipv6GatewayId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'businessStatus'     => 'BusinessStatus',
-        'creationTime'       => 'CreationTime',
-        'description'        => 'Description',
-        'expiredTime'        => 'ExpiredTime',
+        'businessStatus' => 'BusinessStatus',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'expiredTime' => 'ExpiredTime',
         'instanceChargeType' => 'InstanceChargeType',
-        'ipv6GatewayId'      => 'Ipv6GatewayId',
-        'name'               => 'Name',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'status'             => 'Status',
-        'tags'               => 'Tags',
-        'vpcId'              => 'VpcId',
+        'ipv6GatewayId' => 'Ipv6GatewayId',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

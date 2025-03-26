@@ -12,63 +12,74 @@ class ModifyRouteEntryRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $newNextHopId;
+
     /**
      * @var string
      */
     public $newNextHopType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routeEntryId;
+
     /**
      * @var string
      */
     public $routeEntryName;
+
     /**
      * @var string
      */
     public $routeTableId;
     protected $_name = [
-        'description'          => 'Description',
+        'description' => 'Description',
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'newNextHopId'         => 'NewNextHopId',
-        'newNextHopType'       => 'NewNextHopType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'newNextHopId' => 'NewNextHopId',
+        'newNextHopType' => 'NewNextHopType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routeEntryId'         => 'RouteEntryId',
-        'routeEntryName'       => 'RouteEntryName',
-        'routeTableId'         => 'RouteTableId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeEntryId' => 'RouteEntryId',
+        'routeEntryName' => 'RouteEntryName',
+        'routeTableId' => 'RouteTableId',
     ];
 
     public function validate()

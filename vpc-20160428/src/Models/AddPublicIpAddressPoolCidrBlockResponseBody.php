@@ -12,6 +12,7 @@ class AddPublicIpAddressPoolCidrBlockResponseBody extends Model
      * @var string
      */
     public $cidrBlock;
+
     /**
      * @var string
      */

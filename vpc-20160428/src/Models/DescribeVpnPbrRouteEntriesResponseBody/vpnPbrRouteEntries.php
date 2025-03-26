@@ -31,7 +31,7 @@ class vpnPbrRouteEntries extends Model
         if (null !== $this->vpnPbrRouteEntry) {
             if (\is_array($this->vpnPbrRouteEntry)) {
                 $res['VpnPbrRouteEntry'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->vpnPbrRouteEntry as $item1) {
                     $res['VpnPbrRouteEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class vpnPbrRouteEntries extends Model
         if (isset($map['VpnPbrRouteEntry'])) {
             if (!empty($map['VpnPbrRouteEntry'])) {
                 $model->vpnPbrRouteEntry = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['VpnPbrRouteEntry'] as $item1) {
                     $model->vpnPbrRouteEntry[$n1++] = vpnPbrRouteEntry::fromMap($item1);
                 }

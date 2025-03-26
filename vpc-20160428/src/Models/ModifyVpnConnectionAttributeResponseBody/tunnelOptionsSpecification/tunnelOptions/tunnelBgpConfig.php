@@ -12,27 +12,31 @@ class tunnelBgpConfig extends Model
      * @var int
      */
     public $localAsn;
+
     /**
      * @var string
      */
     public $localBgpIp;
+
     /**
      * @var int
      */
     public $peerAsn;
+
     /**
      * @var string
      */
     public $peerBgpIp;
+
     /**
      * @var string
      */
     public $tunnelCidr;
     protected $_name = [
-        'localAsn'   => 'LocalAsn',
+        'localAsn' => 'LocalAsn',
         'localBgpIp' => 'LocalBgpIp',
-        'peerAsn'    => 'PeerAsn',
-        'peerBgpIp'  => 'PeerBgpIp',
+        'peerAsn' => 'PeerAsn',
+        'peerBgpIp' => 'PeerBgpIp',
         'tunnelCidr' => 'TunnelCidr',
     ];
 

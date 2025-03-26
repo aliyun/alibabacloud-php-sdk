@@ -12,43 +12,50 @@ class ModifyGlobalAccelerationInstanceAttributesRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $globalAccelerationInstanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'description'                  => 'Description',
+        'description' => 'Description',
         'globalAccelerationInstanceId' => 'GlobalAccelerationInstanceId',
-        'name'                         => 'Name',
-        'ownerAccount'                 => 'OwnerAccount',
-        'ownerId'                      => 'OwnerId',
-        'regionId'                     => 'RegionId',
-        'resourceOwnerAccount'         => 'ResourceOwnerAccount',
-        'resourceOwnerId'              => 'ResourceOwnerId',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

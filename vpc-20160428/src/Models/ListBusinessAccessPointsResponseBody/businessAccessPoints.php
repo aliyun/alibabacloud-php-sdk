@@ -12,38 +12,44 @@ class businessAccessPoints extends Model
      * @var string
      */
     public $accessPointId;
+
     /**
      * @var string
      */
     public $accessPointName;
+
     /**
      * @var string
      */
     public $cloudBoxInstanceIds;
+
     /**
      * @var float
      */
     public $latitude;
+
     /**
      * @var float
      */
     public $longitude;
+
     /**
      * @var string
      */
     public $supportLineOperator;
+
     /**
      * @var string
      */
     public $supportPortTypes;
     protected $_name = [
-        'accessPointId'       => 'AccessPointId',
-        'accessPointName'     => 'AccessPointName',
+        'accessPointId' => 'AccessPointId',
+        'accessPointName' => 'AccessPointName',
         'cloudBoxInstanceIds' => 'CloudBoxInstanceIds',
-        'latitude'            => 'Latitude',
-        'longitude'           => 'Longitude',
+        'latitude' => 'Latitude',
+        'longitude' => 'Longitude',
         'supportLineOperator' => 'SupportLineOperator',
-        'supportPortTypes'    => 'SupportPortTypes',
+        'supportPortTypes' => 'SupportPortTypes',
     ];
 
     public function validate()

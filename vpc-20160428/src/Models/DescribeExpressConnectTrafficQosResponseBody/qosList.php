@@ -15,48 +15,56 @@ class qosList extends Model
      * @var associatedInstanceList[]
      */
     public $associatedInstanceList;
+
     /**
      * @var int
      */
     public $progressing;
+
     /**
      * @var string
      */
     public $qosDescription;
+
     /**
      * @var string
      */
     public $qosId;
+
     /**
      * @var string
      */
     public $qosName;
+
     /**
      * @var queueList[]
      */
     public $queueList;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
         'associatedInstanceList' => 'AssociatedInstanceList',
-        'progressing'            => 'Progressing',
-        'qosDescription'         => 'QosDescription',
-        'qosId'                  => 'QosId',
-        'qosName'                => 'QosName',
-        'queueList'              => 'QueueList',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'status'                 => 'Status',
-        'tags'                   => 'Tags',
+        'progressing' => 'Progressing',
+        'qosDescription' => 'QosDescription',
+        'qosId' => 'QosId',
+        'qosName' => 'QosName',
+        'queueList' => 'QueueList',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -79,7 +87,7 @@ class qosList extends Model
         if (null !== $this->associatedInstanceList) {
             if (\is_array($this->associatedInstanceList)) {
                 $res['AssociatedInstanceList'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->associatedInstanceList as $item1) {
                     $res['AssociatedInstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -105,7 +113,7 @@ class qosList extends Model
         if (null !== $this->queueList) {
             if (\is_array($this->queueList)) {
                 $res['QueueList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->queueList as $item1) {
                     $res['QueueList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -123,7 +131,7 @@ class qosList extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -144,7 +152,7 @@ class qosList extends Model
         if (isset($map['AssociatedInstanceList'])) {
             if (!empty($map['AssociatedInstanceList'])) {
                 $model->associatedInstanceList = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['AssociatedInstanceList'] as $item1) {
                     $model->associatedInstanceList[$n1++] = associatedInstanceList::fromMap($item1);
                 }
@@ -170,7 +178,7 @@ class qosList extends Model
         if (isset($map['QueueList'])) {
             if (!empty($map['QueueList'])) {
                 $model->queueList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['QueueList'] as $item1) {
                     $model->queueList[$n1++] = queueList::fromMap($item1);
                 }
@@ -188,7 +196,7 @@ class qosList extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

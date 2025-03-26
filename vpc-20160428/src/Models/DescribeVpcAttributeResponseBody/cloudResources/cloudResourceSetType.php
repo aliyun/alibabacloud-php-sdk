@@ -12,13 +12,14 @@ class cloudResourceSetType extends Model
      * @var int
      */
     public $resourceCount;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
         'resourceCount' => 'ResourceCount',
-        'resourceType'  => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class CreateCommonBandwidthPackageResponseBody extends Model
      * @var string
      */
     public $bandwidthPackageId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
         'bandwidthPackageId' => 'BandwidthPackageId',
-        'requestId'          => 'RequestId',
-        'resourceGroupId'    => 'ResourceGroupId',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

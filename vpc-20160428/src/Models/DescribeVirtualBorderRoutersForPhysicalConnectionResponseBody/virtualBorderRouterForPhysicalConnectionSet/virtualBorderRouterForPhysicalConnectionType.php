@@ -12,118 +12,140 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
      * @var string
      */
     public $activationTime;
+
     /**
      * @var string
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $bandwidthStatus;
+
     /**
      * @var string
      */
     public $circuitCode;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $eccId;
+
     /**
      * @var bool
      */
     public $enableIpv6;
+
     /**
      * @var string
      */
     public $localGatewayIp;
+
     /**
      * @var string
      */
     public $localIpv6GatewayIp;
+
     /**
      * @var string
      */
     public $PConnVbrBussinessStatus;
+
     /**
      * @var string
      */
     public $PConnVbrChargeType;
+
     /**
      * @var string
      */
     public $PConnVbrExpireTime;
+
     /**
      * @var string
      */
     public $peerGatewayIp;
+
     /**
      * @var string
      */
     public $peerIpv6GatewayIp;
+
     /**
      * @var string
      */
     public $peeringIpv6SubnetMask;
+
     /**
      * @var string
      */
     public $peeringSubnetMask;
+
     /**
      * @var string
      */
     public $recoveryTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $terminationTime;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $vbrId;
+
     /**
      * @var int
      */
     public $vbrOwnerUid;
+
     /**
      * @var int
      */
     public $vlanId;
     protected $_name = [
-        'activationTime'          => 'ActivationTime',
-        'bandwidth'               => 'Bandwidth',
-        'bandwidthStatus'         => 'BandwidthStatus',
-        'circuitCode'             => 'CircuitCode',
-        'creationTime'            => 'CreationTime',
-        'eccId'                   => 'EccId',
-        'enableIpv6'              => 'EnableIpv6',
-        'localGatewayIp'          => 'LocalGatewayIp',
-        'localIpv6GatewayIp'      => 'LocalIpv6GatewayIp',
+        'activationTime' => 'ActivationTime',
+        'bandwidth' => 'Bandwidth',
+        'bandwidthStatus' => 'BandwidthStatus',
+        'circuitCode' => 'CircuitCode',
+        'creationTime' => 'CreationTime',
+        'eccId' => 'EccId',
+        'enableIpv6' => 'EnableIpv6',
+        'localGatewayIp' => 'LocalGatewayIp',
+        'localIpv6GatewayIp' => 'LocalIpv6GatewayIp',
         'PConnVbrBussinessStatus' => 'PConnVbrBussinessStatus',
-        'PConnVbrChargeType'      => 'PConnVbrChargeType',
-        'PConnVbrExpireTime'      => 'PConnVbrExpireTime',
-        'peerGatewayIp'           => 'PeerGatewayIp',
-        'peerIpv6GatewayIp'       => 'PeerIpv6GatewayIp',
-        'peeringIpv6SubnetMask'   => 'PeeringIpv6SubnetMask',
-        'peeringSubnetMask'       => 'PeeringSubnetMask',
-        'recoveryTime'            => 'RecoveryTime',
-        'status'                  => 'Status',
-        'terminationTime'         => 'TerminationTime',
-        'type'                    => 'Type',
-        'vbrId'                   => 'VbrId',
-        'vbrOwnerUid'             => 'VbrOwnerUid',
-        'vlanId'                  => 'VlanId',
+        'PConnVbrChargeType' => 'PConnVbrChargeType',
+        'PConnVbrExpireTime' => 'PConnVbrExpireTime',
+        'peerGatewayIp' => 'PeerGatewayIp',
+        'peerIpv6GatewayIp' => 'PeerIpv6GatewayIp',
+        'peeringIpv6SubnetMask' => 'PeeringIpv6SubnetMask',
+        'peeringSubnetMask' => 'PeeringSubnetMask',
+        'recoveryTime' => 'RecoveryTime',
+        'status' => 'Status',
+        'terminationTime' => 'TerminationTime',
+        'type' => 'Type',
+        'vbrId' => 'VbrId',
+        'vbrOwnerUid' => 'VbrOwnerUid',
+        'vlanId' => 'VlanId',
     ];
 
     public function validate()

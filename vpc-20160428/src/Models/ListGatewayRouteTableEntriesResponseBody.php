@@ -13,23 +13,26 @@ class ListGatewayRouteTableEntriesResponseBody extends Model
      * @var gatewayRouteEntryModels[]
      */
     public $gatewayRouteEntryModels;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
         'gatewayRouteEntryModels' => 'GatewayRouteEntryModels',
-        'nextToken'               => 'NextToken',
-        'requestId'               => 'RequestId',
-        'totalCount'              => 'TotalCount',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class ListGatewayRouteTableEntriesResponseBody extends Model
         if (null !== $this->gatewayRouteEntryModels) {
             if (\is_array($this->gatewayRouteEntryModels)) {
                 $res['GatewayRouteEntryModels'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->gatewayRouteEntryModels as $item1) {
                     $res['GatewayRouteEntryModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class ListGatewayRouteTableEntriesResponseBody extends Model
         if (isset($map['GatewayRouteEntryModels'])) {
             if (!empty($map['GatewayRouteEntryModels'])) {
                 $model->gatewayRouteEntryModels = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['GatewayRouteEntryModels'] as $item1) {
                     $model->gatewayRouteEntryModels[$n1++] = gatewayRouteEntryModels::fromMap($item1);
                 }

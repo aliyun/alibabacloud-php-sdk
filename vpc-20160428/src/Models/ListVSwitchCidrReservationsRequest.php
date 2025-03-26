@@ -13,63 +13,74 @@ class ListVSwitchCidrReservationsRequest extends Model
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string[]
      */
     public $vSwitchCidrReservationIds;
+
     /**
      * @var string
      */
     public $vSwitchCidrReservationType;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'ipVersion'                  => 'IpVersion',
-        'maxResults'                 => 'MaxResults',
-        'nextToken'                  => 'NextToken',
-        'ownerAccount'               => 'OwnerAccount',
-        'ownerId'                    => 'OwnerId',
-        'regionId'                   => 'RegionId',
-        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
-        'resourceOwnerId'            => 'ResourceOwnerId',
-        'tags'                       => 'Tags',
-        'vSwitchCidrReservationIds'  => 'VSwitchCidrReservationIds',
+        'ipVersion' => 'IpVersion',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tags' => 'Tags',
+        'vSwitchCidrReservationIds' => 'VSwitchCidrReservationIds',
         'vSwitchCidrReservationType' => 'VSwitchCidrReservationType',
-        'vSwitchId'                  => 'VSwitchId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()
@@ -121,7 +132,7 @@ class ListVSwitchCidrReservationsRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -131,7 +142,7 @@ class ListVSwitchCidrReservationsRequest extends Model
         if (null !== $this->vSwitchCidrReservationIds) {
             if (\is_array($this->vSwitchCidrReservationIds)) {
                 $res['VSwitchCidrReservationIds'] = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($this->vSwitchCidrReservationIds as $item1) {
                     $res['VSwitchCidrReservationIds'][$n1++] = $item1;
                 }
@@ -192,7 +203,7 @@ class ListVSwitchCidrReservationsRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }
@@ -202,7 +213,7 @@ class ListVSwitchCidrReservationsRequest extends Model
         if (isset($map['VSwitchCidrReservationIds'])) {
             if (!empty($map['VSwitchCidrReservationIds'])) {
                 $model->vSwitchCidrReservationIds = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($map['VSwitchCidrReservationIds'] as $item1) {
                     $model->vSwitchCidrReservationIds[$n1++] = $item1;
                 }

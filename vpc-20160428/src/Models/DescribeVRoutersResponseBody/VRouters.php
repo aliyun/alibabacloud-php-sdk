@@ -31,7 +31,7 @@ class VRouters extends Model
         if (null !== $this->VRouter) {
             if (\is_array($this->VRouter)) {
                 $res['VRouter'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->VRouter as $item1) {
                     $res['VRouter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class VRouters extends Model
         if (isset($map['VRouter'])) {
             if (!empty($map['VRouter'])) {
                 $model->VRouter = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['VRouter'] as $item1) {
                     $model->VRouter[$n1++] = VRouter::fromMap($item1);
                 }

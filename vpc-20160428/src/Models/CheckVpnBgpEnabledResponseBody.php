@@ -12,13 +12,14 @@ class CheckVpnBgpEnabledResponseBody extends Model
      * @var bool
      */
     public $bgpEnabled;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'bgpEnabled' => 'BgpEnabled',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class routePublishTargets extends Model
      * @var string
      */
     public $publishStatus;
+
     /**
      * @var string
      */
     public $publishTargetInstanceId;
+
     /**
      * @var string
      */
     public $publishTargetType;
     protected $_name = [
-        'publishStatus'           => 'PublishStatus',
+        'publishStatus' => 'PublishStatus',
         'publishTargetInstanceId' => 'PublishTargetInstanceId',
-        'publishTargetType'       => 'PublishTargetType',
+        'publishTargetType' => 'PublishTargetType',
     ];
 
     public function validate()

@@ -13,33 +13,38 @@ class DescribeFailoverTestJobsResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var failoverTestJobList[]
      */
     public $failoverTestJobList;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'count'               => 'Count',
+        'count' => 'Count',
         'failoverTestJobList' => 'FailoverTestJobList',
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'requestId'           => 'RequestId',
-        'totalCount'          => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -60,7 +65,7 @@ class DescribeFailoverTestJobsResponseBody extends Model
         if (null !== $this->failoverTestJobList) {
             if (\is_array($this->failoverTestJobList)) {
                 $res['FailoverTestJobList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->failoverTestJobList as $item1) {
                     $res['FailoverTestJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -101,7 +106,7 @@ class DescribeFailoverTestJobsResponseBody extends Model
         if (isset($map['FailoverTestJobList'])) {
             if (!empty($map['FailoverTestJobList'])) {
                 $model->failoverTestJobList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['FailoverTestJobList'] as $item1) {
                     $model->failoverTestJobList[$n1++] = failoverTestJobList::fromMap($item1);
                 }

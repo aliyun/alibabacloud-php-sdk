@@ -12,68 +12,80 @@ class AssociateEipAddressRequest extends Model
      * @var string
      */
     public $allocationId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceRegionId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'allocationId'         => 'AllocationId',
-        'clientToken'          => 'ClientToken',
-        'instanceId'           => 'InstanceId',
-        'instanceRegionId'     => 'InstanceRegionId',
-        'instanceType'         => 'InstanceType',
-        'mode'                 => 'Mode',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'privateIpAddress'     => 'PrivateIpAddress',
-        'regionId'             => 'RegionId',
+        'allocationId' => 'AllocationId',
+        'clientToken' => 'ClientToken',
+        'instanceId' => 'InstanceId',
+        'instanceRegionId' => 'InstanceRegionId',
+        'instanceType' => 'InstanceType',
+        'mode' => 'Mode',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'vpcId'                => 'VpcId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

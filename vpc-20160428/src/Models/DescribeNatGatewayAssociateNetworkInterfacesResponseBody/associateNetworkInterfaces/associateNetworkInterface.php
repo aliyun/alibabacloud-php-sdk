@@ -13,33 +13,38 @@ class associateNetworkInterface extends Model
      * @var IPv4Sets
      */
     public $IPv4Sets;
+
     /**
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $tunnelIndex;
     protected $_name = [
-        'IPv4Sets'           => 'IPv4Sets',
+        'IPv4Sets' => 'IPv4Sets',
         'networkInterfaceId' => 'NetworkInterfaceId',
-        'resourceId'         => 'ResourceId',
-        'resourceOwnerId'    => 'ResourceOwnerId',
-        'resourceType'       => 'ResourceType',
-        'tunnelIndex'        => 'TunnelIndex',
+        'resourceId' => 'ResourceId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType' => 'ResourceType',
+        'tunnelIndex' => 'TunnelIndex',
     ];
 
     public function validate()

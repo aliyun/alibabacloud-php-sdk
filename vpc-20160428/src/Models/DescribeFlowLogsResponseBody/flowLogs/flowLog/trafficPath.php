@@ -30,7 +30,7 @@ class trafficPath extends Model
         if (null !== $this->trafficPathList) {
             if (\is_array($this->trafficPathList)) {
                 $res['TrafficPathList'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->trafficPathList as $item1) {
                     $res['TrafficPathList'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class trafficPath extends Model
         if (isset($map['TrafficPathList'])) {
             if (!empty($map['TrafficPathList'])) {
                 $model->trafficPathList = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['TrafficPathList'] as $item1) {
                     $model->trafficPathList[$n1++] = $item1;
                 }

@@ -12,38 +12,44 @@ class egressRules extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $destinationPortRange;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $sourceCidrBlock;
+
     /**
      * @var string
      */
     public $sourcePortRange;
     protected $_name = [
-        'action'               => 'Action',
+        'action' => 'Action',
         'destinationCidrBlock' => 'DestinationCidrBlock',
         'destinationPortRange' => 'DestinationPortRange',
-        'priority'             => 'Priority',
-        'protocol'             => 'Protocol',
-        'sourceCidrBlock'      => 'SourceCidrBlock',
-        'sourcePortRange'      => 'SourcePortRange',
+        'priority' => 'Priority',
+        'protocol' => 'Protocol',
+        'sourceCidrBlock' => 'SourceCidrBlock',
+        'sourcePortRange' => 'SourcePortRange',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class DescribeHighDefinitionMonitorLogAttributeResponseBody extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $logProject;
+
     /**
      * @var string
      */
     public $logStore;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'logProject'   => 'LogProject',
-        'logStore'     => 'LogStore',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'logProject' => 'LogProject',
+        'logStore' => 'LogStore',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

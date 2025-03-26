@@ -12,83 +12,98 @@ class CreateIPv6TranslatorEntryRequest extends Model
      * @var string
      */
     public $aclId;
+
     /**
      * @var string
      */
     public $aclStatus;
+
     /**
      * @var string
      */
     public $aclType;
+
     /**
      * @var int
      */
     public $allocateIpv6Port;
+
     /**
      * @var string
      */
     public $backendIpv4Addr;
+
     /**
      * @var int
      */
     public $backendIpv4Port;
+
     /**
      * @var int
      */
     public $entryBandwidth;
+
     /**
      * @var string
      */
     public $entryDescription;
+
     /**
      * @var string
      */
     public $entryName;
+
     /**
      * @var string
      */
     public $ipv6TranslatorId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transProtocol;
     protected $_name = [
-        'aclId'                => 'AclId',
-        'aclStatus'            => 'AclStatus',
-        'aclType'              => 'AclType',
-        'allocateIpv6Port'     => 'AllocateIpv6Port',
-        'backendIpv4Addr'      => 'BackendIpv4Addr',
-        'backendIpv4Port'      => 'BackendIpv4Port',
-        'entryBandwidth'       => 'EntryBandwidth',
-        'entryDescription'     => 'EntryDescription',
-        'entryName'            => 'EntryName',
-        'ipv6TranslatorId'     => 'Ipv6TranslatorId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'aclId' => 'AclId',
+        'aclStatus' => 'AclStatus',
+        'aclType' => 'AclType',
+        'allocateIpv6Port' => 'AllocateIpv6Port',
+        'backendIpv4Addr' => 'BackendIpv4Addr',
+        'backendIpv4Port' => 'BackendIpv4Port',
+        'entryBandwidth' => 'EntryBandwidth',
+        'entryDescription' => 'EntryDescription',
+        'entryName' => 'EntryName',
+        'ipv6TranslatorId' => 'Ipv6TranslatorId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'transProtocol'        => 'TransProtocol',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'transProtocol' => 'TransProtocol',
     ];
 
     public function validate()

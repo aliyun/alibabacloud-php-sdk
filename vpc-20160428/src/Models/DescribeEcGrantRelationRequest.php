@@ -12,28 +12,32 @@ class DescribeEcGrantRelationRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $vbrRegionNo;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'vbrRegionNo'  => 'VbrRegionNo',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'vbrRegionNo' => 'VbrRegionNo',
     ];
 
     public function validate()

@@ -12,58 +12,68 @@ class CreateVbrHaRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $peerVbrId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $vbrId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'description'          => 'Description',
-        'dryRun'               => 'DryRun',
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'peerVbrId'            => 'PeerVbrId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'dryRun' => 'DryRun',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'peerVbrId' => 'PeerVbrId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'vbrId'                => 'VbrId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vbrId' => 'VbrId',
     ];
 
     public function validate()

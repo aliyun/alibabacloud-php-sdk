@@ -12,73 +12,86 @@ class CreateSnatEntryRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var int
      */
     public $eipAffinity;
+
     /**
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $snatEntryName;
+
     /**
      * @var string
      */
     public $snatIp;
+
     /**
      * @var string
      */
     public $snatTableId;
+
     /**
      * @var string
      */
     public $sourceCIDR;
+
     /**
      * @var string
      */
     public $sourceVSwitchId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dryRun'               => 'DryRun',
-        'eipAffinity'          => 'EipAffinity',
-        'networkInterfaceId'   => 'NetworkInterfaceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'eipAffinity' => 'EipAffinity',
+        'networkInterfaceId' => 'NetworkInterfaceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'snatEntryName'        => 'SnatEntryName',
-        'snatIp'               => 'SnatIp',
-        'snatTableId'          => 'SnatTableId',
-        'sourceCIDR'           => 'SourceCIDR',
-        'sourceVSwitchId'      => 'SourceVSwitchId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'snatEntryName' => 'SnatEntryName',
+        'snatIp' => 'SnatIp',
+        'snatTableId' => 'SnatTableId',
+        'sourceCIDR' => 'SourceCIDR',
+        'sourceVSwitchId' => 'SourceVSwitchId',
     ];
 
     public function validate()

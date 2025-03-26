@@ -12,73 +12,86 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $gatewayRouteTableId;
+
     /**
      * @var string
      */
     public $IPv4GatewayRouteTableId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nextHopId;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'             => 'ClientToken',
-        'description'             => 'Description',
-        'destinationCidrBlock'    => 'DestinationCidrBlock',
-        'dryRun'                  => 'DryRun',
-        'gatewayRouteTableId'     => 'GatewayRouteTableId',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
+        'dryRun' => 'DryRun',
+        'gatewayRouteTableId' => 'GatewayRouteTableId',
         'IPv4GatewayRouteTableId' => 'IPv4GatewayRouteTableId',
-        'name'                    => 'Name',
-        'nextHopId'               => 'NextHopId',
-        'nextHopType'             => 'NextHopType',
-        'ownerAccount'            => 'OwnerAccount',
-        'ownerId'                 => 'OwnerId',
-        'regionId'                => 'RegionId',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
+        'name' => 'Name',
+        'nextHopId' => 'NextHopId',
+        'nextHopType' => 'NextHopType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

@@ -12,37 +12,43 @@ class routeEntries extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $dstCidrBlock;
+
     /**
      * @var int
      */
     public $ipVersion;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nextHop;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var string
      */
     public $routeTableId;
     protected $_name = [
-        'description'  => 'Description',
+        'description' => 'Description',
         'dstCidrBlock' => 'DstCidrBlock',
-        'ipVersion'    => 'IpVersion',
-        'name'         => 'Name',
-        'nextHop'      => 'NextHop',
-        'nextHopType'  => 'NextHopType',
+        'ipVersion' => 'IpVersion',
+        'name' => 'Name',
+        'nextHop' => 'NextHop',
+        'nextHopType' => 'NextHopType',
         'routeTableId' => 'RouteTableId',
     ];
 

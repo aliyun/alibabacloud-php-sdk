@@ -15,73 +15,86 @@ class tunnelOptions extends Model
      * @var string
      */
     public $customerGatewayId;
+
     /**
      * @var string
      */
     public $enableDpd;
+
     /**
      * @var string
      */
     public $enableNatTraversal;
+
     /**
      * @var string
      */
     public $internetIp;
+
     /**
      * @var string
      */
     public $remoteCaCertificate;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tunnelBgpConfig
      */
     public $tunnelBgpConfig;
+
     /**
      * @var string
      */
     public $tunnelId;
+
     /**
      * @var tunnelIkeConfig
      */
     public $tunnelIkeConfig;
+
     /**
      * @var int
      */
     public $tunnelIndex;
+
     /**
      * @var tunnelIpsecConfig
      */
     public $tunnelIpsecConfig;
+
     /**
      * @var string
      */
     public $zoneNo;
     protected $_name = [
-        'customerGatewayId'   => 'CustomerGatewayId',
-        'enableDpd'           => 'EnableDpd',
-        'enableNatTraversal'  => 'EnableNatTraversal',
-        'internetIp'          => 'InternetIp',
+        'customerGatewayId' => 'CustomerGatewayId',
+        'enableDpd' => 'EnableDpd',
+        'enableNatTraversal' => 'EnableNatTraversal',
+        'internetIp' => 'InternetIp',
         'remoteCaCertificate' => 'RemoteCaCertificate',
-        'role'                => 'Role',
-        'state'               => 'State',
-        'status'              => 'Status',
-        'tunnelBgpConfig'     => 'TunnelBgpConfig',
-        'tunnelId'            => 'TunnelId',
-        'tunnelIkeConfig'     => 'TunnelIkeConfig',
-        'tunnelIndex'         => 'TunnelIndex',
-        'tunnelIpsecConfig'   => 'TunnelIpsecConfig',
-        'zoneNo'              => 'ZoneNo',
+        'role' => 'Role',
+        'state' => 'State',
+        'status' => 'Status',
+        'tunnelBgpConfig' => 'TunnelBgpConfig',
+        'tunnelId' => 'TunnelId',
+        'tunnelIkeConfig' => 'TunnelIkeConfig',
+        'tunnelIndex' => 'TunnelIndex',
+        'tunnelIpsecConfig' => 'TunnelIpsecConfig',
+        'zoneNo' => 'ZoneNo',
     ];
 
     public function validate()

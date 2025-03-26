@@ -15,63 +15,74 @@ class tunnelOptions extends Model
      * @var string
      */
     public $customerGatewayId;
+
     /**
      * @var bool
      */
     public $enableDpd;
+
     /**
      * @var bool
      */
     public $enableNatTraversal;
+
     /**
      * @var string
      */
     public $internetIp;
+
     /**
      * @var string
      */
     public $remoteCaCertificate;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var tunnelBgpConfig
      */
     public $tunnelBgpConfig;
+
     /**
      * @var string
      */
     public $tunnelId;
+
     /**
      * @var tunnelIkeConfig
      */
     public $tunnelIkeConfig;
+
     /**
      * @var tunnelIpsecConfig
      */
     public $tunnelIpsecConfig;
+
     /**
      * @var string
      */
     public $zoneNo;
     protected $_name = [
-        'customerGatewayId'   => 'CustomerGatewayId',
-        'enableDpd'           => 'EnableDpd',
-        'enableNatTraversal'  => 'EnableNatTraversal',
-        'internetIp'          => 'InternetIp',
+        'customerGatewayId' => 'CustomerGatewayId',
+        'enableDpd' => 'EnableDpd',
+        'enableNatTraversal' => 'EnableNatTraversal',
+        'internetIp' => 'InternetIp',
         'remoteCaCertificate' => 'RemoteCaCertificate',
-        'role'                => 'Role',
-        'state'               => 'State',
-        'tunnelBgpConfig'     => 'TunnelBgpConfig',
-        'tunnelId'            => 'TunnelId',
-        'tunnelIkeConfig'     => 'TunnelIkeConfig',
-        'tunnelIpsecConfig'   => 'TunnelIpsecConfig',
-        'zoneNo'              => 'ZoneNo',
+        'role' => 'Role',
+        'state' => 'State',
+        'tunnelBgpConfig' => 'TunnelBgpConfig',
+        'tunnelId' => 'TunnelId',
+        'tunnelIkeConfig' => 'TunnelIkeConfig',
+        'tunnelIpsecConfig' => 'TunnelIpsecConfig',
+        'zoneNo' => 'ZoneNo',
     ];
 
     public function validate()

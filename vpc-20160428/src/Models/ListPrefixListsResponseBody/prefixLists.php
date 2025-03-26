@@ -13,78 +13,92 @@ class prefixLists extends Model
      * @var string[]
      */
     public $cidrBlocks;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var int
      */
     public $maxEntries;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $prefixListDescription;
+
     /**
      * @var string
      */
     public $prefixListId;
+
     /**
      * @var string
      */
     public $prefixListName;
+
     /**
      * @var string
      */
     public $prefixListStatus;
+
     /**
      * @var string
      */
     public $prefixListType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $shareType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'cidrBlocks'            => 'CidrBlocks',
-        'creationTime'          => 'CreationTime',
-        'ipVersion'             => 'IpVersion',
-        'maxEntries'            => 'MaxEntries',
-        'ownerId'               => 'OwnerId',
+        'cidrBlocks' => 'CidrBlocks',
+        'creationTime' => 'CreationTime',
+        'ipVersion' => 'IpVersion',
+        'maxEntries' => 'MaxEntries',
+        'ownerId' => 'OwnerId',
         'prefixListDescription' => 'PrefixListDescription',
-        'prefixListId'          => 'PrefixListId',
-        'prefixListName'        => 'PrefixListName',
-        'prefixListStatus'      => 'PrefixListStatus',
-        'prefixListType'        => 'PrefixListType',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'shareType'             => 'ShareType',
-        'status'                => 'Status',
-        'tags'                  => 'Tags',
+        'prefixListId' => 'PrefixListId',
+        'prefixListName' => 'PrefixListName',
+        'prefixListStatus' => 'PrefixListStatus',
+        'prefixListType' => 'PrefixListType',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'shareType' => 'ShareType',
+        'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -104,7 +118,7 @@ class prefixLists extends Model
         if (null !== $this->cidrBlocks) {
             if (\is_array($this->cidrBlocks)) {
                 $res['CidrBlocks'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->cidrBlocks as $item1) {
                     $res['CidrBlocks'][$n1++] = $item1;
                 }
@@ -166,7 +180,7 @@ class prefixLists extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -187,7 +201,7 @@ class prefixLists extends Model
         if (isset($map['CidrBlocks'])) {
             if (!empty($map['CidrBlocks'])) {
                 $model->cidrBlocks = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['CidrBlocks'] as $item1) {
                     $model->cidrBlocks[$n1++] = $item1;
                 }
@@ -249,7 +263,7 @@ class prefixLists extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

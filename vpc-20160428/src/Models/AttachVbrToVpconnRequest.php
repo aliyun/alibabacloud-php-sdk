@@ -12,27 +12,31 @@ class AttachVbrToVpconnRequest extends Model
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $token;
+
     /**
      * @var string
      */
     public $vbrId;
+
     /**
      * @var string
      */
     public $vpconnId;
     protected $_name = [
-        'dryRun'   => 'DryRun',
+        'dryRun' => 'DryRun',
         'regionId' => 'RegionId',
-        'token'    => 'Token',
-        'vbrId'    => 'VbrId',
+        'token' => 'Token',
+        'vbrId' => 'VbrId',
         'vpconnId' => 'VpconnId',
     ];
 

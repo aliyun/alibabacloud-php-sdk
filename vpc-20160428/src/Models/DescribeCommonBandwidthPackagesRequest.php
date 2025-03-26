@@ -13,73 +13,86 @@ class DescribeCommonBandwidthPackagesRequest extends Model
      * @var string
      */
     public $bandwidthPackageId;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var bool
      */
     public $includeReservationData;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var bool
      */
     public $securityProtectionEnabled;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'bandwidthPackageId'        => 'BandwidthPackageId',
-        'dryRun'                    => 'DryRun',
-        'includeReservationData'    => 'IncludeReservationData',
-        'name'                      => 'Name',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'pageNumber'                => 'PageNumber',
-        'pageSize'                  => 'PageSize',
-        'regionId'                  => 'RegionId',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
+        'bandwidthPackageId' => 'BandwidthPackageId',
+        'dryRun' => 'DryRun',
+        'includeReservationData' => 'IncludeReservationData',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'securityProtectionEnabled' => 'SecurityProtectionEnabled',
-        'tag'                       => 'Tag',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -148,7 +161,7 @@ class DescribeCommonBandwidthPackagesRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -221,7 +234,7 @@ class DescribeCommonBandwidthPackagesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

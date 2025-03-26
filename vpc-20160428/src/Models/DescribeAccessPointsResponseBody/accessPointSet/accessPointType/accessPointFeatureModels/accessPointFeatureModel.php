@@ -12,12 +12,13 @@ class accessPointFeatureModel extends Model
      * @var string
      */
     public $featureKey;
+
     /**
      * @var string
      */
     public $featureValue;
     protected $_name = [
-        'featureKey'   => 'FeatureKey',
+        'featureKey' => 'FeatureKey',
         'featureValue' => 'FeatureValue',
     ];
 

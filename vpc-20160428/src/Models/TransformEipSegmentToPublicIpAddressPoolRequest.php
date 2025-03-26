@@ -12,32 +12,37 @@ class TransformEipSegmentToPublicIpAddressPoolRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'clientToken'     => 'ClientToken',
-        'description'     => 'Description',
-        'instanceId'      => 'InstanceId',
-        'name'            => 'Name',
-        'regionId'        => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

@@ -12,13 +12,14 @@ class associateVpcs extends Model
      * @var string
      */
     public $associateStatus;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'associateStatus' => 'AssociateStatus',
-        'vpcId'           => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

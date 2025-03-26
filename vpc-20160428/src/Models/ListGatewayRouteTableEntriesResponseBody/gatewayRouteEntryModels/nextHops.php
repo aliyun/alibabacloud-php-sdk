@@ -12,23 +12,26 @@ class nextHops extends Model
      * @var string
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $nextHopId;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var string
      */
     public $weight;
     protected $_name = [
-        'enabled'     => 'Enabled',
-        'nextHopId'   => 'NextHopId',
+        'enabled' => 'Enabled',
+        'nextHopId' => 'NextHopId',
         'nextHopType' => 'NextHopType',
-        'weight'      => 'Weight',
+        'weight' => 'Weight',
     ];
 
     public function validate()

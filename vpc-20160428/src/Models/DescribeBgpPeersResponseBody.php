@@ -13,27 +13,31 @@ class DescribeBgpPeersResponseBody extends Model
      * @var bgpPeers
      */
     public $bgpPeers;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'bgpPeers'   => 'BgpPeers',
+        'bgpPeers' => 'BgpPeers',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 

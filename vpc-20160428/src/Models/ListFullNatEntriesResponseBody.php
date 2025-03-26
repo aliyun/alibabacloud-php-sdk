@@ -13,26 +13,32 @@ class ListFullNatEntriesResponseBody extends Model
      * @var fullNatEntries[]
      */
     public $fullNatEntries;
+
     /**
      * @var string
      */
     public $fullNatTableId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
@@ -40,11 +46,11 @@ class ListFullNatEntriesResponseBody extends Model
     protected $_name = [
         'fullNatEntries' => 'FullNatEntries',
         'fullNatTableId' => 'FullNatTableId',
-        'maxResults'     => 'MaxResults',
-        'natGatewayId'   => 'NatGatewayId',
-        'nextToken'      => 'NextToken',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'natGatewayId' => 'NatGatewayId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -61,7 +67,7 @@ class ListFullNatEntriesResponseBody extends Model
         if (null !== $this->fullNatEntries) {
             if (\is_array($this->fullNatEntries)) {
                 $res['FullNatEntries'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->fullNatEntries as $item1) {
                     $res['FullNatEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -106,7 +112,7 @@ class ListFullNatEntriesResponseBody extends Model
         if (isset($map['FullNatEntries'])) {
             if (!empty($map['FullNatEntries'])) {
                 $model->fullNatEntries = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['FullNatEntries'] as $item1) {
                     $model->fullNatEntries[$n1++] = fullNatEntries::fromMap($item1);
                 }

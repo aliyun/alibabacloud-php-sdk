@@ -13,42 +13,49 @@ class DescribeFailoverTestJobsRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var filter[]
      */
     public $filter;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'filter'               => 'Filter',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'filter' => 'Filter',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
     ];
 
@@ -70,7 +77,7 @@ class DescribeFailoverTestJobsRequest extends Model
         if (null !== $this->filter) {
             if (\is_array($this->filter)) {
                 $res['Filter'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->filter as $item1) {
                     $res['Filter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -119,7 +126,7 @@ class DescribeFailoverTestJobsRequest extends Model
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Filter'] as $item1) {
                     $model->filter[$n1++] = filter::fromMap($item1);
                 }

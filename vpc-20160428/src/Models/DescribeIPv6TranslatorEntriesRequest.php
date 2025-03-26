@@ -12,98 +12,116 @@ class DescribeIPv6TranslatorEntriesRequest extends Model
      * @var string
      */
     public $aclId;
+
     /**
      * @var string
      */
     public $aclStatus;
+
     /**
      * @var string
      */
     public $aclType;
+
     /**
      * @var string
      */
     public $allocateIpv6Addr;
+
     /**
      * @var int
      */
     public $allocateIpv6Port;
+
     /**
      * @var string
      */
     public $backendIpv4Addr;
+
     /**
      * @var int
      */
     public $backendIpv4Port;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $entryName;
+
     /**
      * @var string
      */
     public $ipv6TranslatorEntryId;
+
     /**
      * @var string
      */
     public $ipv6TranslatorId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $transProtocol;
     protected $_name = [
-        'aclId'                 => 'AclId',
-        'aclStatus'             => 'AclStatus',
-        'aclType'               => 'AclType',
-        'allocateIpv6Addr'      => 'AllocateIpv6Addr',
-        'allocateIpv6Port'      => 'AllocateIpv6Port',
-        'backendIpv4Addr'       => 'BackendIpv4Addr',
-        'backendIpv4Port'       => 'BackendIpv4Port',
-        'clientToken'           => 'ClientToken',
-        'entryName'             => 'EntryName',
+        'aclId' => 'AclId',
+        'aclStatus' => 'AclStatus',
+        'aclType' => 'AclType',
+        'allocateIpv6Addr' => 'AllocateIpv6Addr',
+        'allocateIpv6Port' => 'AllocateIpv6Port',
+        'backendIpv4Addr' => 'BackendIpv4Addr',
+        'backendIpv4Port' => 'BackendIpv4Port',
+        'clientToken' => 'ClientToken',
+        'entryName' => 'EntryName',
         'ipv6TranslatorEntryId' => 'Ipv6TranslatorEntryId',
-        'ipv6TranslatorId'      => 'Ipv6TranslatorId',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'pageNumber'            => 'PageNumber',
-        'pageSize'              => 'PageSize',
-        'regionId'              => 'RegionId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'transProtocol'         => 'TransProtocol',
+        'ipv6TranslatorId' => 'Ipv6TranslatorId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'transProtocol' => 'TransProtocol',
     ];
 
     public function validate()

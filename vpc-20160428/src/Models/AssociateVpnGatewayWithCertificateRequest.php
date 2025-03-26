@@ -12,33 +12,38 @@ class AssociateVpnGatewayWithCertificateRequest extends Model
      * @var string
      */
     public $certificateId;
+
     /**
      * @var string
      */
     public $certificateType;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'certificateId'   => 'CertificateId',
+        'certificateId' => 'CertificateId',
         'certificateType' => 'CertificateType',
-        'clientToken'     => 'ClientToken',
-        'dryRun'          => 'DryRun',
-        'regionId'        => 'RegionId',
-        'vpnGatewayId'    => 'VpnGatewayId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'regionId' => 'RegionId',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()

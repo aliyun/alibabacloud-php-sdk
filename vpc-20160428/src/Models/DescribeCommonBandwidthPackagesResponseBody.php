@@ -13,28 +13,32 @@ class DescribeCommonBandwidthPackagesResponseBody extends Model
      * @var commonBandwidthPackages
      */
     public $commonBandwidthPackages;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'commonBandwidthPackages' => 'CommonBandwidthPackages',
-        'pageNumber'              => 'PageNumber',
-        'pageSize'                => 'PageSize',
-        'requestId'               => 'RequestId',
-        'totalCount'              => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

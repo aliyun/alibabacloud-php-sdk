@@ -14,18 +14,20 @@ class CreateHighReliablePhysicalConnectionResponseBody extends Model
      * @var errorInfoList
      */
     public $errorInfoList;
+
     /**
      * @var physicalConnectionList
      */
     public $physicalConnectionList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'errorInfoList'          => 'ErrorInfoList',
+        'errorInfoList' => 'ErrorInfoList',
         'physicalConnectionList' => 'PhysicalConnectionList',
-        'requestId'              => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

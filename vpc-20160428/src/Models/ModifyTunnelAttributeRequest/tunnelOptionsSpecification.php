@@ -15,38 +15,44 @@ class tunnelOptionsSpecification extends Model
      * @var string
      */
     public $customerGatewayId;
+
     /**
      * @var bool
      */
     public $enableDpd;
+
     /**
      * @var bool
      */
     public $enableNatTraversal;
+
     /**
      * @var string
      */
     public $remoteCaCertificate;
+
     /**
      * @var tunnelBgpConfig
      */
     public $tunnelBgpConfig;
+
     /**
      * @var tunnelIkeConfig
      */
     public $tunnelIkeConfig;
+
     /**
      * @var tunnelIpsecConfig
      */
     public $tunnelIpsecConfig;
     protected $_name = [
-        'customerGatewayId'   => 'CustomerGatewayId',
-        'enableDpd'           => 'EnableDpd',
-        'enableNatTraversal'  => 'EnableNatTraversal',
+        'customerGatewayId' => 'CustomerGatewayId',
+        'enableDpd' => 'EnableDpd',
+        'enableNatTraversal' => 'EnableNatTraversal',
         'remoteCaCertificate' => 'RemoteCaCertificate',
-        'tunnelBgpConfig'     => 'TunnelBgpConfig',
-        'tunnelIkeConfig'     => 'TunnelIkeConfig',
-        'tunnelIpsecConfig'   => 'TunnelIpsecConfig',
+        'tunnelBgpConfig' => 'TunnelBgpConfig',
+        'tunnelIkeConfig' => 'TunnelIkeConfig',
+        'tunnelIpsecConfig' => 'TunnelIpsecConfig',
     ];
 
     public function validate()

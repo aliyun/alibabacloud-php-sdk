@@ -12,123 +12,146 @@ class ModifyVirtualBorderRouterAttributeRequest extends Model
      * @var string
      */
     public $associatedPhysicalConnections;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $circuitCode;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $detectMultiplier;
+
     /**
      * @var bool
      */
     public $enableIpv6;
+
     /**
      * @var string
      */
     public $localGatewayIp;
+
     /**
      * @var string
      */
     public $localIpv6GatewayIp;
+
     /**
      * @var int
      */
     public $minRxInterval;
+
     /**
      * @var int
      */
     public $minTxInterval;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $peerGatewayIp;
+
     /**
      * @var string
      */
     public $peerIpv6GatewayIp;
+
     /**
      * @var string
      */
     public $peeringIpv6SubnetMask;
+
     /**
      * @var string
      */
     public $peeringSubnetMask;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var bool
      */
     public $sitelinkEnable;
+
     /**
      * @var string
      */
     public $vbrId;
+
     /**
      * @var int
      */
     public $vlanId;
     protected $_name = [
         'associatedPhysicalConnections' => 'AssociatedPhysicalConnections',
-        'bandwidth'                     => 'Bandwidth',
-        'circuitCode'                   => 'CircuitCode',
-        'clientToken'                   => 'ClientToken',
-        'description'                   => 'Description',
-        'detectMultiplier'              => 'DetectMultiplier',
-        'enableIpv6'                    => 'EnableIpv6',
-        'localGatewayIp'                => 'LocalGatewayIp',
-        'localIpv6GatewayIp'            => 'LocalIpv6GatewayIp',
-        'minRxInterval'                 => 'MinRxInterval',
-        'minTxInterval'                 => 'MinTxInterval',
-        'name'                          => 'Name',
-        'ownerAccount'                  => 'OwnerAccount',
-        'ownerId'                       => 'OwnerId',
-        'peerGatewayIp'                 => 'PeerGatewayIp',
-        'peerIpv6GatewayIp'             => 'PeerIpv6GatewayIp',
-        'peeringIpv6SubnetMask'         => 'PeeringIpv6SubnetMask',
-        'peeringSubnetMask'             => 'PeeringSubnetMask',
-        'regionId'                      => 'RegionId',
-        'resourceOwnerAccount'          => 'ResourceOwnerAccount',
-        'resourceOwnerId'               => 'ResourceOwnerId',
-        'sitelinkEnable'                => 'SitelinkEnable',
-        'vbrId'                         => 'VbrId',
-        'vlanId'                        => 'VlanId',
+        'bandwidth' => 'Bandwidth',
+        'circuitCode' => 'CircuitCode',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'detectMultiplier' => 'DetectMultiplier',
+        'enableIpv6' => 'EnableIpv6',
+        'localGatewayIp' => 'LocalGatewayIp',
+        'localIpv6GatewayIp' => 'LocalIpv6GatewayIp',
+        'minRxInterval' => 'MinRxInterval',
+        'minTxInterval' => 'MinTxInterval',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'peerGatewayIp' => 'PeerGatewayIp',
+        'peerIpv6GatewayIp' => 'PeerIpv6GatewayIp',
+        'peeringIpv6SubnetMask' => 'PeeringIpv6SubnetMask',
+        'peeringSubnetMask' => 'PeeringSubnetMask',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sitelinkEnable' => 'SitelinkEnable',
+        'vbrId' => 'VbrId',
+        'vlanId' => 'VlanId',
     ];
 
     public function validate()

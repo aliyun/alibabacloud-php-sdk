@@ -13,48 +13,56 @@ class UnassociateNetworkAclRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $networkAclId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var resource[]
      */
     public $resource;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dryRun'               => 'DryRun',
-        'networkAclId'         => 'NetworkAclId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resource'             => 'Resource',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'networkAclId' => 'NetworkAclId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resource' => 'Resource',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -95,7 +103,7 @@ class UnassociateNetworkAclRequest extends Model
         if (null !== $this->resource) {
             if (\is_array($this->resource)) {
                 $res['Resource'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->resource as $item1) {
                     $res['Resource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -148,7 +156,7 @@ class UnassociateNetworkAclRequest extends Model
         if (isset($map['Resource'])) {
             if (!empty($map['Resource'])) {
                 $model->resource = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Resource'] as $item1) {
                     $model->resource[$n1++] = resource::fromMap($item1);
                 }

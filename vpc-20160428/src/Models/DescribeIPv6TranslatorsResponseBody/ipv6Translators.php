@@ -31,7 +31,7 @@ class ipv6Translators extends Model
         if (null !== $this->ipv6Translator) {
             if (\is_array($this->ipv6Translator)) {
                 $res['Ipv6Translator'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->ipv6Translator as $item1) {
                     $res['Ipv6Translator'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class ipv6Translators extends Model
         if (isset($map['Ipv6Translator'])) {
             if (!empty($map['Ipv6Translator'])) {
                 $model->ipv6Translator = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['Ipv6Translator'] as $item1) {
                     $model->ipv6Translator[$n1++] = ipv6Translator::fromMap($item1);
                 }

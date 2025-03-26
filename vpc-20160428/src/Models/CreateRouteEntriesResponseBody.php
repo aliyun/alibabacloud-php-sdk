@@ -13,28 +13,32 @@ class CreateRouteEntriesResponseBody extends Model
      * @var int
      */
     public $failedCount;
+
     /**
      * @var failedRouteEntries[]
      */
     public $failedRouteEntries;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
     public $routeEntryIds;
+
     /**
      * @var int
      */
     public $successCount;
     protected $_name = [
-        'failedCount'        => 'FailedCount',
+        'failedCount' => 'FailedCount',
         'failedRouteEntries' => 'FailedRouteEntries',
-        'requestId'          => 'RequestId',
-        'routeEntryIds'      => 'RouteEntryIds',
-        'successCount'       => 'SuccessCount',
+        'requestId' => 'RequestId',
+        'routeEntryIds' => 'RouteEntryIds',
+        'successCount' => 'SuccessCount',
     ];
 
     public function validate()
@@ -58,7 +62,7 @@ class CreateRouteEntriesResponseBody extends Model
         if (null !== $this->failedRouteEntries) {
             if (\is_array($this->failedRouteEntries)) {
                 $res['FailedRouteEntries'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->failedRouteEntries as $item1) {
                     $res['FailedRouteEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -72,7 +76,7 @@ class CreateRouteEntriesResponseBody extends Model
         if (null !== $this->routeEntryIds) {
             if (\is_array($this->routeEntryIds)) {
                 $res['RouteEntryIds'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->routeEntryIds as $item1) {
                     $res['RouteEntryIds'][$n1++] = $item1;
                 }
@@ -101,7 +105,7 @@ class CreateRouteEntriesResponseBody extends Model
         if (isset($map['FailedRouteEntries'])) {
             if (!empty($map['FailedRouteEntries'])) {
                 $model->failedRouteEntries = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['FailedRouteEntries'] as $item1) {
                     $model->failedRouteEntries[$n1++] = failedRouteEntries::fromMap($item1);
                 }
@@ -115,7 +119,7 @@ class CreateRouteEntriesResponseBody extends Model
         if (isset($map['RouteEntryIds'])) {
             if (!empty($map['RouteEntryIds'])) {
                 $model->routeEntryIds = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['RouteEntryIds'] as $item1) {
                     $model->routeEntryIds[$n1++] = $item1;
                 }

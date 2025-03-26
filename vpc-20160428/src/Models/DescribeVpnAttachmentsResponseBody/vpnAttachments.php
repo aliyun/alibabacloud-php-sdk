@@ -13,48 +13,56 @@ class vpnAttachments extends Model
      * @var string
      */
     public $attachType;
+
     /**
      * @var bool
      */
     public $crossAccountAuthorized;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $tag;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $transitRouterId;
+
     /**
      * @var string
      */
     public $transitRouterName;
     protected $_name = [
-        'attachType'             => 'AttachType',
+        'attachType' => 'AttachType',
         'crossAccountAuthorized' => 'CrossAccountAuthorized',
-        'description'            => 'Description',
-        'instanceId'             => 'InstanceId',
-        'name'                   => 'Name',
-        'tag'                    => 'Tag',
-        'tags'                   => 'Tags',
-        'transitRouterId'        => 'TransitRouterId',
-        'transitRouterName'      => 'TransitRouterName',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
+        'name' => 'Name',
+        'tag' => 'Tag',
+        'tags' => 'Tags',
+        'transitRouterId' => 'TransitRouterId',
+        'transitRouterName' => 'TransitRouterName',
     ];
 
     public function validate()
@@ -95,7 +103,7 @@ class vpnAttachments extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -148,7 +156,7 @@ class vpnAttachments extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

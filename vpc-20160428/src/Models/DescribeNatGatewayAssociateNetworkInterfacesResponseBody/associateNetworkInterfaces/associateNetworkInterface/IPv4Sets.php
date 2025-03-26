@@ -31,7 +31,7 @@ class IPv4Sets extends Model
         if (null !== $this->IPv4Set) {
             if (\is_array($this->IPv4Set)) {
                 $res['IPv4Set'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->IPv4Set as $item1) {
                     $res['IPv4Set'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class IPv4Sets extends Model
         if (isset($map['IPv4Set'])) {
             if (!empty($map['IPv4Set'])) {
                 $model->IPv4Set = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['IPv4Set'] as $item1) {
                     $model->IPv4Set[$n1++] = IPv4Set::fromMap($item1);
                 }

@@ -12,23 +12,26 @@ class logDelivery extends Model
      * @var string
      */
     public $deliverLogsErrorMessage;
+
     /**
      * @var string
      */
     public $deliveryStatus;
+
     /**
      * @var string
      */
     public $logDeliveryType;
+
     /**
      * @var string
      */
     public $logDestination;
     protected $_name = [
         'deliverLogsErrorMessage' => 'DeliverLogsErrorMessage',
-        'deliveryStatus'          => 'DeliveryStatus',
-        'logDeliveryType'         => 'LogDeliveryType',
-        'logDestination'          => 'LogDestination',
+        'deliveryStatus' => 'DeliveryStatus',
+        'logDeliveryType' => 'LogDeliveryType',
+        'logDestination' => 'LogDestination',
     ];
 
     public function validate()

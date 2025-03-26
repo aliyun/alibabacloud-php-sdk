@@ -31,7 +31,7 @@ class aclEntries extends Model
         if (null !== $this->aclEntry) {
             if (\is_array($this->aclEntry)) {
                 $res['AclEntry'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->aclEntry as $item1) {
                     $res['AclEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class aclEntries extends Model
         if (isset($map['AclEntry'])) {
             if (!empty($map['AclEntry'])) {
                 $model->aclEntry = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['AclEntry'] as $item1) {
                     $model->aclEntry[$n1++] = aclEntry::fromMap($item1);
                 }

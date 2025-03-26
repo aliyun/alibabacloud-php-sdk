@@ -15,133 +15,158 @@ class commonBandwidthPackage extends Model
      * @var string
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $bandwidthPackageId;
+
     /**
      * @var string
      */
     public $bizType;
+
     /**
      * @var string
      */
     public $businessStatus;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var bool
      */
     public $deletionProtection;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $hasReservationData;
+
     /**
      * @var string
      */
     public $ISP;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
     /**
      * @var string
      */
     public $internetChargeType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var publicIpAddresses
      */
     public $publicIpAddresses;
+
     /**
      * @var int
      */
     public $ratio;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $reservationActiveTime;
+
     /**
      * @var string
      */
     public $reservationBandwidth;
+
     /**
      * @var string
      */
     public $reservationInternetChargeType;
+
     /**
      * @var string
      */
     public $reservationOrderType;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var securityProtectionTypes
      */
     public $securityProtectionTypes;
+
     /**
      * @var int
      */
     public $serviceManaged;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $zone;
     protected $_name = [
-        'bandwidth'                     => 'Bandwidth',
-        'bandwidthPackageId'            => 'BandwidthPackageId',
-        'bizType'                       => 'BizType',
-        'businessStatus'                => 'BusinessStatus',
-        'creationTime'                  => 'CreationTime',
-        'deletionProtection'            => 'DeletionProtection',
-        'description'                   => 'Description',
-        'expiredTime'                   => 'ExpiredTime',
-        'hasReservationData'            => 'HasReservationData',
-        'ISP'                           => 'ISP',
-        'instanceChargeType'            => 'InstanceChargeType',
-        'internetChargeType'            => 'InternetChargeType',
-        'name'                          => 'Name',
-        'publicIpAddresses'             => 'PublicIpAddresses',
-        'ratio'                         => 'Ratio',
-        'regionId'                      => 'RegionId',
-        'reservationActiveTime'         => 'ReservationActiveTime',
-        'reservationBandwidth'          => 'ReservationBandwidth',
+        'bandwidth' => 'Bandwidth',
+        'bandwidthPackageId' => 'BandwidthPackageId',
+        'bizType' => 'BizType',
+        'businessStatus' => 'BusinessStatus',
+        'creationTime' => 'CreationTime',
+        'deletionProtection' => 'DeletionProtection',
+        'description' => 'Description',
+        'expiredTime' => 'ExpiredTime',
+        'hasReservationData' => 'HasReservationData',
+        'ISP' => 'ISP',
+        'instanceChargeType' => 'InstanceChargeType',
+        'internetChargeType' => 'InternetChargeType',
+        'name' => 'Name',
+        'publicIpAddresses' => 'PublicIpAddresses',
+        'ratio' => 'Ratio',
+        'regionId' => 'RegionId',
+        'reservationActiveTime' => 'ReservationActiveTime',
+        'reservationBandwidth' => 'ReservationBandwidth',
         'reservationInternetChargeType' => 'ReservationInternetChargeType',
-        'reservationOrderType'          => 'ReservationOrderType',
-        'resourceGroupId'               => 'ResourceGroupId',
-        'securityProtectionTypes'       => 'SecurityProtectionTypes',
-        'serviceManaged'                => 'ServiceManaged',
-        'status'                        => 'Status',
-        'tags'                          => 'Tags',
-        'zone'                          => 'Zone',
+        'reservationOrderType' => 'ReservationOrderType',
+        'resourceGroupId' => 'ResourceGroupId',
+        'securityProtectionTypes' => 'SecurityProtectionTypes',
+        'serviceManaged' => 'ServiceManaged',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'zone' => 'Zone',
     ];
 
     public function validate()

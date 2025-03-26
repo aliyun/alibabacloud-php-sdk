@@ -12,48 +12,56 @@ class AddCommonBandwidthPackageIpsRequest extends Model
      * @var string
      */
     public $bandwidthPackageId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string[]
      */
     public $ipInstanceIds;
+
     /**
      * @var string
      */
     public $ipType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'bandwidthPackageId'   => 'BandwidthPackageId',
-        'clientToken'          => 'ClientToken',
-        'ipInstanceIds'        => 'IpInstanceIds',
-        'ipType'               => 'IpType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'bandwidthPackageId' => 'BandwidthPackageId',
+        'clientToken' => 'ClientToken',
+        'ipInstanceIds' => 'IpInstanceIds',
+        'ipType' => 'IpType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -78,7 +86,7 @@ class AddCommonBandwidthPackageIpsRequest extends Model
         if (null !== $this->ipInstanceIds) {
             if (\is_array($this->ipInstanceIds)) {
                 $res['IpInstanceIds'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->ipInstanceIds as $item1) {
                     $res['IpInstanceIds'][$n1++] = $item1;
                 }
@@ -131,7 +139,7 @@ class AddCommonBandwidthPackageIpsRequest extends Model
         if (isset($map['IpInstanceIds'])) {
             if (!empty($map['IpInstanceIds'])) {
                 $model->ipInstanceIds = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['IpInstanceIds'] as $item1) {
                     $model->ipInstanceIds[$n1++] = $item1;
                 }

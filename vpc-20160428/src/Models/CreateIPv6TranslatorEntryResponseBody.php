@@ -12,13 +12,14 @@ class CreateIPv6TranslatorEntryResponseBody extends Model
      * @var string
      */
     public $ipv6TranslatorEntryId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'ipv6TranslatorEntryId' => 'Ipv6TranslatorEntryId',
-        'requestId'             => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

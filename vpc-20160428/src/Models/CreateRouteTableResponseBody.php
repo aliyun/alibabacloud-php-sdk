@@ -12,12 +12,13 @@ class CreateRouteTableResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $routeTableId;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'routeTableId' => 'RouteTableId',
     ];
 

@@ -13,18 +13,20 @@ class DescribeVpnGatewayAvailableZonesResponseBody extends Model
      * @var availableZoneIdList[]
      */
     public $availableZoneIdList;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'availableZoneIdList' => 'AvailableZoneIdList',
-        'regionId'            => 'RegionId',
-        'requestId'           => 'RequestId',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class DescribeVpnGatewayAvailableZonesResponseBody extends Model
         if (null !== $this->availableZoneIdList) {
             if (\is_array($this->availableZoneIdList)) {
                 $res['AvailableZoneIdList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->availableZoneIdList as $item1) {
                     $res['AvailableZoneIdList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeVpnGatewayAvailableZonesResponseBody extends Model
         if (isset($map['AvailableZoneIdList'])) {
             if (!empty($map['AvailableZoneIdList'])) {
                 $model->availableZoneIdList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['AvailableZoneIdList'] as $item1) {
                     $model->availableZoneIdList[$n1++] = availableZoneIdList::fromMap($item1);
                 }

@@ -12,22 +12,25 @@ class GetVpnGatewayDiagnoseResultRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $diagnoseId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'clientToken'  => 'ClientToken',
-        'diagnoseId'   => 'DiagnoseId',
-        'regionId'     => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'diagnoseId' => 'DiagnoseId',
+        'regionId' => 'RegionId',
         'vpnGatewayId' => 'VpnGatewayId',
     ];
 

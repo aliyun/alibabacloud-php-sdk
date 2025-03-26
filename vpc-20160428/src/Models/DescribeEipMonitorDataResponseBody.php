@@ -13,13 +13,14 @@ class DescribeEipMonitorDataResponseBody extends Model
      * @var eipMonitorDatas
      */
     public $eipMonitorDatas;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'eipMonitorDatas' => 'EipMonitorDatas',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

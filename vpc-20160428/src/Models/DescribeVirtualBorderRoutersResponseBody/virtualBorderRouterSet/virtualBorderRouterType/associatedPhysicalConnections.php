@@ -31,7 +31,7 @@ class associatedPhysicalConnections extends Model
         if (null !== $this->associatedPhysicalConnection) {
             if (\is_array($this->associatedPhysicalConnection)) {
                 $res['AssociatedPhysicalConnection'] = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($this->associatedPhysicalConnection as $item1) {
                     $res['AssociatedPhysicalConnection'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class associatedPhysicalConnections extends Model
         if (isset($map['AssociatedPhysicalConnection'])) {
             if (!empty($map['AssociatedPhysicalConnection'])) {
                 $model->associatedPhysicalConnection = [];
-                $n1                                  = 0;
+                $n1 = 0;
                 foreach ($map['AssociatedPhysicalConnection'] as $item1) {
                     $model->associatedPhysicalConnection[$n1++] = associatedPhysicalConnection::fromMap($item1);
                 }

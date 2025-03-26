@@ -13,12 +13,13 @@ class Describe95TrafficResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var traffic95Summary
      */
     public $traffic95Summary;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'traffic95Summary' => 'Traffic95Summary',
     ];
 

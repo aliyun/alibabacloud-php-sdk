@@ -12,23 +12,26 @@ class RecoverPhysicalConnectionRequest extends Model
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $token;
     protected $_name = [
-        'dryRun'     => 'DryRun',
+        'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'token'      => 'Token',
+        'regionId' => 'RegionId',
+        'token' => 'Token',
     ];
 
     public function validate()

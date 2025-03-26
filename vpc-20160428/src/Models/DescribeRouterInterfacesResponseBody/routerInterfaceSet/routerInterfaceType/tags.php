@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class tags extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeRouterInterfacesResponseBody\routerInterfaceSet\routerInterfaceType\tags\tags[]
+     * @var tags\tags[]
      */
     public $tags;
     protected $_name = [
@@ -30,7 +30,7 @@ class tags extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -51,9 +51,9 @@ class tags extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
-                    $model->tags[$n1++] = \AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeRouterInterfacesResponseBody\routerInterfaceSet\routerInterfaceType\tags\tags::fromMap($item1);
+                    $model->tags[$n1++] = tags\tags::fromMap($item1);
                 }
             }
         }

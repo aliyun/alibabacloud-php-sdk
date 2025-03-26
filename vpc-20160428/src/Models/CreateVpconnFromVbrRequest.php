@@ -12,28 +12,32 @@ class CreateVpconnFromVbrRequest extends Model
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $orderMode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $token;
+
     /**
      * @var string
      */
     public $vbrId;
     protected $_name = [
-        'dryRun'    => 'DryRun',
+        'dryRun' => 'DryRun',
         'orderMode' => 'OrderMode',
-        'regionId'  => 'RegionId',
-        'token'     => 'Token',
-        'vbrId'     => 'VbrId',
+        'regionId' => 'RegionId',
+        'token' => 'Token',
+        'vbrId' => 'VbrId',
     ];
 
     public function validate()

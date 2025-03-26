@@ -12,33 +12,38 @@ class DiagnoseVpnGatewayRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $IPsecExtendInfo;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'clientToken'     => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'IPsecExtendInfo' => 'IPsecExtendInfo',
-        'regionId'        => 'RegionId',
-        'resourceId'      => 'ResourceId',
-        'resourceType'    => 'ResourceType',
-        'vpnGatewayId'    => 'VpnGatewayId',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()

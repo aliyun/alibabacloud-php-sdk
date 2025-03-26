@@ -12,43 +12,50 @@ class AddIPv6TranslatorAclListEntryRequest extends Model
      * @var string
      */
     public $aclEntryComment;
+
     /**
      * @var string
      */
     public $aclEntryIp;
+
     /**
      * @var string
      */
     public $aclId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'aclEntryComment'      => 'AclEntryComment',
-        'aclEntryIp'           => 'AclEntryIp',
-        'aclId'                => 'AclId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'aclEntryComment' => 'AclEntryComment',
+        'aclEntryIp' => 'AclEntryIp',
+        'aclId' => 'AclId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

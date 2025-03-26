@@ -21,133 +21,158 @@ class GetNatGatewayAttributeResponseBody extends Model
      * @var accessMode
      */
     public $accessMode;
+
     /**
      * @var billingConfig
      */
     public $billingConfig;
+
     /**
      * @var string
      */
     public $businessStatus;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var deletionProtectionInfo
      */
     public $deletionProtectionInfo;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $ecsMetricEnabled;
+
     /**
      * @var bool
      */
     public $enableSessionLog;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var forwardTable
      */
     public $forwardTable;
+
     /**
      * @var fullNatTable
      */
     public $fullNatTable;
+
     /**
      * @var ipList[]
      */
     public $ipList;
+
     /**
      * @var logDelivery
      */
     public $logDelivery;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string
      */
     public $natType;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var privateInfo
      */
     public $privateInfo;
+
     /**
      * @var bool
      */
     public $privateLinkEnabled;
+
     /**
      * @var string
      */
     public $privateLinkMode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var snatTable
      */
     public $snatTable;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'accessMode'             => 'AccessMode',
-        'billingConfig'          => 'BillingConfig',
-        'businessStatus'         => 'BusinessStatus',
-        'creationTime'           => 'CreationTime',
+        'accessMode' => 'AccessMode',
+        'billingConfig' => 'BillingConfig',
+        'businessStatus' => 'BusinessStatus',
+        'creationTime' => 'CreationTime',
         'deletionProtectionInfo' => 'DeletionProtectionInfo',
-        'description'            => 'Description',
-        'ecsMetricEnabled'       => 'EcsMetricEnabled',
-        'enableSessionLog'       => 'EnableSessionLog',
-        'expiredTime'            => 'ExpiredTime',
-        'forwardTable'           => 'ForwardTable',
-        'fullNatTable'           => 'FullNatTable',
-        'ipList'                 => 'IpList',
-        'logDelivery'            => 'LogDelivery',
-        'name'                   => 'Name',
-        'natGatewayId'           => 'NatGatewayId',
-        'natType'                => 'NatType',
-        'networkType'            => 'NetworkType',
-        'privateInfo'            => 'PrivateInfo',
-        'privateLinkEnabled'     => 'PrivateLinkEnabled',
-        'privateLinkMode'        => 'PrivateLinkMode',
-        'regionId'               => 'RegionId',
-        'requestId'              => 'RequestId',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'snatTable'              => 'SnatTable',
-        'status'                 => 'Status',
-        'vpcId'                  => 'VpcId',
+        'description' => 'Description',
+        'ecsMetricEnabled' => 'EcsMetricEnabled',
+        'enableSessionLog' => 'EnableSessionLog',
+        'expiredTime' => 'ExpiredTime',
+        'forwardTable' => 'ForwardTable',
+        'fullNatTable' => 'FullNatTable',
+        'ipList' => 'IpList',
+        'logDelivery' => 'LogDelivery',
+        'name' => 'Name',
+        'natGatewayId' => 'NatGatewayId',
+        'natType' => 'NatType',
+        'networkType' => 'NetworkType',
+        'privateInfo' => 'PrivateInfo',
+        'privateLinkEnabled' => 'PrivateLinkEnabled',
+        'privateLinkMode' => 'PrivateLinkMode',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'snatTable' => 'SnatTable',
+        'status' => 'Status',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -232,7 +257,7 @@ class GetNatGatewayAttributeResponseBody extends Model
         if (null !== $this->ipList) {
             if (\is_array($this->ipList)) {
                 $res['IpList'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->ipList as $item1) {
                     $res['IpList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -353,7 +378,7 @@ class GetNatGatewayAttributeResponseBody extends Model
         if (isset($map['IpList'])) {
             if (!empty($map['IpList'])) {
                 $model->ipList = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['IpList'] as $item1) {
                     $model->ipList[$n1++] = ipList::fromMap($item1);
                 }

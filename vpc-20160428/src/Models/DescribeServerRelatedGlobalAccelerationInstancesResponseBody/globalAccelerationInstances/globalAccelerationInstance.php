@@ -12,23 +12,26 @@ class globalAccelerationInstance extends Model
      * @var string
      */
     public $globalAccelerationInstanceId;
+
     /**
      * @var string
      */
     public $ipAddress;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $serverIpAddress;
     protected $_name = [
         'globalAccelerationInstanceId' => 'GlobalAccelerationInstanceId',
-        'ipAddress'                    => 'IpAddress',
-        'regionId'                     => 'RegionId',
-        'serverIpAddress'              => 'ServerIpAddress',
+        'ipAddress' => 'IpAddress',
+        'regionId' => 'RegionId',
+        'serverIpAddress' => 'ServerIpAddress',
     ];
 
     public function validate()

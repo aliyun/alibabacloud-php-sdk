@@ -12,13 +12,14 @@ class forwardTable extends Model
      * @var int
      */
     public $forwardEntryCount;
+
     /**
      * @var string
      */
     public $forwardTableId;
     protected $_name = [
         'forwardEntryCount' => 'ForwardEntryCount',
-        'forwardTableId'    => 'ForwardTableId',
+        'forwardTableId' => 'ForwardTableId',
     ];
 
     public function validate()

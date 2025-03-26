@@ -12,38 +12,44 @@ class DiagnoseVpnConnectionsRequest extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string[]
      */
     public $tunnelIds;
+
     /**
      * @var string[]
      */
     public $vpnConnectionIds;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'regionId'         => 'RegionId',
-        'resourceOwnerId'  => 'ResourceOwnerId',
-        'tunnelIds'        => 'TunnelIds',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tunnelIds' => 'TunnelIds',
         'vpnConnectionIds' => 'VpnConnectionIds',
-        'vpnGatewayId'     => 'VpnGatewayId',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -79,7 +85,7 @@ class DiagnoseVpnConnectionsRequest extends Model
         if (null !== $this->tunnelIds) {
             if (\is_array($this->tunnelIds)) {
                 $res['TunnelIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->tunnelIds as $item1) {
                     $res['TunnelIds'][$n1++] = $item1;
                 }
@@ -89,7 +95,7 @@ class DiagnoseVpnConnectionsRequest extends Model
         if (null !== $this->vpnConnectionIds) {
             if (\is_array($this->vpnConnectionIds)) {
                 $res['VpnConnectionIds'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->vpnConnectionIds as $item1) {
                     $res['VpnConnectionIds'][$n1++] = $item1;
                 }
@@ -130,7 +136,7 @@ class DiagnoseVpnConnectionsRequest extends Model
         if (isset($map['TunnelIds'])) {
             if (!empty($map['TunnelIds'])) {
                 $model->tunnelIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['TunnelIds'] as $item1) {
                     $model->tunnelIds[$n1++] = $item1;
                 }
@@ -140,7 +146,7 @@ class DiagnoseVpnConnectionsRequest extends Model
         if (isset($map['VpnConnectionIds'])) {
             if (!empty($map['VpnConnectionIds'])) {
                 $model->vpnConnectionIds = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['VpnConnectionIds'] as $item1) {
                     $model->vpnConnectionIds[$n1++] = $item1;
                 }

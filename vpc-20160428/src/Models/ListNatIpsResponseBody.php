@@ -13,22 +13,25 @@ class ListNatIpsResponseBody extends Model
      * @var natIps[]
      */
     public $natIps;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
-        'natIps'     => 'NatIps',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'natIps' => 'NatIps',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -46,7 +49,7 @@ class ListNatIpsResponseBody extends Model
         if (null !== $this->natIps) {
             if (\is_array($this->natIps)) {
                 $res['NatIps'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->natIps as $item1) {
                     $res['NatIps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class ListNatIpsResponseBody extends Model
         if (isset($map['NatIps'])) {
             if (!empty($map['NatIps'])) {
                 $model->natIps = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['NatIps'] as $item1) {
                     $model->natIps[$n1++] = natIps::fromMap($item1);
                 }

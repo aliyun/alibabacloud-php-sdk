@@ -13,208 +13,248 @@ class routerInterfaceType extends Model
      * @var string
      */
     public $accessPointId;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $businessStatus;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $connectedTime;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var bool
      */
     public $crossBorder;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var bool
      */
     public $fastLinkMode;
+
     /**
      * @var string
      */
     public $hasReservationData;
+
     /**
      * @var int
      */
     public $hcRate;
+
     /**
      * @var int
      */
     public $hcThreshold;
+
     /**
      * @var string
      */
     public $healthCheckSourceIp;
+
     /**
      * @var string
      */
     public $healthCheckTargetIp;
+
     /**
      * @var string
      */
     public $ipv6Status;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $oppositeAccessPointId;
+
     /**
      * @var int
      */
     public $oppositeBandwidth;
+
     /**
      * @var string
      */
     public $oppositeInterfaceBusinessStatus;
+
     /**
      * @var string
      */
     public $oppositeInterfaceId;
+
     /**
      * @var string
      */
     public $oppositeInterfaceOwnerId;
+
     /**
      * @var string
      */
     public $oppositeInterfaceSpec;
+
     /**
      * @var string
      */
     public $oppositeInterfaceStatus;
+
     /**
      * @var string
      */
     public $oppositeRegionId;
+
     /**
      * @var string
      */
     public $oppositeRouterId;
+
     /**
      * @var string
      */
     public $oppositeRouterType;
+
     /**
      * @var string
      */
     public $oppositeVpcInstanceId;
+
     /**
      * @var string
      */
     public $reservationActiveTime;
+
     /**
      * @var string
      */
     public $reservationBandwidth;
+
     /**
      * @var string
      */
     public $reservationInternetChargeType;
+
     /**
      * @var string
      */
     public $reservationOrderType;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $routerId;
+
     /**
      * @var string
      */
     public $routerInterfaceId;
+
     /**
      * @var string
      */
     public $routerType;
+
     /**
      * @var string
      */
     public $spec;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vpcInstanceId;
     protected $_name = [
-        'accessPointId'                   => 'AccessPointId',
-        'bandwidth'                       => 'Bandwidth',
-        'businessStatus'                  => 'BusinessStatus',
-        'chargeType'                      => 'ChargeType',
-        'connectedTime'                   => 'ConnectedTime',
-        'creationTime'                    => 'CreationTime',
-        'crossBorder'                     => 'CrossBorder',
-        'description'                     => 'Description',
-        'endTime'                         => 'EndTime',
-        'fastLinkMode'                    => 'FastLinkMode',
-        'hasReservationData'              => 'HasReservationData',
-        'hcRate'                          => 'HcRate',
-        'hcThreshold'                     => 'HcThreshold',
-        'healthCheckSourceIp'             => 'HealthCheckSourceIp',
-        'healthCheckTargetIp'             => 'HealthCheckTargetIp',
-        'ipv6Status'                      => 'Ipv6Status',
-        'name'                            => 'Name',
-        'oppositeAccessPointId'           => 'OppositeAccessPointId',
-        'oppositeBandwidth'               => 'OppositeBandwidth',
+        'accessPointId' => 'AccessPointId',
+        'bandwidth' => 'Bandwidth',
+        'businessStatus' => 'BusinessStatus',
+        'chargeType' => 'ChargeType',
+        'connectedTime' => 'ConnectedTime',
+        'creationTime' => 'CreationTime',
+        'crossBorder' => 'CrossBorder',
+        'description' => 'Description',
+        'endTime' => 'EndTime',
+        'fastLinkMode' => 'FastLinkMode',
+        'hasReservationData' => 'HasReservationData',
+        'hcRate' => 'HcRate',
+        'hcThreshold' => 'HcThreshold',
+        'healthCheckSourceIp' => 'HealthCheckSourceIp',
+        'healthCheckTargetIp' => 'HealthCheckTargetIp',
+        'ipv6Status' => 'Ipv6Status',
+        'name' => 'Name',
+        'oppositeAccessPointId' => 'OppositeAccessPointId',
+        'oppositeBandwidth' => 'OppositeBandwidth',
         'oppositeInterfaceBusinessStatus' => 'OppositeInterfaceBusinessStatus',
-        'oppositeInterfaceId'             => 'OppositeInterfaceId',
-        'oppositeInterfaceOwnerId'        => 'OppositeInterfaceOwnerId',
-        'oppositeInterfaceSpec'           => 'OppositeInterfaceSpec',
-        'oppositeInterfaceStatus'         => 'OppositeInterfaceStatus',
-        'oppositeRegionId'                => 'OppositeRegionId',
-        'oppositeRouterId'                => 'OppositeRouterId',
-        'oppositeRouterType'              => 'OppositeRouterType',
-        'oppositeVpcInstanceId'           => 'OppositeVpcInstanceId',
-        'reservationActiveTime'           => 'ReservationActiveTime',
-        'reservationBandwidth'            => 'ReservationBandwidth',
-        'reservationInternetChargeType'   => 'ReservationInternetChargeType',
-        'reservationOrderType'            => 'ReservationOrderType',
-        'resourceGroupId'                 => 'ResourceGroupId',
-        'role'                            => 'Role',
-        'routerId'                        => 'RouterId',
-        'routerInterfaceId'               => 'RouterInterfaceId',
-        'routerType'                      => 'RouterType',
-        'spec'                            => 'Spec',
-        'status'                          => 'Status',
-        'tags'                            => 'Tags',
-        'vpcInstanceId'                   => 'VpcInstanceId',
+        'oppositeInterfaceId' => 'OppositeInterfaceId',
+        'oppositeInterfaceOwnerId' => 'OppositeInterfaceOwnerId',
+        'oppositeInterfaceSpec' => 'OppositeInterfaceSpec',
+        'oppositeInterfaceStatus' => 'OppositeInterfaceStatus',
+        'oppositeRegionId' => 'OppositeRegionId',
+        'oppositeRouterId' => 'OppositeRouterId',
+        'oppositeRouterType' => 'OppositeRouterType',
+        'oppositeVpcInstanceId' => 'OppositeVpcInstanceId',
+        'reservationActiveTime' => 'ReservationActiveTime',
+        'reservationBandwidth' => 'ReservationBandwidth',
+        'reservationInternetChargeType' => 'ReservationInternetChargeType',
+        'reservationOrderType' => 'ReservationOrderType',
+        'resourceGroupId' => 'ResourceGroupId',
+        'role' => 'Role',
+        'routerId' => 'RouterId',
+        'routerInterfaceId' => 'RouterInterfaceId',
+        'routerType' => 'RouterType',
+        'spec' => 'Spec',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'vpcInstanceId' => 'VpcInstanceId',
     ];
 
     public function validate()

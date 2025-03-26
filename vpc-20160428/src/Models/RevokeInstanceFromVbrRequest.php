@@ -12,33 +12,38 @@ class RevokeInstanceFromVbrRequest extends Model
      * @var string
      */
     public $grantType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $vbrInstanceIds;
+
     /**
      * @var string
      */
     public $vbrOwnerUid;
+
     /**
      * @var string
      */
     public $vbrRegionNo;
     protected $_name = [
-        'grantType'      => 'GrantType',
-        'instanceId'     => 'InstanceId',
-        'regionId'       => 'RegionId',
+        'grantType' => 'GrantType',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'vbrInstanceIds' => 'VbrInstanceIds',
-        'vbrOwnerUid'    => 'VbrOwnerUid',
-        'vbrRegionNo'    => 'VbrRegionNo',
+        'vbrOwnerUid' => 'VbrOwnerUid',
+        'vbrRegionNo' => 'VbrRegionNo',
     ];
 
     public function validate()
@@ -67,7 +72,7 @@ class RevokeInstanceFromVbrRequest extends Model
         if (null !== $this->vbrInstanceIds) {
             if (\is_array($this->vbrInstanceIds)) {
                 $res['VbrInstanceIds'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->vbrInstanceIds as $item1) {
                     $res['VbrInstanceIds'][$n1++] = $item1;
                 }
@@ -108,7 +113,7 @@ class RevokeInstanceFromVbrRequest extends Model
         if (isset($map['VbrInstanceIds'])) {
             if (!empty($map['VbrInstanceIds'])) {
                 $model->vbrInstanceIds = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['VbrInstanceIds'] as $item1) {
                     $model->vbrInstanceIds[$n1++] = $item1;
                 }

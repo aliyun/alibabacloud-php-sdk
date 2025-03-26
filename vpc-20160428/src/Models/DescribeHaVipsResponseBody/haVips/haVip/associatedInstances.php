@@ -30,7 +30,7 @@ class associatedInstances extends Model
         if (null !== $this->associatedInstance) {
             if (\is_array($this->associatedInstance)) {
                 $res['associatedInstance'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->associatedInstance as $item1) {
                     $res['associatedInstance'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class associatedInstances extends Model
         if (isset($map['associatedInstance'])) {
             if (!empty($map['associatedInstance'])) {
                 $model->associatedInstance = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['associatedInstance'] as $item1) {
                     $model->associatedInstance[$n1++] = $item1;
                 }

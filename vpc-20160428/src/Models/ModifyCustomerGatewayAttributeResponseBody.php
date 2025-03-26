@@ -12,38 +12,44 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $customerGatewayId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $ipAddress;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'createTime'        => 'CreateTime',
+        'createTime' => 'CreateTime',
         'customerGatewayId' => 'CustomerGatewayId',
-        'description'       => 'Description',
-        'ipAddress'         => 'IpAddress',
-        'name'              => 'Name',
-        'requestId'         => 'RequestId',
-        'resourceGroupId'   => 'ResourceGroupId',
+        'description' => 'Description',
+        'ipAddress' => 'IpAddress',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class TransformEipSegmentToPublicIpAddressPoolResponseBody extends Model
      * @var string
      */
     public $publicIpAddressPoolId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
         'publicIpAddressPoolId' => 'PublicIpAddressPoolId',
-        'requestId'             => 'RequestId',
-        'resourceGroupId'       => 'ResourceGroupId',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

@@ -13,148 +13,176 @@ class CreateRouterInterfaceRequest extends Model
      * @var string
      */
     public $accessPointId;
+
     /**
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var bool
      */
     public $autoRenew;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $fastLinkMode;
+
     /**
      * @var string
      */
     public $healthCheckSourceIp;
+
     /**
      * @var string
      */
     public $healthCheckTargetIp;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $oppositeAccessPointId;
+
     /**
      * @var string
      */
     public $oppositeInterfaceId;
+
     /**
      * @var string
      */
     public $oppositeInterfaceOwnerId;
+
     /**
      * @var string
      */
     public $oppositeRegionId;
+
     /**
      * @var string
      */
     public $oppositeRouterId;
+
     /**
      * @var string
      */
     public $oppositeRouterType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $pricingCycle;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $routerId;
+
     /**
      * @var string
      */
     public $routerType;
+
     /**
      * @var string
      */
     public $spec;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'accessPointId'            => 'AccessPointId',
-        'autoPay'                  => 'AutoPay',
-        'autoRenew'                => 'AutoRenew',
-        'clientToken'              => 'ClientToken',
-        'description'              => 'Description',
-        'fastLinkMode'             => 'FastLinkMode',
-        'healthCheckSourceIp'      => 'HealthCheckSourceIp',
-        'healthCheckTargetIp'      => 'HealthCheckTargetIp',
-        'instanceChargeType'       => 'InstanceChargeType',
-        'name'                     => 'Name',
-        'oppositeAccessPointId'    => 'OppositeAccessPointId',
-        'oppositeInterfaceId'      => 'OppositeInterfaceId',
+        'accessPointId' => 'AccessPointId',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'fastLinkMode' => 'FastLinkMode',
+        'healthCheckSourceIp' => 'HealthCheckSourceIp',
+        'healthCheckTargetIp' => 'HealthCheckTargetIp',
+        'instanceChargeType' => 'InstanceChargeType',
+        'name' => 'Name',
+        'oppositeAccessPointId' => 'OppositeAccessPointId',
+        'oppositeInterfaceId' => 'OppositeInterfaceId',
         'oppositeInterfaceOwnerId' => 'OppositeInterfaceOwnerId',
-        'oppositeRegionId'         => 'OppositeRegionId',
-        'oppositeRouterId'         => 'OppositeRouterId',
-        'oppositeRouterType'       => 'OppositeRouterType',
-        'ownerAccount'             => 'OwnerAccount',
-        'ownerId'                  => 'OwnerId',
-        'period'                   => 'Period',
-        'pricingCycle'             => 'PricingCycle',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
-        'resourceOwnerId'          => 'ResourceOwnerId',
-        'role'                     => 'Role',
-        'routerId'                 => 'RouterId',
-        'routerType'               => 'RouterType',
-        'spec'                     => 'Spec',
-        'tags'                     => 'Tags',
+        'oppositeRegionId' => 'OppositeRegionId',
+        'oppositeRouterId' => 'OppositeRouterId',
+        'oppositeRouterType' => 'OppositeRouterType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'period' => 'Period',
+        'pricingCycle' => 'PricingCycle',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'role' => 'Role',
+        'routerId' => 'RouterId',
+        'routerType' => 'RouterType',
+        'spec' => 'Spec',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -283,7 +311,7 @@ class CreateRouterInterfaceRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -416,7 +444,7 @@ class CreateRouterInterfaceRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

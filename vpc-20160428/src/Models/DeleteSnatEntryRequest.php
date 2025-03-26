@@ -12,43 +12,50 @@ class DeleteSnatEntryRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $snatEntryId;
+
     /**
      * @var string
      */
     public $snatTableId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'snatEntryId'          => 'SnatEntryId',
-        'snatTableId'          => 'SnatTableId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'snatEntryId' => 'SnatEntryId',
+        'snatTableId' => 'SnatTableId',
     ];
 
     public function validate()

@@ -12,58 +12,68 @@ class vcoRouteEntries extends Model
      * @var string
      */
     public $asPath;
+
     /**
      * @var string
      */
     public $community;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $nextHop;
+
     /**
      * @var string[]
      */
     public $nextHopTunnelIdList;
+
     /**
      * @var string
      */
     public $routeDest;
+
     /**
      * @var string
      */
     public $routeEntryType;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $vpnConnectionId;
+
     /**
      * @var int
      */
     public $weight;
     protected $_name = [
-        'asPath'              => 'AsPath',
-        'community'           => 'Community',
-        'createTime'          => 'CreateTime',
-        'nextHop'             => 'NextHop',
+        'asPath' => 'AsPath',
+        'community' => 'Community',
+        'createTime' => 'CreateTime',
+        'nextHop' => 'NextHop',
         'nextHopTunnelIdList' => 'NextHopTunnelIdList',
-        'routeDest'           => 'RouteDest',
-        'routeEntryType'      => 'RouteEntryType',
-        'source'              => 'Source',
-        'state'               => 'State',
-        'vpnConnectionId'     => 'VpnConnectionId',
-        'weight'              => 'Weight',
+        'routeDest' => 'RouteDest',
+        'routeEntryType' => 'RouteEntryType',
+        'source' => 'Source',
+        'state' => 'State',
+        'vpnConnectionId' => 'VpnConnectionId',
+        'weight' => 'Weight',
     ];
 
     public function validate()
@@ -96,7 +106,7 @@ class vcoRouteEntries extends Model
         if (null !== $this->nextHopTunnelIdList) {
             if (\is_array($this->nextHopTunnelIdList)) {
                 $res['NextHopTunnelIdList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->nextHopTunnelIdList as $item1) {
                     $res['NextHopTunnelIdList'][$n1++] = $item1;
                 }
@@ -157,7 +167,7 @@ class vcoRouteEntries extends Model
         if (isset($map['NextHopTunnelIdList'])) {
             if (!empty($map['NextHopTunnelIdList'])) {
                 $model->nextHopTunnelIdList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['NextHopTunnelIdList'] as $item1) {
                     $model->nextHopTunnelIdList[$n1++] = $item1;
                 }

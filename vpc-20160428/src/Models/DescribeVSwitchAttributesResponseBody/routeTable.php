@@ -12,12 +12,13 @@ class routeTable extends Model
      * @var string
      */
     public $routeTableId;
+
     /**
      * @var string
      */
     public $routeTableType;
     protected $_name = [
-        'routeTableId'   => 'RouteTableId',
+        'routeTableId' => 'RouteTableId',
         'routeTableType' => 'RouteTableType',
     ];
 

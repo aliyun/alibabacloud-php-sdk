@@ -12,43 +12,50 @@ class ModifyVRouterAttributeRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $VRouterId;
+
     /**
      * @var string
      */
     public $VRouterName;
     protected $_name = [
-        'description'          => 'Description',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'description' => 'Description',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'VRouterId'            => 'VRouterId',
-        'VRouterName'          => 'VRouterName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'VRouterId' => 'VRouterId',
+        'VRouterName' => 'VRouterName',
     ];
 
     public function validate()

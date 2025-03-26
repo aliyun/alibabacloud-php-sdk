@@ -12,33 +12,38 @@ class ipv6EgressOnlyRule extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $ipv6EgressOnlyRuleId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'description'          => 'Description',
-        'instanceId'           => 'InstanceId',
-        'instanceType'         => 'InstanceType',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
+        'instanceType' => 'InstanceType',
         'ipv6EgressOnlyRuleId' => 'Ipv6EgressOnlyRuleId',
-        'name'                 => 'Name',
-        'status'               => 'Status',
+        'name' => 'Name',
+        'status' => 'Status',
     ];
 
     public function validate()

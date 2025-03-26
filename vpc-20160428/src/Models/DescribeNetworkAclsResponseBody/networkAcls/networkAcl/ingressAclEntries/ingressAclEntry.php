@@ -12,48 +12,56 @@ class ingressAclEntry extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $entryType;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var string
      */
     public $networkAclEntryId;
+
     /**
      * @var string
      */
     public $networkAclEntryName;
+
     /**
      * @var string
      */
     public $policy;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $sourceCidrIp;
     protected $_name = [
-        'description'         => 'Description',
-        'entryType'           => 'EntryType',
-        'ipVersion'           => 'IpVersion',
-        'networkAclEntryId'   => 'NetworkAclEntryId',
+        'description' => 'Description',
+        'entryType' => 'EntryType',
+        'ipVersion' => 'IpVersion',
+        'networkAclEntryId' => 'NetworkAclEntryId',
         'networkAclEntryName' => 'NetworkAclEntryName',
-        'policy'              => 'Policy',
-        'port'                => 'Port',
-        'protocol'            => 'Protocol',
-        'sourceCidrIp'        => 'SourceCidrIp',
+        'policy' => 'Policy',
+        'port' => 'Port',
+        'protocol' => 'Protocol',
+        'sourceCidrIp' => 'SourceCidrIp',
     ];
 
     public function validate()

@@ -12,103 +12,122 @@ class CreateVpnGatewayRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $disasterRecoveryVSwitchId;
+
     /**
      * @var bool
      */
     public $enableIpsec;
+
     /**
      * @var bool
      */
     public $enableSsl;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $sslConnections;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $vpnType;
     protected $_name = [
-        'autoPay'                   => 'AutoPay',
-        'bandwidth'                 => 'Bandwidth',
-        'clientToken'               => 'ClientToken',
+        'autoPay' => 'AutoPay',
+        'bandwidth' => 'Bandwidth',
+        'clientToken' => 'ClientToken',
         'disasterRecoveryVSwitchId' => 'DisasterRecoveryVSwitchId',
-        'enableIpsec'               => 'EnableIpsec',
-        'enableSsl'                 => 'EnableSsl',
-        'instanceChargeType'        => 'InstanceChargeType',
-        'name'                      => 'Name',
-        'networkType'               => 'NetworkType',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'period'                    => 'Period',
-        'regionId'                  => 'RegionId',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
-        'sslConnections'            => 'SslConnections',
-        'vSwitchId'                 => 'VSwitchId',
-        'vpcId'                     => 'VpcId',
-        'vpnType'                   => 'VpnType',
+        'enableIpsec' => 'EnableIpsec',
+        'enableSsl' => 'EnableSsl',
+        'instanceChargeType' => 'InstanceChargeType',
+        'name' => 'Name',
+        'networkType' => 'NetworkType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'period' => 'Period',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sslConnections' => 'SslConnections',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'vpnType' => 'VpnType',
     ];
 
     public function validate()

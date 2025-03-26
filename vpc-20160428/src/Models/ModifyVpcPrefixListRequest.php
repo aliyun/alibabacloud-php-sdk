@@ -14,68 +14,80 @@ class ModifyVpcPrefixListRequest extends Model
      * @var addPrefixListEntry[]
      */
     public $addPrefixListEntry;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var int
      */
     public $maxEntries;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $prefixListDescription;
+
     /**
      * @var string
      */
     public $prefixListId;
+
     /**
      * @var string
      */
     public $prefixListName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var removePrefixListEntry[]
      */
     public $removePrefixListEntry;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'addPrefixListEntry'    => 'AddPrefixListEntry',
-        'clientToken'           => 'ClientToken',
-        'dryRun'                => 'DryRun',
-        'maxEntries'            => 'MaxEntries',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
+        'addPrefixListEntry' => 'AddPrefixListEntry',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'maxEntries' => 'MaxEntries',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'prefixListDescription' => 'PrefixListDescription',
-        'prefixListId'          => 'PrefixListId',
-        'prefixListName'        => 'PrefixListName',
-        'regionId'              => 'RegionId',
+        'prefixListId' => 'PrefixListId',
+        'prefixListName' => 'PrefixListName',
+        'regionId' => 'RegionId',
         'removePrefixListEntry' => 'RemovePrefixListEntry',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -95,7 +107,7 @@ class ModifyVpcPrefixListRequest extends Model
         if (null !== $this->addPrefixListEntry) {
             if (\is_array($this->addPrefixListEntry)) {
                 $res['AddPrefixListEntry'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->addPrefixListEntry as $item1) {
                     $res['AddPrefixListEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -141,7 +153,7 @@ class ModifyVpcPrefixListRequest extends Model
         if (null !== $this->removePrefixListEntry) {
             if (\is_array($this->removePrefixListEntry)) {
                 $res['RemovePrefixListEntry'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->removePrefixListEntry as $item1) {
                     $res['RemovePrefixListEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -170,7 +182,7 @@ class ModifyVpcPrefixListRequest extends Model
         if (isset($map['AddPrefixListEntry'])) {
             if (!empty($map['AddPrefixListEntry'])) {
                 $model->addPrefixListEntry = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['AddPrefixListEntry'] as $item1) {
                     $model->addPrefixListEntry[$n1++] = addPrefixListEntry::fromMap($item1);
                 }
@@ -216,7 +228,7 @@ class ModifyVpcPrefixListRequest extends Model
         if (isset($map['RemovePrefixListEntry'])) {
             if (!empty($map['RemovePrefixListEntry'])) {
                 $model->removePrefixListEntry = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['RemovePrefixListEntry'] as $item1) {
                     $model->removePrefixListEntry[$n1++] = removePrefixListEntry::fromMap($item1);
                 }

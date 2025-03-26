@@ -30,7 +30,7 @@ class snatTableIds extends Model
         if (null !== $this->snatTableId) {
             if (\is_array($this->snatTableId)) {
                 $res['SnatTableId'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->snatTableId as $item1) {
                     $res['SnatTableId'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class snatTableIds extends Model
         if (isset($map['SnatTableId'])) {
             if (!empty($map['SnatTableId'])) {
                 $model->snatTableId = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['SnatTableId'] as $item1) {
                     $model->snatTableId[$n1++] = $item1;
                 }

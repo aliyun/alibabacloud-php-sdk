@@ -31,7 +31,7 @@ class accessPointFeatureModels extends Model
         if (null !== $this->accessPointFeatureModel) {
             if (\is_array($this->accessPointFeatureModel)) {
                 $res['AccessPointFeatureModel'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->accessPointFeatureModel as $item1) {
                     $res['AccessPointFeatureModel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class accessPointFeatureModels extends Model
         if (isset($map['AccessPointFeatureModel'])) {
             if (!empty($map['AccessPointFeatureModel'])) {
                 $model->accessPointFeatureModel = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['AccessPointFeatureModel'] as $item1) {
                     $model->accessPointFeatureModel[$n1++] = accessPointFeatureModel::fromMap($item1);
                 }

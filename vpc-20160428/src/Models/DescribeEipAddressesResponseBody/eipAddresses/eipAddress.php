@@ -15,213 +15,254 @@ class eipAddress extends Model
      * @var string
      */
     public $allocationId;
+
     /**
      * @var string
      */
     public $allocationTime;
+
     /**
      * @var string
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $bandwidthPackageBandwidth;
+
     /**
      * @var string
      */
     public $bandwidthPackageId;
+
     /**
      * @var string
      */
     public $bandwidthPackageType;
+
     /**
      * @var string
      */
     public $bizType;
+
     /**
      * @var string
      */
     public $businessStatus;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var bool
      */
     public $deletionProtection;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $eipBandwidth;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $HDMonitorStatus;
+
     /**
      * @var string
      */
     public $hasReservationData;
+
     /**
      * @var string
      */
     public $ISP;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceRegionId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $internetChargeType;
+
     /**
      * @var string
      */
     public $ipAddress;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $netmode;
+
     /**
      * @var operationLocks
      */
     public $operationLocks;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $publicIpAddressPoolId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $reservationActiveTime;
+
     /**
      * @var string
      */
     public $reservationBandwidth;
+
     /**
      * @var string
      */
     public $reservationInternetChargeType;
+
     /**
      * @var string
      */
     public $reservationOrderType;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $secondLimited;
+
     /**
      * @var securityProtectionTypes
      */
     public $securityProtectionTypes;
+
     /**
      * @var string
      */
     public $segmentInstanceId;
+
     /**
      * @var int
      */
     public $serviceID;
+
     /**
      * @var int
      */
     public $serviceManaged;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zone;
     protected $_name = [
-        'allocationId'                  => 'AllocationId',
-        'allocationTime'                => 'AllocationTime',
-        'bandwidth'                     => 'Bandwidth',
-        'bandwidthPackageBandwidth'     => 'BandwidthPackageBandwidth',
-        'bandwidthPackageId'            => 'BandwidthPackageId',
-        'bandwidthPackageType'          => 'BandwidthPackageType',
-        'bizType'                       => 'BizType',
-        'businessStatus'                => 'BusinessStatus',
-        'chargeType'                    => 'ChargeType',
-        'deletionProtection'            => 'DeletionProtection',
-        'description'                   => 'Description',
-        'eipBandwidth'                  => 'EipBandwidth',
-        'expiredTime'                   => 'ExpiredTime',
-        'HDMonitorStatus'               => 'HDMonitorStatus',
-        'hasReservationData'            => 'HasReservationData',
-        'ISP'                           => 'ISP',
-        'instanceId'                    => 'InstanceId',
-        'instanceRegionId'              => 'InstanceRegionId',
-        'instanceType'                  => 'InstanceType',
-        'internetChargeType'            => 'InternetChargeType',
-        'ipAddress'                     => 'IpAddress',
-        'mode'                          => 'Mode',
-        'name'                          => 'Name',
-        'netmode'                       => 'Netmode',
-        'operationLocks'                => 'OperationLocks',
-        'privateIpAddress'              => 'PrivateIpAddress',
-        'publicIpAddressPoolId'         => 'PublicIpAddressPoolId',
-        'regionId'                      => 'RegionId',
-        'reservationActiveTime'         => 'ReservationActiveTime',
-        'reservationBandwidth'          => 'ReservationBandwidth',
+        'allocationId' => 'AllocationId',
+        'allocationTime' => 'AllocationTime',
+        'bandwidth' => 'Bandwidth',
+        'bandwidthPackageBandwidth' => 'BandwidthPackageBandwidth',
+        'bandwidthPackageId' => 'BandwidthPackageId',
+        'bandwidthPackageType' => 'BandwidthPackageType',
+        'bizType' => 'BizType',
+        'businessStatus' => 'BusinessStatus',
+        'chargeType' => 'ChargeType',
+        'deletionProtection' => 'DeletionProtection',
+        'description' => 'Description',
+        'eipBandwidth' => 'EipBandwidth',
+        'expiredTime' => 'ExpiredTime',
+        'HDMonitorStatus' => 'HDMonitorStatus',
+        'hasReservationData' => 'HasReservationData',
+        'ISP' => 'ISP',
+        'instanceId' => 'InstanceId',
+        'instanceRegionId' => 'InstanceRegionId',
+        'instanceType' => 'InstanceType',
+        'internetChargeType' => 'InternetChargeType',
+        'ipAddress' => 'IpAddress',
+        'mode' => 'Mode',
+        'name' => 'Name',
+        'netmode' => 'Netmode',
+        'operationLocks' => 'OperationLocks',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'publicIpAddressPoolId' => 'PublicIpAddressPoolId',
+        'regionId' => 'RegionId',
+        'reservationActiveTime' => 'ReservationActiveTime',
+        'reservationBandwidth' => 'ReservationBandwidth',
         'reservationInternetChargeType' => 'ReservationInternetChargeType',
-        'reservationOrderType'          => 'ReservationOrderType',
-        'resourceGroupId'               => 'ResourceGroupId',
-        'secondLimited'                 => 'SecondLimited',
-        'securityProtectionTypes'       => 'SecurityProtectionTypes',
-        'segmentInstanceId'             => 'SegmentInstanceId',
-        'serviceID'                     => 'ServiceID',
-        'serviceManaged'                => 'ServiceManaged',
-        'status'                        => 'Status',
-        'tags'                          => 'Tags',
-        'vpcId'                         => 'VpcId',
-        'zone'                          => 'Zone',
+        'reservationOrderType' => 'ReservationOrderType',
+        'resourceGroupId' => 'ResourceGroupId',
+        'secondLimited' => 'SecondLimited',
+        'securityProtectionTypes' => 'SecurityProtectionTypes',
+        'segmentInstanceId' => 'SegmentInstanceId',
+        'serviceID' => 'ServiceID',
+        'serviceManaged' => 'ServiceManaged',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'vpcId' => 'VpcId',
+        'zone' => 'Zone',
     ];
 
     public function validate()

@@ -12,53 +12,62 @@ class apList extends Model
      * @var string
      */
     public $accessPointId;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $circuitCode;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $lineOperator;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $peerLocation;
+
     /**
      * @var int
      */
     public $portNum;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'accessPointId' => 'AccessPointId',
-        'bandwidth'     => 'Bandwidth',
-        'circuitCode'   => 'CircuitCode',
-        'description'   => 'Description',
-        'lineOperator'  => 'LineOperator',
-        'name'          => 'Name',
-        'peerLocation'  => 'PeerLocation',
-        'portNum'       => 'PortNum',
-        'regionId'      => 'RegionId',
-        'type'          => 'Type',
+        'bandwidth' => 'Bandwidth',
+        'circuitCode' => 'CircuitCode',
+        'description' => 'Description',
+        'lineOperator' => 'LineOperator',
+        'name' => 'Name',
+        'peerLocation' => 'PeerLocation',
+        'portNum' => 'PortNum',
+        'regionId' => 'RegionId',
+        'type' => 'Type',
     ];
 
     public function validate()

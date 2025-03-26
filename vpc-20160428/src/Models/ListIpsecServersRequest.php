@@ -12,38 +12,44 @@ class ListIpsecServersRequest extends Model
      * @var string[]
      */
     public $ipsecServerId;
+
     /**
      * @var string
      */
     public $ipsecServerName;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'ipsecServerId'   => 'IpsecServerId',
+        'ipsecServerId' => 'IpsecServerId',
         'ipsecServerName' => 'IpsecServerName',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'regionId'        => 'RegionId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'vpnGatewayId'    => 'VpnGatewayId',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -60,7 +66,7 @@ class ListIpsecServersRequest extends Model
         if (null !== $this->ipsecServerId) {
             if (\is_array($this->ipsecServerId)) {
                 $res['IpsecServerId'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->ipsecServerId as $item1) {
                     $res['IpsecServerId'][$n1++] = $item1;
                 }
@@ -105,7 +111,7 @@ class ListIpsecServersRequest extends Model
         if (isset($map['IpsecServerId'])) {
             if (!empty($map['IpsecServerId'])) {
                 $model->ipsecServerId = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['IpsecServerId'] as $item1) {
                     $model->ipsecServerId[$n1++] = $item1;
                 }

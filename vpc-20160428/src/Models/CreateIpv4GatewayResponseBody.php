@@ -12,17 +12,19 @@ class CreateIpv4GatewayResponseBody extends Model
      * @var string
      */
     public $ipv4GatewayId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'ipv4GatewayId'   => 'Ipv4GatewayId',
-        'requestId'       => 'RequestId',
+        'ipv4GatewayId' => 'Ipv4GatewayId',
+        'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

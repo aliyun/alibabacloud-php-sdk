@@ -12,12 +12,13 @@ class GetFlowLogServiceStatusResponseBody extends Model
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'enabled'   => 'Enabled',
+        'enabled' => 'Enabled',
         'requestId' => 'RequestId',
     ];
 

@@ -31,7 +31,7 @@ class traffic95DetailList extends Model
         if (null !== $this->traffic95Detail) {
             if (\is_array($this->traffic95Detail)) {
                 $res['Traffic95Detail'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->traffic95Detail as $item1) {
                     $res['Traffic95Detail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class traffic95DetailList extends Model
         if (isset($map['Traffic95Detail'])) {
             if (!empty($map['Traffic95Detail'])) {
                 $model->traffic95Detail = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['Traffic95Detail'] as $item1) {
                     $model->traffic95Detail[$n1++] = traffic95Detail::fromMap($item1);
                 }

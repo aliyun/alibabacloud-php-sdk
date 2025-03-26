@@ -12,18 +12,20 @@ class nextHopList extends Model
      * @var string
      */
     public $nextHopId;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var int
      */
     public $weight;
     protected $_name = [
-        'nextHopId'   => 'NextHopId',
+        'nextHopId' => 'NextHopId',
         'nextHopType' => 'NextHopType',
-        'weight'      => 'Weight',
+        'weight' => 'Weight',
     ];
 
     public function validate()

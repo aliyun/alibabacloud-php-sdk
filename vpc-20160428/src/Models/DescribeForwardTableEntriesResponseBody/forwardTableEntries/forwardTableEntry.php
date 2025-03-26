@@ -12,53 +12,62 @@ class forwardTableEntry extends Model
      * @var string
      */
     public $externalIp;
+
     /**
      * @var string
      */
     public $externalPort;
+
     /**
      * @var string
      */
     public $forwardEntryId;
+
     /**
      * @var string
      */
     public $forwardEntryName;
+
     /**
      * @var string
      */
     public $forwardTableId;
+
     /**
      * @var string
      */
     public $internalIp;
+
     /**
      * @var string
      */
     public $internalPort;
+
     /**
      * @var string
      */
     public $ipProtocol;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'externalIp'       => 'ExternalIp',
-        'externalPort'     => 'ExternalPort',
-        'forwardEntryId'   => 'ForwardEntryId',
+        'externalIp' => 'ExternalIp',
+        'externalPort' => 'ExternalPort',
+        'forwardEntryId' => 'ForwardEntryId',
         'forwardEntryName' => 'ForwardEntryName',
-        'forwardTableId'   => 'ForwardTableId',
-        'internalIp'       => 'InternalIp',
-        'internalPort'     => 'InternalPort',
-        'ipProtocol'       => 'IpProtocol',
-        'natGatewayId'     => 'NatGatewayId',
-        'status'           => 'Status',
+        'forwardTableId' => 'ForwardTableId',
+        'internalIp' => 'InternalIp',
+        'internalPort' => 'InternalPort',
+        'ipProtocol' => 'IpProtocol',
+        'natGatewayId' => 'NatGatewayId',
+        'status' => 'Status',
     ];
 
     public function validate()

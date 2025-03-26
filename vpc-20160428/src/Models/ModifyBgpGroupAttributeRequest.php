@@ -12,78 +12,92 @@ class ModifyBgpGroupAttributeRequest extends Model
      * @var string
      */
     public $authKey;
+
     /**
      * @var string
      */
     public $bgpGroupId;
+
     /**
      * @var bool
      */
     public $clearAuthKey;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $isFakeAsn;
+
     /**
      * @var int
      */
     public $localAsn;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $peerAsn;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $routeQuota;
     protected $_name = [
-        'authKey'              => 'AuthKey',
-        'bgpGroupId'           => 'BgpGroupId',
-        'clearAuthKey'         => 'ClearAuthKey',
-        'clientToken'          => 'ClientToken',
-        'description'          => 'Description',
-        'isFakeAsn'            => 'IsFakeAsn',
-        'localAsn'             => 'LocalAsn',
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'peerAsn'              => 'PeerAsn',
-        'regionId'             => 'RegionId',
+        'authKey' => 'AuthKey',
+        'bgpGroupId' => 'BgpGroupId',
+        'clearAuthKey' => 'ClearAuthKey',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'isFakeAsn' => 'IsFakeAsn',
+        'localAsn' => 'LocalAsn',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'peerAsn' => 'PeerAsn',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routeQuota'           => 'RouteQuota',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeQuota' => 'RouteQuota',
     ];
 
     public function validate()

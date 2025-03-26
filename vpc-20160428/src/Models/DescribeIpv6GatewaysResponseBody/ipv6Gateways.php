@@ -31,7 +31,7 @@ class ipv6Gateways extends Model
         if (null !== $this->ipv6Gateway) {
             if (\is_array($this->ipv6Gateway)) {
                 $res['Ipv6Gateway'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->ipv6Gateway as $item1) {
                     $res['Ipv6Gateway'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class ipv6Gateways extends Model
         if (isset($map['Ipv6Gateway'])) {
             if (!empty($map['Ipv6Gateway'])) {
                 $model->ipv6Gateway = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Ipv6Gateway'] as $item1) {
                     $model->ipv6Gateway[$n1++] = ipv6Gateway::fromMap($item1);
                 }

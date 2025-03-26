@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\AllocateEipAddressProRequest\tag;
 
 class AllocateEipAddressProRequest extends Model
 {
@@ -12,104 +13,131 @@ class AllocateEipAddressProRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ISP;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $internetChargeType;
+
     /**
      * @var string
      */
     public $ipAddress;
+
     /**
      * @var string
      */
     public $netmode;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $pricingCycle;
+
     /**
      * @var string
      */
     public $publicIpAddressPoolId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string[]
      */
     public $securityProtectionTypes;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'autoPay'                 => 'AutoPay',
-        'bandwidth'               => 'Bandwidth',
-        'clientToken'             => 'ClientToken',
-        'ISP'                     => 'ISP',
-        'instanceChargeType'      => 'InstanceChargeType',
-        'instanceId'              => 'InstanceId',
-        'internetChargeType'      => 'InternetChargeType',
-        'ipAddress'               => 'IpAddress',
-        'netmode'                 => 'Netmode',
-        'ownerAccount'            => 'OwnerAccount',
-        'ownerId'                 => 'OwnerId',
-        'period'                  => 'Period',
-        'pricingCycle'            => 'PricingCycle',
-        'publicIpAddressPoolId'   => 'PublicIpAddressPoolId',
-        'regionId'                => 'RegionId',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
+        'autoPay' => 'AutoPay',
+        'bandwidth' => 'Bandwidth',
+        'clientToken' => 'ClientToken',
+        'ISP' => 'ISP',
+        'instanceChargeType' => 'InstanceChargeType',
+        'instanceId' => 'InstanceId',
+        'internetChargeType' => 'InternetChargeType',
+        'ipAddress' => 'IpAddress',
+        'netmode' => 'Netmode',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'period' => 'Period',
+        'pricingCycle' => 'PricingCycle',
+        'publicIpAddressPoolId' => 'PublicIpAddressPoolId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'securityProtectionTypes' => 'SecurityProtectionTypes',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
         if (\is_array($this->securityProtectionTypes)) {
             Model::validateArray($this->securityProtectionTypes);
+        }
+        if (\is_array($this->tag)) {
+            Model::validateArray($this->tag);
         }
         parent::validate();
     }
@@ -192,9 +220,19 @@ class AllocateEipAddressProRequest extends Model
         if (null !== $this->securityProtectionTypes) {
             if (\is_array($this->securityProtectionTypes)) {
                 $res['SecurityProtectionTypes'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->securityProtectionTypes as $item1) {
                     $res['SecurityProtectionTypes'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->tag) {
+            if (\is_array($this->tag)) {
+                $res['Tag'] = [];
+                $n1 = 0;
+                foreach ($this->tag as $item1) {
+                    $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -285,9 +323,19 @@ class AllocateEipAddressProRequest extends Model
         if (isset($map['SecurityProtectionTypes'])) {
             if (!empty($map['SecurityProtectionTypes'])) {
                 $model->securityProtectionTypes = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['SecurityProtectionTypes'] as $item1) {
                     $model->securityProtectionTypes[$n1++] = $item1;
+                }
+            }
+        }
+
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n1 = 0;
+                foreach ($map['Tag'] as $item1) {
+                    $model->tag[$n1++] = tag::fromMap($item1);
                 }
             }
         }

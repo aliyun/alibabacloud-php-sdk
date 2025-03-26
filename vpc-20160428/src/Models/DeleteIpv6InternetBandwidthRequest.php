@@ -12,48 +12,56 @@ class DeleteIpv6InternetBandwidthRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ipv6AddressId;
+
     /**
      * @var string
      */
     public $ipv6InternetBandwidthId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'             => 'ClientToken',
-        'dryRun'                  => 'DryRun',
-        'ipv6AddressId'           => 'Ipv6AddressId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ipv6AddressId' => 'Ipv6AddressId',
         'ipv6InternetBandwidthId' => 'Ipv6InternetBandwidthId',
-        'ownerAccount'            => 'OwnerAccount',
-        'ownerId'                 => 'OwnerId',
-        'regionId'                => 'RegionId',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

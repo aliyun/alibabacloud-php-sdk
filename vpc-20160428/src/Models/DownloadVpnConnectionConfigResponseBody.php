@@ -13,12 +13,13 @@ class DownloadVpnConnectionConfigResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var vpnConnectionConfig
      */
     public $vpnConnectionConfig;
     protected $_name = [
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
         'vpnConnectionConfig' => 'VpnConnectionConfig',
     ];
 

@@ -13,78 +13,92 @@ class ListPublicIpAddressPoolsRequest extends Model
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $isp;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string[]
      */
     public $publicIpAddressPoolIds;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var bool
      */
     public $securityProtectionEnabled;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'dryRun'                    => 'DryRun',
-        'isp'                       => 'Isp',
-        'maxResults'                => 'MaxResults',
-        'name'                      => 'Name',
-        'nextToken'                 => 'NextToken',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'publicIpAddressPoolIds'    => 'PublicIpAddressPoolIds',
-        'regionId'                  => 'RegionId',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
+        'dryRun' => 'DryRun',
+        'isp' => 'Isp',
+        'maxResults' => 'MaxResults',
+        'name' => 'Name',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'publicIpAddressPoolIds' => 'PublicIpAddressPoolIds',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'securityProtectionEnabled' => 'SecurityProtectionEnabled',
-        'status'                    => 'Status',
-        'tags'                      => 'Tags',
+        'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -132,7 +146,7 @@ class ListPublicIpAddressPoolsRequest extends Model
         if (null !== $this->publicIpAddressPoolIds) {
             if (\is_array($this->publicIpAddressPoolIds)) {
                 $res['PublicIpAddressPoolIds'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->publicIpAddressPoolIds as $item1) {
                     $res['PublicIpAddressPoolIds'][$n1++] = $item1;
                 }
@@ -166,7 +180,7 @@ class ListPublicIpAddressPoolsRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -215,7 +229,7 @@ class ListPublicIpAddressPoolsRequest extends Model
         if (isset($map['PublicIpAddressPoolIds'])) {
             if (!empty($map['PublicIpAddressPoolIds'])) {
                 $model->publicIpAddressPoolIds = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['PublicIpAddressPoolIds'] as $item1) {
                     $model->publicIpAddressPoolIds[$n1++] = $item1;
                 }
@@ -249,7 +263,7 @@ class ListPublicIpAddressPoolsRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

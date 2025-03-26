@@ -12,53 +12,62 @@ class ModifyFlowLogAttributeRequest extends Model
      * @var int
      */
     public $aggregationInterval;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $flowLogId;
+
     /**
      * @var string
      */
     public $flowLogName;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'aggregationInterval'  => 'AggregationInterval',
-        'description'          => 'Description',
-        'flowLogId'            => 'FlowLogId',
-        'flowLogName'          => 'FlowLogName',
-        'ipVersion'            => 'IpVersion',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'aggregationInterval' => 'AggregationInterval',
+        'description' => 'Description',
+        'flowLogId' => 'FlowLogId',
+        'flowLogName' => 'FlowLogName',
+        'ipVersion' => 'IpVersion',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

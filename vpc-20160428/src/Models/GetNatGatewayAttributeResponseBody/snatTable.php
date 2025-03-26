@@ -12,13 +12,14 @@ class snatTable extends Model
      * @var int
      */
     public $snatEntryCount;
+
     /**
      * @var string
      */
     public $snatTableId;
     protected $_name = [
         'snatEntryCount' => 'SnatEntryCount',
-        'snatTableId'    => 'SnatTableId',
+        'snatTableId' => 'SnatTableId',
     ];
 
     public function validate()

@@ -13,78 +13,92 @@ class CreateDhcpOptionsSetRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $dhcpOptionsSetDescription;
+
     /**
      * @var string
      */
     public $dhcpOptionsSetName;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $domainNameServers;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ipv6LeaseTime;
+
     /**
      * @var string
      */
     public $leaseTime;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'clientToken'               => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'dhcpOptionsSetDescription' => 'DhcpOptionsSetDescription',
-        'dhcpOptionsSetName'        => 'DhcpOptionsSetName',
-        'domainName'                => 'DomainName',
-        'domainNameServers'         => 'DomainNameServers',
-        'dryRun'                    => 'DryRun',
-        'ipv6LeaseTime'             => 'Ipv6LeaseTime',
-        'leaseTime'                 => 'LeaseTime',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'regionId'                  => 'RegionId',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
-        'tag'                       => 'Tag',
+        'dhcpOptionsSetName' => 'DhcpOptionsSetName',
+        'domainName' => 'DomainName',
+        'domainNameServers' => 'DomainNameServers',
+        'dryRun' => 'DryRun',
+        'ipv6LeaseTime' => 'Ipv6LeaseTime',
+        'leaseTime' => 'LeaseTime',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -157,7 +171,7 @@ class CreateDhcpOptionsSetRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -234,7 +248,7 @@ class CreateDhcpOptionsSetRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

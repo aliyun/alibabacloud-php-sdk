@@ -13,27 +13,31 @@ class DiagnoseVpnConnectionsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var vpnConnections[]
      */
     public $vpnConnections;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'vpnConnections' => 'VpnConnections',
     ];
 
@@ -67,7 +71,7 @@ class DiagnoseVpnConnectionsResponseBody extends Model
         if (null !== $this->vpnConnections) {
             if (\is_array($this->vpnConnections)) {
                 $res['VpnConnections'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->vpnConnections as $item1) {
                     $res['VpnConnections'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class DiagnoseVpnConnectionsResponseBody extends Model
         if (isset($map['VpnConnections'])) {
             if (!empty($map['VpnConnections'])) {
                 $model->vpnConnections = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['VpnConnections'] as $item1) {
                     $model->vpnConnections[$n1++] = vpnConnections::fromMap($item1);
                 }

@@ -13,98 +13,116 @@ class publicIpAddressPoolList extends Model
      * @var string
      */
     public $bizType;
+
     /**
      * @var string
      */
     public $businessStatus;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $ipAddressRemaining;
+
     /**
      * @var string
      */
     public $isp;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $publicIpAddressPoolId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string[]
      */
     public $securityProtectionTypes;
+
     /**
      * @var string
      */
     public $shareType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var int
      */
     public $totalIpNum;
+
     /**
      * @var int
      */
     public $usedIpNum;
+
     /**
      * @var string
      */
     public $userType;
+
     /**
      * @var string[]
      */
     public $zones;
     protected $_name = [
-        'bizType'                 => 'BizType',
-        'businessStatus'          => 'BusinessStatus',
-        'creationTime'            => 'CreationTime',
-        'description'             => 'Description',
-        'ipAddressRemaining'      => 'IpAddressRemaining',
-        'isp'                     => 'Isp',
-        'name'                    => 'Name',
-        'ownerId'                 => 'OwnerId',
-        'publicIpAddressPoolId'   => 'PublicIpAddressPoolId',
-        'regionId'                => 'RegionId',
-        'resourceGroupId'         => 'ResourceGroupId',
+        'bizType' => 'BizType',
+        'businessStatus' => 'BusinessStatus',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'ipAddressRemaining' => 'IpAddressRemaining',
+        'isp' => 'Isp',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'publicIpAddressPoolId' => 'PublicIpAddressPoolId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'securityProtectionTypes' => 'SecurityProtectionTypes',
-        'shareType'               => 'ShareType',
-        'status'                  => 'Status',
-        'tags'                    => 'Tags',
-        'totalIpNum'              => 'TotalIpNum',
-        'usedIpNum'               => 'UsedIpNum',
-        'userType'                => 'UserType',
-        'zones'                   => 'Zones',
+        'shareType' => 'ShareType',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'totalIpNum' => 'TotalIpNum',
+        'usedIpNum' => 'UsedIpNum',
+        'userType' => 'UserType',
+        'zones' => 'Zones',
     ];
 
     public function validate()
@@ -171,7 +189,7 @@ class publicIpAddressPoolList extends Model
         if (null !== $this->securityProtectionTypes) {
             if (\is_array($this->securityProtectionTypes)) {
                 $res['SecurityProtectionTypes'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->securityProtectionTypes as $item1) {
                     $res['SecurityProtectionTypes'][$n1++] = $item1;
                 }
@@ -189,7 +207,7 @@ class publicIpAddressPoolList extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -211,7 +229,7 @@ class publicIpAddressPoolList extends Model
         if (null !== $this->zones) {
             if (\is_array($this->zones)) {
                 $res['Zones'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->zones as $item1) {
                     $res['Zones'][$n1++] = $item1;
                 }
@@ -276,7 +294,7 @@ class publicIpAddressPoolList extends Model
         if (isset($map['SecurityProtectionTypes'])) {
             if (!empty($map['SecurityProtectionTypes'])) {
                 $model->securityProtectionTypes = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['SecurityProtectionTypes'] as $item1) {
                     $model->securityProtectionTypes[$n1++] = $item1;
                 }
@@ -294,7 +312,7 @@ class publicIpAddressPoolList extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }
@@ -316,7 +334,7 @@ class publicIpAddressPoolList extends Model
         if (isset($map['Zones'])) {
             if (!empty($map['Zones'])) {
                 $model->zones = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Zones'] as $item1) {
                     $model->zones[$n1++] = $item1;
                 }

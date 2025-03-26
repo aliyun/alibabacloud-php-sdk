@@ -12,58 +12,68 @@ class PublishVpnRouteEntryRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $nextHop;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var bool
      */
     public $publishVpc;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routeDest;
+
     /**
      * @var string
      */
     public $routeType;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'nextHop'              => 'NextHop',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'publishVpc'           => 'PublishVpc',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'nextHop' => 'NextHop',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'publishVpc' => 'PublishVpc',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routeDest'            => 'RouteDest',
-        'routeType'            => 'RouteType',
-        'vpnGatewayId'         => 'VpnGatewayId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeDest' => 'RouteDest',
+        'routeType' => 'RouteType',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()

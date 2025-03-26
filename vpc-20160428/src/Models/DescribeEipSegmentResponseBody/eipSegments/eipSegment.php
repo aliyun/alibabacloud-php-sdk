@@ -12,48 +12,56 @@ class eipSegment extends Model
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $descritpion;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ipCount;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $segment;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $zone;
     protected $_name = [
         'creationTime' => 'CreationTime',
-        'descritpion'  => 'Descritpion',
-        'instanceId'   => 'InstanceId',
-        'ipCount'      => 'IpCount',
-        'name'         => 'Name',
-        'regionId'     => 'RegionId',
-        'segment'      => 'Segment',
-        'status'       => 'Status',
-        'zone'         => 'Zone',
+        'descritpion' => 'Descritpion',
+        'instanceId' => 'InstanceId',
+        'ipCount' => 'IpCount',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
+        'segment' => 'Segment',
+        'status' => 'Status',
+        'zone' => 'Zone',
     ];
 
     public function validate()

@@ -13,23 +13,26 @@ class DeleteRouteEntriesResponseBody extends Model
      * @var int
      */
     public $failedCount;
+
     /**
      * @var failedRouteEntries[]
      */
     public $failedRouteEntries;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $successCount;
     protected $_name = [
-        'failedCount'        => 'FailedCount',
+        'failedCount' => 'FailedCount',
         'failedRouteEntries' => 'FailedRouteEntries',
-        'requestId'          => 'RequestId',
-        'successCount'       => 'SuccessCount',
+        'requestId' => 'RequestId',
+        'successCount' => 'SuccessCount',
     ];
 
     public function validate()
@@ -50,7 +53,7 @@ class DeleteRouteEntriesResponseBody extends Model
         if (null !== $this->failedRouteEntries) {
             if (\is_array($this->failedRouteEntries)) {
                 $res['FailedRouteEntries'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->failedRouteEntries as $item1) {
                     $res['FailedRouteEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -83,7 +86,7 @@ class DeleteRouteEntriesResponseBody extends Model
         if (isset($map['FailedRouteEntries'])) {
             if (!empty($map['FailedRouteEntries'])) {
                 $model->failedRouteEntries = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['FailedRouteEntries'] as $item1) {
                     $model->failedRouteEntries[$n1++] = failedRouteEntries::fromMap($item1);
                 }

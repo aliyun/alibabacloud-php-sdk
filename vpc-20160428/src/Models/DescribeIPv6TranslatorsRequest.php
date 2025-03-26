@@ -12,78 +12,92 @@ class DescribeIPv6TranslatorsRequest extends Model
      * @var string
      */
     public $allocateIpv4Addr;
+
     /**
      * @var string
      */
     public $allocateIpv6Addr;
+
     /**
      * @var string
      */
     public $businessStatus;
+
     /**
      * @var string
      */
     public $ipv6TranslatorId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $spec;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'allocateIpv4Addr'     => 'AllocateIpv4Addr',
-        'allocateIpv6Addr'     => 'AllocateIpv6Addr',
-        'businessStatus'       => 'BusinessStatus',
-        'ipv6TranslatorId'     => 'Ipv6TranslatorId',
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'payType'              => 'PayType',
-        'regionId'             => 'RegionId',
+        'allocateIpv4Addr' => 'AllocateIpv4Addr',
+        'allocateIpv6Addr' => 'AllocateIpv6Addr',
+        'businessStatus' => 'BusinessStatus',
+        'ipv6TranslatorId' => 'Ipv6TranslatorId',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'payType' => 'PayType',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'spec'                 => 'Spec',
-        'status'               => 'Status',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'spec' => 'Spec',
+        'status' => 'Status',
     ];
 
     public function validate()

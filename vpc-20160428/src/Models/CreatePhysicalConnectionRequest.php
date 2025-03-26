@@ -13,98 +13,116 @@ class CreatePhysicalConnectionRequest extends Model
      * @var string
      */
     public $accessPointId;
+
     /**
      * @var string
      */
     public $circuitCode;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string[]
      */
     public $deviceAdvancedCapacity;
+
     /**
      * @var string
      */
     public $lineOperator;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $peerLocation;
+
     /**
      * @var string
      */
     public $portType;
+
     /**
      * @var string
      */
     public $redundantPhysicalConnectionId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var int
      */
     public $bandwidth;
     protected $_name = [
-        'accessPointId'                 => 'AccessPointId',
-        'circuitCode'                   => 'CircuitCode',
-        'clientToken'                   => 'ClientToken',
-        'description'                   => 'Description',
-        'deviceAdvancedCapacity'        => 'DeviceAdvancedCapacity',
-        'lineOperator'                  => 'LineOperator',
-        'name'                          => 'Name',
-        'ownerAccount'                  => 'OwnerAccount',
-        'ownerId'                       => 'OwnerId',
-        'peerLocation'                  => 'PeerLocation',
-        'portType'                      => 'PortType',
+        'accessPointId' => 'AccessPointId',
+        'circuitCode' => 'CircuitCode',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'deviceAdvancedCapacity' => 'DeviceAdvancedCapacity',
+        'lineOperator' => 'LineOperator',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'peerLocation' => 'PeerLocation',
+        'portType' => 'PortType',
         'redundantPhysicalConnectionId' => 'RedundantPhysicalConnectionId',
-        'regionId'                      => 'RegionId',
-        'resourceGroupId'               => 'ResourceGroupId',
-        'resourceOwnerAccount'          => 'ResourceOwnerAccount',
-        'resourceOwnerId'               => 'ResourceOwnerId',
-        'tag'                           => 'Tag',
-        'type'                          => 'Type',
-        'bandwidth'                     => 'bandwidth',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
+        'type' => 'Type',
+        'bandwidth' => 'bandwidth',
     ];
 
     public function validate()
@@ -140,7 +158,7 @@ class CreatePhysicalConnectionRequest extends Model
         if (null !== $this->deviceAdvancedCapacity) {
             if (\is_array($this->deviceAdvancedCapacity)) {
                 $res['DeviceAdvancedCapacity'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->deviceAdvancedCapacity as $item1) {
                     $res['DeviceAdvancedCapacity'][$n1++] = $item1;
                 }
@@ -194,7 +212,7 @@ class CreatePhysicalConnectionRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -239,7 +257,7 @@ class CreatePhysicalConnectionRequest extends Model
         if (isset($map['DeviceAdvancedCapacity'])) {
             if (!empty($map['DeviceAdvancedCapacity'])) {
                 $model->deviceAdvancedCapacity = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['DeviceAdvancedCapacity'] as $item1) {
                     $model->deviceAdvancedCapacity[$n1++] = $item1;
                 }
@@ -293,7 +311,7 @@ class CreatePhysicalConnectionRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

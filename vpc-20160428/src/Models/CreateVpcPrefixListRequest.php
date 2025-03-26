@@ -14,73 +14,86 @@ class CreateVpcPrefixListRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var int
      */
     public $maxEntries;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $prefixListDescription;
+
     /**
      * @var prefixListEntries[]
      */
     public $prefixListEntries;
+
     /**
      * @var string
      */
     public $prefixListName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'clientToken'           => 'ClientToken',
-        'dryRun'                => 'DryRun',
-        'ipVersion'             => 'IpVersion',
-        'maxEntries'            => 'MaxEntries',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ipVersion' => 'IpVersion',
+        'maxEntries' => 'MaxEntries',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'prefixListDescription' => 'PrefixListDescription',
-        'prefixListEntries'     => 'PrefixListEntries',
-        'prefixListName'        => 'PrefixListName',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'tag'                   => 'Tag',
+        'prefixListEntries' => 'PrefixListEntries',
+        'prefixListName' => 'PrefixListName',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -128,7 +141,7 @@ class CreateVpcPrefixListRequest extends Model
         if (null !== $this->prefixListEntries) {
             if (\is_array($this->prefixListEntries)) {
                 $res['PrefixListEntries'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->prefixListEntries as $item1) {
                     $res['PrefixListEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -158,7 +171,7 @@ class CreateVpcPrefixListRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -207,7 +220,7 @@ class CreateVpcPrefixListRequest extends Model
         if (isset($map['PrefixListEntries'])) {
             if (!empty($map['PrefixListEntries'])) {
                 $model->prefixListEntries = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['PrefixListEntries'] as $item1) {
                     $model->prefixListEntries[$n1++] = prefixListEntries::fromMap($item1);
                 }
@@ -237,7 +250,7 @@ class CreateVpcPrefixListRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

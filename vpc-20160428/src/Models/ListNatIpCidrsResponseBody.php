@@ -13,22 +13,25 @@ class ListNatIpCidrsResponseBody extends Model
      * @var natIpCidrs[]
      */
     public $natIpCidrs;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
         'natIpCidrs' => 'NatIpCidrs',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -46,7 +49,7 @@ class ListNatIpCidrsResponseBody extends Model
         if (null !== $this->natIpCidrs) {
             if (\is_array($this->natIpCidrs)) {
                 $res['NatIpCidrs'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->natIpCidrs as $item1) {
                     $res['NatIpCidrs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class ListNatIpCidrsResponseBody extends Model
         if (isset($map['NatIpCidrs'])) {
             if (!empty($map['NatIpCidrs'])) {
                 $model->natIpCidrs = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['NatIpCidrs'] as $item1) {
                     $model->natIpCidrs[$n1++] = natIpCidrs::fromMap($item1);
                 }

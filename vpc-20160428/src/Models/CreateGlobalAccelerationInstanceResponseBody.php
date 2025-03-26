@@ -12,18 +12,20 @@ class CreateGlobalAccelerationInstanceResponseBody extends Model
      * @var string
      */
     public $globalAccelerationInstanceId;
+
     /**
      * @var string
      */
     public $ipAddress;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'globalAccelerationInstanceId' => 'GlobalAccelerationInstanceId',
-        'ipAddress'                    => 'IpAddress',
-        'requestId'                    => 'RequestId',
+        'ipAddress' => 'IpAddress',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

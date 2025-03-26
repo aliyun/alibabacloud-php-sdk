@@ -13,53 +13,62 @@ class DeleteRouteEntryRequest extends Model
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $nextHopId;
+
     /**
      * @var nextHopList[]
      */
     public $nextHopList;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routeEntryId;
+
     /**
      * @var string
      */
     public $routeTableId;
     protected $_name = [
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'nextHopId'            => 'NextHopId',
-        'nextHopList'          => 'NextHopList',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'nextHopId' => 'NextHopId',
+        'nextHopList' => 'NextHopList',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routeEntryId'         => 'RouteEntryId',
-        'routeTableId'         => 'RouteTableId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeEntryId' => 'RouteEntryId',
+        'routeTableId' => 'RouteTableId',
     ];
 
     public function validate()
@@ -84,7 +93,7 @@ class DeleteRouteEntryRequest extends Model
         if (null !== $this->nextHopList) {
             if (\is_array($this->nextHopList)) {
                 $res['NextHopList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->nextHopList as $item1) {
                     $res['NextHopList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -141,7 +150,7 @@ class DeleteRouteEntryRequest extends Model
         if (isset($map['NextHopList'])) {
             if (!empty($map['NextHopList'])) {
                 $model->nextHopList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['NextHopList'] as $item1) {
                     $model->nextHopList[$n1++] = nextHopList::fromMap($item1);
                 }

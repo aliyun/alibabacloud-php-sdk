@@ -12,53 +12,62 @@ class UpdateIpv4GatewayAttributeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ipv4GatewayDescription;
+
     /**
      * @var string
      */
     public $ipv4GatewayId;
+
     /**
      * @var string
      */
     public $ipv4GatewayName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'            => 'ClientToken',
-        'dryRun'                 => 'DryRun',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'ipv4GatewayDescription' => 'Ipv4GatewayDescription',
-        'ipv4GatewayId'          => 'Ipv4GatewayId',
-        'ipv4GatewayName'        => 'Ipv4GatewayName',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'regionId'               => 'RegionId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
+        'ipv4GatewayId' => 'Ipv4GatewayId',
+        'ipv4GatewayName' => 'Ipv4GatewayName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

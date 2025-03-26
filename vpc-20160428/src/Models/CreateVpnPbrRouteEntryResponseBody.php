@@ -12,58 +12,68 @@ class CreateVpnPbrRouteEntryResponseBody extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $nextHop;
+
     /**
      * @var string
      */
     public $overlayMode;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $routeDest;
+
     /**
      * @var string
      */
     public $routeSource;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $vpnInstanceId;
+
     /**
      * @var int
      */
     public $weight;
     protected $_name = [
-        'createTime'    => 'CreateTime',
-        'description'   => 'Description',
-        'nextHop'       => 'NextHop',
-        'overlayMode'   => 'OverlayMode',
-        'priority'      => 'Priority',
-        'requestId'     => 'RequestId',
-        'routeDest'     => 'RouteDest',
-        'routeSource'   => 'RouteSource',
-        'state'         => 'State',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'nextHop' => 'NextHop',
+        'overlayMode' => 'OverlayMode',
+        'priority' => 'Priority',
+        'requestId' => 'RequestId',
+        'routeDest' => 'RouteDest',
+        'routeSource' => 'RouteSource',
+        'state' => 'State',
         'vpnInstanceId' => 'VpnInstanceId',
-        'weight'        => 'Weight',
+        'weight' => 'Weight',
     ];
 
     public function validate()

@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class tag extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionsResponseBody\vpnConnections\vpnConnection\tag\tag[]
+     * @var tag\tag[]
      */
     public $tag;
     protected $_name = [
@@ -30,7 +30,7 @@ class tag extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -51,9 +51,9 @@ class tag extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
-                    $model->tag[$n1++] = \AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionsResponseBody\vpnConnections\vpnConnection\tag\tag::fromMap($item1);
+                    $model->tag[$n1++] = tag\tag::fromMap($item1);
                 }
             }
         }

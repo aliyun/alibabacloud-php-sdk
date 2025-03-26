@@ -13,28 +13,32 @@ class GetVpcPrefixListEntriesResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var prefixListEntry[]
      */
     public $prefixListEntry;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'count'           => 'Count',
-        'nextToken'       => 'NextToken',
+        'count' => 'Count',
+        'nextToken' => 'NextToken',
         'prefixListEntry' => 'PrefixListEntry',
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class GetVpcPrefixListEntriesResponseBody extends Model
         if (null !== $this->prefixListEntry) {
             if (\is_array($this->prefixListEntry)) {
                 $res['PrefixListEntry'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->prefixListEntry as $item1) {
                     $res['PrefixListEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class GetVpcPrefixListEntriesResponseBody extends Model
         if (isset($map['PrefixListEntry'])) {
             if (!empty($map['PrefixListEntry'])) {
                 $model->prefixListEntry = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['PrefixListEntry'] as $item1) {
                     $model->prefixListEntry[$n1++] = prefixListEntry::fromMap($item1);
                 }

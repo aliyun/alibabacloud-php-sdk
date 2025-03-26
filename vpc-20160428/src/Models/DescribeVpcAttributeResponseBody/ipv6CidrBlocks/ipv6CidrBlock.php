@@ -12,13 +12,14 @@ class ipv6CidrBlock extends Model
      * @var string
      */
     public $ipv6CidrBlock;
+
     /**
      * @var string
      */
     public $ipv6Isp;
     protected $_name = [
         'ipv6CidrBlock' => 'Ipv6CidrBlock',
-        'ipv6Isp'       => 'Ipv6Isp',
+        'ipv6Isp' => 'Ipv6Isp',
     ];
 
     public function validate()

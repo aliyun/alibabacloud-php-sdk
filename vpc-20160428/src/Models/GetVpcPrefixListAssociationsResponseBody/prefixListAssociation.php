@@ -12,43 +12,50 @@ class prefixListAssociation extends Model
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $prefixListId;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $resourceUid;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'ownerId'      => 'OwnerId',
+        'ownerId' => 'OwnerId',
         'prefixListId' => 'PrefixListId',
-        'reason'       => 'Reason',
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'reason' => 'Reason',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'resourceUid'  => 'ResourceUid',
-        'status'       => 'Status',
+        'resourceUid' => 'ResourceUid',
+        'status' => 'Status',
     ];
 
     public function validate()

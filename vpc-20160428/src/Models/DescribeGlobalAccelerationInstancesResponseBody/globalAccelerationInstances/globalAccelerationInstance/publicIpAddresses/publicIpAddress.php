@@ -12,13 +12,14 @@ class publicIpAddress extends Model
      * @var string
      */
     public $allocationId;
+
     /**
      * @var string
      */
     public $ipAddress;
     protected $_name = [
         'allocationId' => 'AllocationId',
-        'ipAddress'    => 'IpAddress',
+        'ipAddress' => 'IpAddress',
     ];
 
     public function validate()

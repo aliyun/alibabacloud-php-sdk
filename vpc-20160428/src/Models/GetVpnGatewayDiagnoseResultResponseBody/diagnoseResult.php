@@ -12,18 +12,20 @@ class diagnoseResult extends Model
      * @var string
      */
     public $diagnoseName;
+
     /**
      * @var string
      */
     public $diagnoseResultDescription;
+
     /**
      * @var string
      */
     public $diagnoseResultLevel;
     protected $_name = [
-        'diagnoseName'              => 'DiagnoseName',
+        'diagnoseName' => 'DiagnoseName',
         'diagnoseResultDescription' => 'DiagnoseResultDescription',
-        'diagnoseResultLevel'       => 'DiagnoseResultLevel',
+        'diagnoseResultLevel' => 'DiagnoseResultLevel',
     ];
 
     public function validate()

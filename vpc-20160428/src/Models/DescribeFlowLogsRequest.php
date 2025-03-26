@@ -13,98 +13,116 @@ class DescribeFlowLogsRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $flowLogId;
+
     /**
      * @var string
      */
     public $flowLogName;
+
     /**
      * @var string
      */
     public $logStoreName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $trafficType;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'description'          => 'Description',
-        'flowLogId'            => 'FlowLogId',
-        'flowLogName'          => 'FlowLogName',
-        'logStoreName'         => 'LogStoreName',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'projectName'          => 'ProjectName',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'resourceId'           => 'ResourceId',
+        'description' => 'Description',
+        'flowLogId' => 'FlowLogId',
+        'flowLogName' => 'FlowLogName',
+        'logStoreName' => 'LogStoreName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectName' => 'ProjectName',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceId' => 'ResourceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'resourceType'         => 'ResourceType',
-        'status'               => 'Status',
-        'tags'                 => 'Tags',
-        'trafficType'          => 'TrafficType',
-        'vpcId'                => 'VpcId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType' => 'ResourceType',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'trafficType' => 'TrafficType',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -185,7 +203,7 @@ class DescribeFlowLogsRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -278,7 +296,7 @@ class DescribeFlowLogsRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

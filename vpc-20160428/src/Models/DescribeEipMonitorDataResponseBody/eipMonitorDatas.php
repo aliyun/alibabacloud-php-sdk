@@ -31,7 +31,7 @@ class eipMonitorDatas extends Model
         if (null !== $this->eipMonitorData) {
             if (\is_array($this->eipMonitorData)) {
                 $res['EipMonitorData'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->eipMonitorData as $item1) {
                     $res['EipMonitorData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class eipMonitorDatas extends Model
         if (isset($map['EipMonitorData'])) {
             if (!empty($map['EipMonitorData'])) {
                 $model->eipMonitorData = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['EipMonitorData'] as $item1) {
                     $model->eipMonitorData[$n1++] = eipMonitorData::fromMap($item1);
                 }

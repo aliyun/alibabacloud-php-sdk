@@ -12,58 +12,68 @@ class ecGrantRelations extends Model
      * @var int
      */
     public $aliUid;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var string
      */
     public $grantType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $instanceRouterId;
+
     /**
      * @var string
      */
     public $regionNo;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $vbrInstanceId;
+
     /**
      * @var int
      */
     public $vbrOwnerUid;
+
     /**
      * @var string
      */
     public $vbrRegionNo;
     protected $_name = [
-        'aliUid'           => 'AliUid',
-        'gmtCreate'        => 'GmtCreate',
-        'grantType'        => 'GrantType',
-        'instanceId'       => 'InstanceId',
-        'instanceName'     => 'InstanceName',
+        'aliUid' => 'AliUid',
+        'gmtCreate' => 'GmtCreate',
+        'grantType' => 'GrantType',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
         'instanceRouterId' => 'InstanceRouterId',
-        'regionNo'         => 'RegionNo',
-        'status'           => 'Status',
-        'vbrInstanceId'    => 'VbrInstanceId',
-        'vbrOwnerUid'      => 'VbrOwnerUid',
-        'vbrRegionNo'      => 'VbrRegionNo',
+        'regionNo' => 'RegionNo',
+        'status' => 'Status',
+        'vbrInstanceId' => 'VbrInstanceId',
+        'vbrOwnerUid' => 'VbrOwnerUid',
+        'vbrRegionNo' => 'VbrRegionNo',
     ];
 
     public function validate()

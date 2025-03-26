@@ -12,53 +12,62 @@ class ipv6InternetBandwidth extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $businessStatus;
+
     /**
      * @var bool
      */
     public $hasReservationData;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
     /**
      * @var string
      */
     public $internetChargeType;
+
     /**
      * @var string
      */
     public $ipv6InternetBandwidthId;
+
     /**
      * @var string
      */
     public $reservationActiveTime;
+
     /**
      * @var int
      */
     public $reservationBandwidth;
+
     /**
      * @var string
      */
     public $reservationInternetChargeType;
+
     /**
      * @var string
      */
     public $reservationOrderType;
     protected $_name = [
-        'bandwidth'                     => 'Bandwidth',
-        'businessStatus'                => 'BusinessStatus',
-        'hasReservationData'            => 'HasReservationData',
-        'instanceChargeType'            => 'InstanceChargeType',
-        'internetChargeType'            => 'InternetChargeType',
-        'ipv6InternetBandwidthId'       => 'Ipv6InternetBandwidthId',
-        'reservationActiveTime'         => 'ReservationActiveTime',
-        'reservationBandwidth'          => 'ReservationBandwidth',
+        'bandwidth' => 'Bandwidth',
+        'businessStatus' => 'BusinessStatus',
+        'hasReservationData' => 'HasReservationData',
+        'instanceChargeType' => 'InstanceChargeType',
+        'internetChargeType' => 'InternetChargeType',
+        'ipv6InternetBandwidthId' => 'Ipv6InternetBandwidthId',
+        'reservationActiveTime' => 'ReservationActiveTime',
+        'reservationBandwidth' => 'ReservationBandwidth',
         'reservationInternetChargeType' => 'ReservationInternetChargeType',
-        'reservationOrderType'          => 'ReservationOrderType',
+        'reservationOrderType' => 'ReservationOrderType',
     ];
 
     public function validate()

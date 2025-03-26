@@ -12,78 +12,92 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
      * @var string
      */
     public $circuitCode;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $lineOperator;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $peerLocation;
+
     /**
      * @var string
      */
     public $physicalConnectionId;
+
     /**
      * @var string
      */
     public $portType;
+
     /**
      * @var string
      */
     public $redundantPhysicalConnectionId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $bandwidth;
     protected $_name = [
-        'circuitCode'                   => 'CircuitCode',
-        'clientToken'                   => 'ClientToken',
-        'description'                   => 'Description',
-        'lineOperator'                  => 'LineOperator',
-        'name'                          => 'Name',
-        'ownerAccount'                  => 'OwnerAccount',
-        'ownerId'                       => 'OwnerId',
-        'peerLocation'                  => 'PeerLocation',
-        'physicalConnectionId'          => 'PhysicalConnectionId',
-        'portType'                      => 'PortType',
+        'circuitCode' => 'CircuitCode',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'lineOperator' => 'LineOperator',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'peerLocation' => 'PeerLocation',
+        'physicalConnectionId' => 'PhysicalConnectionId',
+        'portType' => 'PortType',
         'redundantPhysicalConnectionId' => 'RedundantPhysicalConnectionId',
-        'regionId'                      => 'RegionId',
-        'resourceOwnerAccount'          => 'ResourceOwnerAccount',
-        'resourceOwnerId'               => 'ResourceOwnerId',
-        'bandwidth'                     => 'bandwidth',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'bandwidth' => 'bandwidth',
     ];
 
     public function validate()

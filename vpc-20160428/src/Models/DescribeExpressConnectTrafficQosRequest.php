@@ -13,58 +13,68 @@ class DescribeExpressConnectTrafficQosRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string[]
      */
     public $qosIdList;
+
     /**
      * @var string[]
      */
     public $qosNameList;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'qosIdList'            => 'QosIdList',
-        'qosNameList'          => 'QosNameList',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'clientToken' => 'ClientToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'qosIdList' => 'QosIdList',
+        'qosNameList' => 'QosNameList',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'tags'                 => 'Tags',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -107,7 +117,7 @@ class DescribeExpressConnectTrafficQosRequest extends Model
         if (null !== $this->qosIdList) {
             if (\is_array($this->qosIdList)) {
                 $res['QosIdList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->qosIdList as $item1) {
                     $res['QosIdList'][$n1++] = $item1;
                 }
@@ -117,7 +127,7 @@ class DescribeExpressConnectTrafficQosRequest extends Model
         if (null !== $this->qosNameList) {
             if (\is_array($this->qosNameList)) {
                 $res['QosNameList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->qosNameList as $item1) {
                     $res['QosNameList'][$n1++] = $item1;
                 }
@@ -139,7 +149,7 @@ class DescribeExpressConnectTrafficQosRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -180,7 +190,7 @@ class DescribeExpressConnectTrafficQosRequest extends Model
         if (isset($map['QosIdList'])) {
             if (!empty($map['QosIdList'])) {
                 $model->qosIdList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['QosIdList'] as $item1) {
                     $model->qosIdList[$n1++] = $item1;
                 }
@@ -190,7 +200,7 @@ class DescribeExpressConnectTrafficQosRequest extends Model
         if (isset($map['QosNameList'])) {
             if (!empty($map['QosNameList'])) {
                 $model->qosNameList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['QosNameList'] as $item1) {
                     $model->qosNameList[$n1++] = $item1;
                 }
@@ -212,7 +222,7 @@ class DescribeExpressConnectTrafficQosRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

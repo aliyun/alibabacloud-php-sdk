@@ -12,33 +12,38 @@ class GrantInstanceToVbrShrinkRequest extends Model
      * @var string
      */
     public $grantType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vbrInstanceIdsShrink;
+
     /**
      * @var int
      */
     public $vbrOwnerUid;
+
     /**
      * @var string
      */
     public $vbrRegionNo;
     protected $_name = [
-        'grantType'            => 'GrantType',
-        'instanceId'           => 'InstanceId',
-        'regionId'             => 'RegionId',
+        'grantType' => 'GrantType',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'vbrInstanceIdsShrink' => 'VbrInstanceIds',
-        'vbrOwnerUid'          => 'VbrOwnerUid',
-        'vbrRegionNo'          => 'VbrRegionNo',
+        'vbrOwnerUid' => 'VbrOwnerUid',
+        'vbrRegionNo' => 'VbrRegionNo',
     ];
 
     public function validate()

@@ -31,7 +31,7 @@ class bgpNetworks extends Model
         if (null !== $this->bgpNetwork) {
             if (\is_array($this->bgpNetwork)) {
                 $res['BgpNetwork'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->bgpNetwork as $item1) {
                     $res['BgpNetwork'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class bgpNetworks extends Model
         if (isset($map['BgpNetwork'])) {
             if (!empty($map['BgpNetwork'])) {
                 $model->bgpNetwork = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['BgpNetwork'] as $item1) {
                     $model->bgpNetwork[$n1++] = bgpNetwork::fromMap($item1);
                 }

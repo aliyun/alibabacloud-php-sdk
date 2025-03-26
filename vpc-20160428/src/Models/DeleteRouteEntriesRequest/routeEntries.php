@@ -12,21 +12,24 @@ class routeEntries extends Model
      * @var string
      */
     public $dstCidrBlock;
+
     /**
      * @var string
      */
     public $nextHop;
+
     /**
      * @var string
      */
     public $routeEntryId;
+
     /**
      * @var string
      */
     public $routeTableId;
     protected $_name = [
         'dstCidrBlock' => 'DstCidrBlock',
-        'nextHop'      => 'NextHop',
+        'nextHop' => 'NextHop',
         'routeEntryId' => 'RouteEntryId',
         'routeTableId' => 'RouteTableId',
     ];

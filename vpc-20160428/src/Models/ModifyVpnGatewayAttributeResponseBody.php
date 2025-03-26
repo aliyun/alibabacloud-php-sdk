@@ -12,98 +12,116 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
      * @var bool
      */
     public $autoPropagate;
+
     /**
      * @var string
      */
     public $businessStatus;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $disasterRecoveryInternetIp;
+
     /**
      * @var string
      */
     public $disasterRecoveryVSwitchId;
+
     /**
      * @var bool
      */
     public $enableBgp;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $internetIp;
+
     /**
      * @var string
      */
     public $intranetIp;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $spec;
+
     /**
      * @var string
      */
     public $sslVpnInternetIp;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'autoPropagate'              => 'AutoPropagate',
-        'businessStatus'             => 'BusinessStatus',
-        'createTime'                 => 'CreateTime',
-        'description'                => 'Description',
+        'autoPropagate' => 'AutoPropagate',
+        'businessStatus' => 'BusinessStatus',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
         'disasterRecoveryInternetIp' => 'DisasterRecoveryInternetIp',
-        'disasterRecoveryVSwitchId'  => 'DisasterRecoveryVSwitchId',
-        'enableBgp'                  => 'EnableBgp',
-        'endTime'                    => 'EndTime',
-        'internetIp'                 => 'InternetIp',
-        'intranetIp'                 => 'IntranetIp',
-        'name'                       => 'Name',
-        'requestId'                  => 'RequestId',
-        'resourceGroupId'            => 'ResourceGroupId',
-        'spec'                       => 'Spec',
-        'sslVpnInternetIp'           => 'SslVpnInternetIp',
-        'status'                     => 'Status',
-        'vSwitchId'                  => 'VSwitchId',
-        'vpcId'                      => 'VpcId',
-        'vpnGatewayId'               => 'VpnGatewayId',
+        'disasterRecoveryVSwitchId' => 'DisasterRecoveryVSwitchId',
+        'enableBgp' => 'EnableBgp',
+        'endTime' => 'EndTime',
+        'internetIp' => 'InternetIp',
+        'intranetIp' => 'IntranetIp',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'spec' => 'Spec',
+        'sslVpnInternetIp' => 'SslVpnInternetIp',
+        'status' => 'Status',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()

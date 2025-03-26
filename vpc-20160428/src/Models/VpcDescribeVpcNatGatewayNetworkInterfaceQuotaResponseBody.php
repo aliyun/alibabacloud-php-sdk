@@ -12,12 +12,13 @@ class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponseBody extends Model
      * @var int
      */
     public $quota;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'quota'     => 'Quota',
+        'quota' => 'Quota',
         'requestId' => 'RequestId',
     ];
 

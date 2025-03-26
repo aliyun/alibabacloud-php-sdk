@@ -13,23 +13,26 @@ class routeEntries extends Model
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $routeEntryId;
+
     /**
      * @var routePublishTargets[]
      */
     public $routePublishTargets;
+
     /**
      * @var string
      */
     public $routeTableId;
     protected $_name = [
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'routeEntryId'         => 'RouteEntryId',
-        'routePublishTargets'  => 'RoutePublishTargets',
-        'routeTableId'         => 'RouteTableId',
+        'routeEntryId' => 'RouteEntryId',
+        'routePublishTargets' => 'RoutePublishTargets',
+        'routeTableId' => 'RouteTableId',
     ];
 
     public function validate()
@@ -54,7 +57,7 @@ class routeEntries extends Model
         if (null !== $this->routePublishTargets) {
             if (\is_array($this->routePublishTargets)) {
                 $res['RoutePublishTargets'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->routePublishTargets as $item1) {
                     $res['RoutePublishTargets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class routeEntries extends Model
         if (isset($map['RoutePublishTargets'])) {
             if (!empty($map['RoutePublishTargets'])) {
                 $model->routePublishTargets = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['RoutePublishTargets'] as $item1) {
                     $model->routePublishTargets[$n1++] = routePublishTargets::fromMap($item1);
                 }

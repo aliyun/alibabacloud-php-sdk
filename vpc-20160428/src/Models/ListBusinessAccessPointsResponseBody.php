@@ -13,13 +13,14 @@ class ListBusinessAccessPointsResponseBody extends Model
      * @var businessAccessPoints[]
      */
     public $businessAccessPoints;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'businessAccessPoints' => 'BusinessAccessPoints',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class ListBusinessAccessPointsResponseBody extends Model
         if (null !== $this->businessAccessPoints) {
             if (\is_array($this->businessAccessPoints)) {
                 $res['BusinessAccessPoints'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->businessAccessPoints as $item1) {
                     $res['BusinessAccessPoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class ListBusinessAccessPointsResponseBody extends Model
         if (isset($map['BusinessAccessPoints'])) {
             if (!empty($map['BusinessAccessPoints'])) {
                 $model->businessAccessPoints = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['BusinessAccessPoints'] as $item1) {
                     $model->businessAccessPoints[$n1++] = businessAccessPoints::fromMap($item1);
                 }

@@ -13,58 +13,68 @@ class endpoints extends Model
      * @var string[]
      */
     public $associatedRouteTables;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $endpointDescription;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $endpointName;
+
     /**
      * @var string
      */
     public $endpointStatus;
+
     /**
      * @var string
      */
     public $policyDocument;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'associatedRouteTables' => 'AssociatedRouteTables',
-        'creationTime'          => 'CreationTime',
-        'endpointDescription'   => 'EndpointDescription',
-        'endpointId'            => 'EndpointId',
-        'endpointName'          => 'EndpointName',
-        'endpointStatus'        => 'EndpointStatus',
-        'policyDocument'        => 'PolicyDocument',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'serviceName'           => 'ServiceName',
-        'tags'                  => 'Tags',
-        'vpcId'                 => 'VpcId',
+        'creationTime' => 'CreationTime',
+        'endpointDescription' => 'EndpointDescription',
+        'endpointId' => 'EndpointId',
+        'endpointName' => 'EndpointName',
+        'endpointStatus' => 'EndpointStatus',
+        'policyDocument' => 'PolicyDocument',
+        'resourceGroupId' => 'ResourceGroupId',
+        'serviceName' => 'ServiceName',
+        'tags' => 'Tags',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -84,7 +94,7 @@ class endpoints extends Model
         if (null !== $this->associatedRouteTables) {
             if (\is_array($this->associatedRouteTables)) {
                 $res['AssociatedRouteTables'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->associatedRouteTables as $item1) {
                     $res['AssociatedRouteTables'][$n1++] = $item1;
                 }
@@ -126,7 +136,7 @@ class endpoints extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -151,7 +161,7 @@ class endpoints extends Model
         if (isset($map['AssociatedRouteTables'])) {
             if (!empty($map['AssociatedRouteTables'])) {
                 $model->associatedRouteTables = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['AssociatedRouteTables'] as $item1) {
                     $model->associatedRouteTables[$n1++] = $item1;
                 }
@@ -193,7 +203,7 @@ class endpoints extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

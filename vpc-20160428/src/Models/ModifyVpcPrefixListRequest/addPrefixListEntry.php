@@ -12,12 +12,13 @@ class addPrefixListEntry extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $description;
     protected $_name = [
-        'cidr'        => 'Cidr',
+        'cidr' => 'Cidr',
         'description' => 'Description',
     ];
 

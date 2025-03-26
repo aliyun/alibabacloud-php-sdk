@@ -13,32 +13,37 @@ class ListTrafficMirrorFiltersResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
+
     /**
      * @var trafficMirrorFilters[]
      */
     public $trafficMirrorFilters;
     protected $_name = [
-        'count'                => 'Count',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'requestId'            => 'RequestId',
-        'totalCount'           => 'TotalCount',
+        'count' => 'Count',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'trafficMirrorFilters' => 'TrafficMirrorFilters',
     ];
 
@@ -76,7 +81,7 @@ class ListTrafficMirrorFiltersResponseBody extends Model
         if (null !== $this->trafficMirrorFilters) {
             if (\is_array($this->trafficMirrorFilters)) {
                 $res['TrafficMirrorFilters'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->trafficMirrorFilters as $item1) {
                     $res['TrafficMirrorFilters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -117,7 +122,7 @@ class ListTrafficMirrorFiltersResponseBody extends Model
         if (isset($map['TrafficMirrorFilters'])) {
             if (!empty($map['TrafficMirrorFilters'])) {
                 $model->trafficMirrorFilters = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['TrafficMirrorFilters'] as $item1) {
                     $model->trafficMirrorFilters[$n1++] = trafficMirrorFilters::fromMap($item1);
                 }

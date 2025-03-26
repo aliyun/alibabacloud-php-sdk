@@ -31,7 +31,7 @@ class customerGateways extends Model
         if (null !== $this->customerGateway) {
             if (\is_array($this->customerGateway)) {
                 $res['CustomerGateway'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->customerGateway as $item1) {
                     $res['CustomerGateway'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class customerGateways extends Model
         if (isset($map['CustomerGateway'])) {
             if (!empty($map['CustomerGateway'])) {
                 $model->customerGateway = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['CustomerGateway'] as $item1) {
                     $model->customerGateway[$n1++] = customerGateway::fromMap($item1);
                 }

@@ -12,43 +12,50 @@ class UnassociateVpcCidrBlockRequest extends Model
      * @var string
      */
     public $IPv6CidrBlock;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $secondaryCidrBlock;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'IPv6CidrBlock'        => 'IPv6CidrBlock',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'IPv6CidrBlock' => 'IPv6CidrBlock',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'secondaryCidrBlock'   => 'SecondaryCidrBlock',
-        'vpcId'                => 'VpcId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'secondaryCidrBlock' => 'SecondaryCidrBlock',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

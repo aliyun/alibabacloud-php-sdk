@@ -13,43 +13,50 @@ class queueList extends Model
      * @var string
      */
     public $bandwidthPercent;
+
     /**
      * @var string
      */
     public $qosId;
+
     /**
      * @var string
      */
     public $queueDescription;
+
     /**
      * @var string
      */
     public $queueId;
+
     /**
      * @var string
      */
     public $queueName;
+
     /**
      * @var string
      */
     public $queueType;
+
     /**
      * @var ruleList[]
      */
     public $ruleList;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'bandwidthPercent' => 'BandwidthPercent',
-        'qosId'            => 'QosId',
+        'qosId' => 'QosId',
         'queueDescription' => 'QueueDescription',
-        'queueId'          => 'QueueId',
-        'queueName'        => 'QueueName',
-        'queueType'        => 'QueueType',
-        'ruleList'         => 'RuleList',
-        'status'           => 'Status',
+        'queueId' => 'QueueId',
+        'queueName' => 'QueueName',
+        'queueType' => 'QueueType',
+        'ruleList' => 'RuleList',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -90,7 +97,7 @@ class queueList extends Model
         if (null !== $this->ruleList) {
             if (\is_array($this->ruleList)) {
                 $res['RuleList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->ruleList as $item1) {
                     $res['RuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -139,7 +146,7 @@ class queueList extends Model
         if (isset($map['RuleList'])) {
             if (!empty($map['RuleList'])) {
                 $model->ruleList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['RuleList'] as $item1) {
                     $model->ruleList[$n1++] = ruleList::fromMap($item1);
                 }

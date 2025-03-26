@@ -30,7 +30,7 @@ class natGatewayIds extends Model
         if (null !== $this->natGatewayIds) {
             if (\is_array($this->natGatewayIds)) {
                 $res['NatGatewayIds'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->natGatewayIds as $item1) {
                     $res['NatGatewayIds'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class natGatewayIds extends Model
         if (isset($map['NatGatewayIds'])) {
             if (!empty($map['NatGatewayIds'])) {
                 $model->natGatewayIds = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['NatGatewayIds'] as $item1) {
                     $model->natGatewayIds[$n1++] = $item1;
                 }

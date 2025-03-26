@@ -12,43 +12,50 @@ class DeletionProtectionRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var bool
      */
     public $protectionEnable;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'instanceId'           => 'InstanceId',
-        'ownerId'              => 'OwnerId',
-        'protectionEnable'     => 'ProtectionEnable',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'instanceId' => 'InstanceId',
+        'ownerId' => 'OwnerId',
+        'protectionEnable' => 'ProtectionEnable',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'type'                 => 'Type',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'type' => 'Type',
     ];
 
     public function validate()

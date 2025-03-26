@@ -13,33 +13,38 @@ class nextHop extends Model
      * @var int
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $nextHopId;
+
     /**
      * @var string
      */
     public $nextHopRegionId;
+
     /**
      * @var nextHopRelatedInfo
      */
     public $nextHopRelatedInfo;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var int
      */
     public $weight;
     protected $_name = [
-        'enabled'            => 'Enabled',
-        'nextHopId'          => 'NextHopId',
-        'nextHopRegionId'    => 'NextHopRegionId',
+        'enabled' => 'Enabled',
+        'nextHopId' => 'NextHopId',
+        'nextHopRegionId' => 'NextHopRegionId',
         'nextHopRelatedInfo' => 'NextHopRelatedInfo',
-        'nextHopType'        => 'NextHopType',
-        'weight'             => 'Weight',
+        'nextHopType' => 'NextHopType',
+        'weight' => 'Weight',
     ];
 
     public function validate()

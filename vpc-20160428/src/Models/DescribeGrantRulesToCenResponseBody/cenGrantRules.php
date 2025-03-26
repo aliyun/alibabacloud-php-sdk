@@ -31,7 +31,7 @@ class cenGrantRules extends Model
         if (null !== $this->cbnGrantRule) {
             if (\is_array($this->cbnGrantRule)) {
                 $res['CbnGrantRule'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->cbnGrantRule as $item1) {
                     $res['CbnGrantRule'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class cenGrantRules extends Model
         if (isset($map['CbnGrantRule'])) {
             if (!empty($map['CbnGrantRule'])) {
                 $model->cbnGrantRule = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['CbnGrantRule'] as $item1) {
                     $model->cbnGrantRule[$n1++] = cbnGrantRule::fromMap($item1);
                 }

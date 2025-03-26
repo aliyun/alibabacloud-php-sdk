@@ -12,13 +12,14 @@ class AllocateVpcIpv6CidrResponseBody extends Model
      * @var string
      */
     public $ipv6CidrBlock;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'ipv6CidrBlock' => 'Ipv6CidrBlock',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

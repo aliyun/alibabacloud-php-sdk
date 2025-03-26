@@ -12,83 +12,98 @@ class ModifyRouterInterfaceAttributeRequest extends Model
      * @var bool
      */
     public $deleteHealthCheckIp;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $hcRate;
+
     /**
      * @var int
      */
     public $hcThreshold;
+
     /**
      * @var string
      */
     public $healthCheckSourceIp;
+
     /**
      * @var string
      */
     public $healthCheckTargetIp;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $oppositeInterfaceId;
+
     /**
      * @var int
      */
     public $oppositeInterfaceOwnerId;
+
     /**
      * @var string
      */
     public $oppositeRouterId;
+
     /**
      * @var string
      */
     public $oppositeRouterType;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routerInterfaceId;
     protected $_name = [
-        'deleteHealthCheckIp'      => 'DeleteHealthCheckIp',
-        'description'              => 'Description',
-        'hcRate'                   => 'HcRate',
-        'hcThreshold'              => 'HcThreshold',
-        'healthCheckSourceIp'      => 'HealthCheckSourceIp',
-        'healthCheckTargetIp'      => 'HealthCheckTargetIp',
-        'name'                     => 'Name',
-        'oppositeInterfaceId'      => 'OppositeInterfaceId',
+        'deleteHealthCheckIp' => 'DeleteHealthCheckIp',
+        'description' => 'Description',
+        'hcRate' => 'HcRate',
+        'hcThreshold' => 'HcThreshold',
+        'healthCheckSourceIp' => 'HealthCheckSourceIp',
+        'healthCheckTargetIp' => 'HealthCheckTargetIp',
+        'name' => 'Name',
+        'oppositeInterfaceId' => 'OppositeInterfaceId',
         'oppositeInterfaceOwnerId' => 'OppositeInterfaceOwnerId',
-        'oppositeRouterId'         => 'OppositeRouterId',
-        'oppositeRouterType'       => 'OppositeRouterType',
-        'ownerId'                  => 'OwnerId',
-        'regionId'                 => 'RegionId',
-        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
-        'resourceOwnerId'          => 'ResourceOwnerId',
-        'routerInterfaceId'        => 'RouterInterfaceId',
+        'oppositeRouterId' => 'OppositeRouterId',
+        'oppositeRouterType' => 'OppositeRouterType',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routerInterfaceId' => 'RouterInterfaceId',
     ];
 
     public function validate()

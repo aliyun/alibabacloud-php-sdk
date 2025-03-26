@@ -13,13 +13,14 @@ class DescribeNetworkAclAttributesResponseBody extends Model
      * @var networkAclAttribute
      */
     public $networkAclAttribute;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'networkAclAttribute' => 'NetworkAclAttribute',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

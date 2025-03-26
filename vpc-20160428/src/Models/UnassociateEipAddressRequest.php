@@ -12,58 +12,68 @@ class UnassociateEipAddressRequest extends Model
      * @var string
      */
     public $allocationId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $force;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'allocationId'         => 'AllocationId',
-        'clientToken'          => 'ClientToken',
-        'force'                => 'Force',
-        'instanceId'           => 'InstanceId',
-        'instanceType'         => 'InstanceType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'privateIpAddress'     => 'PrivateIpAddress',
-        'regionId'             => 'RegionId',
+        'allocationId' => 'AllocationId',
+        'clientToken' => 'ClientToken',
+        'force' => 'Force',
+        'instanceId' => 'InstanceId',
+        'instanceType' => 'InstanceType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

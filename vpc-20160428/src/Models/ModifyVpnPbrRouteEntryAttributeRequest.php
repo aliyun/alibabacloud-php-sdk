@@ -12,73 +12,86 @@ class ModifyVpnPbrRouteEntryAttributeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $newPriority;
+
     /**
      * @var int
      */
     public $newWeight;
+
     /**
      * @var string
      */
     public $nextHop;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routeDest;
+
     /**
      * @var string
      */
     public $routeSource;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
+
     /**
      * @var int
      */
     public $weight;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'newPriority'          => 'NewPriority',
-        'newWeight'            => 'NewWeight',
-        'nextHop'              => 'NextHop',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'priority'             => 'Priority',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'newPriority' => 'NewPriority',
+        'newWeight' => 'NewWeight',
+        'nextHop' => 'NextHop',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'priority' => 'Priority',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routeDest'            => 'RouteDest',
-        'routeSource'          => 'RouteSource',
-        'vpnGatewayId'         => 'VpnGatewayId',
-        'weight'               => 'Weight',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeDest' => 'RouteDest',
+        'routeSource' => 'RouteSource',
+        'vpnGatewayId' => 'VpnGatewayId',
+        'weight' => 'Weight',
     ];
 
     public function validate()

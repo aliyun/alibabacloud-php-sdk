@@ -31,7 +31,7 @@ class associateNetworkInterfaces extends Model
         if (null !== $this->associateNetworkInterface) {
             if (\is_array($this->associateNetworkInterface)) {
                 $res['AssociateNetworkInterface'] = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($this->associateNetworkInterface as $item1) {
                     $res['AssociateNetworkInterface'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class associateNetworkInterfaces extends Model
         if (isset($map['AssociateNetworkInterface'])) {
             if (!empty($map['AssociateNetworkInterface'])) {
                 $model->associateNetworkInterface = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($map['AssociateNetworkInterface'] as $item1) {
                     $model->associateNetworkInterface[$n1++] = associateNetworkInterface::fromMap($item1);
                 }

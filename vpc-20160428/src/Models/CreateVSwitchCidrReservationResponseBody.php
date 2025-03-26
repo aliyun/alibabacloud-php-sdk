@@ -12,12 +12,13 @@ class CreateVSwitchCidrReservationResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vSwitchCidrReservationId;
     protected $_name = [
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
         'vSwitchCidrReservationId' => 'VSwitchCidrReservationId',
     ];
 

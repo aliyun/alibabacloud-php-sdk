@@ -13,28 +13,32 @@ class DescribeRouterInterfacesResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var routerInterfaceSet
      */
     public $routerInterfaceSet;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'requestId'          => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'routerInterfaceSet' => 'RouterInterfaceSet',
-        'totalCount'         => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

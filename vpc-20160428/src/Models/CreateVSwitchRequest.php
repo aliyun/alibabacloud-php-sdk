@@ -13,73 +13,86 @@ class CreateVSwitchRequest extends Model
      * @var string
      */
     public $cidrBlock;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $ipv6CidrBlock;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $vSwitchName;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $vpcIpv6CidrBlock;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'cidrBlock'            => 'CidrBlock',
-        'clientToken'          => 'ClientToken',
-        'description'          => 'Description',
-        'ipv6CidrBlock'        => 'Ipv6CidrBlock',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'cidrBlock' => 'CidrBlock',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'ipv6CidrBlock' => 'Ipv6CidrBlock',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tag'                  => 'Tag',
-        'vSwitchName'          => 'VSwitchName',
-        'vpcId'                => 'VpcId',
-        'vpcIpv6CidrBlock'     => 'VpcIpv6CidrBlock',
-        'zoneId'               => 'ZoneId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
+        'vSwitchName' => 'VSwitchName',
+        'vpcId' => 'VpcId',
+        'vpcIpv6CidrBlock' => 'VpcIpv6CidrBlock',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -132,7 +145,7 @@ class CreateVSwitchRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -205,7 +218,7 @@ class CreateVSwitchRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

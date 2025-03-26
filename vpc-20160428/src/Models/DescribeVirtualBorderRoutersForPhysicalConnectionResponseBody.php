@@ -13,27 +13,31 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionResponseBody extends Mode
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var virtualBorderRouterForPhysicalConnectionSet
      */
     public $virtualBorderRouterForPhysicalConnectionSet;
     protected $_name = [
-        'pageNumber'                                  => 'PageNumber',
-        'pageSize'                                    => 'PageSize',
-        'requestId'                                   => 'RequestId',
-        'totalCount'                                  => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'virtualBorderRouterForPhysicalConnectionSet' => 'VirtualBorderRouterForPhysicalConnectionSet',
     ];
 

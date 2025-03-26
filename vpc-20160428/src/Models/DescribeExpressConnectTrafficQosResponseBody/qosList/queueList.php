@@ -12,38 +12,44 @@ class queueList extends Model
      * @var string
      */
     public $bandwidthPercent;
+
     /**
      * @var string
      */
     public $qosId;
+
     /**
      * @var string
      */
     public $queueDescription;
+
     /**
      * @var string
      */
     public $queueId;
+
     /**
      * @var string
      */
     public $queueName;
+
     /**
      * @var string
      */
     public $queueType;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'bandwidthPercent' => 'BandwidthPercent',
-        'qosId'            => 'QosId',
+        'qosId' => 'QosId',
         'queueDescription' => 'QueueDescription',
-        'queueId'          => 'QueueId',
-        'queueName'        => 'QueueName',
-        'queueType'        => 'QueueType',
-        'status'           => 'Status',
+        'queueId' => 'QueueId',
+        'queueName' => 'QueueName',
+        'queueType' => 'QueueType',
+        'status' => 'Status',
     ];
 
     public function validate()

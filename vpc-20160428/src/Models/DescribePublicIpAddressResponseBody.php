@@ -12,48 +12,56 @@ class DescribePublicIpAddressResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string[]
      */
     public $publicIpAddress;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'code'            => 'Code',
-        'message'         => 'Message',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'code' => 'Code',
+        'message' => 'Message',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'publicIpAddress' => 'PublicIpAddress',
-        'regionId'        => 'RegionId',
-        'requestId'       => 'RequestId',
-        'success'         => 'Success',
-        'totalCount'      => 'TotalCount',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -86,7 +94,7 @@ class DescribePublicIpAddressResponseBody extends Model
         if (null !== $this->publicIpAddress) {
             if (\is_array($this->publicIpAddress)) {
                 $res['PublicIpAddress'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->publicIpAddress as $item1) {
                     $res['PublicIpAddress'][$n1++] = $item1;
                 }
@@ -139,7 +147,7 @@ class DescribePublicIpAddressResponseBody extends Model
         if (isset($map['PublicIpAddress'])) {
             if (!empty($map['PublicIpAddress'])) {
                 $model->publicIpAddress = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['PublicIpAddress'] as $item1) {
                     $model->publicIpAddress[$n1++] = $item1;
                 }

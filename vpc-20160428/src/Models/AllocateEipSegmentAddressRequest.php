@@ -12,68 +12,80 @@ class AllocateEipSegmentAddressRequest extends Model
      * @var string
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $eipMask;
+
     /**
      * @var string
      */
     public $internetChargeType;
+
     /**
      * @var string
      */
     public $isp;
+
     /**
      * @var string
      */
     public $netmode;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $zone;
     protected $_name = [
-        'bandwidth'            => 'Bandwidth',
-        'clientToken'          => 'ClientToken',
-        'eipMask'              => 'EipMask',
-        'internetChargeType'   => 'InternetChargeType',
-        'isp'                  => 'Isp',
-        'netmode'              => 'Netmode',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'bandwidth' => 'Bandwidth',
+        'clientToken' => 'ClientToken',
+        'eipMask' => 'EipMask',
+        'internetChargeType' => 'InternetChargeType',
+        'isp' => 'Isp',
+        'netmode' => 'Netmode',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'zone'                 => 'Zone',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'zone' => 'Zone',
     ];
 
     public function validate()

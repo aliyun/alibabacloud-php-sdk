@@ -12,23 +12,26 @@ class dhcpOptions extends Model
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $domainNameServers;
+
     /**
      * @var string
      */
     public $ipv6LeaseTime;
+
     /**
      * @var string
      */
     public $leaseTime;
     protected $_name = [
-        'domainName'        => 'DomainName',
+        'domainName' => 'DomainName',
         'domainNameServers' => 'DomainNameServers',
-        'ipv6LeaseTime'     => 'Ipv6LeaseTime',
-        'leaseTime'         => 'LeaseTime',
+        'ipv6LeaseTime' => 'Ipv6LeaseTime',
+        'leaseTime' => 'LeaseTime',
     ];
 
     public function validate()

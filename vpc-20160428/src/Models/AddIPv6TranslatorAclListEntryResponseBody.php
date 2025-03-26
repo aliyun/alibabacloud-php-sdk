@@ -12,13 +12,14 @@ class AddIPv6TranslatorAclListEntryResponseBody extends Model
      * @var string
      */
     public $aclEntryId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'aclEntryId' => 'AclEntryId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

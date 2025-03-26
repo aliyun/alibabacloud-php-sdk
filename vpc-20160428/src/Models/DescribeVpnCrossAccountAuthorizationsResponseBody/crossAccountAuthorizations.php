@@ -12,32 +12,37 @@ class crossAccountAuthorizations extends Model
      * @var int
      */
     public $aliUid;
+
     /**
      * @var string
      */
     public $bindInstance;
+
     /**
      * @var string
      */
     public $bindProduct;
+
     /**
      * @var int
      */
     public $bindUid;
+
     /**
      * @var int
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $vpnConnectionId;
     protected $_name = [
-        'aliUid'          => 'AliUid',
-        'bindInstance'    => 'BindInstance',
-        'bindProduct'     => 'BindProduct',
-        'bindUid'         => 'BindUid',
-        'creationTime'    => 'CreationTime',
+        'aliUid' => 'AliUid',
+        'bindInstance' => 'BindInstance',
+        'bindProduct' => 'BindProduct',
+        'bindUid' => 'BindUid',
+        'creationTime' => 'CreationTime',
         'vpnConnectionId' => 'VpnConnectionId',
     ];
 

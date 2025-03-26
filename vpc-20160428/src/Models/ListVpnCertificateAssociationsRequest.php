@@ -12,33 +12,38 @@ class ListVpnCertificateAssociationsRequest extends Model
      * @var string[]
      */
     public $certificateId;
+
     /**
      * @var string
      */
     public $certificateType;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $vpnGatewayId;
     protected $_name = [
-        'certificateId'   => 'CertificateId',
+        'certificateId' => 'CertificateId',
         'certificateType' => 'CertificateType',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
-        'regionId'        => 'RegionId',
-        'vpnGatewayId'    => 'VpnGatewayId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -58,7 +63,7 @@ class ListVpnCertificateAssociationsRequest extends Model
         if (null !== $this->certificateId) {
             if (\is_array($this->certificateId)) {
                 $res['CertificateId'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->certificateId as $item1) {
                     $res['CertificateId'][$n1++] = $item1;
                 }
@@ -84,7 +89,7 @@ class ListVpnCertificateAssociationsRequest extends Model
         if (null !== $this->vpnGatewayId) {
             if (\is_array($this->vpnGatewayId)) {
                 $res['VpnGatewayId'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->vpnGatewayId as $item1) {
                     $res['VpnGatewayId'][$n1++] = $item1;
                 }
@@ -105,7 +110,7 @@ class ListVpnCertificateAssociationsRequest extends Model
         if (isset($map['CertificateId'])) {
             if (!empty($map['CertificateId'])) {
                 $model->certificateId = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['CertificateId'] as $item1) {
                     $model->certificateId[$n1++] = $item1;
                 }
@@ -131,7 +136,7 @@ class ListVpnCertificateAssociationsRequest extends Model
         if (isset($map['VpnGatewayId'])) {
             if (!empty($map['VpnGatewayId'])) {
                 $model->vpnGatewayId = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['VpnGatewayId'] as $item1) {
                     $model->vpnGatewayId[$n1++] = $item1;
                 }

@@ -13,53 +13,62 @@ class ipv4GatewayModels extends Model
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var string
      */
     public $ipv4GatewayDescription;
+
     /**
      * @var string
      */
     public $ipv4GatewayId;
+
     /**
      * @var string
      */
     public $ipv4GatewayName;
+
     /**
      * @var string
      */
     public $ipv4GatewayRouteTableId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'enabled'                 => 'Enabled',
-        'gmtCreate'               => 'GmtCreate',
-        'ipv4GatewayDescription'  => 'Ipv4GatewayDescription',
-        'ipv4GatewayId'           => 'Ipv4GatewayId',
-        'ipv4GatewayName'         => 'Ipv4GatewayName',
+        'enabled' => 'Enabled',
+        'gmtCreate' => 'GmtCreate',
+        'ipv4GatewayDescription' => 'Ipv4GatewayDescription',
+        'ipv4GatewayId' => 'Ipv4GatewayId',
+        'ipv4GatewayName' => 'Ipv4GatewayName',
         'ipv4GatewayRouteTableId' => 'Ipv4GatewayRouteTableId',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'status'                  => 'Status',
-        'tags'                    => 'Tags',
-        'vpcId'                   => 'VpcId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -108,7 +117,7 @@ class ipv4GatewayModels extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -165,7 +174,7 @@ class ipv4GatewayModels extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

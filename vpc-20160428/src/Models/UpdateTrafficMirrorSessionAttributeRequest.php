@@ -12,88 +12,104 @@ class UpdateTrafficMirrorSessionAttributeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $packetLength;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $trafficMirrorFilterId;
+
     /**
      * @var string
      */
     public $trafficMirrorSessionDescription;
+
     /**
      * @var string
      */
     public $trafficMirrorSessionId;
+
     /**
      * @var string
      */
     public $trafficMirrorSessionName;
+
     /**
      * @var string
      */
     public $trafficMirrorTargetId;
+
     /**
      * @var string
      */
     public $trafficMirrorTargetType;
+
     /**
      * @var int
      */
     public $virtualNetworkId;
     protected $_name = [
-        'clientToken'                     => 'ClientToken',
-        'dryRun'                          => 'DryRun',
-        'enabled'                         => 'Enabled',
-        'ownerAccount'                    => 'OwnerAccount',
-        'ownerId'                         => 'OwnerId',
-        'packetLength'                    => 'PacketLength',
-        'priority'                        => 'Priority',
-        'regionId'                        => 'RegionId',
-        'resourceOwnerAccount'            => 'ResourceOwnerAccount',
-        'resourceOwnerId'                 => 'ResourceOwnerId',
-        'trafficMirrorFilterId'           => 'TrafficMirrorFilterId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'enabled' => 'Enabled',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'packetLength' => 'PacketLength',
+        'priority' => 'Priority',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'trafficMirrorFilterId' => 'TrafficMirrorFilterId',
         'trafficMirrorSessionDescription' => 'TrafficMirrorSessionDescription',
-        'trafficMirrorSessionId'          => 'TrafficMirrorSessionId',
-        'trafficMirrorSessionName'        => 'TrafficMirrorSessionName',
-        'trafficMirrorTargetId'           => 'TrafficMirrorTargetId',
-        'trafficMirrorTargetType'         => 'TrafficMirrorTargetType',
-        'virtualNetworkId'                => 'VirtualNetworkId',
+        'trafficMirrorSessionId' => 'TrafficMirrorSessionId',
+        'trafficMirrorSessionName' => 'TrafficMirrorSessionName',
+        'trafficMirrorTargetId' => 'TrafficMirrorTargetId',
+        'trafficMirrorTargetType' => 'TrafficMirrorTargetType',
+        'virtualNetworkId' => 'VirtualNetworkId',
     ];
 
     public function validate()

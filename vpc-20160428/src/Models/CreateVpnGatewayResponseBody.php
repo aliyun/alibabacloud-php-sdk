@@ -12,22 +12,25 @@ class CreateVpnGatewayResponseBody extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'name'         => 'Name',
-        'orderId'      => 'OrderId',
-        'requestId'    => 'RequestId',
+        'name' => 'Name',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
         'vpnGatewayId' => 'VpnGatewayId',
     ];
 

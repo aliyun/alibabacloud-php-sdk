@@ -12,18 +12,20 @@ class CreatePhysicalConnectionSetupOrderResponseBody extends Model
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $physicalConnectionId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'orderId'              => 'OrderId',
+        'orderId' => 'OrderId',
         'physicalConnectionId' => 'PhysicalConnectionId',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

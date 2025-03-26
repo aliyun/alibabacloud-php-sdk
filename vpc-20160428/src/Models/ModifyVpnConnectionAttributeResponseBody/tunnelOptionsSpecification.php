@@ -31,7 +31,7 @@ class tunnelOptionsSpecification extends Model
         if (null !== $this->tunnelOptions) {
             if (\is_array($this->tunnelOptions)) {
                 $res['TunnelOptions'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->tunnelOptions as $item1) {
                     $res['TunnelOptions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class tunnelOptionsSpecification extends Model
         if (isset($map['TunnelOptions'])) {
             if (!empty($map['TunnelOptions'])) {
                 $model->tunnelOptions = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['TunnelOptions'] as $item1) {
                     $model->tunnelOptions[$n1++] = tunnelOptions::fromMap($item1);
                 }

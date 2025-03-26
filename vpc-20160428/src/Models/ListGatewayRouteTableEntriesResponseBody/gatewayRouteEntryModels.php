@@ -13,38 +13,44 @@ class gatewayRouteEntryModels extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nextHopId;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var nextHops[]
      */
     public $nextHops;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'description'          => 'Description',
+        'description' => 'Description',
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'name'                 => 'Name',
-        'nextHopId'            => 'NextHopId',
-        'nextHopType'          => 'NextHopType',
-        'nextHops'             => 'NextHops',
-        'status'               => 'Status',
+        'name' => 'Name',
+        'nextHopId' => 'NextHopId',
+        'nextHopType' => 'NextHopType',
+        'nextHops' => 'NextHops',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -81,7 +87,7 @@ class gatewayRouteEntryModels extends Model
         if (null !== $this->nextHops) {
             if (\is_array($this->nextHops)) {
                 $res['NextHops'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->nextHops as $item1) {
                     $res['NextHops'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -126,7 +132,7 @@ class gatewayRouteEntryModels extends Model
         if (isset($map['NextHops'])) {
             if (!empty($map['NextHops'])) {
                 $model->nextHops = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['NextHops'] as $item1) {
                     $model->nextHops[$n1++] = nextHops::fromMap($item1);
                 }

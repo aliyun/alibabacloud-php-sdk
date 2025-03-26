@@ -12,33 +12,38 @@ class UpdateVirtualPhysicalConnectionRequest extends Model
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $expectSpec;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $token;
+
     /**
      * @var int
      */
     public $vlanId;
     protected $_name = [
-        'dryRun'     => 'DryRun',
+        'dryRun' => 'DryRun',
         'expectSpec' => 'ExpectSpec',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
-        'token'      => 'Token',
-        'vlanId'     => 'VlanId',
+        'regionId' => 'RegionId',
+        'token' => 'Token',
+        'vlanId' => 'VlanId',
     ];
 
     public function validate()

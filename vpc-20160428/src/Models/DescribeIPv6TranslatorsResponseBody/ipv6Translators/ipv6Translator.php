@@ -13,78 +13,92 @@ class ipv6Translator extends Model
      * @var string
      */
     public $allocateIpv4Addr;
+
     /**
      * @var string
      */
     public $allocateIpv6Addr;
+
     /**
      * @var string
      */
     public $availableBandwidth;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $businessStatus;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var ipv6TranslatorEntryIds
      */
     public $ipv6TranslatorEntryIds;
+
     /**
      * @var string
      */
     public $ipv6TranslatorId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $spec;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'allocateIpv4Addr'       => 'AllocateIpv4Addr',
-        'allocateIpv6Addr'       => 'AllocateIpv6Addr',
-        'availableBandwidth'     => 'AvailableBandwidth',
-        'bandwidth'              => 'Bandwidth',
-        'businessStatus'         => 'BusinessStatus',
-        'createTime'             => 'CreateTime',
-        'description'            => 'Description',
-        'endTime'                => 'EndTime',
+        'allocateIpv4Addr' => 'AllocateIpv4Addr',
+        'allocateIpv6Addr' => 'AllocateIpv6Addr',
+        'availableBandwidth' => 'AvailableBandwidth',
+        'bandwidth' => 'Bandwidth',
+        'businessStatus' => 'BusinessStatus',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'endTime' => 'EndTime',
         'ipv6TranslatorEntryIds' => 'Ipv6TranslatorEntryIds',
-        'ipv6TranslatorId'       => 'Ipv6TranslatorId',
-        'name'                   => 'Name',
-        'payType'                => 'PayType',
-        'regionId'               => 'RegionId',
-        'spec'                   => 'Spec',
-        'status'                 => 'Status',
+        'ipv6TranslatorId' => 'Ipv6TranslatorId',
+        'name' => 'Name',
+        'payType' => 'PayType',
+        'regionId' => 'RegionId',
+        'spec' => 'Spec',
+        'status' => 'Status',
     ];
 
     public function validate()

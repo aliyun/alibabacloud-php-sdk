@@ -13,108 +13,128 @@ class DescribeIpv6AddressesRequest extends Model
      * @var string
      */
     public $addressType;
+
     /**
      * @var string
      */
     public $associatedInstanceId;
+
     /**
      * @var string
      */
     public $associatedInstanceType;
+
     /**
      * @var bool
      */
     public $includeReservationData;
+
     /**
      * @var string
      */
     public $ipv6Address;
+
     /**
      * @var string
      */
     public $ipv6AddressId;
+
     /**
      * @var string
      */
     public $ipv6InternetBandwidthId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var bool
      */
     public $serviceManaged;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'addressType'             => 'AddressType',
-        'associatedInstanceId'    => 'AssociatedInstanceId',
-        'associatedInstanceType'  => 'AssociatedInstanceType',
-        'includeReservationData'  => 'IncludeReservationData',
-        'ipv6Address'             => 'Ipv6Address',
-        'ipv6AddressId'           => 'Ipv6AddressId',
+        'addressType' => 'AddressType',
+        'associatedInstanceId' => 'AssociatedInstanceId',
+        'associatedInstanceType' => 'AssociatedInstanceType',
+        'includeReservationData' => 'IncludeReservationData',
+        'ipv6Address' => 'Ipv6Address',
+        'ipv6AddressId' => 'Ipv6AddressId',
         'ipv6InternetBandwidthId' => 'Ipv6InternetBandwidthId',
-        'name'                    => 'Name',
-        'networkType'             => 'NetworkType',
-        'ownerAccount'            => 'OwnerAccount',
-        'ownerId'                 => 'OwnerId',
-        'pageNumber'              => 'PageNumber',
-        'pageSize'                => 'PageSize',
-        'regionId'                => 'RegionId',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
-        'serviceManaged'          => 'ServiceManaged',
-        'tag'                     => 'Tag',
-        'vSwitchId'               => 'VSwitchId',
-        'vpcId'                   => 'VpcId',
+        'name' => 'Name',
+        'networkType' => 'NetworkType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'serviceManaged' => 'ServiceManaged',
+        'tag' => 'Tag',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -203,7 +223,7 @@ class DescribeIpv6AddressesRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -304,7 +324,7 @@ class DescribeIpv6AddressesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

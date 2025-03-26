@@ -13,23 +13,26 @@ class ListDhcpOptionsSetsResponseBody extends Model
      * @var dhcpOptionsSets[]
      */
     public $dhcpOptionsSets;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
         'dhcpOptionsSets' => 'DhcpOptionsSets',
-        'nextToken'       => 'NextToken',
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class ListDhcpOptionsSetsResponseBody extends Model
         if (null !== $this->dhcpOptionsSets) {
             if (\is_array($this->dhcpOptionsSets)) {
                 $res['DhcpOptionsSets'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->dhcpOptionsSets as $item1) {
                     $res['DhcpOptionsSets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class ListDhcpOptionsSetsResponseBody extends Model
         if (isset($map['DhcpOptionsSets'])) {
             if (!empty($map['DhcpOptionsSets'])) {
                 $model->dhcpOptionsSets = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['DhcpOptionsSets'] as $item1) {
                     $model->dhcpOptionsSets[$n1++] = dhcpOptionsSets::fromMap($item1);
                 }

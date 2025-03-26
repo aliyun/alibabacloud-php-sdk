@@ -13,27 +13,31 @@ class DescribeVpnAttachmentsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var vpnAttachments[]
      */
     public $vpnAttachments;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'vpnAttachments' => 'VpnAttachments',
     ];
 
@@ -67,7 +71,7 @@ class DescribeVpnAttachmentsResponseBody extends Model
         if (null !== $this->vpnAttachments) {
             if (\is_array($this->vpnAttachments)) {
                 $res['VpnAttachments'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->vpnAttachments as $item1) {
                     $res['VpnAttachments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class DescribeVpnAttachmentsResponseBody extends Model
         if (isset($map['VpnAttachments'])) {
             if (!empty($map['VpnAttachments'])) {
                 $model->vpnAttachments = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['VpnAttachments'] as $item1) {
                     $model->vpnAttachments[$n1++] = vpnAttachments::fromMap($item1);
                 }

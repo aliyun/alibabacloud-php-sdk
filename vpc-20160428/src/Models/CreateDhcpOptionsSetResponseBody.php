@@ -12,18 +12,20 @@ class CreateDhcpOptionsSetResponseBody extends Model
      * @var string
      */
     public $dhcpOptionsSetId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
         'dhcpOptionsSetId' => 'DhcpOptionsSetId',
-        'requestId'        => 'RequestId',
-        'resourceGroupId'  => 'ResourceGroupId',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

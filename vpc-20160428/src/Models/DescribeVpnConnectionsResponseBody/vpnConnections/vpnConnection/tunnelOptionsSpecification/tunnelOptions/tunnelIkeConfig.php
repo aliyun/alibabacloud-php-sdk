@@ -12,48 +12,56 @@ class tunnelIkeConfig extends Model
      * @var string
      */
     public $ikeAuthAlg;
+
     /**
      * @var string
      */
     public $ikeEncAlg;
+
     /**
      * @var string
      */
     public $ikeLifetime;
+
     /**
      * @var string
      */
     public $ikeMode;
+
     /**
      * @var string
      */
     public $ikePfs;
+
     /**
      * @var string
      */
     public $ikeVersion;
+
     /**
      * @var string
      */
     public $localId;
+
     /**
      * @var string
      */
     public $psk;
+
     /**
      * @var string
      */
     public $remoteId;
     protected $_name = [
-        'ikeAuthAlg'  => 'IkeAuthAlg',
-        'ikeEncAlg'   => 'IkeEncAlg',
+        'ikeAuthAlg' => 'IkeAuthAlg',
+        'ikeEncAlg' => 'IkeEncAlg',
         'ikeLifetime' => 'IkeLifetime',
-        'ikeMode'     => 'IkeMode',
-        'ikePfs'      => 'IkePfs',
-        'ikeVersion'  => 'IkeVersion',
-        'localId'     => 'LocalId',
-        'psk'         => 'Psk',
-        'remoteId'    => 'RemoteId',
+        'ikeMode' => 'IkeMode',
+        'ikePfs' => 'IkePfs',
+        'ikeVersion' => 'IkeVersion',
+        'localId' => 'LocalId',
+        'psk' => 'Psk',
+        'remoteId' => 'RemoteId',
     ];
 
     public function validate()

@@ -12,53 +12,62 @@ class DescribeBgpGroupsRequest extends Model
      * @var string
      */
     public $bgpGroupId;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routerId;
     protected $_name = [
-        'bgpGroupId'           => 'BgpGroupId',
-        'isDefault'            => 'IsDefault',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
+        'bgpGroupId' => 'BgpGroupId',
+        'isDefault' => 'IsDefault',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routerId'             => 'RouterId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routerId' => 'RouterId',
     ];
 
     public function validate()

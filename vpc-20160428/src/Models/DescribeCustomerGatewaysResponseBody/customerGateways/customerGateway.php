@@ -13,48 +13,56 @@ class customerGateway extends Model
      * @var int
      */
     public $asn;
+
     /**
      * @var string
      */
     public $authKey;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $customerGatewayId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $ipAddress;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var tags
      */
     public $tags;
     protected $_name = [
-        'asn'               => 'Asn',
-        'authKey'           => 'AuthKey',
-        'createTime'        => 'CreateTime',
+        'asn' => 'Asn',
+        'authKey' => 'AuthKey',
+        'createTime' => 'CreateTime',
         'customerGatewayId' => 'CustomerGatewayId',
-        'description'       => 'Description',
-        'ipAddress'         => 'IpAddress',
-        'name'              => 'Name',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'tags'              => 'Tags',
+        'description' => 'Description',
+        'ipAddress' => 'IpAddress',
+        'name' => 'Name',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tags' => 'Tags',
     ];
 
     public function validate()

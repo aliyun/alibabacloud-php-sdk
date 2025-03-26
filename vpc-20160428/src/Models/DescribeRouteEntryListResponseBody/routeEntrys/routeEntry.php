@@ -13,63 +13,74 @@ class routeEntry extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var nextHops
      */
     public $nextHops;
+
     /**
      * @var string
      */
     public $origin;
+
     /**
      * @var string
      */
     public $routeEntryId;
+
     /**
      * @var string
      */
     public $routeEntryName;
+
     /**
      * @var string
      */
     public $routeTableId;
+
     /**
      * @var string
      */
     public $serviceType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'description'          => 'Description',
+        'description' => 'Description',
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'gmtModified'          => 'GmtModified',
-        'ipVersion'            => 'IpVersion',
-        'nextHops'             => 'NextHops',
-        'origin'               => 'Origin',
-        'routeEntryId'         => 'RouteEntryId',
-        'routeEntryName'       => 'RouteEntryName',
-        'routeTableId'         => 'RouteTableId',
-        'serviceType'          => 'ServiceType',
-        'status'               => 'Status',
-        'type'                 => 'Type',
+        'gmtModified' => 'GmtModified',
+        'ipVersion' => 'IpVersion',
+        'nextHops' => 'NextHops',
+        'origin' => 'Origin',
+        'routeEntryId' => 'RouteEntryId',
+        'routeEntryName' => 'RouteEntryName',
+        'routeTableId' => 'RouteTableId',
+        'serviceType' => 'ServiceType',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()

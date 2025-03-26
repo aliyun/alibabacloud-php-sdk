@@ -14,43 +14,50 @@ class routeTable extends Model
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var routeEntrys
      */
     public $routeEntrys;
+
     /**
      * @var string
      */
     public $routeTableId;
+
     /**
      * @var string
      */
     public $routeTableType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $VRouterId;
+
     /**
      * @var vSwitchIds
      */
     public $vSwitchIds;
     protected $_name = [
-        'creationTime'    => 'CreationTime',
+        'creationTime' => 'CreationTime',
         'resourceGroupId' => 'ResourceGroupId',
-        'routeEntrys'     => 'RouteEntrys',
-        'routeTableId'    => 'RouteTableId',
-        'routeTableType'  => 'RouteTableType',
-        'status'          => 'Status',
-        'VRouterId'       => 'VRouterId',
-        'vSwitchIds'      => 'VSwitchIds',
+        'routeEntrys' => 'RouteEntrys',
+        'routeTableId' => 'RouteTableId',
+        'routeTableType' => 'RouteTableType',
+        'status' => 'Status',
+        'VRouterId' => 'VRouterId',
+        'vSwitchIds' => 'VSwitchIds',
     ];
 
     public function validate()

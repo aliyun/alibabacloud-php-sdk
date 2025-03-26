@@ -13,158 +13,188 @@ class virtualPhysicalConnections extends Model
      * @var string
      */
     public $accessPointId;
+
     /**
      * @var string
      */
     public $adLocation;
+
     /**
      * @var string
      */
     public $aliUid;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $businessStatus;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $circuitCode;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $enabledTime;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $expectSpec;
+
     /**
      * @var string
      */
     public $lineOperator;
+
     /**
      * @var string
      */
     public $loaStatus;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $orderMode;
+
     /**
      * @var string
      */
     public $parentPhysicalConnectionAliUid;
+
     /**
      * @var string
      */
     public $parentPhysicalConnectionId;
+
     /**
      * @var string
      */
     public $peerLocation;
+
     /**
      * @var string
      */
     public $physicalConnectionId;
+
     /**
      * @var string
      */
     public $portNumber;
+
     /**
      * @var string
      */
     public $portType;
+
     /**
      * @var string
      */
     public $productType;
+
     /**
      * @var string
      */
     public $redundantPhysicalConnectionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $spec;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $virtualPhysicalConnectionStatus;
+
     /**
      * @var string
      */
     public $vlanId;
     protected $_name = [
-        'accessPointId'                   => 'AccessPointId',
-        'adLocation'                      => 'AdLocation',
-        'aliUid'                          => 'AliUid',
-        'bandwidth'                       => 'Bandwidth',
-        'businessStatus'                  => 'BusinessStatus',
-        'chargeType'                      => 'ChargeType',
-        'circuitCode'                     => 'CircuitCode',
-        'creationTime'                    => 'CreationTime',
-        'description'                     => 'Description',
-        'enabledTime'                     => 'EnabledTime',
-        'endTime'                         => 'EndTime',
-        'expectSpec'                      => 'ExpectSpec',
-        'lineOperator'                    => 'LineOperator',
-        'loaStatus'                       => 'LoaStatus',
-        'name'                            => 'Name',
-        'orderMode'                       => 'OrderMode',
-        'parentPhysicalConnectionAliUid'  => 'ParentPhysicalConnectionAliUid',
-        'parentPhysicalConnectionId'      => 'ParentPhysicalConnectionId',
-        'peerLocation'                    => 'PeerLocation',
-        'physicalConnectionId'            => 'PhysicalConnectionId',
-        'portNumber'                      => 'PortNumber',
-        'portType'                        => 'PortType',
-        'productType'                     => 'ProductType',
-        'redundantPhysicalConnectionId'   => 'RedundantPhysicalConnectionId',
-        'resourceGroupId'                 => 'ResourceGroupId',
-        'spec'                            => 'Spec',
-        'status'                          => 'Status',
-        'tags'                            => 'Tags',
-        'type'                            => 'Type',
+        'accessPointId' => 'AccessPointId',
+        'adLocation' => 'AdLocation',
+        'aliUid' => 'AliUid',
+        'bandwidth' => 'Bandwidth',
+        'businessStatus' => 'BusinessStatus',
+        'chargeType' => 'ChargeType',
+        'circuitCode' => 'CircuitCode',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'enabledTime' => 'EnabledTime',
+        'endTime' => 'EndTime',
+        'expectSpec' => 'ExpectSpec',
+        'lineOperator' => 'LineOperator',
+        'loaStatus' => 'LoaStatus',
+        'name' => 'Name',
+        'orderMode' => 'OrderMode',
+        'parentPhysicalConnectionAliUid' => 'ParentPhysicalConnectionAliUid',
+        'parentPhysicalConnectionId' => 'ParentPhysicalConnectionId',
+        'peerLocation' => 'PeerLocation',
+        'physicalConnectionId' => 'PhysicalConnectionId',
+        'portNumber' => 'PortNumber',
+        'portType' => 'PortType',
+        'productType' => 'ProductType',
+        'redundantPhysicalConnectionId' => 'RedundantPhysicalConnectionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'spec' => 'Spec',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'type' => 'Type',
         'virtualPhysicalConnectionStatus' => 'VirtualPhysicalConnectionStatus',
-        'vlanId'                          => 'VlanId',
+        'vlanId' => 'VlanId',
     ];
 
     public function validate()
@@ -289,7 +319,7 @@ class virtualPhysicalConnections extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -430,7 +460,7 @@ class virtualPhysicalConnections extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

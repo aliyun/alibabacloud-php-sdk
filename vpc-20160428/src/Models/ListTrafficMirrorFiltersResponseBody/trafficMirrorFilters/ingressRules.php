@@ -12,57 +12,67 @@ class ingressRules extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $destinationPortRange;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $sourceCidrBlock;
+
     /**
      * @var string
      */
     public $sourcePortRange;
+
     /**
      * @var string
      */
     public $trafficDirection;
+
     /**
      * @var string
      */
     public $trafficMirrorFilterId;
+
     /**
      * @var string
      */
     public $trafficMirrorFilterRuleId;
+
     /**
      * @var string
      */
     public $trafficMirrorFilterRuleStatus;
     protected $_name = [
-        'action'                        => 'Action',
-        'destinationCidrBlock'          => 'DestinationCidrBlock',
-        'destinationPortRange'          => 'DestinationPortRange',
-        'priority'                      => 'Priority',
-        'protocol'                      => 'Protocol',
-        'sourceCidrBlock'               => 'SourceCidrBlock',
-        'sourcePortRange'               => 'SourcePortRange',
-        'trafficDirection'              => 'TrafficDirection',
-        'trafficMirrorFilterId'         => 'TrafficMirrorFilterId',
-        'trafficMirrorFilterRuleId'     => 'TrafficMirrorFilterRuleId',
+        'action' => 'Action',
+        'destinationCidrBlock' => 'DestinationCidrBlock',
+        'destinationPortRange' => 'DestinationPortRange',
+        'priority' => 'Priority',
+        'protocol' => 'Protocol',
+        'sourceCidrBlock' => 'SourceCidrBlock',
+        'sourcePortRange' => 'SourcePortRange',
+        'trafficDirection' => 'TrafficDirection',
+        'trafficMirrorFilterId' => 'TrafficMirrorFilterId',
+        'trafficMirrorFilterRuleId' => 'TrafficMirrorFilterRuleId',
         'trafficMirrorFilterRuleStatus' => 'TrafficMirrorFilterRuleStatus',
     ];
 

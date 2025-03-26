@@ -12,48 +12,56 @@ class vpnPbrRouteEntry extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $nextHop;
+
     /**
      * @var string
      */
     public $nextHopTunnelId;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $routeDest;
+
     /**
      * @var string
      */
     public $routeSource;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $vpnInstanceId;
+
     /**
      * @var int
      */
     public $weight;
     protected $_name = [
-        'createTime'      => 'CreateTime',
-        'nextHop'         => 'NextHop',
+        'createTime' => 'CreateTime',
+        'nextHop' => 'NextHop',
         'nextHopTunnelId' => 'NextHopTunnelId',
-        'priority'        => 'Priority',
-        'routeDest'       => 'RouteDest',
-        'routeSource'     => 'RouteSource',
-        'state'           => 'State',
-        'vpnInstanceId'   => 'VpnInstanceId',
-        'weight'          => 'Weight',
+        'priority' => 'Priority',
+        'routeDest' => 'RouteDest',
+        'routeSource' => 'RouteSource',
+        'state' => 'State',
+        'vpnInstanceId' => 'VpnInstanceId',
+        'weight' => 'Weight',
     ];
 
     public function validate()

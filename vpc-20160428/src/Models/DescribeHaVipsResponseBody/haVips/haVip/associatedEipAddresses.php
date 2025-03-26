@@ -30,7 +30,7 @@ class associatedEipAddresses extends Model
         if (null !== $this->associatedEipAddresse) {
             if (\is_array($this->associatedEipAddresse)) {
                 $res['associatedEipAddresse'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->associatedEipAddresse as $item1) {
                     $res['associatedEipAddresse'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class associatedEipAddresses extends Model
         if (isset($map['associatedEipAddresse'])) {
             if (!empty($map['associatedEipAddresse'])) {
                 $model->associatedEipAddresse = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['associatedEipAddresse'] as $item1) {
                     $model->associatedEipAddresse[$n1++] = $item1;
                 }

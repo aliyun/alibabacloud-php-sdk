@@ -12,48 +12,56 @@ class ModifyRouteTableAttributesRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var bool
      */
     public $routePropagationEnable;
+
     /**
      * @var string
      */
     public $routeTableId;
+
     /**
      * @var string
      */
     public $routeTableName;
     protected $_name = [
-        'description'            => 'Description',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'regionId'               => 'RegionId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
+        'description' => 'Description',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'routePropagationEnable' => 'RoutePropagationEnable',
-        'routeTableId'           => 'RouteTableId',
-        'routeTableName'         => 'RouteTableName',
+        'routeTableId' => 'RouteTableId',
+        'routeTableName' => 'RouteTableName',
     ];
 
     public function validate()

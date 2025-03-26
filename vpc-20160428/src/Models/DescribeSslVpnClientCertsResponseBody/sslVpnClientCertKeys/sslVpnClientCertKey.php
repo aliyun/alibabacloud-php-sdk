@@ -12,43 +12,50 @@ class sslVpnClientCertKey extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $sslVpnClientCertId;
+
     /**
      * @var string
      */
     public $sslVpnServerId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'createTime'         => 'CreateTime',
-        'endTime'            => 'EndTime',
-        'name'               => 'Name',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
+        'createTime' => 'CreateTime',
+        'endTime' => 'EndTime',
+        'name' => 'Name',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'sslVpnClientCertId' => 'SslVpnClientCertId',
-        'sslVpnServerId'     => 'SslVpnServerId',
-        'status'             => 'Status',
+        'sslVpnServerId' => 'SslVpnServerId',
+        'status' => 'Status',
     ];
 
     public function validate()

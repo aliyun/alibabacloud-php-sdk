@@ -13,108 +13,128 @@ class ModifyVpnConnectionAttributeRequest extends Model
      * @var bool
      */
     public $autoConfigRoute;
+
     /**
      * @var string
      */
     public $bgpConfig;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $effectImmediately;
+
     /**
      * @var bool
      */
     public $enableDpd;
+
     /**
      * @var bool
      */
     public $enableNatTraversal;
+
     /**
      * @var bool
      */
     public $enableTunnelsBgp;
+
     /**
      * @var string
      */
     public $healthCheckConfig;
+
     /**
      * @var string
      */
     public $ikeConfig;
+
     /**
      * @var string
      */
     public $ipsecConfig;
+
     /**
      * @var string
      */
     public $localSubnet;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $remoteCaCertificate;
+
     /**
      * @var string
      */
     public $remoteSubnet;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tunnelOptionsSpecification[]
      */
     public $tunnelOptionsSpecification;
+
     /**
      * @var string
      */
     public $vpnConnectionId;
     protected $_name = [
-        'autoConfigRoute'            => 'AutoConfigRoute',
-        'bgpConfig'                  => 'BgpConfig',
-        'clientToken'                => 'ClientToken',
-        'effectImmediately'          => 'EffectImmediately',
-        'enableDpd'                  => 'EnableDpd',
-        'enableNatTraversal'         => 'EnableNatTraversal',
-        'enableTunnelsBgp'           => 'EnableTunnelsBgp',
-        'healthCheckConfig'          => 'HealthCheckConfig',
-        'ikeConfig'                  => 'IkeConfig',
-        'ipsecConfig'                => 'IpsecConfig',
-        'localSubnet'                => 'LocalSubnet',
-        'name'                       => 'Name',
-        'ownerAccount'               => 'OwnerAccount',
-        'ownerId'                    => 'OwnerId',
-        'regionId'                   => 'RegionId',
-        'remoteCaCertificate'        => 'RemoteCaCertificate',
-        'remoteSubnet'               => 'RemoteSubnet',
-        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
-        'resourceOwnerId'            => 'ResourceOwnerId',
+        'autoConfigRoute' => 'AutoConfigRoute',
+        'bgpConfig' => 'BgpConfig',
+        'clientToken' => 'ClientToken',
+        'effectImmediately' => 'EffectImmediately',
+        'enableDpd' => 'EnableDpd',
+        'enableNatTraversal' => 'EnableNatTraversal',
+        'enableTunnelsBgp' => 'EnableTunnelsBgp',
+        'healthCheckConfig' => 'HealthCheckConfig',
+        'ikeConfig' => 'IkeConfig',
+        'ipsecConfig' => 'IpsecConfig',
+        'localSubnet' => 'LocalSubnet',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'remoteCaCertificate' => 'RemoteCaCertificate',
+        'remoteSubnet' => 'RemoteSubnet',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'tunnelOptionsSpecification' => 'TunnelOptionsSpecification',
-        'vpnConnectionId'            => 'VpnConnectionId',
+        'vpnConnectionId' => 'VpnConnectionId',
     ];
 
     public function validate()
@@ -207,7 +227,7 @@ class ModifyVpnConnectionAttributeRequest extends Model
         if (null !== $this->tunnelOptionsSpecification) {
             if (\is_array($this->tunnelOptionsSpecification)) {
                 $res['TunnelOptionsSpecification'] = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($this->tunnelOptionsSpecification as $item1) {
                     $res['TunnelOptionsSpecification'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -308,7 +328,7 @@ class ModifyVpnConnectionAttributeRequest extends Model
         if (isset($map['TunnelOptionsSpecification'])) {
             if (!empty($map['TunnelOptionsSpecification'])) {
                 $model->tunnelOptionsSpecification = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($map['TunnelOptionsSpecification'] as $item1) {
                     $model->tunnelOptionsSpecification[$n1++] = tunnelOptionsSpecification::fromMap($item1);
                 }

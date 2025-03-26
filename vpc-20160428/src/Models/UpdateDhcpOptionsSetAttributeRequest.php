@@ -12,73 +12,86 @@ class UpdateDhcpOptionsSetAttributeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $dhcpOptionsSetDescription;
+
     /**
      * @var string
      */
     public $dhcpOptionsSetId;
+
     /**
      * @var string
      */
     public $dhcpOptionsSetName;
+
     /**
      * @var string
      */
     public $domainName;
+
     /**
      * @var string
      */
     public $domainNameServers;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ipv6LeaseTime;
+
     /**
      * @var string
      */
     public $leaseTime;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'               => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'dhcpOptionsSetDescription' => 'DhcpOptionsSetDescription',
-        'dhcpOptionsSetId'          => 'DhcpOptionsSetId',
-        'dhcpOptionsSetName'        => 'DhcpOptionsSetName',
-        'domainName'                => 'DomainName',
-        'domainNameServers'         => 'DomainNameServers',
-        'dryRun'                    => 'DryRun',
-        'ipv6LeaseTime'             => 'Ipv6LeaseTime',
-        'leaseTime'                 => 'LeaseTime',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'regionId'                  => 'RegionId',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
+        'dhcpOptionsSetId' => 'DhcpOptionsSetId',
+        'dhcpOptionsSetName' => 'DhcpOptionsSetName',
+        'domainName' => 'DomainName',
+        'domainNameServers' => 'DomainNameServers',
+        'dryRun' => 'DryRun',
+        'ipv6LeaseTime' => 'Ipv6LeaseTime',
+        'leaseTime' => 'LeaseTime',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

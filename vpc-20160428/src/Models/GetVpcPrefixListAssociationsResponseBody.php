@@ -13,28 +13,32 @@ class GetVpcPrefixListAssociationsResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var prefixListAssociation[]
      */
     public $prefixListAssociation;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'count'                 => 'Count',
-        'nextToken'             => 'NextToken',
+        'count' => 'Count',
+        'nextToken' => 'NextToken',
         'prefixListAssociation' => 'PrefixListAssociation',
-        'requestId'             => 'RequestId',
-        'totalCount'            => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class GetVpcPrefixListAssociationsResponseBody extends Model
         if (null !== $this->prefixListAssociation) {
             if (\is_array($this->prefixListAssociation)) {
                 $res['PrefixListAssociation'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->prefixListAssociation as $item1) {
                     $res['PrefixListAssociation'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class GetVpcPrefixListAssociationsResponseBody extends Model
         if (isset($map['PrefixListAssociation'])) {
             if (!empty($map['PrefixListAssociation'])) {
                 $model->prefixListAssociation = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['PrefixListAssociation'] as $item1) {
                     $model->prefixListAssociation[$n1++] = prefixListAssociation::fromMap($item1);
                 }

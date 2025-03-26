@@ -12,12 +12,13 @@ class filter extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var string[]
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'value' => 'Value',
     ];
 
@@ -39,7 +40,7 @@ class filter extends Model
         if (null !== $this->value) {
             if (\is_array($this->value)) {
                 $res['Value'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->value as $item1) {
                     $res['Value'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class filter extends Model
         if (isset($map['Value'])) {
             if (!empty($map['Value'])) {
                 $model->value = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Value'] as $item1) {
                     $model->value[$n1++] = $item1;
                 }

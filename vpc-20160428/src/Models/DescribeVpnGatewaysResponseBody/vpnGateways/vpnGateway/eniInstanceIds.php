@@ -30,7 +30,7 @@ class eniInstanceIds extends Model
         if (null !== $this->eniInstanceId) {
             if (\is_array($this->eniInstanceId)) {
                 $res['EniInstanceId'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->eniInstanceId as $item1) {
                     $res['EniInstanceId'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class eniInstanceIds extends Model
         if (isset($map['EniInstanceId'])) {
             if (!empty($map['EniInstanceId'])) {
                 $model->eniInstanceId = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['EniInstanceId'] as $item1) {
                     $model->eniInstanceId[$n1++] = $item1;
                 }

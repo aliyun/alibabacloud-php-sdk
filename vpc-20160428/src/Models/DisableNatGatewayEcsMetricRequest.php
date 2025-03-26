@@ -12,18 +12,20 @@ class DisableNatGatewayEcsMetricRequest extends Model
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'dryRun'       => 'DryRun',
+        'dryRun' => 'DryRun',
         'natGatewayId' => 'NatGatewayId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

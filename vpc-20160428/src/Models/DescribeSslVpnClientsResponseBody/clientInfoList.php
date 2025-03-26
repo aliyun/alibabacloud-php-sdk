@@ -12,43 +12,50 @@ class clientInfoList extends Model
      * @var string
      */
     public $commonName;
+
     /**
      * @var int
      */
     public $connectedTime;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $privateIp;
+
     /**
      * @var int
      */
     public $receiveBytes;
+
     /**
      * @var int
      */
     public $sendBytes;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'commonName'    => 'CommonName',
+        'commonName' => 'CommonName',
         'connectedTime' => 'ConnectedTime',
-        'ip'            => 'Ip',
-        'port'          => 'Port',
-        'privateIp'     => 'PrivateIp',
-        'receiveBytes'  => 'ReceiveBytes',
-        'sendBytes'     => 'SendBytes',
-        'status'        => 'Status',
+        'ip' => 'Ip',
+        'port' => 'Port',
+        'privateIp' => 'PrivateIp',
+        'receiveBytes' => 'ReceiveBytes',
+        'sendBytes' => 'SendBytes',
+        'status' => 'Status',
     ];
 
     public function validate()

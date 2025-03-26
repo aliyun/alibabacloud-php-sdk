@@ -31,7 +31,7 @@ class associatedCens extends Model
         if (null !== $this->associatedCen) {
             if (\is_array($this->associatedCen)) {
                 $res['AssociatedCen'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->associatedCen as $item1) {
                     $res['AssociatedCen'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class associatedCens extends Model
         if (isset($map['AssociatedCen'])) {
             if (!empty($map['AssociatedCen'])) {
                 $model->associatedCen = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['AssociatedCen'] as $item1) {
                     $model->associatedCen[$n1++] = associatedCen::fromMap($item1);
                 }

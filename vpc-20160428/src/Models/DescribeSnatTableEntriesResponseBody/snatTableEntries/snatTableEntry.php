@@ -12,53 +12,62 @@ class snatTableEntry extends Model
      * @var string
      */
     public $eipAffinity;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $snatEntryId;
+
     /**
      * @var string
      */
     public $snatEntryName;
+
     /**
      * @var string
      */
     public $snatIp;
+
     /**
      * @var string
      */
     public $snatTableId;
+
     /**
      * @var string
      */
     public $sourceCIDR;
+
     /**
      * @var string
      */
     public $sourceVSwitchId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'eipAffinity'        => 'EipAffinity',
-        'natGatewayId'       => 'NatGatewayId',
+        'eipAffinity' => 'EipAffinity',
+        'natGatewayId' => 'NatGatewayId',
         'networkInterfaceId' => 'NetworkInterfaceId',
-        'snatEntryId'        => 'SnatEntryId',
-        'snatEntryName'      => 'SnatEntryName',
-        'snatIp'             => 'SnatIp',
-        'snatTableId'        => 'SnatTableId',
-        'sourceCIDR'         => 'SourceCIDR',
-        'sourceVSwitchId'    => 'SourceVSwitchId',
-        'status'             => 'Status',
+        'snatEntryId' => 'SnatEntryId',
+        'snatEntryName' => 'SnatEntryName',
+        'snatIp' => 'SnatIp',
+        'snatTableId' => 'SnatTableId',
+        'sourceCIDR' => 'SourceCIDR',
+        'sourceVSwitchId' => 'SourceVSwitchId',
+        'status' => 'Status',
     ];
 
     public function validate()

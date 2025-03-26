@@ -12,28 +12,32 @@ class PMInfo extends Model
      * @var string
      */
     public $PMCertificateNo;
+
     /**
      * @var string
      */
     public $PMCertificateType;
+
     /**
      * @var string
      */
     public $PMContactInfo;
+
     /**
      * @var string
      */
     public $PMGender;
+
     /**
      * @var string
      */
     public $PMName;
     protected $_name = [
-        'PMCertificateNo'   => 'PMCertificateNo',
+        'PMCertificateNo' => 'PMCertificateNo',
         'PMCertificateType' => 'PMCertificateType',
-        'PMContactInfo'     => 'PMContactInfo',
-        'PMGender'          => 'PMGender',
-        'PMName'            => 'PMName',
+        'PMContactInfo' => 'PMContactInfo',
+        'PMGender' => 'PMGender',
+        'PMName' => 'PMName',
     ];
 
     public function validate()

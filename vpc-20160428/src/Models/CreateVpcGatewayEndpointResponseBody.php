@@ -12,33 +12,38 @@ class CreateVpcGatewayEndpointResponseBody extends Model
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $endpointName;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $serviceName;
     protected $_name = [
-        'creationTime'    => 'CreationTime',
-        'endpointId'      => 'EndpointId',
-        'endpointName'    => 'EndpointName',
-        'requestId'       => 'RequestId',
+        'creationTime' => 'CreationTime',
+        'endpointId' => 'EndpointId',
+        'endpointName' => 'EndpointName',
+        'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
-        'serviceName'     => 'ServiceName',
+        'serviceName' => 'ServiceName',
     ];
 
     public function validate()

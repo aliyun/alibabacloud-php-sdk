@@ -12,10 +12,12 @@ class AssociateVpcCidrBlockResponseBody extends Model
      * @var string
      */
     public $cidrBlock;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var string
      */

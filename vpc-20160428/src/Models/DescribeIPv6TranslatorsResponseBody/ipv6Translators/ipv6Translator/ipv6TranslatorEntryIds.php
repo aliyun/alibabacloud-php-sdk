@@ -30,7 +30,7 @@ class ipv6TranslatorEntryIds extends Model
         if (null !== $this->ipv6TranslatorEntryId) {
             if (\is_array($this->ipv6TranslatorEntryId)) {
                 $res['Ipv6TranslatorEntryId'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->ipv6TranslatorEntryId as $item1) {
                     $res['Ipv6TranslatorEntryId'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class ipv6TranslatorEntryIds extends Model
         if (isset($map['Ipv6TranslatorEntryId'])) {
             if (!empty($map['Ipv6TranslatorEntryId'])) {
                 $model->ipv6TranslatorEntryId = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['Ipv6TranslatorEntryId'] as $item1) {
                     $model->ipv6TranslatorEntryId[$n1++] = $item1;
                 }

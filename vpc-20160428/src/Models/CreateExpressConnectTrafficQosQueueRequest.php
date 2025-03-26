@@ -12,52 +12,61 @@ class CreateExpressConnectTrafficQosQueueRequest extends Model
      * @var string
      */
     public $bandwidthPercent;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $qosId;
+
     /**
      * @var string
      */
     public $queueDescription;
+
     /**
      * @var string
      */
     public $queueName;
+
     /**
      * @var string
      */
     public $queueType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
     protected $_name = [
-        'bandwidthPercent'     => 'BandwidthPercent',
-        'clientToken'          => 'ClientToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'qosId'                => 'QosId',
-        'queueDescription'     => 'QueueDescription',
-        'queueName'            => 'QueueName',
-        'queueType'            => 'QueueType',
-        'regionId'             => 'RegionId',
+        'bandwidthPercent' => 'BandwidthPercent',
+        'clientToken' => 'ClientToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'qosId' => 'QosId',
+        'queueDescription' => 'QueueDescription',
+        'queueName' => 'QueueName',
+        'queueType' => 'QueueType',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
     ];
 

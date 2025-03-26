@@ -12,48 +12,56 @@ class vpnConnections extends Model
      * @var string
      */
     public $failedReason;
+
     /**
      * @var string
      */
     public $failedReasonCode;
+
     /**
      * @var int
      */
     public $failedTime;
+
     /**
      * @var string
      */
     public $mismatchLocalParam;
+
     /**
      * @var string
      */
     public $mismatchRemoteParam;
+
     /**
      * @var string
      */
     public $severity;
+
     /**
      * @var string
      */
     public $sourceLog;
+
     /**
      * @var string
      */
     public $tunnelId;
+
     /**
      * @var string
      */
     public $vpnConnectionId;
     protected $_name = [
-        'failedReason'        => 'FailedReason',
-        'failedReasonCode'    => 'FailedReasonCode',
-        'failedTime'          => 'FailedTime',
-        'mismatchLocalParam'  => 'MismatchLocalParam',
+        'failedReason' => 'FailedReason',
+        'failedReasonCode' => 'FailedReasonCode',
+        'failedTime' => 'FailedTime',
+        'mismatchLocalParam' => 'MismatchLocalParam',
         'mismatchRemoteParam' => 'MismatchRemoteParam',
-        'severity'            => 'Severity',
-        'sourceLog'           => 'SourceLog',
-        'tunnelId'            => 'TunnelId',
-        'vpnConnectionId'     => 'VpnConnectionId',
+        'severity' => 'Severity',
+        'sourceLog' => 'SourceLog',
+        'tunnelId' => 'TunnelId',
+        'vpnConnectionId' => 'VpnConnectionId',
     ];
 
     public function validate()

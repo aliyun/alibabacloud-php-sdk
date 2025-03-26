@@ -13,63 +13,74 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $endpointDescription;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $endpointName;
+
     /**
      * @var string
      */
     public $endpointStatus;
+
     /**
      * @var string
      */
     public $policyDocument;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string[]
      */
     public $routeTables;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'creationTime'        => 'CreationTime',
+        'creationTime' => 'CreationTime',
         'endpointDescription' => 'EndpointDescription',
-        'endpointId'          => 'EndpointId',
-        'endpointName'        => 'EndpointName',
-        'endpointStatus'      => 'EndpointStatus',
-        'policyDocument'      => 'PolicyDocument',
-        'requestId'           => 'RequestId',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'routeTables'         => 'RouteTables',
-        'serviceName'         => 'ServiceName',
-        'tags'                => 'Tags',
-        'vpcId'               => 'VpcId',
+        'endpointId' => 'EndpointId',
+        'endpointName' => 'EndpointName',
+        'endpointStatus' => 'EndpointStatus',
+        'policyDocument' => 'PolicyDocument',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'routeTables' => 'RouteTables',
+        'serviceName' => 'ServiceName',
+        'tags' => 'Tags',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -121,7 +132,7 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
         if (null !== $this->routeTables) {
             if (\is_array($this->routeTables)) {
                 $res['RouteTables'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->routeTables as $item1) {
                     $res['RouteTables'][$n1++] = $item1;
                 }
@@ -135,7 +146,7 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -192,7 +203,7 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
         if (isset($map['RouteTables'])) {
             if (!empty($map['RouteTables'])) {
                 $model->routeTables = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['RouteTables'] as $item1) {
                     $model->routeTables[$n1++] = $item1;
                 }
@@ -206,7 +217,7 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

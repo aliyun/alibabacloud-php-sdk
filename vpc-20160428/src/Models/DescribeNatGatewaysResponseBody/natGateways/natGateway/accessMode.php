@@ -12,12 +12,13 @@ class accessMode extends Model
      * @var string
      */
     public $modeValue;
+
     /**
      * @var string
      */
     public $tunnelType;
     protected $_name = [
-        'modeValue'  => 'ModeValue',
+        'modeValue' => 'ModeValue',
         'tunnelType' => 'TunnelType',
     ];
 

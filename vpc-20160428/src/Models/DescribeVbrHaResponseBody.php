@@ -12,48 +12,56 @@ class DescribeVbrHaResponseBody extends Model
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $peerVbrId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $vbrHaId;
+
     /**
      * @var string
      */
     public $vbrId;
     protected $_name = [
         'creationTime' => 'CreationTime',
-        'description'  => 'Description',
-        'name'         => 'Name',
-        'peerVbrId'    => 'PeerVbrId',
-        'regionId'     => 'RegionId',
-        'requestId'    => 'RequestId',
-        'status'       => 'Status',
-        'vbrHaId'      => 'VbrHaId',
-        'vbrId'        => 'VbrId',
+        'description' => 'Description',
+        'name' => 'Name',
+        'peerVbrId' => 'PeerVbrId',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'vbrHaId' => 'VbrHaId',
+        'vbrId' => 'VbrId',
     ];
 
     public function validate()

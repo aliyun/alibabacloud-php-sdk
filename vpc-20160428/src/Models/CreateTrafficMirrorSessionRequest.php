@@ -13,98 +13,116 @@ class CreateTrafficMirrorSessionRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $packetLength;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $trafficMirrorFilterId;
+
     /**
      * @var string
      */
     public $trafficMirrorSessionDescription;
+
     /**
      * @var string
      */
     public $trafficMirrorSessionName;
+
     /**
      * @var string[]
      */
     public $trafficMirrorSourceIds;
+
     /**
      * @var string
      */
     public $trafficMirrorTargetId;
+
     /**
      * @var string
      */
     public $trafficMirrorTargetType;
+
     /**
      * @var int
      */
     public $virtualNetworkId;
     protected $_name = [
-        'clientToken'                     => 'ClientToken',
-        'dryRun'                          => 'DryRun',
-        'enabled'                         => 'Enabled',
-        'ownerAccount'                    => 'OwnerAccount',
-        'ownerId'                         => 'OwnerId',
-        'packetLength'                    => 'PacketLength',
-        'priority'                        => 'Priority',
-        'regionId'                        => 'RegionId',
-        'resourceGroupId'                 => 'ResourceGroupId',
-        'resourceOwnerAccount'            => 'ResourceOwnerAccount',
-        'resourceOwnerId'                 => 'ResourceOwnerId',
-        'tag'                             => 'Tag',
-        'trafficMirrorFilterId'           => 'TrafficMirrorFilterId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'enabled' => 'Enabled',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'packetLength' => 'PacketLength',
+        'priority' => 'Priority',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
+        'trafficMirrorFilterId' => 'TrafficMirrorFilterId',
         'trafficMirrorSessionDescription' => 'TrafficMirrorSessionDescription',
-        'trafficMirrorSessionName'        => 'TrafficMirrorSessionName',
-        'trafficMirrorSourceIds'          => 'TrafficMirrorSourceIds',
-        'trafficMirrorTargetId'           => 'TrafficMirrorTargetId',
-        'trafficMirrorTargetType'         => 'TrafficMirrorTargetType',
-        'virtualNetworkId'                => 'VirtualNetworkId',
+        'trafficMirrorSessionName' => 'TrafficMirrorSessionName',
+        'trafficMirrorSourceIds' => 'TrafficMirrorSourceIds',
+        'trafficMirrorTargetId' => 'TrafficMirrorTargetId',
+        'trafficMirrorTargetType' => 'TrafficMirrorTargetType',
+        'virtualNetworkId' => 'VirtualNetworkId',
     ];
 
     public function validate()
@@ -168,7 +186,7 @@ class CreateTrafficMirrorSessionRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -190,7 +208,7 @@ class CreateTrafficMirrorSessionRequest extends Model
         if (null !== $this->trafficMirrorSourceIds) {
             if (\is_array($this->trafficMirrorSourceIds)) {
                 $res['TrafficMirrorSourceIds'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->trafficMirrorSourceIds as $item1) {
                     $res['TrafficMirrorSourceIds'][$n1++] = $item1;
                 }
@@ -267,7 +285,7 @@ class CreateTrafficMirrorSessionRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }
@@ -289,7 +307,7 @@ class CreateTrafficMirrorSessionRequest extends Model
         if (isset($map['TrafficMirrorSourceIds'])) {
             if (!empty($map['TrafficMirrorSourceIds'])) {
                 $model->trafficMirrorSourceIds = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['TrafficMirrorSourceIds'] as $item1) {
                     $model->trafficMirrorSourceIds[$n1++] = $item1;
                 }

@@ -12,68 +12,80 @@ class ModifySnatEntryRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var int
      */
     public $eipAffinity;
+
     /**
      * @var string
      */
     public $networkInterfaceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $snatEntryId;
+
     /**
      * @var string
      */
     public $snatEntryName;
+
     /**
      * @var string
      */
     public $snatIp;
+
     /**
      * @var string
      */
     public $snatTableId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dryRun'               => 'DryRun',
-        'eipAffinity'          => 'EipAffinity',
-        'networkInterfaceId'   => 'NetworkInterfaceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'eipAffinity' => 'EipAffinity',
+        'networkInterfaceId' => 'NetworkInterfaceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'snatEntryId'          => 'SnatEntryId',
-        'snatEntryName'        => 'SnatEntryName',
-        'snatIp'               => 'SnatIp',
-        'snatTableId'          => 'SnatTableId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'snatEntryId' => 'SnatEntryId',
+        'snatEntryName' => 'SnatEntryName',
+        'snatIp' => 'SnatIp',
+        'snatTableId' => 'SnatTableId',
     ];
 
     public function validate()

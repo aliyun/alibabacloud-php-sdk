@@ -12,83 +12,98 @@ class DescribeForwardTableEntriesRequest extends Model
      * @var string
      */
     public $externalIp;
+
     /**
      * @var string
      */
     public $externalPort;
+
     /**
      * @var string
      */
     public $forwardEntryId;
+
     /**
      * @var string
      */
     public $forwardEntryName;
+
     /**
      * @var string
      */
     public $forwardTableId;
+
     /**
      * @var string
      */
     public $internalIp;
+
     /**
      * @var string
      */
     public $internalPort;
+
     /**
      * @var string
      */
     public $ipProtocol;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'externalIp'           => 'ExternalIp',
-        'externalPort'         => 'ExternalPort',
-        'forwardEntryId'       => 'ForwardEntryId',
-        'forwardEntryName'     => 'ForwardEntryName',
-        'forwardTableId'       => 'ForwardTableId',
-        'internalIp'           => 'InternalIp',
-        'internalPort'         => 'InternalPort',
-        'ipProtocol'           => 'IpProtocol',
-        'natGatewayId'         => 'NatGatewayId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
+        'externalIp' => 'ExternalIp',
+        'externalPort' => 'ExternalPort',
+        'forwardEntryId' => 'ForwardEntryId',
+        'forwardEntryName' => 'ForwardEntryName',
+        'forwardTableId' => 'ForwardTableId',
+        'internalIp' => 'InternalIp',
+        'internalPort' => 'InternalPort',
+        'ipProtocol' => 'IpProtocol',
+        'natGatewayId' => 'NatGatewayId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

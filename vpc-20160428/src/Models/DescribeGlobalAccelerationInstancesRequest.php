@@ -12,78 +12,92 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
      * @var string
      */
     public $bandwidthType;
+
     /**
      * @var string
      */
     public $globalAccelerationInstanceId;
+
     /**
      * @var bool
      */
     public $includeReservationData;
+
     /**
      * @var string
      */
     public $ipAddress;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $serverId;
+
     /**
      * @var string
      */
     public $serviceLocation;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'bandwidthType'                => 'BandwidthType',
+        'bandwidthType' => 'BandwidthType',
         'globalAccelerationInstanceId' => 'GlobalAccelerationInstanceId',
-        'includeReservationData'       => 'IncludeReservationData',
-        'ipAddress'                    => 'IpAddress',
-        'name'                         => 'Name',
-        'ownerAccount'                 => 'OwnerAccount',
-        'ownerId'                      => 'OwnerId',
-        'pageNumber'                   => 'PageNumber',
-        'pageSize'                     => 'PageSize',
-        'regionId'                     => 'RegionId',
-        'resourceOwnerAccount'         => 'ResourceOwnerAccount',
-        'resourceOwnerId'              => 'ResourceOwnerId',
-        'serverId'                     => 'ServerId',
-        'serviceLocation'              => 'ServiceLocation',
-        'status'                       => 'Status',
+        'includeReservationData' => 'IncludeReservationData',
+        'ipAddress' => 'IpAddress',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'serverId' => 'ServerId',
+        'serviceLocation' => 'ServiceLocation',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -13,28 +13,32 @@ class ListPrefixListsResponseBody extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var prefixLists[]
      */
     public $prefixLists;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'prefixLists' => 'PrefixLists',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class ListPrefixListsResponseBody extends Model
         if (null !== $this->prefixLists) {
             if (\is_array($this->prefixLists)) {
                 $res['PrefixLists'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->prefixLists as $item1) {
                     $res['PrefixLists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class ListPrefixListsResponseBody extends Model
         if (isset($map['PrefixLists'])) {
             if (!empty($map['PrefixLists'])) {
                 $model->prefixLists = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['PrefixLists'] as $item1) {
                     $model->prefixLists[$n1++] = prefixLists::fromMap($item1);
                 }

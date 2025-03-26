@@ -13,33 +13,38 @@ class DescribeEcGrantRelationResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var ecGrantRelations[]
      */
     public $ecGrantRelations;
+
     /**
      * @var int
      */
     public $page;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'count'            => 'Count',
+        'count' => 'Count',
         'ecGrantRelations' => 'EcGrantRelations',
-        'page'             => 'Page',
-        'pageSize'         => 'PageSize',
-        'requestId'        => 'RequestId',
-        'totalCount'       => 'TotalCount',
+        'page' => 'Page',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -60,7 +65,7 @@ class DescribeEcGrantRelationResponseBody extends Model
         if (null !== $this->ecGrantRelations) {
             if (\is_array($this->ecGrantRelations)) {
                 $res['EcGrantRelations'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->ecGrantRelations as $item1) {
                     $res['EcGrantRelations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -101,7 +106,7 @@ class DescribeEcGrantRelationResponseBody extends Model
         if (isset($map['EcGrantRelations'])) {
             if (!empty($map['EcGrantRelations'])) {
                 $model->ecGrantRelations = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['EcGrantRelations'] as $item1) {
                     $model->ecGrantRelations[$n1++] = ecGrantRelations::fromMap($item1);
                 }

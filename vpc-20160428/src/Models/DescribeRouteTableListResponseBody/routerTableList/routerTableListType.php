@@ -15,83 +15,98 @@ class routerTableListType extends Model
      * @var string
      */
     public $associateType;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var gatewayIds
      */
     public $gatewayIds;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $routePropagationEnable;
+
     /**
      * @var string
      */
     public $routeTableId;
+
     /**
      * @var string
      */
     public $routeTableName;
+
     /**
      * @var string
      */
     public $routeTableType;
+
     /**
      * @var string
      */
     public $routerId;
+
     /**
      * @var string
      */
     public $routerType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var vSwitchIds
      */
     public $vSwitchIds;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'associateType'          => 'AssociateType',
-        'creationTime'           => 'CreationTime',
-        'description'            => 'Description',
-        'gatewayIds'             => 'GatewayIds',
-        'ownerId'                => 'OwnerId',
-        'resourceGroupId'        => 'ResourceGroupId',
+        'associateType' => 'AssociateType',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'gatewayIds' => 'GatewayIds',
+        'ownerId' => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
         'routePropagationEnable' => 'RoutePropagationEnable',
-        'routeTableId'           => 'RouteTableId',
-        'routeTableName'         => 'RouteTableName',
-        'routeTableType'         => 'RouteTableType',
-        'routerId'               => 'RouterId',
-        'routerType'             => 'RouterType',
-        'status'                 => 'Status',
-        'tags'                   => 'Tags',
-        'vSwitchIds'             => 'VSwitchIds',
-        'vpcId'                  => 'VpcId',
+        'routeTableId' => 'RouteTableId',
+        'routeTableName' => 'RouteTableName',
+        'routeTableType' => 'RouteTableType',
+        'routerId' => 'RouterId',
+        'routerType' => 'RouterType',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'vSwitchIds' => 'VSwitchIds',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

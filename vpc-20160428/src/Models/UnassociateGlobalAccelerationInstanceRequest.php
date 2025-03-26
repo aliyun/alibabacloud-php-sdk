@@ -12,38 +12,44 @@ class UnassociateGlobalAccelerationInstanceRequest extends Model
      * @var string
      */
     public $globalAccelerationInstanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
         'globalAccelerationInstanceId' => 'GlobalAccelerationInstanceId',
-        'instanceType'                 => 'InstanceType',
-        'ownerAccount'                 => 'OwnerAccount',
-        'ownerId'                      => 'OwnerId',
-        'regionId'                     => 'RegionId',
-        'resourceOwnerAccount'         => 'ResourceOwnerAccount',
-        'resourceOwnerId'              => 'ResourceOwnerId',
+        'instanceType' => 'InstanceType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

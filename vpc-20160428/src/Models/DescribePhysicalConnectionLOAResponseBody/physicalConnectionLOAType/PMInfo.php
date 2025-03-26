@@ -31,7 +31,7 @@ class PMInfo extends Model
         if (null !== $this->PMInfo) {
             if (\is_array($this->PMInfo)) {
                 $res['PMInfo'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->PMInfo as $item1) {
                     $res['PMInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class PMInfo extends Model
         if (isset($map['PMInfo'])) {
             if (!empty($map['PMInfo'])) {
                 $model->PMInfo = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['PMInfo'] as $item1) {
                     $model->PMInfo[$n1++] = self::fromMap($item1);
                 }

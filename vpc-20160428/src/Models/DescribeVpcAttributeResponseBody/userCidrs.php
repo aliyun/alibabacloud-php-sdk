@@ -30,7 +30,7 @@ class userCidrs extends Model
         if (null !== $this->userCidr) {
             if (\is_array($this->userCidr)) {
                 $res['UserCidr'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->userCidr as $item1) {
                     $res['UserCidr'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class userCidrs extends Model
         if (isset($map['UserCidr'])) {
             if (!empty($map['UserCidr'])) {
                 $model->userCidr = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['UserCidr'] as $item1) {
                     $model->userCidr[$n1++] = $item1;
                 }

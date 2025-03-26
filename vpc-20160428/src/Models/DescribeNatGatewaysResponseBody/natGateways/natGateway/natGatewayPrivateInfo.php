@@ -12,43 +12,50 @@ class natGatewayPrivateInfo extends Model
      * @var string
      */
     public $eniInstanceId;
+
     /**
      * @var string
      */
     public $eniType;
+
     /**
      * @var string
      */
     public $izNo;
+
     /**
      * @var int
      */
     public $maxBandwidth;
+
     /**
      * @var int
      */
     public $maxSessionEstablishRate;
+
     /**
      * @var int
      */
     public $maxSessionQuota;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $vswitchId;
     protected $_name = [
-        'eniInstanceId'           => 'EniInstanceId',
-        'eniType'                 => 'EniType',
-        'izNo'                    => 'IzNo',
-        'maxBandwidth'            => 'MaxBandwidth',
+        'eniInstanceId' => 'EniInstanceId',
+        'eniType' => 'EniType',
+        'izNo' => 'IzNo',
+        'maxBandwidth' => 'MaxBandwidth',
         'maxSessionEstablishRate' => 'MaxSessionEstablishRate',
-        'maxSessionQuota'         => 'MaxSessionQuota',
-        'privateIpAddress'        => 'PrivateIpAddress',
-        'vswitchId'               => 'VswitchId',
+        'maxSessionQuota' => 'MaxSessionQuota',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'vswitchId' => 'VswitchId',
     ];
 
     public function validate()

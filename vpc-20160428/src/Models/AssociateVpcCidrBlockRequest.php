@@ -12,63 +12,74 @@ class AssociateVpcCidrBlockRequest extends Model
      * @var string
      */
     public $IPv6CidrBlock;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var string
      */
     public $ipamPoolId;
+
     /**
      * @var string
      */
     public $ipv6Isp;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $secondaryCidrBlock;
+
     /**
      * @var int
      */
     public $secondaryCidrMask;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'IPv6CidrBlock'        => 'IPv6CidrBlock',
-        'ipVersion'            => 'IpVersion',
-        'ipamPoolId'           => 'IpamPoolId',
-        'ipv6Isp'              => 'Ipv6Isp',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'IPv6CidrBlock' => 'IPv6CidrBlock',
+        'ipVersion' => 'IpVersion',
+        'ipamPoolId' => 'IpamPoolId',
+        'ipv6Isp' => 'Ipv6Isp',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'secondaryCidrBlock'   => 'SecondaryCidrBlock',
-        'secondaryCidrMask'    => 'SecondaryCidrMask',
-        'vpcId'                => 'VpcId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'secondaryCidrBlock' => 'SecondaryCidrBlock',
+        'secondaryCidrMask' => 'SecondaryCidrMask',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

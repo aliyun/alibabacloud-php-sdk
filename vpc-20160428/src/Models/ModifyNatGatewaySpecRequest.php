@@ -12,48 +12,56 @@ class ModifyNatGatewaySpecRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $spec;
     protected $_name = [
-        'autoPay'              => 'AutoPay',
-        'clientToken'          => 'ClientToken',
-        'natGatewayId'         => 'NatGatewayId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'autoPay' => 'AutoPay',
+        'clientToken' => 'ClientToken',
+        'natGatewayId' => 'NatGatewayId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'spec'                 => 'Spec',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'spec' => 'Spec',
     ];
 
     public function validate()

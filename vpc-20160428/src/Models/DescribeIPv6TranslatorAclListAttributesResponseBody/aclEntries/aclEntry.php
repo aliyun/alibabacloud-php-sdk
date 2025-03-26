@@ -12,18 +12,20 @@ class aclEntry extends Model
      * @var string
      */
     public $aclEntryComment;
+
     /**
      * @var string
      */
     public $aclEntryId;
+
     /**
      * @var string
      */
     public $aclEntryIp;
     protected $_name = [
         'aclEntryComment' => 'AclEntryComment',
-        'aclEntryId'      => 'AclEntryId',
-        'aclEntryIp'      => 'AclEntryIp',
+        'aclEntryId' => 'AclEntryId',
+        'aclEntryIp' => 'AclEntryIp',
     ];
 
     public function validate()

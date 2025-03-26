@@ -12,103 +12,122 @@ class ModifyExpressConnectTrafficQosRuleRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $dstCidr;
+
     /**
      * @var string
      */
     public $dstIPv6Cidr;
+
     /**
      * @var string
      */
     public $dstPortRange;
+
     /**
      * @var int
      */
     public $matchDscp;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $qosId;
+
     /**
      * @var string
      */
     public $queueId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $remarkingDscp;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string
      */
     public $ruleDescription;
+
     /**
      * @var string
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $srcCidr;
+
     /**
      * @var string
      */
     public $srcIPv6Cidr;
+
     /**
      * @var string
      */
     public $srcPortRange;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dstCidr'              => 'DstCidr',
-        'dstIPv6Cidr'          => 'DstIPv6Cidr',
-        'dstPortRange'         => 'DstPortRange',
-        'matchDscp'            => 'MatchDscp',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'priority'             => 'Priority',
-        'protocol'             => 'Protocol',
-        'qosId'                => 'QosId',
-        'queueId'              => 'QueueId',
-        'regionId'             => 'RegionId',
-        'remarkingDscp'        => 'RemarkingDscp',
+        'clientToken' => 'ClientToken',
+        'dstCidr' => 'DstCidr',
+        'dstIPv6Cidr' => 'DstIPv6Cidr',
+        'dstPortRange' => 'DstPortRange',
+        'matchDscp' => 'MatchDscp',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'priority' => 'Priority',
+        'protocol' => 'Protocol',
+        'qosId' => 'QosId',
+        'queueId' => 'QueueId',
+        'regionId' => 'RegionId',
+        'remarkingDscp' => 'RemarkingDscp',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'ruleDescription'      => 'RuleDescription',
-        'ruleId'               => 'RuleId',
-        'ruleName'             => 'RuleName',
-        'srcCidr'              => 'SrcCidr',
-        'srcIPv6Cidr'          => 'SrcIPv6Cidr',
-        'srcPortRange'         => 'SrcPortRange',
+        'ruleDescription' => 'RuleDescription',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'srcCidr' => 'SrcCidr',
+        'srcIPv6Cidr' => 'SrcIPv6Cidr',
+        'srcPortRange' => 'SrcPortRange',
     ];
 
     public function validate()

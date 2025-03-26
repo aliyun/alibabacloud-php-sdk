@@ -12,16 +12,18 @@ class CreateHaVipResponseBody extends Model
      * @var string
      */
     public $haVipId;
+
     /**
      * @var string
      */
     public $ipAddress;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'haVipId'   => 'HaVipId',
+        'haVipId' => 'HaVipId',
         'ipAddress' => 'IpAddress',
         'requestId' => 'RequestId',
     ];

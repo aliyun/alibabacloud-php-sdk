@@ -12,37 +12,43 @@ class CreateVpnAttachmentResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $vpnConnectionId;
     protected $_name = [
-        'code'            => 'Code',
-        'createTime'      => 'CreateTime',
-        'message'         => 'Message',
-        'name'            => 'Name',
-        'requestId'       => 'RequestId',
-        'success'         => 'Success',
+        'code' => 'Code',
+        'createTime' => 'CreateTime',
+        'message' => 'Message',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'vpnConnectionId' => 'VpnConnectionId',
     ];
 

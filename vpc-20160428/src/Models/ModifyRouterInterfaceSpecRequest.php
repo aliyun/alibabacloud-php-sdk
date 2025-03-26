@@ -12,43 +12,50 @@ class ModifyRouterInterfaceSpecRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routerInterfaceId;
+
     /**
      * @var string
      */
     public $spec;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routerInterfaceId'    => 'RouterInterfaceId',
-        'spec'                 => 'Spec',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routerInterfaceId' => 'RouterInterfaceId',
+        'spec' => 'Spec',
     ];
 
     public function validate()

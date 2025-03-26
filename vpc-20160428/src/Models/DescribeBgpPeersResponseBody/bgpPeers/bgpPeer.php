@@ -12,113 +12,134 @@ class bgpPeer extends Model
      * @var int
      */
     public $advertisedRouteCount;
+
     /**
      * @var string
      */
     public $authKey;
+
     /**
      * @var int
      */
     public $bfdMultiHop;
+
     /**
      * @var string
      */
     public $bgpGroupId;
+
     /**
      * @var string
      */
     public $bgpPeerId;
+
     /**
      * @var string
      */
     public $bgpStatus;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $enableBfd;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $hold;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var bool
      */
     public $isFake;
+
     /**
      * @var string
      */
     public $keepalive;
+
     /**
      * @var string
      */
     public $localAsn;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $peerAsn;
+
     /**
      * @var string
      */
     public $peerIpAddress;
+
     /**
      * @var int
      */
     public $receivedRouteCount;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $routeLimit;
+
     /**
      * @var string
      */
     public $routerId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'advertisedRouteCount' => 'AdvertisedRouteCount',
-        'authKey'              => 'AuthKey',
-        'bfdMultiHop'          => 'BfdMultiHop',
-        'bgpGroupId'           => 'BgpGroupId',
-        'bgpPeerId'            => 'BgpPeerId',
-        'bgpStatus'            => 'BgpStatus',
-        'description'          => 'Description',
-        'enableBfd'            => 'EnableBfd',
-        'gmtModified'          => 'GmtModified',
-        'hold'                 => 'Hold',
-        'ipVersion'            => 'IpVersion',
-        'isFake'               => 'IsFake',
-        'keepalive'            => 'Keepalive',
-        'localAsn'             => 'LocalAsn',
-        'name'                 => 'Name',
-        'peerAsn'              => 'PeerAsn',
-        'peerIpAddress'        => 'PeerIpAddress',
-        'receivedRouteCount'   => 'ReceivedRouteCount',
-        'regionId'             => 'RegionId',
-        'routeLimit'           => 'RouteLimit',
-        'routerId'             => 'RouterId',
-        'status'               => 'Status',
+        'authKey' => 'AuthKey',
+        'bfdMultiHop' => 'BfdMultiHop',
+        'bgpGroupId' => 'BgpGroupId',
+        'bgpPeerId' => 'BgpPeerId',
+        'bgpStatus' => 'BgpStatus',
+        'description' => 'Description',
+        'enableBfd' => 'EnableBfd',
+        'gmtModified' => 'GmtModified',
+        'hold' => 'Hold',
+        'ipVersion' => 'IpVersion',
+        'isFake' => 'IsFake',
+        'keepalive' => 'Keepalive',
+        'localAsn' => 'LocalAsn',
+        'name' => 'Name',
+        'peerAsn' => 'PeerAsn',
+        'peerIpAddress' => 'PeerIpAddress',
+        'receivedRouteCount' => 'ReceivedRouteCount',
+        'regionId' => 'RegionId',
+        'routeLimit' => 'RouteLimit',
+        'routerId' => 'RouterId',
+        'status' => 'Status',
     ];
 
     public function validate()

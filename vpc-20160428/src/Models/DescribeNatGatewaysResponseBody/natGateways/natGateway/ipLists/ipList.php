@@ -12,28 +12,32 @@ class ipList extends Model
      * @var string
      */
     public $allocationId;
+
     /**
      * @var string
      */
     public $ipAddress;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var bool
      */
     public $snatEntryEnabled;
+
     /**
      * @var string
      */
     public $usingStatus;
     protected $_name = [
-        'allocationId'     => 'AllocationId',
-        'ipAddress'        => 'IpAddress',
+        'allocationId' => 'AllocationId',
+        'ipAddress' => 'IpAddress',
         'privateIpAddress' => 'PrivateIpAddress',
         'snatEntryEnabled' => 'SnatEntryEnabled',
-        'usingStatus'      => 'UsingStatus',
+        'usingStatus' => 'UsingStatus',
     ];
 
     public function validate()

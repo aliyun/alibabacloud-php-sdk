@@ -13,63 +13,74 @@ class ModifyNatGatewayAttributeRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $eipBindMode;
+
     /**
      * @var bool
      */
     public $enableSessionLog;
+
     /**
      * @var bool
      */
     public $icmpReplyEnabled;
+
     /**
      * @var logDelivery
      */
     public $logDelivery;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'description'          => 'Description',
-        'eipBindMode'          => 'EipBindMode',
-        'enableSessionLog'     => 'EnableSessionLog',
-        'icmpReplyEnabled'     => 'IcmpReplyEnabled',
-        'logDelivery'          => 'LogDelivery',
-        'name'                 => 'Name',
-        'natGatewayId'         => 'NatGatewayId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'description' => 'Description',
+        'eipBindMode' => 'EipBindMode',
+        'enableSessionLog' => 'EnableSessionLog',
+        'icmpReplyEnabled' => 'IcmpReplyEnabled',
+        'logDelivery' => 'LogDelivery',
+        'name' => 'Name',
+        'natGatewayId' => 'NatGatewayId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

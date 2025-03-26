@@ -12,33 +12,38 @@ class ListIpsecServerLogsResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string[]
      */
     public $data;
+
     /**
      * @var bool
      */
     public $isCompleted;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'count'       => 'Count',
-        'data'        => 'Data',
+        'count' => 'Count',
+        'data' => 'Data',
         'isCompleted' => 'IsCompleted',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -59,7 +64,7 @@ class ListIpsecServerLogsResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['Data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['Data'][$n1++] = $item1;
                 }
@@ -100,7 +105,7 @@ class ListIpsecServerLogsResponseBody extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Data'] as $item1) {
                     $model->data[$n1++] = $item1;
                 }

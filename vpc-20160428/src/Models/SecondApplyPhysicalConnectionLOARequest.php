@@ -13,73 +13,86 @@ class SecondApplyPhysicalConnectionLOARequest extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $companyName;
+
     /**
      * @var string
      */
     public $constructionTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lineType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var PMInfo[]
      */
     public $PMInfo;
+
     /**
      * @var string
      */
     public $peerLocation;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $si;
     protected $_name = [
-        'bandwidth'            => 'Bandwidth',
-        'clientToken'          => 'ClientToken',
-        'companyName'          => 'CompanyName',
-        'constructionTime'     => 'ConstructionTime',
-        'instanceId'           => 'InstanceId',
-        'lineType'             => 'LineType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'PMInfo'               => 'PMInfo',
-        'peerLocation'         => 'PeerLocation',
-        'regionId'             => 'RegionId',
+        'bandwidth' => 'Bandwidth',
+        'clientToken' => 'ClientToken',
+        'companyName' => 'CompanyName',
+        'constructionTime' => 'ConstructionTime',
+        'instanceId' => 'InstanceId',
+        'lineType' => 'LineType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'PMInfo' => 'PMInfo',
+        'peerLocation' => 'PeerLocation',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'si'                   => 'Si',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'si' => 'Si',
     ];
 
     public function validate()
@@ -128,7 +141,7 @@ class SecondApplyPhysicalConnectionLOARequest extends Model
         if (null !== $this->PMInfo) {
             if (\is_array($this->PMInfo)) {
                 $res['PMInfo'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->PMInfo as $item1) {
                     $res['PMInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -201,7 +214,7 @@ class SecondApplyPhysicalConnectionLOARequest extends Model
         if (isset($map['PMInfo'])) {
             if (!empty($map['PMInfo'])) {
                 $model->PMInfo = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['PMInfo'] as $item1) {
                     $model->PMInfo[$n1++] = PMInfo::fromMap($item1);
                 }

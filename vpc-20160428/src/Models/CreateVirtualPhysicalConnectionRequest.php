@@ -13,63 +13,74 @@ class CreateVirtualPhysicalConnectionRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $orderMode;
+
     /**
      * @var string
      */
     public $physicalConnectionId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $spec;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $token;
+
     /**
      * @var int
      */
     public $vlanId;
+
     /**
      * @var int
      */
     public $vpconnAliUid;
     protected $_name = [
-        'description'          => 'Description',
-        'dryRun'               => 'DryRun',
-        'name'                 => 'Name',
-        'orderMode'            => 'OrderMode',
+        'description' => 'Description',
+        'dryRun' => 'DryRun',
+        'name' => 'Name',
+        'orderMode' => 'OrderMode',
         'physicalConnectionId' => 'PhysicalConnectionId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'spec'                 => 'Spec',
-        'tag'                  => 'Tag',
-        'token'                => 'Token',
-        'vlanId'               => 'VlanId',
-        'vpconnAliUid'         => 'VpconnAliUid',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'spec' => 'Spec',
+        'tag' => 'Tag',
+        'token' => 'Token',
+        'vlanId' => 'VlanId',
+        'vpconnAliUid' => 'VpconnAliUid',
     ];
 
     public function validate()
@@ -118,7 +129,7 @@ class CreateVirtualPhysicalConnectionRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -183,7 +194,7 @@ class CreateVirtualPhysicalConnectionRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

@@ -12,73 +12,86 @@ class DescribeRouteTablesRequest extends Model
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routeTableId;
+
     /**
      * @var string
      */
     public $routeTableName;
+
     /**
      * @var string
      */
     public $routerId;
+
     /**
      * @var string
      */
     public $routerType;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $VRouterId;
     protected $_name = [
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routeTableId'         => 'RouteTableId',
-        'routeTableName'       => 'RouteTableName',
-        'routerId'             => 'RouterId',
-        'routerType'           => 'RouterType',
-        'type'                 => 'Type',
-        'VRouterId'            => 'VRouterId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeTableId' => 'RouteTableId',
+        'routeTableName' => 'RouteTableName',
+        'routerId' => 'RouterId',
+        'routerType' => 'RouterType',
+        'type' => 'Type',
+        'VRouterId' => 'VRouterId',
     ];
 
     public function validate()

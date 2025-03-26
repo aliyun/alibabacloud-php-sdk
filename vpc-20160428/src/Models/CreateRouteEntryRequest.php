@@ -13,68 +13,80 @@ class CreateRouteEntryRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var string
      */
     public $nextHopId;
+
     /**
      * @var nextHopList[]
      */
     public $nextHopList;
+
     /**
      * @var string
      */
     public $nextHopType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routeEntryName;
+
     /**
      * @var string
      */
     public $routeTableId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'description'          => 'Description',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'nextHopId'            => 'NextHopId',
-        'nextHopList'          => 'NextHopList',
-        'nextHopType'          => 'NextHopType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'nextHopId' => 'NextHopId',
+        'nextHopList' => 'NextHopList',
+        'nextHopType' => 'NextHopType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routeEntryName'       => 'RouteEntryName',
-        'routeTableId'         => 'RouteTableId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeEntryName' => 'RouteEntryName',
+        'routeTableId' => 'RouteTableId',
     ];
 
     public function validate()
@@ -107,7 +119,7 @@ class CreateRouteEntryRequest extends Model
         if (null !== $this->nextHopList) {
             if (\is_array($this->nextHopList)) {
                 $res['NextHopList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->nextHopList as $item1) {
                     $res['NextHopList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -176,7 +188,7 @@ class CreateRouteEntryRequest extends Model
         if (isset($map['NextHopList'])) {
             if (!empty($map['NextHopList'])) {
                 $model->nextHopList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['NextHopList'] as $item1) {
                     $model->nextHopList[$n1++] = nextHopList::fromMap($item1);
                 }

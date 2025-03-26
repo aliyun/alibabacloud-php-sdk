@@ -12,18 +12,20 @@ class associatedCen extends Model
      * @var string
      */
     public $cenId;
+
     /**
      * @var int
      */
     public $cenOwnerId;
+
     /**
      * @var string
      */
     public $cenStatus;
     protected $_name = [
-        'cenId'      => 'CenId',
+        'cenId' => 'CenId',
         'cenOwnerId' => 'CenOwnerId',
-        'cenStatus'  => 'CenStatus',
+        'cenStatus' => 'CenStatus',
     ];
 
     public function validate()

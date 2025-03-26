@@ -12,63 +12,74 @@ class CreateIpsecServerRequest extends Model
      * @var string
      */
     public $clientIpPool;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $dryRun;
+
     /**
      * @var bool
      */
     public $effectImmediately;
+
     /**
      * @var string
      */
     public $ikeConfig;
+
     /**
      * @var string
      */
     public $ipSecServerName;
+
     /**
      * @var string
      */
     public $ipsecConfig;
+
     /**
      * @var string
      */
     public $localSubnet;
+
     /**
      * @var string
      */
     public $psk;
+
     /**
      * @var bool
      */
     public $pskEnabled;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'clientIpPool'      => 'ClientIpPool',
-        'clientToken'       => 'ClientToken',
-        'dryRun'            => 'DryRun',
+        'clientIpPool' => 'ClientIpPool',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'effectImmediately' => 'EffectImmediately',
-        'ikeConfig'         => 'IkeConfig',
-        'ipSecServerName'   => 'IpSecServerName',
-        'ipsecConfig'       => 'IpsecConfig',
-        'localSubnet'       => 'LocalSubnet',
-        'psk'               => 'Psk',
-        'pskEnabled'        => 'PskEnabled',
-        'regionId'          => 'RegionId',
-        'vpnGatewayId'      => 'VpnGatewayId',
+        'ikeConfig' => 'IkeConfig',
+        'ipSecServerName' => 'IpSecServerName',
+        'ipsecConfig' => 'IpsecConfig',
+        'localSubnet' => 'LocalSubnet',
+        'psk' => 'Psk',
+        'pskEnabled' => 'PskEnabled',
+        'regionId' => 'RegionId',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()

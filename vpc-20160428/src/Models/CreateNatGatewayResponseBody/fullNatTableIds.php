@@ -30,7 +30,7 @@ class fullNatTableIds extends Model
         if (null !== $this->fullNatTableId) {
             if (\is_array($this->fullNatTableId)) {
                 $res['FullNatTableId'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->fullNatTableId as $item1) {
                     $res['FullNatTableId'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class fullNatTableIds extends Model
         if (isset($map['FullNatTableId'])) {
             if (!empty($map['FullNatTableId'])) {
                 $model->fullNatTableId = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['FullNatTableId'] as $item1) {
                     $model->fullNatTableId[$n1++] = $item1;
                 }

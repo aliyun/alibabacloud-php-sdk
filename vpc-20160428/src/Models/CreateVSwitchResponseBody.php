@@ -12,6 +12,7 @@ class CreateVSwitchResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */

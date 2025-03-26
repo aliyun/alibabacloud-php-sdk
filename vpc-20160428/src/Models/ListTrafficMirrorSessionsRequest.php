@@ -13,88 +13,104 @@ class ListTrafficMirrorSessionsRequest extends Model
      * @var bool
      */
     public $enabled;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $trafficMirrorFilterId;
+
     /**
      * @var string[]
      */
     public $trafficMirrorSessionIds;
+
     /**
      * @var string
      */
     public $trafficMirrorSessionName;
+
     /**
      * @var string
      */
     public $trafficMirrorSourceId;
+
     /**
      * @var string
      */
     public $trafficMirrorTargetId;
+
     /**
      * @var int
      */
     public $virtualNetworkId;
     protected $_name = [
-        'enabled'                  => 'Enabled',
-        'maxResults'               => 'MaxResults',
-        'nextToken'                => 'NextToken',
-        'ownerAccount'             => 'OwnerAccount',
-        'ownerId'                  => 'OwnerId',
-        'priority'                 => 'Priority',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
-        'resourceOwnerId'          => 'ResourceOwnerId',
-        'tags'                     => 'Tags',
-        'trafficMirrorFilterId'    => 'TrafficMirrorFilterId',
-        'trafficMirrorSessionIds'  => 'TrafficMirrorSessionIds',
+        'enabled' => 'Enabled',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'priority' => 'Priority',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tags' => 'Tags',
+        'trafficMirrorFilterId' => 'TrafficMirrorFilterId',
+        'trafficMirrorSessionIds' => 'TrafficMirrorSessionIds',
         'trafficMirrorSessionName' => 'TrafficMirrorSessionName',
-        'trafficMirrorSourceId'    => 'TrafficMirrorSourceId',
-        'trafficMirrorTargetId'    => 'TrafficMirrorTargetId',
-        'virtualNetworkId'         => 'VirtualNetworkId',
+        'trafficMirrorSourceId' => 'TrafficMirrorSourceId',
+        'trafficMirrorTargetId' => 'TrafficMirrorTargetId',
+        'virtualNetworkId' => 'VirtualNetworkId',
     ];
 
     public function validate()
@@ -154,7 +170,7 @@ class ListTrafficMirrorSessionsRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -168,7 +184,7 @@ class ListTrafficMirrorSessionsRequest extends Model
         if (null !== $this->trafficMirrorSessionIds) {
             if (\is_array($this->trafficMirrorSessionIds)) {
                 $res['TrafficMirrorSessionIds'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->trafficMirrorSessionIds as $item1) {
                     $res['TrafficMirrorSessionIds'][$n1++] = $item1;
                 }
@@ -245,7 +261,7 @@ class ListTrafficMirrorSessionsRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }
@@ -259,7 +275,7 @@ class ListTrafficMirrorSessionsRequest extends Model
         if (isset($map['TrafficMirrorSessionIds'])) {
             if (!empty($map['TrafficMirrorSessionIds'])) {
                 $model->trafficMirrorSessionIds = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['TrafficMirrorSessionIds'] as $item1) {
                     $model->trafficMirrorSessionIds[$n1++] = $item1;
                 }

@@ -19,158 +19,188 @@ class natGateway extends Model
      * @var accessMode
      */
     public $accessMode;
+
     /**
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $businessStatus;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var bool
      */
     public $deletionProtection;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $ecsMetricEnabled;
+
     /**
      * @var string
      */
     public $eipBindMode;
+
     /**
      * @var string
      */
     public $enableSessionLog;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var forwardTableIds
      */
     public $forwardTableIds;
+
     /**
      * @var fullNatTableIds
      */
     public $fullNatTableIds;
+
     /**
      * @var bool
      */
     public $icmpReplyEnabled;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
     /**
      * @var string
      */
     public $internetChargeType;
+
     /**
      * @var ipLists
      */
     public $ipLists;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var natGatewayPrivateInfo
      */
     public $natGatewayPrivateInfo;
+
     /**
      * @var string
      */
     public $natType;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var bool
      */
     public $privateLinkEnabled;
+
     /**
      * @var string
      */
     public $privateLinkMode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $securityProtectionEnabled;
+
     /**
      * @var snatTableIds
      */
     public $snatTableIds;
+
     /**
      * @var string
      */
     public $spec;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'accessMode'                => 'AccessMode',
-        'autoPay'                   => 'AutoPay',
-        'businessStatus'            => 'BusinessStatus',
-        'creationTime'              => 'CreationTime',
-        'deletionProtection'        => 'DeletionProtection',
-        'description'               => 'Description',
-        'ecsMetricEnabled'          => 'EcsMetricEnabled',
-        'eipBindMode'               => 'EipBindMode',
-        'enableSessionLog'          => 'EnableSessionLog',
-        'expiredTime'               => 'ExpiredTime',
-        'forwardTableIds'           => 'ForwardTableIds',
-        'fullNatTableIds'           => 'FullNatTableIds',
-        'icmpReplyEnabled'          => 'IcmpReplyEnabled',
-        'instanceChargeType'        => 'InstanceChargeType',
-        'internetChargeType'        => 'InternetChargeType',
-        'ipLists'                   => 'IpLists',
-        'name'                      => 'Name',
-        'natGatewayId'              => 'NatGatewayId',
-        'natGatewayPrivateInfo'     => 'NatGatewayPrivateInfo',
-        'natType'                   => 'NatType',
-        'networkType'               => 'NetworkType',
-        'privateLinkEnabled'        => 'PrivateLinkEnabled',
-        'privateLinkMode'           => 'PrivateLinkMode',
-        'regionId'                  => 'RegionId',
-        'resourceGroupId'           => 'ResourceGroupId',
+        'accessMode' => 'AccessMode',
+        'autoPay' => 'AutoPay',
+        'businessStatus' => 'BusinessStatus',
+        'creationTime' => 'CreationTime',
+        'deletionProtection' => 'DeletionProtection',
+        'description' => 'Description',
+        'ecsMetricEnabled' => 'EcsMetricEnabled',
+        'eipBindMode' => 'EipBindMode',
+        'enableSessionLog' => 'EnableSessionLog',
+        'expiredTime' => 'ExpiredTime',
+        'forwardTableIds' => 'ForwardTableIds',
+        'fullNatTableIds' => 'FullNatTableIds',
+        'icmpReplyEnabled' => 'IcmpReplyEnabled',
+        'instanceChargeType' => 'InstanceChargeType',
+        'internetChargeType' => 'InternetChargeType',
+        'ipLists' => 'IpLists',
+        'name' => 'Name',
+        'natGatewayId' => 'NatGatewayId',
+        'natGatewayPrivateInfo' => 'NatGatewayPrivateInfo',
+        'natType' => 'NatType',
+        'networkType' => 'NetworkType',
+        'privateLinkEnabled' => 'PrivateLinkEnabled',
+        'privateLinkMode' => 'PrivateLinkMode',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'securityProtectionEnabled' => 'SecurityProtectionEnabled',
-        'snatTableIds'              => 'SnatTableIds',
-        'spec'                      => 'Spec',
-        'status'                    => 'Status',
-        'tags'                      => 'Tags',
-        'vpcId'                     => 'VpcId',
+        'snatTableIds' => 'SnatTableIds',
+        'spec' => 'Spec',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class AllocateIpv6InternetBandwidthResponseBody extends Model
      * @var string
      */
     public $internetBandwidthId;
+
     /**
      * @var string
      */
     public $ipv6AddressId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'internetBandwidthId' => 'InternetBandwidthId',
-        'ipv6AddressId'       => 'Ipv6AddressId',
-        'requestId'           => 'RequestId',
+        'ipv6AddressId' => 'Ipv6AddressId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -14,103 +14,122 @@ class flowLog extends Model
      * @var int
      */
     public $aggregationInterval;
+
     /**
      * @var string
      */
     public $businessStatus;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $flowLogDeliverErrorMessage;
+
     /**
      * @var string
      */
     public $flowLogDeliverStatus;
+
     /**
      * @var string
      */
     public $flowLogId;
+
     /**
      * @var string
      */
     public $flowLogName;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var string
      */
     public $logStoreName;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $serviceType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var trafficPath
      */
     public $trafficPath;
+
     /**
      * @var string
      */
     public $trafficType;
     protected $_name = [
-        'aggregationInterval'        => 'AggregationInterval',
-        'businessStatus'             => 'BusinessStatus',
-        'creationTime'               => 'CreationTime',
-        'description'                => 'Description',
+        'aggregationInterval' => 'AggregationInterval',
+        'businessStatus' => 'BusinessStatus',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
         'flowLogDeliverErrorMessage' => 'FlowLogDeliverErrorMessage',
-        'flowLogDeliverStatus'       => 'FlowLogDeliverStatus',
-        'flowLogId'                  => 'FlowLogId',
-        'flowLogName'                => 'FlowLogName',
-        'ipVersion'                  => 'IpVersion',
-        'logStoreName'               => 'LogStoreName',
-        'projectName'                => 'ProjectName',
-        'regionId'                   => 'RegionId',
-        'resourceGroupId'            => 'ResourceGroupId',
-        'resourceId'                 => 'ResourceId',
-        'resourceType'               => 'ResourceType',
-        'serviceType'                => 'ServiceType',
-        'status'                     => 'Status',
-        'tags'                       => 'Tags',
-        'trafficPath'                => 'TrafficPath',
-        'trafficType'                => 'TrafficType',
+        'flowLogDeliverStatus' => 'FlowLogDeliverStatus',
+        'flowLogId' => 'FlowLogId',
+        'flowLogName' => 'FlowLogName',
+        'ipVersion' => 'IpVersion',
+        'logStoreName' => 'LogStoreName',
+        'projectName' => 'ProjectName',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'serviceType' => 'ServiceType',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'trafficPath' => 'TrafficPath',
+        'trafficType' => 'TrafficType',
     ];
 
     public function validate()

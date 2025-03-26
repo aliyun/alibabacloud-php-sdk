@@ -14,28 +14,32 @@ class tunnelConfig extends Model
      * @var ikeConfig
      */
     public $ikeConfig;
+
     /**
      * @var ipsecConfig
      */
     public $ipsecConfig;
+
     /**
      * @var string
      */
     public $local;
+
     /**
      * @var string
      */
     public $remote;
+
     /**
      * @var string
      */
     public $tunnelId;
     protected $_name = [
-        'ikeConfig'   => 'IkeConfig',
+        'ikeConfig' => 'IkeConfig',
         'ipsecConfig' => 'IpsecConfig',
-        'local'       => 'Local',
-        'remote'      => 'Remote',
-        'tunnelId'    => 'TunnelId',
+        'local' => 'Local',
+        'remote' => 'Remote',
+        'tunnelId' => 'TunnelId',
     ];
 
     public function validate()

@@ -30,7 +30,7 @@ class gatewayIds extends Model
         if (null !== $this->gatewayIds) {
             if (\is_array($this->gatewayIds)) {
                 $res['GatewayIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->gatewayIds as $item1) {
                     $res['GatewayIds'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class gatewayIds extends Model
         if (isset($map['GatewayIds'])) {
             if (!empty($map['GatewayIds'])) {
                 $model->gatewayIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['GatewayIds'] as $item1) {
                     $model->gatewayIds[$n1++] = $item1;
                 }

@@ -12,23 +12,26 @@ class CreateExpressConnectTrafficQosRuleResponseBody extends Model
      * @var string
      */
     public $qosId;
+
     /**
      * @var string
      */
     public $queueId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $ruleId;
     protected $_name = [
-        'qosId'     => 'QosId',
-        'queueId'   => 'QueueId',
+        'qosId' => 'QosId',
+        'queueId' => 'QueueId',
         'requestId' => 'RequestId',
-        'ruleId'    => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()

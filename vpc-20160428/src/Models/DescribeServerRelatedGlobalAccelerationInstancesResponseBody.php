@@ -13,13 +13,14 @@ class DescribeServerRelatedGlobalAccelerationInstancesResponseBody extends Model
      * @var globalAccelerationInstances
      */
     public $globalAccelerationInstances;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'globalAccelerationInstances' => 'GlobalAccelerationInstances',
-        'requestId'                   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

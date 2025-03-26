@@ -31,7 +31,7 @@ class vpnGateways extends Model
         if (null !== $this->vpnGateway) {
             if (\is_array($this->vpnGateway)) {
                 $res['VpnGateway'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->vpnGateway as $item1) {
                     $res['VpnGateway'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class vpnGateways extends Model
         if (isset($map['VpnGateway'])) {
             if (!empty($map['VpnGateway'])) {
                 $model->vpnGateway = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['VpnGateway'] as $item1) {
                     $model->vpnGateway[$n1++] = vpnGateway::fromMap($item1);
                 }

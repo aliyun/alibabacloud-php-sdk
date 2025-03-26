@@ -31,7 +31,7 @@ class vpnConnections extends Model
         if (null !== $this->vpnConnection) {
             if (\is_array($this->vpnConnection)) {
                 $res['VpnConnection'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->vpnConnection as $item1) {
                     $res['VpnConnection'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class vpnConnections extends Model
         if (isset($map['VpnConnection'])) {
             if (!empty($map['VpnConnection'])) {
                 $model->vpnConnection = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['VpnConnection'] as $item1) {
                     $model->vpnConnection[$n1++] = vpnConnection::fromMap($item1);
                 }

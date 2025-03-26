@@ -12,18 +12,20 @@ class errorInfoList extends Model
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'errorCode'    => 'ErrorCode',
+        'errorCode' => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

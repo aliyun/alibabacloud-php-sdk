@@ -12,23 +12,26 @@ class prefixListEntry extends Model
      * @var string
      */
     public $cidr;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $prefixListId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'cidr'         => 'Cidr',
-        'description'  => 'Description',
+        'cidr' => 'Cidr',
+        'description' => 'Description',
         'prefixListId' => 'PrefixListId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

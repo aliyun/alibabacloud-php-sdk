@@ -15,58 +15,68 @@ class tunnelOptionsSpecification extends Model
      * @var string
      */
     public $customerGatewayId;
+
     /**
      * @var bool
      */
     public $enableDpd;
+
     /**
      * @var bool
      */
     public $enableNatTraversal;
+
     /**
      * @var string
      */
     public $internetIp;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var tunnelBgpConfig
      */
     public $tunnelBgpConfig;
+
     /**
      * @var string
      */
     public $tunnelId;
+
     /**
      * @var tunnelIkeConfig
      */
     public $tunnelIkeConfig;
+
     /**
      * @var int
      */
     public $tunnelIndex;
+
     /**
      * @var tunnelIpsecConfig
      */
     public $tunnelIpsecConfig;
     protected $_name = [
-        'customerGatewayId'  => 'CustomerGatewayId',
-        'enableDpd'          => 'EnableDpd',
+        'customerGatewayId' => 'CustomerGatewayId',
+        'enableDpd' => 'EnableDpd',
         'enableNatTraversal' => 'EnableNatTraversal',
-        'internetIp'         => 'InternetIp',
-        'role'               => 'Role',
-        'state'              => 'State',
-        'tunnelBgpConfig'    => 'TunnelBgpConfig',
-        'tunnelId'           => 'TunnelId',
-        'tunnelIkeConfig'    => 'TunnelIkeConfig',
-        'tunnelIndex'        => 'TunnelIndex',
-        'tunnelIpsecConfig'  => 'TunnelIpsecConfig',
+        'internetIp' => 'InternetIp',
+        'role' => 'Role',
+        'state' => 'State',
+        'tunnelBgpConfig' => 'TunnelBgpConfig',
+        'tunnelId' => 'TunnelId',
+        'tunnelIkeConfig' => 'TunnelIkeConfig',
+        'tunnelIndex' => 'TunnelIndex',
+        'tunnelIpsecConfig' => 'TunnelIpsecConfig',
     ];
 
     public function validate()

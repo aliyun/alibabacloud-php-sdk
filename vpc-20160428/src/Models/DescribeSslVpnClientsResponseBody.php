@@ -13,38 +13,44 @@ class DescribeSslVpnClientsResponseBody extends Model
      * @var clientInfoList[]
      */
     public $clientInfoList;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
         'clientInfoList' => 'ClientInfoList',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'regionId'       => 'RegionId',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
-        'vpnGatewayId'   => 'VpnGatewayId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -61,7 +67,7 @@ class DescribeSslVpnClientsResponseBody extends Model
         if (null !== $this->clientInfoList) {
             if (\is_array($this->clientInfoList)) {
                 $res['ClientInfoList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->clientInfoList as $item1) {
                     $res['ClientInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -106,7 +112,7 @@ class DescribeSslVpnClientsResponseBody extends Model
         if (isset($map['ClientInfoList'])) {
             if (!empty($map['ClientInfoList'])) {
                 $model->clientInfoList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ClientInfoList'] as $item1) {
                     $model->clientInfoList[$n1++] = clientInfoList::fromMap($item1);
                 }

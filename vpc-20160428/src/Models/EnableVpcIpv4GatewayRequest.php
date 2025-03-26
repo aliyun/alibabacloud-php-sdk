@@ -12,48 +12,56 @@ class EnableVpcIpv4GatewayRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ipv4GatewayId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string[]
      */
     public $routeTableList;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dryRun'               => 'DryRun',
-        'ipv4GatewayId'        => 'Ipv4GatewayId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ipv4GatewayId' => 'Ipv4GatewayId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routeTableList'       => 'RouteTableList',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeTableList' => 'RouteTableList',
     ];
 
     public function validate()
@@ -102,7 +110,7 @@ class EnableVpcIpv4GatewayRequest extends Model
         if (null !== $this->routeTableList) {
             if (\is_array($this->routeTableList)) {
                 $res['RouteTableList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->routeTableList as $item1) {
                     $res['RouteTableList'][$n1++] = $item1;
                 }
@@ -155,7 +163,7 @@ class EnableVpcIpv4GatewayRequest extends Model
         if (isset($map['RouteTableList'])) {
             if (!empty($map['RouteTableList'])) {
                 $model->routeTableList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['RouteTableList'] as $item1) {
                     $model->routeTableList[$n1++] = $item1;
                 }

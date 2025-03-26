@@ -13,22 +13,25 @@ class DescribeEipGatewayInfoResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var eipInfos
      */
     public $eipInfos;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'eipInfos'  => 'EipInfos',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'eipInfos' => 'EipInfos',
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 

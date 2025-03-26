@@ -13,27 +13,31 @@ class DescribeVirtualBorderRoutersResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var virtualBorderRouterSet
      */
     public $virtualBorderRouterSet;
     protected $_name = [
-        'pageNumber'             => 'PageNumber',
-        'pageSize'               => 'PageSize',
-        'requestId'              => 'RequestId',
-        'totalCount'             => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'virtualBorderRouterSet' => 'VirtualBorderRouterSet',
     ];
 

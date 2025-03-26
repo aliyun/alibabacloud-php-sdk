@@ -12,43 +12,50 @@ class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $resourceUid;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'natGatewayId'         => 'NatGatewayId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'natGatewayId' => 'NatGatewayId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'resourceUid'          => 'ResourceUid',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceUid' => 'ResourceUid',
     ];
 
     public function validate()

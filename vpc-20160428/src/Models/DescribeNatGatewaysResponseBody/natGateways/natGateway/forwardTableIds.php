@@ -30,7 +30,7 @@ class forwardTableIds extends Model
         if (null !== $this->forwardTableId) {
             if (\is_array($this->forwardTableId)) {
                 $res['ForwardTableId'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->forwardTableId as $item1) {
                     $res['ForwardTableId'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class forwardTableIds extends Model
         if (isset($map['ForwardTableId'])) {
             if (!empty($map['ForwardTableId'])) {
                 $model->forwardTableId = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ForwardTableId'] as $item1) {
                     $model->forwardTableId[$n1++] = $item1;
                 }

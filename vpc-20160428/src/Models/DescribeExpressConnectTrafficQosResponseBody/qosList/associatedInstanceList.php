@@ -12,23 +12,26 @@ class associatedInstanceList extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $instanceProgressing;
+
     /**
      * @var string
      */
     public $instanceStatus;
+
     /**
      * @var string
      */
     public $instanceType;
     protected $_name = [
-        'instanceId'          => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'instanceProgressing' => 'InstanceProgressing',
-        'instanceStatus'      => 'InstanceStatus',
-        'instanceType'        => 'InstanceType',
+        'instanceStatus' => 'InstanceStatus',
+        'instanceType' => 'InstanceType',
     ];
 
     public function validate()

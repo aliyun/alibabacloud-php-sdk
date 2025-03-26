@@ -13,53 +13,62 @@ class GetVpnGatewayDiagnoseResultResponseBody extends Model
      * @var string
      */
     public $beginTime;
+
     /**
      * @var string
      */
     public $diagnoseId;
+
     /**
      * @var diagnoseResult[]
      */
     public $diagnoseResult;
+
     /**
      * @var string
      */
     public $finishTime;
+
     /**
      * @var int
      */
     public $finishedCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceInstanceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'beginTime'          => 'BeginTime',
-        'diagnoseId'         => 'DiagnoseId',
-        'diagnoseResult'     => 'DiagnoseResult',
-        'finishTime'         => 'FinishTime',
-        'finishedCount'      => 'FinishedCount',
-        'requestId'          => 'RequestId',
+        'beginTime' => 'BeginTime',
+        'diagnoseId' => 'DiagnoseId',
+        'diagnoseResult' => 'DiagnoseResult',
+        'finishTime' => 'FinishTime',
+        'finishedCount' => 'FinishedCount',
+        'requestId' => 'RequestId',
         'resourceInstanceId' => 'ResourceInstanceId',
-        'resourceType'       => 'ResourceType',
-        'totalCount'         => 'TotalCount',
-        'vpnGatewayId'       => 'VpnGatewayId',
+        'resourceType' => 'ResourceType',
+        'totalCount' => 'TotalCount',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -84,7 +93,7 @@ class GetVpnGatewayDiagnoseResultResponseBody extends Model
         if (null !== $this->diagnoseResult) {
             if (\is_array($this->diagnoseResult)) {
                 $res['DiagnoseResult'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->diagnoseResult as $item1) {
                     $res['DiagnoseResult'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -141,7 +150,7 @@ class GetVpnGatewayDiagnoseResultResponseBody extends Model
         if (isset($map['DiagnoseResult'])) {
             if (!empty($map['DiagnoseResult'])) {
                 $model->diagnoseResult = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['DiagnoseResult'] as $item1) {
                     $model->diagnoseResult[$n1++] = diagnoseResult::fromMap($item1);
                 }

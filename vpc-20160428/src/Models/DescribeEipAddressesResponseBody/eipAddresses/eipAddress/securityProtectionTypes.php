@@ -30,7 +30,7 @@ class securityProtectionTypes extends Model
         if (null !== $this->securityProtectionType) {
             if (\is_array($this->securityProtectionType)) {
                 $res['SecurityProtectionType'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->securityProtectionType as $item1) {
                     $res['SecurityProtectionType'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class securityProtectionTypes extends Model
         if (isset($map['SecurityProtectionType'])) {
             if (!empty($map['SecurityProtectionType'])) {
                 $model->securityProtectionType = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['SecurityProtectionType'] as $item1) {
                     $model->securityProtectionType[$n1++] = $item1;
                 }

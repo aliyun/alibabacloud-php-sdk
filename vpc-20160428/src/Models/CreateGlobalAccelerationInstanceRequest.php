@@ -12,58 +12,68 @@ class CreateGlobalAccelerationInstanceRequest extends Model
      * @var string
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $bandwidthType;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $serviceLocation;
     protected $_name = [
-        'bandwidth'            => 'Bandwidth',
-        'bandwidthType'        => 'BandwidthType',
-        'clientToken'          => 'ClientToken',
-        'description'          => 'Description',
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'bandwidth' => 'Bandwidth',
+        'bandwidthType' => 'BandwidthType',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'serviceLocation'      => 'ServiceLocation',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'serviceLocation' => 'ServiceLocation',
     ];
 
     public function validate()

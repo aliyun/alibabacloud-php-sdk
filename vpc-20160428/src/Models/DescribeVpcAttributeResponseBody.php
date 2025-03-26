@@ -20,143 +20,170 @@ class DescribeVpcAttributeResponseBody extends Model
      * @var associatedCens
      */
     public $associatedCens;
+
     /**
      * @var associatedPropagationSources
      */
     public $associatedPropagationSources;
+
     /**
      * @var string
      */
     public $cidrBlock;
+
     /**
      * @var bool
      */
     public $classicLinkEnabled;
+
     /**
      * @var cloudResources
      */
     public $cloudResources;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $dhcpOptionsSetId;
+
     /**
      * @var string
      */
     public $dhcpOptionsSetStatus;
+
     /**
      * @var string
      */
     public $dnsHostnameStatus;
+
     /**
      * @var bool
      */
     public $enabledIpv6;
+
     /**
      * @var string
      */
     public $ipv4GatewayId;
+
     /**
      * @var string
      */
     public $ipv6CidrBlock;
+
     /**
      * @var ipv6CidrBlocks
      */
     public $ipv6CidrBlocks;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var secondaryCidrBlocks
      */
     public $secondaryCidrBlocks;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var bool
      */
     public $supportIpv4Gateway;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var userCidrs
      */
     public $userCidrs;
+
     /**
      * @var string
      */
     public $VRouterId;
+
     /**
      * @var vSwitchIds
      */
     public $vSwitchIds;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $vpcName;
     protected $_name = [
-        'associatedCens'               => 'AssociatedCens',
+        'associatedCens' => 'AssociatedCens',
         'associatedPropagationSources' => 'AssociatedPropagationSources',
-        'cidrBlock'                    => 'CidrBlock',
-        'classicLinkEnabled'           => 'ClassicLinkEnabled',
-        'cloudResources'               => 'CloudResources',
-        'creationTime'                 => 'CreationTime',
-        'description'                  => 'Description',
-        'dhcpOptionsSetId'             => 'DhcpOptionsSetId',
-        'dhcpOptionsSetStatus'         => 'DhcpOptionsSetStatus',
-        'dnsHostnameStatus'            => 'DnsHostnameStatus',
-        'enabledIpv6'                  => 'EnabledIpv6',
-        'ipv4GatewayId'                => 'Ipv4GatewayId',
-        'ipv6CidrBlock'                => 'Ipv6CidrBlock',
-        'ipv6CidrBlocks'               => 'Ipv6CidrBlocks',
-        'isDefault'                    => 'IsDefault',
-        'ownerId'                      => 'OwnerId',
-        'regionId'                     => 'RegionId',
-        'requestId'                    => 'RequestId',
-        'resourceGroupId'              => 'ResourceGroupId',
-        'secondaryCidrBlocks'          => 'SecondaryCidrBlocks',
-        'status'                       => 'Status',
-        'supportIpv4Gateway'           => 'SupportIpv4Gateway',
-        'tags'                         => 'Tags',
-        'userCidrs'                    => 'UserCidrs',
-        'VRouterId'                    => 'VRouterId',
-        'vSwitchIds'                   => 'VSwitchIds',
-        'vpcId'                        => 'VpcId',
-        'vpcName'                      => 'VpcName',
+        'cidrBlock' => 'CidrBlock',
+        'classicLinkEnabled' => 'ClassicLinkEnabled',
+        'cloudResources' => 'CloudResources',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'dhcpOptionsSetId' => 'DhcpOptionsSetId',
+        'dhcpOptionsSetStatus' => 'DhcpOptionsSetStatus',
+        'dnsHostnameStatus' => 'DnsHostnameStatus',
+        'enabledIpv6' => 'EnabledIpv6',
+        'ipv4GatewayId' => 'Ipv4GatewayId',
+        'ipv6CidrBlock' => 'Ipv6CidrBlock',
+        'ipv6CidrBlocks' => 'Ipv6CidrBlocks',
+        'isDefault' => 'IsDefault',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'secondaryCidrBlocks' => 'SecondaryCidrBlocks',
+        'status' => 'Status',
+        'supportIpv4Gateway' => 'SupportIpv4Gateway',
+        'tags' => 'Tags',
+        'userCidrs' => 'UserCidrs',
+        'VRouterId' => 'VRouterId',
+        'vSwitchIds' => 'VSwitchIds',
+        'vpcId' => 'VpcId',
+        'vpcName' => 'VpcName',
     ];
 
     public function validate()

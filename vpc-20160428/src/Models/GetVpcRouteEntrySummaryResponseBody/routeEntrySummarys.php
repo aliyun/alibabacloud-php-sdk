@@ -13,13 +13,14 @@ class routeEntrySummarys extends Model
      * @var entrySummarys[]
      */
     public $entrySummarys;
+
     /**
      * @var string
      */
     public $routeTableId;
     protected $_name = [
         'entrySummarys' => 'EntrySummarys',
-        'routeTableId'  => 'RouteTableId',
+        'routeTableId' => 'RouteTableId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class routeEntrySummarys extends Model
         if (null !== $this->entrySummarys) {
             if (\is_array($this->entrySummarys)) {
                 $res['EntrySummarys'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->entrySummarys as $item1) {
                     $res['EntrySummarys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class routeEntrySummarys extends Model
         if (isset($map['EntrySummarys'])) {
             if (!empty($map['EntrySummarys'])) {
                 $model->entrySummarys = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['EntrySummarys'] as $item1) {
                     $model->entrySummarys[$n1++] = entrySummarys::fromMap($item1);
                 }

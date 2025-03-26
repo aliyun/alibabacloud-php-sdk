@@ -12,73 +12,86 @@ class ListNatIpsRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string
      */
     public $natIpCidr;
+
     /**
      * @var string[]
      */
     public $natIpIds;
+
     /**
      * @var string[]
      */
     public $natIpName;
+
     /**
      * @var string
      */
     public $natIpStatus;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dryRun'               => 'DryRun',
-        'maxResults'           => 'MaxResults',
-        'natGatewayId'         => 'NatGatewayId',
-        'natIpCidr'            => 'NatIpCidr',
-        'natIpIds'             => 'NatIpIds',
-        'natIpName'            => 'NatIpName',
-        'natIpStatus'          => 'NatIpStatus',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'maxResults' => 'MaxResults',
+        'natGatewayId' => 'NatGatewayId',
+        'natIpCidr' => 'NatIpCidr',
+        'natIpIds' => 'NatIpIds',
+        'natIpName' => 'NatIpName',
+        'natIpStatus' => 'NatIpStatus',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -118,7 +131,7 @@ class ListNatIpsRequest extends Model
         if (null !== $this->natIpIds) {
             if (\is_array($this->natIpIds)) {
                 $res['NatIpIds'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->natIpIds as $item1) {
                     $res['NatIpIds'][$n1++] = $item1;
                 }
@@ -128,7 +141,7 @@ class ListNatIpsRequest extends Model
         if (null !== $this->natIpName) {
             if (\is_array($this->natIpName)) {
                 $res['NatIpName'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->natIpName as $item1) {
                     $res['NatIpName'][$n1++] = $item1;
                 }
@@ -197,7 +210,7 @@ class ListNatIpsRequest extends Model
         if (isset($map['NatIpIds'])) {
             if (!empty($map['NatIpIds'])) {
                 $model->natIpIds = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['NatIpIds'] as $item1) {
                     $model->natIpIds[$n1++] = $item1;
                 }
@@ -207,7 +220,7 @@ class ListNatIpsRequest extends Model
         if (isset($map['NatIpName'])) {
             if (!empty($map['NatIpName'])) {
                 $model->natIpName = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['NatIpName'] as $item1) {
                     $model->natIpName[$n1++] = $item1;
                 }

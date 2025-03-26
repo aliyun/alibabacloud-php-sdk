@@ -12,23 +12,26 @@ class billingConfig extends Model
      * @var string
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
     /**
      * @var string
      */
     public $internetChargeType;
+
     /**
      * @var string
      */
     public $spec;
     protected $_name = [
-        'autoPay'            => 'AutoPay',
+        'autoPay' => 'AutoPay',
         'instanceChargeType' => 'InstanceChargeType',
         'internetChargeType' => 'InternetChargeType',
-        'spec'               => 'Spec',
+        'spec' => 'Spec',
     ];
 
     public function validate()

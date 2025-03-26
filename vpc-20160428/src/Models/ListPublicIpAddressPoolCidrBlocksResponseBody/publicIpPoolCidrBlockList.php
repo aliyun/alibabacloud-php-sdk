@@ -12,33 +12,38 @@ class publicIpPoolCidrBlockList extends Model
      * @var string
      */
     public $cidrBlock;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $publicIpAddressPoolId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $totalIpNum;
+
     /**
      * @var int
      */
     public $usedIpNum;
     protected $_name = [
-        'cidrBlock'             => 'CidrBlock',
-        'creationTime'          => 'CreationTime',
+        'cidrBlock' => 'CidrBlock',
+        'creationTime' => 'CreationTime',
         'publicIpAddressPoolId' => 'PublicIpAddressPoolId',
-        'status'                => 'Status',
-        'totalIpNum'            => 'TotalIpNum',
-        'usedIpNum'             => 'UsedIpNum',
+        'status' => 'Status',
+        'totalIpNum' => 'TotalIpNum',
+        'usedIpNum' => 'UsedIpNum',
     ];
 
     public function validate()

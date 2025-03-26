@@ -17,123 +17,146 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
      * @var string
      */
     public $attachInstanceId;
+
     /**
      * @var string
      */
     public $attachType;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $customerGatewayId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $effectImmediately;
+
     /**
      * @var bool
      */
     public $enableDpd;
+
     /**
      * @var bool
      */
     public $enableNatTraversal;
+
     /**
      * @var bool
      */
     public $enableTunnelsBgp;
+
     /**
      * @var ikeConfig
      */
     public $ikeConfig;
+
     /**
      * @var ipsecConfig
      */
     public $ipsecConfig;
+
     /**
      * @var string
      */
     public $localSubnet;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $remoteSubnet;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $spec;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tunnelOptionsSpecification[]
      */
     public $tunnelOptionsSpecification;
+
     /**
      * @var vcoHealthCheck
      */
     public $vcoHealthCheck;
+
     /**
      * @var vpnBgpConfig
      */
     public $vpnBgpConfig;
+
     /**
      * @var string
      */
     public $vpnConnectionId;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'attachInstanceId'           => 'AttachInstanceId',
-        'attachType'                 => 'AttachType',
-        'createTime'                 => 'CreateTime',
-        'customerGatewayId'          => 'CustomerGatewayId',
-        'description'                => 'Description',
-        'effectImmediately'          => 'EffectImmediately',
-        'enableDpd'                  => 'EnableDpd',
-        'enableNatTraversal'         => 'EnableNatTraversal',
-        'enableTunnelsBgp'           => 'EnableTunnelsBgp',
-        'ikeConfig'                  => 'IkeConfig',
-        'ipsecConfig'                => 'IpsecConfig',
-        'localSubnet'                => 'LocalSubnet',
-        'name'                       => 'Name',
-        'networkType'                => 'NetworkType',
-        'remoteSubnet'               => 'RemoteSubnet',
-        'requestId'                  => 'RequestId',
-        'resourceGroupId'            => 'ResourceGroupId',
-        'spec'                       => 'Spec',
-        'status'                     => 'Status',
+        'attachInstanceId' => 'AttachInstanceId',
+        'attachType' => 'AttachType',
+        'createTime' => 'CreateTime',
+        'customerGatewayId' => 'CustomerGatewayId',
+        'description' => 'Description',
+        'effectImmediately' => 'EffectImmediately',
+        'enableDpd' => 'EnableDpd',
+        'enableNatTraversal' => 'EnableNatTraversal',
+        'enableTunnelsBgp' => 'EnableTunnelsBgp',
+        'ikeConfig' => 'IkeConfig',
+        'ipsecConfig' => 'IpsecConfig',
+        'localSubnet' => 'LocalSubnet',
+        'name' => 'Name',
+        'networkType' => 'NetworkType',
+        'remoteSubnet' => 'RemoteSubnet',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'spec' => 'Spec',
+        'status' => 'Status',
         'tunnelOptionsSpecification' => 'TunnelOptionsSpecification',
-        'vcoHealthCheck'             => 'VcoHealthCheck',
-        'vpnBgpConfig'               => 'VpnBgpConfig',
-        'vpnConnectionId'            => 'VpnConnectionId',
-        'vpnGatewayId'               => 'VpnGatewayId',
+        'vcoHealthCheck' => 'VcoHealthCheck',
+        'vpnBgpConfig' => 'VpnBgpConfig',
+        'vpnConnectionId' => 'VpnConnectionId',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -238,7 +261,7 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
         if (null !== $this->tunnelOptionsSpecification) {
             if (\is_array($this->tunnelOptionsSpecification)) {
                 $res['TunnelOptionsSpecification'] = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($this->tunnelOptionsSpecification as $item1) {
                     $res['TunnelOptionsSpecification'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -351,7 +374,7 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
         if (isset($map['TunnelOptionsSpecification'])) {
             if (!empty($map['TunnelOptionsSpecification'])) {
                 $model->tunnelOptionsSpecification = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($map['TunnelOptionsSpecification'] as $item1) {
                     $model->tunnelOptionsSpecification[$n1++] = tunnelOptionsSpecification::fromMap($item1);
                 }

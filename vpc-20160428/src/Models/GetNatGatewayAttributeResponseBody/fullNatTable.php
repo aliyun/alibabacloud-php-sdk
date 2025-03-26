@@ -12,13 +12,14 @@ class fullNatTable extends Model
      * @var int
      */
     public $fullNatEntryCount;
+
     /**
      * @var string
      */
     public $fullNatTableId;
     protected $_name = [
         'fullNatEntryCount' => 'FullNatEntryCount',
-        'fullNatTableId'    => 'FullNatTableId',
+        'fullNatTableId' => 'FullNatTableId',
     ];
 
     public function validate()

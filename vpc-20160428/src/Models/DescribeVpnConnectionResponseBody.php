@@ -18,158 +18,188 @@ class DescribeVpnConnectionResponseBody extends Model
      * @var string
      */
     public $attachInstanceId;
+
     /**
      * @var string
      */
     public $attachType;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var bool
      */
     public $crossAccountAuthorized;
+
     /**
      * @var string
      */
     public $customerGatewayId;
+
     /**
      * @var bool
      */
     public $effectImmediately;
+
     /**
      * @var bool
      */
     public $enableDpd;
+
     /**
      * @var bool
      */
     public $enableNatTraversal;
+
     /**
      * @var bool
      */
     public $enableTunnelsBgp;
+
     /**
      * @var ikeConfig
      */
     public $ikeConfig;
+
     /**
      * @var string
      */
     public $internetIp;
+
     /**
      * @var ipsecConfig
      */
     public $ipsecConfig;
+
     /**
      * @var string
      */
     public $localSubnet;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $remoteCaCertificate;
+
     /**
      * @var string
      */
     public $remoteSubnet;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $spec;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $transitRouterId;
+
     /**
      * @var string
      */
     public $transitRouterName;
+
     /**
      * @var tunnelOptionsSpecification
      */
     public $tunnelOptionsSpecification;
+
     /**
      * @var vcoHealthCheck
      */
     public $vcoHealthCheck;
+
     /**
      * @var vpnBgpConfig
      */
     public $vpnBgpConfig;
+
     /**
      * @var string
      */
     public $vpnConnectionId;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
+
     /**
      * @var string
      */
     public $zoneNo;
     protected $_name = [
-        'attachInstanceId'           => 'AttachInstanceId',
-        'attachType'                 => 'AttachType',
-        'createTime'                 => 'CreateTime',
-        'crossAccountAuthorized'     => 'CrossAccountAuthorized',
-        'customerGatewayId'          => 'CustomerGatewayId',
-        'effectImmediately'          => 'EffectImmediately',
-        'enableDpd'                  => 'EnableDpd',
-        'enableNatTraversal'         => 'EnableNatTraversal',
-        'enableTunnelsBgp'           => 'EnableTunnelsBgp',
-        'ikeConfig'                  => 'IkeConfig',
-        'internetIp'                 => 'InternetIp',
-        'ipsecConfig'                => 'IpsecConfig',
-        'localSubnet'                => 'LocalSubnet',
-        'name'                       => 'Name',
-        'networkType'                => 'NetworkType',
-        'remoteCaCertificate'        => 'RemoteCaCertificate',
-        'remoteSubnet'               => 'RemoteSubnet',
-        'requestId'                  => 'RequestId',
-        'resourceGroupId'            => 'ResourceGroupId',
-        'spec'                       => 'Spec',
-        'state'                      => 'State',
-        'status'                     => 'Status',
-        'tags'                       => 'Tags',
-        'transitRouterId'            => 'TransitRouterId',
-        'transitRouterName'          => 'TransitRouterName',
+        'attachInstanceId' => 'AttachInstanceId',
+        'attachType' => 'AttachType',
+        'createTime' => 'CreateTime',
+        'crossAccountAuthorized' => 'CrossAccountAuthorized',
+        'customerGatewayId' => 'CustomerGatewayId',
+        'effectImmediately' => 'EffectImmediately',
+        'enableDpd' => 'EnableDpd',
+        'enableNatTraversal' => 'EnableNatTraversal',
+        'enableTunnelsBgp' => 'EnableTunnelsBgp',
+        'ikeConfig' => 'IkeConfig',
+        'internetIp' => 'InternetIp',
+        'ipsecConfig' => 'IpsecConfig',
+        'localSubnet' => 'LocalSubnet',
+        'name' => 'Name',
+        'networkType' => 'NetworkType',
+        'remoteCaCertificate' => 'RemoteCaCertificate',
+        'remoteSubnet' => 'RemoteSubnet',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'spec' => 'Spec',
+        'state' => 'State',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'transitRouterId' => 'TransitRouterId',
+        'transitRouterName' => 'TransitRouterName',
         'tunnelOptionsSpecification' => 'TunnelOptionsSpecification',
-        'vcoHealthCheck'             => 'VcoHealthCheck',
-        'vpnBgpConfig'               => 'VpnBgpConfig',
-        'vpnConnectionId'            => 'VpnConnectionId',
-        'vpnGatewayId'               => 'VpnGatewayId',
-        'zoneNo'                     => 'ZoneNo',
+        'vcoHealthCheck' => 'VcoHealthCheck',
+        'vpnBgpConfig' => 'VpnBgpConfig',
+        'vpnConnectionId' => 'VpnConnectionId',
+        'vpnGatewayId' => 'VpnGatewayId',
+        'zoneNo' => 'ZoneNo',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class CreateForwardEntryResponseBody extends Model
      * @var string
      */
     public $forwardEntryId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'forwardEntryId' => 'ForwardEntryId',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

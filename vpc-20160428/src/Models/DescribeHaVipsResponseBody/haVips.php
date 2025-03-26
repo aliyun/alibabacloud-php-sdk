@@ -31,7 +31,7 @@ class haVips extends Model
         if (null !== $this->haVip) {
             if (\is_array($this->haVip)) {
                 $res['HaVip'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->haVip as $item1) {
                     $res['HaVip'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class haVips extends Model
         if (isset($map['HaVip'])) {
             if (!empty($map['HaVip'])) {
                 $model->haVip = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['HaVip'] as $item1) {
                     $model->haVip[$n1++] = haVip::fromMap($item1);
                 }

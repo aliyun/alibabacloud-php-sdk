@@ -12,53 +12,62 @@ class failoverTestJobModel extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $jobDuration;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $jobType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string[]
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $stopTime;
     protected $_name = [
-        'description'  => 'Description',
-        'jobDuration'  => 'JobDuration',
-        'jobId'        => 'JobId',
-        'jobType'      => 'JobType',
-        'name'         => 'Name',
-        'resourceId'   => 'ResourceId',
+        'description' => 'Description',
+        'jobDuration' => 'JobDuration',
+        'jobId' => 'JobId',
+        'jobType' => 'JobType',
+        'name' => 'Name',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'startTime'    => 'StartTime',
-        'status'       => 'Status',
-        'stopTime'     => 'StopTime',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'stopTime' => 'StopTime',
     ];
 
     public function validate()
@@ -95,7 +104,7 @@ class failoverTestJobModel extends Model
         if (null !== $this->resourceId) {
             if (\is_array($this->resourceId)) {
                 $res['ResourceId'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->resourceId as $item1) {
                     $res['ResourceId'][$n1++] = $item1;
                 }
@@ -152,7 +161,7 @@ class failoverTestJobModel extends Model
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ResourceId'] as $item1) {
                     $model->resourceId[$n1++] = $item1;
                 }

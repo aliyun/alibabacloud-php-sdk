@@ -12,38 +12,44 @@ class vcoHealthCheck extends Model
      * @var string
      */
     public $dip;
+
     /**
      * @var string
      */
     public $enable;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var string
      */
     public $policy;
+
     /**
      * @var int
      */
     public $retry;
+
     /**
      * @var string
      */
     public $sip;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'dip'      => 'Dip',
-        'enable'   => 'Enable',
+        'dip' => 'Dip',
+        'enable' => 'Enable',
         'interval' => 'Interval',
-        'policy'   => 'Policy',
-        'retry'    => 'Retry',
-        'sip'      => 'Sip',
-        'status'   => 'Status',
+        'policy' => 'Policy',
+        'retry' => 'Retry',
+        'sip' => 'Sip',
+        'status' => 'Status',
     ];
 
     public function validate()

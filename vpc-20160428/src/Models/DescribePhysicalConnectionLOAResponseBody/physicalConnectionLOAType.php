@@ -13,68 +13,80 @@ class physicalConnectionLOAType extends Model
      * @var string
      */
     public $companyLocalizedName;
+
     /**
      * @var string
      */
     public $companyName;
+
     /**
      * @var string
      */
     public $constructionTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lineCode;
+
     /**
      * @var string
      */
     public $lineLabel;
+
     /**
      * @var string
      */
     public $lineSPContactInfo;
+
     /**
      * @var string
      */
     public $lineServiceProvider;
+
     /**
      * @var string
      */
     public $lineType;
+
     /**
      * @var string
      */
     public $loaUrl;
+
     /**
      * @var PMInfo
      */
     public $PMInfo;
+
     /**
      * @var string
      */
     public $SI;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'companyLocalizedName' => 'CompanyLocalizedName',
-        'companyName'          => 'CompanyName',
-        'constructionTime'     => 'ConstructionTime',
-        'instanceId'           => 'InstanceId',
-        'lineCode'             => 'LineCode',
-        'lineLabel'            => 'LineLabel',
-        'lineSPContactInfo'    => 'LineSPContactInfo',
-        'lineServiceProvider'  => 'LineServiceProvider',
-        'lineType'             => 'LineType',
-        'loaUrl'               => 'LoaUrl',
-        'PMInfo'               => 'PMInfo',
-        'SI'                   => 'SI',
-        'status'               => 'Status',
+        'companyName' => 'CompanyName',
+        'constructionTime' => 'ConstructionTime',
+        'instanceId' => 'InstanceId',
+        'lineCode' => 'LineCode',
+        'lineLabel' => 'LineLabel',
+        'lineSPContactInfo' => 'LineSPContactInfo',
+        'lineServiceProvider' => 'LineServiceProvider',
+        'lineType' => 'LineType',
+        'loaUrl' => 'LoaUrl',
+        'PMInfo' => 'PMInfo',
+        'SI' => 'SI',
+        'status' => 'Status',
     ];
 
     public function validate()

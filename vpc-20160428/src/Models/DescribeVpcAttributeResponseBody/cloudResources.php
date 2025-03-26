@@ -31,7 +31,7 @@ class cloudResources extends Model
         if (null !== $this->cloudResourceSetType) {
             if (\is_array($this->cloudResourceSetType)) {
                 $res['CloudResourceSetType'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->cloudResourceSetType as $item1) {
                     $res['CloudResourceSetType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class cloudResources extends Model
         if (isset($map['CloudResourceSetType'])) {
             if (!empty($map['CloudResourceSetType'])) {
                 $model->cloudResourceSetType = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['CloudResourceSetType'] as $item1) {
                     $model->cloudResourceSetType[$n1++] = cloudResourceSetType::fromMap($item1);
                 }

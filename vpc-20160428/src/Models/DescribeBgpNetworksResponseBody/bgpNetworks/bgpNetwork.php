@@ -12,23 +12,26 @@ class bgpNetwork extends Model
      * @var string
      */
     public $dstCidrBlock;
+
     /**
      * @var string
      */
     public $routerId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'dstCidrBlock' => 'DstCidrBlock',
-        'routerId'     => 'RouterId',
-        'status'       => 'Status',
-        'vpcId'        => 'VpcId',
+        'routerId' => 'RouterId',
+        'status' => 'Status',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

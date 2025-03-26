@@ -12,78 +12,92 @@ class ipv6TranslatorEntry extends Model
      * @var string
      */
     public $aclId;
+
     /**
      * @var string
      */
     public $aclStatus;
+
     /**
      * @var string
      */
     public $aclType;
+
     /**
      * @var string
      */
     public $allocateIpv6Addr;
+
     /**
      * @var int
      */
     public $allocateIpv6Port;
+
     /**
      * @var string
      */
     public $backendIpv4Addr;
+
     /**
      * @var string
      */
     public $backendIpv4Port;
+
     /**
      * @var string
      */
     public $entryBandwidth;
+
     /**
      * @var string
      */
     public $entryDescription;
+
     /**
      * @var string
      */
     public $entryName;
+
     /**
      * @var string
      */
     public $entryStatus;
+
     /**
      * @var string
      */
     public $ipv6TranslatorEntryId;
+
     /**
      * @var string
      */
     public $ipv6TranslatorId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $transProtocol;
     protected $_name = [
-        'aclId'                 => 'AclId',
-        'aclStatus'             => 'AclStatus',
-        'aclType'               => 'AclType',
-        'allocateIpv6Addr'      => 'AllocateIpv6Addr',
-        'allocateIpv6Port'      => 'AllocateIpv6Port',
-        'backendIpv4Addr'       => 'BackendIpv4Addr',
-        'backendIpv4Port'       => 'BackendIpv4Port',
-        'entryBandwidth'        => 'EntryBandwidth',
-        'entryDescription'      => 'EntryDescription',
-        'entryName'             => 'EntryName',
-        'entryStatus'           => 'EntryStatus',
+        'aclId' => 'AclId',
+        'aclStatus' => 'AclStatus',
+        'aclType' => 'AclType',
+        'allocateIpv6Addr' => 'AllocateIpv6Addr',
+        'allocateIpv6Port' => 'AllocateIpv6Port',
+        'backendIpv4Addr' => 'BackendIpv4Addr',
+        'backendIpv4Port' => 'BackendIpv4Port',
+        'entryBandwidth' => 'EntryBandwidth',
+        'entryDescription' => 'EntryDescription',
+        'entryName' => 'EntryName',
+        'entryStatus' => 'EntryStatus',
         'ipv6TranslatorEntryId' => 'Ipv6TranslatorEntryId',
-        'ipv6TranslatorId'      => 'Ipv6TranslatorId',
-        'regionId'              => 'RegionId',
-        'transProtocol'         => 'TransProtocol',
+        'ipv6TranslatorId' => 'Ipv6TranslatorId',
+        'regionId' => 'RegionId',
+        'transProtocol' => 'TransProtocol',
     ];
 
     public function validate()

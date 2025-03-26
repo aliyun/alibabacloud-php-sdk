@@ -14,98 +14,116 @@ class ipv6Address extends Model
      * @var string
      */
     public $addressType;
+
     /**
      * @var string
      */
     public $allocationTime;
+
     /**
      * @var string
      */
     public $associatedInstanceId;
+
     /**
      * @var string
      */
     public $associatedInstanceType;
+
     /**
      * @var string
      */
     public $ipv6Address;
+
     /**
      * @var string
      */
     public $ipv6AddressDescription;
+
     /**
      * @var string
      */
     public $ipv6AddressId;
+
     /**
      * @var string
      */
     public $ipv6AddressName;
+
     /**
      * @var string
      */
     public $ipv6GatewayId;
+
     /**
      * @var ipv6InternetBandwidth
      */
     public $ipv6InternetBandwidth;
+
     /**
      * @var string
      */
     public $ipv6Isp;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var int
      */
     public $realBandwidth;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $serviceManaged;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'addressType'            => 'AddressType',
-        'allocationTime'         => 'AllocationTime',
-        'associatedInstanceId'   => 'AssociatedInstanceId',
+        'addressType' => 'AddressType',
+        'allocationTime' => 'AllocationTime',
+        'associatedInstanceId' => 'AssociatedInstanceId',
         'associatedInstanceType' => 'AssociatedInstanceType',
-        'ipv6Address'            => 'Ipv6Address',
+        'ipv6Address' => 'Ipv6Address',
         'ipv6AddressDescription' => 'Ipv6AddressDescription',
-        'ipv6AddressId'          => 'Ipv6AddressId',
-        'ipv6AddressName'        => 'Ipv6AddressName',
-        'ipv6GatewayId'          => 'Ipv6GatewayId',
-        'ipv6InternetBandwidth'  => 'Ipv6InternetBandwidth',
-        'ipv6Isp'                => 'Ipv6Isp',
-        'networkType'            => 'NetworkType',
-        'realBandwidth'          => 'RealBandwidth',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'serviceManaged'         => 'ServiceManaged',
-        'status'                 => 'Status',
-        'tags'                   => 'Tags',
-        'vSwitchId'              => 'VSwitchId',
-        'vpcId'                  => 'VpcId',
+        'ipv6AddressId' => 'Ipv6AddressId',
+        'ipv6AddressName' => 'Ipv6AddressName',
+        'ipv6GatewayId' => 'Ipv6GatewayId',
+        'ipv6InternetBandwidth' => 'Ipv6InternetBandwidth',
+        'ipv6Isp' => 'Ipv6Isp',
+        'networkType' => 'NetworkType',
+        'realBandwidth' => 'RealBandwidth',
+        'resourceGroupId' => 'ResourceGroupId',
+        'serviceManaged' => 'ServiceManaged',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

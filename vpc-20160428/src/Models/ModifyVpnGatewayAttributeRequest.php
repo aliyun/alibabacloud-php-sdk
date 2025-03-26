@@ -12,53 +12,62 @@ class ModifyVpnGatewayAttributeRequest extends Model
      * @var bool
      */
     public $autoPropagate;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'autoPropagate'        => 'AutoPropagate',
-        'clientToken'          => 'ClientToken',
-        'description'          => 'Description',
-        'name'                 => 'Name',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'autoPropagate' => 'AutoPropagate',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'vpnGatewayId'         => 'VpnGatewayId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()

@@ -13,98 +13,116 @@ class CreateVpcRequest extends Model
      * @var string
      */
     public $cidrBlock;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var bool
      */
     public $enableDnsHostname;
+
     /**
      * @var bool
      */
     public $enableIpv6;
+
     /**
      * @var int
      */
     public $ipv4CidrMask;
+
     /**
      * @var string
      */
     public $ipv4IpamPoolId;
+
     /**
      * @var string
      */
     public $ipv6CidrBlock;
+
     /**
      * @var string
      */
     public $ipv6Isp;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $userCidr;
+
     /**
      * @var string
      */
     public $vpcName;
     protected $_name = [
-        'cidrBlock'            => 'CidrBlock',
-        'clientToken'          => 'ClientToken',
-        'description'          => 'Description',
-        'dryRun'               => 'DryRun',
-        'enableDnsHostname'    => 'EnableDnsHostname',
-        'enableIpv6'           => 'EnableIpv6',
-        'ipv4CidrMask'         => 'Ipv4CidrMask',
-        'ipv4IpamPoolId'       => 'Ipv4IpamPoolId',
-        'ipv6CidrBlock'        => 'Ipv6CidrBlock',
-        'ipv6Isp'              => 'Ipv6Isp',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'cidrBlock' => 'CidrBlock',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'dryRun' => 'DryRun',
+        'enableDnsHostname' => 'EnableDnsHostname',
+        'enableIpv6' => 'EnableIpv6',
+        'ipv4CidrMask' => 'Ipv4CidrMask',
+        'ipv4IpamPoolId' => 'Ipv4IpamPoolId',
+        'ipv6CidrBlock' => 'Ipv6CidrBlock',
+        'ipv6Isp' => 'Ipv6Isp',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tag'                  => 'Tag',
-        'userCidr'             => 'UserCidr',
-        'vpcName'              => 'VpcName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
+        'userCidr' => 'UserCidr',
+        'vpcName' => 'VpcName',
     ];
 
     public function validate()
@@ -185,7 +203,7 @@ class CreateVpcRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -278,7 +296,7 @@ class CreateVpcRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

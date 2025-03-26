@@ -13,33 +13,38 @@ class DescribeVpnSslServerLogsResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var bool
      */
     public $isCompleted;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'count'       => 'Count',
-        'data'        => 'Data',
+        'count' => 'Count',
+        'data' => 'Data',
         'isCompleted' => 'IsCompleted',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

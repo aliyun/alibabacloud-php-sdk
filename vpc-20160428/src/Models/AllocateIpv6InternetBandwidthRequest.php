@@ -12,58 +12,68 @@ class AllocateIpv6InternetBandwidthRequest extends Model
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $internetChargeType;
+
     /**
      * @var string
      */
     public $ipv6AddressId;
+
     /**
      * @var string
      */
     public $ipv6GatewayId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'bandwidth'            => 'Bandwidth',
-        'clientToken'          => 'ClientToken',
-        'dryRun'               => 'DryRun',
-        'internetChargeType'   => 'InternetChargeType',
-        'ipv6AddressId'        => 'Ipv6AddressId',
-        'ipv6GatewayId'        => 'Ipv6GatewayId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'bandwidth' => 'Bandwidth',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'internetChargeType' => 'InternetChargeType',
+        'ipv6AddressId' => 'Ipv6AddressId',
+        'ipv6GatewayId' => 'Ipv6GatewayId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

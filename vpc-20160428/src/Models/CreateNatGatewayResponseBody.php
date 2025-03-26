@@ -15,18 +15,22 @@ class CreateNatGatewayResponseBody extends Model
      * @var forwardTableIds
      */
     public $forwardTableIds;
+
     /**
      * @var fullNatTableIds
      */
     public $fullNatTableIds;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var snatTableIds
      */
@@ -34,9 +38,9 @@ class CreateNatGatewayResponseBody extends Model
     protected $_name = [
         'forwardTableIds' => 'ForwardTableIds',
         'fullNatTableIds' => 'FullNatTableIds',
-        'natGatewayId'    => 'NatGatewayId',
-        'requestId'       => 'RequestId',
-        'snatTableIds'    => 'SnatTableIds',
+        'natGatewayId' => 'NatGatewayId',
+        'requestId' => 'RequestId',
+        'snatTableIds' => 'SnatTableIds',
     ];
 
     public function validate()

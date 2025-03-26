@@ -12,33 +12,38 @@ class cidrReservationUsages extends Model
      * @var string
      */
     public $ipPrefixCidr;
+
     /**
      * @var string
      */
     public $ipPrefixId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $vSwitchCidrReservationId;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'ipPrefixCidr'             => 'IpPrefixCidr',
-        'ipPrefixId'               => 'IpPrefixId',
-        'resourceId'               => 'ResourceId',
-        'resourceType'             => 'ResourceType',
+        'ipPrefixCidr' => 'IpPrefixCidr',
+        'ipPrefixId' => 'IpPrefixId',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
         'vSwitchCidrReservationId' => 'VSwitchCidrReservationId',
-        'vSwitchId'                => 'VSwitchId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()

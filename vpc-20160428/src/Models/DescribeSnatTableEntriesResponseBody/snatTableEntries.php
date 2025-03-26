@@ -31,7 +31,7 @@ class snatTableEntries extends Model
         if (null !== $this->snatTableEntry) {
             if (\is_array($this->snatTableEntry)) {
                 $res['SnatTableEntry'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->snatTableEntry as $item1) {
                     $res['SnatTableEntry'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class snatTableEntries extends Model
         if (isset($map['SnatTableEntry'])) {
             if (!empty($map['SnatTableEntry'])) {
                 $model->snatTableEntry = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['SnatTableEntry'] as $item1) {
                     $model->snatTableEntry[$n1++] = snatTableEntry::fromMap($item1);
                 }

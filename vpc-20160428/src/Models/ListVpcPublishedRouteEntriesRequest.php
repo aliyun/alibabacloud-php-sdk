@@ -12,58 +12,68 @@ class ListVpcPublishedRouteEntriesRequest extends Model
      * @var string
      */
     public $destinationCidrBlock;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routeTableId;
+
     /**
      * @var string
      */
     public $targetInstanceId;
+
     /**
      * @var string
      */
     public $targetType;
     protected $_name = [
         'destinationCidrBlock' => 'DestinationCidrBlock',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routeTableId'         => 'RouteTableId',
-        'targetInstanceId'     => 'TargetInstanceId',
-        'targetType'           => 'TargetType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeTableId' => 'RouteTableId',
+        'targetInstanceId' => 'TargetInstanceId',
+        'targetType' => 'TargetType',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class ListGeographicSubRegionsResponseBody extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string[]
      */
     public $geographicSubRegions;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'count'                => 'Count',
+        'count' => 'Count',
         'geographicSubRegions' => 'GeographicSubRegions',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -44,7 +46,7 @@ class ListGeographicSubRegionsResponseBody extends Model
         if (null !== $this->geographicSubRegions) {
             if (\is_array($this->geographicSubRegions)) {
                 $res['GeographicSubRegions'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->geographicSubRegions as $item1) {
                     $res['GeographicSubRegions'][$n1++] = $item1;
                 }
@@ -73,7 +75,7 @@ class ListGeographicSubRegionsResponseBody extends Model
         if (isset($map['GeographicSubRegions'])) {
             if (!empty($map['GeographicSubRegions'])) {
                 $model->geographicSubRegions = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['GeographicSubRegions'] as $item1) {
                     $model->geographicSubRegions[$n1++] = $item1;
                 }

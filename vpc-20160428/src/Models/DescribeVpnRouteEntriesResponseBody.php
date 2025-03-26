@@ -14,32 +14,37 @@ class DescribeVpnRouteEntriesResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var vpnRouteCounts
      */
     public $vpnRouteCounts;
+
     /**
      * @var vpnRouteEntries
      */
     public $vpnRouteEntries;
     protected $_name = [
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
-        'vpnRouteCounts'  => 'VpnRouteCounts',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
+        'vpnRouteCounts' => 'VpnRouteCounts',
         'vpnRouteEntries' => 'VpnRouteEntries',
     ];
 

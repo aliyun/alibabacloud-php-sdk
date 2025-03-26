@@ -12,18 +12,20 @@ class vpnRouteCounts extends Model
      * @var int
      */
     public $routeCount;
+
     /**
      * @var string
      */
     public $routeEntryType;
+
     /**
      * @var string
      */
     public $source;
     protected $_name = [
-        'routeCount'     => 'RouteCount',
+        'routeCount' => 'RouteCount',
         'routeEntryType' => 'RouteEntryType',
-        'source'         => 'Source',
+        'source' => 'Source',
     ];
 
     public function validate()

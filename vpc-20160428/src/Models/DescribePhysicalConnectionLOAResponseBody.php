@@ -13,13 +13,14 @@ class DescribePhysicalConnectionLOAResponseBody extends Model
      * @var physicalConnectionLOAType
      */
     public $physicalConnectionLOAType;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'physicalConnectionLOAType' => 'PhysicalConnectionLOAType',
-        'requestId'                 => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

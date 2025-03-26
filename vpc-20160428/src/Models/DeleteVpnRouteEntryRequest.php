@@ -12,58 +12,68 @@ class DeleteVpnRouteEntryRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $nextHop;
+
     /**
      * @var string
      */
     public $overlayMode;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $routeDest;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
+
     /**
      * @var int
      */
     public $weight;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'nextHop'              => 'NextHop',
-        'overlayMode'          => 'OverlayMode',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'nextHop' => 'NextHop',
+        'overlayMode' => 'OverlayMode',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routeDest'            => 'RouteDest',
-        'vpnGatewayId'         => 'VpnGatewayId',
-        'weight'               => 'Weight',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeDest' => 'RouteDest',
+        'vpnGatewayId' => 'VpnGatewayId',
+        'weight' => 'Weight',
     ];
 
     public function validate()

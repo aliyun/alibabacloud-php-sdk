@@ -31,7 +31,7 @@ class publicIpAddresses extends Model
         if (null !== $this->publicIpAddress) {
             if (\is_array($this->publicIpAddress)) {
                 $res['PublicIpAddress'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->publicIpAddress as $item1) {
                     $res['PublicIpAddress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class publicIpAddresses extends Model
         if (isset($map['PublicIpAddress'])) {
             if (!empty($map['PublicIpAddress'])) {
                 $model->publicIpAddress = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['PublicIpAddress'] as $item1) {
                     $model->publicIpAddress[$n1++] = publicIpAddress::fromMap($item1);
                 }

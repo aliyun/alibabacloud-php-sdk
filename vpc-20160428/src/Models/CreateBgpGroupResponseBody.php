@@ -12,13 +12,14 @@ class CreateBgpGroupResponseBody extends Model
      * @var string
      */
     public $bgpGroupId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'bgpGroupId' => 'BgpGroupId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

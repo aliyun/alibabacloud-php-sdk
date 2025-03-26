@@ -12,17 +12,19 @@ class CreateTrafficMirrorFilterResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $trafficMirrorFilterId;
     protected $_name = [
-        'requestId'             => 'RequestId',
-        'resourceGroupId'       => 'ResourceGroupId',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
         'trafficMirrorFilterId' => 'TrafficMirrorFilterId',
     ];
 

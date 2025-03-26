@@ -12,33 +12,38 @@ class CreateIpsecServerResponseBody extends Model
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $ipsecServerId;
+
     /**
      * @var string
      */
     public $ipsecServerName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'creationTime'    => 'CreationTime',
-        'ipsecServerId'   => 'IpsecServerId',
+        'creationTime' => 'CreationTime',
+        'ipsecServerId' => 'IpsecServerId',
         'ipsecServerName' => 'IpsecServerName',
-        'regionId'        => 'RegionId',
-        'requestId'       => 'RequestId',
-        'vpnGatewayId'    => 'VpnGatewayId',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()

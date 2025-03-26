@@ -15,138 +15,164 @@ class vpnGateway extends Model
      * @var bool
      */
     public $autoPropagate;
+
     /**
      * @var string
      */
     public $businessStatus;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $disasterRecoveryInternetIp;
+
     /**
      * @var string
      */
     public $disasterRecoveryVSwitchId;
+
     /**
      * @var bool
      */
     public $enableBgp;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var eniInstanceIds
      */
     public $eniInstanceIds;
+
     /**
      * @var string
      */
     public $internetIp;
+
     /**
      * @var string
      */
     public $ipsecVpn;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var reservationData
      */
     public $reservationData;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $spec;
+
     /**
      * @var int
      */
     public $sslMaxConnections;
+
     /**
      * @var string
      */
     public $sslVpn;
+
     /**
      * @var string
      */
     public $sslVpnInternetIp;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tag;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
+
     /**
      * @var string
      */
     public $vpnType;
     protected $_name = [
-        'autoPropagate'              => 'AutoPropagate',
-        'businessStatus'             => 'BusinessStatus',
-        'chargeType'                 => 'ChargeType',
-        'createTime'                 => 'CreateTime',
-        'description'                => 'Description',
+        'autoPropagate' => 'AutoPropagate',
+        'businessStatus' => 'BusinessStatus',
+        'chargeType' => 'ChargeType',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
         'disasterRecoveryInternetIp' => 'DisasterRecoveryInternetIp',
-        'disasterRecoveryVSwitchId'  => 'DisasterRecoveryVSwitchId',
-        'enableBgp'                  => 'EnableBgp',
-        'endTime'                    => 'EndTime',
-        'eniInstanceIds'             => 'EniInstanceIds',
-        'internetIp'                 => 'InternetIp',
-        'ipsecVpn'                   => 'IpsecVpn',
-        'name'                       => 'Name',
-        'networkType'                => 'NetworkType',
-        'reservationData'            => 'ReservationData',
-        'resourceGroupId'            => 'ResourceGroupId',
-        'spec'                       => 'Spec',
-        'sslMaxConnections'          => 'SslMaxConnections',
-        'sslVpn'                     => 'SslVpn',
-        'sslVpnInternetIp'           => 'SslVpnInternetIp',
-        'status'                     => 'Status',
-        'tag'                        => 'Tag',
-        'tags'                       => 'Tags',
-        'vSwitchId'                  => 'VSwitchId',
-        'vpcId'                      => 'VpcId',
-        'vpnGatewayId'               => 'VpnGatewayId',
-        'vpnType'                    => 'VpnType',
+        'disasterRecoveryVSwitchId' => 'DisasterRecoveryVSwitchId',
+        'enableBgp' => 'EnableBgp',
+        'endTime' => 'EndTime',
+        'eniInstanceIds' => 'EniInstanceIds',
+        'internetIp' => 'InternetIp',
+        'ipsecVpn' => 'IpsecVpn',
+        'name' => 'Name',
+        'networkType' => 'NetworkType',
+        'reservationData' => 'ReservationData',
+        'resourceGroupId' => 'ResourceGroupId',
+        'spec' => 'Spec',
+        'sslMaxConnections' => 'SslMaxConnections',
+        'sslVpn' => 'SslVpn',
+        'sslVpnInternetIp' => 'SslVpnInternetIp',
+        'status' => 'Status',
+        'tag' => 'Tag',
+        'tags' => 'Tags',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'vpnGatewayId' => 'VpnGatewayId',
+        'vpnType' => 'VpnType',
     ];
 
     public function validate()

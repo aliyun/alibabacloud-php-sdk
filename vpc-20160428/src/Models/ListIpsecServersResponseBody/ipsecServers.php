@@ -14,93 +14,110 @@ class ipsecServers extends Model
      * @var string
      */
     public $clientIpPool;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var bool
      */
     public $effectImmediately;
+
     /**
      * @var string
      */
     public $IDaaSInstanceId;
+
     /**
      * @var ikeConfig
      */
     public $ikeConfig;
+
     /**
      * @var string
      */
     public $internetIp;
+
     /**
      * @var ipsecConfig
      */
     public $ipsecConfig;
+
     /**
      * @var string
      */
     public $ipsecServerId;
+
     /**
      * @var string
      */
     public $ipsecServerName;
+
     /**
      * @var string
      */
     public $localSubnet;
+
     /**
      * @var int
      */
     public $maxConnections;
+
     /**
      * @var bool
      */
     public $multiFactorAuthEnabled;
+
     /**
      * @var int
      */
     public $onlineClientCount;
+
     /**
      * @var string
      */
     public $psk;
+
     /**
      * @var bool
      */
     public $pskEnabled;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'clientIpPool'           => 'ClientIpPool',
-        'creationTime'           => 'CreationTime',
-        'effectImmediately'      => 'EffectImmediately',
-        'IDaaSInstanceId'        => 'IDaaSInstanceId',
-        'ikeConfig'              => 'IkeConfig',
-        'internetIp'             => 'InternetIp',
-        'ipsecConfig'            => 'IpsecConfig',
-        'ipsecServerId'          => 'IpsecServerId',
-        'ipsecServerName'        => 'IpsecServerName',
-        'localSubnet'            => 'LocalSubnet',
-        'maxConnections'         => 'MaxConnections',
+        'clientIpPool' => 'ClientIpPool',
+        'creationTime' => 'CreationTime',
+        'effectImmediately' => 'EffectImmediately',
+        'IDaaSInstanceId' => 'IDaaSInstanceId',
+        'ikeConfig' => 'IkeConfig',
+        'internetIp' => 'InternetIp',
+        'ipsecConfig' => 'IpsecConfig',
+        'ipsecServerId' => 'IpsecServerId',
+        'ipsecServerName' => 'IpsecServerName',
+        'localSubnet' => 'LocalSubnet',
+        'maxConnections' => 'MaxConnections',
         'multiFactorAuthEnabled' => 'MultiFactorAuthEnabled',
-        'onlineClientCount'      => 'OnlineClientCount',
-        'psk'                    => 'Psk',
-        'pskEnabled'             => 'PskEnabled',
-        'regionId'               => 'RegionId',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'vpnGatewayId'           => 'VpnGatewayId',
+        'onlineClientCount' => 'OnlineClientCount',
+        'psk' => 'Psk',
+        'pskEnabled' => 'PskEnabled',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()

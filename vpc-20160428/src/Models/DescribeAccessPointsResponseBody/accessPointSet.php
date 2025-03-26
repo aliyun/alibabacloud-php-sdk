@@ -31,7 +31,7 @@ class accessPointSet extends Model
         if (null !== $this->accessPointType) {
             if (\is_array($this->accessPointType)) {
                 $res['AccessPointType'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->accessPointType as $item1) {
                     $res['AccessPointType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class accessPointSet extends Model
         if (isset($map['AccessPointType'])) {
             if (!empty($map['AccessPointType'])) {
                 $model->accessPointType = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['AccessPointType'] as $item1) {
                     $model->accessPointType[$n1++] = accessPointType::fromMap($item1);
                 }

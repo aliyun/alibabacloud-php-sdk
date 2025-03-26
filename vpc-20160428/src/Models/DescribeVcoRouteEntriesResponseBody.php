@@ -14,33 +14,38 @@ class DescribeVcoRouteEntriesResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var vcoRouteEntries[]
      */
     public $vcoRouteEntries;
+
     /**
      * @var vpnRouteCounts[]
      */
     public $vpnRouteCounts;
     protected $_name = [
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'vcoRouteEntries' => 'VcoRouteEntries',
-        'vpnRouteCounts'  => 'VpnRouteCounts',
+        'vpnRouteCounts' => 'VpnRouteCounts',
     ];
 
     public function validate()
@@ -76,7 +81,7 @@ class DescribeVcoRouteEntriesResponseBody extends Model
         if (null !== $this->vcoRouteEntries) {
             if (\is_array($this->vcoRouteEntries)) {
                 $res['VcoRouteEntries'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->vcoRouteEntries as $item1) {
                     $res['VcoRouteEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -86,7 +91,7 @@ class DescribeVcoRouteEntriesResponseBody extends Model
         if (null !== $this->vpnRouteCounts) {
             if (\is_array($this->vpnRouteCounts)) {
                 $res['VpnRouteCounts'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->vpnRouteCounts as $item1) {
                     $res['VpnRouteCounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -123,7 +128,7 @@ class DescribeVcoRouteEntriesResponseBody extends Model
         if (isset($map['VcoRouteEntries'])) {
             if (!empty($map['VcoRouteEntries'])) {
                 $model->vcoRouteEntries = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['VcoRouteEntries'] as $item1) {
                     $model->vcoRouteEntries[$n1++] = vcoRouteEntries::fromMap($item1);
                 }
@@ -133,7 +138,7 @@ class DescribeVcoRouteEntriesResponseBody extends Model
         if (isset($map['VpnRouteCounts'])) {
             if (!empty($map['VpnRouteCounts'])) {
                 $model->vpnRouteCounts = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['VpnRouteCounts'] as $item1) {
                     $model->vpnRouteCounts[$n1++] = vpnRouteCounts::fromMap($item1);
                 }

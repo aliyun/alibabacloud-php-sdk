@@ -31,7 +31,7 @@ class bgpPeers extends Model
         if (null !== $this->bgpPeer) {
             if (\is_array($this->bgpPeer)) {
                 $res['BgpPeer'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->bgpPeer as $item1) {
                     $res['BgpPeer'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class bgpPeers extends Model
         if (isset($map['BgpPeer'])) {
             if (!empty($map['BgpPeer'])) {
                 $model->bgpPeer = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['BgpPeer'] as $item1) {
                     $model->bgpPeer[$n1++] = bgpPeer::fromMap($item1);
                 }

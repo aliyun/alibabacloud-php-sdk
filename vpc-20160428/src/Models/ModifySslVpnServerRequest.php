@@ -12,93 +12,110 @@ class ModifySslVpnServerRequest extends Model
      * @var string
      */
     public $cipher;
+
     /**
      * @var string
      */
     public $clientIpPool;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $compress;
+
     /**
      * @var bool
      */
     public $enableMultiFactorAuth;
+
     /**
      * @var string
      */
     public $IDaaSApplicationId;
+
     /**
      * @var string
      */
     public $IDaaSInstanceId;
+
     /**
      * @var string
      */
     public $IDaaSRegionId;
+
     /**
      * @var string
      */
     public $localSubnet;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $proto;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $sslVpnServerId;
     protected $_name = [
-        'cipher'                => 'Cipher',
-        'clientIpPool'          => 'ClientIpPool',
-        'clientToken'           => 'ClientToken',
-        'compress'              => 'Compress',
+        'cipher' => 'Cipher',
+        'clientIpPool' => 'ClientIpPool',
+        'clientToken' => 'ClientToken',
+        'compress' => 'Compress',
         'enableMultiFactorAuth' => 'EnableMultiFactorAuth',
-        'IDaaSApplicationId'    => 'IDaaSApplicationId',
-        'IDaaSInstanceId'       => 'IDaaSInstanceId',
-        'IDaaSRegionId'         => 'IDaaSRegionId',
-        'localSubnet'           => 'LocalSubnet',
-        'name'                  => 'Name',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'port'                  => 'Port',
-        'proto'                 => 'Proto',
-        'regionId'              => 'RegionId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'sslVpnServerId'        => 'SslVpnServerId',
+        'IDaaSApplicationId' => 'IDaaSApplicationId',
+        'IDaaSInstanceId' => 'IDaaSInstanceId',
+        'IDaaSRegionId' => 'IDaaSRegionId',
+        'localSubnet' => 'LocalSubnet',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'port' => 'Port',
+        'proto' => 'Proto',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sslVpnServerId' => 'SslVpnServerId',
     ];
 
     public function validate()

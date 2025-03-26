@@ -12,13 +12,14 @@ class DiagnoseVpnGatewayResponseBody extends Model
      * @var string
      */
     public $diagnoseId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'diagnoseId' => 'DiagnoseId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

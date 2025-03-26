@@ -31,7 +31,7 @@ class routerInterfaceSet extends Model
         if (null !== $this->routerInterfaceType) {
             if (\is_array($this->routerInterfaceType)) {
                 $res['RouterInterfaceType'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->routerInterfaceType as $item1) {
                     $res['RouterInterfaceType'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class routerInterfaceSet extends Model
         if (isset($map['RouterInterfaceType'])) {
             if (!empty($map['RouterInterfaceType'])) {
                 $model->routerInterfaceType = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['RouterInterfaceType'] as $item1) {
                     $model->routerInterfaceType[$n1++] = routerInterfaceType::fromMap($item1);
                 }

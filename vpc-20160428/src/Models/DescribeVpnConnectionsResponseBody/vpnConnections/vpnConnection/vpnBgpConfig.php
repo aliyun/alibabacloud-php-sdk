@@ -12,37 +12,43 @@ class vpnBgpConfig extends Model
      * @var string
      */
     public $authKey;
+
     /**
      * @var int
      */
     public $localAsn;
+
     /**
      * @var string
      */
     public $localBgpIp;
+
     /**
      * @var int
      */
     public $peerAsn;
+
     /**
      * @var string
      */
     public $peerBgpIp;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tunnelCidr;
     protected $_name = [
-        'authKey'    => 'AuthKey',
-        'localAsn'   => 'LocalAsn',
+        'authKey' => 'AuthKey',
+        'localAsn' => 'LocalAsn',
         'localBgpIp' => 'LocalBgpIp',
-        'peerAsn'    => 'PeerAsn',
-        'peerBgpIp'  => 'PeerBgpIp',
-        'status'     => 'Status',
+        'peerAsn' => 'PeerAsn',
+        'peerBgpIp' => 'PeerBgpIp',
+        'status' => 'Status',
         'tunnelCidr' => 'TunnelCidr',
     ];
 

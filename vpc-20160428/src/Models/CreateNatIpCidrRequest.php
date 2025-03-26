@@ -12,58 +12,68 @@ class CreateNatIpCidrRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string
      */
     public $natIpCidr;
+
     /**
      * @var string
      */
     public $natIpCidrDescription;
+
     /**
      * @var string
      */
     public $natIpCidrName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dryRun'               => 'DryRun',
-        'natGatewayId'         => 'NatGatewayId',
-        'natIpCidr'            => 'NatIpCidr',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'natGatewayId' => 'NatGatewayId',
+        'natIpCidr' => 'NatIpCidr',
         'natIpCidrDescription' => 'NatIpCidrDescription',
-        'natIpCidrName'        => 'NatIpCidrName',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'natIpCidrName' => 'NatIpCidrName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class ConvertBandwidthPackageResponseBody extends Model
      * @var string
      */
     public $convertInstanceId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'convertInstanceId' => 'ConvertInstanceId',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

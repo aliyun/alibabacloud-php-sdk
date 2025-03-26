@@ -13,48 +13,56 @@ class accessPointType extends Model
      * @var accessPointFeatureModels
      */
     public $accessPointFeatureModels;
+
     /**
      * @var string
      */
     public $accessPointId;
+
     /**
      * @var string
      */
     public $attachedRegionNo;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $hostOperator;
+
     /**
      * @var string
      */
     public $location;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'accessPointFeatureModels' => 'AccessPointFeatureModels',
-        'accessPointId'            => 'AccessPointId',
-        'attachedRegionNo'         => 'AttachedRegionNo',
-        'description'              => 'Description',
-        'hostOperator'             => 'HostOperator',
-        'location'                 => 'Location',
-        'name'                     => 'Name',
-        'status'                   => 'Status',
-        'type'                     => 'Type',
+        'accessPointId' => 'AccessPointId',
+        'attachedRegionNo' => 'AttachedRegionNo',
+        'description' => 'Description',
+        'hostOperator' => 'HostOperator',
+        'location' => 'Location',
+        'name' => 'Name',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()

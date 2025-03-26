@@ -13,17 +13,19 @@ class DescribeRouteEntryListResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var routeEntrys
      */
     public $routeEntrys;
     protected $_name = [
-        'nextToken'   => 'NextToken',
-        'requestId'   => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'routeEntrys' => 'RouteEntrys',
     ];
 

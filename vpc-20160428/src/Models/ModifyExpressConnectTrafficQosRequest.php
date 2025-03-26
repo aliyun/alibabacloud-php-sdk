@@ -14,52 +14,61 @@ class ModifyExpressConnectTrafficQosRequest extends Model
      * @var addInstanceList[]
      */
     public $addInstanceList;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $qosDescription;
+
     /**
      * @var string
      */
     public $qosId;
+
     /**
      * @var string
      */
     public $qosName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var removeInstanceList[]
      */
     public $removeInstanceList;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
     protected $_name = [
-        'addInstanceList'      => 'AddInstanceList',
-        'clientToken'          => 'ClientToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'qosDescription'       => 'QosDescription',
-        'qosId'                => 'QosId',
-        'qosName'              => 'QosName',
-        'regionId'             => 'RegionId',
-        'removeInstanceList'   => 'RemoveInstanceList',
+        'addInstanceList' => 'AddInstanceList',
+        'clientToken' => 'ClientToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'qosDescription' => 'QosDescription',
+        'qosId' => 'QosId',
+        'qosName' => 'QosName',
+        'regionId' => 'RegionId',
+        'removeInstanceList' => 'RemoveInstanceList',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
     ];
 
@@ -80,7 +89,7 @@ class ModifyExpressConnectTrafficQosRequest extends Model
         if (null !== $this->addInstanceList) {
             if (\is_array($this->addInstanceList)) {
                 $res['AddInstanceList'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->addInstanceList as $item1) {
                     $res['AddInstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -118,7 +127,7 @@ class ModifyExpressConnectTrafficQosRequest extends Model
         if (null !== $this->removeInstanceList) {
             if (\is_array($this->removeInstanceList)) {
                 $res['RemoveInstanceList'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->removeInstanceList as $item1) {
                     $res['RemoveInstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -143,7 +152,7 @@ class ModifyExpressConnectTrafficQosRequest extends Model
         if (isset($map['AddInstanceList'])) {
             if (!empty($map['AddInstanceList'])) {
                 $model->addInstanceList = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['AddInstanceList'] as $item1) {
                     $model->addInstanceList[$n1++] = addInstanceList::fromMap($item1);
                 }
@@ -181,7 +190,7 @@ class ModifyExpressConnectTrafficQosRequest extends Model
         if (isset($map['RemoveInstanceList'])) {
             if (!empty($map['RemoveInstanceList'])) {
                 $model->removeInstanceList = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['RemoveInstanceList'] as $item1) {
                     $model->removeInstanceList[$n1++] = removeInstanceList::fromMap($item1);
                 }

@@ -12,43 +12,50 @@ class natIpCidrs extends Model
      * @var string
      */
     public $creationTime;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string
      */
     public $natIpCidr;
+
     /**
      * @var string
      */
     public $natIpCidrDescription;
+
     /**
      * @var string
      */
     public $natIpCidrId;
+
     /**
      * @var string
      */
     public $natIpCidrName;
+
     /**
      * @var string
      */
     public $natIpCidrStatus;
     protected $_name = [
-        'creationTime'         => 'CreationTime',
-        'isDefault'            => 'IsDefault',
-        'natGatewayId'         => 'NatGatewayId',
-        'natIpCidr'            => 'NatIpCidr',
+        'creationTime' => 'CreationTime',
+        'isDefault' => 'IsDefault',
+        'natGatewayId' => 'NatGatewayId',
+        'natIpCidr' => 'NatIpCidr',
         'natIpCidrDescription' => 'NatIpCidrDescription',
-        'natIpCidrId'          => 'NatIpCidrId',
-        'natIpCidrName'        => 'NatIpCidrName',
-        'natIpCidrStatus'      => 'NatIpCidrStatus',
+        'natIpCidrId' => 'NatIpCidrId',
+        'natIpCidrName' => 'NatIpCidrName',
+        'natIpCidrStatus' => 'NatIpCidrStatus',
     ];
 
     public function validate()

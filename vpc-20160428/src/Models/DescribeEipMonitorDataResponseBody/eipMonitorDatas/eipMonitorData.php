@@ -12,33 +12,38 @@ class eipMonitorData extends Model
      * @var int
      */
     public $eipBandwidth;
+
     /**
      * @var int
      */
     public $eipFlow;
+
     /**
      * @var int
      */
     public $eipPackets;
+
     /**
      * @var int
      */
     public $eipRX;
+
     /**
      * @var int
      */
     public $eipTX;
+
     /**
      * @var string
      */
     public $timeStamp;
     protected $_name = [
         'eipBandwidth' => 'EipBandwidth',
-        'eipFlow'      => 'EipFlow',
-        'eipPackets'   => 'EipPackets',
-        'eipRX'        => 'EipRX',
-        'eipTX'        => 'EipTX',
-        'timeStamp'    => 'TimeStamp',
+        'eipFlow' => 'EipFlow',
+        'eipPackets' => 'EipPackets',
+        'eipRX' => 'EipRX',
+        'eipTX' => 'EipTX',
+        'timeStamp' => 'TimeStamp',
     ];
 
     public function validate()

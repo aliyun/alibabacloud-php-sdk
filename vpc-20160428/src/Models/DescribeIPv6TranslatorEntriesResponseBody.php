@@ -13,28 +13,32 @@ class DescribeIPv6TranslatorEntriesResponseBody extends Model
      * @var ipv6TranslatorEntries
      */
     public $ipv6TranslatorEntries;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'ipv6TranslatorEntries' => 'Ipv6TranslatorEntries',
-        'pageNumber'            => 'PageNumber',
-        'pageSize'              => 'PageSize',
-        'requestId'             => 'RequestId',
-        'totalCount'            => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

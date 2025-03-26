@@ -17,98 +17,116 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $customerGatewayId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $effectImmediately;
+
     /**
      * @var bool
      */
     public $enableDpd;
+
     /**
      * @var bool
      */
     public $enableNatTraversal;
+
     /**
      * @var bool
      */
     public $enableTunnelsBgp;
+
     /**
      * @var ikeConfig
      */
     public $ikeConfig;
+
     /**
      * @var ipsecConfig
      */
     public $ipsecConfig;
+
     /**
      * @var string
      */
     public $localSubnet;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $remoteSubnet;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var tunnelOptionsSpecification
      */
     public $tunnelOptionsSpecification;
+
     /**
      * @var vcoHealthCheck
      */
     public $vcoHealthCheck;
+
     /**
      * @var vpnBgpConfig
      */
     public $vpnBgpConfig;
+
     /**
      * @var string
      */
     public $vpnConnectionId;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'createTime'                 => 'CreateTime',
-        'customerGatewayId'          => 'CustomerGatewayId',
-        'description'                => 'Description',
-        'effectImmediately'          => 'EffectImmediately',
-        'enableDpd'                  => 'EnableDpd',
-        'enableNatTraversal'         => 'EnableNatTraversal',
-        'enableTunnelsBgp'           => 'EnableTunnelsBgp',
-        'ikeConfig'                  => 'IkeConfig',
-        'ipsecConfig'                => 'IpsecConfig',
-        'localSubnet'                => 'LocalSubnet',
-        'name'                       => 'Name',
-        'remoteSubnet'               => 'RemoteSubnet',
-        'requestId'                  => 'RequestId',
-        'resourceGroupId'            => 'ResourceGroupId',
+        'createTime' => 'CreateTime',
+        'customerGatewayId' => 'CustomerGatewayId',
+        'description' => 'Description',
+        'effectImmediately' => 'EffectImmediately',
+        'enableDpd' => 'EnableDpd',
+        'enableNatTraversal' => 'EnableNatTraversal',
+        'enableTunnelsBgp' => 'EnableTunnelsBgp',
+        'ikeConfig' => 'IkeConfig',
+        'ipsecConfig' => 'IpsecConfig',
+        'localSubnet' => 'LocalSubnet',
+        'name' => 'Name',
+        'remoteSubnet' => 'RemoteSubnet',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
         'tunnelOptionsSpecification' => 'TunnelOptionsSpecification',
-        'vcoHealthCheck'             => 'VcoHealthCheck',
-        'vpnBgpConfig'               => 'VpnBgpConfig',
-        'vpnConnectionId'            => 'VpnConnectionId',
-        'vpnGatewayId'               => 'VpnGatewayId',
+        'vcoHealthCheck' => 'VcoHealthCheck',
+        'vpnBgpConfig' => 'VpnBgpConfig',
+        'vpnConnectionId' => 'VpnConnectionId',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()

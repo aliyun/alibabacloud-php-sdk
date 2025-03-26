@@ -12,17 +12,19 @@ class eipInfo extends Model
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $ipGw;
+
     /**
      * @var string
      */
     public $ipMask;
     protected $_name = [
-        'ip'     => 'Ip',
-        'ipGw'   => 'IpGw',
+        'ip' => 'Ip',
+        'ipGw' => 'IpGw',
         'ipMask' => 'IpMask',
     ];
 

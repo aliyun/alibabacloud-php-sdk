@@ -13,28 +13,32 @@ class DescribeGlobalAccelerationInstancesResponseBody extends Model
      * @var globalAccelerationInstances
      */
     public $globalAccelerationInstances;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'globalAccelerationInstances' => 'GlobalAccelerationInstances',
-        'pageNumber'                  => 'PageNumber',
-        'pageSize'                    => 'PageSize',
-        'requestId'                   => 'RequestId',
-        'totalCount'                  => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

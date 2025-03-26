@@ -12,13 +12,14 @@ class CreateFullNatEntryResponseBody extends Model
      * @var string
      */
     public $fullNatEntryId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'fullNatEntryId' => 'FullNatEntryId',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

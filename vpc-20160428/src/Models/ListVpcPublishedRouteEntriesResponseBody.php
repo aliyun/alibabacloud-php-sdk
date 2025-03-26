@@ -13,17 +13,19 @@ class ListVpcPublishedRouteEntriesResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var routeEntries[]
      */
     public $routeEntries;
     protected $_name = [
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'routeEntries' => 'RouteEntries',
     ];
 
@@ -49,7 +51,7 @@ class ListVpcPublishedRouteEntriesResponseBody extends Model
         if (null !== $this->routeEntries) {
             if (\is_array($this->routeEntries)) {
                 $res['RouteEntries'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->routeEntries as $item1) {
                     $res['RouteEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class ListVpcPublishedRouteEntriesResponseBody extends Model
         if (isset($map['RouteEntries'])) {
             if (!empty($map['RouteEntries'])) {
                 $model->routeEntries = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['RouteEntries'] as $item1) {
                     $model->routeEntries[$n1++] = routeEntries::fromMap($item1);
                 }

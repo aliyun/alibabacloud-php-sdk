@@ -31,7 +31,7 @@ class eipInfos extends Model
         if (null !== $this->eipInfo) {
             if (\is_array($this->eipInfo)) {
                 $res['EipInfo'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->eipInfo as $item1) {
                     $res['EipInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class eipInfos extends Model
         if (isset($map['EipInfo'])) {
             if (!empty($map['EipInfo'])) {
                 $model->eipInfo = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['EipInfo'] as $item1) {
                     $model->eipInfo[$n1++] = eipInfo::fromMap($item1);
                 }

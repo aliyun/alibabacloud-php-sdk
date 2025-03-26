@@ -13,12 +13,13 @@ class DescribeRegionsResponseBody extends Model
      * @var regions
      */
     public $regions;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'regions'   => 'Regions',
+        'regions' => 'Regions',
         'requestId' => 'RequestId',
     ];
 

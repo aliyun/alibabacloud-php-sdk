@@ -12,23 +12,26 @@ class failedRouteEntries extends Model
      * @var string
      */
     public $dstCidrBlock;
+
     /**
      * @var string
      */
     public $failedCode;
+
     /**
      * @var string
      */
     public $failedMessage;
+
     /**
      * @var string
      */
     public $nextHop;
     protected $_name = [
-        'dstCidrBlock'  => 'DstCidrBlock',
-        'failedCode'    => 'FailedCode',
+        'dstCidrBlock' => 'DstCidrBlock',
+        'failedCode' => 'FailedCode',
         'failedMessage' => 'FailedMessage',
-        'nextHop'       => 'NextHop',
+        'nextHop' => 'NextHop',
     ];
 
     public function validate()

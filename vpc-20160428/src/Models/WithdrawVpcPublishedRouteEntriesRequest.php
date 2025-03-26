@@ -13,48 +13,56 @@ class WithdrawVpcPublishedRouteEntriesRequest extends Model
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var routeEntries[]
      */
     public $routeEntries;
+
     /**
      * @var string
      */
     public $targetInstanceId;
+
     /**
      * @var string
      */
     public $targetType;
     protected $_name = [
-        'dryRun'               => 'DryRun',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'routeEntries'         => 'RouteEntries',
-        'targetInstanceId'     => 'TargetInstanceId',
-        'targetType'           => 'TargetType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'routeEntries' => 'RouteEntries',
+        'targetInstanceId' => 'TargetInstanceId',
+        'targetType' => 'TargetType',
     ];
 
     public function validate()
@@ -95,7 +103,7 @@ class WithdrawVpcPublishedRouteEntriesRequest extends Model
         if (null !== $this->routeEntries) {
             if (\is_array($this->routeEntries)) {
                 $res['RouteEntries'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->routeEntries as $item1) {
                     $res['RouteEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -148,7 +156,7 @@ class WithdrawVpcPublishedRouteEntriesRequest extends Model
         if (isset($map['RouteEntries'])) {
             if (!empty($map['RouteEntries'])) {
                 $model->routeEntries = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['RouteEntries'] as $item1) {
                     $model->routeEntries[$n1++] = routeEntries::fromMap($item1);
                 }

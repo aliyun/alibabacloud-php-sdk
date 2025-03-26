@@ -12,63 +12,74 @@ class CompletePhysicalConnectionLOARequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $finishWork;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $lineCode;
+
     /**
      * @var string
      */
     public $lineLabel;
+
     /**
      * @var string
      */
     public $lineSPContactInfo;
+
     /**
      * @var string
      */
     public $lineServiceProvider;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'finishWork'           => 'FinishWork',
-        'instanceId'           => 'InstanceId',
-        'lineCode'             => 'LineCode',
-        'lineLabel'            => 'LineLabel',
-        'lineSPContactInfo'    => 'LineSPContactInfo',
-        'lineServiceProvider'  => 'LineServiceProvider',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'finishWork' => 'FinishWork',
+        'instanceId' => 'InstanceId',
+        'lineCode' => 'LineCode',
+        'lineLabel' => 'LineLabel',
+        'lineSPContactInfo' => 'LineSPContactInfo',
+        'lineServiceProvider' => 'LineServiceProvider',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

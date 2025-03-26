@@ -12,33 +12,38 @@ class CreateCustomerGatewayResponseBody extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $customerGatewayId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $ipAddress;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'createTime'        => 'CreateTime',
+        'createTime' => 'CreateTime',
         'customerGatewayId' => 'CustomerGatewayId',
-        'description'       => 'Description',
-        'ipAddress'         => 'IpAddress',
-        'name'              => 'Name',
-        'requestId'         => 'RequestId',
+        'description' => 'Description',
+        'ipAddress' => 'IpAddress',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

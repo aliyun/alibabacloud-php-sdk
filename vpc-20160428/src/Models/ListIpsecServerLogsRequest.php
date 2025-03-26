@@ -12,38 +12,44 @@ class ListIpsecServerLogsRequest extends Model
      * @var int
      */
     public $from;
+
     /**
      * @var string
      */
     public $ipsecServerId;
+
     /**
      * @var int
      */
     public $minutePeriod;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $to;
     protected $_name = [
-        'from'          => 'From',
+        'from' => 'From',
         'ipsecServerId' => 'IpsecServerId',
-        'minutePeriod'  => 'MinutePeriod',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'regionId'      => 'RegionId',
-        'to'            => 'To',
+        'minutePeriod' => 'MinutePeriod',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'to' => 'To',
     ];
 
     public function validate()

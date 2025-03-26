@@ -13,193 +13,230 @@ class physicalConnectionType extends Model
      * @var string
      */
     public $accessPointId;
+
     /**
      * @var string
      */
     public $accessPointType;
+
     /**
      * @var string
      */
     public $adDetailLocation;
+
     /**
      * @var string
      */
     public $adLocation;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $businessStatus;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $circuitCode;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $enabledTime;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $expectSpec;
+
     /**
      * @var string
      */
     public $hasReservationData;
+
     /**
      * @var string
      */
     public $lineOperator;
+
     /**
      * @var string
      */
     public $loaStatus;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $orderMode;
+
     /**
      * @var int
      */
     public $parentPhysicalConnectionAliUid;
+
     /**
      * @var string
      */
     public $parentPhysicalConnectionId;
+
     /**
      * @var string
      */
     public $peerLocation;
+
     /**
      * @var string
      */
     public $physicalConnectionId;
+
     /**
      * @var string
      */
     public $portNumber;
+
     /**
      * @var string
      */
     public $portType;
+
     /**
      * @var string
      */
     public $productType;
+
     /**
      * @var string
      */
     public $qosId;
+
     /**
      * @var string
      */
     public $redundantPhysicalConnectionId;
+
     /**
      * @var string
      */
     public $reservationActiveTime;
+
     /**
      * @var string
      */
     public $reservationInternetChargeType;
+
     /**
      * @var string
      */
     public $reservationOrderType;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $spec;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var int
      */
     public $virtualPhysicalConnectionCount;
+
     /**
      * @var string
      */
     public $vlanId;
+
     /**
      * @var string
      */
     public $vpconnStatus;
     protected $_name = [
-        'accessPointId'                  => 'AccessPointId',
-        'accessPointType'                => 'AccessPointType',
-        'adDetailLocation'               => 'AdDetailLocation',
-        'adLocation'                     => 'AdLocation',
-        'bandwidth'                      => 'Bandwidth',
-        'businessStatus'                 => 'BusinessStatus',
-        'chargeType'                     => 'ChargeType',
-        'circuitCode'                    => 'CircuitCode',
-        'creationTime'                   => 'CreationTime',
-        'description'                    => 'Description',
-        'enabledTime'                    => 'EnabledTime',
-        'endTime'                        => 'EndTime',
-        'expectSpec'                     => 'ExpectSpec',
-        'hasReservationData'             => 'HasReservationData',
-        'lineOperator'                   => 'LineOperator',
-        'loaStatus'                      => 'LoaStatus',
-        'name'                           => 'Name',
-        'orderMode'                      => 'OrderMode',
+        'accessPointId' => 'AccessPointId',
+        'accessPointType' => 'AccessPointType',
+        'adDetailLocation' => 'AdDetailLocation',
+        'adLocation' => 'AdLocation',
+        'bandwidth' => 'Bandwidth',
+        'businessStatus' => 'BusinessStatus',
+        'chargeType' => 'ChargeType',
+        'circuitCode' => 'CircuitCode',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'enabledTime' => 'EnabledTime',
+        'endTime' => 'EndTime',
+        'expectSpec' => 'ExpectSpec',
+        'hasReservationData' => 'HasReservationData',
+        'lineOperator' => 'LineOperator',
+        'loaStatus' => 'LoaStatus',
+        'name' => 'Name',
+        'orderMode' => 'OrderMode',
         'parentPhysicalConnectionAliUid' => 'ParentPhysicalConnectionAliUid',
-        'parentPhysicalConnectionId'     => 'ParentPhysicalConnectionId',
-        'peerLocation'                   => 'PeerLocation',
-        'physicalConnectionId'           => 'PhysicalConnectionId',
-        'portNumber'                     => 'PortNumber',
-        'portType'                       => 'PortType',
-        'productType'                    => 'ProductType',
-        'qosId'                          => 'QosId',
-        'redundantPhysicalConnectionId'  => 'RedundantPhysicalConnectionId',
-        'reservationActiveTime'          => 'ReservationActiveTime',
-        'reservationInternetChargeType'  => 'ReservationInternetChargeType',
-        'reservationOrderType'           => 'ReservationOrderType',
-        'resourceGroupId'                => 'ResourceGroupId',
-        'spec'                           => 'Spec',
-        'status'                         => 'Status',
-        'tags'                           => 'Tags',
-        'type'                           => 'Type',
+        'parentPhysicalConnectionId' => 'ParentPhysicalConnectionId',
+        'peerLocation' => 'PeerLocation',
+        'physicalConnectionId' => 'PhysicalConnectionId',
+        'portNumber' => 'PortNumber',
+        'portType' => 'PortType',
+        'productType' => 'ProductType',
+        'qosId' => 'QosId',
+        'redundantPhysicalConnectionId' => 'RedundantPhysicalConnectionId',
+        'reservationActiveTime' => 'ReservationActiveTime',
+        'reservationInternetChargeType' => 'ReservationInternetChargeType',
+        'reservationOrderType' => 'ReservationOrderType',
+        'resourceGroupId' => 'ResourceGroupId',
+        'spec' => 'Spec',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'type' => 'Type',
         'virtualPhysicalConnectionCount' => 'VirtualPhysicalConnectionCount',
-        'vlanId'                         => 'VlanId',
-        'vpconnStatus'                   => 'VpconnStatus',
+        'vlanId' => 'VlanId',
+        'vpconnStatus' => 'VpconnStatus',
     ];
 
     public function validate()

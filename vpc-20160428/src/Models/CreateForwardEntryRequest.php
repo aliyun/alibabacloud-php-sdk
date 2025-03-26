@@ -12,78 +12,92 @@ class CreateForwardEntryRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $externalIp;
+
     /**
      * @var string
      */
     public $externalPort;
+
     /**
      * @var string
      */
     public $forwardEntryName;
+
     /**
      * @var string
      */
     public $forwardTableId;
+
     /**
      * @var string
      */
     public $internalIp;
+
     /**
      * @var string
      */
     public $internalPort;
+
     /**
      * @var string
      */
     public $ipProtocol;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var bool
      */
     public $portBreak;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dryRun'               => 'DryRun',
-        'externalIp'           => 'ExternalIp',
-        'externalPort'         => 'ExternalPort',
-        'forwardEntryName'     => 'ForwardEntryName',
-        'forwardTableId'       => 'ForwardTableId',
-        'internalIp'           => 'InternalIp',
-        'internalPort'         => 'InternalPort',
-        'ipProtocol'           => 'IpProtocol',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'portBreak'            => 'PortBreak',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'externalIp' => 'ExternalIp',
+        'externalPort' => 'ExternalPort',
+        'forwardEntryName' => 'ForwardEntryName',
+        'forwardTableId' => 'ForwardTableId',
+        'internalIp' => 'InternalIp',
+        'internalPort' => 'InternalPort',
+        'ipProtocol' => 'IpProtocol',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'portBreak' => 'PortBreak',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

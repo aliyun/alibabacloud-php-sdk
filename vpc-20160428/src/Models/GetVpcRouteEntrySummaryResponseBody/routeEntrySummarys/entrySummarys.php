@@ -12,12 +12,13 @@ class entrySummarys extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $routeEntryType;
     protected $_name = [
-        'count'          => 'Count',
+        'count' => 'Count',
         'routeEntryType' => 'RouteEntryType',
     ];
 

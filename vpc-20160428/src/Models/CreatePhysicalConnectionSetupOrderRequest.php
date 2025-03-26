@@ -12,58 +12,68 @@ class CreatePhysicalConnectionSetupOrderRequest extends Model
      * @var string
      */
     public $accessPointId;
+
     /**
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $lineOperator;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $portType;
+
     /**
      * @var string
      */
     public $redundantPhysicalConnectionId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'accessPointId'                 => 'AccessPointId',
-        'autoPay'                       => 'AutoPay',
-        'clientToken'                   => 'ClientToken',
-        'lineOperator'                  => 'LineOperator',
-        'ownerAccount'                  => 'OwnerAccount',
-        'ownerId'                       => 'OwnerId',
-        'portType'                      => 'PortType',
+        'accessPointId' => 'AccessPointId',
+        'autoPay' => 'AutoPay',
+        'clientToken' => 'ClientToken',
+        'lineOperator' => 'LineOperator',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'portType' => 'PortType',
         'redundantPhysicalConnectionId' => 'RedundantPhysicalConnectionId',
-        'regionId'                      => 'RegionId',
-        'resourceOwnerAccount'          => 'ResourceOwnerAccount',
-        'resourceOwnerId'               => 'ResourceOwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class CreateVirtualBorderRouterResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vbrId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'vbrId'     => 'VbrId',
+        'vbrId' => 'VbrId',
     ];
 
     public function validate()

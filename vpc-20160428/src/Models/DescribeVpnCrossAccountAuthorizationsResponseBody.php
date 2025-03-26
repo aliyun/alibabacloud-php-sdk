@@ -13,28 +13,32 @@ class DescribeVpnCrossAccountAuthorizationsResponseBody extends Model
      * @var crossAccountAuthorizations[]
      */
     public $crossAccountAuthorizations;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'crossAccountAuthorizations' => 'CrossAccountAuthorizations',
-        'pageNumber'                 => 'PageNumber',
-        'pageSize'                   => 'PageSize',
-        'requestId'                  => 'RequestId',
-        'totalCount'                 => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class DescribeVpnCrossAccountAuthorizationsResponseBody extends Model
         if (null !== $this->crossAccountAuthorizations) {
             if (\is_array($this->crossAccountAuthorizations)) {
                 $res['CrossAccountAuthorizations'] = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($this->crossAccountAuthorizations as $item1) {
                     $res['CrossAccountAuthorizations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class DescribeVpnCrossAccountAuthorizationsResponseBody extends Model
         if (isset($map['CrossAccountAuthorizations'])) {
             if (!empty($map['CrossAccountAuthorizations'])) {
                 $model->crossAccountAuthorizations = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($map['CrossAccountAuthorizations'] as $item1) {
                     $model->crossAccountAuthorizations[$n1++] = crossAccountAuthorizations::fromMap($item1);
                 }

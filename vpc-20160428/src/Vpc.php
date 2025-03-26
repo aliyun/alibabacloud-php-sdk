@@ -797,43 +797,43 @@ class Vpc extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-hangzhou'                 => 'vpc.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'vpc.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'vpc.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'vpc.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'vpc.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'vpc.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'vpc.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'vpc.aliyuncs.com',
-            'cn-edge-1'                   => 'vpc-nebula.cn-qingdao-nebula.aliyuncs.com',
-            'cn-fujian'                   => 'vpc.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'vpc.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'vpc.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'vpc.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-hangzhou' => 'vpc.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'vpc.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'vpc.aliyuncs.com',
+            'cn-north-2-gov-1' => 'vpc.aliyuncs.com',
+            'ap-northeast-2-pop' => 'vpc.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'vpc.aliyuncs.com',
+            'cn-beijing-gov-1' => 'vpc.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'vpc.aliyuncs.com',
+            'cn-edge-1' => 'vpc-nebula.cn-qingdao-nebula.aliyuncs.com',
+            'cn-fujian' => 'vpc.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'vpc.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'vpc.aliyuncs.com',
+            'cn-hangzhou-finance' => 'vpc.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'vpc.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'vpc-pre.cn-hangzhou.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'vpc-inner-pre.cn-hangzhou.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'vpc-pre.cn-hangzhou.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'vpc-pre.cn-hangzhou.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'vpc.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'vpc-nebula.cn-qingdao-nebula.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'vpc-nebula.cn-qingdao-nebula.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'vpc-pre.cn-hangzhou.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'vpc.aliyuncs.com',
-            'cn-shanghai-inner'           => 'vpc.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'vpc-pre.cn-hangzhou.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'vpc.aliyuncs.com',
+            'cn-huhehaote-nebula-1' => 'vpc-nebula.cn-qingdao-nebula.aliyuncs.com',
+            'cn-qingdao-nebula' => 'vpc-nebula.cn-qingdao-nebula.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'vpc-pre.cn-hangzhou.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'vpc.aliyuncs.com',
+            'cn-shanghai-inner' => 'vpc.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'vpc-pre.cn-hangzhou.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'vpc.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'vpc.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'vpc.aliyuncs.com',
-            'cn-wuhan'                    => 'vpc.aliyuncs.com',
-            'cn-yushanfang'               => 'vpc.aliyuncs.com',
-            'cn-zhangbei'                 => 'vpc.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'vpc.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'vpc.cn-zhangjiakou.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'vpc-nebula.cn-qingdao-nebula.aliyuncs.com',
-            'eu-west-1-oxs'               => 'vpc-nebula.cn-shenzhen-cloudstone.aliyuncs.com',
-            'rus-west-1-pop'              => 'vpc.aliyuncs.com',
+            'cn-shenzhen-inner' => 'vpc.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'vpc.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'vpc.aliyuncs.com',
+            'cn-wuhan' => 'vpc.aliyuncs.com',
+            'cn-yushanfang' => 'vpc.aliyuncs.com',
+            'cn-zhangbei' => 'vpc.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'vpc.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'vpc.cn-zhangjiakou.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'vpc-nebula.cn-qingdao-nebula.aliyuncs.com',
+            'eu-west-1-oxs' => 'vpc-nebula.cn-shenzhen-cloudstone.aliyuncs.com',
+            'rus-west-1-pop' => 'vpc.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('vpc', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -872,6 +872,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ActivateRouterInterfaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ActivateRouterInterfaceResponse
      *
      * @param ActivateRouterInterfaceRequest $request
@@ -907,15 +908,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ActivateRouterInterface',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ActivateRouterInterface',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ActivateRouterInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -932,6 +933,7 @@ class Vpc extends OpenApiClient
      * >  You cannot activate a router interface that has overdue payments.
      *
      * @param request - ActivateRouterInterfaceRequest
+     *
      * @returns ActivateRouterInterfaceResponse
      *
      * @param ActivateRouterInterfaceRequest $request
@@ -956,6 +958,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ActiveFlowLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ActiveFlowLogResponse
      *
      * @param ActiveFlowLogRequest $request
@@ -995,15 +998,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ActiveFlowLog',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ActiveFlowLog',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ActiveFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1022,6 +1025,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **ActiveFlowLog** operation to start a flow log within the specified period of time.
      *
      * @param request - ActiveFlowLogRequest
+     *
      * @returns ActiveFlowLogResponse
      *
      * @param ActiveFlowLogRequest $request
@@ -1040,6 +1044,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AddBgpNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddBgpNetworkResponse
      *
      * @param AddBgpNetworkRequest $request
@@ -1091,15 +1096,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddBgpNetwork',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddBgpNetwork',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddBgpNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1112,6 +1117,7 @@ class Vpc extends OpenApiClient
      * Advertises a Border Gateway Protocol (BGP) network.
      *
      * @param request - AddBgpNetworkRequest
+     *
      * @returns AddBgpNetworkResponse
      *
      * @param AddBgpNetworkRequest $request
@@ -1140,6 +1146,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AddCommonBandwidthPackageIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddCommonBandwidthPackageIpResponse
      *
      * @param AddCommonBandwidthPackageIpRequest $request
@@ -1191,15 +1198,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddCommonBandwidthPackageIp',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddCommonBandwidthPackageIp',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddCommonBandwidthPackageIpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1222,6 +1229,7 @@ class Vpc extends OpenApiClient
      *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
      *
      * @param request - AddCommonBandwidthPackageIpRequest
+     *
      * @returns AddCommonBandwidthPackageIpResponse
      *
      * @param AddCommonBandwidthPackageIpRequest $request
@@ -1249,6 +1257,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AddCommonBandwidthPackageIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddCommonBandwidthPackageIpsResponse
      *
      * @param AddCommonBandwidthPackageIpsRequest $request
@@ -1300,15 +1309,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddCommonBandwidthPackageIps',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddCommonBandwidthPackageIps',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddCommonBandwidthPackageIpsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1330,6 +1339,7 @@ class Vpc extends OpenApiClient
      *     *   If the Internet Shared Bandwidth instance is in the **BINDED** state, the EIP is associated with the Internet Shared Bandwidth instance.
      *
      * @param request - AddCommonBandwidthPackageIpsRequest
+     *
      * @returns AddCommonBandwidthPackageIpsResponse
      *
      * @param AddCommonBandwidthPackageIpsRequest $request
@@ -1348,6 +1358,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AddGlobalAccelerationInstanceIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddGlobalAccelerationInstanceIpResponse
      *
      * @param AddGlobalAccelerationInstanceIpRequest $request
@@ -1391,15 +1402,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddGlobalAccelerationInstanceIp',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddGlobalAccelerationInstanceIp',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddGlobalAccelerationInstanceIpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1412,6 +1423,7 @@ class Vpc extends OpenApiClient
      * Associates an elastic IP address (EIP) with a shared-bandwidth Global Accelerator (GA) instance.
      *
      * @param request - AddGlobalAccelerationInstanceIpRequest
+     *
      * @returns AddGlobalAccelerationInstanceIpResponse
      *
      * @param AddGlobalAccelerationInstanceIpRequest $request
@@ -1426,7 +1438,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Adds an IP entry to an access control list (ACL).
      *
@@ -1434,6 +1445,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AddIPv6TranslatorAclListEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddIPv6TranslatorAclListEntryResponse
      *
      * @param AddIPv6TranslatorAclListEntryRequest $request
@@ -1481,15 +1493,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddIPv6TranslatorAclListEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddIPv6TranslatorAclListEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddIPv6TranslatorAclListEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1499,13 +1511,13 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Adds an IP entry to an access control list (ACL).
      *
      * @deprecated OpenAPI AddIPv6TranslatorAclListEntry is deprecated
      *
      * @param request - AddIPv6TranslatorAclListEntryRequest
+     *
      * @returns AddIPv6TranslatorAclListEntryResponse
      *
      * @param AddIPv6TranslatorAclListEntryRequest $request
@@ -1533,6 +1545,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AddPublicIpAddressPoolCidrBlockRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddPublicIpAddressPoolCidrBlockResponse
      *
      * @param AddPublicIpAddressPoolCidrBlockRequest $request
@@ -1588,15 +1601,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddPublicIpAddressPoolCidrBlock',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddPublicIpAddressPoolCidrBlock',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddPublicIpAddressPoolCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1618,6 +1631,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **AddPublicIpAddressPoolCidrBlock** operation to add a CIDR block to an IP address pool within the specified period of time.
      *
      * @param request - AddPublicIpAddressPoolCidrBlockRequest
+     *
      * @returns AddPublicIpAddressPoolCidrBlockResponse
      *
      * @param AddPublicIpAddressPoolCidrBlockRequest $request
@@ -1642,6 +1656,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AddSourcesToTrafficMirrorSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddSourcesToTrafficMirrorSessionResponse
      *
      * @param AddSourcesToTrafficMirrorSessionRequest $request
@@ -1693,15 +1708,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddSourcesToTrafficMirrorSession',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddSourcesToTrafficMirrorSession',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddSourcesToTrafficMirrorSessionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1720,6 +1735,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **AddSourcesToTrafficMirrorSession** operation to add a traffic mirror source to a traffic mirror session within the specified period of time.
      *
      * @param request - AddSourcesToTrafficMirrorSessionRequest
+     *
      * @returns AddSourcesToTrafficMirrorSessionResponse
      *
      * @param AddSourcesToTrafficMirrorSessionRequest $request
@@ -1742,6 +1758,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AllocateEipAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AllocateEipAddressResponse
      *
      * @param AllocateEipAddressRequest $request
@@ -1841,6 +1858,10 @@ class Vpc extends OpenApiClient
             @$query['SecurityProtectionTypes'] = $request->securityProtectionTypes;
         }
 
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
         if (null !== $request->zone) {
             @$query['Zone'] = $request->zone;
         }
@@ -1849,15 +1870,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocateEipAddress',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocateEipAddress',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AllocateEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1874,6 +1895,7 @@ class Vpc extends OpenApiClient
      * After you call this operation, the system randomly allocates an EIP that is in the **Available** state in the specified region. EIPs support only the ICMP, TCP, and UDP transport layer protocols. The IGMP and SCTP protocols are not supported.
      *
      * @param request - AllocateEipAddressRequest
+     *
      * @returns AllocateEipAddressResponse
      *
      * @param AllocateEipAddressRequest $request
@@ -1892,6 +1914,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AllocateEipAddressProRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AllocateEipAddressProResponse
      *
      * @param AllocateEipAddressProRequest $request
@@ -1979,19 +2002,23 @@ class Vpc extends OpenApiClient
             @$query['SecurityProtectionTypes'] = $request->securityProtectionTypes;
         }
 
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocateEipAddressPro',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocateEipAddressPro',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AllocateEipAddressProResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2004,6 +2031,7 @@ class Vpc extends OpenApiClient
      * Requests a specified elastic IP address (EIP).
      *
      * @param request - AllocateEipAddressProRequest
+     *
      * @returns AllocateEipAddressProResponse
      *
      * @param AllocateEipAddressProRequest $request
@@ -2017,6 +2045,7 @@ class Vpc extends OpenApiClient
         return $this->allocateEipAddressProWithOptions($request, $runtime);
     }
 
+    // Deprecated
     /**
      * Applies for contiguous elastic IP addresses (EIPs).
      *
@@ -2025,8 +2054,11 @@ class Vpc extends OpenApiClient
      * *   If the contiguous EIP group is in the **Allocating** state, the EIPs are being allocated. In this case, you can only perform the query operation and cannot perform other operations.
      * *   If the contiguous EIP group is in the **Allocated** state, the EIPs are allocated.
      *
+     * @deprecated OpenAPI AllocateEipSegmentAddress is deprecated
+     *
      * @param request - AllocateEipSegmentAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AllocateEipSegmentAddressResponse
      *
      * @param AllocateEipSegmentAddressRequest $request
@@ -2094,15 +2126,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocateEipSegmentAddress',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocateEipSegmentAddress',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AllocateEipSegmentAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2111,6 +2143,7 @@ class Vpc extends OpenApiClient
         return AllocateEipSegmentAddressResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
      * Applies for contiguous elastic IP addresses (EIPs).
      *
@@ -2119,7 +2152,10 @@ class Vpc extends OpenApiClient
      * *   If the contiguous EIP group is in the **Allocating** state, the EIPs are being allocated. In this case, you can only perform the query operation and cannot perform other operations.
      * *   If the contiguous EIP group is in the **Allocated** state, the EIPs are allocated.
      *
+     * @deprecated OpenAPI AllocateEipSegmentAddress is deprecated
+     *
      * @param request - AllocateEipSegmentAddressRequest
+     *
      * @returns AllocateEipSegmentAddressResponse
      *
      * @param AllocateEipSegmentAddressRequest $request
@@ -2138,6 +2174,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AllocateIpv6AddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AllocateIpv6AddressResponse
      *
      * @param AllocateIpv6AddressRequest $request
@@ -2213,15 +2250,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocateIpv6Address',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocateIpv6Address',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AllocateIpv6AddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2234,6 +2271,7 @@ class Vpc extends OpenApiClient
      * Assigns an IPv6 address.
      *
      * @param request - AllocateIpv6AddressRequest
+     *
      * @returns AllocateIpv6AddressResponse
      *
      * @param AllocateIpv6AddressRequest $request
@@ -2256,6 +2294,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AllocateIpv6InternetBandwidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AllocateIpv6InternetBandwidthResponse
      *
      * @param AllocateIpv6InternetBandwidthRequest $request
@@ -2323,15 +2362,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocateIpv6InternetBandwidth',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocateIpv6InternetBandwidth',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AllocateIpv6InternetBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2348,6 +2387,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call **AllocateIpv6InternetBandwidth** within the specified period of time.
      *
      * @param request - AllocateIpv6InternetBandwidthRequest
+     *
      * @returns AllocateIpv6InternetBandwidthResponse
      *
      * @param AllocateIpv6InternetBandwidthRequest $request
@@ -2372,6 +2412,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AllocateVpcIpv6CidrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AllocateVpcIpv6CidrResponse
      *
      * @param AllocateVpcIpv6CidrRequest $request
@@ -2427,15 +2468,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocateVpcIpv6Cidr',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocateVpcIpv6Cidr',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AllocateVpcIpv6CidrResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2454,6 +2495,7 @@ class Vpc extends OpenApiClient
      * 2.  To allocate an IPv6 CIDR block to an existing VPC, call the [AssociateVpcCidrBlock](https://help.aliyun.com/document_detail/146745.html) operation. Set **RegionId**, **VpcId**, and **IPv6CidrBlock** to the IPv6 CIDR bock, and set **IpVersion** to **ipv6**. To allocate an IPv6 CIDR block when you create a VPC, call the [CreateVpc](https://help.aliyun.com/document_detail/35737.html) operation. Set **RegionId** and **Ipv6CidrBlock** to the IPv6 CIDR block, and set **EnableIpv6** to **true**.
      *
      * @param request - AllocateVpcIpv6CidrRequest
+     *
      * @returns AllocateVpcIpv6CidrResponse
      *
      * @param AllocateVpcIpv6CidrRequest $request
@@ -2472,6 +2514,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ApplyPhysicalConnectionLOARequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ApplyPhysicalConnectionLOAResponse
      *
      * @param ApplyPhysicalConnectionLOARequest $request
@@ -2547,15 +2590,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ApplyPhysicalConnectionLOA',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ApplyPhysicalConnectionLOA',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ApplyPhysicalConnectionLOAResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2568,6 +2611,7 @@ class Vpc extends OpenApiClient
      * Applies for a Letter of Authorization (LOA) for an Express Connect circuit.
      *
      * @param request - ApplyPhysicalConnectionLOARequest
+     *
      * @returns ApplyPhysicalConnectionLOAResponse
      *
      * @param ApplyPhysicalConnectionLOARequest $request
@@ -2593,6 +2637,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AssociateEipAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateEipAddressResponse
      *
      * @param AssociateEipAddressRequest $request
@@ -2660,15 +2705,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateEipAddress',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateEipAddress',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociateEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2688,6 +2733,7 @@ class Vpc extends OpenApiClient
      * *   You cannot call the **AssociateEipAddress** operation to associate an EIP with multiple instances at a time.
      *
      * @param request - AssociateEipAddressRequest
+     *
      * @returns AssociateEipAddressResponse
      *
      * @param AssociateEipAddressRequest $request
@@ -2713,6 +2759,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AssociateEipAddressBatchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateEipAddressBatchResponse
      *
      * @param AssociateEipAddressBatchRequest $request
@@ -2768,15 +2815,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateEipAddressBatch',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateEipAddressBatch',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociateEipAddressBatchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2796,6 +2843,7 @@ class Vpc extends OpenApiClient
      * *   You cannot call the **AssociateEipAddressBatch** operation to associate an EIP with multiple instances at a time.
      *
      * @param request - AssociateEipAddressBatchRequest
+     *
      * @returns AssociateEipAddressBatchResponse
      *
      * @param AssociateEipAddressBatchRequest $request
@@ -2826,6 +2874,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AssociateHaVipRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateHaVipResponse
      *
      * @param AssociateHaVipRequest $request
@@ -2877,15 +2926,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateHaVip',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateHaVip',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociateHaVipResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2910,6 +2959,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **AssociateHaVip** operation to associate an HAVIP within the specified period of time.
      *
      * @param request - AssociateHaVipRequest
+     *
      * @returns AssociateHaVipResponse
      *
      * @param AssociateHaVipRequest $request
@@ -2935,6 +2985,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AssociateNetworkAclRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateNetworkAclResponse
      *
      * @param AssociateNetworkAclRequest $request
@@ -2990,15 +3041,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateNetworkAcl',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateNetworkAcl',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociateNetworkAclResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3018,6 +3069,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **AssociateNetworkAcl** operation to associate a network ACL within the specified period of time.
      *
      * @param request - AssociateNetworkAclRequest
+     *
      * @returns AssociateNetworkAclResponse
      *
      * @param AssociateNetworkAclRequest $request
@@ -3036,6 +3088,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AssociatePhysicalConnectionToVirtualBorderRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociatePhysicalConnectionToVirtualBorderRouterResponse
      *
      * @param AssociatePhysicalConnectionToVirtualBorderRouterRequest $request
@@ -3119,15 +3172,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociatePhysicalConnectionToVirtualBorderRouter',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociatePhysicalConnectionToVirtualBorderRouter',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociatePhysicalConnectionToVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3140,6 +3193,7 @@ class Vpc extends OpenApiClient
      * Associates a virtual border router (VBR) with a specified Express Connect circuit.
      *
      * @param request - AssociatePhysicalConnectionToVirtualBorderRouterRequest
+     *
      * @returns AssociatePhysicalConnectionToVirtualBorderRouterResponse
      *
      * @param AssociatePhysicalConnectionToVirtualBorderRouterRequest $request
@@ -3163,6 +3217,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AssociateRouteTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateRouteTableResponse
      *
      * @param AssociateRouteTableRequest $request
@@ -3214,15 +3269,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateRouteTable',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateRouteTable',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociateRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3240,6 +3295,7 @@ class Vpc extends OpenApiClient
      * *   If the vSwitch is in the **Available** state, the route table is associated with the vSwitch.
      *
      * @param request - AssociateRouteTableRequest
+     *
      * @returns AssociateRouteTableResponse
      *
      * @param AssociateRouteTableRequest $request
@@ -3258,6 +3314,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AssociateRouteTableWithGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateRouteTableWithGatewayResponse
      *
      * @param AssociateRouteTableWithGatewayRequest $request
@@ -3317,15 +3374,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateRouteTableWithGateway',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateRouteTableWithGateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociateRouteTableWithGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3338,6 +3395,7 @@ class Vpc extends OpenApiClient
      * Associates a gateway route table with an IPv4 gateway in the same virtual private cloud (VPC).
      *
      * @param request - AssociateRouteTableWithGatewayRequest
+     *
      * @returns AssociateRouteTableWithGatewayResponse
      *
      * @param AssociateRouteTableWithGatewayRequest $request
@@ -3369,6 +3427,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AssociateRouteTablesWithVpcGatewayEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateRouteTablesWithVpcGatewayEndpointResponse
      *
      * @param AssociateRouteTablesWithVpcGatewayEndpointRequest $request
@@ -3420,15 +3479,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateRouteTablesWithVpcGatewayEndpoint',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateRouteTablesWithVpcGatewayEndpoint',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociateRouteTablesWithVpcGatewayEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3454,6 +3513,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **AssociateRouteTablesWithVpcGatewayEndpoint** operation within a specific period of time.
      *
      * @param request - AssociateRouteTablesWithVpcGatewayEndpointRequest
+     *
      * @returns AssociateRouteTablesWithVpcGatewayEndpointResponse
      *
      * @param AssociateRouteTablesWithVpcGatewayEndpointRequest $request
@@ -3479,6 +3539,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AssociateVpcCidrBlockRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateVpcCidrBlockResponse
      *
      * @param AssociateVpcCidrBlockRequest $request
@@ -3546,15 +3607,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateVpcCidrBlock',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateVpcCidrBlock',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociateVpcCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3574,6 +3635,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **AssociateVpcCidrBlock** operation to add secondary CIDR blocks to a VPC within the specified period of time.
      *
      * @param request - AssociateVpcCidrBlockRequest
+     *
      * @returns AssociateVpcCidrBlockResponse
      *
      * @param AssociateVpcCidrBlockRequest $request
@@ -3604,6 +3666,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AssociateVpnGatewayWithCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateVpnGatewayWithCertificateResponse
      *
      * @param AssociateVpnGatewayWithCertificateRequest $request
@@ -3643,15 +3706,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateVpnGatewayWithCertificate',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateVpnGatewayWithCertificate',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociateVpnGatewayWithCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3676,6 +3739,7 @@ class Vpc extends OpenApiClient
      * Make sure that you have two SSL certificates that use the SM algorithm in the Certificate Management Service console. For more information about SSL certificates, see [What is Certificate Management Service?](https://help.aliyun.com/document_detail/28535.html).
      *
      * @param request - AssociateVpnGatewayWithCertificateRequest
+     *
      * @returns AssociateVpnGatewayWithCertificateResponse
      *
      * @param AssociateVpnGatewayWithCertificateRequest $request
@@ -3698,6 +3762,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AttachDhcpOptionsSetToVpcRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachDhcpOptionsSetToVpcResponse
      *
      * @param AttachDhcpOptionsSetToVpcRequest $request
@@ -3749,15 +3814,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachDhcpOptionsSetToVpc',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachDhcpOptionsSetToVpc',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AttachDhcpOptionsSetToVpcResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3774,6 +3839,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **AttachDhcpOptionsSetToVpc** operation to associate DHCP options sets with a VPC within the specified period of time.
      *
      * @param request - AttachDhcpOptionsSetToVpcRequest
+     *
      * @returns AttachDhcpOptionsSetToVpcResponse
      *
      * @param AttachDhcpOptionsSetToVpcRequest $request
@@ -3792,6 +3858,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - AttachVbrToVpconnRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachVbrToVpconnResponse
      *
      * @param AttachVbrToVpconnRequest $request
@@ -3827,15 +3894,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachVbrToVpconn',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachVbrToVpconn',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AttachVbrToVpconnResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3848,6 +3915,7 @@ class Vpc extends OpenApiClient
      * Associates a virtual border router (VBR) with a hosted connection.
      *
      * @param request - AttachVbrToVpconnRequest
+     *
      * @returns AttachVbrToVpconnResponse
      *
      * @param AttachVbrToVpconnRequest $request
@@ -3871,6 +3939,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CancelCommonBandwidthPackageIpBandwidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelCommonBandwidthPackageIpBandwidthResponse
      *
      * @param CancelCommonBandwidthPackageIpBandwidthRequest $request
@@ -3914,15 +3983,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelCommonBandwidthPackageIpBandwidth',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelCommonBandwidthPackageIpBandwidth',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CancelCommonBandwidthPackageIpBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3940,6 +4009,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **CancelCommonBandwidthPackageIpBandwidth** operation within a specific time period.
      *
      * @param request - CancelCommonBandwidthPackageIpBandwidthRequest
+     *
      * @returns CancelCommonBandwidthPackageIpBandwidthResponse
      *
      * @param CancelCommonBandwidthPackageIpBandwidthRequest $request
@@ -3961,6 +4031,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CancelPhysicalConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelPhysicalConnectionResponse
      *
      * @param CancelPhysicalConnectionRequest $request
@@ -4004,15 +4075,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelPhysicalConnection',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelPhysicalConnection',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CancelPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4028,6 +4099,7 @@ class Vpc extends OpenApiClient
      * You can cancel only an Express Connect circuit that is in the **Initial**, **Approved**, **Allocated**, or **Confirmed** state.
      *
      * @param request - CancelPhysicalConnectionRequest
+     *
      * @returns CancelPhysicalConnectionResponse
      *
      * @param CancelPhysicalConnectionRequest $request
@@ -4050,6 +4122,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -4081,15 +4154,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4106,6 +4179,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **ChangeResourceGroup** operation to modify the resource group of the same Express Connect circuit.
      *
      * @param request - ChangeResourceGroupRequest
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -4124,6 +4198,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CheckCanAllocateVpcPrivateIpAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckCanAllocateVpcPrivateIpAddressResponse
      *
      * @param CheckCanAllocateVpcPrivateIpAddressRequest $request
@@ -4171,15 +4246,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckCanAllocateVpcPrivateIpAddress',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckCanAllocateVpcPrivateIpAddress',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CheckCanAllocateVpcPrivateIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4192,6 +4267,7 @@ class Vpc extends OpenApiClient
      * Checks whether a private IP address in a specified vSwitch is available.
      *
      * @param request - CheckCanAllocateVpcPrivateIpAddressRequest
+     *
      * @returns CheckCanAllocateVpcPrivateIpAddressResponse
      *
      * @param CheckCanAllocateVpcPrivateIpAddressRequest $request
@@ -4210,6 +4286,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CheckVpnBgpEnabledRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckVpnBgpEnabledResponse
      *
      * @param CheckVpnBgpEnabledRequest $request
@@ -4245,15 +4322,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckVpnBgpEnabled',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckVpnBgpEnabled',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CheckVpnBgpEnabledResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4266,6 +4343,7 @@ class Vpc extends OpenApiClient
      * Checks whether the region of an IPsec-VPN connection supports BGP.
      *
      * @param request - CheckVpnBgpEnabledRequest
+     *
      * @returns CheckVpnBgpEnabledResponse
      *
      * @param CheckVpnBgpEnabledRequest $request
@@ -4284,6 +4362,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CompletePhysicalConnectionLOARequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CompletePhysicalConnectionLOAResponse
      *
      * @param CompletePhysicalConnectionLOARequest $request
@@ -4351,15 +4430,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CompletePhysicalConnectionLOA',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CompletePhysicalConnectionLOA',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CompletePhysicalConnectionLOAResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4372,6 +4451,7 @@ class Vpc extends OpenApiClient
      * Generates a report for an installed Express Connect circuit.
      *
      * @param request - CompletePhysicalConnectionLOARequest
+     *
      * @returns CompletePhysicalConnectionLOAResponse
      *
      * @param CompletePhysicalConnectionLOARequest $request
@@ -4390,6 +4470,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ConfirmPhysicalConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfirmPhysicalConnectionResponse
      *
      * @param ConfirmPhysicalConnectionRequest $request
@@ -4433,15 +4514,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfirmPhysicalConnection',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfirmPhysicalConnection',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfirmPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4454,6 +4535,7 @@ class Vpc extends OpenApiClient
      * Changes the status of an Express Connect circuit to Confirmed.
      *
      * @param request - ConfirmPhysicalConnectionRequest
+     *
      * @returns ConfirmPhysicalConnectionResponse
      *
      * @param ConfirmPhysicalConnectionRequest $request
@@ -4479,6 +4561,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ConnectRouterInterfaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConnectRouterInterfaceResponse
      *
      * @param ConnectRouterInterfaceRequest $request
@@ -4514,15 +4597,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConnectRouterInterface',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConnectRouterInterface',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConnectRouterInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4542,6 +4625,7 @@ class Vpc extends OpenApiClient
      * *   You cannot initiate a connection if your Alibaba Cloud account has a router interface with overdue payments.
      *
      * @param request - ConnectRouterInterfaceRequest
+     *
      * @returns ConnectRouterInterfaceResponse
      *
      * @param ConnectRouterInterfaceRequest $request
@@ -4566,6 +4650,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ConvertBandwidthPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConvertBandwidthPackageResponse
      *
      * @param ConvertBandwidthPackageRequest $request
@@ -4609,15 +4694,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConvertBandwidthPackage',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConvertBandwidthPackage',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConvertBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4636,6 +4721,7 @@ class Vpc extends OpenApiClient
      * *   After the NAT service plan is converted to an Internet Shared Bandwidth instance, the public IP addresses in the NAT service plan are converted to elastic IP addresses (EIPs). The maximum bandwidth and billing method of the Internet Shared Bandwidth instance are the same as those of the NAT service plan.
      *
      * @param request - ConvertBandwidthPackageRequest
+     *
      * @returns ConvertBandwidthPackageResponse
      *
      * @param ConvertBandwidthPackageRequest $request
@@ -4661,6 +4747,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CopyNetworkAclEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CopyNetworkAclEntriesResponse
      *
      * @param CopyNetworkAclEntriesRequest $request
@@ -4716,15 +4803,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CopyNetworkAclEntries',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CopyNetworkAclEntries',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CopyNetworkAclEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4744,6 +4831,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **CopyNetworkAclEntries** operation within the specified period of time.
      *
      * @param request - CopyNetworkAclEntriesRequest
+     *
      * @returns CopyNetworkAclEntriesResponse
      *
      * @param CopyNetworkAclEntriesRequest $request
@@ -4772,6 +4860,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateBgpGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateBgpGroupResponse
      *
      * @param CreateBgpGroupRequest $request
@@ -4847,15 +4936,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateBgpGroup',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateBgpGroup',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateBgpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4878,6 +4967,7 @@ class Vpc extends OpenApiClient
      * *   The ASN of Alibaba Cloud is 45104. You can specify a 2-byte or 4-byte ASN for the data center.
      *
      * @param request - CreateBgpGroupRequest
+     *
      * @returns CreateBgpGroupResponse
      *
      * @param CreateBgpGroupRequest $request
@@ -4896,6 +4986,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateBgpPeerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateBgpPeerResponse
      *
      * @param CreateBgpPeerRequest $request
@@ -4955,15 +5046,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateBgpPeer',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateBgpPeer',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateBgpPeerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4976,6 +5067,7 @@ class Vpc extends OpenApiClient
      * Adds a Border Gateway Protocol (BGP) peer to a BGP group.
      *
      * @param request - CreateBgpPeerRequest
+     *
      * @returns CreateBgpPeerResponse
      *
      * @param CreateBgpPeerRequest $request
@@ -4994,6 +5086,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateCommonBandwidthPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCommonBandwidthPackageResponse
      *
      * @param CreateCommonBandwidthPackageRequest $request
@@ -5061,6 +5154,10 @@ class Vpc extends OpenApiClient
             @$query['SecurityProtectionTypes'] = $request->securityProtectionTypes;
         }
 
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
         if (null !== $request->zone) {
             @$query['Zone'] = $request->zone;
         }
@@ -5069,15 +5166,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCommonBandwidthPackage',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCommonBandwidthPackage',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCommonBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5090,6 +5187,7 @@ class Vpc extends OpenApiClient
      * Creates an Internet Shared Bandwidth instance.
      *
      * @param request - CreateCommonBandwidthPackageRequest
+     *
      * @returns CreateCommonBandwidthPackageResponse
      *
      * @param CreateCommonBandwidthPackageRequest $request
@@ -5108,6 +5206,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateCustomerGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCustomerGatewayResponse
      *
      * @param CreateCustomerGatewayRequest $request
@@ -5175,15 +5274,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCustomerGateway',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCustomerGateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCustomerGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5196,6 +5295,7 @@ class Vpc extends OpenApiClient
      * Creates a customer gateway.
      *
      * @param request - CreateCustomerGatewayRequest
+     *
      * @returns CreateCustomerGatewayResponse
      *
      * @param CreateCustomerGatewayRequest $request
@@ -5226,6 +5326,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateDefaultVSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDefaultVSwitchResponse
      *
      * @param CreateDefaultVSwitchRequest $request
@@ -5273,15 +5374,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDefaultVSwitch',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDefaultVSwitch',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDefaultVSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5306,6 +5407,7 @@ class Vpc extends OpenApiClient
      * *   Before you create a default vSwitch, make sure that a default VPC is created. You can call the [CreateDefaultVpc](https://help.aliyun.com/document_detail/609152.html) operation to create a default VPC.
      *
      * @param request - CreateDefaultVSwitchRequest
+     *
      * @returns CreateDefaultVSwitchResponse
      *
      * @param CreateDefaultVSwitchRequest $request
@@ -5337,6 +5439,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateDefaultVpcRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDefaultVpcResponse
      *
      * @param CreateDefaultVpcRequest $request
@@ -5388,15 +5491,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDefaultVpc',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDefaultVpc',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDefaultVpcResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5422,6 +5525,7 @@ class Vpc extends OpenApiClient
      * *   You can create only one default VPC in each region.
      *
      * @param request - CreateDefaultVpcRequest
+     *
      * @returns CreateDefaultVpcResponse
      *
      * @param CreateDefaultVpcRequest $request
@@ -5445,6 +5549,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateDhcpOptionsSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDhcpOptionsSetResponse
      *
      * @param CreateDhcpOptionsSetRequest $request
@@ -5520,15 +5625,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDhcpOptionsSet',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDhcpOptionsSet',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDhcpOptionsSetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5546,6 +5651,7 @@ class Vpc extends OpenApiClient
      *     *   If the vSwitch is in the **Available** state, the DHCP options set is available.
      *
      * @param request - CreateDhcpOptionsSetRequest
+     *
      * @returns CreateDhcpOptionsSetResponse
      *
      * @param CreateDhcpOptionsSetRequest $request
@@ -5564,6 +5670,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateExpressCloudConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateExpressCloudConnectionResponse
      *
      * @param CreateExpressCloudConnectionRequest $request
@@ -5643,15 +5750,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateExpressCloudConnection',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateExpressCloudConnection',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateExpressCloudConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5664,6 +5771,7 @@ class Vpc extends OpenApiClient
      * Creates an Express Cloud Connect (ECC) instance.
      *
      * @param request - CreateExpressCloudConnectionRequest
+     *
      * @returns CreateExpressCloudConnectionResponse
      *
      * @param CreateExpressCloudConnectionRequest $request
@@ -5682,6 +5790,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateExpressConnectTrafficQosRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateExpressConnectTrafficQosResponse
      *
      * @param CreateExpressConnectTrafficQosRequest $request
@@ -5737,15 +5846,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateExpressConnectTrafficQos',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateExpressConnectTrafficQos',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateExpressConnectTrafficQosResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5758,6 +5867,7 @@ class Vpc extends OpenApiClient
      * Creates a quality of service (QoS) policy.
      *
      * @param request - CreateExpressConnectTrafficQosRequest
+     *
      * @returns CreateExpressConnectTrafficQosResponse
      *
      * @param CreateExpressConnectTrafficQosRequest $request
@@ -5776,6 +5886,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateExpressConnectTrafficQosQueueRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateExpressConnectTrafficQosQueueResponse
      *
      * @param CreateExpressConnectTrafficQosQueueRequest $request
@@ -5835,15 +5946,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateExpressConnectTrafficQosQueue',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateExpressConnectTrafficQosQueue',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateExpressConnectTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5856,6 +5967,7 @@ class Vpc extends OpenApiClient
      * Creates a quality of service (QoS) queue.
      *
      * @param request - CreateExpressConnectTrafficQosQueueRequest
+     *
      * @returns CreateExpressConnectTrafficQosQueueResponse
      *
      * @param CreateExpressConnectTrafficQosQueueRequest $request
@@ -5874,6 +5986,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateExpressConnectTrafficQosRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateExpressConnectTrafficQosRuleResponse
      *
      * @param CreateExpressConnectTrafficQosRuleRequest $request
@@ -5969,15 +6082,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateExpressConnectTrafficQosRule',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateExpressConnectTrafficQosRule',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateExpressConnectTrafficQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5990,6 +6103,7 @@ class Vpc extends OpenApiClient
      * Creates a quality of service (QoS) rule.
      *
      * @param request - CreateExpressConnectTrafficQosRuleRequest
+     *
      * @returns CreateExpressConnectTrafficQosRuleResponse
      *
      * @param CreateExpressConnectTrafficQosRuleRequest $request
@@ -6018,6 +6132,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateFailoverTestJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateFailoverTestJobResponse
      *
      * @param CreateFailoverTestJobRequest $request
@@ -6085,15 +6200,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateFailoverTestJob',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFailoverTestJob',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6116,6 +6231,7 @@ class Vpc extends OpenApiClient
      * *   The VLAN ID of the hosted connection is set to 0.
      *
      * @param request - CreateFailoverTestJobRequest
+     *
      * @returns CreateFailoverTestJobResponse
      *
      * @param CreateFailoverTestJobRequest $request
@@ -6139,6 +6255,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateFlowLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateFlowLogResponse
      *
      * @param CreateFlowLogRequest $request
@@ -6222,15 +6339,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateFlowLog',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFlowLog',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6248,6 +6365,7 @@ class Vpc extends OpenApiClient
      * *   If the flow log is in the **Active** state, the flow log is created and started.
      *
      * @param request - CreateFlowLogRequest
+     *
      * @returns CreateFlowLogResponse
      *
      * @param CreateFlowLogRequest $request
@@ -6280,6 +6398,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateForwardEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateForwardEntryResponse
      *
      * @param CreateForwardEntryRequest $request
@@ -6355,15 +6474,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateForwardEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateForwardEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateForwardEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6390,6 +6509,7 @@ class Vpc extends OpenApiClient
      * *   For an elastic IP address (EIP) used by an Internet NAT gateway or a NAT IP address used by a Virtual Private Cloud (VPC) NAT gateway, take note of the following limit: If the IP address has IP mapping enabled and is specified in a DNAT entry, the IP address cannot be used by another DNAT or SNAT entry.
      *
      * @param request - CreateForwardEntryRequest
+     *
      * @returns CreateForwardEntryResponse
      *
      * @param CreateForwardEntryRequest $request
@@ -6414,6 +6534,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateFullNatEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateFullNatEntryResponse
      *
      * @param CreateFullNatEntryRequest $request
@@ -6493,15 +6614,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateFullNatEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFullNatEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateFullNatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6520,6 +6641,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **CreateFullNatEntry** operation for the same VPN gateway within the specified period of time.
      *
      * @param request - CreateFullNatEntryRequest
+     *
      * @returns CreateFullNatEntryResponse
      *
      * @param CreateFullNatEntryRequest $request
@@ -6534,7 +6656,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Creates a Global Accelerator (GA) instance.
      *
@@ -6546,6 +6667,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateGlobalAccelerationInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateGlobalAccelerationInstanceResponse
      *
      * @param CreateGlobalAccelerationInstanceRequest $request
@@ -6605,15 +6727,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateGlobalAccelerationInstance',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateGlobalAccelerationInstance',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateGlobalAccelerationInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6623,7 +6745,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Creates a Global Accelerator (GA) instance.
      *
@@ -6634,6 +6755,7 @@ class Vpc extends OpenApiClient
      * @deprecated OpenAPI CreateGlobalAccelerationInstance is deprecated
      *
      * @param request - CreateGlobalAccelerationInstanceRequest
+     *
      * @returns CreateGlobalAccelerationInstanceResponse
      *
      * @param CreateGlobalAccelerationInstanceRequest $request
@@ -6657,6 +6779,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateHaVipRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateHaVipResponse
      *
      * @param CreateHaVipRequest $request
@@ -6720,15 +6843,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateHaVip',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateHaVip',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateHaVipResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6746,6 +6869,7 @@ class Vpc extends OpenApiClient
      * *   If the HAVIP is in the **Available** state, the HAVIP is created.
      *
      * @param request - CreateHaVipRequest
+     *
      * @returns CreateHaVipResponse
      *
      * @param CreateHaVipRequest $request
@@ -6764,6 +6888,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateHighReliablePhysicalConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateHighReliablePhysicalConnectionResponse
      *
      * @param CreateHighReliablePhysicalConnectionRequest $request
@@ -6839,15 +6964,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateHighReliablePhysicalConnection',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateHighReliablePhysicalConnection',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateHighReliablePhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6860,6 +6985,7 @@ class Vpc extends OpenApiClient
      * Creates Express Connect circuits in high reliability mode. This improves the stability of multiple Express Connect circuits and prevents service interruptions caused by single points of failures (SPOFs).
      *
      * @param request - CreateHighReliablePhysicalConnectionRequest
+     *
      * @returns CreateHighReliablePhysicalConnectionResponse
      *
      * @param CreateHighReliablePhysicalConnectionRequest $request
@@ -6874,7 +7000,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Creates an IPv6 Translation Service instance.
      *
@@ -6882,6 +7007,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateIPv6TranslatorRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateIPv6TranslatorResponse
      *
      * @param CreateIPv6TranslatorRequest $request
@@ -6949,15 +7075,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIPv6Translator',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIPv6Translator',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateIPv6TranslatorResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6967,13 +7093,13 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Creates an IPv6 Translation Service instance.
      *
      * @deprecated OpenAPI CreateIPv6Translator is deprecated
      *
      * @param request - CreateIPv6TranslatorRequest
+     *
      * @returns CreateIPv6TranslatorResponse
      *
      * @param CreateIPv6TranslatorRequest $request
@@ -6988,7 +7114,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Creates an access control list (ACL).
      *
@@ -6996,6 +7121,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateIPv6TranslatorAclListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateIPv6TranslatorAclListResponse
      *
      * @param CreateIPv6TranslatorAclListRequest $request
@@ -7039,15 +7165,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIPv6TranslatorAclList',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIPv6TranslatorAclList',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateIPv6TranslatorAclListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7057,13 +7183,13 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Creates an access control list (ACL).
      *
      * @deprecated OpenAPI CreateIPv6TranslatorAclList is deprecated
      *
      * @param request - CreateIPv6TranslatorAclListRequest
+     *
      * @returns CreateIPv6TranslatorAclListResponse
      *
      * @param CreateIPv6TranslatorAclListRequest $request
@@ -7078,7 +7204,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Adds an IPv6 mapping entry to an IPv6 Translation Service instance.
      *
@@ -7086,6 +7211,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateIPv6TranslatorEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateIPv6TranslatorEntryResponse
      *
      * @param CreateIPv6TranslatorEntryRequest $request
@@ -7165,15 +7291,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIPv6TranslatorEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIPv6TranslatorEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateIPv6TranslatorEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7183,13 +7309,13 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Adds an IPv6 mapping entry to an IPv6 Translation Service instance.
      *
      * @deprecated OpenAPI CreateIPv6TranslatorEntry is deprecated
      *
      * @param request - CreateIPv6TranslatorEntryRequest
+     *
      * @returns CreateIPv6TranslatorEntryResponse
      *
      * @param CreateIPv6TranslatorEntryRequest $request
@@ -7216,6 +7342,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateIpsecServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateIpsecServerResponse
      *
      * @param CreateIpsecServerRequest $request
@@ -7279,15 +7406,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIpsecServer',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIpsecServer',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateIpsecServerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7308,6 +7435,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call **CreateIpsecServer** within the specified period of time.
      *
      * @param request - CreateIpsecServerRequest
+     *
      * @returns CreateIpsecServerResponse
      *
      * @param CreateIpsecServerRequest $request
@@ -7332,6 +7460,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateIpv4GatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateIpv4GatewayResponse
      *
      * @param CreateIpv4GatewayRequest $request
@@ -7399,15 +7528,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIpv4Gateway',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIpv4Gateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateIpv4GatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7426,6 +7555,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **CreateIpv4Gateway** operation to create IPv4 gateways in a virtual private cloud (VPC) within the specified period of time.
      *
      * @param request - CreateIpv4GatewayRequest
+     *
      * @returns CreateIpv4GatewayResponse
      *
      * @param CreateIpv4GatewayRequest $request
@@ -7450,6 +7580,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateIpv6EgressOnlyRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateIpv6EgressOnlyRuleResponse
      *
      * @param CreateIpv6EgressOnlyRuleRequest $request
@@ -7513,15 +7644,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIpv6EgressOnlyRule',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIpv6EgressOnlyRule',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateIpv6EgressOnlyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7540,6 +7671,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **CreateIpv6EgressOnlyRule** operation to add egress-only rules for an IPv6 address within the specified period of time.
      *
      * @param request - CreateIpv6EgressOnlyRuleRequest
+     *
      * @returns CreateIpv6EgressOnlyRuleResponse
      *
      * @param CreateIpv6EgressOnlyRuleRequest $request
@@ -7564,6 +7696,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateIpv6GatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateIpv6GatewayResponse
      *
      * @param CreateIpv6GatewayRequest $request
@@ -7627,15 +7760,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateIpv6Gateway',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateIpv6Gateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateIpv6GatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7654,6 +7787,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **CreateIpv6Gateway** operation within a specific time period.
      *
      * @param request - CreateIpv6GatewayRequest
+     *
      * @returns CreateIpv6GatewayResponse
      *
      * @param CreateIpv6GatewayRequest $request
@@ -7682,6 +7816,7 @@ class Vpc extends OpenApiClient
      *
      * @param tmpReq - CreateNatGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateNatGatewayResponse
      *
      * @param CreateNatGatewayRequest $tmpReq
@@ -7799,15 +7934,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateNatGateway',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateNatGateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateNatGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7830,6 +7965,7 @@ class Vpc extends OpenApiClient
      * It takes 1 to 3 minutes to create a NAT gateway.
      *
      * @param request - CreateNatGatewayRequest
+     *
      * @returns CreateNatGatewayResponse
      *
      * @param CreateNatGatewayRequest $request
@@ -7855,6 +7991,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateNatIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateNatIpResponse
      *
      * @param CreateNatIpRequest $request
@@ -7922,15 +8059,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateNatIp',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateNatIp',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateNatIpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7950,6 +8087,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **CreateNatIp** operation to create a NAT IP address within a specific period of time.
      *
      * @param request - CreateNatIpRequest
+     *
      * @returns CreateNatIpResponse
      *
      * @param CreateNatIpRequest $request
@@ -7972,6 +8110,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateNatIpCidrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateNatIpCidrResponse
      *
      * @param CreateNatIpCidrRequest $request
@@ -8035,15 +8174,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateNatIpCidr',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateNatIpCidr',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateNatIpCidrResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8060,6 +8199,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **CreateNatIpCidr** operation to create a NAT CIDR block within the specified period of time.
      *
      * @param request - CreateNatIpCidrRequest
+     *
      * @returns CreateNatIpCidrResponse
      *
      * @param CreateNatIpCidrRequest $request
@@ -8078,6 +8218,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateNetworkAclRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateNetworkAclResponse
      *
      * @param CreateNetworkAclRequest $request
@@ -8137,15 +8278,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateNetworkAcl',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateNetworkAcl',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateNetworkAclResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8158,6 +8299,7 @@ class Vpc extends OpenApiClient
      * Creates a network ACL.
      *
      * @param request - CreateNetworkAclRequest
+     *
      * @returns CreateNetworkAclResponse
      *
      * @param CreateNetworkAclRequest $request
@@ -8182,6 +8324,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreatePhysicalConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePhysicalConnectionResponse
      *
      * @param CreatePhysicalConnectionRequest $request
@@ -8277,15 +8420,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePhysicalConnection',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePhysicalConnection',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8304,6 +8447,7 @@ class Vpc extends OpenApiClient
      * *   If your Alibaba Cloud account has an Express Connect circuit with overdue payments, you cannot apply for another Express Connect circuit.
      *
      * @param request - CreatePhysicalConnectionRequest
+     *
      * @returns CreatePhysicalConnectionResponse
      *
      * @param CreatePhysicalConnectionRequest $request
@@ -8325,6 +8469,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreatePhysicalConnectionOccupancyOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePhysicalConnectionOccupancyOrderResponse
      *
      * @param CreatePhysicalConnectionOccupancyOrderRequest $request
@@ -8384,15 +8529,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePhysicalConnectionOccupancyOrder',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePhysicalConnectionOccupancyOrder',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePhysicalConnectionOccupancyOrderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8408,6 +8553,7 @@ class Vpc extends OpenApiClient
      * >  You can call this operation only when the Express Connect circuit is in the **Complete** state.
      *
      * @param request - CreatePhysicalConnectionOccupancyOrderRequest
+     *
      * @returns CreatePhysicalConnectionOccupancyOrderResponse
      *
      * @param CreatePhysicalConnectionOccupancyOrderRequest $request
@@ -8426,6 +8572,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreatePhysicalConnectionSetupOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePhysicalConnectionSetupOrderResponse
      *
      * @param CreatePhysicalConnectionSetupOrderRequest $request
@@ -8489,15 +8636,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePhysicalConnectionSetupOrder',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePhysicalConnectionSetupOrder',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePhysicalConnectionSetupOrderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8510,6 +8657,7 @@ class Vpc extends OpenApiClient
      * Creates an order for initial installation of an Express Connect circuit.
      *
      * @param request - CreatePhysicalConnectionSetupOrderRequest
+     *
      * @returns CreatePhysicalConnectionSetupOrderResponse
      *
      * @param CreatePhysicalConnectionSetupOrderRequest $request
@@ -8531,6 +8679,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreatePublicIpAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePublicIpAddressPoolResponse
      *
      * @param CreatePublicIpAddressPoolRequest $request
@@ -8606,15 +8755,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePublicIpAddressPool',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePublicIpAddressPool',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePublicIpAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8630,6 +8779,7 @@ class Vpc extends OpenApiClient
      * By default, the IP address pool feature is unavailable. You can apply for the privilege to use the **IP address pool feature** in the Quota Center console. For more information, see the "Request a quota increase in the Quota Center console" section in the [Manage EIP quotas](https://help.aliyun.com/document_detail/108213.html) topic.
      *
      * @param request - CreatePublicIpAddressPoolRequest
+     *
      * @returns CreatePublicIpAddressPoolResponse
      *
      * @param CreatePublicIpAddressPoolRequest $request
@@ -8663,6 +8813,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateRouteEntriesResponse
      *
      * @param CreateRouteEntriesRequest $request
@@ -8706,15 +8857,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRouteEntries',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRouteEntries',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8742,6 +8893,7 @@ class Vpc extends OpenApiClient
      * *   The next hop (**NextHop**) of a custom route entry must belong to the same VPC as the route table.
      *
      * @param request - CreateRouteEntriesRequest
+     *
      * @returns CreateRouteEntriesResponse
      *
      * @param CreateRouteEntriesRequest $request
@@ -8788,6 +8940,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateRouteEntryResponse
      *
      * @param CreateRouteEntryRequest $request
@@ -8855,15 +9008,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRouteEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRouteEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8904,6 +9057,7 @@ class Vpc extends OpenApiClient
      * *   Only non-ECMP route entries are supported. When you add non-ECMP route entries, you must specify **DestinationCidrBlock**, **NextHopType**, and **NextHopId**, and you cannot specify **NextHopList**.
      *
      * @param request - CreateRouteEntryRequest
+     *
      * @returns CreateRouteEntryResponse
      *
      * @param CreateRouteEntryRequest $request
@@ -8928,6 +9082,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateRouteTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateRouteTableResponse
      *
      * @param CreateRouteTableRequest $request
@@ -8991,15 +9146,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRouteTable',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRouteTable',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9018,6 +9173,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **CreateRouteTable** operation within the specified period of time.
      *
      * @param request - CreateRouteTableRequest
+     *
      * @returns CreateRouteTableResponse
      *
      * @param CreateRouteTableRequest $request
@@ -9045,6 +9201,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateRouterInterfaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateRouterInterfaceResponse
      *
      * @param CreateRouterInterfaceRequest $request
@@ -9180,15 +9337,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRouterInterface',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRouterInterface',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateRouterInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9210,6 +9367,7 @@ class Vpc extends OpenApiClient
      * *   You can call this operation to create subscription and pay-as-you-go router interfaces.
      *
      * @param request - CreateRouterInterfaceRequest
+     *
      * @returns CreateRouterInterfaceResponse
      *
      * @param CreateRouterInterfaceRequest $request
@@ -9239,6 +9397,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateSnatEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSnatEntryResponse
      *
      * @param CreateSnatEntryRequest $request
@@ -9310,15 +9469,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSnatEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSnatEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9342,6 +9501,7 @@ class Vpc extends OpenApiClient
      * *   If a high-availability virtual IP address (HAVIP) exists in a vSwitch, you cannot create SNAT entries.
      *
      * @param request - CreateSnatEntryRequest
+     *
      * @returns CreateSnatEntryResponse
      *
      * @param CreateSnatEntryRequest $request
@@ -9363,6 +9523,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateSslVpnClientCertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSslVpnClientCertResponse
      *
      * @param CreateSslVpnClientCertRequest $request
@@ -9410,15 +9571,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSslVpnClientCert',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSslVpnClientCert',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSslVpnClientCertResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9434,6 +9595,7 @@ class Vpc extends OpenApiClient
      * Before you create an SSL client certificate, make sure that an SSL server is created on the VPN gateway. For more information, see [CreateSslVpnServer](https://help.aliyun.com/document_detail/2794075.html).
      *
      * @param request - CreateSslVpnClientCertRequest
+     *
      * @returns CreateSslVpnClientCertResponse
      *
      * @param CreateSslVpnClientCertRequest $request
@@ -9461,6 +9623,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateSslVpnServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSslVpnServerResponse
      *
      * @param CreateSslVpnServerRequest $request
@@ -9548,15 +9711,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSslVpnServer',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSslVpnServer',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSslVpnServerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9578,6 +9741,7 @@ class Vpc extends OpenApiClient
      * *   If you want to enable two-factor authentication for the SSL server, make sure that the VPN gateway supports two-factor authentication. You may need to upgrade the VPN gateway. For more information, see [Two-factor authentication supports IDaaS EIAM 2.0](https://help.aliyun.com/document_detail/2785320.html).
      *
      * @param request - CreateSslVpnServerRequest
+     *
      * @returns CreateSslVpnServerResponse
      *
      * @param CreateSslVpnServerRequest $request
@@ -9601,6 +9765,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateTrafficMirrorFilterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTrafficMirrorFilterResponse
      *
      * @param CreateTrafficMirrorFilterRequest $request
@@ -9668,15 +9833,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTrafficMirrorFilter',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTrafficMirrorFilter',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTrafficMirrorFilterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9694,6 +9859,7 @@ class Vpc extends OpenApiClient
      * *   If the filter is in the **Created** state, the filter is created.
      *
      * @param request - CreateTrafficMirrorFilterRequest
+     *
      * @returns CreateTrafficMirrorFilterResponse
      *
      * @param CreateTrafficMirrorFilterRequest $request
@@ -9718,6 +9884,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateTrafficMirrorFilterRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTrafficMirrorFilterRulesResponse
      *
      * @param CreateTrafficMirrorFilterRulesRequest $request
@@ -9773,15 +9940,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTrafficMirrorFilterRules',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTrafficMirrorFilterRules',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTrafficMirrorFilterRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9800,6 +9967,7 @@ class Vpc extends OpenApiClient
      * *   You cannot call **CreateTrafficMirrorFilterRules** within the specified period of time.
      *
      * @param request - CreateTrafficMirrorFilterRulesRequest
+     *
      * @returns CreateTrafficMirrorFilterRulesResponse
      *
      * @param CreateTrafficMirrorFilterRulesRequest $request
@@ -9823,6 +9991,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateTrafficMirrorSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTrafficMirrorSessionResponse
      *
      * @param CreateTrafficMirrorSessionRequest $request
@@ -9914,15 +10083,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTrafficMirrorSession',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTrafficMirrorSession',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTrafficMirrorSessionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9940,6 +10109,7 @@ class Vpc extends OpenApiClient
      * *   If the traffic mirror session is in the **Created** state, it is created.
      *
      * @param request - CreateTrafficMirrorSessionRequest
+     *
      * @returns CreateTrafficMirrorSessionResponse
      *
      * @param CreateTrafficMirrorSessionRequest $request
@@ -9971,6 +10141,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateVSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVSwitchResponse
      *
      * @param CreateVSwitchRequest $request
@@ -10042,15 +10213,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVSwitch',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVSwitch',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10076,6 +10247,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **CreateVSwitch** operation to create a vSwitch in a VPC within the specified period of time.
      *
      * @param request - CreateVSwitchRequest
+     *
      * @returns CreateVSwitchResponse
      *
      * @param CreateVSwitchRequest $request
@@ -10105,6 +10277,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateVSwitchCidrReservationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVSwitchCidrReservationResponse
      *
      * @param CreateVSwitchCidrReservationRequest $request
@@ -10180,15 +10353,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVSwitchCidrReservation',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVSwitchCidrReservation',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVSwitchCidrReservationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10212,6 +10385,7 @@ class Vpc extends OpenApiClient
      * *   When you create a reserved IPv6 CIDR block for a vSwitch, the first IP address and the last nine IP addresses of the vSwitch are reserved by the system. The 10 IP addresses will not be allocated. For example, if you create a reserved IPv4 CIDR block for a vSwitch whose CIDR block is 192.168.1.0/24, the reserved CIDR block cannot contain the following IP addresses: 192.168.1.0, 192.168.1.253, 192.168.1.254, and 192.168.1.255.
      *
      * @param request - CreateVSwitchCidrReservationRequest
+     *
      * @returns CreateVSwitchCidrReservationResponse
      *
      * @param CreateVSwitchCidrReservationRequest $request
@@ -10230,6 +10404,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateVbrHaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVbrHaResponse
      *
      * @param CreateVbrHaRequest $request
@@ -10289,15 +10464,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVbrHa',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVbrHa',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVbrHaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10310,6 +10485,7 @@ class Vpc extends OpenApiClient
      * Creates a virtual border router (VBR) failover group.
      *
      * @param request - CreateVbrHaRequest
+     *
      * @returns CreateVbrHaResponse
      *
      * @param CreateVbrHaRequest $request
@@ -10337,6 +10513,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateVcoRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVcoRouteEntryResponse
      *
      * @param CreateVcoRouteEntryRequest $request
@@ -10396,15 +10573,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVcoRouteEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVcoRouteEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVcoRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10426,6 +10603,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call **CreateVcoRouteEntry** within the specified period of time.
      *
      * @param request - CreateVcoRouteEntryRequest
+     *
      * @returns CreateVcoRouteEntryResponse
      *
      * @param CreateVcoRouteEntryRequest $request
@@ -10447,6 +10625,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateVirtualBorderRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVirtualBorderRouterResponse
      *
      * @param CreateVirtualBorderRouterRequest $request
@@ -10550,15 +10729,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVirtualBorderRouter',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVirtualBorderRouter',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10574,6 +10753,7 @@ class Vpc extends OpenApiClient
      * After you create a VBR, the VBR is in the **active** state.
      *
      * @param request - CreateVirtualBorderRouterRequest
+     *
      * @returns CreateVirtualBorderRouterResponse
      *
      * @param CreateVirtualBorderRouterRequest $request
@@ -10596,6 +10776,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateVirtualPhysicalConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVirtualPhysicalConnectionResponse
      *
      * @param CreateVirtualPhysicalConnectionRequest $request
@@ -10659,15 +10840,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVirtualPhysicalConnection',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVirtualPhysicalConnection',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVirtualPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10684,6 +10865,7 @@ class Vpc extends OpenApiClient
      * Before you call this operation, we recommend that you learn about the workflow for creating a hosted connection and the environment requirements. For more information, see [Overview of hosted connections](https://help.aliyun.com/document_detail/146571.html) and [Operations performed by Express Connect partners](https://help.aliyun.com/document_detail/155987.html).
      *
      * @param request - CreateVirtualPhysicalConnectionRequest
+     *
      * @returns CreateVirtualPhysicalConnectionResponse
      *
      * @param CreateVirtualPhysicalConnectionRequest $request
@@ -10714,6 +10896,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateVpcRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVpcResponse
      *
      * @param CreateVpcRequest $request
@@ -10805,15 +10988,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVpc',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVpc',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVpcResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10838,6 +11021,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteRouteEntry** operation to create default VPCs within a specific time period. However, you can repeatedly call this operation to create custom VPCs within a specific time period.
      *
      * @param request - CreateVpcRequest
+     *
      * @returns CreateVpcResponse
      *
      * @param CreateVpcRequest $request
@@ -10862,6 +11046,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateVpcGatewayEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVpcGatewayEndpointResponse
      *
      * @param CreateVpcGatewayEndpointRequest $request
@@ -10933,15 +11118,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVpcGatewayEndpoint',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVpcGatewayEndpoint',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVpcGatewayEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10960,6 +11145,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **CreateVpcGatewayEndpoint** operation for the same endpoint service within the specified period of time.
      *
      * @param request - CreateVpcGatewayEndpointRequest
+     *
      * @returns CreateVpcGatewayEndpointResponse
      *
      * @param CreateVpcGatewayEndpointRequest $request
@@ -10981,6 +11167,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateVpcPrefixListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVpcPrefixListResponse
      *
      * @param CreateVpcPrefixListRequest $request
@@ -11052,15 +11239,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVpcPrefixList',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVpcPrefixList',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVpcPrefixListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11076,6 +11263,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **CreateVpcPrefixList** operation within the specified period of time.
      *
      * @param request - CreateVpcPrefixListRequest
+     *
      * @returns CreateVpcPrefixListResponse
      *
      * @param CreateVpcPrefixListRequest $request
@@ -11102,6 +11290,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateVpconnFromVbrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVpconnFromVbrResponse
      *
      * @param CreateVpconnFromVbrRequest $request
@@ -11137,15 +11326,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVpconnFromVbr',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVpconnFromVbr',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVpconnFromVbrResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11166,6 +11355,7 @@ class Vpc extends OpenApiClient
      * 2.  Then, the Express Connect partner must call the [AttachVbrToVpconn](https://help.aliyun.com/document_detail/324191.html) operation to associate the VBR with the newly added shared port that belongs to the tenant account.
      *
      * @param request - CreateVpconnFromVbrRequest
+     *
      * @returns CreateVpconnFromVbrResponse
      *
      * @param CreateVpconnFromVbrRequest $request
@@ -11193,6 +11383,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateVpnAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVpnAttachmentResponse
      *
      * @param CreateVpnAttachmentRequest $request
@@ -11292,7 +11483,7 @@ class Vpc extends OpenApiClient
             @$query['Tags'] = $request->tags;
         }
 
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->tunnelOptionsSpecification) {
             @$bodyFlat['TunnelOptionsSpecification'] = $request->tunnelOptionsSpecification;
@@ -11302,18 +11493,18 @@ class Vpc extends OpenApiClient
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateVpnAttachment',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVpnAttachment',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVpnAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11335,6 +11526,7 @@ class Vpc extends OpenApiClient
      * If you want to add BGP configurations to an IPsec-VPN connection, make sure that an autonomous system number (ASN) is assigned to the customer gateway.
      *
      * @param request - CreateVpnAttachmentRequest
+     *
      * @returns CreateVpnAttachmentResponse
      *
      * @param CreateVpnAttachmentRequest $request
@@ -11364,6 +11556,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateVpnConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVpnConnectionResponse
      *
      * @param CreateVpnConnectionRequest $request
@@ -11463,7 +11656,7 @@ class Vpc extends OpenApiClient
             @$query['VpnGatewayId'] = $request->vpnGatewayId;
         }
 
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->tunnelOptionsSpecification) {
             @$bodyFlat['TunnelOptionsSpecification'] = $request->tunnelOptionsSpecification;
@@ -11473,18 +11666,18 @@ class Vpc extends OpenApiClient
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateVpnConnection',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVpnConnection',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVpnConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11508,6 +11701,7 @@ class Vpc extends OpenApiClient
      * *   You cannot call **CreateVpnConnection** to create multiple IPsec-VPN connections associated with a VPN gateway at the same time.
      *
      * @param request - CreateVpnConnectionRequest
+     *
      * @returns CreateVpnConnectionResponse
      *
      * @param CreateVpnConnectionRequest $request
@@ -11533,6 +11727,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateVpnGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVpnGatewayResponse
      *
      * @param CreateVpnGatewayRequest $request
@@ -11628,15 +11823,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVpnGateway',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVpnGateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVpnGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11656,6 +11851,7 @@ class Vpc extends OpenApiClient
      *     *   If the VPN gateway is in the **active** state, the VPN gateway is created.
      *
      * @param request - CreateVpnGatewayRequest
+     *
      * @returns CreateVpnGatewayResponse
      *
      * @param CreateVpnGatewayRequest $request
@@ -11682,6 +11878,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateVpnPbrRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVpnPbrRouteEntryResponse
      *
      * @param CreateVpnPbrRouteEntryRequest $request
@@ -11757,15 +11954,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVpnPbrRouteEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVpnPbrRouteEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVpnPbrRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11786,6 +11983,7 @@ class Vpc extends OpenApiClient
      * *   You cannot call the **CreateVpnPbrRouteEntry** operation to create multiple policy-based routes for a VPN gateway at a time.
      *
      * @param request - CreateVpnPbrRouteEntryRequest
+     *
      * @returns CreateVpnPbrRouteEntryResponse
      *
      * @param CreateVpnPbrRouteEntryRequest $request
@@ -11810,6 +12008,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - CreateVpnRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVpnRouteEntryResponse
      *
      * @param CreateVpnRouteEntryRequest $request
@@ -11877,15 +12076,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateVpnRouteEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateVpnRouteEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVpnRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11904,6 +12103,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call **CreateVpnRouteEntry** to create a destination-based route entry for a VPN gateway within the specified period of time.
      *
      * @param request - CreateVpnRouteEntryRequest
+     *
      * @returns CreateVpnRouteEntryResponse
      *
      * @param CreateVpnRouteEntryRequest $request
@@ -11922,6 +12122,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeactivateRouterInterfaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeactivateRouterInterfaceResponse
      *
      * @param DeactivateRouterInterfaceRequest $request
@@ -11957,15 +12158,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeactivateRouterInterface',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeactivateRouterInterface',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeactivateRouterInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11978,6 +12179,7 @@ class Vpc extends OpenApiClient
      * 冻结路由器接口.
      *
      * @param request - DeactivateRouterInterfaceRequest
+     *
      * @returns DeactivateRouterInterfaceResponse
      *
      * @param DeactivateRouterInterfaceRequest $request
@@ -12002,6 +12204,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeactiveFlowLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeactiveFlowLogResponse
      *
      * @param DeactiveFlowLogRequest $request
@@ -12041,15 +12244,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeactiveFlowLog',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeactiveFlowLog',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeactiveFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12068,6 +12271,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeactiveFlowLog** operation to disable a flow log within the specified period of time.
      *
      * @param request - DeactiveFlowLogRequest
+     *
      * @returns DeactiveFlowLogResponse
      *
      * @param DeactiveFlowLogRequest $request
@@ -12086,6 +12290,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteBgpGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteBgpGroupResponse
      *
      * @param DeleteBgpGroupRequest $request
@@ -12129,15 +12334,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteBgpGroup',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteBgpGroup',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteBgpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12150,6 +12355,7 @@ class Vpc extends OpenApiClient
      * Deletes a Border Gateway Protocol (BGP) group.
      *
      * @param request - DeleteBgpGroupRequest
+     *
      * @returns DeleteBgpGroupResponse
      *
      * @param DeleteBgpGroupRequest $request
@@ -12168,6 +12374,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteBgpNetworkRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteBgpNetworkResponse
      *
      * @param DeleteBgpNetworkRequest $request
@@ -12215,15 +12422,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteBgpNetwork',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteBgpNetwork',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteBgpNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12236,6 +12443,7 @@ class Vpc extends OpenApiClient
      * Deletes an advertised Border Gateway Protocol (BGP) network.
      *
      * @param request - DeleteBgpNetworkRequest
+     *
      * @returns DeleteBgpNetworkResponse
      *
      * @param DeleteBgpNetworkRequest $request
@@ -12254,6 +12462,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteBgpPeerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteBgpPeerResponse
      *
      * @param DeleteBgpPeerRequest $request
@@ -12297,15 +12506,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteBgpPeer',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteBgpPeer',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteBgpPeerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12318,6 +12527,7 @@ class Vpc extends OpenApiClient
      * Deletes a Border Gateway Protocol (BGP) peer.
      *
      * @param request - DeleteBgpPeerRequest
+     *
      * @returns DeleteBgpPeerResponse
      *
      * @param DeleteBgpPeerRequest $request
@@ -12339,6 +12549,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteCommonBandwidthPackageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCommonBandwidthPackageResponse
      *
      * @param DeleteCommonBandwidthPackageRequest $request
@@ -12382,15 +12593,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCommonBandwidthPackage',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCommonBandwidthPackage',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCommonBandwidthPackageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12406,6 +12617,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **DeleteCommonBandwidthPackage** operation to delete an Internet Shared Bandwidth instance within the specified period of time.
      *
      * @param request - DeleteCommonBandwidthPackageRequest
+     *
      * @returns DeleteCommonBandwidthPackageResponse
      *
      * @param DeleteCommonBandwidthPackageRequest $request
@@ -12427,6 +12639,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteCustomerGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCustomerGatewayResponse
      *
      * @param DeleteCustomerGatewayRequest $request
@@ -12470,15 +12683,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCustomerGateway',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCustomerGateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCustomerGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12494,6 +12707,7 @@ class Vpc extends OpenApiClient
      * Before you delete a customer gateway, make sure that no IPsec-VPN connection is associated with the customer gateway. For more information about how to delete an IPsec-VPN connection, see [DeleteVpnAttachment](https://help.aliyun.com/document_detail/2526938.html) or [DeleteVpnConnection](https://help.aliyun.com/document_detail/2526948.html).
      *
      * @param request - DeleteCustomerGatewayRequest
+     *
      * @returns DeleteCustomerGatewayResponse
      *
      * @param DeleteCustomerGatewayRequest $request
@@ -12519,6 +12733,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteDhcpOptionsSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDhcpOptionsSetResponse
      *
      * @param DeleteDhcpOptionsSetRequest $request
@@ -12566,15 +12781,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDhcpOptionsSet',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDhcpOptionsSet',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDhcpOptionsSetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12594,6 +12809,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a DHCP options set within the specified period of time.
      *
      * @param request - DeleteDhcpOptionsSetRequest
+     *
      * @returns DeleteDhcpOptionsSetResponse
      *
      * @param DeleteDhcpOptionsSetRequest $request
@@ -12612,6 +12828,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteExpressConnectTrafficQosRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteExpressConnectTrafficQosResponse
      *
      * @param DeleteExpressConnectTrafficQosRequest $request
@@ -12655,15 +12872,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteExpressConnectTrafficQos',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteExpressConnectTrafficQos',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteExpressConnectTrafficQosResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12676,6 +12893,7 @@ class Vpc extends OpenApiClient
      * Deletes a quality of service (QoS) policy.
      *
      * @param request - DeleteExpressConnectTrafficQosRequest
+     *
      * @returns DeleteExpressConnectTrafficQosResponse
      *
      * @param DeleteExpressConnectTrafficQosRequest $request
@@ -12694,6 +12912,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteExpressConnectTrafficQosQueueRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteExpressConnectTrafficQosQueueResponse
      *
      * @param DeleteExpressConnectTrafficQosQueueRequest $request
@@ -12741,15 +12960,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteExpressConnectTrafficQosQueue',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteExpressConnectTrafficQosQueue',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteExpressConnectTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12762,6 +12981,7 @@ class Vpc extends OpenApiClient
      * Deletes a quality of service (QoS) queue.
      *
      * @param request - DeleteExpressConnectTrafficQosQueueRequest
+     *
      * @returns DeleteExpressConnectTrafficQosQueueResponse
      *
      * @param DeleteExpressConnectTrafficQosQueueRequest $request
@@ -12780,6 +13000,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteExpressConnectTrafficQosRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteExpressConnectTrafficQosRuleResponse
      *
      * @param DeleteExpressConnectTrafficQosRuleRequest $request
@@ -12831,15 +13052,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteExpressConnectTrafficQosRule',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteExpressConnectTrafficQosRule',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteExpressConnectTrafficQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12852,6 +13073,7 @@ class Vpc extends OpenApiClient
      * Deletes a quality of service (QoS) rule.
      *
      * @param request - DeleteExpressConnectTrafficQosRuleRequest
+     *
      * @returns DeleteExpressConnectTrafficQosRuleResponse
      *
      * @param DeleteExpressConnectTrafficQosRuleRequest $request
@@ -12873,6 +13095,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteFailoverTestJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteFailoverTestJobResponse
      *
      * @param DeleteFailoverTestJobRequest $request
@@ -12916,15 +13139,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFailoverTestJob',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteFailoverTestJob',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12940,6 +13163,7 @@ class Vpc extends OpenApiClient
      * You can delete only failover tests that are in the **Pending** or **Complete** state.
      *
      * @param request - DeleteFailoverTestJobRequest
+     *
      * @returns DeleteFailoverTestJobResponse
      *
      * @param DeleteFailoverTestJobRequest $request
@@ -12964,6 +13188,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteFlowLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteFlowLogResponse
      *
      * @param DeleteFlowLogRequest $request
@@ -13003,15 +13228,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFlowLog',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteFlowLog',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteFlowLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13030,6 +13255,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteFlowLog** operation to delete a flow log within the specified period of time.
      *
      * @param request - DeleteFlowLogRequest
+     *
      * @returns DeleteFlowLogResponse
      *
      * @param DeleteFlowLogRequest $request
@@ -13056,6 +13282,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteForwardEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteForwardEntryResponse
      *
      * @param DeleteForwardEntryRequest $request
@@ -13103,15 +13330,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteForwardEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteForwardEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteForwardEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13132,6 +13359,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteForwardEntry** operation to delete a DNAT entry within the specified period of time.
      *
      * @param request - DeleteForwardEntryRequest
+     *
      * @returns DeleteForwardEntryResponse
      *
      * @param DeleteForwardEntryRequest $request
@@ -13157,6 +13385,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteFullNatEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteFullNatEntryResponse
      *
      * @param DeleteFullNatEntryRequest $request
@@ -13208,15 +13437,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFullNatEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteFullNatEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteFullNatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13236,6 +13465,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **DeleteFullNatEntry** operation to delete a FULLNAT entry within the specified period of time.
      *
      * @param request - DeleteFullNatEntryRequest
+     *
      * @returns DeleteFullNatEntryResponse
      *
      * @param DeleteFullNatEntryRequest $request
@@ -13260,6 +13490,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteGlobalAccelerationInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteGlobalAccelerationInstanceResponse
      *
      * @param DeleteGlobalAccelerationInstanceRequest $request
@@ -13299,15 +13530,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteGlobalAccelerationInstance',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteGlobalAccelerationInstance',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteGlobalAccelerationInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13326,6 +13557,7 @@ class Vpc extends OpenApiClient
      * *   Before you can delete a shared instance, disassociate the elastic IP address (EIP) from the instance first.
      *
      * @param request - DeleteGlobalAccelerationInstanceRequest
+     *
      * @returns DeleteGlobalAccelerationInstanceResponse
      *
      * @param DeleteGlobalAccelerationInstanceRequest $request
@@ -13354,6 +13586,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteHaVipRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteHaVipResponse
      *
      * @param DeleteHaVipRequest $request
@@ -13397,15 +13630,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteHaVip',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteHaVip',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteHaVipResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13428,6 +13661,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteHaVip** operation to delete an HAVIP within the specified period of time.
      *
      * @param request - DeleteHaVipRequest
+     *
      * @returns DeleteHaVipResponse
      *
      * @param DeleteHaVipRequest $request
@@ -13446,6 +13680,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteIPv6TranslatorRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteIPv6TranslatorResponse
      *
      * @param DeleteIPv6TranslatorRequest $request
@@ -13489,15 +13724,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIPv6Translator',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIPv6Translator',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteIPv6TranslatorResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13510,6 +13745,7 @@ class Vpc extends OpenApiClient
      * Deletes an IPv6 Translation Service instance.
      *
      * @param request - DeleteIPv6TranslatorRequest
+     *
      * @returns DeleteIPv6TranslatorResponse
      *
      * @param DeleteIPv6TranslatorRequest $request
@@ -13524,7 +13760,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Deletes an access control list (ACL). You can delete an ACL only when the ACL is not associated with IPv6 translation mappings.
      *
@@ -13532,6 +13767,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteIPv6TranslatorAclListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteIPv6TranslatorAclListResponse
      *
      * @param DeleteIPv6TranslatorAclListRequest $request
@@ -13575,15 +13811,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIPv6TranslatorAclList',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIPv6TranslatorAclList',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteIPv6TranslatorAclListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13593,13 +13829,13 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Deletes an access control list (ACL). You can delete an ACL only when the ACL is not associated with IPv6 translation mappings.
      *
      * @deprecated OpenAPI DeleteIPv6TranslatorAclList is deprecated
      *
      * @param request - DeleteIPv6TranslatorAclListRequest
+     *
      * @returns DeleteIPv6TranslatorAclListResponse
      *
      * @param DeleteIPv6TranslatorAclListRequest $request
@@ -13614,7 +13850,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Deletes an IPv6 mapping entry.
      *
@@ -13622,6 +13857,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteIPv6TranslatorEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteIPv6TranslatorEntryResponse
      *
      * @param DeleteIPv6TranslatorEntryRequest $request
@@ -13669,15 +13905,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIPv6TranslatorEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIPv6TranslatorEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteIPv6TranslatorEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13687,13 +13923,13 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Deletes an IPv6 mapping entry.
      *
      * @deprecated OpenAPI DeleteIPv6TranslatorEntry is deprecated
      *
      * @param request - DeleteIPv6TranslatorEntryRequest
+     *
      * @returns DeleteIPv6TranslatorEntryResponse
      *
      * @param DeleteIPv6TranslatorEntryRequest $request
@@ -13718,6 +13954,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteIpsecServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteIpsecServerResponse
      *
      * @param DeleteIpsecServerRequest $request
@@ -13749,15 +13986,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIpsecServer',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIpsecServer',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteIpsecServerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13776,6 +14013,7 @@ class Vpc extends OpenApiClient
      * *   You cannot call **DeleteIpsecServer** within the specified period of time.
      *
      * @param request - DeleteIpsecServerRequest
+     *
      * @returns DeleteIpsecServerResponse
      *
      * @param DeleteIpsecServerRequest $request
@@ -13802,6 +14040,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteIpv4GatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteIpv4GatewayResponse
      *
      * @param DeleteIpv4GatewayRequest $request
@@ -13857,15 +14096,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIpv4Gateway',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIpv4Gateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteIpv4GatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13886,6 +14125,7 @@ class Vpc extends OpenApiClient
      * *   After you call the **DeleteIpv4Gateway** operation to delete an IPv4 gateway, you cannot call the operation again to delete the IPv4 gateway until the deletion task is complete.
      *
      * @param request - DeleteIpv4GatewayRequest
+     *
      * @returns DeleteIpv4GatewayResponse
      *
      * @param DeleteIpv4GatewayRequest $request
@@ -13910,6 +14150,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteIpv6EgressOnlyRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteIpv6EgressOnlyRuleResponse
      *
      * @param DeleteIpv6EgressOnlyRuleRequest $request
@@ -13957,15 +14198,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIpv6EgressOnlyRule',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIpv6EgressOnlyRule',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteIpv6EgressOnlyRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13984,6 +14225,7 @@ class Vpc extends OpenApiClient
      * *   You cannot call the **DeleteIpv6EgressOnlyRule** within the specified period of time.
      *
      * @param request - DeleteIpv6EgressOnlyRuleRequest
+     *
      * @returns DeleteIpv6EgressOnlyRuleResponse
      *
      * @param DeleteIpv6EgressOnlyRuleRequest $request
@@ -14009,6 +14251,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteIpv6GatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteIpv6GatewayResponse
      *
      * @param DeleteIpv6GatewayRequest $request
@@ -14060,15 +14303,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIpv6Gateway',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIpv6Gateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteIpv6GatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14088,6 +14331,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteIpv6Gateway** operation to delete an IPv6 gateway within the specified period of time.
      *
      * @param request - DeleteIpv6GatewayRequest
+     *
      * @returns DeleteIpv6GatewayResponse
      *
      * @param DeleteIpv6GatewayRequest $request
@@ -14109,6 +14353,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteIpv6InternetBandwidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteIpv6InternetBandwidthResponse
      *
      * @param DeleteIpv6InternetBandwidthRequest $request
@@ -14164,15 +14409,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIpv6InternetBandwidth',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteIpv6InternetBandwidth',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteIpv6InternetBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14188,6 +14433,7 @@ class Vpc extends OpenApiClient
      * You cannot call the **DeleteIpv6InternetBandwidth** operation within the specified period of time.
      *
      * @param request - DeleteIpv6InternetBandwidthRequest
+     *
      * @returns DeleteIpv6InternetBandwidthResponse
      *
      * @param DeleteIpv6InternetBandwidthRequest $request
@@ -14214,6 +14460,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteNatGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteNatGatewayResponse
      *
      * @param DeleteNatGatewayRequest $request
@@ -14257,15 +14504,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNatGateway',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNatGateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteNatGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14286,6 +14533,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteNatGateway** operation to delete a NAT gateway within the specified period of time.
      *
      * @param request - DeleteNatGatewayRequest
+     *
      * @returns DeleteNatGatewayResponse
      *
      * @param DeleteNatGatewayRequest $request
@@ -14311,6 +14559,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteNatIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteNatIpResponse
      *
      * @param DeleteNatIpRequest $request
@@ -14362,15 +14611,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNatIp',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNatIp',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteNatIpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14390,6 +14639,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteNatIp** operation to delete a NAT IP address within the specified period of time.
      *
      * @param request - DeleteNatIpRequest
+     *
      * @returns DeleteNatIpResponse
      *
      * @param DeleteNatIpRequest $request
@@ -14412,6 +14662,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteNatIpCidrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteNatIpCidrResponse
      *
      * @param DeleteNatIpCidrRequest $request
@@ -14467,15 +14718,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNatIpCidr',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNatIpCidr',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteNatIpCidrResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14492,6 +14743,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **DeleteNatIpCidr** operation to delete a NAT CIDR block within the specified period of time.
      *
      * @param request - DeleteNatIpCidrRequest
+     *
      * @returns DeleteNatIpCidrResponse
      *
      * @param DeleteNatIpCidrRequest $request
@@ -14514,6 +14766,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteNetworkAclRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteNetworkAclResponse
      *
      * @param DeleteNetworkAclRequest $request
@@ -14565,15 +14818,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNetworkAcl',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNetworkAcl',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteNetworkAclResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14590,6 +14843,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **DeleteNetworkAcl** operation within the specified period of time.
      *
      * @param request - DeleteNetworkAclRequest
+     *
      * @returns DeleteNetworkAclResponse
      *
      * @param DeleteNetworkAclRequest $request
@@ -14611,6 +14865,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeletePhysicalConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeletePhysicalConnectionResponse
      *
      * @param DeletePhysicalConnectionRequest $request
@@ -14654,15 +14909,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePhysicalConnection',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePhysicalConnection',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeletePhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14678,6 +14933,7 @@ class Vpc extends OpenApiClient
      * You can only delete a connection over an Express Connect circuit that is in the **Rejected**, **Canceled**, **AllocationFailed**, or **Terminated** state.
      *
      * @param request - DeletePhysicalConnectionRequest
+     *
      * @returns DeletePhysicalConnectionResponse
      *
      * @param DeletePhysicalConnectionRequest $request
@@ -14704,6 +14960,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeletePublicIpAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeletePublicIpAddressPoolResponse
      *
      * @param DeletePublicIpAddressPoolRequest $request
@@ -14751,15 +15008,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePublicIpAddressPool',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePublicIpAddressPool',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeletePublicIpAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14780,6 +15037,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeletePublicIpAddressPool** operation to delete an IP address pool within the specified period of time.
      *
      * @param request - DeletePublicIpAddressPoolRequest
+     *
      * @returns DeletePublicIpAddressPoolResponse
      *
      * @param DeletePublicIpAddressPoolRequest $request
@@ -14806,6 +15064,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeletePublicIpAddressPoolCidrBlockRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeletePublicIpAddressPoolCidrBlockResponse
      *
      * @param DeletePublicIpAddressPoolCidrBlockRequest $request
@@ -14857,15 +15116,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePublicIpAddressPoolCidrBlock',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePublicIpAddressPoolCidrBlock',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeletePublicIpAddressPoolCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14886,6 +15145,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeletePublicIpAddressPoolCidrBlock** operation to delete a CIDR block within the specified period of time.
      *
      * @param request - DeletePublicIpAddressPoolCidrBlockRequest
+     *
      * @returns DeletePublicIpAddressPoolCidrBlockResponse
      *
      * @param DeletePublicIpAddressPoolCidrBlockRequest $request
@@ -14913,6 +15173,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRouteEntriesResponse
      *
      * @param DeleteRouteEntriesRequest $request
@@ -14956,15 +15217,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRouteEntries',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRouteEntries',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14986,6 +15247,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call **DeleteRouteEntries** within a specific period of time.
      *
      * @param request - DeleteRouteEntriesRequest
+     *
      * @returns DeleteRouteEntriesResponse
      *
      * @param DeleteRouteEntriesRequest $request
@@ -15014,6 +15276,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRouteEntryResponse
      *
      * @param DeleteRouteEntryRequest $request
@@ -15069,15 +15332,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRouteEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRouteEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15100,6 +15363,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteRouteEntry** operation to delete a route from the route table of a vRouter or a VBR within the specified period of time.
      *
      * @param request - DeleteRouteEntryRequest
+     *
      * @returns DeleteRouteEntryResponse
      *
      * @param DeleteRouteEntryRequest $request
@@ -15125,6 +15389,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteRouteTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRouteTableResponse
      *
      * @param DeleteRouteTableRequest $request
@@ -15168,15 +15433,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRouteTable',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRouteTable',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15196,6 +15461,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteRouteTable** operation to delete a custom route table within the specified period of time.
      *
      * @param request - DeleteRouteTableRequest
+     *
      * @returns DeleteRouteTableResponse
      *
      * @param DeleteRouteTableRequest $request
@@ -15219,6 +15485,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteRouterInterfaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRouterInterfaceResponse
      *
      * @param DeleteRouterInterfaceRequest $request
@@ -15262,15 +15529,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRouterInterface',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRouterInterface',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteRouterInterfaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15288,6 +15555,7 @@ class Vpc extends OpenApiClient
      * *   Before you delete a router interface, you must delete all custom route entries destined for the router interface.
      *
      * @param request - DeleteRouterInterfaceRequest
+     *
      * @returns DeleteRouterInterfaceResponse
      *
      * @param DeleteRouterInterfaceRequest $request
@@ -15312,6 +15580,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteSnatEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSnatEntryResponse
      *
      * @param DeleteSnatEntryRequest $request
@@ -15359,15 +15628,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSnatEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSnatEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15386,6 +15655,7 @@ class Vpc extends OpenApiClient
      * If some SNAT entries are in the **Pending** state, you cannot delete these SNAT entries.
      *
      * @param request - DeleteSnatEntryRequest
+     *
      * @returns DeleteSnatEntryResponse
      *
      * @param DeleteSnatEntryRequest $request
@@ -15414,6 +15684,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteSslVpnClientCertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSslVpnClientCertResponse
      *
      * @param DeleteSslVpnClientCertRequest $request
@@ -15457,15 +15728,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSslVpnClientCert',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSslVpnClientCert',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSslVpnClientCertResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15488,6 +15759,7 @@ class Vpc extends OpenApiClient
      * *   You cannot call **DeleteSslVpnClientCert** within the specified period of time.
      *
      * @param request - DeleteSslVpnClientCertRequest
+     *
      * @returns DeleteSslVpnClientCertResponse
      *
      * @param DeleteSslVpnClientCertRequest $request
@@ -15512,6 +15784,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteSslVpnServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSslVpnServerResponse
      *
      * @param DeleteSslVpnServerRequest $request
@@ -15555,15 +15828,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSslVpnServer',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSslVpnServer',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSslVpnServerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15582,6 +15855,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteSslVpnServer** operation to delete an SSL server from the same VPN gateway within the specified period of time.
      *
      * @param request - DeleteSslVpnServerRequest
+     *
      * @returns DeleteSslVpnServerResponse
      *
      * @param DeleteSslVpnServerRequest $request
@@ -15606,6 +15880,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteTrafficMirrorFilterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTrafficMirrorFilterResponse
      *
      * @param DeleteTrafficMirrorFilterRequest $request
@@ -15653,15 +15928,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTrafficMirrorFilter',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTrafficMirrorFilter',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTrafficMirrorFilterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15680,6 +15955,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteTrafficMirrorFilter** operation to delete a filter within the specified period of time.
      *
      * @param request - DeleteTrafficMirrorFilterRequest
+     *
      * @returns DeleteTrafficMirrorFilterResponse
      *
      * @param DeleteTrafficMirrorFilterRequest $request
@@ -15704,6 +15980,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteTrafficMirrorFilterRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTrafficMirrorFilterRulesResponse
      *
      * @param DeleteTrafficMirrorFilterRulesRequest $request
@@ -15755,15 +16032,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTrafficMirrorFilterRules',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTrafficMirrorFilterRules',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTrafficMirrorFilterRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15782,6 +16059,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call **DeleteTrafficMirrorFilterRules** within the specified period of time.
      *
      * @param request - DeleteTrafficMirrorFilterRulesRequest
+     *
      * @returns DeleteTrafficMirrorFilterRulesResponse
      *
      * @param DeleteTrafficMirrorFilterRulesRequest $request
@@ -15806,6 +16084,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteTrafficMirrorSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTrafficMirrorSessionResponse
      *
      * @param DeleteTrafficMirrorSessionRequest $request
@@ -15853,15 +16132,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTrafficMirrorSession',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTrafficMirrorSession',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTrafficMirrorSessionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15880,6 +16159,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteTrafficMirrorSession** operation to delete a traffic mirror session within the specified period of time.
      *
      * @param request - DeleteTrafficMirrorSessionRequest
+     *
      * @returns DeleteTrafficMirrorSessionResponse
      *
      * @param DeleteTrafficMirrorSessionRequest $request
@@ -15908,6 +16188,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteVSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVSwitchResponse
      *
      * @param DeleteVSwitchRequest $request
@@ -15947,15 +16228,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVSwitch',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVSwitch',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15978,6 +16259,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteVSwitch** operation to delete a vSwitch within the specified period of time.
      *
      * @param request - DeleteVSwitchRequest
+     *
      * @returns DeleteVSwitchResponse
      *
      * @param DeleteVSwitchRequest $request
@@ -16003,6 +16285,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteVSwitchCidrReservationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVSwitchCidrReservationResponse
      *
      * @param DeleteVSwitchCidrReservationRequest $request
@@ -16050,15 +16333,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVSwitchCidrReservation',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVSwitchCidrReservation',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVSwitchCidrReservationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16078,6 +16361,7 @@ class Vpc extends OpenApiClient
      *     *   If the reserved CIDR block is in the **Released** state, it is released.
      *
      * @param request - DeleteVSwitchCidrReservationRequest
+     *
      * @returns DeleteVSwitchCidrReservationResponse
      *
      * @param DeleteVSwitchCidrReservationRequest $request
@@ -16096,6 +16380,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteVbrHaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVbrHaResponse
      *
      * @param DeleteVbrHaRequest $request
@@ -16139,15 +16424,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVbrHa',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVbrHa',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVbrHaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16160,6 +16445,7 @@ class Vpc extends OpenApiClient
      * Deletes a virtual border router (VBR) failover group.
      *
      * @param request - DeleteVbrHaRequest
+     *
      * @returns DeleteVbrHaResponse
      *
      * @param DeleteVbrHaRequest $request
@@ -16184,6 +16470,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteVcoRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVcoRouteEntryResponse
      *
      * @param DeleteVcoRouteEntryRequest $request
@@ -16239,15 +16526,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVcoRouteEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVcoRouteEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVcoRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16266,6 +16553,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteVcoRouteEntry** operation within a specific time period.
      *
      * @param request - DeleteVcoRouteEntryRequest
+     *
      * @returns DeleteVcoRouteEntryResponse
      *
      * @param DeleteVcoRouteEntryRequest $request
@@ -16290,6 +16578,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteVirtualBorderRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVirtualBorderRouterResponse
      *
      * @param DeleteVirtualBorderRouterRequest $request
@@ -16333,15 +16622,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVirtualBorderRouter',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVirtualBorderRouter',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16360,6 +16649,7 @@ class Vpc extends OpenApiClient
      * *   The owner of an Express Connect circuit can delete a VBR that belongs to another account only if the VBR is in the **unconfirmed** state.
      *
      * @param request - DeleteVirtualBorderRouterRequest
+     *
      * @returns DeleteVirtualBorderRouterResponse
      *
      * @param DeleteVirtualBorderRouterRequest $request
@@ -16387,6 +16677,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteVpcRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVpcResponse
      *
      * @param DeleteVpcRequest $request
@@ -16438,15 +16729,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVpc',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVpc',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVpcResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16468,6 +16759,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DeleteVpc** operation to delete a VPC within the specified period of time.
      *
      * @param request - DeleteVpcRequest
+     *
      * @returns DeleteVpcResponse
      *
      * @param DeleteVpcRequest $request
@@ -16486,6 +16778,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteVpcGatewayEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVpcGatewayEndpointResponse
      *
      * @param DeleteVpcGatewayEndpointRequest $request
@@ -16533,15 +16826,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVpcGatewayEndpoint',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVpcGatewayEndpoint',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVpcGatewayEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16554,6 +16847,7 @@ class Vpc extends OpenApiClient
      * Deletes a gateway endpoint.
      *
      * @param request - DeleteVpcGatewayEndpointRequest
+     *
      * @returns DeleteVpcGatewayEndpointResponse
      *
      * @param DeleteVpcGatewayEndpointRequest $request
@@ -16575,6 +16869,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteVpcPrefixListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVpcPrefixListResponse
      *
      * @param DeleteVpcPrefixListRequest $request
@@ -16622,15 +16917,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVpcPrefixList',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVpcPrefixList',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVpcPrefixListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16646,6 +16941,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **DeleteDhcpOptionsSet** operation to delete a prefix list within the specified period of time.
      *
      * @param request - DeleteVpcPrefixListRequest
+     *
      * @returns DeleteVpcPrefixListResponse
      *
      * @param DeleteVpcPrefixListRequest $request
@@ -16668,6 +16964,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteVpnAttachmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVpnAttachmentResponse
      *
      * @param DeleteVpnAttachmentRequest $request
@@ -16707,15 +17004,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVpnAttachment',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVpnAttachment',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVpnAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16732,6 +17029,7 @@ class Vpc extends OpenApiClient
      * *   If an IPsec-VPN connection is not associated with a resource, you can call `DeleteVpnAttachment` to directly delete the IPsec-VPN connection.
      *
      * @param request - DeleteVpnAttachmentRequest
+     *
      * @returns DeleteVpnAttachmentResponse
      *
      * @param DeleteVpnAttachmentRequest $request
@@ -16757,6 +17055,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteVpnConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVpnConnectionResponse
      *
      * @param DeleteVpnConnectionRequest $request
@@ -16800,15 +17099,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVpnConnection',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVpnConnection',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVpnConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16828,6 +17127,7 @@ class Vpc extends OpenApiClient
      * >  After an IPsec-VPN connection between a data center and Alibaba Cloud is deleted, the connection between the data center and Alibaba Cloud is closed.
      *
      * @param request - DeleteVpnConnectionRequest
+     *
      * @returns DeleteVpnConnectionResponse
      *
      * @param DeleteVpnConnectionRequest $request
@@ -16849,6 +17149,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteVpnGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVpnGatewayResponse
      *
      * @param DeleteVpnGatewayRequest $request
@@ -16892,15 +17193,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVpnGateway',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVpnGateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVpnGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16916,6 +17217,7 @@ class Vpc extends OpenApiClient
      * >  You cannot delete a VPN gateway associated with existing IPsec-VPN connections.
      *
      * @param request - DeleteVpnGatewayRequest
+     *
      * @returns DeleteVpnGatewayResponse
      *
      * @param DeleteVpnGatewayRequest $request
@@ -16940,6 +17242,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteVpnPbrRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVpnPbrRouteEntryResponse
      *
      * @param DeleteVpnPbrRouteEntryRequest $request
@@ -17007,15 +17310,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVpnPbrRouteEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVpnPbrRouteEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVpnPbrRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17034,6 +17337,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call **DeleteVpnPbrRouteEntry** to delete a policy-based route within the specified period of time.
      *
      * @param request - DeleteVpnPbrRouteEntryRequest
+     *
      * @returns DeleteVpnPbrRouteEntryResponse
      *
      * @param DeleteVpnPbrRouteEntryRequest $request
@@ -17058,6 +17362,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeleteVpnRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVpnRouteEntryResponse
      *
      * @param DeleteVpnRouteEntryRequest $request
@@ -17117,15 +17422,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteVpnRouteEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteVpnRouteEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVpnRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17144,6 +17449,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call **DeleteVpnRouteEntry** to delete a destination-based route from a VPN gateway within the specified period of time.
      *
      * @param request - DeleteVpnRouteEntryRequest
+     *
      * @returns DeleteVpnRouteEntryResponse
      *
      * @param DeleteVpnRouteEntryRequest $request
@@ -17165,6 +17471,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DeletionProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeletionProtectionResponse
      *
      * @param DeletionProtectionRequest $request
@@ -17216,15 +17523,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletionProtection',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletionProtection',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17240,6 +17547,7 @@ class Vpc extends OpenApiClient
      * After you enable deletion protection for an instance, you cannot delete the instance. You must disable deletion protection before you can delete the instance.
      *
      * @param request - DeletionProtectionRequest
+     *
      * @returns DeletionProtectionResponse
      *
      * @param DeletionProtectionRequest $request
@@ -17258,6 +17566,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - Describe95TrafficRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns Describe95TrafficResponse
      *
      * @param Describe95TrafficRequest $request
@@ -17305,15 +17614,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'Describe95Traffic',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'Describe95Traffic',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return Describe95TrafficResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17326,6 +17635,7 @@ class Vpc extends OpenApiClient
      * Queries traffic data of a pay-by-enhanced-95th-percentile Internet Shared Bandwidth instance.
      *
      * @param request - Describe95TrafficRequest
+     *
      * @returns Describe95TrafficResponse
      *
      * @param Describe95TrafficRequest $request
@@ -17344,6 +17654,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeAccessPointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAccessPointsResponse
      *
      * @param DescribeAccessPointsRequest $request
@@ -17387,15 +17698,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAccessPoints',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAccessPoints',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAccessPointsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17408,6 +17719,7 @@ class Vpc extends OpenApiClient
      * Queries the access points of Express Connect circuits in a region.
      *
      * @param request - DescribeAccessPointsRequest
+     *
      * @returns DescribeAccessPointsResponse
      *
      * @param DescribeAccessPointsRequest $request
@@ -17426,6 +17738,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeBgpGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBgpGroupsResponse
      *
      * @param DescribeBgpGroupsRequest $request
@@ -17481,15 +17794,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBgpGroups',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBgpGroups',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBgpGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17502,6 +17815,7 @@ class Vpc extends OpenApiClient
      * Queries Border Gateway Protocol (BGP) groups in a region.
      *
      * @param request - DescribeBgpGroupsRequest
+     *
      * @returns DescribeBgpGroupsResponse
      *
      * @param DescribeBgpGroupsRequest $request
@@ -17520,6 +17834,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeBgpNetworksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBgpNetworksResponse
      *
      * @param DescribeBgpNetworksRequest $request
@@ -17567,15 +17882,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBgpNetworks',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBgpNetworks',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBgpNetworksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17588,6 +17903,7 @@ class Vpc extends OpenApiClient
      * Queries advertised Border Gateway Protocol (BGP) networks.
      *
      * @param request - DescribeBgpNetworksRequest
+     *
      * @returns DescribeBgpNetworksResponse
      *
      * @param DescribeBgpNetworksRequest $request
@@ -17606,6 +17922,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeBgpPeersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBgpPeersResponse
      *
      * @param DescribeBgpPeersRequest $request
@@ -17665,15 +17982,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBgpPeers',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBgpPeers',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBgpPeersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17686,6 +18003,7 @@ class Vpc extends OpenApiClient
      * Queries Border Gateway Protocol (BGP) peers in a region.
      *
      * @param request - DescribeBgpPeersRequest
+     *
      * @returns DescribeBgpPeersResponse
      *
      * @param DescribeBgpPeersRequest $request
@@ -17704,6 +18022,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeCommonBandwidthPackagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCommonBandwidthPackagesResponse
      *
      * @param DescribeCommonBandwidthPackagesRequest $request
@@ -17775,15 +18094,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCommonBandwidthPackages',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCommonBandwidthPackages',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCommonBandwidthPackagesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17796,6 +18115,7 @@ class Vpc extends OpenApiClient
      * Queries a list of Internet Shared Bandwidth instances in a region.
      *
      * @param request - DescribeCommonBandwidthPackagesRequest
+     *
      * @returns DescribeCommonBandwidthPackagesResponse
      *
      * @param DescribeCommonBandwidthPackagesRequest $request
@@ -17814,6 +18134,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeCustomerGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCustomerGatewayResponse
      *
      * @param DescribeCustomerGatewayRequest $request
@@ -17853,15 +18174,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCustomerGateway',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCustomerGateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCustomerGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17874,6 +18195,7 @@ class Vpc extends OpenApiClient
      * Queries details of a customer gateway.
      *
      * @param request - DescribeCustomerGatewayRequest
+     *
      * @returns DescribeCustomerGatewayResponse
      *
      * @param DescribeCustomerGatewayRequest $request
@@ -17892,6 +18214,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeCustomerGatewaysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCustomerGatewaysResponse
      *
      * @param DescribeCustomerGatewaysRequest $request
@@ -17947,15 +18270,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCustomerGateways',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCustomerGateways',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCustomerGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17968,6 +18291,7 @@ class Vpc extends OpenApiClient
      * Queries customer gateways.
      *
      * @param request - DescribeCustomerGatewaysRequest
+     *
      * @returns DescribeCustomerGatewaysResponse
      *
      * @param DescribeCustomerGatewaysRequest $request
@@ -17986,6 +18310,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeEcGrantRelationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEcGrantRelationResponse
      *
      * @param DescribeEcGrantRelationRequest $request
@@ -18021,15 +18346,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEcGrantRelation',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEcGrantRelation',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeEcGrantRelationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18042,6 +18367,7 @@ class Vpc extends OpenApiClient
      * Queries whether permissions on a virtual private cloud (VPC) are granted to a virtual border router (VBR).
      *
      * @param request - DescribeEcGrantRelationRequest
+     *
      * @returns DescribeEcGrantRelationResponse
      *
      * @param DescribeEcGrantRelationRequest $request
@@ -18063,6 +18389,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeEipAddressesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEipAddressesResponse
      *
      * @param DescribeEipAddressesRequest $request
@@ -18178,15 +18505,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEipAddresses',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEipAddresses',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeEipAddressesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18202,6 +18529,7 @@ class Vpc extends OpenApiClient
      * You can call this operation to query information about EIPs in a region, including maximum bandwidth, billing methods, and associated instances.
      *
      * @param request - DescribeEipAddressesRequest
+     *
      * @returns DescribeEipAddressesResponse
      *
      * @param DescribeEipAddressesRequest $request
@@ -18223,6 +18551,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeEipGatewayInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEipGatewayInfoResponse
      *
      * @param DescribeEipGatewayInfoRequest $request
@@ -18266,15 +18595,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEipGatewayInfo',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEipGatewayInfo',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeEipGatewayInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18290,6 +18619,7 @@ class Vpc extends OpenApiClient
      * You can query only EIPs that are associated with secondary elastic network interfaces (ENIs) in multi-EIP-to-ENI mode.
      *
      * @param request - DescribeEipGatewayInfoRequest
+     *
      * @returns DescribeEipGatewayInfoResponse
      *
      * @param DescribeEipGatewayInfoRequest $request
@@ -18311,6 +18641,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeEipMonitorDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEipMonitorDataResponse
      *
      * @param DescribeEipMonitorDataRequest $request
@@ -18362,15 +18693,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEipMonitorData',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEipMonitorData',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeEipMonitorDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18386,6 +18717,7 @@ class Vpc extends OpenApiClient
      * To improve user experience in querying monitoring data, we recommend that you call the DescribeMetricList API operation provided by CloudMonitor to query EIP monitoring data. For more information, see [DescribeMetricList](https://help.aliyun.com/document_detail/51936.html) and [EIP monitoring data](https://help.aliyun.com/document_detail/162874.html).
      *
      * @param request - DescribeEipMonitorDataRequest
+     *
      * @returns DescribeEipMonitorDataResponse
      *
      * @param DescribeEipMonitorDataRequest $request
@@ -18404,6 +18736,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeEipSegmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEipSegmentResponse
      *
      * @param DescribeEipSegmentRequest $request
@@ -18455,15 +18788,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEipSegment',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEipSegment',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeEipSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18476,6 +18809,7 @@ class Vpc extends OpenApiClient
      * Queries contiguous elastic IP address (EIP) groups.
      *
      * @param request - DescribeEipSegmentRequest
+     *
      * @returns DescribeEipSegmentResponse
      *
      * @param DescribeEipSegmentRequest $request
@@ -18494,6 +18828,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeExpressConnectTrafficQosRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeExpressConnectTrafficQosResponse
      *
      * @param DescribeExpressConnectTrafficQosRequest $request
@@ -18557,15 +18892,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExpressConnectTrafficQos',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExpressConnectTrafficQos',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeExpressConnectTrafficQosResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18578,6 +18913,7 @@ class Vpc extends OpenApiClient
      * Queries the quality of service (QoS) policies of Express Connect. The response can be displayed by page.
      *
      * @param request - DescribeExpressConnectTrafficQosRequest
+     *
      * @returns DescribeExpressConnectTrafficQosResponse
      *
      * @param DescribeExpressConnectTrafficQosRequest $request
@@ -18596,6 +18932,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeExpressConnectTrafficQosQueueRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeExpressConnectTrafficQosQueueResponse
      *
      * @param DescribeExpressConnectTrafficQosQueueRequest $request
@@ -18647,15 +18984,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExpressConnectTrafficQosQueue',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExpressConnectTrafficQosQueue',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeExpressConnectTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18668,6 +19005,7 @@ class Vpc extends OpenApiClient
      * Queries the information about the quality of service (QoS) queues of the Express Connect circuit.
      *
      * @param request - DescribeExpressConnectTrafficQosQueueRequest
+     *
      * @returns DescribeExpressConnectTrafficQosQueueResponse
      *
      * @param DescribeExpressConnectTrafficQosQueueRequest $request
@@ -18686,6 +19024,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeExpressConnectTrafficQosRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeExpressConnectTrafficQosRuleResponse
      *
      * @param DescribeExpressConnectTrafficQosRuleRequest $request
@@ -18741,15 +19080,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExpressConnectTrafficQosRule',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExpressConnectTrafficQosRule',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeExpressConnectTrafficQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18762,6 +19101,7 @@ class Vpc extends OpenApiClient
      * Queries quality of service (QoS) rules. Paging parameters are not supported.
      *
      * @param request - DescribeExpressConnectTrafficQosRuleRequest
+     *
      * @returns DescribeExpressConnectTrafficQosRuleResponse
      *
      * @param DescribeExpressConnectTrafficQosRuleRequest $request
@@ -18780,6 +19120,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeFailoverTestJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFailoverTestJobResponse
      *
      * @param DescribeFailoverTestJobRequest $request
@@ -18823,15 +19164,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFailoverTestJob',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFailoverTestJob',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18844,6 +19185,7 @@ class Vpc extends OpenApiClient
      * Queries failover tests.
      *
      * @param request - DescribeFailoverTestJobRequest
+     *
      * @returns DescribeFailoverTestJobResponse
      *
      * @param DescribeFailoverTestJobRequest $request
@@ -18862,6 +19204,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeFailoverTestJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFailoverTestJobsResponse
      *
      * @param DescribeFailoverTestJobsRequest $request
@@ -18913,15 +19256,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFailoverTestJobs',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFailoverTestJobs',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeFailoverTestJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18934,6 +19277,7 @@ class Vpc extends OpenApiClient
      * Queries failover tests for Express Connect.
      *
      * @param request - DescribeFailoverTestJobsRequest
+     *
      * @returns DescribeFailoverTestJobsResponse
      *
      * @param DescribeFailoverTestJobsRequest $request
@@ -18952,6 +19296,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeFlowLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFlowLogsResponse
      *
      * @param DescribeFlowLogsRequest $request
@@ -19043,15 +19388,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFlowLogs',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFlowLogs',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeFlowLogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19064,6 +19409,7 @@ class Vpc extends OpenApiClient
      * Queries the information about flow logs.
      *
      * @param request - DescribeFlowLogsRequest
+     *
      * @returns DescribeFlowLogsResponse
      *
      * @param DescribeFlowLogsRequest $request
@@ -19082,6 +19428,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeForwardTableEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeForwardTableEntriesResponse
      *
      * @param DescribeForwardTableEntriesRequest $request
@@ -19161,15 +19508,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeForwardTableEntries',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeForwardTableEntries',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeForwardTableEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19182,6 +19529,7 @@ class Vpc extends OpenApiClient
      * Queries DNAT entries.
      *
      * @param request - DescribeForwardTableEntriesRequest
+     *
      * @returns DescribeForwardTableEntriesResponse
      *
      * @param DescribeForwardTableEntriesRequest $request
@@ -19200,6 +19548,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeGlobalAccelerationInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGlobalAccelerationInstancesResponse
      *
      * @param DescribeGlobalAccelerationInstancesRequest $request
@@ -19275,15 +19624,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGlobalAccelerationInstances',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGlobalAccelerationInstances',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeGlobalAccelerationInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19296,6 +19645,7 @@ class Vpc extends OpenApiClient
      * Queries Global Accelerator (GA) instances.
      *
      * @param request - DescribeGlobalAccelerationInstancesRequest
+     *
      * @returns DescribeGlobalAccelerationInstancesResponse
      *
      * @param DescribeGlobalAccelerationInstancesRequest $request
@@ -19314,6 +19664,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeGrantRulesToCenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGrantRulesToCenResponse
      *
      * @param DescribeGrantRulesToCenRequest $request
@@ -19373,15 +19724,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGrantRulesToCen',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGrantRulesToCen',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeGrantRulesToCenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19394,6 +19745,7 @@ class Vpc extends OpenApiClient
      * 查询指定网络实例（VPC、VBR）的云企业网跨账号授权信息.
      *
      * @param request - DescribeGrantRulesToCenRequest
+     *
      * @returns DescribeGrantRulesToCenResponse
      *
      * @param DescribeGrantRulesToCenRequest $request
@@ -19412,6 +19764,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeHaVipsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHaVipsResponse
      *
      * @param DescribeHaVipsRequest $request
@@ -19467,15 +19820,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHaVips',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHaVips',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHaVipsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19488,6 +19841,7 @@ class Vpc extends OpenApiClient
      * Queries HAVIPs in a region.
      *
      * @param request - DescribeHaVipsRequest
+     *
      * @returns DescribeHaVipsResponse
      *
      * @param DescribeHaVipsRequest $request
@@ -19506,6 +19860,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeHighDefinitionMonitorLogAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHighDefinitionMonitorLogAttributeResponse
      *
      * @param DescribeHighDefinitionMonitorLogAttributeRequest $request
@@ -19549,15 +19904,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHighDefinitionMonitorLogAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHighDefinitionMonitorLogAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHighDefinitionMonitorLogAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19570,6 +19925,7 @@ class Vpc extends OpenApiClient
      * Queries configurations about the fine-grained monitoring feature of an elastic IP address (EIP).
      *
      * @param request - DescribeHighDefinitionMonitorLogAttributeRequest
+     *
      * @returns DescribeHighDefinitionMonitorLogAttributeResponse
      *
      * @param DescribeHighDefinitionMonitorLogAttributeRequest $request
@@ -19588,6 +19944,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeIPv6TranslatorAclListAttributesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeIPv6TranslatorAclListAttributesResponse
      *
      * @param DescribeIPv6TranslatorAclListAttributesRequest $request
@@ -19635,15 +19992,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIPv6TranslatorAclListAttributes',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIPv6TranslatorAclListAttributes',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeIPv6TranslatorAclListAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19656,6 +20013,7 @@ class Vpc extends OpenApiClient
      * Queries the details of an access control list (ACL), including the specified IP addresses and associated IPv6 mapping entries.
      *
      * @param request - DescribeIPv6TranslatorAclListAttributesRequest
+     *
      * @returns DescribeIPv6TranslatorAclListAttributesResponse
      *
      * @param DescribeIPv6TranslatorAclListAttributesRequest $request
@@ -19670,7 +20028,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries access control lists (ACLs).
      *
@@ -19678,6 +20035,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeIPv6TranslatorAclListsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeIPv6TranslatorAclListsResponse
      *
      * @param DescribeIPv6TranslatorAclListsRequest $request
@@ -19729,15 +20087,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIPv6TranslatorAclLists',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIPv6TranslatorAclLists',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeIPv6TranslatorAclListsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19747,13 +20105,13 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries access control lists (ACLs).
      *
      * @deprecated OpenAPI DescribeIPv6TranslatorAclLists is deprecated
      *
      * @param request - DescribeIPv6TranslatorAclListsRequest
+     *
      * @returns DescribeIPv6TranslatorAclListsResponse
      *
      * @param DescribeIPv6TranslatorAclListsRequest $request
@@ -19768,7 +20126,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries IPv6 mapping entries.
      *
@@ -19776,6 +20133,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeIPv6TranslatorEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeIPv6TranslatorEntriesResponse
      *
      * @param DescribeIPv6TranslatorEntriesRequest $request
@@ -19867,15 +20225,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIPv6TranslatorEntries',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIPv6TranslatorEntries',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeIPv6TranslatorEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19885,13 +20243,13 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries IPv6 mapping entries.
      *
      * @deprecated OpenAPI DescribeIPv6TranslatorEntries is deprecated
      *
      * @param request - DescribeIPv6TranslatorEntriesRequest
+     *
      * @returns DescribeIPv6TranslatorEntriesResponse
      *
      * @param DescribeIPv6TranslatorEntriesRequest $request
@@ -19906,7 +20264,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries IPv6 Translation Service instances.
      *
@@ -19914,6 +20271,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeIPv6TranslatorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeIPv6TranslatorsResponse
      *
      * @param DescribeIPv6TranslatorsRequest $request
@@ -19989,15 +20347,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIPv6Translators',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIPv6Translators',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeIPv6TranslatorsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20007,13 +20365,13 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries IPv6 Translation Service instances.
      *
      * @deprecated OpenAPI DescribeIPv6Translators is deprecated
      *
      * @param request - DescribeIPv6TranslatorsRequest
+     *
      * @returns DescribeIPv6TranslatorsResponse
      *
      * @param DescribeIPv6TranslatorsRequest $request
@@ -20032,6 +20390,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeIpv6AddressesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeIpv6AddressesResponse
      *
      * @param DescribeIpv6AddressesRequest $request
@@ -20135,15 +20494,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIpv6Addresses',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIpv6Addresses',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeIpv6AddressesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20156,6 +20515,7 @@ class Vpc extends OpenApiClient
      * Queries IPv6 addresses in a region.
      *
      * @param request - DescribeIpv6AddressesRequest
+     *
      * @returns DescribeIpv6AddressesResponse
      *
      * @param DescribeIpv6AddressesRequest $request
@@ -20174,6 +20534,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeIpv6EgressOnlyRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeIpv6EgressOnlyRulesResponse
      *
      * @param DescribeIpv6EgressOnlyRulesRequest $request
@@ -20241,15 +20602,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIpv6EgressOnlyRules',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIpv6EgressOnlyRules',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeIpv6EgressOnlyRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20262,6 +20623,7 @@ class Vpc extends OpenApiClient
      * Queries egress-only rules.
      *
      * @param request - DescribeIpv6EgressOnlyRulesRequest
+     *
      * @returns DescribeIpv6EgressOnlyRulesResponse
      *
      * @param DescribeIpv6EgressOnlyRulesRequest $request
@@ -20280,6 +20642,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeIpv6GatewayAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeIpv6GatewayAttributeResponse
      *
      * @param DescribeIpv6GatewayAttributeRequest $request
@@ -20323,15 +20686,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIpv6GatewayAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIpv6GatewayAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeIpv6GatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20344,6 +20707,7 @@ class Vpc extends OpenApiClient
      * Queries the information about an IPv6 gateway, including the region, virtual private cloud (VPC), status, and billing method.
      *
      * @param request - DescribeIpv6GatewayAttributeRequest
+     *
      * @returns DescribeIpv6GatewayAttributeResponse
      *
      * @param DescribeIpv6GatewayAttributeRequest $request
@@ -20362,6 +20726,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeIpv6GatewaysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeIpv6GatewaysResponse
      *
      * @param DescribeIpv6GatewaysRequest $request
@@ -20429,15 +20794,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeIpv6Gateways',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeIpv6Gateways',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeIpv6GatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20450,6 +20815,7 @@ class Vpc extends OpenApiClient
      * Queries IPv6 gateways in a region.
      *
      * @param request - DescribeIpv6GatewaysRequest
+     *
      * @returns DescribeIpv6GatewaysResponse
      *
      * @param DescribeIpv6GatewaysRequest $request
@@ -20468,6 +20834,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeNatGatewayAssociateNetworkInterfacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeNatGatewayAssociateNetworkInterfacesResponse
      *
      * @param DescribeNatGatewayAssociateNetworkInterfacesRequest $request
@@ -20535,15 +20902,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNatGatewayAssociateNetworkInterfaces',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNatGatewayAssociateNetworkInterfaces',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeNatGatewayAssociateNetworkInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20556,6 +20923,7 @@ class Vpc extends OpenApiClient
      * 查询NAT已绑定ENI信息.
      *
      * @param request - DescribeNatGatewayAssociateNetworkInterfacesRequest
+     *
      * @returns DescribeNatGatewayAssociateNetworkInterfacesResponse
      *
      * @param DescribeNatGatewayAssociateNetworkInterfacesRequest $request
@@ -20577,6 +20945,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeNatGatewaysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeNatGatewaysResponse
      *
      * @param DescribeNatGatewaysRequest $request
@@ -20668,15 +21037,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNatGateways',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNatGateways',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeNatGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20692,6 +21061,7 @@ class Vpc extends OpenApiClient
      * You can call this operation to query both Virtual Private Cloud (VPC) NAT gateways and Internet NAT gateways. NAT gateways in this topic refer to both VPC NAT gateways and Internet NAT gateways.
      *
      * @param request - DescribeNatGatewaysRequest
+     *
      * @returns DescribeNatGatewaysResponse
      *
      * @param DescribeNatGatewaysRequest $request
@@ -20710,6 +21080,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeNetworkAclAttributesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeNetworkAclAttributesResponse
      *
      * @param DescribeNetworkAclAttributesRequest $request
@@ -20757,15 +21128,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNetworkAclAttributes',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNetworkAclAttributes',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeNetworkAclAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20778,6 +21149,7 @@ class Vpc extends OpenApiClient
      * Queries network access control lists (ACLs).
      *
      * @param request - DescribeNetworkAclAttributesRequest
+     *
      * @returns DescribeNetworkAclAttributesResponse
      *
      * @param DescribeNetworkAclAttributesRequest $request
@@ -20796,6 +21168,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeNetworkAclsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeNetworkAclsResponse
      *
      * @param DescribeNetworkAclsRequest $request
@@ -20871,15 +21244,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeNetworkAcls',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeNetworkAcls',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeNetworkAclsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20892,6 +21265,7 @@ class Vpc extends OpenApiClient
      * Queries network ACLs.
      *
      * @param request - DescribeNetworkAclsRequest
+     *
      * @returns DescribeNetworkAclsResponse
      *
      * @param DescribeNetworkAclsRequest $request
@@ -20910,6 +21284,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribePhysicalConnectionLOARequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePhysicalConnectionLOAResponse
      *
      * @param DescribePhysicalConnectionLOARequest $request
@@ -20953,15 +21328,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePhysicalConnectionLOA',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePhysicalConnectionLOA',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePhysicalConnectionLOAResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20974,6 +21349,7 @@ class Vpc extends OpenApiClient
      * 查询物理专线LOA信息.
      *
      * @param request - DescribePhysicalConnectionLOARequest
+     *
      * @returns DescribePhysicalConnectionLOAResponse
      *
      * @param DescribePhysicalConnectionLOARequest $request
@@ -20995,6 +21371,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribePhysicalConnectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePhysicalConnectionsResponse
      *
      * @param DescribePhysicalConnectionsRequest $request
@@ -21058,15 +21435,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePhysicalConnections',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePhysicalConnections',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePhysicalConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21082,6 +21459,7 @@ class Vpc extends OpenApiClient
      * By default, the system queries information about all Express Connect circuits in the specified region. You can query Express Connect circuits that meet specific conditions by specifying filter conditions provided by the **DescribePhysicalConnections** operation. For more information about the supported filter conditions, see **Key** in the **Request parameters** section.
      *
      * @param request - DescribePhysicalConnectionsRequest
+     *
      * @returns DescribePhysicalConnectionsResponse
      *
      * @param DescribePhysicalConnectionsRequest $request
@@ -21103,6 +21481,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribePublicIpAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePublicIpAddressResponse
      *
      * @param DescribePublicIpAddressRequest $request
@@ -21154,15 +21533,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePublicIpAddress',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePublicIpAddress',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePublicIpAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21178,6 +21557,7 @@ class Vpc extends OpenApiClient
      * You cannot query the range of public IP addresses of a classic network by calling the **DescribePublicIpAddress** operation.
      *
      * @param request - DescribePublicIpAddressRequest
+     *
      * @returns DescribePublicIpAddressResponse
      *
      * @param DescribePublicIpAddressRequest $request
@@ -21196,6 +21576,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -21235,15 +21616,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21256,6 +21637,7 @@ class Vpc extends OpenApiClient
      * Queries the most recent region list.
      *
      * @param request - DescribeRegionsRequest
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -21277,6 +21659,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeRouteEntryListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRouteEntryListResponse
      *
      * @param DescribeRouteEntryListRequest $request
@@ -21364,15 +21747,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRouteEntryList',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRouteEntryList',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRouteEntryListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21388,6 +21771,7 @@ class Vpc extends OpenApiClient
      * Before you call the [DeleteRouteEntry](https://help.aliyun.com/document_detail/36013.html) operation to delete a route, you can call this operation to query the next hop of the route that you want to delete.
      *
      * @param request - DescribeRouteEntryListRequest
+     *
      * @returns DescribeRouteEntryListResponse
      *
      * @param DescribeRouteEntryListRequest $request
@@ -21406,6 +21790,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeRouteTableListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRouteTableListResponse
      *
      * @param DescribeRouteTableListRequest $request
@@ -21481,15 +21866,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRouteTableList',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRouteTableList',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRouteTableListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21502,6 +21887,7 @@ class Vpc extends OpenApiClient
      * Queries route tables.
      *
      * @param request - DescribeRouteTableListRequest
+     *
      * @returns DescribeRouteTableListResponse
      *
      * @param DescribeRouteTableListRequest $request
@@ -21516,7 +21902,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries route tables.
      *
@@ -21524,6 +21909,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeRouteTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRouteTablesResponse
      *
      * @param DescribeRouteTablesRequest $request
@@ -21595,15 +21981,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRouteTables',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRouteTables',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRouteTablesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21613,13 +21999,13 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries route tables.
      *
      * @deprecated openAPI DescribeRouteTables is deprecated, please use Vpc::2016-04-28::DescribeRouteTableList instead
      *
      * @param request - DescribeRouteTablesRequest
+     *
      * @returns DescribeRouteTablesResponse
      *
      * @param DescribeRouteTablesRequest $request
@@ -21638,6 +22024,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeRouterInterfaceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRouterInterfaceAttributeResponse
      *
      * @param DescribeRouterInterfaceAttributeRequest $request
@@ -21673,15 +22060,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRouterInterfaceAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRouterInterfaceAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRouterInterfaceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21694,6 +22081,7 @@ class Vpc extends OpenApiClient
      * Queries the configuration of a router interface.
      *
      * @param request - DescribeRouterInterfaceAttributeRequest
+     *
      * @returns DescribeRouterInterfaceAttributeResponse
      *
      * @param DescribeRouterInterfaceAttributeRequest $request
@@ -21712,6 +22100,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeRouterInterfacesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRouterInterfacesResponse
      *
      * @param DescribeRouterInterfacesRequest $request
@@ -21767,15 +22156,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRouterInterfaces',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRouterInterfaces',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRouterInterfacesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21788,6 +22177,7 @@ class Vpc extends OpenApiClient
      * Queries router interfaces in a specified region.
      *
      * @param request - DescribeRouterInterfacesRequest
+     *
      * @returns DescribeRouterInterfacesResponse
      *
      * @param DescribeRouterInterfacesRequest $request
@@ -21809,6 +22199,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeServerRelatedGlobalAccelerationInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeServerRelatedGlobalAccelerationInstancesResponse
      *
      * @param DescribeServerRelatedGlobalAccelerationInstancesRequest $request
@@ -21852,15 +22243,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeServerRelatedGlobalAccelerationInstances',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeServerRelatedGlobalAccelerationInstances',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeServerRelatedGlobalAccelerationInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21876,6 +22267,7 @@ class Vpc extends OpenApiClient
      * > You can call this operation to query only dedicated-bandwidth GA instances.
      *
      * @param request - DescribeServerRelatedGlobalAccelerationInstancesRequest
+     *
      * @returns DescribeServerRelatedGlobalAccelerationInstancesResponse
      *
      * @param DescribeServerRelatedGlobalAccelerationInstancesRequest $request
@@ -21894,6 +22286,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeSnatTableEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSnatTableEntriesResponse
      *
      * @param DescribeSnatTableEntriesRequest $request
@@ -21969,15 +22362,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSnatTableEntries',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSnatTableEntries',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSnatTableEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21990,6 +22383,7 @@ class Vpc extends OpenApiClient
      * Queries SNAT entries.
      *
      * @param request - DescribeSnatTableEntriesRequest
+     *
      * @returns DescribeSnatTableEntriesResponse
      *
      * @param DescribeSnatTableEntriesRequest $request
@@ -22008,6 +22402,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeSslVpnClientCertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSslVpnClientCertResponse
      *
      * @param DescribeSslVpnClientCertRequest $request
@@ -22047,15 +22442,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSslVpnClientCert',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSslVpnClientCert',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSslVpnClientCertResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22068,6 +22463,7 @@ class Vpc extends OpenApiClient
      * Queries the details of an SSL client certificate.
      *
      * @param request - DescribeSslVpnClientCertRequest
+     *
      * @returns DescribeSslVpnClientCertResponse
      *
      * @param DescribeSslVpnClientCertRequest $request
@@ -22086,6 +22482,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeSslVpnClientCertsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSslVpnClientCertsResponse
      *
      * @param DescribeSslVpnClientCertsRequest $request
@@ -22145,15 +22542,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSslVpnClientCerts',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSslVpnClientCerts',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSslVpnClientCertsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22166,6 +22563,7 @@ class Vpc extends OpenApiClient
      * Queries SSL client certificates.
      *
      * @param request - DescribeSslVpnClientCertsRequest
+     *
      * @returns DescribeSslVpnClientCertsResponse
      *
      * @param DescribeSslVpnClientCertsRequest $request
@@ -22188,6 +22586,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeSslVpnClientsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSslVpnClientsResponse
      *
      * @param DescribeSslVpnClientsRequest $request
@@ -22235,15 +22634,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSslVpnClients',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSslVpnClients',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSslVpnClientsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22260,6 +22659,7 @@ class Vpc extends OpenApiClient
      * If your VPN gateway was created after December 10, 2022, you can view the connection information about SSL clients by default.
      *
      * @param request - DescribeSslVpnClientsRequest
+     *
      * @returns DescribeSslVpnClientsResponse
      *
      * @param DescribeSslVpnClientsRequest $request
@@ -22278,6 +22678,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeSslVpnServersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSslVpnServersResponse
      *
      * @param DescribeSslVpnServersRequest $request
@@ -22337,15 +22738,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSslVpnServers',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSslVpnServers',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSslVpnServersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22358,6 +22759,7 @@ class Vpc extends OpenApiClient
      * Queries one or more SSL-VPN servers.
      *
      * @param request - DescribeSslVpnServersRequest
+     *
      * @returns DescribeSslVpnServersResponse
      *
      * @param DescribeSslVpnServersRequest $request
@@ -22376,6 +22778,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTagKeysResponse
      *
      * @param DescribeTagKeysRequest $request
@@ -22431,15 +22834,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTagKeys',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTagKeys',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22452,6 +22855,7 @@ class Vpc extends OpenApiClient
      * 查询标签键列表。
      *
      * @param request - DescribeTagKeysRequest
+     *
      * @returns DescribeTagKeysResponse
      *
      * @param DescribeTagKeysRequest $request
@@ -22470,6 +22874,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeTagKeysForExpressConnectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTagKeysForExpressConnectResponse
      *
      * @param DescribeTagKeysForExpressConnectRequest $request
@@ -22525,15 +22930,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTagKeysForExpressConnect',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTagKeysForExpressConnect',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTagKeysForExpressConnectResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22546,6 +22951,7 @@ class Vpc extends OpenApiClient
      * Queries the tags of an Express Connect circuit.
      *
      * @param request - DescribeTagKeysForExpressConnectRequest
+     *
      * @returns DescribeTagKeysForExpressConnectResponse
      *
      * @param DescribeTagKeysForExpressConnectRequest $request
@@ -22570,6 +22976,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTagsResponse
      *
      * @param DescribeTagsRequest $request
@@ -22625,15 +23032,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTags',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTags',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22652,6 +23059,7 @@ class Vpc extends OpenApiClient
      * *   If you specify multiple key-value pairs, all tags that match the key-value pairs are returned.
      *
      * @param request - DescribeTagsRequest
+     *
      * @returns DescribeTagsResponse
      *
      * @param DescribeTagsRequest $request
@@ -22670,6 +23078,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVRoutersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVRoutersResponse
      *
      * @param DescribeVRoutersRequest $request
@@ -22717,15 +23126,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVRouters',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVRouters',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVRoutersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22738,6 +23147,7 @@ class Vpc extends OpenApiClient
      * 查询路由器列表.
      *
      * @param request - DescribeVRoutersRequest
+     *
      * @returns DescribeVRoutersResponse
      *
      * @param DescribeVRoutersRequest $request
@@ -22756,6 +23166,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVSwitchAttributesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVSwitchAttributesResponse
      *
      * @param DescribeVSwitchAttributesRequest $request
@@ -22799,15 +23210,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVSwitchAttributes',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVSwitchAttributes',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVSwitchAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22820,6 +23231,7 @@ class Vpc extends OpenApiClient
      * Queries the detailed information about a vSwitch.
      *
      * @param request - DescribeVSwitchAttributesRequest
+     *
      * @returns DescribeVSwitchAttributesResponse
      *
      * @param DescribeVSwitchAttributesRequest $request
@@ -22838,6 +23250,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVSwitchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVSwitchesResponse
      *
      * @param DescribeVSwitchesRequest $request
@@ -22925,15 +23338,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVSwitches',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVSwitches',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVSwitchesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22946,6 +23359,7 @@ class Vpc extends OpenApiClient
      * Queries the information about available vSwitches that are used for an internal network.
      *
      * @param request - DescribeVSwitchesRequest
+     *
      * @returns DescribeVSwitchesResponse
      *
      * @param DescribeVSwitchesRequest $request
@@ -22964,6 +23378,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVbrHaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVbrHaResponse
      *
      * @param DescribeVbrHaRequest $request
@@ -23015,15 +23430,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVbrHa',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVbrHa',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVbrHaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23036,6 +23451,7 @@ class Vpc extends OpenApiClient
      * Queries virtual border router (VBR) failover groups.
      *
      * @param request - DescribeVbrHaRequest
+     *
      * @returns DescribeVbrHaResponse
      *
      * @param DescribeVbrHaRequest $request
@@ -23054,6 +23470,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVcoRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVcoRouteEntriesResponse
      *
      * @param DescribeVcoRouteEntriesRequest $request
@@ -23105,15 +23522,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVcoRouteEntries',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVcoRouteEntries',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVcoRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23126,6 +23543,7 @@ class Vpc extends OpenApiClient
      * Queries the routes of an IPsec-VPN connection.
      *
      * @param request - DescribeVcoRouteEntriesRequest
+     *
      * @returns DescribeVcoRouteEntriesResponse
      *
      * @param DescribeVcoRouteEntriesRequest $request
@@ -23144,6 +23562,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVirtualBorderRoutersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVirtualBorderRoutersResponse
      *
      * @param DescribeVirtualBorderRoutersRequest $request
@@ -23199,15 +23618,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVirtualBorderRouters',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVirtualBorderRouters',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVirtualBorderRoutersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23220,6 +23639,7 @@ class Vpc extends OpenApiClient
      * Queries virtual border routers (VBRs).
      *
      * @param request - DescribeVirtualBorderRoutersRequest
+     *
      * @returns DescribeVirtualBorderRoutersResponse
      *
      * @param DescribeVirtualBorderRoutersRequest $request
@@ -23238,6 +23658,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVirtualBorderRoutersForPhysicalConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVirtualBorderRoutersForPhysicalConnectionResponse
      *
      * @param DescribeVirtualBorderRoutersForPhysicalConnectionRequest $request
@@ -23285,15 +23706,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVirtualBorderRoutersForPhysicalConnection',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVirtualBorderRoutersForPhysicalConnection',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVirtualBorderRoutersForPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23306,6 +23727,7 @@ class Vpc extends OpenApiClient
      * Queries the virtual border routers (VBRs) that are associated with an Express Connect circuit. The VBRs can be created by the owner of the Express Connect circuit and by other Alibaba Cloud accounts.
      *
      * @param request - DescribeVirtualBorderRoutersForPhysicalConnectionRequest
+     *
      * @returns DescribeVirtualBorderRoutersForPhysicalConnectionResponse
      *
      * @param DescribeVirtualBorderRoutersForPhysicalConnectionRequest $request
@@ -23324,6 +23746,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVpcAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVpcAttributeResponse
      *
      * @param DescribeVpcAttributeRequest $request
@@ -23371,15 +23794,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVpcAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVpcAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVpcAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23392,6 +23815,7 @@ class Vpc extends OpenApiClient
      * Queries the configuration of a virtual private cloud (VPC).
      *
      * @param request - DescribeVpcAttributeRequest
+     *
      * @returns DescribeVpcAttributeResponse
      *
      * @param DescribeVpcAttributeRequest $request
@@ -23410,6 +23834,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVpcsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVpcsResponse
      *
      * @param DescribeVpcsRequest $request
@@ -23489,15 +23914,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVpcs',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVpcs',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVpcsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23510,6 +23935,7 @@ class Vpc extends OpenApiClient
      * Queries virtual private clouds (VPCs).
      *
      * @param request - DescribeVpcsRequest
+     *
      * @returns DescribeVpcsResponse
      *
      * @param DescribeVpcsRequest $request
@@ -23528,6 +23954,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVpnAttachmentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVpnAttachmentsResponse
      *
      * @param DescribeVpnAttachmentsRequest $request
@@ -23579,15 +24006,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVpnAttachments',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVpnAttachments',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVpnAttachmentsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23600,6 +24027,7 @@ class Vpc extends OpenApiClient
      * Queries the IPsec-VPN connections associated with a transit router.
      *
      * @param request - DescribeVpnAttachmentsRequest
+     *
      * @returns DescribeVpnAttachmentsResponse
      *
      * @param DescribeVpnAttachmentsRequest $request
@@ -23618,6 +24046,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVpnConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVpnConnectionResponse
      *
      * @param DescribeVpnConnectionRequest $request
@@ -23657,15 +24086,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVpnConnection',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVpnConnection',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVpnConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23678,6 +24107,7 @@ class Vpc extends OpenApiClient
      * Queries the detailed information about an IPsec-VPN connection.
      *
      * @param request - DescribeVpnConnectionRequest
+     *
      * @returns DescribeVpnConnectionResponse
      *
      * @param DescribeVpnConnectionRequest $request
@@ -23696,6 +24126,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVpnConnectionLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVpnConnectionLogsResponse
      *
      * @param DescribeVpnConnectionLogsRequest $request
@@ -23759,15 +24190,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVpnConnectionLogs',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVpnConnectionLogs',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVpnConnectionLogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23780,6 +24211,7 @@ class Vpc extends OpenApiClient
      * Queries logs of IPsec-VPN connections.
      *
      * @param request - DescribeVpnConnectionLogsRequest
+     *
      * @returns DescribeVpnConnectionLogsResponse
      *
      * @param DescribeVpnConnectionLogsRequest $request
@@ -23798,6 +24230,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVpnConnectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVpnConnectionsResponse
      *
      * @param DescribeVpnConnectionsRequest $request
@@ -23861,15 +24294,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVpnConnections',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVpnConnections',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVpnConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23882,6 +24315,7 @@ class Vpc extends OpenApiClient
      * Queries IPsec-VPN connections.
      *
      * @param request - DescribeVpnConnectionsRequest
+     *
      * @returns DescribeVpnConnectionsResponse
      *
      * @param DescribeVpnConnectionsRequest $request
@@ -23900,6 +24334,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVpnCrossAccountAuthorizationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVpnCrossAccountAuthorizationsResponse
      *
      * @param DescribeVpnCrossAccountAuthorizationsRequest $request
@@ -23947,15 +24382,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVpnCrossAccountAuthorizations',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVpnCrossAccountAuthorizations',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVpnCrossAccountAuthorizationsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23968,6 +24403,7 @@ class Vpc extends OpenApiClient
      * Queries the cross-account authorization information about an IPsec-VPN connection.
      *
      * @param request - DescribeVpnCrossAccountAuthorizationsRequest
+     *
      * @returns DescribeVpnCrossAccountAuthorizationsResponse
      *
      * @param DescribeVpnCrossAccountAuthorizationsRequest $request
@@ -23986,6 +24422,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVpnGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVpnGatewayResponse
      *
      * @param DescribeVpnGatewayRequest $request
@@ -24029,15 +24466,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVpnGateway',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVpnGateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVpnGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -24050,6 +24487,7 @@ class Vpc extends OpenApiClient
      * Queries the detailed information about a VPN gateway.
      *
      * @param request - DescribeVpnGatewayRequest
+     *
      * @returns DescribeVpnGatewayResponse
      *
      * @param DescribeVpnGatewayRequest $request
@@ -24068,6 +24506,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVpnGatewayAvailableZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVpnGatewayAvailableZonesResponse
      *
      * @param DescribeVpnGatewayAvailableZonesRequest $request
@@ -24079,19 +24518,19 @@ class Vpc extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVpnGatewayAvailableZones',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVpnGatewayAvailableZones',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVpnGatewayAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -24104,6 +24543,7 @@ class Vpc extends OpenApiClient
      * Queries zones that support IPsec-VPN connections in a region.
      *
      * @param request - DescribeVpnGatewayAvailableZonesRequest
+     *
      * @returns DescribeVpnGatewayAvailableZonesResponse
      *
      * @param DescribeVpnGatewayAvailableZonesRequest $request
@@ -24122,6 +24562,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVpnGatewaysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVpnGatewaysResponse
      *
      * @param DescribeVpnGatewaysRequest $request
@@ -24193,15 +24634,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVpnGateways',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVpnGateways',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVpnGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -24214,6 +24655,7 @@ class Vpc extends OpenApiClient
      * Queries VPN gateways in a region.
      *
      * @param request - DescribeVpnGatewaysRequest
+     *
      * @returns DescribeVpnGatewaysResponse
      *
      * @param DescribeVpnGatewaysRequest $request
@@ -24232,6 +24674,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVpnPbrRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVpnPbrRouteEntriesResponse
      *
      * @param DescribeVpnPbrRouteEntriesRequest $request
@@ -24279,15 +24722,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVpnPbrRouteEntries',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVpnPbrRouteEntries',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVpnPbrRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -24300,6 +24743,7 @@ class Vpc extends OpenApiClient
      * Queries policy-based routes configured for a VPN gateway.
      *
      * @param request - DescribeVpnPbrRouteEntriesRequest
+     *
      * @returns DescribeVpnPbrRouteEntriesResponse
      *
      * @param DescribeVpnPbrRouteEntriesRequest $request
@@ -24318,6 +24762,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVpnRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVpnRouteEntriesResponse
      *
      * @param DescribeVpnRouteEntriesRequest $request
@@ -24369,15 +24814,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVpnRouteEntries',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVpnRouteEntries',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVpnRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -24390,6 +24835,7 @@ class Vpc extends OpenApiClient
      * Queries destination-based and BGP route entries of a VPN gateway.
      *
      * @param request - DescribeVpnRouteEntriesRequest
+     *
      * @returns DescribeVpnRouteEntriesResponse
      *
      * @param DescribeVpnRouteEntriesRequest $request
@@ -24408,6 +24854,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeVpnSslServerLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVpnSslServerLogsResponse
      *
      * @param DescribeVpnSslServerLogsRequest $request
@@ -24471,15 +24918,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVpnSslServerLogs',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVpnSslServerLogs',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVpnSslServerLogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -24492,6 +24939,7 @@ class Vpc extends OpenApiClient
      * Queries the log entries of an SSL server.
      *
      * @param request - DescribeVpnSslServerLogsRequest
+     *
      * @returns DescribeVpnSslServerLogsResponse
      *
      * @param DescribeVpnSslServerLogsRequest $request
@@ -24510,6 +24958,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DescribeZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeZonesResponse
      *
      * @param DescribeZonesRequest $request
@@ -24553,15 +25002,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeZones',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeZones',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeZonesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -24574,6 +25023,7 @@ class Vpc extends OpenApiClient
      * Queries zones in a region.
      *
      * @param request - DescribeZonesRequest
+     *
      * @returns DescribeZonesResponse
      *
      * @param DescribeZonesRequest $request
@@ -24599,6 +25049,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DetachDhcpOptionsSetFromVpcRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetachDhcpOptionsSetFromVpcResponse
      *
      * @param DetachDhcpOptionsSetFromVpcRequest $request
@@ -24650,15 +25101,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachDhcpOptionsSetFromVpc',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachDhcpOptionsSetFromVpc',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DetachDhcpOptionsSetFromVpcResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -24678,6 +25129,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **DetachDhcpOptionsSetFromVpc** operation to disassociate a DHCP options set from a VPC within the specified period of time.
      *
      * @param request - DetachDhcpOptionsSetFromVpcRequest
+     *
      * @returns DetachDhcpOptionsSetFromVpcResponse
      *
      * @param DetachDhcpOptionsSetFromVpcRequest $request
@@ -24701,6 +25153,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DiagnoseVpnConnectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DiagnoseVpnConnectionsResponse
      *
      * @param DiagnoseVpnConnectionsRequest $request
@@ -24744,15 +25197,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DiagnoseVpnConnections',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DiagnoseVpnConnections',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DiagnoseVpnConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -24770,6 +25223,7 @@ class Vpc extends OpenApiClient
      * *   After you call the **DiagnoseVpnConnections** operation, if the current IPsec-VPN connection is faulty, the operation returns the corresponding error code (**FailedReasonCode**) and log (**SourceLog**). You can troubleshoot based on the error code and log information. For more information, see [Common errors and troubleshooting methods for IPsec-VPN connections](https://help.aliyun.com/document_detail/477862.html).
      *
      * @param request - DiagnoseVpnConnectionsRequest
+     *
      * @returns DiagnoseVpnConnectionsResponse
      *
      * @param DiagnoseVpnConnectionsRequest $request
@@ -24791,6 +25245,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DiagnoseVpnGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DiagnoseVpnGatewayResponse
      *
      * @param DiagnoseVpnGatewayRequest $request
@@ -24830,15 +25285,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DiagnoseVpnGateway',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DiagnoseVpnGateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DiagnoseVpnGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -24854,6 +25309,7 @@ class Vpc extends OpenApiClient
      * VPN网关发起诊断
      *
      * @param request - DiagnoseVpnGatewayRequest
+     *
      * @returns DiagnoseVpnGatewayResponse
      *
      * @param DiagnoseVpnGatewayRequest $request
@@ -24868,7 +25324,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
      *
@@ -24876,6 +25331,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DisableNatGatewayEcsMetricRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableNatGatewayEcsMetricResponse
      *
      * @param DisableNatGatewayEcsMetricRequest $request
@@ -24907,15 +25363,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableNatGatewayEcsMetric',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableNatGatewayEcsMetric',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableNatGatewayEcsMetricResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -24925,13 +25381,13 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Disables traffic monitoring for an Elastic Compute Service (ECS) instance.
      *
      * @deprecated OpenAPI DisableNatGatewayEcsMetric is deprecated
      *
      * @param request - DisableNatGatewayEcsMetricRequest
+     *
      * @returns DisableNatGatewayEcsMetricResponse
      *
      * @param DisableNatGatewayEcsMetricRequest $request
@@ -24950,6 +25406,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DisableVpcClassicLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableVpcClassicLinkResponse
      *
      * @param DisableVpcClassicLinkRequest $request
@@ -24993,15 +25450,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableVpcClassicLink',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableVpcClassicLink',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableVpcClassicLinkResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -25014,6 +25471,7 @@ class Vpc extends OpenApiClient
      * Disables ClassicLink for a virtual private cloud (VPC).
      *
      * @param request - DisableVpcClassicLinkRequest
+     *
      * @returns DisableVpcClassicLinkResponse
      *
      * @param DisableVpcClassicLinkRequest $request
@@ -25032,6 +25490,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DissociateRouteTableFromGatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DissociateRouteTableFromGatewayResponse
      *
      * @param DissociateRouteTableFromGatewayRequest $request
@@ -25091,15 +25550,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DissociateRouteTableFromGateway',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DissociateRouteTableFromGateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DissociateRouteTableFromGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -25112,6 +25571,7 @@ class Vpc extends OpenApiClient
      * Disassociates a gateway route table from an IPv4 gateway.
      *
      * @param request - DissociateRouteTableFromGatewayRequest
+     *
      * @returns DissociateRouteTableFromGatewayResponse
      *
      * @param DissociateRouteTableFromGatewayRequest $request
@@ -25130,6 +25590,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DissociateRouteTablesFromVpcGatewayEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DissociateRouteTablesFromVpcGatewayEndpointResponse
      *
      * @param DissociateRouteTablesFromVpcGatewayEndpointRequest $request
@@ -25181,15 +25642,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DissociateRouteTablesFromVpcGatewayEndpoint',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DissociateRouteTablesFromVpcGatewayEndpoint',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DissociateRouteTablesFromVpcGatewayEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -25202,6 +25663,7 @@ class Vpc extends OpenApiClient
      * Disassociates a gateway endpoint from a route table.
      *
      * @param request - DissociateRouteTablesFromVpcGatewayEndpointRequest
+     *
      * @returns DissociateRouteTablesFromVpcGatewayEndpointResponse
      *
      * @param DissociateRouteTablesFromVpcGatewayEndpointRequest $request
@@ -25226,6 +25688,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DissociateVpnGatewayWithCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DissociateVpnGatewayWithCertificateResponse
      *
      * @param DissociateVpnGatewayWithCertificateRequest $request
@@ -25265,15 +25728,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DissociateVpnGatewayWithCertificate',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DissociateVpnGatewayWithCertificate',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DissociateVpnGatewayWithCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -25292,6 +25755,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call **DissociateVpnGatewayWithCertificate** within a specific period of time.
      *
      * @param request - DissociateVpnGatewayWithCertificateRequest
+     *
      * @returns DissociateVpnGatewayWithCertificateResponse
      *
      * @param DissociateVpnGatewayWithCertificateRequest $request
@@ -25310,6 +25774,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - DownloadVpnConnectionConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DownloadVpnConnectionConfigResponse
      *
      * @param DownloadVpnConnectionConfigRequest $request
@@ -25349,15 +25814,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DownloadVpnConnectionConfig',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DownloadVpnConnectionConfig',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DownloadVpnConnectionConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -25370,6 +25835,7 @@ class Vpc extends OpenApiClient
      * Queries the configuration of an IPsec-VPN connection.
      *
      * @param request - DownloadVpnConnectionConfigRequest
+     *
      * @returns DownloadVpnConnectionConfigResponse
      *
      * @param DownloadVpnConnectionConfigRequest $request
@@ -25384,7 +25850,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Enables Elastic Compute Service (ECS) traffic monitoring.
      *
@@ -25392,6 +25857,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - EnableNatGatewayEcsMetricRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableNatGatewayEcsMetricResponse
      *
      * @param EnableNatGatewayEcsMetricRequest $request
@@ -25423,15 +25889,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableNatGatewayEcsMetric',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableNatGatewayEcsMetric',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableNatGatewayEcsMetricResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -25441,13 +25907,13 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Enables Elastic Compute Service (ECS) traffic monitoring.
      *
      * @deprecated OpenAPI EnableNatGatewayEcsMetric is deprecated
      *
      * @param request - EnableNatGatewayEcsMetricRequest
+     *
      * @returns EnableNatGatewayEcsMetricResponse
      *
      * @param EnableNatGatewayEcsMetricRequest $request
@@ -25473,6 +25939,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - EnablePhysicalConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnablePhysicalConnectionResponse
      *
      * @param EnablePhysicalConnectionRequest $request
@@ -25520,15 +25987,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnablePhysicalConnection',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnablePhysicalConnection',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnablePhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -25548,6 +26015,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call **EnablePhysicalConnection** for an Express Connect circuit in the **Confirmed** state within a specific time period.
      *
      * @param request - EnablePhysicalConnectionRequest
+     *
      * @returns EnablePhysicalConnectionResponse
      *
      * @param EnablePhysicalConnectionRequest $request
@@ -25566,6 +26034,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - EnableVpcClassicLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableVpcClassicLinkResponse
      *
      * @param EnableVpcClassicLinkRequest $request
@@ -25609,15 +26078,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableVpcClassicLink',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableVpcClassicLink',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableVpcClassicLinkResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -25630,6 +26099,7 @@ class Vpc extends OpenApiClient
      * Enables ClassicLink for a VPC.
      *
      * @param request - EnableVpcClassicLinkRequest
+     *
      * @returns EnableVpcClassicLinkResponse
      *
      * @param EnableVpcClassicLinkRequest $request
@@ -25655,6 +26125,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - EnableVpcIpv4GatewayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableVpcIpv4GatewayResponse
      *
      * @param EnableVpcIpv4GatewayRequest $request
@@ -25710,15 +26181,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableVpcIpv4Gateway',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableVpcIpv4Gateway',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableVpcIpv4GatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -25738,6 +26209,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **EnableVpcIpv4Gateway** operation to activate an IPv4 gateway within the specified period of time.
      *
      * @param request - EnableVpcIpv4GatewayRequest
+     *
      * @returns EnableVpcIpv4GatewayResponse
      *
      * @param EnableVpcIpv4GatewayRequest $request
@@ -25756,6 +26228,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - GetDhcpOptionsSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDhcpOptionsSetResponse
      *
      * @param GetDhcpOptionsSetRequest $request
@@ -25795,15 +26268,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDhcpOptionsSet',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDhcpOptionsSet',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDhcpOptionsSetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -25816,6 +26289,7 @@ class Vpc extends OpenApiClient
      * Queries a DHCP options set.
      *
      * @param request - GetDhcpOptionsSetRequest
+     *
      * @returns GetDhcpOptionsSetResponse
      *
      * @param GetDhcpOptionsSetRequest $request
@@ -25834,6 +26308,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - GetFlowLogServiceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFlowLogServiceStatusResponse
      *
      * @param GetFlowLogServiceStatusRequest $request
@@ -25877,15 +26352,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetFlowLogServiceStatus',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFlowLogServiceStatus',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFlowLogServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -25898,6 +26373,7 @@ class Vpc extends OpenApiClient
      * Queries the status of a flow log.
      *
      * @param request - GetFlowLogServiceStatusRequest
+     *
      * @returns GetFlowLogServiceStatusResponse
      *
      * @param GetFlowLogServiceStatusRequest $request
@@ -25916,6 +26392,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - GetIpv4GatewayAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetIpv4GatewayAttributeResponse
      *
      * @param GetIpv4GatewayAttributeRequest $request
@@ -25959,15 +26436,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetIpv4GatewayAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetIpv4GatewayAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetIpv4GatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -25980,6 +26457,7 @@ class Vpc extends OpenApiClient
      * Queries an IPv4 gateway.
      *
      * @param request - GetIpv4GatewayAttributeRequest
+     *
      * @returns GetIpv4GatewayAttributeResponse
      *
      * @param GetIpv4GatewayAttributeRequest $request
@@ -26001,6 +26479,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - GetNatGatewayAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNatGatewayAttributeResponse
      *
      * @param GetNatGatewayAttributeRequest $request
@@ -26044,15 +26523,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetNatGatewayAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNatGatewayAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetNatGatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -26068,6 +26547,7 @@ class Vpc extends OpenApiClient
      * You can call this operation to query information about a specified Internet NAT gateway or Virtual Private Cloud (VPC) NAT gateway. In this topic, "NAT gateway" refers to both gateway types.
      *
      * @param request - GetNatGatewayAttributeRequest
+     *
      * @returns GetNatGatewayAttributeResponse
      *
      * @param GetNatGatewayAttributeRequest $request
@@ -26089,6 +26569,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - GetPhysicalConnectionServiceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPhysicalConnectionServiceStatusResponse
      *
      * @param GetPhysicalConnectionServiceStatusRequest $request
@@ -26124,15 +26605,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPhysicalConnectionServiceStatus',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPhysicalConnectionServiceStatus',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetPhysicalConnectionServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -26148,6 +26629,7 @@ class Vpc extends OpenApiClient
      * You can call this API operation to query the status of outbound data transfer billing for the current account. For more information about outbound data transfer billing, see [Outbound data transfer billing](https://help.aliyun.com/document_detail/274385.html) and [Billing](https://help.aliyun.com/document_detail/54582.html).
      *
      * @param request - GetPhysicalConnectionServiceStatusRequest
+     *
      * @returns GetPhysicalConnectionServiceStatusResponse
      *
      * @param GetPhysicalConnectionServiceStatusRequest $request
@@ -26166,6 +26648,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - GetPublicIpAddressPoolServiceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPublicIpAddressPoolServiceStatusResponse
      *
      * @param GetPublicIpAddressPoolServiceStatusRequest $request
@@ -26209,15 +26692,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPublicIpAddressPoolServiceStatus',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPublicIpAddressPoolServiceStatus',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetPublicIpAddressPoolServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -26230,6 +26713,7 @@ class Vpc extends OpenApiClient
      * Queries whether the IP address pool feature is enabled.
      *
      * @param request - GetPublicIpAddressPoolServiceStatusRequest
+     *
      * @returns GetPublicIpAddressPoolServiceStatusResponse
      *
      * @param GetPublicIpAddressPoolServiceStatusRequest $request
@@ -26248,6 +26732,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - GetTrafficMirrorServiceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTrafficMirrorServiceStatusResponse
      *
      * @param GetTrafficMirrorServiceStatusRequest $request
@@ -26291,15 +26776,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTrafficMirrorServiceStatus',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTrafficMirrorServiceStatus',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTrafficMirrorServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -26312,6 +26797,7 @@ class Vpc extends OpenApiClient
      * Queries the status of the traffic mirroring feature.
      *
      * @param request - GetTrafficMirrorServiceStatusRequest
+     *
      * @returns GetTrafficMirrorServiceStatusResponse
      *
      * @param GetTrafficMirrorServiceStatusRequest $request
@@ -26330,6 +26816,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - GetVSwitchCidrReservationUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVSwitchCidrReservationUsageResponse
      *
      * @param GetVSwitchCidrReservationUsageRequest $request
@@ -26377,15 +26864,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVSwitchCidrReservationUsage',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVSwitchCidrReservationUsage',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetVSwitchCidrReservationUsageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -26398,6 +26885,7 @@ class Vpc extends OpenApiClient
      * Queries the usage of a prefix list.
      *
      * @param request - GetVSwitchCidrReservationUsageRequest
+     *
      * @returns GetVSwitchCidrReservationUsageResponse
      *
      * @param GetVSwitchCidrReservationUsageRequest $request
@@ -26416,6 +26904,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - GetVpcGatewayEndpointAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVpcGatewayEndpointAttributeResponse
      *
      * @param GetVpcGatewayEndpointAttributeRequest $request
@@ -26455,15 +26944,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVpcGatewayEndpointAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVpcGatewayEndpointAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetVpcGatewayEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -26476,6 +26965,7 @@ class Vpc extends OpenApiClient
      * Queries the attributes of a gateway endpoint.
      *
      * @param request - GetVpcGatewayEndpointAttributeRequest
+     *
      * @returns GetVpcGatewayEndpointAttributeResponse
      *
      * @param GetVpcGatewayEndpointAttributeRequest $request
@@ -26494,6 +26984,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - GetVpcPrefixListAssociationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVpcPrefixListAssociationsResponse
      *
      * @param GetVpcPrefixListAssociationsRequest $request
@@ -26541,15 +27032,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVpcPrefixListAssociations',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVpcPrefixListAssociations',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetVpcPrefixListAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -26562,6 +27053,7 @@ class Vpc extends OpenApiClient
      * Queries the resources that are associated with a prefix list.
      *
      * @param request - GetVpcPrefixListAssociationsRequest
+     *
      * @returns GetVpcPrefixListAssociationsResponse
      *
      * @param GetVpcPrefixListAssociationsRequest $request
@@ -26580,6 +27072,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - GetVpcPrefixListEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVpcPrefixListEntriesResponse
      *
      * @param GetVpcPrefixListEntriesRequest $request
@@ -26627,15 +27120,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVpcPrefixListEntries',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVpcPrefixListEntries',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetVpcPrefixListEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -26648,6 +27141,7 @@ class Vpc extends OpenApiClient
      * Queries the information about a prefix list.
      *
      * @param request - GetVpcPrefixListEntriesRequest
+     *
      * @returns GetVpcPrefixListEntriesResponse
      *
      * @param GetVpcPrefixListEntriesRequest $request
@@ -26666,6 +27160,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - GetVpcRouteEntrySummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVpcRouteEntrySummaryResponse
      *
      * @param GetVpcRouteEntrySummaryRequest $request
@@ -26713,15 +27208,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVpcRouteEntrySummary',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVpcRouteEntrySummary',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetVpcRouteEntrySummaryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -26734,6 +27229,7 @@ class Vpc extends OpenApiClient
      * 查询路由类型的明细。
      *
      * @param request - GetVpcRouteEntrySummaryRequest
+     *
      * @returns GetVpcRouteEntrySummaryResponse
      *
      * @param GetVpcRouteEntrySummaryRequest $request
@@ -26755,6 +27251,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - GetVpnGatewayDiagnoseResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetVpnGatewayDiagnoseResultResponse
      *
      * @param GetVpnGatewayDiagnoseResultRequest $request
@@ -26786,15 +27283,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetVpnGatewayDiagnoseResult',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetVpnGatewayDiagnoseResult',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetVpnGatewayDiagnoseResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -26810,6 +27307,7 @@ class Vpc extends OpenApiClient
      * When you call the **GetVpnGatewayDiagnoseResult** operation, you must specify one of **DiagnoseId** and **VpnGatewayId**.
      *
      * @param request - GetVpnGatewayDiagnoseResultRequest
+     *
      * @returns GetVpnGatewayDiagnoseResultResponse
      *
      * @param GetVpnGatewayDiagnoseResultRequest $request
@@ -26833,6 +27331,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - GrantInstanceToCenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GrantInstanceToCenResponse
      *
      * @param GrantInstanceToCenRequest $request
@@ -26888,15 +27387,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GrantInstanceToCen',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GrantInstanceToCen',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GrantInstanceToCenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -26914,6 +27413,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **GrantInstanceToCen** operation to grant the permissions on a network instance to a CEN instance. The network instance can be a VPC, a virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
      *
      * @param request - GrantInstanceToCenRequest
+     *
      * @returns GrantInstanceToCenResponse
      *
      * @param GrantInstanceToCenRequest $request
@@ -26936,6 +27436,7 @@ class Vpc extends OpenApiClient
      *
      * @param tmpReq - GrantInstanceToVbrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GrantInstanceToVbrResponse
      *
      * @param GrantInstanceToVbrRequest $tmpReq
@@ -26981,15 +27482,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GrantInstanceToVbr',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GrantInstanceToVbr',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GrantInstanceToVbrResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -27006,6 +27507,7 @@ class Vpc extends OpenApiClient
      * When you connect a VBR to a VPC that belongs to another Alibaba Cloud account, the VBR must acquire the required permissions from the VPC.
      *
      * @param request - GrantInstanceToVbrRequest
+     *
      * @returns GrantInstanceToVbrResponse
      *
      * @param GrantInstanceToVbrRequest $request
@@ -27024,6 +27526,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListBusinessAccessPointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListBusinessAccessPointsResponse
      *
      * @param ListBusinessAccessPointsRequest $request
@@ -27047,15 +27550,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListBusinessAccessPoints',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListBusinessAccessPoints',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListBusinessAccessPointsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -27068,6 +27571,7 @@ class Vpc extends OpenApiClient
      * Queries the access points of an Express Connect circuit.
      *
      * @param request - ListBusinessAccessPointsRequest
+     *
      * @returns ListBusinessAccessPointsResponse
      *
      * @param ListBusinessAccessPointsRequest $request
@@ -27086,6 +27590,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListDhcpOptionsSetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDhcpOptionsSetsResponse
      *
      * @param ListDhcpOptionsSetsRequest $request
@@ -27149,15 +27654,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDhcpOptionsSets',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDhcpOptionsSets',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDhcpOptionsSetsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -27170,6 +27675,7 @@ class Vpc extends OpenApiClient
      * Queries Dynamic Host Configuration Protocol (DHCP) options sets.
      *
      * @param request - ListDhcpOptionsSetsRequest
+     *
      * @returns ListDhcpOptionsSetsResponse
      *
      * @param ListDhcpOptionsSetsRequest $request
@@ -27191,6 +27697,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListEnhanhcedNatGatewayAvailableZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListEnhanhcedNatGatewayAvailableZonesResponse
      *
      * @param ListEnhanhcedNatGatewayAvailableZonesRequest $request
@@ -27238,15 +27745,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEnhanhcedNatGatewayAvailableZones',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListEnhanhcedNatGatewayAvailableZones',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListEnhanhcedNatGatewayAvailableZonesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -27262,6 +27769,7 @@ class Vpc extends OpenApiClient
      * You can call this operation to query zones that support NAT gateways, including Internet NAT gateways and Virtual Private Cloud (VPC) NAT gateways.
      *
      * @param request - ListEnhanhcedNatGatewayAvailableZonesRequest
+     *
      * @returns ListEnhanhcedNatGatewayAvailableZonesResponse
      *
      * @param ListEnhanhcedNatGatewayAvailableZonesRequest $request
@@ -27280,6 +27788,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListFullNatEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListFullNatEntriesResponse
      *
      * @param ListFullNatEntriesRequest $request
@@ -27359,15 +27868,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListFullNatEntries',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFullNatEntries',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListFullNatEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -27380,6 +27889,7 @@ class Vpc extends OpenApiClient
      * Queries FULLNAT entries.
      *
      * @param request - ListFullNatEntriesRequest
+     *
      * @returns ListFullNatEntriesResponse
      *
      * @param ListFullNatEntriesRequest $request
@@ -27398,6 +27908,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListGatewayRouteTableEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListGatewayRouteTableEntriesResponse
      *
      * @param ListGatewayRouteTableEntriesRequest $request
@@ -27453,15 +27964,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListGatewayRouteTableEntries',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListGatewayRouteTableEntries',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListGatewayRouteTableEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -27474,6 +27985,7 @@ class Vpc extends OpenApiClient
      * Queries route entries of a gateway route table.
      *
      * @param request - ListGatewayRouteTableEntriesRequest
+     *
      * @returns ListGatewayRouteTableEntriesResponse
      *
      * @param ListGatewayRouteTableEntriesRequest $request
@@ -27492,6 +28004,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListGeographicSubRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListGeographicSubRegionsResponse
      *
      * @param RuntimeOptions $runtime
@@ -27500,17 +28013,17 @@ class Vpc extends OpenApiClient
      */
     public function listGeographicSubRegionsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListGeographicSubRegions',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListGeographicSubRegions',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListGeographicSubRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -27538,6 +28051,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListIpsecServerLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIpsecServerLogsResponse
      *
      * @param ListIpsecServerLogsRequest $request
@@ -27581,15 +28095,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIpsecServerLogs',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIpsecServerLogs',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListIpsecServerLogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -27602,6 +28116,7 @@ class Vpc extends OpenApiClient
      * Queries the logs of an IPsec server.
      *
      * @param request - ListIpsecServerLogsRequest
+     *
      * @returns ListIpsecServerLogsResponse
      *
      * @param ListIpsecServerLogsRequest $request
@@ -27620,6 +28135,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListIpsecServersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIpsecServersResponse
      *
      * @param ListIpsecServersRequest $request
@@ -27663,15 +28179,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIpsecServers',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIpsecServers',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListIpsecServersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -27684,6 +28200,7 @@ class Vpc extends OpenApiClient
      * Queries IPsec servers.
      *
      * @param request - ListIpsecServersRequest
+     *
      * @returns ListIpsecServersResponse
      *
      * @param ListIpsecServersRequest $request
@@ -27702,6 +28219,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListIpv4GatewaysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListIpv4GatewaysResponse
      *
      * @param ListIpv4GatewaysRequest $request
@@ -27769,15 +28287,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListIpv4Gateways',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListIpv4Gateways',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListIpv4GatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -27790,6 +28308,7 @@ class Vpc extends OpenApiClient
      * Queries IPv4 gateways.
      *
      * @param request - ListIpv4GatewaysRequest
+     *
      * @returns ListIpv4GatewaysResponse
      *
      * @param ListIpv4GatewaysRequest $request
@@ -27808,6 +28327,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListNatIpCidrsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListNatIpCidrsResponse
      *
      * @param ListNatIpCidrsRequest $request
@@ -27883,15 +28403,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListNatIpCidrs',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNatIpCidrs',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListNatIpCidrsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -27904,6 +28424,7 @@ class Vpc extends OpenApiClient
      * Queries the CIDR blocks of a specified NAT gateway.
      *
      * @param request - ListNatIpCidrsRequest
+     *
      * @returns ListNatIpCidrsResponse
      *
      * @param ListNatIpCidrsRequest $request
@@ -27922,6 +28443,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListNatIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListNatIpsResponse
      *
      * @param ListNatIpsRequest $request
@@ -27997,15 +28519,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListNatIps',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNatIps',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListNatIpsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -28018,6 +28540,7 @@ class Vpc extends OpenApiClient
      * Queries the IP addresses on a NAT gateway.
      *
      * @param request - ListNatIpsRequest
+     *
      * @returns ListNatIpsResponse
      *
      * @param ListNatIpsRequest $request
@@ -28036,6 +28559,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListPrefixListsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPrefixListsResponse
      *
      * @param ListPrefixListsRequest $request
@@ -28095,15 +28619,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPrefixLists',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPrefixLists',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListPrefixListsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -28116,6 +28640,7 @@ class Vpc extends OpenApiClient
      * Queries prefix lists.
      *
      * @param request - ListPrefixListsRequest
+     *
      * @returns ListPrefixListsResponse
      *
      * @param ListPrefixListsRequest $request
@@ -28132,6 +28657,7 @@ class Vpc extends OpenApiClient
     /**
      * @param request - ListPublicIpAddressPoolCidrBlocksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPublicIpAddressPoolCidrBlocksResponse
      *
      * @param ListPublicIpAddressPoolCidrBlocksRequest $request
@@ -28187,15 +28713,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPublicIpAddressPoolCidrBlocks',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPublicIpAddressPoolCidrBlocks',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListPublicIpAddressPoolCidrBlocksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -28206,6 +28732,7 @@ class Vpc extends OpenApiClient
 
     /**
      * @param request - ListPublicIpAddressPoolCidrBlocksRequest
+     *
      * @returns ListPublicIpAddressPoolCidrBlocksResponse
      *
      * @param ListPublicIpAddressPoolCidrBlocksRequest $request
@@ -28224,6 +28751,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListPublicIpAddressPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPublicIpAddressPoolsResponse
      *
      * @param ListPublicIpAddressPoolsRequest $request
@@ -28299,15 +28827,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPublicIpAddressPools',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPublicIpAddressPools',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListPublicIpAddressPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -28320,6 +28848,7 @@ class Vpc extends OpenApiClient
      * Queries available IP address pools.
      *
      * @param request - ListPublicIpAddressPoolsRequest
+     *
      * @returns ListPublicIpAddressPoolsResponse
      *
      * @param ListPublicIpAddressPoolsRequest $request
@@ -28345,6 +28874,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -28400,15 +28930,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -28428,6 +28958,7 @@ class Vpc extends OpenApiClient
      * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -28453,6 +28984,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListTagResourcesForExpressConnectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesForExpressConnectResponse
      *
      * @param ListTagResourcesForExpressConnectRequest $request
@@ -28508,15 +29040,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResourcesForExpressConnect',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResourcesForExpressConnect',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagResourcesForExpressConnectResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -28536,6 +29068,7 @@ class Vpc extends OpenApiClient
      * *   If you specify multiple key-value pairs, resources that contain these key-value pairs are returned.
      *
      * @param request - ListTagResourcesForExpressConnectRequest
+     *
      * @returns ListTagResourcesForExpressConnectResponse
      *
      * @param ListTagResourcesForExpressConnectRequest $request
@@ -28554,6 +29087,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListTrafficMirrorFiltersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTrafficMirrorFiltersResponse
      *
      * @param ListTrafficMirrorFiltersRequest $request
@@ -28613,15 +29147,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTrafficMirrorFilters',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTrafficMirrorFilters',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTrafficMirrorFiltersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -28634,6 +29168,7 @@ class Vpc extends OpenApiClient
      * Queries filters for traffic mirroring.
      *
      * @param request - ListTrafficMirrorFiltersRequest
+     *
      * @returns ListTrafficMirrorFiltersResponse
      *
      * @param ListTrafficMirrorFiltersRequest $request
@@ -28652,6 +29187,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListTrafficMirrorSessionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTrafficMirrorSessionsResponse
      *
      * @param ListTrafficMirrorSessionsRequest $request
@@ -28735,15 +29271,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTrafficMirrorSessions',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTrafficMirrorSessions',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTrafficMirrorSessionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -28756,6 +29292,7 @@ class Vpc extends OpenApiClient
      * Queries the details of a traffic mirror session.
      *
      * @param request - ListTrafficMirrorSessionsRequest
+     *
      * @returns ListTrafficMirrorSessionsResponse
      *
      * @param ListTrafficMirrorSessionsRequest $request
@@ -28774,6 +29311,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListVSwitchCidrReservationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVSwitchCidrReservationsResponse
      *
      * @param ListVSwitchCidrReservationsRequest $request
@@ -28837,15 +29375,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVSwitchCidrReservations',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVSwitchCidrReservations',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVSwitchCidrReservationsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -28858,6 +29396,7 @@ class Vpc extends OpenApiClient
      * Queries the CIDR reservation information about vSwitches.
      *
      * @param request - ListVSwitchCidrReservationsRequest
+     *
      * @returns ListVSwitchCidrReservationsResponse
      *
      * @param ListVSwitchCidrReservationsRequest $request
@@ -28876,6 +29415,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListVirtualPhysicalConnectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVirtualPhysicalConnectionsResponse
      *
      * @param ListVirtualPhysicalConnectionsRequest $request
@@ -28939,15 +29479,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVirtualPhysicalConnections',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVirtualPhysicalConnections',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVirtualPhysicalConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -28960,6 +29500,7 @@ class Vpc extends OpenApiClient
      * Queries hosted connections.
      *
      * @param request - ListVirtualPhysicalConnectionsRequest
+     *
      * @returns ListVirtualPhysicalConnectionsResponse
      *
      * @param ListVirtualPhysicalConnectionsRequest $request
@@ -28978,6 +29519,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListVpcEndpointServicesByEndUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVpcEndpointServicesByEndUserResponse
      *
      * @param ListVpcEndpointServicesByEndUserRequest $request
@@ -29025,15 +29567,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVpcEndpointServicesByEndUser',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVpcEndpointServicesByEndUser',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVpcEndpointServicesByEndUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -29046,6 +29588,7 @@ class Vpc extends OpenApiClient
      * Queries available endpoint services.
      *
      * @param request - ListVpcEndpointServicesByEndUserRequest
+     *
      * @returns ListVpcEndpointServicesByEndUserResponse
      *
      * @param ListVpcEndpointServicesByEndUserRequest $request
@@ -29064,6 +29607,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListVpcGatewayEndpointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVpcGatewayEndpointsResponse
      *
      * @param ListVpcGatewayEndpointsRequest $request
@@ -29127,15 +29671,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVpcGatewayEndpoints',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVpcGatewayEndpoints',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVpcGatewayEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -29148,6 +29692,7 @@ class Vpc extends OpenApiClient
      * Queries gateway endpoints.
      *
      * @param request - ListVpcGatewayEndpointsRequest
+     *
      * @returns ListVpcGatewayEndpointsResponse
      *
      * @param ListVpcGatewayEndpointsRequest $request
@@ -29166,6 +29711,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListVpcPublishedRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVpcPublishedRouteEntriesResponse
      *
      * @param ListVpcPublishedRouteEntriesRequest $request
@@ -29229,15 +29775,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVpcPublishedRouteEntries',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVpcPublishedRouteEntries',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVpcPublishedRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -29250,6 +29796,7 @@ class Vpc extends OpenApiClient
      * 查询路由发布情况.
      *
      * @param request - ListVpcPublishedRouteEntriesRequest
+     *
      * @returns ListVpcPublishedRouteEntriesResponse
      *
      * @param ListVpcPublishedRouteEntriesRequest $request
@@ -29275,6 +29822,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ListVpnCertificateAssociationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVpnCertificateAssociationsResponse
      *
      * @param ListVpnCertificateAssociationsRequest $request
@@ -29314,15 +29862,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVpnCertificateAssociations',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListVpnCertificateAssociations',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVpnCertificateAssociationsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -29342,6 +29890,7 @@ class Vpc extends OpenApiClient
      * *   If you specify **RegionId** and **CertificateId**, the VPN gateways associated with the specified SSL certificate in the specified region are queried.
      *
      * @param request - ListVpnCertificateAssociationsRequest
+     *
      * @returns ListVpnCertificateAssociationsResponse
      *
      * @param ListVpnCertificateAssociationsRequest $request
@@ -29360,6 +29909,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyBgpGroupAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyBgpGroupAttributeResponse
      *
      * @param ModifyBgpGroupAttributeRequest $request
@@ -29435,15 +29985,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBgpGroupAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBgpGroupAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyBgpGroupAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -29456,6 +30006,7 @@ class Vpc extends OpenApiClient
      * Modifies the configuration of a Border Gateway Protocol (BGP) group.
      *
      * @param request - ModifyBgpGroupAttributeRequest
+     *
      * @returns ModifyBgpGroupAttributeResponse
      *
      * @param ModifyBgpGroupAttributeRequest $request
@@ -29474,6 +30025,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyBgpPeerAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyBgpPeerAttributeResponse
      *
      * @param ModifyBgpPeerAttributeRequest $request
@@ -29533,15 +30085,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBgpPeerAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBgpPeerAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyBgpPeerAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -29554,6 +30106,7 @@ class Vpc extends OpenApiClient
      * Modifies the configuration of a BGP peer.
      *
      * @param request - ModifyBgpPeerAttributeRequest
+     *
      * @returns ModifyBgpPeerAttributeResponse
      *
      * @param ModifyBgpPeerAttributeRequest $request
@@ -29572,6 +30125,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyCommonBandwidthPackageAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyCommonBandwidthPackageAttributeResponse
      *
      * @param ModifyCommonBandwidthPackageAttributeRequest $request
@@ -29619,15 +30173,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCommonBandwidthPackageAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCommonBandwidthPackageAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyCommonBandwidthPackageAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -29640,6 +30194,7 @@ class Vpc extends OpenApiClient
      * Modifies the name and description of an EIP bandwidth plan.
      *
      * @param request - ModifyCommonBandwidthPackageAttributeRequest
+     *
      * @returns ModifyCommonBandwidthPackageAttributeResponse
      *
      * @param ModifyCommonBandwidthPackageAttributeRequest $request
@@ -29666,6 +30221,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyCommonBandwidthPackageIpBandwidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyCommonBandwidthPackageIpBandwidthResponse
      *
      * @param ModifyCommonBandwidthPackageIpBandwidthRequest $request
@@ -29713,15 +30269,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCommonBandwidthPackageIpBandwidth',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCommonBandwidthPackageIpBandwidth',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyCommonBandwidthPackageIpBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -29742,6 +30298,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call this operation to set the maximum bandwidth of an EIP within the specified period of time.
      *
      * @param request - ModifyCommonBandwidthPackageIpBandwidthRequest
+     *
      * @returns ModifyCommonBandwidthPackageIpBandwidthResponse
      *
      * @param ModifyCommonBandwidthPackageIpBandwidthRequest $request
@@ -29767,6 +30324,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyCommonBandwidthPackageSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyCommonBandwidthPackageSpecResponse
      *
      * @param ModifyCommonBandwidthPackageSpecRequest $request
@@ -29810,15 +30368,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCommonBandwidthPackageSpec',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCommonBandwidthPackageSpec',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyCommonBandwidthPackageSpecResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -29838,6 +30396,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **ModifyCommonBandwidthPackageSpec** operation to modify the maximum bandwidth of an Internet Shared Bandwidth instance within the specified period of time.
      *
      * @param request - ModifyCommonBandwidthPackageSpecRequest
+     *
      * @returns ModifyCommonBandwidthPackageSpecResponse
      *
      * @param ModifyCommonBandwidthPackageSpecRequest $request
@@ -29863,6 +30422,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyCustomerGatewayAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyCustomerGatewayAttributeResponse
      *
      * @param ModifyCustomerGatewayAttributeRequest $request
@@ -29918,15 +30478,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCustomerGatewayAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCustomerGatewayAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyCustomerGatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -29946,6 +30506,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call **ModifyCustomerGatewayAttribute** to modify the configurations of a customer gateway within the specified period of time.
      *
      * @param request - ModifyCustomerGatewayAttributeRequest
+     *
      * @returns ModifyCustomerGatewayAttributeResponse
      *
      * @param ModifyCustomerGatewayAttributeRequest $request
@@ -29964,6 +30525,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyEipAddressAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyEipAddressAttributeResponse
      *
      * @param ModifyEipAddressAttributeRequest $request
@@ -30015,15 +30577,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyEipAddressAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyEipAddressAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyEipAddressAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -30036,6 +30598,7 @@ class Vpc extends OpenApiClient
      * Modifies the name, description, and maximum bandwidth of an elastic IP address (EIP).
      *
      * @param request - ModifyEipAddressAttributeRequest
+     *
      * @returns ModifyEipAddressAttributeResponse
      *
      * @param ModifyEipAddressAttributeRequest $request
@@ -30054,6 +30617,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyEipForwardModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyEipForwardModeResponse
      *
      * @param ModifyEipForwardModeRequest $request
@@ -30101,15 +30665,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyEipForwardMode',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyEipForwardMode',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyEipForwardModeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -30122,6 +30686,7 @@ class Vpc extends OpenApiClient
      * Modifies the EIP forwarding mode.
      *
      * @param request - ModifyEipForwardModeRequest
+     *
      * @returns ModifyEipForwardModeResponse
      *
      * @param ModifyEipForwardModeRequest $request
@@ -30140,6 +30705,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyExpressCloudConnectionAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyExpressCloudConnectionAttributeResponse
      *
      * @param ModifyExpressCloudConnectionAttributeRequest $request
@@ -30199,15 +30765,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyExpressCloudConnectionAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyExpressCloudConnectionAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyExpressCloudConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -30220,6 +30786,7 @@ class Vpc extends OpenApiClient
      * Modifies the configuration of an Express Cloud Connect (ECC) instance.
      *
      * @param request - ModifyExpressCloudConnectionAttributeRequest
+     *
      * @returns ModifyExpressCloudConnectionAttributeResponse
      *
      * @param ModifyExpressCloudConnectionAttributeRequest $request
@@ -30238,6 +30805,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyExpressCloudConnectionBandwidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyExpressCloudConnectionBandwidthResponse
      *
      * @param ModifyExpressCloudConnectionBandwidthRequest $request
@@ -30281,15 +30849,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyExpressCloudConnectionBandwidth',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyExpressCloudConnectionBandwidth',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyExpressCloudConnectionBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -30302,6 +30870,7 @@ class Vpc extends OpenApiClient
      * Modifies the bandwidth of an Express Cloud Connect (ECC) instance.
      *
      * @param request - ModifyExpressCloudConnectionBandwidthRequest
+     *
      * @returns ModifyExpressCloudConnectionBandwidthResponse
      *
      * @param ModifyExpressCloudConnectionBandwidthRequest $request
@@ -30320,6 +30889,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyExpressConnectTrafficQosRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyExpressConnectTrafficQosResponse
      *
      * @param ModifyExpressConnectTrafficQosRequest $request
@@ -30379,15 +30949,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyExpressConnectTrafficQos',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyExpressConnectTrafficQos',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyExpressConnectTrafficQosResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -30400,6 +30970,7 @@ class Vpc extends OpenApiClient
      * Modifies a quality of service (QoS) policy or associates a QoS policy with a dedicated Express Connect circuit.
      *
      * @param request - ModifyExpressConnectTrafficQosRequest
+     *
      * @returns ModifyExpressConnectTrafficQosResponse
      *
      * @param ModifyExpressConnectTrafficQosRequest $request
@@ -30418,6 +30989,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyExpressConnectTrafficQosQueueRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyExpressConnectTrafficQosQueueResponse
      *
      * @param ModifyExpressConnectTrafficQosQueueRequest $request
@@ -30477,15 +31049,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyExpressConnectTrafficQosQueue',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyExpressConnectTrafficQosQueue',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyExpressConnectTrafficQosQueueResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -30498,6 +31070,7 @@ class Vpc extends OpenApiClient
      * Modifies a quality of service (QoS) queue.
      *
      * @param request - ModifyExpressConnectTrafficQosQueueRequest
+     *
      * @returns ModifyExpressConnectTrafficQosQueueResponse
      *
      * @param ModifyExpressConnectTrafficQosQueueRequest $request
@@ -30516,6 +31089,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyExpressConnectTrafficQosRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyExpressConnectTrafficQosRuleResponse
      *
      * @param ModifyExpressConnectTrafficQosRuleRequest $request
@@ -30615,15 +31189,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyExpressConnectTrafficQosRule',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyExpressConnectTrafficQosRule',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyExpressConnectTrafficQosRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -30636,6 +31210,7 @@ class Vpc extends OpenApiClient
      * Modifies a quality of service (QoS) rule.
      *
      * @param request - ModifyExpressConnectTrafficQosRuleRequest
+     *
      * @returns ModifyExpressConnectTrafficQosRuleResponse
      *
      * @param ModifyExpressConnectTrafficQosRuleRequest $request
@@ -30660,6 +31235,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyFlowLogAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyFlowLogAttributeResponse
      *
      * @param ModifyFlowLogAttributeRequest $request
@@ -30715,15 +31291,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyFlowLogAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyFlowLogAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyFlowLogAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -30742,6 +31318,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **ModifyFlowLogAttribute** operation to modify a flow log within the specified period of time.
      *
      * @param request - ModifyFlowLogAttributeRequest
+     *
      * @returns ModifyFlowLogAttributeResponse
      *
      * @param ModifyFlowLogAttributeRequest $request
@@ -30766,6 +31343,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyForwardEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyForwardEntryResponse
      *
      * @param ModifyForwardEntryRequest $request
@@ -30845,15 +31423,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyForwardEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyForwardEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyForwardEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -30872,6 +31450,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **ModifyForwardEntry** operation to modify a DNAT entry within the specified period of time.
      *
      * @param request - ModifyForwardEntryRequest
+     *
      * @returns ModifyForwardEntryResponse
      *
      * @param ModifyForwardEntryRequest $request
@@ -30897,6 +31476,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyFullNatEntryAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyFullNatEntryAttributeResponse
      *
      * @param ModifyFullNatEntryAttributeRequest $request
@@ -30980,15 +31560,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyFullNatEntryAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyFullNatEntryAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyFullNatEntryAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -31008,6 +31588,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **ModifyFullNatEntryAttribute** operation to modify a FULLNAT entry within the specified period of time.
      *
      * @param request - ModifyFullNatEntryAttributeRequest
+     *
      * @returns ModifyFullNatEntryAttributeResponse
      *
      * @param ModifyFullNatEntryAttributeRequest $request
@@ -31026,6 +31607,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyGlobalAccelerationInstanceAttributesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyGlobalAccelerationInstanceAttributesResponse
      *
      * @param ModifyGlobalAccelerationInstanceAttributesRequest $request
@@ -31073,15 +31655,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyGlobalAccelerationInstanceAttributes',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyGlobalAccelerationInstanceAttributes',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyGlobalAccelerationInstanceAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -31094,6 +31676,7 @@ class Vpc extends OpenApiClient
      * Modifies the name and description of a Global Accelerator (GA) instance.
      *
      * @param request - ModifyGlobalAccelerationInstanceAttributesRequest
+     *
      * @returns ModifyGlobalAccelerationInstanceAttributesResponse
      *
      * @param ModifyGlobalAccelerationInstanceAttributesRequest $request
@@ -31116,6 +31699,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyGlobalAccelerationInstanceSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyGlobalAccelerationInstanceSpecResponse
      *
      * @param ModifyGlobalAccelerationInstanceSpecRequest $request
@@ -31159,15 +31743,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyGlobalAccelerationInstanceSpec',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyGlobalAccelerationInstanceSpec',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyGlobalAccelerationInstanceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -31184,6 +31768,7 @@ class Vpc extends OpenApiClient
      * You cannot call this operation to modify the maximum bandwidth of a subscription GA instance.
      *
      * @param request - ModifyGlobalAccelerationInstanceSpecRequest
+     *
      * @returns ModifyGlobalAccelerationInstanceSpecResponse
      *
      * @param ModifyGlobalAccelerationInstanceSpecRequest $request
@@ -31203,6 +31788,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyHaVipAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyHaVipAttributeResponse
      *
      * @param ModifyHaVipAttributeRequest $request
@@ -31254,15 +31840,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHaVipAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHaVipAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyHaVipAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -31276,6 +31862,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **ModifyHaVipAttribute** operation to modify the name and description of an HAVIP within the specified periods of time.
      *
      * @param request - ModifyHaVipAttributeRequest
+     *
      * @returns ModifyHaVipAttributeResponse
      *
      * @param ModifyHaVipAttributeRequest $request
@@ -31290,7 +31877,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Modifies the name of an access control list (ACL).
      *
@@ -31298,6 +31884,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyIPv6TranslatorAclAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyIPv6TranslatorAclAttributeResponse
      *
      * @param ModifyIPv6TranslatorAclAttributeRequest $request
@@ -31345,15 +31932,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyIPv6TranslatorAclAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyIPv6TranslatorAclAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyIPv6TranslatorAclAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -31363,13 +31950,13 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Modifies the name of an access control list (ACL).
      *
      * @deprecated OpenAPI ModifyIPv6TranslatorAclAttribute is deprecated
      *
      * @param request - ModifyIPv6TranslatorAclAttributeRequest
+     *
      * @returns ModifyIPv6TranslatorAclAttributeResponse
      *
      * @param ModifyIPv6TranslatorAclAttributeRequest $request
@@ -31388,6 +31975,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyIPv6TranslatorAclListEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyIPv6TranslatorAclListEntryResponse
      *
      * @param ModifyIPv6TranslatorAclListEntryRequest $request
@@ -31435,15 +32023,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyIPv6TranslatorAclListEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyIPv6TranslatorAclListEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyIPv6TranslatorAclListEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -31456,6 +32044,7 @@ class Vpc extends OpenApiClient
      * Modifies an IP entry in an access control list (ACL).
      *
      * @param request - ModifyIPv6TranslatorAclListEntryRequest
+     *
      * @returns ModifyIPv6TranslatorAclListEntryResponse
      *
      * @param ModifyIPv6TranslatorAclListEntryRequest $request
@@ -31474,6 +32063,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyIPv6TranslatorAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyIPv6TranslatorAttributeResponse
      *
      * @param ModifyIPv6TranslatorAttributeRequest $request
@@ -31525,15 +32115,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyIPv6TranslatorAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyIPv6TranslatorAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyIPv6TranslatorAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -31546,6 +32136,7 @@ class Vpc extends OpenApiClient
      * Modifies the name and description of an IPv6 Translation Service instance.
      *
      * @param request - ModifyIPv6TranslatorAttributeRequest
+     *
      * @returns ModifyIPv6TranslatorAttributeResponse
      *
      * @param ModifyIPv6TranslatorAttributeRequest $request
@@ -31564,6 +32155,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyIPv6TranslatorBandwidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyIPv6TranslatorBandwidthResponse
      *
      * @param ModifyIPv6TranslatorBandwidthRequest $request
@@ -31615,15 +32207,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyIPv6TranslatorBandwidth',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyIPv6TranslatorBandwidth',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyIPv6TranslatorBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -31636,6 +32228,7 @@ class Vpc extends OpenApiClient
      * Modifies the maximum bandwidth of an IPv6 Translation Service instance.
      *
      * @param request - ModifyIPv6TranslatorBandwidthRequest
+     *
      * @returns ModifyIPv6TranslatorBandwidthResponse
      *
      * @param ModifyIPv6TranslatorBandwidthRequest $request
@@ -31650,7 +32243,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Modifies an IPv6 mapping entry.
      *
@@ -31658,6 +32250,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyIPv6TranslatorEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyIPv6TranslatorEntryResponse
      *
      * @param ModifyIPv6TranslatorEntryRequest $request
@@ -31737,15 +32330,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyIPv6TranslatorEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyIPv6TranslatorEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyIPv6TranslatorEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -31755,13 +32348,13 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Modifies an IPv6 mapping entry.
      *
      * @deprecated OpenAPI ModifyIPv6TranslatorEntry is deprecated
      *
      * @param request - ModifyIPv6TranslatorEntryRequest
+     *
      * @returns ModifyIPv6TranslatorEntryResponse
      *
      * @param ModifyIPv6TranslatorEntryRequest $request
@@ -31780,6 +32373,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyIpv6AddressAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyIpv6AddressAttributeResponse
      *
      * @param ModifyIpv6AddressAttributeRequest $request
@@ -31839,15 +32433,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyIpv6AddressAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyIpv6AddressAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyIpv6AddressAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -31860,6 +32454,7 @@ class Vpc extends OpenApiClient
      * Modifies the name and description of an IPv6 address.
      *
      * @param request - ModifyIpv6AddressAttributeRequest
+     *
      * @returns ModifyIpv6AddressAttributeResponse
      *
      * @param ModifyIpv6AddressAttributeRequest $request
@@ -31878,6 +32473,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyIpv6GatewayAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyIpv6GatewayAttributeResponse
      *
      * @param ModifyIpv6GatewayAttributeRequest $request
@@ -31937,15 +32533,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyIpv6GatewayAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyIpv6GatewayAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyIpv6GatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -31958,6 +32554,7 @@ class Vpc extends OpenApiClient
      * Modifies the name and description of an IPv6 gateway.
      *
      * @param request - ModifyIpv6GatewayAttributeRequest
+     *
      * @returns ModifyIpv6GatewayAttributeResponse
      *
      * @param ModifyIpv6GatewayAttributeRequest $request
@@ -31979,6 +32576,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyIpv6InternetBandwidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyIpv6InternetBandwidthResponse
      *
      * @param ModifyIpv6InternetBandwidthRequest $request
@@ -32042,15 +32640,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyIpv6InternetBandwidth',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyIpv6InternetBandwidth',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyIpv6InternetBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -32066,6 +32664,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **ModifyIpv6InternetBandwidth** operation to modify the Internet bandwidth value of an IPv6 CIDR block within the specified period of time.
      *
      * @param request - ModifyIpv6InternetBandwidthRequest
+     *
      * @returns ModifyIpv6InternetBandwidthResponse
      *
      * @param ModifyIpv6InternetBandwidthRequest $request
@@ -32088,6 +32687,7 @@ class Vpc extends OpenApiClient
      *
      * @param tmpReq - ModifyNatGatewayAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyNatGatewayAttributeResponse
      *
      * @param ModifyNatGatewayAttributeRequest $tmpReq
@@ -32157,15 +32757,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyNatGatewayAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyNatGatewayAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyNatGatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -32182,6 +32782,7 @@ class Vpc extends OpenApiClient
      * You can call this operation to query an Internet NAT gateway or a virtual private cloud (VPC) NAT gateway. The term NAT gateway in this topic refers to both NAT gateway types.
      *
      * @param request - ModifyNatGatewayAttributeRequest
+     *
      * @returns ModifyNatGatewayAttributeResponse
      *
      * @param ModifyNatGatewayAttributeRequest $request
@@ -32213,6 +32814,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyNatGatewaySpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyNatGatewaySpecResponse
      *
      * @param ModifyNatGatewaySpecRequest $request
@@ -32264,15 +32866,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyNatGatewaySpec',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyNatGatewaySpec',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyNatGatewaySpecResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -32298,6 +32900,7 @@ class Vpc extends OpenApiClient
      * | Large | 200,000 | 10,000 |
      *
      * @param request - ModifyNatGatewaySpecRequest
+     *
      * @returns ModifyNatGatewaySpecResponse
      *
      * @param ModifyNatGatewaySpecRequest $request
@@ -32320,6 +32923,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyNatIpAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyNatIpAttributeResponse
      *
      * @param ModifyNatIpAttributeRequest $request
@@ -32379,15 +32983,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyNatIpAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyNatIpAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyNatIpAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -32404,6 +33008,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **ModifyNatIpAttribute** operation to modify the name and description of a NAT IP address within the specified period of time.
      *
      * @param request - ModifyNatIpAttributeRequest
+     *
      * @returns ModifyNatIpAttributeResponse
      *
      * @param ModifyNatIpAttributeRequest $request
@@ -32422,6 +33027,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyNatIpCidrAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyNatIpCidrAttributeResponse
      *
      * @param ModifyNatIpCidrAttributeRequest $request
@@ -32485,15 +33091,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyNatIpCidrAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyNatIpCidrAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyNatIpCidrAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -32506,6 +33112,7 @@ class Vpc extends OpenApiClient
      * Modifies the name and description of a NAT CIDR block.
      *
      * @param request - ModifyNatIpCidrAttributeRequest
+     *
      * @returns ModifyNatIpCidrAttributeResponse
      *
      * @param ModifyNatIpCidrAttributeRequest $request
@@ -32524,6 +33131,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyNetworkAclAttributesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyNetworkAclAttributesResponse
      *
      * @param ModifyNetworkAclAttributesRequest $request
@@ -32583,15 +33191,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyNetworkAclAttributes',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyNetworkAclAttributes',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyNetworkAclAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -32604,6 +33212,7 @@ class Vpc extends OpenApiClient
      * Modifies the attributes of a network access control list (ACL).
      *
      * @param request - ModifyNetworkAclAttributesRequest
+     *
      * @returns ModifyNetworkAclAttributesResponse
      *
      * @param ModifyNetworkAclAttributesRequest $request
@@ -32628,6 +33237,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyPhysicalConnectionAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyPhysicalConnectionAttributeResponse
      *
      * @param ModifyPhysicalConnectionAttributeRequest $request
@@ -32707,15 +33317,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPhysicalConnectionAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPhysicalConnectionAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyPhysicalConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -32734,6 +33344,7 @@ class Vpc extends OpenApiClient
      * *   After you modify the specifications of an Express Connect circuit that is in the **Rejected** state, the Express Connect circuit enters the **Initial** state.
      *
      * @param request - ModifyPhysicalConnectionAttributeRequest
+     *
      * @returns ModifyPhysicalConnectionAttributeResponse
      *
      * @param ModifyPhysicalConnectionAttributeRequest $request
@@ -32755,6 +33366,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyRouteEntryResponse
      *
      * @param ModifyRouteEntryRequest $request
@@ -32818,15 +33430,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyRouteEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyRouteEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -32842,6 +33454,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **ModifyRouteEntry** operation to modify the name and description of a custom route within the specified period of time.
      *
      * @param request - ModifyRouteEntryRequest
+     *
      * @returns ModifyRouteEntryResponse
      *
      * @param ModifyRouteEntryRequest $request
@@ -32863,6 +33476,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyRouteTableAttributesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyRouteTableAttributesResponse
      *
      * @param ModifyRouteTableAttributesRequest $request
@@ -32914,15 +33528,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyRouteTableAttributes',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyRouteTableAttributes',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyRouteTableAttributesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -32938,6 +33552,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **ModifyRouteTableAttributes** operation to modify the name and description of a route table within the specified period of time.
      *
      * @param request - ModifyRouteTableAttributesRequest
+     *
      * @returns ModifyRouteTableAttributesResponse
      *
      * @param ModifyRouteTableAttributesRequest $request
@@ -32956,6 +33571,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyRouterInterfaceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyRouterInterfaceAttributeResponse
      *
      * @param ModifyRouterInterfaceAttributeRequest $request
@@ -33035,15 +33651,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyRouterInterfaceAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyRouterInterfaceAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyRouterInterfaceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -33056,6 +33672,7 @@ class Vpc extends OpenApiClient
      * Modifies the configuration of a router interface.
      *
      * @param request - ModifyRouterInterfaceAttributeRequest
+     *
      * @returns ModifyRouterInterfaceAttributeResponse
      *
      * @param ModifyRouterInterfaceAttributeRequest $request
@@ -33078,6 +33695,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyRouterInterfaceSpecRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyRouterInterfaceSpecResponse
      *
      * @param ModifyRouterInterfaceSpecRequest $request
@@ -33125,15 +33743,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyRouterInterfaceSpec',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyRouterInterfaceSpec',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyRouterInterfaceSpecResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -33150,6 +33768,7 @@ class Vpc extends OpenApiClient
      * >  You cannot modify the specification of a router interface that has overdue payments.
      *
      * @param request - ModifyRouterInterfaceSpecRequest
+     *
      * @returns ModifyRouterInterfaceSpecResponse
      *
      * @param ModifyRouterInterfaceSpecRequest $request
@@ -33176,6 +33795,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifySnatEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifySnatEntryResponse
      *
      * @param ModifySnatEntryRequest $request
@@ -33243,15 +33863,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySnatEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySnatEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifySnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -33272,6 +33892,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **ModifySnatEntry** operation to modify an SNAT entry within a specific period of time.
      *
      * @param request - ModifySnatEntryRequest
+     *
      * @returns ModifySnatEntryResponse
      *
      * @param ModifySnatEntryRequest $request
@@ -33290,6 +33911,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifySslVpnClientCertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifySslVpnClientCertResponse
      *
      * @param ModifySslVpnClientCertRequest $request
@@ -33337,15 +33959,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySslVpnClientCert',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySslVpnClientCert',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifySslVpnClientCertResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -33358,6 +33980,7 @@ class Vpc extends OpenApiClient
      * Modifies the name of an SSL-VPN client certificate.
      *
      * @param request - ModifySslVpnClientCertRequest
+     *
      * @returns ModifySslVpnClientCertResponse
      *
      * @param ModifySslVpnClientCertRequest $request
@@ -33384,6 +34007,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifySslVpnServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifySslVpnServerResponse
      *
      * @param ModifySslVpnServerRequest $request
@@ -33471,15 +34095,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySslVpnServer',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySslVpnServer',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifySslVpnServerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -33500,6 +34124,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call **ModifySslVpnServer** within the specified period of time.
      *
      * @param request - ModifySslVpnServerRequest
+     *
      * @returns ModifySslVpnServerResponse
      *
      * @param ModifySslVpnServerRequest $request
@@ -33518,6 +34143,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyTunnelAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyTunnelAttributeResponse
      *
      * @param ModifyTunnelAttributeRequest $request
@@ -33569,15 +34195,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyTunnelAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyTunnelAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyTunnelAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -33590,6 +34216,7 @@ class Vpc extends OpenApiClient
      * Modifies a VPN tunnel.
      *
      * @param request - ModifyTunnelAttributeRequest
+     *
      * @returns ModifyTunnelAttributeResponse
      *
      * @param ModifyTunnelAttributeRequest $request
@@ -33611,6 +34238,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyVRouterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyVRouterAttributeResponse
      *
      * @param ModifyVRouterAttributeRequest $request
@@ -33658,15 +34286,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVRouterAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVRouterAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyVRouterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -33682,6 +34310,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **ModifyVRouterAttribute** operation within a specific period of time.
      *
      * @param request - ModifyVRouterAttributeRequest
+     *
      * @returns ModifyVRouterAttributeResponse
      *
      * @param ModifyVRouterAttributeRequest $request
@@ -33706,6 +34335,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyVSwitchAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyVSwitchAttributeResponse
      *
      * @param ModifyVSwitchAttributeRequest $request
@@ -33765,15 +34395,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVSwitchAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVSwitchAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyVSwitchAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -33792,6 +34422,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **ModifyVSwitchAttribute** operation to modify the name and description of a vSwitch within the specified period of time.
      *
      * @param request - ModifyVSwitchAttributeRequest
+     *
      * @returns ModifyVSwitchAttributeResponse
      *
      * @param ModifyVSwitchAttributeRequest $request
@@ -33814,6 +34445,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyVSwitchCidrReservationAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyVSwitchCidrReservationAttributeResponse
      *
      * @param ModifyVSwitchCidrReservationAttributeRequest $request
@@ -33869,15 +34501,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVSwitchCidrReservationAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVSwitchCidrReservationAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyVSwitchCidrReservationAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -33894,6 +34526,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call **ModifyVSwitchCidrReservationAttribute** within a specific time period.
      *
      * @param request - ModifyVSwitchCidrReservationAttributeRequest
+     *
      * @returns ModifyVSwitchCidrReservationAttributeResponse
      *
      * @param ModifyVSwitchCidrReservationAttributeRequest $request
@@ -33918,6 +34551,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyVcoRouteEntryWeightRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyVcoRouteEntryWeightResponse
      *
      * @param ModifyVcoRouteEntryWeightRequest $request
@@ -33977,15 +34611,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVcoRouteEntryWeight',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVcoRouteEntryWeight',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyVcoRouteEntryWeightResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -34004,6 +34638,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **ModifyVcoRouteEntryWeight** operation for the same IPsec-VPN connection within the specified period of time.
      *
      * @param request - ModifyVcoRouteEntryWeightRequest
+     *
      * @returns ModifyVcoRouteEntryWeightResponse
      *
      * @param ModifyVcoRouteEntryWeightRequest $request
@@ -34031,6 +34666,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyVirtualBorderRouterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyVirtualBorderRouterAttributeResponse
      *
      * @param ModifyVirtualBorderRouterAttributeRequest $request
@@ -34142,15 +34778,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVirtualBorderRouterAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVirtualBorderRouterAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyVirtualBorderRouterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -34172,6 +34808,7 @@ class Vpc extends OpenApiClient
      * *   Set **LocalGatewayIp** and **PeerGatewayIp** to IP addresses that belong to the same CIDR block. For example, you can set LocalGatewayIp to 192.168.XX.XX, PeerGatewayIp to 192.168.XX.XX, and PeeringSubnetMask to 255.255.255.248.
      *
      * @param request - ModifyVirtualBorderRouterAttributeRequest
+     *
      * @returns ModifyVirtualBorderRouterAttributeResponse
      *
      * @param ModifyVirtualBorderRouterAttributeRequest $request
@@ -34194,6 +34831,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyVpcAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyVpcAttributeResponse
      *
      * @param ModifyVpcAttributeRequest $request
@@ -34261,15 +34899,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVpcAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVpcAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyVpcAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -34286,6 +34924,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **ModifyVpcAttribute** operation to modify the name and description of a VPC within the specified period of time.
      *
      * @param request - ModifyVpcAttributeRequest
+     *
      * @returns ModifyVpcAttributeResponse
      *
      * @param ModifyVpcAttributeRequest $request
@@ -34311,6 +34950,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyVpcPrefixListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyVpcPrefixListResponse
      *
      * @param ModifyVpcPrefixListRequest $request
@@ -34378,15 +35018,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVpcPrefixList',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVpcPrefixList',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyVpcPrefixListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -34406,6 +35046,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call **ModifyVpcPrefixList** to modify the configuration of a prefix list within the specified period of time.
      *
      * @param request - ModifyVpcPrefixListRequest
+     *
      * @returns ModifyVpcPrefixListResponse
      *
      * @param ModifyVpcPrefixListRequest $request
@@ -34433,6 +35074,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyVpnAttachmentAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyVpnAttachmentAttributeResponse
      *
      * @param ModifyVpnAttachmentAttributeRequest $request
@@ -34528,7 +35170,7 @@ class Vpc extends OpenApiClient
             @$query['VpnConnectionId'] = $request->vpnConnectionId;
         }
 
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->tunnelOptionsSpecification) {
             @$bodyFlat['TunnelOptionsSpecification'] = $request->tunnelOptionsSpecification;
@@ -34538,18 +35180,18 @@ class Vpc extends OpenApiClient
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVpnAttachmentAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVpnAttachmentAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyVpnAttachmentAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -34571,6 +35213,7 @@ class Vpc extends OpenApiClient
      * *   You cannot call **ModifyVpnAttachmentAttribute** to modify the gateway type of an IPsec-VPN connection.
      *
      * @param request - ModifyVpnAttachmentAttributeRequest
+     *
      * @returns ModifyVpnAttachmentAttributeResponse
      *
      * @param ModifyVpnAttachmentAttributeRequest $request
@@ -34599,6 +35242,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyVpnConnectionAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyVpnConnectionAttributeResponse
      *
      * @param ModifyVpnConnectionAttributeRequest $request
@@ -34690,7 +35334,7 @@ class Vpc extends OpenApiClient
             @$query['VpnConnectionId'] = $request->vpnConnectionId;
         }
 
-        $body     = [];
+        $body = [];
         $bodyFlat = [];
         if (null !== $request->tunnelOptionsSpecification) {
             @$bodyFlat['TunnelOptionsSpecification'] = $request->tunnelOptionsSpecification;
@@ -34700,18 +35344,18 @@ class Vpc extends OpenApiClient
         ], $body, Utils::query($bodyFlat));
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVpnConnectionAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVpnConnectionAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyVpnConnectionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -34734,6 +35378,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **ModifyVpnConnectionAttribute** operation for the same VPN gateway within the specified period of time.
      *
      * @param request - ModifyVpnConnectionAttributeRequest
+     *
      * @returns ModifyVpnConnectionAttributeResponse
      *
      * @param ModifyVpnConnectionAttributeRequest $request
@@ -34758,6 +35403,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyVpnGatewayAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyVpnGatewayAttributeResponse
      *
      * @param ModifyVpnGatewayAttributeRequest $request
@@ -34813,15 +35459,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVpnGatewayAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVpnGatewayAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyVpnGatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -34840,6 +35486,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call **ModifyVpnGatewayAttribute** to modify a VPN gateway within the specified period of time.
      *
      * @param request - ModifyVpnGatewayAttributeRequest
+     *
      * @returns ModifyVpnGatewayAttributeResponse
      *
      * @param ModifyVpnGatewayAttributeRequest $request
@@ -34868,6 +35515,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyVpnPbrRouteEntryAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyVpnPbrRouteEntryAttributeResponse
      *
      * @param ModifyVpnPbrRouteEntryAttributeRequest $request
@@ -34939,15 +35587,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVpnPbrRouteEntryAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVpnPbrRouteEntryAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyVpnPbrRouteEntryAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -34970,6 +35618,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryAttribute** operation for the same VPN gateway within the specified period of time.
      *
      * @param request - ModifyVpnPbrRouteEntryAttributeRequest
+     *
      * @returns ModifyVpnPbrRouteEntryAttributeResponse
      *
      * @param ModifyVpnPbrRouteEntryAttributeRequest $request
@@ -34994,6 +35643,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyVpnPbrRouteEntryPriorityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyVpnPbrRouteEntryPriorityResponse
      *
      * @param ModifyVpnPbrRouteEntryPriorityRequest $request
@@ -35061,15 +35711,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVpnPbrRouteEntryPriority',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVpnPbrRouteEntryPriority',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyVpnPbrRouteEntryPriorityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -35088,6 +35738,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryPriority** operation for the same VPN gateway within the specified period of time.
      *
      * @param request - ModifyVpnPbrRouteEntryPriorityRequest
+     *
      * @returns ModifyVpnPbrRouteEntryPriorityResponse
      *
      * @param ModifyVpnPbrRouteEntryPriorityRequest $request
@@ -35112,6 +35763,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyVpnPbrRouteEntryWeightRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyVpnPbrRouteEntryWeightResponse
      *
      * @param ModifyVpnPbrRouteEntryWeightRequest $request
@@ -35183,15 +35835,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVpnPbrRouteEntryWeight',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVpnPbrRouteEntryWeight',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyVpnPbrRouteEntryWeightResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -35210,6 +35862,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **ModifyVpnPbrRouteEntryWeight** operation for the same VPN gateway within the specified period of time.
      *
      * @param request - ModifyVpnPbrRouteEntryWeightRequest
+     *
      * @returns ModifyVpnPbrRouteEntryWeightResponse
      *
      * @param ModifyVpnPbrRouteEntryWeightRequest $request
@@ -35235,6 +35888,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ModifyVpnRouteEntryWeightRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyVpnRouteEntryWeightResponse
      *
      * @param ModifyVpnRouteEntryWeightRequest $request
@@ -35298,15 +35952,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyVpnRouteEntryWeight',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyVpnRouteEntryWeight',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyVpnRouteEntryWeightResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -35326,6 +35980,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **ModifyVpnRouteEntryWeight** operation to modify the weight of destination-based route for the same VPN gateway within the specified period of time.
      *
      * @param request - ModifyVpnRouteEntryWeightRequest
+     *
      * @returns ModifyVpnRouteEntryWeightResponse
      *
      * @param ModifyVpnRouteEntryWeightRequest $request
@@ -35344,6 +35999,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - MoveResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MoveResourceGroupResponse
      *
      * @param MoveResourceGroupRequest $request
@@ -35391,15 +36047,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveResourceGroup',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveResourceGroup',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -35412,6 +36068,7 @@ class Vpc extends OpenApiClient
      * Moves a resource to another resource group.
      *
      * @param request - MoveResourceGroupRequest
+     *
      * @returns MoveResourceGroupResponse
      *
      * @param MoveResourceGroupRequest $request
@@ -35430,6 +36087,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - MoveVpnResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MoveVpnResourceGroupResponse
      *
      * @param MoveVpnResourceGroupRequest $request
@@ -35477,15 +36135,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveVpnResourceGroup',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveVpnResourceGroup',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return MoveVpnResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -35498,6 +36156,7 @@ class Vpc extends OpenApiClient
      * Moves a VPN gateway resource to a new resource group.
      *
      * @param request - MoveVpnResourceGroupRequest
+     *
      * @returns MoveVpnResourceGroupResponse
      *
      * @param MoveVpnResourceGroupRequest $request
@@ -35520,6 +36179,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - OpenFlowLogServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns OpenFlowLogServiceResponse
      *
      * @param OpenFlowLogServiceRequest $request
@@ -35563,15 +36223,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OpenFlowLogService',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenFlowLogService',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return OpenFlowLogServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -35588,6 +36248,7 @@ class Vpc extends OpenApiClient
      * *   You can call the [GetFlowLogServiceStatus](https://help.aliyun.com/document_detail/449624.html) operation to query the status of the flow log feature.
      *
      * @param request - OpenFlowLogServiceRequest
+     *
      * @returns OpenFlowLogServiceResponse
      *
      * @param OpenFlowLogServiceRequest $request
@@ -35606,6 +36267,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - OpenPhysicalConnectionServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns OpenPhysicalConnectionServiceResponse
      *
      * @param OpenPhysicalConnectionServiceRequest $request
@@ -35641,15 +36303,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OpenPhysicalConnectionService',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenPhysicalConnectionService',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return OpenPhysicalConnectionServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -35662,6 +36324,7 @@ class Vpc extends OpenApiClient
      * Enables billing for outbound data transfer.
      *
      * @param request - OpenPhysicalConnectionServiceRequest
+     *
      * @returns OpenPhysicalConnectionServiceResponse
      *
      * @param OpenPhysicalConnectionServiceRequest $request
@@ -35680,6 +36343,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - OpenPublicIpAddressPoolServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns OpenPublicIpAddressPoolServiceResponse
      *
      * @param OpenPublicIpAddressPoolServiceRequest $request
@@ -35723,15 +36387,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OpenPublicIpAddressPoolService',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenPublicIpAddressPoolService',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return OpenPublicIpAddressPoolServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -35744,6 +36408,7 @@ class Vpc extends OpenApiClient
      * 开通IP地址池功能。
      *
      * @param request - OpenPublicIpAddressPoolServiceRequest
+     *
      * @returns OpenPublicIpAddressPoolServiceResponse
      *
      * @param OpenPublicIpAddressPoolServiceRequest $request
@@ -35766,6 +36431,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - OpenTrafficMirrorServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns OpenTrafficMirrorServiceResponse
      *
      * @param OpenTrafficMirrorServiceRequest $request
@@ -35809,15 +36475,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'OpenTrafficMirrorService',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OpenTrafficMirrorService',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return OpenTrafficMirrorServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -35834,6 +36500,7 @@ class Vpc extends OpenApiClient
      * You can enable traffic mirroring for different regions. You cannot repeatedly call the **OpenTrafficMirrorService** operation to enable traffic mirroring for one region within the specified period of time.
      *
      * @param request - OpenTrafficMirrorServiceRequest
+     *
      * @returns OpenTrafficMirrorServiceResponse
      *
      * @param OpenTrafficMirrorServiceRequest $request
@@ -35852,6 +36519,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - PublishVpcRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PublishVpcRouteEntriesResponse
      *
      * @param PublishVpcRouteEntriesRequest $request
@@ -35907,15 +36575,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PublishVpcRouteEntries',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PublishVpcRouteEntries',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return PublishVpcRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -35928,6 +36596,7 @@ class Vpc extends OpenApiClient
      * 发布VPC路由.
      *
      * @param request - PublishVpcRouteEntriesRequest
+     *
      * @returns PublishVpcRouteEntriesResponse
      *
      * @param PublishVpcRouteEntriesRequest $request
@@ -35946,6 +36615,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - PublishVpnRouteEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PublishVpnRouteEntryResponse
      *
      * @param PublishVpnRouteEntryRequest $request
@@ -36005,15 +36675,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'PublishVpnRouteEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PublishVpnRouteEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return PublishVpnRouteEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -36026,6 +36696,7 @@ class Vpc extends OpenApiClient
      * Advertises a VPN route to a VPC.
      *
      * @param request - PublishVpnRouteEntryRequest
+     *
      * @returns PublishVpnRouteEntryResponse
      *
      * @param PublishVpnRouteEntryRequest $request
@@ -36048,6 +36719,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - RecoverPhysicalConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RecoverPhysicalConnectionResponse
      *
      * @param RecoverPhysicalConnectionRequest $request
@@ -36079,15 +36751,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RecoverPhysicalConnection',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecoverPhysicalConnection',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RecoverPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -36104,6 +36776,7 @@ class Vpc extends OpenApiClient
      * You can call this API operation to resume a suspended Express Connect circuit. You can resume only shared Express Connect circuits by calling this API operation.
      *
      * @param request - RecoverPhysicalConnectionRequest
+     *
      * @returns RecoverPhysicalConnectionResponse
      *
      * @param RecoverPhysicalConnectionRequest $request
@@ -36128,6 +36801,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - RecoverVirtualBorderRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RecoverVirtualBorderRouterResponse
      *
      * @param RecoverVirtualBorderRouterRequest $request
@@ -36171,15 +36845,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RecoverVirtualBorderRouter',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RecoverVirtualBorderRouter',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RecoverVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -36198,6 +36872,7 @@ class Vpc extends OpenApiClient
      * *   The Express Connect circuit to which the VBR connects must be in the **Enabled** state.
      *
      * @param request - RecoverVirtualBorderRouterRequest
+     *
      * @returns RecoverVirtualBorderRouterResponse
      *
      * @param RecoverVirtualBorderRouterRequest $request
@@ -36226,6 +36901,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ReleaseEipAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleaseEipAddressResponse
      *
      * @param ReleaseEipAddressRequest $request
@@ -36265,15 +36941,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseEipAddress',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseEipAddress',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleaseEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -36296,6 +36972,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **ReleaseEipAddress** operation to release an EIP within the specified period of time.
      *
      * @param request - ReleaseEipAddressRequest
+     *
      * @returns ReleaseEipAddressResponse
      *
      * @param ReleaseEipAddressRequest $request
@@ -36321,6 +36998,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ReleaseEipSegmentAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleaseEipSegmentAddressResponse
      *
      * @param ReleaseEipSegmentAddressRequest $request
@@ -36364,15 +37042,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseEipSegmentAddress',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseEipSegmentAddress',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleaseEipSegmentAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -36392,6 +37070,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **ReleaseEipSegmentAddress** operation to release a group of contiguous EIPs within the specified period of time.
      *
      * @param request - ReleaseEipSegmentAddressRequest
+     *
      * @returns ReleaseEipSegmentAddressResponse
      *
      * @param ReleaseEipSegmentAddressRequest $request
@@ -36410,6 +37089,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ReleaseIpv6AddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleaseIpv6AddressResponse
      *
      * @param ReleaseIpv6AddressRequest $request
@@ -36461,15 +37141,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseIpv6Address',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseIpv6Address',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleaseIpv6AddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -36482,6 +37162,7 @@ class Vpc extends OpenApiClient
      * Releases an idle IPv6 address.
      *
      * @param request - ReleaseIpv6AddressRequest
+     *
      * @returns ReleaseIpv6AddressResponse
      *
      * @param ReleaseIpv6AddressRequest $request
@@ -36500,6 +37181,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - RemoveCommonBandwidthPackageIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveCommonBandwidthPackageIpResponse
      *
      * @param RemoveCommonBandwidthPackageIpRequest $request
@@ -36547,15 +37229,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveCommonBandwidthPackageIp',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveCommonBandwidthPackageIp',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveCommonBandwidthPackageIpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -36568,6 +37250,7 @@ class Vpc extends OpenApiClient
      * Disassociates an EIP from an Internet Shared Bandwidth instance.
      *
      * @param request - RemoveCommonBandwidthPackageIpRequest
+     *
      * @returns RemoveCommonBandwidthPackageIpResponse
      *
      * @param RemoveCommonBandwidthPackageIpRequest $request
@@ -36584,6 +37267,7 @@ class Vpc extends OpenApiClient
     /**
      * @param request - RemoveGlobalAccelerationInstanceIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveGlobalAccelerationInstanceIpResponse
      *
      * @param RemoveGlobalAccelerationInstanceIpRequest $request
@@ -36627,15 +37311,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveGlobalAccelerationInstanceIp',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveGlobalAccelerationInstanceIp',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveGlobalAccelerationInstanceIpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -36646,6 +37330,7 @@ class Vpc extends OpenApiClient
 
     /**
      * @param request - RemoveGlobalAccelerationInstanceIpRequest
+     *
      * @returns RemoveGlobalAccelerationInstanceIpResponse
      *
      * @param RemoveGlobalAccelerationInstanceIpRequest $request
@@ -36664,6 +37349,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - RemoveIPv6TranslatorAclListEntryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveIPv6TranslatorAclListEntryResponse
      *
      * @param RemoveIPv6TranslatorAclListEntryRequest $request
@@ -36711,15 +37397,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveIPv6TranslatorAclListEntry',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveIPv6TranslatorAclListEntry',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveIPv6TranslatorAclListEntryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -36732,6 +37418,7 @@ class Vpc extends OpenApiClient
      * Deletes an IP entry from an ACL.
      *
      * @param request - RemoveIPv6TranslatorAclListEntryRequest
+     *
      * @returns RemoveIPv6TranslatorAclListEntryResponse
      *
      * @param RemoveIPv6TranslatorAclListEntryRequest $request
@@ -36756,6 +37443,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - RemoveSourcesFromTrafficMirrorSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveSourcesFromTrafficMirrorSessionResponse
      *
      * @param RemoveSourcesFromTrafficMirrorSessionRequest $request
@@ -36807,15 +37495,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveSourcesFromTrafficMirrorSession',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveSourcesFromTrafficMirrorSession',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveSourcesFromTrafficMirrorSessionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -36834,6 +37522,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call **RemoveSourcesFromTrafficMirrorSession** within the specified period of time.
      *
      * @param request - RemoveSourcesFromTrafficMirrorSessionRequest
+     *
      * @returns RemoveSourcesFromTrafficMirrorSessionResponse
      *
      * @param RemoveSourcesFromTrafficMirrorSessionRequest $request
@@ -36858,6 +37547,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - ReplaceVpcDhcpOptionsSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReplaceVpcDhcpOptionsSetResponse
      *
      * @param ReplaceVpcDhcpOptionsSetRequest $request
@@ -36909,15 +37599,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReplaceVpcDhcpOptionsSet',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReplaceVpcDhcpOptionsSet',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReplaceVpcDhcpOptionsSetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -36936,6 +37626,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **ReplaceVpcDhcpOptionsSet** operation to replace the DHCP options set associated with a VPC within the specified period of time.
      *
      * @param request - ReplaceVpcDhcpOptionsSetRequest
+     *
      * @returns ReplaceVpcDhcpOptionsSetResponse
      *
      * @param ReplaceVpcDhcpOptionsSetRequest $request
@@ -36962,6 +37653,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - RetryVpcPrefixListAssociationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RetryVpcPrefixListAssociationResponse
      *
      * @param RetryVpcPrefixListAssociationRequest $request
@@ -37017,15 +37709,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RetryVpcPrefixListAssociation',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RetryVpcPrefixListAssociation',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RetryVpcPrefixListAssociationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -37046,6 +37738,7 @@ class Vpc extends OpenApiClient
      * *   After you call the **RetryVpcPrefixListAssociation** operation to re-apply a prefix list, you cannot call the operation again until the current task is complete.
      *
      * @param request - RetryVpcPrefixListAssociationRequest
+     *
      * @returns RetryVpcPrefixListAssociationResponse
      *
      * @param RetryVpcPrefixListAssociationRequest $request
@@ -37069,6 +37762,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - RevokeInstanceFromCenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RevokeInstanceFromCenResponse
      *
      * @param RevokeInstanceFromCenRequest $request
@@ -37124,15 +37818,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RevokeInstanceFromCen',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevokeInstanceFromCen',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RevokeInstanceFromCenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -37150,6 +37844,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **RevokeInstanceFromCen** operation to revoke the permissions on a network instance that is attached to a CEN instance within the specified period of time. The network instance can be a VPC, virtual border router (VBR), or a Cloud Connect Network (CCN) instance.
      *
      * @param request - RevokeInstanceFromCenRequest
+     *
      * @returns RevokeInstanceFromCenResponse
      *
      * @param RevokeInstanceFromCenRequest $request
@@ -37168,6 +37863,7 @@ class Vpc extends OpenApiClient
      *
      * @param tmpReq - RevokeInstanceFromVbrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RevokeInstanceFromVbrResponse
      *
      * @param RevokeInstanceFromVbrRequest $tmpReq
@@ -37213,15 +37909,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RevokeInstanceFromVbr',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevokeInstanceFromVbr',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RevokeInstanceFromVbrResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -37234,6 +37930,7 @@ class Vpc extends OpenApiClient
      * Revokes the permissions granted to a virtual border router (VBR) on a virtual private cloud (VPC).
      *
      * @param request - RevokeInstanceFromVbrRequest
+     *
      * @returns RevokeInstanceFromVbrResponse
      *
      * @param RevokeInstanceFromVbrRequest $request
@@ -37252,6 +37949,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - SecondApplyPhysicalConnectionLOARequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SecondApplyPhysicalConnectionLOAResponse
      *
      * @param SecondApplyPhysicalConnectionLOARequest $request
@@ -37323,15 +38021,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SecondApplyPhysicalConnectionLOA',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SecondApplyPhysicalConnectionLOA',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SecondApplyPhysicalConnectionLOAResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -37344,6 +38042,7 @@ class Vpc extends OpenApiClient
      * If your application for a Letter of Authorization (LOA) by calling the ApplyPhysicalConnectionLOA operation is denied, you can call this operation to apply again.
      *
      * @param request - SecondApplyPhysicalConnectionLOARequest
+     *
      * @returns SecondApplyPhysicalConnectionLOAResponse
      *
      * @param SecondApplyPhysicalConnectionLOARequest $request
@@ -37365,6 +38064,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - SetHighDefinitionMonitorLogStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetHighDefinitionMonitorLogStatusResponse
      *
      * @param SetHighDefinitionMonitorLogStatusRequest $request
@@ -37420,15 +38120,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetHighDefinitionMonitorLogStatus',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetHighDefinitionMonitorLogStatus',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SetHighDefinitionMonitorLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -37444,6 +38144,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call **SetHighDefinitionMonitorLogStatus** within a specific period of time.
      *
      * @param request - SetHighDefinitionMonitorLogStatusRequest
+     *
      * @returns SetHighDefinitionMonitorLogStatusResponse
      *
      * @param SetHighDefinitionMonitorLogStatusRequest $request
@@ -37465,6 +38166,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - StartFailoverTestJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartFailoverTestJobResponse
      *
      * @param StartFailoverTestJobRequest $request
@@ -37508,15 +38210,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartFailoverTestJob',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartFailoverTestJob',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -37532,6 +38234,7 @@ class Vpc extends OpenApiClient
      * You can perform only failover tests that are in the **Pending** state.
      *
      * @param request - StartFailoverTestJobRequest
+     *
      * @returns StartFailoverTestJobResponse
      *
      * @param StartFailoverTestJobRequest $request
@@ -37550,6 +38253,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - StopFailoverTestJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopFailoverTestJobResponse
      *
      * @param StopFailoverTestJobRequest $request
@@ -37593,15 +38297,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopFailoverTestJob',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopFailoverTestJob',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -37614,6 +38318,7 @@ class Vpc extends OpenApiClient
      * Terminates a failover test.
      *
      * @param request - StopFailoverTestJobRequest
+     *
      * @returns StopFailoverTestJobResponse
      *
      * @param StopFailoverTestJobRequest $request
@@ -37642,6 +38347,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -37689,15 +38395,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -37720,6 +38426,7 @@ class Vpc extends OpenApiClient
      * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -37747,6 +38454,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - TagResourcesForExpressConnectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesForExpressConnectResponse
      *
      * @param TagResourcesForExpressConnectRequest $request
@@ -37794,15 +38502,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResourcesForExpressConnect',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResourcesForExpressConnect',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TagResourcesForExpressConnectResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -37824,6 +38532,7 @@ class Vpc extends OpenApiClient
      * *   You can add up to 20 tags to each instance. Before you add a tag to an instance, the system automatically checks the number of existing tags. An error message is returned if the maximum number of tags is reached.
      *
      * @param request - TagResourcesForExpressConnectRequest
+     *
      * @returns TagResourcesForExpressConnectResponse
      *
      * @param TagResourcesForExpressConnectRequest $request
@@ -37847,6 +38556,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - TerminatePhysicalConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TerminatePhysicalConnectionResponse
      *
      * @param TerminatePhysicalConnectionRequest $request
@@ -37890,15 +38600,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TerminatePhysicalConnection',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TerminatePhysicalConnection',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TerminatePhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -37916,6 +38626,7 @@ class Vpc extends OpenApiClient
      * *   Before you disable an Express Connect circuit, you must delete the virtual border routers (VBRs) associated with it.
      *
      * @param request - TerminatePhysicalConnectionRequest
+     *
      * @returns TerminatePhysicalConnectionResponse
      *
      * @param TerminatePhysicalConnectionRequest $request
@@ -37938,6 +38649,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - TerminateVirtualBorderRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TerminateVirtualBorderRouterResponse
      *
      * @param TerminateVirtualBorderRouterRequest $request
@@ -37981,15 +38693,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TerminateVirtualBorderRouter',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TerminateVirtualBorderRouter',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TerminateVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -38006,6 +38718,7 @@ class Vpc extends OpenApiClient
      * >  Only the owner of an Express Connect circuit can call this operation.
      *
      * @param request - TerminateVirtualBorderRouterRequest
+     *
      * @returns TerminateVirtualBorderRouterResponse
      *
      * @param TerminateVirtualBorderRouterRequest $request
@@ -38024,6 +38737,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - TransformEipSegmentToPublicIpAddressPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TransformEipSegmentToPublicIpAddressPoolResponse
      *
      * @param TransformEipSegmentToPublicIpAddressPoolRequest $request
@@ -38063,15 +38777,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TransformEipSegmentToPublicIpAddressPool',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransformEipSegmentToPublicIpAddressPool',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TransformEipSegmentToPublicIpAddressPoolResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -38084,6 +38798,7 @@ class Vpc extends OpenApiClient
      * Migrate contiguous EIP groups to IP address pool by calling TransformEipSegmentToPublicIpAddressPool.
      *
      * @param request - TransformEipSegmentToPublicIpAddressPoolRequest
+     *
      * @returns TransformEipSegmentToPublicIpAddressPoolResponse
      *
      * @param TransformEipSegmentToPublicIpAddressPoolRequest $request
@@ -38102,6 +38817,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UnTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnTagResourcesResponse
      *
      * @param UnTagResourcesRequest $request
@@ -38153,15 +38869,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnTagResources',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnTagResources',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -38174,6 +38890,7 @@ class Vpc extends OpenApiClient
      * Removes tags from resources.
      *
      * @param request - UnTagResourcesRequest
+     *
      * @returns UnTagResourcesResponse
      *
      * @param UnTagResourcesRequest $request
@@ -38198,6 +38915,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UnassociateEipAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnassociateEipAddressResponse
      *
      * @param UnassociateEipAddressRequest $request
@@ -38257,15 +38975,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnassociateEipAddress',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnassociateEipAddress',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnassociateEipAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -38284,6 +39002,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **UnassociateEipAddress** operation within the specified period of time.
      *
      * @param request - UnassociateEipAddressRequest
+     *
      * @returns UnassociateEipAddressResponse
      *
      * @param UnassociateEipAddressRequest $request
@@ -38302,6 +39021,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UnassociateGlobalAccelerationInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnassociateGlobalAccelerationInstanceResponse
      *
      * @param UnassociateGlobalAccelerationInstanceRequest $request
@@ -38345,15 +39065,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnassociateGlobalAccelerationInstance',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnassociateGlobalAccelerationInstance',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnassociateGlobalAccelerationInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -38366,6 +39086,7 @@ class Vpc extends OpenApiClient
      * Disassociates a Global Accelerator (GA) instance from a backend server.
      *
      * @param request - UnassociateGlobalAccelerationInstanceRequest
+     *
      * @returns UnassociateGlobalAccelerationInstanceResponse
      *
      * @param UnassociateGlobalAccelerationInstanceRequest $request
@@ -38394,6 +39115,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UnassociateHaVipRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnassociateHaVipResponse
      *
      * @param UnassociateHaVipRequest $request
@@ -38449,15 +39171,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnassociateHaVip',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnassociateHaVip',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnassociateHaVipResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -38480,6 +39202,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **UnassociateHaVip** operation to disassociate an HAVIP within the specified period of time.
      *
      * @param request - UnassociateHaVipRequest
+     *
      * @returns UnassociateHaVipResponse
      *
      * @param UnassociateHaVipRequest $request
@@ -38505,6 +39228,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UnassociateNetworkAclRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnassociateNetworkAclResponse
      *
      * @param UnassociateNetworkAclRequest $request
@@ -38560,15 +39284,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnassociateNetworkAcl',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnassociateNetworkAcl',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnassociateNetworkAclResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -38588,6 +39312,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **UnassociateNetworkAcl** operation to disassociate a network ACL from a vSwitch within the specified period of time.
      *
      * @param request - UnassociateNetworkAclRequest
+     *
      * @returns UnassociateNetworkAclResponse
      *
      * @param UnassociateNetworkAclRequest $request
@@ -38606,6 +39331,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UnassociatePhysicalConnectionFromVirtualBorderRouterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnassociatePhysicalConnectionFromVirtualBorderRouterResponse
      *
      * @param UnassociatePhysicalConnectionFromVirtualBorderRouterRequest $request
@@ -38653,15 +39379,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnassociatePhysicalConnectionFromVirtualBorderRouter',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnassociatePhysicalConnectionFromVirtualBorderRouter',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnassociatePhysicalConnectionFromVirtualBorderRouterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -38674,6 +39400,7 @@ class Vpc extends OpenApiClient
      * Disassociates a virtual border router (VBR) from an Express Connect circuit.
      *
      * @param request - UnassociatePhysicalConnectionFromVirtualBorderRouterRequest
+     *
      * @returns UnassociatePhysicalConnectionFromVirtualBorderRouterResponse
      *
      * @param UnassociatePhysicalConnectionFromVirtualBorderRouterRequest $request
@@ -38699,6 +39426,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UnassociateRouteTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnassociateRouteTableResponse
      *
      * @param UnassociateRouteTableRequest $request
@@ -38750,15 +39478,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnassociateRouteTable',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnassociateRouteTable',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnassociateRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -38778,6 +39506,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **UnassociateRouteTable** operation to disassociate a route table from a vSwitch within the specified period of time.
      *
      * @param request - UnassociateRouteTableRequest
+     *
      * @returns UnassociateRouteTableResponse
      *
      * @param UnassociateRouteTableRequest $request
@@ -38800,6 +39529,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UnassociateVpcCidrBlockRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnassociateVpcCidrBlockResponse
      *
      * @param UnassociateVpcCidrBlockRequest $request
@@ -38851,15 +39581,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnassociateVpcCidrBlock',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnassociateVpcCidrBlock',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnassociateVpcCidrBlockResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -38876,6 +39606,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **UnassociateVpcCidrBlock** operation to delete a secondary CIDR block from a VPC within the specified period of time.
      *
      * @param request - UnassociateVpcCidrBlockRequest
+     *
      * @returns UnassociateVpcCidrBlockResponse
      *
      * @param UnassociateVpcCidrBlockRequest $request
@@ -38894,6 +39625,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UntagResourcesForExpressConnectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesForExpressConnectResponse
      *
      * @param UntagResourcesForExpressConnectRequest $request
@@ -38945,15 +39677,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResourcesForExpressConnect',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResourcesForExpressConnect',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UntagResourcesForExpressConnectResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -38966,6 +39698,7 @@ class Vpc extends OpenApiClient
      * Removes tags from an Express Connect circuit at a time.
      *
      * @param request - UntagResourcesForExpressConnectRequest
+     *
      * @returns UntagResourcesForExpressConnectResponse
      *
      * @param UntagResourcesForExpressConnectRequest $request
@@ -38984,6 +39717,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UpdateDhcpOptionsSetAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDhcpOptionsSetAttributeResponse
      *
      * @param UpdateDhcpOptionsSetAttributeRequest $request
@@ -39055,15 +39789,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDhcpOptionsSetAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDhcpOptionsSetAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDhcpOptionsSetAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -39076,6 +39810,7 @@ class Vpc extends OpenApiClient
      * 修改Dhcp选项集信息.
      *
      * @param request - UpdateDhcpOptionsSetAttributeRequest
+     *
      * @returns UpdateDhcpOptionsSetAttributeResponse
      *
      * @param UpdateDhcpOptionsSetAttributeRequest $request
@@ -39094,6 +39829,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UpdateFailoverTestJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateFailoverTestJobResponse
      *
      * @param UpdateFailoverTestJobRequest $request
@@ -39157,15 +39893,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFailoverTestJob',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateFailoverTestJob',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateFailoverTestJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -39178,6 +39914,7 @@ class Vpc extends OpenApiClient
      * Updates a failover test.
      *
      * @param request - UpdateFailoverTestJobRequest
+     *
      * @returns UpdateFailoverTestJobResponse
      *
      * @param UpdateFailoverTestJobRequest $request
@@ -39196,6 +39933,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UpdateGatewayRouteTableEntryAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateGatewayRouteTableEntryAttributeResponse
      *
      * @param UpdateGatewayRouteTableEntryAttributeRequest $request
@@ -39271,15 +40009,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateGatewayRouteTableEntryAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateGatewayRouteTableEntryAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateGatewayRouteTableEntryAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -39292,6 +40030,7 @@ class Vpc extends OpenApiClient
      * Modifies the next hop type and next hop of the route entry in a gateway route table.
      *
      * @param request - UpdateGatewayRouteTableEntryAttributeRequest
+     *
      * @returns UpdateGatewayRouteTableEntryAttributeResponse
      *
      * @param UpdateGatewayRouteTableEntryAttributeRequest $request
@@ -39317,6 +40056,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UpdateIpsecServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateIpsecServerResponse
      *
      * @param UpdateIpsecServerRequest $request
@@ -39380,15 +40120,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateIpsecServer',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateIpsecServer',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateIpsecServerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -39408,6 +40148,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call **UpdateIpsecServer** within the specified period of time.
      *
      * @param request - UpdateIpsecServerRequest
+     *
      * @returns UpdateIpsecServerResponse
      *
      * @param UpdateIpsecServerRequest $request
@@ -39429,6 +40170,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UpdateIpv4GatewayAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateIpv4GatewayAttributeResponse
      *
      * @param UpdateIpv4GatewayAttributeRequest $request
@@ -39488,15 +40230,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateIpv4GatewayAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateIpv4GatewayAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateIpv4GatewayAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -39512,6 +40254,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **UpdateIpv4GatewayAttribute** operation to modify the name or description of an IPv4 gateway within the specified period of time.
      *
      * @param request - UpdateIpv4GatewayAttributeRequest
+     *
      * @returns UpdateIpv4GatewayAttributeResponse
      *
      * @param UpdateIpv4GatewayAttributeRequest $request
@@ -39526,7 +40269,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Upgrades a standard NAT gateway to an enhanced NAT gateway.
      *
@@ -39545,6 +40287,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UpdateNatGatewayNatTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateNatGatewayNatTypeResponse
      *
      * @param UpdateNatGatewayNatTypeRequest $request
@@ -39604,15 +40347,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateNatGatewayNatType',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateNatGatewayNatType',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateNatGatewayNatTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -39622,7 +40365,6 @@ class Vpc extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Upgrades a standard NAT gateway to an enhanced NAT gateway.
      *
@@ -39640,6 +40382,7 @@ class Vpc extends OpenApiClient
      * @deprecated OpenAPI UpdateNatGatewayNatType is deprecated
      *
      * @param request - UpdateNatGatewayNatTypeRequest
+     *
      * @returns UpdateNatGatewayNatTypeResponse
      *
      * @param UpdateNatGatewayNatTypeRequest $request
@@ -39664,6 +40407,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UpdateNetworkAclEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateNetworkAclEntriesResponse
      *
      * @param UpdateNetworkAclEntriesRequest $request
@@ -39731,15 +40475,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateNetworkAclEntries',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateNetworkAclEntries',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateNetworkAclEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -39758,6 +40502,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **UpdateNetworkAclEntries** operation to update the rules of a network ACL within the specified period of time.
      *
      * @param request - UpdateNetworkAclEntriesRequest
+     *
      * @returns UpdateNetworkAclEntriesResponse
      *
      * @param UpdateNetworkAclEntriesRequest $request
@@ -39779,6 +40524,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UpdatePublicIpAddressPoolAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdatePublicIpAddressPoolAttributeResponse
      *
      * @param UpdatePublicIpAddressPoolAttributeRequest $request
@@ -39834,15 +40580,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePublicIpAddressPoolAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdatePublicIpAddressPoolAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdatePublicIpAddressPoolAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -39858,6 +40604,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **UpdatePublicIpAddressPoolAttribute** operation to modify the attributes of an IP address pool within the specified period of time.
      *
      * @param request - UpdatePublicIpAddressPoolAttributeRequest
+     *
      * @returns UpdatePublicIpAddressPoolAttributeResponse
      *
      * @param UpdatePublicIpAddressPoolAttributeRequest $request
@@ -39879,6 +40626,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UpdateTrafficMirrorFilterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTrafficMirrorFilterAttributeResponse
      *
      * @param UpdateTrafficMirrorFilterAttributeRequest $request
@@ -39934,15 +40682,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTrafficMirrorFilterAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTrafficMirrorFilterAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTrafficMirrorFilterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -39958,6 +40706,7 @@ class Vpc extends OpenApiClient
      * You cannot repeatedly call the **UpdateTrafficMirrorFilterAttribute** operation to modify the configuration of a filter for traffic mirroring within the specified period of time.
      *
      * @param request - UpdateTrafficMirrorFilterAttributeRequest
+     *
      * @returns UpdateTrafficMirrorFilterAttributeResponse
      *
      * @param UpdateTrafficMirrorFilterAttributeRequest $request
@@ -39982,6 +40731,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UpdateTrafficMirrorFilterRuleAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTrafficMirrorFilterRuleAttributeResponse
      *
      * @param UpdateTrafficMirrorFilterRuleAttributeRequest $request
@@ -40057,15 +40807,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTrafficMirrorFilterRuleAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTrafficMirrorFilterRuleAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTrafficMirrorFilterRuleAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -40084,6 +40834,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **UpdateTrafficMirrorFilterRuleAttribute** operation to modify an inbound or outbound rule within the specified period of time.
      *
      * @param request - UpdateTrafficMirrorFilterRuleAttributeRequest
+     *
      * @returns UpdateTrafficMirrorFilterRuleAttributeResponse
      *
      * @param UpdateTrafficMirrorFilterRuleAttributeRequest $request
@@ -40109,6 +40860,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UpdateTrafficMirrorSessionAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTrafficMirrorSessionAttributeResponse
      *
      * @param UpdateTrafficMirrorSessionAttributeRequest $request
@@ -40192,15 +40944,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTrafficMirrorSessionAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTrafficMirrorSessionAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTrafficMirrorSessionAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -40220,6 +40972,7 @@ class Vpc extends OpenApiClient
      * *   You cannot repeatedly call the **UpdateTrafficMirrorSessionAttribute** operation within a specific period of time.
      *
      * @param request - UpdateTrafficMirrorSessionAttributeRequest
+     *
      * @returns UpdateTrafficMirrorSessionAttributeResponse
      *
      * @param UpdateTrafficMirrorSessionAttributeRequest $request
@@ -40238,6 +40991,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UpdateVirtualBorderBandwidthRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateVirtualBorderBandwidthResponse
      *
      * @param UpdateVirtualBorderBandwidthRequest $request
@@ -40285,15 +41039,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVirtualBorderBandwidth',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateVirtualBorderBandwidth',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateVirtualBorderBandwidthResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -40306,6 +41060,7 @@ class Vpc extends OpenApiClient
      * Updates the maximum bandwidth value of outbound data transfer for a virtual border router (VBR).
      *
      * @param request - UpdateVirtualBorderBandwidthRequest
+     *
      * @returns UpdateVirtualBorderBandwidthResponse
      *
      * @param UpdateVirtualBorderBandwidthRequest $request
@@ -40324,6 +41079,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UpdateVirtualPhysicalConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateVirtualPhysicalConnectionResponse
      *
      * @param UpdateVirtualPhysicalConnectionRequest $request
@@ -40363,15 +41119,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVirtualPhysicalConnection',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateVirtualPhysicalConnection',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateVirtualPhysicalConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -40384,6 +41140,7 @@ class Vpc extends OpenApiClient
      * Changes the virtual local area network (VLAN) ID of a hosted connection over Express Connect circuit.
      *
      * @param request - UpdateVirtualPhysicalConnectionRequest
+     *
      * @returns UpdateVirtualPhysicalConnectionResponse
      *
      * @param UpdateVirtualPhysicalConnectionRequest $request
@@ -40408,6 +41165,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - UpdateVpcGatewayEndpointAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateVpcGatewayEndpointAttributeResponse
      *
      * @param UpdateVpcGatewayEndpointAttributeRequest $request
@@ -40467,15 +41225,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVpcGatewayEndpointAttribute',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateVpcGatewayEndpointAttribute',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateVpcGatewayEndpointAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -40494,6 +41252,7 @@ class Vpc extends OpenApiClient
      * *   You cannot call the **UpdateVpcGatewayEndpointAttribute** operation within a specific period of time.
      *
      * @param request - UpdateVpcGatewayEndpointAttributeRequest
+     *
      * @returns UpdateVpcGatewayEndpointAttributeResponse
      *
      * @param UpdateVpcGatewayEndpointAttributeRequest $request
@@ -40515,6 +41274,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse
      *
      * @param VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest $request
@@ -40562,15 +41322,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'VpcDescribeVpcNatGatewayNetworkInterfaceQuota',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'VpcDescribeVpcNatGatewayNetworkInterfaceQuota',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -40586,6 +41346,7 @@ class Vpc extends OpenApiClient
      * Before you call this operation, make sure that a VPC NAT gateway is created. For more information, see [CreateNatGateway](https://help.aliyun.com/document_detail/120219.html).
      *
      * @param request - VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest
+     *
      * @returns VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponse
      *
      * @param VpcDescribeVpcNatGatewayNetworkInterfaceQuotaRequest $request
@@ -40604,6 +41365,7 @@ class Vpc extends OpenApiClient
      *
      * @param request - WithdrawVpcPublishedRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns WithdrawVpcPublishedRouteEntriesResponse
      *
      * @param WithdrawVpcPublishedRouteEntriesRequest $request
@@ -40659,15 +41421,15 @@ class Vpc extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'WithdrawVpcPublishedRouteEntries',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'WithdrawVpcPublishedRouteEntries',
+            'version' => '2016-04-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return WithdrawVpcPublishedRouteEntriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -40680,6 +41442,7 @@ class Vpc extends OpenApiClient
      * 撤回VPC已发布路由.
      *
      * @param request - WithdrawVpcPublishedRouteEntriesRequest
+     *
      * @returns WithdrawVpcPublishedRouteEntriesResponse
      *
      * @param WithdrawVpcPublishedRouteEntriesRequest $request

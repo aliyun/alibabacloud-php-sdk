@@ -13,38 +13,44 @@ class DescribeNatGatewayAssociateNetworkInterfacesResponseBody extends Model
      * @var associateNetworkInterfaces
      */
     public $associateNetworkInterfaces;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $natGatewayId;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'associateNetworkInterfaces' => 'AssociateNetworkInterfaces',
-        'count'                      => 'Count',
-        'maxResults'                 => 'MaxResults',
-        'natGatewayId'               => 'NatGatewayId',
-        'nextToken'                  => 'NextToken',
-        'requestId'                  => 'RequestId',
-        'totalCount'                 => 'TotalCount',
+        'count' => 'Count',
+        'maxResults' => 'MaxResults',
+        'natGatewayId' => 'NatGatewayId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

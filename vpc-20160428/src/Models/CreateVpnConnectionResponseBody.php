@@ -12,22 +12,25 @@ class CreateVpnConnectionResponseBody extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $vpnConnectionId;
     protected $_name = [
-        'createTime'      => 'CreateTime',
-        'name'            => 'Name',
-        'requestId'       => 'RequestId',
+        'createTime' => 'CreateTime',
+        'name' => 'Name',
+        'requestId' => 'RequestId',
         'vpnConnectionId' => 'VpnConnectionId',
     ];
 

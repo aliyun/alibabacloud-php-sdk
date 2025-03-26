@@ -12,12 +12,13 @@ class AttachVbrToVpconnResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $virtualPhysicalConnection;
     protected $_name = [
-        'requestId'                 => 'RequestId',
+        'requestId' => 'RequestId',
         'virtualPhysicalConnection' => 'VirtualPhysicalConnection',
     ];
 

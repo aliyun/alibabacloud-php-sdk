@@ -12,46 +12,54 @@ class RemoveSourcesFromTrafficMirrorSessionRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $trafficMirrorSessionId;
+
     /**
      * @var string[]
      */
     public $trafficMirrorSourceIds;
     protected $_name = [
-        'clientToken'            => 'ClientToken',
-        'dryRun'                 => 'DryRun',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'regionId'               => 'RegionId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'trafficMirrorSessionId' => 'TrafficMirrorSessionId',
         'trafficMirrorSourceIds' => 'TrafficMirrorSourceIds',
     ];
@@ -102,7 +110,7 @@ class RemoveSourcesFromTrafficMirrorSessionRequest extends Model
         if (null !== $this->trafficMirrorSourceIds) {
             if (\is_array($this->trafficMirrorSourceIds)) {
                 $res['TrafficMirrorSourceIds'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->trafficMirrorSourceIds as $item1) {
                     $res['TrafficMirrorSourceIds'][$n1++] = $item1;
                 }
@@ -155,7 +163,7 @@ class RemoveSourcesFromTrafficMirrorSessionRequest extends Model
         if (isset($map['TrafficMirrorSourceIds'])) {
             if (!empty($map['TrafficMirrorSourceIds'])) {
                 $model->trafficMirrorSourceIds = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['TrafficMirrorSourceIds'] as $item1) {
                     $model->trafficMirrorSourceIds[$n1++] = $item1;
                 }

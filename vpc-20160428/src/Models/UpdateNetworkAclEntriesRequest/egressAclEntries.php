@@ -12,48 +12,56 @@ class egressAclEntries extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $destinationCidrIp;
+
     /**
      * @var string
      */
     public $entryType;
+
     /**
      * @var string
      */
     public $ipVersion;
+
     /**
      * @var string
      */
     public $networkAclEntryId;
+
     /**
      * @var string
      */
     public $networkAclEntryName;
+
     /**
      * @var string
      */
     public $policy;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $protocol;
     protected $_name = [
-        'description'         => 'Description',
-        'destinationCidrIp'   => 'DestinationCidrIp',
-        'entryType'           => 'EntryType',
-        'ipVersion'           => 'IpVersion',
-        'networkAclEntryId'   => 'NetworkAclEntryId',
+        'description' => 'Description',
+        'destinationCidrIp' => 'DestinationCidrIp',
+        'entryType' => 'EntryType',
+        'ipVersion' => 'IpVersion',
+        'networkAclEntryId' => 'NetworkAclEntryId',
         'networkAclEntryName' => 'NetworkAclEntryName',
-        'policy'              => 'Policy',
-        'port'                => 'Port',
-        'protocol'            => 'Protocol',
+        'policy' => 'Policy',
+        'port' => 'Port',
+        'protocol' => 'Protocol',
     ];
 
     public function validate()

@@ -13,83 +13,98 @@ class DescribeVpcsRequest extends Model
      * @var string
      */
     public $dhcpOptionsSetId;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var bool
      */
     public $enableIpv6;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $vpcName;
+
     /**
      * @var int
      */
     public $vpcOwnerId;
     protected $_name = [
-        'dhcpOptionsSetId'     => 'DhcpOptionsSetId',
-        'dryRun'               => 'DryRun',
-        'enableIpv6'           => 'EnableIpv6',
-        'isDefault'            => 'IsDefault',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'dhcpOptionsSetId' => 'DhcpOptionsSetId',
+        'dryRun' => 'DryRun',
+        'enableIpv6' => 'EnableIpv6',
+        'isDefault' => 'IsDefault',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tag'                  => 'Tag',
-        'vpcId'                => 'VpcId',
-        'vpcName'              => 'VpcName',
-        'vpcOwnerId'           => 'VpcOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tag' => 'Tag',
+        'vpcId' => 'VpcId',
+        'vpcName' => 'VpcName',
+        'vpcOwnerId' => 'VpcOwnerId',
     ];
 
     public function validate()
@@ -154,7 +169,7 @@ class DescribeVpcsRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -235,7 +250,7 @@ class DescribeVpcsRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

@@ -13,28 +13,32 @@ class DescribeSslVpnClientCertsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var sslVpnClientCertKeys
      */
     public $sslVpnClientCertKeys;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'requestId'            => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'sslVpnClientCertKeys' => 'SslVpnClientCertKeys',
-        'totalCount'           => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

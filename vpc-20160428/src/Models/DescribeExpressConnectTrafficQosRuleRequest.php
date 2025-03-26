@@ -12,48 +12,56 @@ class DescribeExpressConnectTrafficQosRuleRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $qosId;
+
     /**
      * @var string
      */
     public $queueId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string[]
      */
     public $ruleIdList;
+
     /**
      * @var string[]
      */
     public $ruleNameList;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'qosId'                => 'QosId',
-        'queueId'              => 'QueueId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'qosId' => 'QosId',
+        'queueId' => 'QueueId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'ruleIdList'           => 'RuleIdList',
-        'ruleNameList'         => 'RuleNameList',
+        'ruleIdList' => 'RuleIdList',
+        'ruleNameList' => 'RuleNameList',
     ];
 
     public function validate()
@@ -101,7 +109,7 @@ class DescribeExpressConnectTrafficQosRuleRequest extends Model
         if (null !== $this->ruleIdList) {
             if (\is_array($this->ruleIdList)) {
                 $res['RuleIdList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->ruleIdList as $item1) {
                     $res['RuleIdList'][$n1++] = $item1;
                 }
@@ -111,7 +119,7 @@ class DescribeExpressConnectTrafficQosRuleRequest extends Model
         if (null !== $this->ruleNameList) {
             if (\is_array($this->ruleNameList)) {
                 $res['RuleNameList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->ruleNameList as $item1) {
                     $res['RuleNameList'][$n1++] = $item1;
                 }
@@ -160,7 +168,7 @@ class DescribeExpressConnectTrafficQosRuleRequest extends Model
         if (isset($map['RuleIdList'])) {
             if (!empty($map['RuleIdList'])) {
                 $model->ruleIdList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['RuleIdList'] as $item1) {
                     $model->ruleIdList[$n1++] = $item1;
                 }
@@ -170,7 +178,7 @@ class DescribeExpressConnectTrafficQosRuleRequest extends Model
         if (isset($map['RuleNameList'])) {
             if (!empty($map['RuleNameList'])) {
                 $model->ruleNameList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['RuleNameList'] as $item1) {
                     $model->ruleNameList[$n1++] = $item1;
                 }

@@ -12,63 +12,74 @@ class DescribeVpnSslServerLogsRequest extends Model
      * @var int
      */
     public $from;
+
     /**
      * @var int
      */
     public $minutePeriod;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $sslVpnClientCertId;
+
     /**
      * @var int
      */
     public $to;
+
     /**
      * @var string
      */
     public $vpnSslServerId;
     protected $_name = [
-        'from'                 => 'From',
-        'minutePeriod'         => 'MinutePeriod',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
+        'from' => 'From',
+        'minutePeriod' => 'MinutePeriod',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'sslVpnClientCertId'   => 'SslVpnClientCertId',
-        'to'                   => 'To',
-        'vpnSslServerId'       => 'VpnSslServerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sslVpnClientCertId' => 'SslVpnClientCertId',
+        'to' => 'To',
+        'vpnSslServerId' => 'VpnSslServerId',
     ];
 
     public function validate()

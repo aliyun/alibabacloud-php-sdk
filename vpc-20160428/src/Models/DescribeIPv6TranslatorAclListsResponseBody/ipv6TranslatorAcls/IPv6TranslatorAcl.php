@@ -12,12 +12,13 @@ class IPv6TranslatorAcl extends Model
      * @var string
      */
     public $aclId;
+
     /**
      * @var string
      */
     public $aclName;
     protected $_name = [
-        'aclId'   => 'AclId',
+        'aclId' => 'AclId',
         'aclName' => 'AclName',
     ];
 

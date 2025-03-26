@@ -13,28 +13,32 @@ class ListIpsecServersResponseBody extends Model
      * @var ipsecServers[]
      */
     public $ipsecServers;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'ipsecServers' => 'IpsecServers',
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class ListIpsecServersResponseBody extends Model
         if (null !== $this->ipsecServers) {
             if (\is_array($this->ipsecServers)) {
                 $res['IpsecServers'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->ipsecServers as $item1) {
                     $res['IpsecServers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class ListIpsecServersResponseBody extends Model
         if (isset($map['IpsecServers'])) {
             if (!empty($map['IpsecServers'])) {
                 $model->ipsecServers = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['IpsecServers'] as $item1) {
                     $model->ipsecServers[$n1++] = ipsecServers::fromMap($item1);
                 }

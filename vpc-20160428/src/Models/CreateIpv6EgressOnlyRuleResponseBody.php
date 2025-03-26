@@ -12,13 +12,14 @@ class CreateIpv6EgressOnlyRuleResponseBody extends Model
      * @var string
      */
     public $ipv6EgressRuleId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'ipv6EgressRuleId' => 'Ipv6EgressRuleId',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

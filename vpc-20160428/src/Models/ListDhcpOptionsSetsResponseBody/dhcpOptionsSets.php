@@ -14,48 +14,56 @@ class dhcpOptionsSets extends Model
      * @var int
      */
     public $associateVpcCount;
+
     /**
      * @var dhcpOptions
      */
     public $dhcpOptions;
+
     /**
      * @var string
      */
     public $dhcpOptionsSetDescription;
+
     /**
      * @var string
      */
     public $dhcpOptionsSetId;
+
     /**
      * @var string
      */
     public $dhcpOptionsSetName;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'associateVpcCount'         => 'AssociateVpcCount',
-        'dhcpOptions'               => 'DhcpOptions',
+        'associateVpcCount' => 'AssociateVpcCount',
+        'dhcpOptions' => 'DhcpOptions',
         'dhcpOptionsSetDescription' => 'DhcpOptionsSetDescription',
-        'dhcpOptionsSetId'          => 'DhcpOptionsSetId',
-        'dhcpOptionsSetName'        => 'DhcpOptionsSetName',
-        'ownerId'                   => 'OwnerId',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'status'                    => 'Status',
-        'tags'                      => 'Tags',
+        'dhcpOptionsSetId' => 'DhcpOptionsSetId',
+        'dhcpOptionsSetName' => 'DhcpOptionsSetName',
+        'ownerId' => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -107,7 +115,7 @@ class dhcpOptionsSets extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -160,7 +168,7 @@ class dhcpOptionsSets extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

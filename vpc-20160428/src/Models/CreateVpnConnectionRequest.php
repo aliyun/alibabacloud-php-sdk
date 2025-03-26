@@ -14,118 +14,140 @@ class CreateVpnConnectionRequest extends Model
      * @var bool
      */
     public $autoConfigRoute;
+
     /**
      * @var string
      */
     public $bgpConfig;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $customerGatewayId;
+
     /**
      * @var bool
      */
     public $effectImmediately;
+
     /**
      * @var bool
      */
     public $enableDpd;
+
     /**
      * @var bool
      */
     public $enableNatTraversal;
+
     /**
      * @var bool
      */
     public $enableTunnelsBgp;
+
     /**
      * @var string
      */
     public $healthCheckConfig;
+
     /**
      * @var string
      */
     public $ikeConfig;
+
     /**
      * @var string
      */
     public $ipsecConfig;
+
     /**
      * @var string
      */
     public $localSubnet;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $remoteCaCertificate;
+
     /**
      * @var string
      */
     public $remoteSubnet;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var tunnelOptionsSpecification[]
      */
     public $tunnelOptionsSpecification;
+
     /**
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'autoConfigRoute'            => 'AutoConfigRoute',
-        'bgpConfig'                  => 'BgpConfig',
-        'clientToken'                => 'ClientToken',
-        'customerGatewayId'          => 'CustomerGatewayId',
-        'effectImmediately'          => 'EffectImmediately',
-        'enableDpd'                  => 'EnableDpd',
-        'enableNatTraversal'         => 'EnableNatTraversal',
-        'enableTunnelsBgp'           => 'EnableTunnelsBgp',
-        'healthCheckConfig'          => 'HealthCheckConfig',
-        'ikeConfig'                  => 'IkeConfig',
-        'ipsecConfig'                => 'IpsecConfig',
-        'localSubnet'                => 'LocalSubnet',
-        'name'                       => 'Name',
-        'ownerAccount'               => 'OwnerAccount',
-        'ownerId'                    => 'OwnerId',
-        'regionId'                   => 'RegionId',
-        'remoteCaCertificate'        => 'RemoteCaCertificate',
-        'remoteSubnet'               => 'RemoteSubnet',
-        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
-        'resourceOwnerId'            => 'ResourceOwnerId',
-        'tags'                       => 'Tags',
+        'autoConfigRoute' => 'AutoConfigRoute',
+        'bgpConfig' => 'BgpConfig',
+        'clientToken' => 'ClientToken',
+        'customerGatewayId' => 'CustomerGatewayId',
+        'effectImmediately' => 'EffectImmediately',
+        'enableDpd' => 'EnableDpd',
+        'enableNatTraversal' => 'EnableNatTraversal',
+        'enableTunnelsBgp' => 'EnableTunnelsBgp',
+        'healthCheckConfig' => 'HealthCheckConfig',
+        'ikeConfig' => 'IkeConfig',
+        'ipsecConfig' => 'IpsecConfig',
+        'localSubnet' => 'LocalSubnet',
+        'name' => 'Name',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'remoteCaCertificate' => 'RemoteCaCertificate',
+        'remoteSubnet' => 'RemoteSubnet',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tags' => 'Tags',
         'tunnelOptionsSpecification' => 'TunnelOptionsSpecification',
-        'vpnGatewayId'               => 'VpnGatewayId',
+        'vpnGatewayId' => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -225,7 +247,7 @@ class CreateVpnConnectionRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -235,7 +257,7 @@ class CreateVpnConnectionRequest extends Model
         if (null !== $this->tunnelOptionsSpecification) {
             if (\is_array($this->tunnelOptionsSpecification)) {
                 $res['TunnelOptionsSpecification'] = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($this->tunnelOptionsSpecification as $item1) {
                     $res['TunnelOptionsSpecification'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -340,7 +362,7 @@ class CreateVpnConnectionRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }
@@ -350,7 +372,7 @@ class CreateVpnConnectionRequest extends Model
         if (isset($map['TunnelOptionsSpecification'])) {
             if (!empty($map['TunnelOptionsSpecification'])) {
                 $model->tunnelOptionsSpecification = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($map['TunnelOptionsSpecification'] as $item1) {
                     $model->tunnelOptionsSpecification[$n1++] = tunnelOptionsSpecification::fromMap($item1);
                 }

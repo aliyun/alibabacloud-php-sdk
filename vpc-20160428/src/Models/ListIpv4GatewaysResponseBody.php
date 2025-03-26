@@ -13,23 +13,26 @@ class ListIpv4GatewaysResponseBody extends Model
      * @var ipv4GatewayModels[]
      */
     public $ipv4GatewayModels;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
         'ipv4GatewayModels' => 'Ipv4GatewayModels',
-        'nextToken'         => 'NextToken',
-        'requestId'         => 'RequestId',
-        'totalCount'        => 'TotalCount',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class ListIpv4GatewaysResponseBody extends Model
         if (null !== $this->ipv4GatewayModels) {
             if (\is_array($this->ipv4GatewayModels)) {
                 $res['Ipv4GatewayModels'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->ipv4GatewayModels as $item1) {
                     $res['Ipv4GatewayModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class ListIpv4GatewaysResponseBody extends Model
         if (isset($map['Ipv4GatewayModels'])) {
             if (!empty($map['Ipv4GatewayModels'])) {
                 $model->ipv4GatewayModels = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['Ipv4GatewayModels'] as $item1) {
                     $model->ipv4GatewayModels[$n1++] = ipv4GatewayModels::fromMap($item1);
                 }

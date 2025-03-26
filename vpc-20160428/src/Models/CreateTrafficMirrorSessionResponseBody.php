@@ -12,17 +12,19 @@ class CreateTrafficMirrorSessionResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $trafficMirrorSessionId;
     protected $_name = [
-        'requestId'              => 'RequestId',
-        'resourceGroupId'        => 'ResourceGroupId',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
         'trafficMirrorSessionId' => 'TrafficMirrorSessionId',
     ];
 
