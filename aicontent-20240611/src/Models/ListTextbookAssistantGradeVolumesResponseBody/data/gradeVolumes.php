@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantGradeVolumesResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class gradeVolumes extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 3
-     *
      * @var string
      */
     public $grade;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $volume;
     protected $_name = [
-        'grade'  => 'grade',
+        'grade' => 'grade',
         'volume' => 'volume',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->grade) {
             $res['grade'] = $this->grade;
         }
+
         if (null !== $this->volume) {
             $res['volume'] = $this->volume;
         }
@@ -47,17 +41,18 @@ class gradeVolumes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return gradeVolumes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['grade'])) {
             $model->grade = $map['grade'];
         }
+
         if (isset($map['volume'])) {
             $model->volume = $map['volume'];
         }

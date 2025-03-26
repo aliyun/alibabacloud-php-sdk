@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherSyncPracticeTaskGenerateResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherSyncPracticeTaskGenerateResponseBody\data\taskContent;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -15,32 +15,35 @@ class data extends Model
     public $taskContent;
 
     /**
-     * @example textbook_question_answering
-     *
      * @var string
      */
     public $taskType;
     protected $_name = [
         'taskContent' => 'taskContent',
-        'taskType'    => 'taskType',
+        'taskType' => 'taskType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->taskContent)) {
+            Model::validateArray($this->taskContent);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->taskContent) {
-            $res['taskContent'] = [];
-            if (null !== $this->taskContent && \is_array($this->taskContent)) {
-                $n = 0;
-                foreach ($this->taskContent as $item) {
-                    $res['taskContent'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskContent)) {
+                $res['taskContent'] = [];
+                $n1 = 0;
+                foreach ($this->taskContent as $item1) {
+                    $res['taskContent'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->taskType) {
             $res['taskType'] = $this->taskType;
         }
@@ -48,23 +51,24 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['taskContent'])) {
             if (!empty($map['taskContent'])) {
                 $model->taskContent = [];
-                $n                  = 0;
-                foreach ($map['taskContent'] as $item) {
-                    $model->taskContent[$n++] = null !== $item ? taskContent::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['taskContent'] as $item1) {
+                    $model->taskContent[$n1++] = taskContent::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['taskType'])) {
             $model->taskType = $map['taskType'];
         }

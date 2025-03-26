@@ -4,84 +4,85 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PersonalizedTextToImageAddInferenceJobRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $imageNumber;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $imageUrl;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example a <special-token> in the snow
-     *
      * @var string
      */
     public $prompt;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $seed;
 
     /**
-     * @example 1
-     *
      * @var float
      */
     public $strength;
 
     /**
-     * @example 800
-     *
      * @var int
      */
     public $trainSteps;
     protected $_name = [
         'imageNumber' => 'imageNumber',
-        'imageUrl'    => 'imageUrl',
-        'prompt'      => 'prompt',
-        'seed'        => 'seed',
-        'strength'    => 'strength',
-        'trainSteps'  => 'trainSteps',
+        'imageUrl' => 'imageUrl',
+        'prompt' => 'prompt',
+        'seed' => 'seed',
+        'strength' => 'strength',
+        'trainSteps' => 'trainSteps',
     ];
 
     public function validate()
     {
+        if (\is_array($this->imageUrl)) {
+            Model::validateArray($this->imageUrl);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageNumber) {
             $res['imageNumber'] = $this->imageNumber;
         }
+
         if (null !== $this->imageUrl) {
-            $res['imageUrl'] = $this->imageUrl;
+            if (\is_array($this->imageUrl)) {
+                $res['imageUrl'] = [];
+                $n1 = 0;
+                foreach ($this->imageUrl as $item1) {
+                    $res['imageUrl'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->prompt) {
             $res['prompt'] = $this->prompt;
         }
+
         if (null !== $this->seed) {
             $res['seed'] = $this->seed;
         }
+
         if (null !== $this->strength) {
             $res['strength'] = $this->strength;
         }
+
         if (null !== $this->trainSteps) {
             $res['trainSteps'] = $this->trainSteps;
         }
@@ -89,31 +90,40 @@ class PersonalizedTextToImageAddInferenceJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PersonalizedTextToImageAddInferenceJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['imageNumber'])) {
             $model->imageNumber = $map['imageNumber'];
         }
+
         if (isset($map['imageUrl'])) {
             if (!empty($map['imageUrl'])) {
-                $model->imageUrl = $map['imageUrl'];
+                $model->imageUrl = [];
+                $n1 = 0;
+                foreach ($map['imageUrl'] as $item1) {
+                    $model->imageUrl[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['prompt'])) {
             $model->prompt = $map['prompt'];
         }
+
         if (isset($map['seed'])) {
             $model->seed = $map['seed'];
         }
+
         if (isset($map['strength'])) {
             $model->strength = $map['strength'];
         }
+
         if (isset($map['trainSteps'])) {
             $model->trainSteps = $map['trainSteps'];
         }

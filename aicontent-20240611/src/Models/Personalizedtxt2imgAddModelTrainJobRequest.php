@@ -4,64 +4,65 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Personalizedtxt2imgAddModelTrainJobRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string[]
      */
     public $imageUrl;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 熊猫图片生成
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example dog
-     *
      * @var string
      */
     public $objectType;
 
     /**
-     * @example 800
-     *
      * @var int
      */
     public $trainSteps;
     protected $_name = [
-        'imageUrl'   => 'imageUrl',
-        'name'       => 'name',
+        'imageUrl' => 'imageUrl',
+        'name' => 'name',
         'objectType' => 'objectType',
         'trainSteps' => 'trainSteps',
     ];
 
     public function validate()
     {
+        if (\is_array($this->imageUrl)) {
+            Model::validateArray($this->imageUrl);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageUrl) {
-            $res['imageUrl'] = $this->imageUrl;
+            if (\is_array($this->imageUrl)) {
+                $res['imageUrl'] = [];
+                $n1 = 0;
+                foreach ($this->imageUrl as $item1) {
+                    $res['imageUrl'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->objectType) {
             $res['objectType'] = $this->objectType;
         }
+
         if (null !== $this->trainSteps) {
             $res['trainSteps'] = $this->trainSteps;
         }
@@ -69,25 +70,32 @@ class Personalizedtxt2imgAddModelTrainJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Personalizedtxt2imgAddModelTrainJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['imageUrl'])) {
             if (!empty($map['imageUrl'])) {
-                $model->imageUrl = $map['imageUrl'];
+                $model->imageUrl = [];
+                $n1 = 0;
+                foreach ($map['imageUrl'] as $item1) {
+                    $model->imageUrl[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['objectType'])) {
             $model->objectType = $map['objectType'];
         }
+
         if (isset($map['trainSteps'])) {
             $model->trainSteps = $map['trainSteps'];
         }

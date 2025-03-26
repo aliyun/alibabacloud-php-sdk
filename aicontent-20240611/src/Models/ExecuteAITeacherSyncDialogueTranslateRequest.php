@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueTranslateRequest\dialogueTasks;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherSyncDialogueTranslateRequest\records;
-use AlibabaCloud\Tea\Model;
 
 class ExecuteAITeacherSyncDialogueTranslateRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var dialogueTasks[]
      */
     public $dialogueTasks;
@@ -23,44 +21,49 @@ class ExecuteAITeacherSyncDialogueTranslateRequest extends Model
     public $records;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 886eba3702xxxxxxxxx4ba52a87a525
-     *
      * @var string
      */
     public $userId;
     protected $_name = [
         'dialogueTasks' => 'dialogueTasks',
-        'records'       => 'records',
-        'userId'        => 'userId',
+        'records' => 'records',
+        'userId' => 'userId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->dialogueTasks)) {
+            Model::validateArray($this->dialogueTasks);
+        }
+        if (\is_array($this->records)) {
+            Model::validateArray($this->records);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dialogueTasks) {
-            $res['dialogueTasks'] = [];
-            if (null !== $this->dialogueTasks && \is_array($this->dialogueTasks)) {
-                $n = 0;
-                foreach ($this->dialogueTasks as $item) {
-                    $res['dialogueTasks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dialogueTasks)) {
+                $res['dialogueTasks'] = [];
+                $n1 = 0;
+                foreach ($this->dialogueTasks as $item1) {
+                    $res['dialogueTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->records) {
-            $res['records'] = [];
-            if (null !== $this->records && \is_array($this->records)) {
-                $n = 0;
-                foreach ($this->records as $item) {
-                    $res['records'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->records)) {
+                $res['records'] = [];
+                $n1 = 0;
+                foreach ($this->records as $item1) {
+                    $res['records'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
@@ -68,32 +71,34 @@ class ExecuteAITeacherSyncDialogueTranslateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExecuteAITeacherSyncDialogueTranslateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dialogueTasks'])) {
             if (!empty($map['dialogueTasks'])) {
                 $model->dialogueTasks = [];
-                $n                    = 0;
-                foreach ($map['dialogueTasks'] as $item) {
-                    $model->dialogueTasks[$n++] = null !== $item ? dialogueTasks::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['dialogueTasks'] as $item1) {
+                    $model->dialogueTasks[$n1++] = dialogueTasks::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['records'])) {
             if (!empty($map['records'])) {
                 $model->records = [];
-                $n              = 0;
-                foreach ($map['records'] as $item) {
-                    $model->records[$n++] = null !== $item ? records::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['records'] as $item1) {
+                    $model->records[$n1++] = records::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantBookDirectoriesResponseBody\data\directoryTree;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class topic extends Model
 {
     /**
-     * @example 1323
-     *
      * @var string
      */
     public $labelId;
@@ -20,20 +18,22 @@ class topic extends Model
      */
     public $labelName;
     protected $_name = [
-        'labelId'   => 'labelId',
+        'labelId' => 'labelId',
         'labelName' => 'labelName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->labelId) {
             $res['labelId'] = $this->labelId;
         }
+
         if (null !== $this->labelName) {
             $res['labelName'] = $this->labelName;
         }
@@ -41,17 +41,18 @@ class topic extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return topic
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['labelId'])) {
             $model->labelId = $map['labelId'];
         }
+
         if (isset($map['labelName'])) {
             $model->labelName = $map['labelName'];
         }

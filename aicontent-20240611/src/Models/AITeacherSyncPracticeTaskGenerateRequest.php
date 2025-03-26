@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AITeacherSyncPracticeTaskGenerateRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 13
-     *
      * @var string
      */
     public $grade;
@@ -28,17 +24,11 @@ class AITeacherSyncPracticeTaskGenerateRequest extends Model
     public $keyWords;
 
     /**
-     * @example Understanding unique professions such as dog walkers, hotel test sleepers, and food tasters, including their job responsibilities and the benefits or challenges associated with each role.
-     *
      * @var string
      */
     public $learningObject;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example Dog walker Dog walking, as a profession, originated in the US. Some may think that it\\"s a perfect job, because dog walkers won\\"t be imprisoned in an office. But it\\"s actually manual labour. At their busiest, dog walkers may have more than ten dogs to take care of in a day. Hotel test sleeper A hotel test sleeper, as the name suggests, has to write expert reviews about the facilities, locations, prices, dining and other services of hotels, in order to provide evaluations and guides for travelers. Hotel test sleepers don\\"t need to punch in for work and they get about ten thousand yuan as income every month. What a comfortable job! Food taster In ancient times, a food taster was a person who tasted foods (or drinks) to be served to someone else, to confirm that it was safe to eat. But now, those working as food tasters just get to taste various new foods and drinks aimed at specific regions across the world. They then give their opinions on these products to the companies and suggest improvements.
-     *
      * @var string
      */
     public $textContent;
@@ -49,61 +39,79 @@ class AITeacherSyncPracticeTaskGenerateRequest extends Model
     public $textbook;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example talk about your dream job.
-     *
      * @var string
      */
     public $topic;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 6440xxxxxxxxxx5fafc98c421
-     *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'grade'          => 'grade',
-        'keySentences'   => 'keySentences',
-        'keyWords'       => 'keyWords',
+        'grade' => 'grade',
+        'keySentences' => 'keySentences',
+        'keyWords' => 'keyWords',
         'learningObject' => 'learningObject',
-        'textContent'    => 'textContent',
-        'textbook'       => 'textbook',
-        'topic'          => 'topic',
-        'userId'         => 'userId',
+        'textContent' => 'textContent',
+        'textbook' => 'textbook',
+        'topic' => 'topic',
+        'userId' => 'userId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->keySentences)) {
+            Model::validateArray($this->keySentences);
+        }
+        if (\is_array($this->keyWords)) {
+            Model::validateArray($this->keyWords);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->grade) {
             $res['grade'] = $this->grade;
         }
+
         if (null !== $this->keySentences) {
-            $res['keySentences'] = $this->keySentences;
+            if (\is_array($this->keySentences)) {
+                $res['keySentences'] = [];
+                $n1 = 0;
+                foreach ($this->keySentences as $item1) {
+                    $res['keySentences'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->keyWords) {
-            $res['keyWords'] = $this->keyWords;
+            if (\is_array($this->keyWords)) {
+                $res['keyWords'] = [];
+                $n1 = 0;
+                foreach ($this->keyWords as $item1) {
+                    $res['keyWords'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->learningObject) {
             $res['learningObject'] = $this->learningObject;
         }
+
         if (null !== $this->textContent) {
             $res['textContent'] = $this->textContent;
         }
+
         if (null !== $this->textbook) {
             $res['textbook'] = $this->textbook;
         }
+
         if (null !== $this->topic) {
             $res['topic'] = $this->topic;
         }
+
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
         }
@@ -111,39 +119,54 @@ class AITeacherSyncPracticeTaskGenerateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AITeacherSyncPracticeTaskGenerateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['grade'])) {
             $model->grade = $map['grade'];
         }
+
         if (isset($map['keySentences'])) {
             if (!empty($map['keySentences'])) {
-                $model->keySentences = $map['keySentences'];
+                $model->keySentences = [];
+                $n1 = 0;
+                foreach ($map['keySentences'] as $item1) {
+                    $model->keySentences[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['keyWords'])) {
             if (!empty($map['keyWords'])) {
-                $model->keyWords = $map['keyWords'];
+                $model->keyWords = [];
+                $n1 = 0;
+                foreach ($map['keyWords'] as $item1) {
+                    $model->keyWords[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['learningObject'])) {
             $model->learningObject = $map['learningObject'];
         }
+
         if (isset($map['textContent'])) {
             $model->textContent = $map['textContent'];
         }
+
         if (isset($map['textbook'])) {
             $model->textbook = $map['textbook'];
         }
+
         if (isset($map['topic'])) {
             $model->topic = $map['topic'];
         }
+
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];
         }

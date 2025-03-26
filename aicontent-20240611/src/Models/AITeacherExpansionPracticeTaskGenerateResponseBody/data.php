@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherExpansionPracticeTaskGenerateResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherExpansionPracticeTaskGenerateResponseBody\data\roleSet;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\AITeacherExpansionPracticeTaskGenerateResponseBody\data\taskContent;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example In a career counseling session, we are going to discuss our dream jobs and the responsibilities associated with them. Alex, who dreams of becoming a professional travel blogger, will share the tasks and skills required for this role, while Jamie, aspiring to be a wildlife photographer, will outline the responsibilities and challenges of capturing nature\\"s moments. Both will explore how their interests align with the practical aspects of their chosen careers, discussing the potential for travel, creativity, and the impact of their work on society and the environment.
-     *
      * @var string
      */
     public $backgroundDescription;
@@ -23,8 +21,6 @@ class data extends Model
     public $roleSet;
 
     /**
-     * @example Hey Jamie, do you know what a travel blogger does?
-     *
      * @var string
      */
     public $startSentence;
@@ -35,44 +31,53 @@ class data extends Model
     public $taskContent;
 
     /**
-     * @example textbook_dialogue
-     *
      * @var string
      */
     public $taskType;
     protected $_name = [
         'backgroundDescription' => 'backgroundDescription',
-        'roleSet'               => 'roleSet',
-        'startSentence'         => 'startSentence',
-        'taskContent'           => 'taskContent',
-        'taskType'              => 'taskType',
+        'roleSet' => 'roleSet',
+        'startSentence' => 'startSentence',
+        'taskContent' => 'taskContent',
+        'taskType' => 'taskType',
     ];
 
     public function validate()
     {
+        if (null !== $this->roleSet) {
+            $this->roleSet->validate();
+        }
+        if (\is_array($this->taskContent)) {
+            Model::validateArray($this->taskContent);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backgroundDescription) {
             $res['backgroundDescription'] = $this->backgroundDescription;
         }
+
         if (null !== $this->roleSet) {
-            $res['roleSet'] = null !== $this->roleSet ? $this->roleSet->toMap() : null;
+            $res['roleSet'] = null !== $this->roleSet ? $this->roleSet->toArray($noStream) : $this->roleSet;
         }
+
         if (null !== $this->startSentence) {
             $res['startSentence'] = $this->startSentence;
         }
+
         if (null !== $this->taskContent) {
-            $res['taskContent'] = [];
-            if (null !== $this->taskContent && \is_array($this->taskContent)) {
-                $n = 0;
-                foreach ($this->taskContent as $item) {
-                    $res['taskContent'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->taskContent)) {
+                $res['taskContent'] = [];
+                $n1 = 0;
+                foreach ($this->taskContent as $item1) {
+                    $res['taskContent'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->taskType) {
             $res['taskType'] = $this->taskType;
         }
@@ -80,32 +85,36 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['backgroundDescription'])) {
             $model->backgroundDescription = $map['backgroundDescription'];
         }
+
         if (isset($map['roleSet'])) {
             $model->roleSet = roleSet::fromMap($map['roleSet']);
         }
+
         if (isset($map['startSentence'])) {
             $model->startSentence = $map['startSentence'];
         }
+
         if (isset($map['taskContent'])) {
             if (!empty($map['taskContent'])) {
                 $model->taskContent = [];
-                $n                  = 0;
-                foreach ($map['taskContent'] as $item) {
-                    $model->taskContent[$n++] = null !== $item ? taskContent::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['taskContent'] as $item1) {
+                    $model->taskContent[$n1++] = taskContent::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['taskType'])) {
             $model->taskType = $map['taskType'];
         }

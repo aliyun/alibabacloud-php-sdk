@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models\GetTextbookAssistantTokenResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example tc_197bf5bb81889cc79eb51ae9b8c0cea3
-     *
      * @var string
      */
     public $authToken;
 
     /**
-     * @example 5400
-     *
      * @var int
      */
     public $expire;
     protected $_name = [
         'authToken' => 'authToken',
-        'expire'    => 'expire',
+        'expire' => 'expire',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authToken) {
             $res['authToken'] = $this->authToken;
         }
+
         if (null !== $this->expire) {
             $res['expire'] = $this->expire;
         }
@@ -43,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['authToken'])) {
             $model->authToken = $map['authToken'];
         }
+
         if (isset($map['expire'])) {
             $model->expire = $map['expire'];
         }

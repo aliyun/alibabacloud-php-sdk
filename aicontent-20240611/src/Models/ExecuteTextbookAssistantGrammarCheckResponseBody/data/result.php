@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantGrammarCheckResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
@@ -14,37 +14,36 @@ class result extends Model
     public $analysis;
 
     /**
-     * @example I am you.
-     *
      * @var string
      */
     public $correction;
 
     /**
-     * @example Has_Error
-     *
      * @var string
      */
     public $correctionStatus;
     protected $_name = [
-        'analysis'         => 'analysis',
-        'correction'       => 'correction',
+        'analysis' => 'analysis',
+        'correction' => 'correction',
         'correctionStatus' => 'correctionStatus',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->analysis) {
             $res['analysis'] = $this->analysis;
         }
+
         if (null !== $this->correction) {
             $res['correction'] = $this->correction;
         }
+
         if (null !== $this->correctionStatus) {
             $res['correctionStatus'] = $this->correctionStatus;
         }
@@ -52,20 +51,22 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['analysis'])) {
             $model->analysis = $map['analysis'];
         }
+
         if (isset($map['correction'])) {
             $model->correction = $map['correction'];
         }
+
         if (isset($map['correctionStatus'])) {
             $model->correctionStatus = $map['correctionStatus'];
         }

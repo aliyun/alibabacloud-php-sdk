@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantRetryConversationResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantRetryConversationResponseBody\data\result;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 6788e0b4b54c5268c1b78638
-     *
      * @var string
      */
     public $assistant;
 
     /**
-     * @example 6788e0b475a4631ffc626722
-     *
      * @var string
      */
     public $chatId;
@@ -29,34 +25,39 @@ class data extends Model
     public $result;
 
     /**
-     * @example 6788e0b45bdfc807f077a5a1
-     *
      * @var string
      */
     public $user;
     protected $_name = [
         'assistant' => 'assistant',
-        'chatId'    => 'chatId',
-        'result'    => 'result',
-        'user'      => 'user',
+        'chatId' => 'chatId',
+        'result' => 'result',
+        'user' => 'user',
     ];
 
     public function validate()
     {
+        if (null !== $this->result) {
+            $this->result->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assistant) {
             $res['assistant'] = $this->assistant;
         }
+
         if (null !== $this->chatId) {
             $res['chatId'] = $this->chatId;
         }
+
         if (null !== $this->result) {
-            $res['result'] = null !== $this->result ? $this->result->toMap() : null;
+            $res['result'] = null !== $this->result ? $this->result->toArray($noStream) : $this->result;
         }
+
         if (null !== $this->user) {
             $res['user'] = $this->user;
         }
@@ -64,23 +65,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['assistant'])) {
             $model->assistant = $map['assistant'];
         }
+
         if (isset($map['chatId'])) {
             $model->chatId = $map['chatId'];
         }
+
         if (isset($map['result'])) {
             $model->result = result::fromMap($map['result']);
         }
+
         if (isset($map['user'])) {
             $model->user = $map['user'];
         }

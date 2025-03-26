@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTextbookAssistantGradeVolumesRequest extends Model
 {
     /**
-     * @example tc_197bf5bb81889cc79eb51ae9b8c0cea3
-     *
      * @var string
      */
     public $authToken;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example SYNC
-     *
      * @var string
      */
     public $scenario;
     protected $_name = [
         'authToken' => 'authToken',
-        'scenario'  => 'scenario',
+        'scenario' => 'scenario',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authToken) {
             $res['authToken'] = $this->authToken;
         }
+
         if (null !== $this->scenario) {
             $res['scenario'] = $this->scenario;
         }
@@ -45,17 +41,18 @@ class ListTextbookAssistantGradeVolumesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTextbookAssistantGradeVolumesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['authToken'])) {
             $model->authToken = $map['authToken'];
         }
+
         if (isset($map['scenario'])) {
             $model->scenario = $map['scenario'];
         }

@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExecuteTextbookAssistantDialogueRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $authToken;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $chatId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $scenario;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $userMessage;
     protected $_name = [
-        'authToken'   => 'authToken',
-        'chatId'      => 'chatId',
-        'scenario'    => 'scenario',
+        'authToken' => 'authToken',
+        'chatId' => 'chatId',
+        'scenario' => 'scenario',
         'userMessage' => 'userMessage',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authToken) {
             $res['authToken'] = $this->authToken;
         }
+
         if (null !== $this->chatId) {
             $res['chatId'] = $this->chatId;
         }
+
         if (null !== $this->scenario) {
             $res['scenario'] = $this->scenario;
         }
+
         if (null !== $this->userMessage) {
             $res['userMessage'] = $this->userMessage;
         }
@@ -65,23 +61,26 @@ class ExecuteTextbookAssistantDialogueRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExecuteTextbookAssistantDialogueRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['authToken'])) {
             $model->authToken = $map['authToken'];
         }
+
         if (isset($map['chatId'])) {
             $model->chatId = $map['chatId'];
         }
+
         if (isset($map['scenario'])) {
             $model->scenario = $map['scenario'];
         }
+
         if (isset($map['userMessage'])) {
             $model->userMessage = $map['userMessage'];
         }

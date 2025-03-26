@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models\GetAITeacherExpansionDialogueSuggestionResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 谢谢莉莉.你喜欢吃肉吗，莉莉？
-     *
      * @var string
      */
     public $chineseResult;
 
     /**
-     * @example Thanks, Lily. Do you like meat, Lily?
-     *
      * @var string
      */
     public $englishResult;
@@ -28,14 +24,16 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chineseResult) {
             $res['chineseResult'] = $this->chineseResult;
         }
+
         if (null !== $this->englishResult) {
             $res['englishResult'] = $this->englishResult;
         }
@@ -43,17 +41,18 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['chineseResult'])) {
             $model->chineseResult = $map['chineseResult'];
         }
+
         if (isset($map['englishResult'])) {
             $model->englishResult = $map['englishResult'];
         }

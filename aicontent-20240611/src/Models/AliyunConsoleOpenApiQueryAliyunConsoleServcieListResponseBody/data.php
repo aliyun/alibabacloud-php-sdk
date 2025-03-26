@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models\AliyunConsoleOpenApiQueryAliyunConsoleServcieListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $freeConcurrencyCount;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $freeCount;
 
     /**
-     * @example online_ai_algorithm_personalized_text_to_image_call_count
-     *
      * @var string
      */
     public $serviceCode;
 
     /**
-     * @example AI算法模型-个性化文生图-在线按量调用
-     *
      * @var string
      */
     public $serviceName;
     protected $_name = [
         'freeConcurrencyCount' => 'FreeConcurrencyCount',
-        'freeCount'            => 'FreeCount',
-        'serviceCode'          => 'ServiceCode',
-        'serviceName'          => 'ServiceName',
+        'freeCount' => 'FreeCount',
+        'serviceCode' => 'ServiceCode',
+        'serviceName' => 'ServiceName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->freeConcurrencyCount) {
             $res['FreeConcurrencyCount'] = $this->freeConcurrencyCount;
         }
+
         if (null !== $this->freeCount) {
             $res['FreeCount'] = $this->freeCount;
         }
+
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
@@ -65,23 +61,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FreeConcurrencyCount'])) {
             $model->freeConcurrencyCount = $map['FreeConcurrencyCount'];
         }
+
         if (isset($map['FreeCount'])) {
             $model->freeCount = $map['FreeCount'];
         }
+
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }

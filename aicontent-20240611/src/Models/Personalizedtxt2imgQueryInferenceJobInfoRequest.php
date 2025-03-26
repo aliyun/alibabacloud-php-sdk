@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Personalizedtxt2imgQueryInferenceJobInfoRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 180
-     *
      * @var string
      */
     public $inferenceJobId;
@@ -22,9 +18,10 @@ class Personalizedtxt2imgQueryInferenceJobInfoRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inferenceJobId) {
@@ -34,11 +31,11 @@ class Personalizedtxt2imgQueryInferenceJobInfoRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Personalizedtxt2imgQueryInferenceJobInfoRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

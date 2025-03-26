@@ -4,82 +4,76 @@
 
 namespace AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteAITeacherExpansionDialogueResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $chineseResult;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $englishResult;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $isFinish;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $isOffTopicControl;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $isOnTopic;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $questionIndex;
     protected $_name = [
-        'chineseResult'     => 'chineseResult',
-        'englishResult'     => 'englishResult',
-        'isFinish'          => 'isFinish',
+        'chineseResult' => 'chineseResult',
+        'englishResult' => 'englishResult',
+        'isFinish' => 'isFinish',
         'isOffTopicControl' => 'isOffTopicControl',
-        'isOnTopic'         => 'isOnTopic',
-        'questionIndex'     => 'questionIndex',
+        'isOnTopic' => 'isOnTopic',
+        'questionIndex' => 'questionIndex',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chineseResult) {
             $res['chineseResult'] = $this->chineseResult;
         }
+
         if (null !== $this->englishResult) {
             $res['englishResult'] = $this->englishResult;
         }
+
         if (null !== $this->isFinish) {
             $res['isFinish'] = $this->isFinish;
         }
+
         if (null !== $this->isOffTopicControl) {
             $res['isOffTopicControl'] = $this->isOffTopicControl;
         }
+
         if (null !== $this->isOnTopic) {
             $res['isOnTopic'] = $this->isOnTopic;
         }
+
         if (null !== $this->questionIndex) {
             $res['questionIndex'] = $this->questionIndex;
         }
@@ -87,29 +81,34 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['chineseResult'])) {
             $model->chineseResult = $map['chineseResult'];
         }
+
         if (isset($map['englishResult'])) {
             $model->englishResult = $map['englishResult'];
         }
+
         if (isset($map['isFinish'])) {
             $model->isFinish = $map['isFinish'];
         }
+
         if (isset($map['isOffTopicControl'])) {
             $model->isOffTopicControl = $map['isOffTopicControl'];
         }
+
         if (isset($map['isOnTopic'])) {
             $model->isOnTopic = $map['isOnTopic'];
         }
+
         if (isset($map['questionIndex'])) {
             $model->questionIndex = $map['questionIndex'];
         }
