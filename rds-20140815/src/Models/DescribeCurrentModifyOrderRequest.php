@@ -12,38 +12,44 @@ class DescribeCurrentModifyOrderRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $dbInstanceId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dbInstanceId'         => 'DbInstanceId',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'clientToken' => 'ClientToken',
+        'dbInstanceId' => 'DbInstanceId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

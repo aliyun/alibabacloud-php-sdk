@@ -12,13 +12,14 @@ class DescribeBackupDatabaseResponseBody extends Model
      * @var string
      */
     public $databaseNames;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'databaseNames' => 'DatabaseNames',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

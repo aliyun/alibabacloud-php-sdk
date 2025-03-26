@@ -31,7 +31,7 @@ class capacities extends Model
         if (null !== $this->capacity) {
             if (\is_array($this->capacity)) {
                 $res['Capacity'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->capacity as $item1) {
                     $res['Capacity'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class capacities extends Model
         if (isset($map['Capacity'])) {
             if (!empty($map['Capacity'])) {
                 $model->capacity = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Capacity'] as $item1) {
                     $model->capacity[$n1++] = capacity::fromMap($item1);
                 }

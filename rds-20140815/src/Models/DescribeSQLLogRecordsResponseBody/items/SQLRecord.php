@@ -12,42 +12,49 @@ class SQLRecord extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $executeTime;
+
     /**
      * @var string
      */
     public $hostAddress;
+
     /**
      * @var int
      */
     public $returnRowCounts;
+
     /**
      * @var string
      */
     public $SQLText;
+
     /**
      * @var string
      */
     public $threadID;
+
     /**
      * @var int
      */
     public $totalExecutionTimes;
     protected $_name = [
-        'accountName'         => 'AccountName',
-        'DBName'              => 'DBName',
-        'executeTime'         => 'ExecuteTime',
-        'hostAddress'         => 'HostAddress',
-        'returnRowCounts'     => 'ReturnRowCounts',
-        'SQLText'             => 'SQLText',
-        'threadID'            => 'ThreadID',
+        'accountName' => 'AccountName',
+        'DBName' => 'DBName',
+        'executeTime' => 'ExecuteTime',
+        'hostAddress' => 'HostAddress',
+        'returnRowCounts' => 'ReturnRowCounts',
+        'SQLText' => 'SQLText',
+        'threadID' => 'ThreadID',
         'totalExecutionTimes' => 'TotalExecutionTimes',
     ];
 

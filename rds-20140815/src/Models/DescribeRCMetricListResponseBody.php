@@ -12,38 +12,44 @@ class DescribeRCMetricListResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $datapoints;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'       => 'Code',
+        'code' => 'Code',
         'datapoints' => 'Datapoints',
-        'message'    => 'Message',
-        'nextToken'  => 'NextToken',
-        'period'     => 'Period',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'message' => 'Message',
+        'nextToken' => 'NextToken',
+        'period' => 'Period',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

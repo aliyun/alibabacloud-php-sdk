@@ -15,22 +15,25 @@ class items extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var readDBInstanceNames
      */
     public $readDBInstanceNames;
+
     /**
      * @var readDelayTimes
      */
     public $readDelayTimes;
+
     /**
      * @var readonlyInstanceDelay
      */
     public $readonlyInstanceDelay;
     protected $_name = [
-        'DBInstanceId'          => 'DBInstanceId',
-        'readDBInstanceNames'   => 'ReadDBInstanceNames',
-        'readDelayTimes'        => 'ReadDelayTimes',
+        'DBInstanceId' => 'DBInstanceId',
+        'readDBInstanceNames' => 'ReadDBInstanceNames',
+        'readDelayTimes' => 'ReadDelayTimes',
         'readonlyInstanceDelay' => 'ReadonlyInstanceDelay',
     ];
 

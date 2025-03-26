@@ -12,33 +12,38 @@ class DescribeHostGroupElasticStrategyParametersResponseBody extends Model
      * @var int
      */
     public $cpuShar;
+
     /**
      * @var int
      */
     public $cpuZoom;
+
     /**
      * @var int
      */
     public $iopsZoom;
+
     /**
      * @var int
      */
     public $maxConnZoom;
+
     /**
      * @var int
      */
     public $memoryZoom;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'cpuShar'     => 'CpuShar',
-        'cpuZoom'     => 'CpuZoom',
-        'iopsZoom'    => 'IopsZoom',
+        'cpuShar' => 'CpuShar',
+        'cpuZoom' => 'CpuZoom',
+        'iopsZoom' => 'IopsZoom',
         'maxConnZoom' => 'MaxConnZoom',
-        'memoryZoom'  => 'MemoryZoom',
-        'requestId'   => 'RequestId',
+        'memoryZoom' => 'MemoryZoom',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

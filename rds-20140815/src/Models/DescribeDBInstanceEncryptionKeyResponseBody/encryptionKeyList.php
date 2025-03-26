@@ -12,58 +12,68 @@ class encryptionKeyList extends Model
      * @var string
      */
     public $aliasName;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $deleteDate;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $encryptionKey;
+
     /**
      * @var string
      */
     public $encryptionKeyStatus;
+
     /**
      * @var string
      */
     public $keyType;
+
     /**
      * @var string
      */
     public $keyUsage;
+
     /**
      * @var string
      */
     public $materialExpireTime;
+
     /**
      * @var string
      */
     public $origin;
+
     /**
      * @var string
      */
     public $usedBy;
     protected $_name = [
-        'aliasName'           => 'AliasName',
-        'creator'             => 'Creator',
-        'deleteDate'          => 'DeleteDate',
-        'description'         => 'Description',
-        'encryptionKey'       => 'EncryptionKey',
+        'aliasName' => 'AliasName',
+        'creator' => 'Creator',
+        'deleteDate' => 'DeleteDate',
+        'description' => 'Description',
+        'encryptionKey' => 'EncryptionKey',
         'encryptionKeyStatus' => 'EncryptionKeyStatus',
-        'keyType'             => 'KeyType',
-        'keyUsage'            => 'KeyUsage',
-        'materialExpireTime'  => 'MaterialExpireTime',
-        'origin'              => 'Origin',
-        'usedBy'              => 'UsedBy',
+        'keyType' => 'KeyType',
+        'keyUsage' => 'KeyUsage',
+        'materialExpireTime' => 'MaterialExpireTime',
+        'origin' => 'Origin',
+        'usedBy' => 'UsedBy',
     ];
 
     public function validate()

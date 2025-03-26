@@ -12,12 +12,13 @@ class CreateRCSnapshotResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $snapshotId;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'snapshotId' => 'SnapshotId',
     ];
 

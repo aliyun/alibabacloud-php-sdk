@@ -12,53 +12,62 @@ class RestoreTableRequest extends Model
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var bool
      */
     public $instantRecovery;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $restoreTime;
+
     /**
      * @var string
      */
     public $tableMeta;
     protected $_name = [
-        'backupId'             => 'BackupId',
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'instantRecovery'      => 'InstantRecovery',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'backupId' => 'BackupId',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'instantRecovery' => 'InstantRecovery',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'restoreTime'          => 'RestoreTime',
-        'tableMeta'            => 'TableMeta',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'restoreTime' => 'RestoreTime',
+        'tableMeta' => 'TableMeta',
     ];
 
     public function validate()

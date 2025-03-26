@@ -13,18 +13,20 @@ class RunRCInstancesResponseBody extends Model
      * @var instanceIdSets
      */
     public $instanceIdSets;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceIdSets' => 'InstanceIdSets',
-        'orderId'        => 'OrderId',
-        'requestId'      => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

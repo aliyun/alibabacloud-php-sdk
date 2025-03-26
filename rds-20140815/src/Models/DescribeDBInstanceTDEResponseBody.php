@@ -13,28 +13,32 @@ class DescribeDBInstanceTDEResponseBody extends Model
      * @var databases
      */
     public $databases;
+
     /**
      * @var string
      */
     public $encryptionKey;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $TDEMode;
+
     /**
      * @var string
      */
     public $TDEStatus;
     protected $_name = [
-        'databases'     => 'Databases',
+        'databases' => 'Databases',
         'encryptionKey' => 'EncryptionKey',
-        'requestId'     => 'RequestId',
-        'TDEMode'       => 'TDEMode',
-        'TDEStatus'     => 'TDEStatus',
+        'requestId' => 'RequestId',
+        'TDEMode' => 'TDEMode',
+        'TDEStatus' => 'TDEStatus',
     ];
 
     public function validate()

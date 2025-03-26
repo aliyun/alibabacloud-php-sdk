@@ -12,38 +12,44 @@ class ModifyDBInstanceHAConfigRequest extends Model
      * @var string
      */
     public $dbInstanceId;
+
     /**
      * @var string
      */
     public $HAMode;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $syncMode;
     protected $_name = [
-        'dbInstanceId'         => 'DbInstanceId',
-        'HAMode'               => 'HAMode',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'dbInstanceId' => 'DbInstanceId',
+        'HAMode' => 'HAMode',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'syncMode'             => 'SyncMode',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'syncMode' => 'SyncMode',
     ];
 
     public function validate()

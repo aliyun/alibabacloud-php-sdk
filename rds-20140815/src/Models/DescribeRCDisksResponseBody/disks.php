@@ -12,128 +12,152 @@ class disks extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var bool
      */
     public $deleteAutoSnapshot;
+
     /**
      * @var bool
      */
     public $deleteWithInstance;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $device;
+
     /**
      * @var string
      */
     public $diskChargeType;
+
     /**
      * @var string
      */
     public $diskId;
+
     /**
      * @var string
      */
     public $diskName;
+
     /**
      * @var bool
      */
     public $encrypted;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var int
      */
     public $IOPS;
+
     /**
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $performanceLevel;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $serialNumber;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var string
      */
     public $sourceSnapshotId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $storageClusterId;
+
     /**
      * @var string
      */
     public $storageSetId;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'category'           => 'Category',
-        'creationTime'       => 'CreationTime',
+        'category' => 'Category',
+        'creationTime' => 'CreationTime',
         'deleteAutoSnapshot' => 'DeleteAutoSnapshot',
         'deleteWithInstance' => 'DeleteWithInstance',
-        'description'        => 'Description',
-        'device'             => 'Device',
-        'diskChargeType'     => 'DiskChargeType',
-        'diskId'             => 'DiskId',
-        'diskName'           => 'DiskName',
-        'encrypted'          => 'Encrypted',
-        'expiredTime'        => 'ExpiredTime',
-        'IOPS'               => 'IOPS',
-        'imageId'            => 'ImageId',
-        'instanceId'         => 'InstanceId',
-        'performanceLevel'   => 'PerformanceLevel',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'serialNumber'       => 'SerialNumber',
-        'size'               => 'Size',
-        'sourceSnapshotId'   => 'SourceSnapshotId',
-        'status'             => 'Status',
-        'storageClusterId'   => 'StorageClusterId',
-        'storageSetId'       => 'StorageSetId',
-        'type'               => 'Type',
-        'zoneId'             => 'ZoneId',
+        'description' => 'Description',
+        'device' => 'Device',
+        'diskChargeType' => 'DiskChargeType',
+        'diskId' => 'DiskId',
+        'diskName' => 'DiskName',
+        'encrypted' => 'Encrypted',
+        'expiredTime' => 'ExpiredTime',
+        'IOPS' => 'IOPS',
+        'imageId' => 'ImageId',
+        'instanceId' => 'InstanceId',
+        'performanceLevel' => 'PerformanceLevel',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'serialNumber' => 'SerialNumber',
+        'size' => 'Size',
+        'sourceSnapshotId' => 'SourceSnapshotId',
+        'status' => 'Status',
+        'storageClusterId' => 'StorageClusterId',
+        'storageSetId' => 'StorageSetId',
+        'type' => 'Type',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

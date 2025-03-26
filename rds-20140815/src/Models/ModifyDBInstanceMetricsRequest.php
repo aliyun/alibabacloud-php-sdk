@@ -12,23 +12,26 @@ class ModifyDBInstanceMetricsRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $metricsConfig;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $scope;
     protected $_name = [
-        'DBInstanceName'  => 'DBInstanceName',
-        'metricsConfig'   => 'MetricsConfig',
+        'DBInstanceName' => 'DBInstanceName',
+        'metricsConfig' => 'MetricsConfig',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'scope'           => 'Scope',
+        'scope' => 'Scope',
     ];
 
     public function validate()

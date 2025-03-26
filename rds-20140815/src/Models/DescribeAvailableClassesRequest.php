@@ -12,58 +12,68 @@ class DescribeAvailableClassesRequest extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'category'              => 'Category',
-        'commodityCode'         => 'CommodityCode',
-        'DBInstanceId'          => 'DBInstanceId',
+        'category' => 'Category',
+        'commodityCode' => 'CommodityCode',
+        'DBInstanceId' => 'DBInstanceId',
         'DBInstanceStorageType' => 'DBInstanceStorageType',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'instanceChargeType'    => 'InstanceChargeType',
-        'orderType'             => 'OrderType',
-        'regionId'              => 'RegionId',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'zoneId'                => 'ZoneId',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'instanceChargeType' => 'InstanceChargeType',
+        'orderType' => 'OrderType',
+        'regionId' => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

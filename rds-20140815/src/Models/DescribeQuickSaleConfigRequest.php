@@ -12,18 +12,20 @@ class DescribeQuickSaleConfigRequest extends Model
      * @var string
      */
     public $commodity;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'commodity' => 'Commodity',
-        'engine'    => 'Engine',
-        'regionId'  => 'RegionId',
+        'engine' => 'Engine',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

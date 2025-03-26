@@ -31,7 +31,7 @@ class QPSTopNItems extends Model
         if (null !== $this->QPSTopNItem) {
             if (\is_array($this->QPSTopNItem)) {
                 $res['QPSTopNItem'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->QPSTopNItem as $item1) {
                     $res['QPSTopNItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class QPSTopNItems extends Model
         if (isset($map['QPSTopNItem'])) {
             if (!empty($map['QPSTopNItem'])) {
                 $model->QPSTopNItem = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['QPSTopNItem'] as $item1) {
                     $model->QPSTopNItem[$n1++] = QPSTopNItem::fromMap($item1);
                 }

@@ -12,73 +12,86 @@ class CheckCreateDdrDBInstanceRequest extends Model
      * @var string
      */
     public $backupSetId;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $restoreTime;
+
     /**
      * @var string
      */
     public $restoreType;
+
     /**
      * @var string
      */
     public $sourceDBInstanceName;
+
     /**
      * @var string
      */
     public $sourceRegion;
     protected $_name = [
-        'backupSetId'          => 'BackupSetId',
-        'DBInstanceClass'      => 'DBInstanceClass',
-        'DBInstanceStorage'    => 'DBInstanceStorage',
-        'engine'               => 'Engine',
-        'engineVersion'        => 'EngineVersion',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'backupSetId' => 'BackupSetId',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceStorage' => 'DBInstanceStorage',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'restoreTime'          => 'RestoreTime',
-        'restoreType'          => 'RestoreType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'restoreTime' => 'RestoreTime',
+        'restoreType' => 'RestoreType',
         'sourceDBInstanceName' => 'SourceDBInstanceName',
-        'sourceRegion'         => 'SourceRegion',
+        'sourceRegion' => 'SourceRegion',
     ];
 
     public function validate()

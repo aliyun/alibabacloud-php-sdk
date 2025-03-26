@@ -12,33 +12,38 @@ class ModifyCollationTimeZoneRequest extends Model
      * @var string
      */
     public $collation;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $timezone;
     protected $_name = [
-        'collation'            => 'Collation',
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerId'              => 'OwnerId',
+        'collation' => 'Collation',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'timezone'             => 'Timezone',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'timezone' => 'Timezone',
     ];
 
     public function validate()

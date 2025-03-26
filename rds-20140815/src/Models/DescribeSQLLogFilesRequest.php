@@ -12,43 +12,50 @@ class DescribeSQLLogFilesRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'fileName'             => 'FileName',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
+        'DBInstanceId' => 'DBInstanceId',
+        'fileName' => 'FileName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

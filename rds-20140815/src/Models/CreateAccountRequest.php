@@ -12,53 +12,62 @@ class CreateAccountRequest extends Model
      * @var string
      */
     public $accountDescription;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountPassword;
+
     /**
      * @var string
      */
     public $accountType;
+
     /**
      * @var bool
      */
     public $checkPolicy;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'accountDescription'   => 'AccountDescription',
-        'accountName'          => 'AccountName',
-        'accountPassword'      => 'AccountPassword',
-        'accountType'          => 'AccountType',
-        'checkPolicy'          => 'CheckPolicy',
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'accountDescription' => 'AccountDescription',
+        'accountName' => 'AccountName',
+        'accountPassword' => 'AccountPassword',
+        'accountType' => 'AccountType',
+        'checkPolicy' => 'CheckPolicy',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

@@ -13,27 +13,31 @@ class DescribeRCSnapshotsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var snapshots[]
      */
     public $snapshots;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'snapshots'  => 'Snapshots',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'snapshots' => 'Snapshots',
         'totalCount' => 'TotalCount',
     ];
 
@@ -63,7 +67,7 @@ class DescribeRCSnapshotsResponseBody extends Model
         if (null !== $this->snapshots) {
             if (\is_array($this->snapshots)) {
                 $res['Snapshots'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->snapshots as $item1) {
                     $res['Snapshots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class DescribeRCSnapshotsResponseBody extends Model
         if (isset($map['Snapshots'])) {
             if (!empty($map['Snapshots'])) {
                 $model->snapshots = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Snapshots'] as $item1) {
                     $model->snapshots[$n1++] = snapshots::fromMap($item1);
                 }

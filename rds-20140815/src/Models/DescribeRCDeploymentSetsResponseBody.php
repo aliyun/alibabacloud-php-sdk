@@ -13,33 +13,38 @@ class DescribeRCDeploymentSetsResponseBody extends Model
      * @var deploymentSets
      */
     public $deploymentSets;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'deploymentSets' => 'DeploymentSets',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'regionId'       => 'RegionId',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class performanceValue extends Model
      * @var string
      */
     public $date;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'date'  => 'Date',
+        'date' => 'Date',
         'value' => 'Value',
     ];
 

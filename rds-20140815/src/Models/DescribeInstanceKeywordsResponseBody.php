@@ -13,18 +13,20 @@ class DescribeInstanceKeywordsResponseBody extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var words
      */
     public $words;
     protected $_name = [
-        'key'       => 'Key',
+        'key' => 'Key',
         'requestId' => 'RequestId',
-        'words'     => 'Words',
+        'words' => 'Words',
     ];
 
     public function validate()

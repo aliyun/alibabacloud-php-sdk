@@ -12,33 +12,38 @@ class binLogFile extends Model
      * @var string
      */
     public $downloadLink;
+
     /**
      * @var int
      */
     public $fileSize;
+
     /**
      * @var string
      */
     public $intranetDownloadLink;
+
     /**
      * @var string
      */
     public $linkExpiredTime;
+
     /**
      * @var string
      */
     public $logBeginTime;
+
     /**
      * @var string
      */
     public $logEndTime;
     protected $_name = [
-        'downloadLink'         => 'DownloadLink',
-        'fileSize'             => 'FileSize',
+        'downloadLink' => 'DownloadLink',
+        'fileSize' => 'FileSize',
         'intranetDownloadLink' => 'IntranetDownloadLink',
-        'linkExpiredTime'      => 'LinkExpiredTime',
-        'logBeginTime'         => 'LogBeginTime',
-        'logEndTime'           => 'LogEndTime',
+        'linkExpiredTime' => 'LinkExpiredTime',
+        'logBeginTime' => 'LogBeginTime',
+        'logEndTime' => 'LogEndTime',
     ];
 
     public function validate()

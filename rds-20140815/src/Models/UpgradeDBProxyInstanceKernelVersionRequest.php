@@ -12,38 +12,44 @@ class UpgradeDBProxyInstanceKernelVersionRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBProxyEngineType;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $switchTime;
+
     /**
      * @var string
      */
     public $upgradeTime;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBProxyEngineType'    => 'DBProxyEngineType',
-        'ownerId'              => 'OwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBProxyEngineType' => 'DBProxyEngineType',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'switchTime'           => 'SwitchTime',
-        'upgradeTime'          => 'UpgradeTime',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'switchTime' => 'SwitchTime',
+        'upgradeTime' => 'UpgradeTime',
     ];
 
     public function validate()

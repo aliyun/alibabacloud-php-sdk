@@ -12,12 +12,13 @@ class database extends Model
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $TDEStatus;
     protected $_name = [
-        'DBName'    => 'DBName',
+        'DBName' => 'DBName',
         'TDEStatus' => 'TDEStatus',
     ];
 

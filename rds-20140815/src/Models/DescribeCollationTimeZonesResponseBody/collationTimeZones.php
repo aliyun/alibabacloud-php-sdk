@@ -31,7 +31,7 @@ class collationTimeZones extends Model
         if (null !== $this->collationTimeZone) {
             if (\is_array($this->collationTimeZone)) {
                 $res['CollationTimeZone'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->collationTimeZone as $item1) {
                     $res['CollationTimeZone'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class collationTimeZones extends Model
         if (isset($map['CollationTimeZone'])) {
             if (!empty($map['CollationTimeZone'])) {
                 $model->collationTimeZone = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['CollationTimeZone'] as $item1) {
                     $model->collationTimeZone[$n1++] = collationTimeZone::fromMap($item1);
                 }

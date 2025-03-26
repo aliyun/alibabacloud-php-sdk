@@ -13,218 +13,260 @@ class DBInstanceAttribute extends Model
      * @var int
      */
     public $accountMaxQuantity;
+
     /**
      * @var string
      */
     public $accountType;
+
     /**
      * @var string
      */
     public $availabilityValue;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $connectionMode;
+
     /**
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $DBInstanceCPU;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceClassType;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $DBInstanceMemory;
+
     /**
      * @var string
      */
     public $DBInstanceNetType;
+
     /**
      * @var string
      */
     public $DBInstanceStatus;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceType;
+
     /**
      * @var int
      */
     public $DBMaxQuantity;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $exportKey;
+
     /**
      * @var string
      */
     public $guardDBInstanceId;
+
     /**
      * @var string
      */
     public $incrementSourceDBInstanceId;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var string
      */
     public $lockReason;
+
     /**
      * @var string
      */
     public $maintainTime;
+
     /**
      * @var string
      */
     public $masterInstanceId;
+
     /**
      * @var int
      */
     public $maxConnections;
+
     /**
      * @var int
      */
     public $maxIOPS;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $readDelayTime;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityIPList;
+
     /**
      * @var slaveZones
      */
     public $slaveZones;
+
     /**
      * @var string
      */
     public $supportUpgradeAccountType;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var string
      */
     public $tempDBInstanceId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'accountMaxQuantity'          => 'AccountMaxQuantity',
-        'accountType'                 => 'AccountType',
-        'availabilityValue'           => 'AvailabilityValue',
-        'category'                    => 'Category',
-        'connectionMode'              => 'ConnectionMode',
-        'connectionString'            => 'ConnectionString',
-        'creationTime'                => 'CreationTime',
-        'DBInstanceCPU'               => 'DBInstanceCPU',
-        'DBInstanceClass'             => 'DBInstanceClass',
-        'DBInstanceClassType'         => 'DBInstanceClassType',
-        'DBInstanceDescription'       => 'DBInstanceDescription',
-        'DBInstanceId'                => 'DBInstanceId',
-        'DBInstanceMemory'            => 'DBInstanceMemory',
-        'DBInstanceNetType'           => 'DBInstanceNetType',
-        'DBInstanceStatus'            => 'DBInstanceStatus',
-        'DBInstanceStorage'           => 'DBInstanceStorage',
-        'DBInstanceType'              => 'DBInstanceType',
-        'DBMaxQuantity'               => 'DBMaxQuantity',
-        'engine'                      => 'Engine',
-        'engineVersion'               => 'EngineVersion',
-        'expireTime'                  => 'ExpireTime',
-        'exportKey'                   => 'ExportKey',
-        'guardDBInstanceId'           => 'GuardDBInstanceId',
+        'accountMaxQuantity' => 'AccountMaxQuantity',
+        'accountType' => 'AccountType',
+        'availabilityValue' => 'AvailabilityValue',
+        'category' => 'Category',
+        'connectionMode' => 'ConnectionMode',
+        'connectionString' => 'ConnectionString',
+        'creationTime' => 'CreationTime',
+        'DBInstanceCPU' => 'DBInstanceCPU',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceClassType' => 'DBInstanceClassType',
+        'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceMemory' => 'DBInstanceMemory',
+        'DBInstanceNetType' => 'DBInstanceNetType',
+        'DBInstanceStatus' => 'DBInstanceStatus',
+        'DBInstanceStorage' => 'DBInstanceStorage',
+        'DBInstanceType' => 'DBInstanceType',
+        'DBMaxQuantity' => 'DBMaxQuantity',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'expireTime' => 'ExpireTime',
+        'exportKey' => 'ExportKey',
+        'guardDBInstanceId' => 'GuardDBInstanceId',
         'incrementSourceDBInstanceId' => 'IncrementSourceDBInstanceId',
-        'instanceNetworkType'         => 'InstanceNetworkType',
-        'lockMode'                    => 'LockMode',
-        'lockReason'                  => 'LockReason',
-        'maintainTime'                => 'MaintainTime',
-        'masterInstanceId'            => 'MasterInstanceId',
-        'maxConnections'              => 'MaxConnections',
-        'maxIOPS'                     => 'MaxIOPS',
-        'payType'                     => 'PayType',
-        'port'                        => 'Port',
-        'readDelayTime'               => 'ReadDelayTime',
-        'regionId'                    => 'RegionId',
-        'securityIPList'              => 'SecurityIPList',
-        'slaveZones'                  => 'SlaveZones',
-        'supportUpgradeAccountType'   => 'SupportUpgradeAccountType',
-        'tags'                        => 'Tags',
-        'tempDBInstanceId'            => 'TempDBInstanceId',
-        'vSwitchId'                   => 'VSwitchId',
-        'vpcId'                       => 'VpcId',
-        'zoneId'                      => 'ZoneId',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'lockMode' => 'LockMode',
+        'lockReason' => 'LockReason',
+        'maintainTime' => 'MaintainTime',
+        'masterInstanceId' => 'MasterInstanceId',
+        'maxConnections' => 'MaxConnections',
+        'maxIOPS' => 'MaxIOPS',
+        'payType' => 'PayType',
+        'port' => 'Port',
+        'readDelayTime' => 'ReadDelayTime',
+        'regionId' => 'RegionId',
+        'securityIPList' => 'SecurityIPList',
+        'slaveZones' => 'SlaveZones',
+        'supportUpgradeAccountType' => 'SupportUpgradeAccountType',
+        'tags' => 'Tags',
+        'tempDBInstanceId' => 'TempDBInstanceId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

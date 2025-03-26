@@ -12,18 +12,20 @@ class StartDBInstanceResponseBody extends Model
      * @var int
      */
     public $migrationId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
         'migrationId' => 'MigrationId',
-        'requestId'   => 'RequestId',
-        'taskId'      => 'TaskId',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

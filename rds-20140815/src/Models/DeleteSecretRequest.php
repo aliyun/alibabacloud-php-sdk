@@ -12,53 +12,62 @@ class DeleteSecretRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $dbInstanceId;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $secretArn;
+
     /**
      * @var string
      */
     public $secretName;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dbInstanceId'         => 'DbInstanceId',
-        'engine'               => 'Engine',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'clientToken' => 'ClientToken',
+        'dbInstanceId' => 'DbInstanceId',
+        'engine' => 'Engine',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'secretArn'            => 'SecretArn',
-        'secretName'           => 'SecretName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'secretArn' => 'SecretArn',
+        'secretName' => 'SecretName',
     ];
 
     public function validate()

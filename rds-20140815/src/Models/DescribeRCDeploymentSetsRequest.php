@@ -12,38 +12,44 @@ class DescribeRCDeploymentSetsRequest extends Model
      * @var string
      */
     public $deploymentSetIds;
+
     /**
      * @var string
      */
     public $deploymentSetName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $strategy;
+
     /**
      * @var string
      */
     public $tag;
     protected $_name = [
-        'deploymentSetIds'  => 'DeploymentSetIds',
+        'deploymentSetIds' => 'DeploymentSetIds',
         'deploymentSetName' => 'DeploymentSetName',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'regionId'          => 'RegionId',
-        'strategy'          => 'Strategy',
-        'tag'               => 'Tag',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'strategy' => 'Strategy',
+        'tag' => 'Tag',
     ];
 
     public function validate()

@@ -13,23 +13,26 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
      * @var DBInstanceNetInfos
      */
     public $DBInstanceNetInfos;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $securityIPMode;
     protected $_name = [
-        'DBInstanceNetInfos'  => 'DBInstanceNetInfos',
+        'DBInstanceNetInfos' => 'DBInstanceNetInfos',
         'instanceNetworkType' => 'InstanceNetworkType',
-        'requestId'           => 'RequestId',
-        'securityIPMode'      => 'SecurityIPMode',
+        'requestId' => 'RequestId',
+        'securityIPMode' => 'SecurityIPMode',
     ];
 
     public function validate()

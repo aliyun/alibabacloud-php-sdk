@@ -12,33 +12,38 @@ class DescribeParameterGroupsRequest extends Model
      * @var bool
      */
     public $enableDetail;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'enableDetail'         => 'EnableDetail',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'enableDetail' => 'EnableDetail',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

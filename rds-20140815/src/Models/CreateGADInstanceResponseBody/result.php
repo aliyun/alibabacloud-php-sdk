@@ -12,18 +12,20 @@ class result extends Model
      * @var string
      */
     public $createMemberCount;
+
     /**
      * @var string
      */
     public $gadInstanceName;
+
     /**
      * @var string
      */
     public $taskID;
     protected $_name = [
         'createMemberCount' => 'CreateMemberCount',
-        'gadInstanceName'   => 'GadInstanceName',
-        'taskID'            => 'TaskID',
+        'gadInstanceName' => 'GadInstanceName',
+        'taskID' => 'TaskID',
     ];
 
     public function validate()

@@ -15,53 +15,62 @@ class priceInfo extends Model
      * @var activityInfo
      */
     public $activityInfo;
+
     /**
      * @var coupons
      */
     public $coupons;
+
     /**
      * @var string
      */
     public $currency;
+
     /**
      * @var float
      */
     public $discountPrice;
+
     /**
      * @var mixed
      */
     public $orderLines;
+
     /**
      * @var float
      */
     public $originalPrice;
+
     /**
      * @var ruleIds
      */
     public $ruleIds;
+
     /**
      * @var float
      */
     public $tradeMaxRCUAmount;
+
     /**
      * @var float
      */
     public $tradeMinRCUAmount;
+
     /**
      * @var float
      */
     public $tradePrice;
     protected $_name = [
-        'activityInfo'      => 'ActivityInfo',
-        'coupons'           => 'Coupons',
-        'currency'          => 'Currency',
-        'discountPrice'     => 'DiscountPrice',
-        'orderLines'        => 'OrderLines',
-        'originalPrice'     => 'OriginalPrice',
-        'ruleIds'           => 'RuleIds',
+        'activityInfo' => 'ActivityInfo',
+        'coupons' => 'Coupons',
+        'currency' => 'Currency',
+        'discountPrice' => 'DiscountPrice',
+        'orderLines' => 'OrderLines',
+        'originalPrice' => 'OriginalPrice',
+        'ruleIds' => 'RuleIds',
         'tradeMaxRCUAmount' => 'TradeMaxRCUAmount',
         'tradeMinRCUAmount' => 'TradeMinRCUAmount',
-        'tradePrice'        => 'TradePrice',
+        'tradePrice' => 'TradePrice',
     ];
 
     public function validate()

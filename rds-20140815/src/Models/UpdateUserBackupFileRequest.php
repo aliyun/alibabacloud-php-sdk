@@ -12,43 +12,50 @@ class UpdateUserBackupFileRequest extends Model
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $retention;
     protected $_name = [
-        'backupId'             => 'BackupId',
-        'comment'              => 'Comment',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'backupId' => 'BackupId',
+        'comment' => 'Comment',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'retention'            => 'Retention',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'retention' => 'Retention',
     ];
 
     public function validate()

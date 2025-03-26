@@ -12,33 +12,38 @@ class CreateYouhuiForOrderRequest extends Model
      * @var int
      */
     public $activityId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $promotionId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'activityId'           => 'ActivityId',
-        'ownerId'              => 'OwnerId',
-        'promotionId'          => 'PromotionId',
-        'regionId'             => 'RegionId',
+        'activityId' => 'ActivityId',
+        'ownerId' => 'OwnerId',
+        'promotionId' => 'PromotionId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

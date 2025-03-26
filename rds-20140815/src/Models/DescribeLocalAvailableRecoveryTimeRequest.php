@@ -12,33 +12,38 @@ class DescribeLocalAvailableRecoveryTimeRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerId'              => 'OwnerId',
-        'region'               => 'Region',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
+        'region' => 'Region',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

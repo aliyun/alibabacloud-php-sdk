@@ -13,12 +13,13 @@ class DescribeDBInstanceIPArrayListResponseBody extends Model
      * @var items
      */
     public $items;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'items'     => 'Items',
+        'items' => 'Items',
         'requestId' => 'RequestId',
     ];
 

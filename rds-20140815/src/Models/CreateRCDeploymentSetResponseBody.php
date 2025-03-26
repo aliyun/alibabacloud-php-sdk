@@ -12,13 +12,14 @@ class CreateRCDeploymentSetResponseBody extends Model
      * @var string
      */
     public $deploymentSetId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'deploymentSetId' => 'DeploymentSetId',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

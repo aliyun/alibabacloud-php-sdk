@@ -14,18 +14,20 @@ class DescribeParameterGroupResponseBody extends Model
      * @var paramGroup
      */
     public $paramGroup;
+
     /**
      * @var relatedCustinsInfo
      */
     public $relatedCustinsInfo;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'paramGroup'         => 'ParamGroup',
+        'paramGroup' => 'ParamGroup',
         'relatedCustinsInfo' => 'RelatedCustinsInfo',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

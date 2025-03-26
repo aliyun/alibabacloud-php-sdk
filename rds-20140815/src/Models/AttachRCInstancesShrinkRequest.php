@@ -12,28 +12,32 @@ class AttachRCInstancesShrinkRequest extends Model
      * @var string
      */
     public $instanceIdsShrink;
+
     /**
      * @var string
      */
     public $keyPair;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'instanceIdsShrink' => 'InstanceIds',
-        'keyPair'           => 'KeyPair',
-        'password'          => 'Password',
-        'regionId'          => 'RegionId',
-        'vpcId'             => 'VpcId',
+        'keyPair' => 'KeyPair',
+        'password' => 'Password',
+        'regionId' => 'RegionId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

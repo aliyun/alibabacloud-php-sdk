@@ -14,98 +14,116 @@ class DescribeDBProxyEndpointResponseBody extends Model
      * @var string
      */
     public $causalConsistReadTimeout;
+
     /**
      * @var string
      */
     public $DBProxyConnectString;
+
     /**
      * @var string
      */
     public $DBProxyConnectStringNetType;
+
     /**
      * @var string
      */
     public $DBProxyConnectStringPort;
+
     /**
      * @var string
      */
     public $DBProxyEndpointId;
+
     /**
      * @var string
      */
     public $DBProxyEndpointMinSlaveCount;
+
     /**
      * @var string
      */
     public $DBProxyEngineType;
+
     /**
      * @var string
      */
     public $DBProxyFeatures;
+
     /**
      * @var DBProxyNodes
      */
     public $DBProxyNodes;
+
     /**
      * @var string
      */
     public $dbProxyEndpointAliases;
+
     /**
      * @var string
      */
     public $dbProxyEndpointReadWriteMode;
+
     /**
      * @var string
      */
     public $dbProxyEndpointVpcId;
+
     /**
      * @var string
      */
     public $dbProxyEndpointVswitchId;
+
     /**
      * @var string
      */
     public $dbProxyEndpointZoneId;
+
     /**
      * @var endpointConnectItems
      */
     public $endpointConnectItems;
+
     /**
      * @var string
      */
     public $readOnlyInstanceDistributionType;
+
     /**
      * @var string
      */
     public $readOnlyInstanceMaxDelayTime;
+
     /**
      * @var string
      */
     public $readOnlyInstanceWeight;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'causalConsistReadTimeout'         => 'CausalConsistReadTimeout',
-        'DBProxyConnectString'             => 'DBProxyConnectString',
-        'DBProxyConnectStringNetType'      => 'DBProxyConnectStringNetType',
-        'DBProxyConnectStringPort'         => 'DBProxyConnectStringPort',
-        'DBProxyEndpointId'                => 'DBProxyEndpointId',
-        'DBProxyEndpointMinSlaveCount'     => 'DBProxyEndpointMinSlaveCount',
-        'DBProxyEngineType'                => 'DBProxyEngineType',
-        'DBProxyFeatures'                  => 'DBProxyFeatures',
-        'DBProxyNodes'                     => 'DBProxyNodes',
-        'dbProxyEndpointAliases'           => 'DbProxyEndpointAliases',
-        'dbProxyEndpointReadWriteMode'     => 'DbProxyEndpointReadWriteMode',
-        'dbProxyEndpointVpcId'             => 'DbProxyEndpointVpcId',
-        'dbProxyEndpointVswitchId'         => 'DbProxyEndpointVswitchId',
-        'dbProxyEndpointZoneId'            => 'DbProxyEndpointZoneId',
-        'endpointConnectItems'             => 'EndpointConnectItems',
+        'causalConsistReadTimeout' => 'CausalConsistReadTimeout',
+        'DBProxyConnectString' => 'DBProxyConnectString',
+        'DBProxyConnectStringNetType' => 'DBProxyConnectStringNetType',
+        'DBProxyConnectStringPort' => 'DBProxyConnectStringPort',
+        'DBProxyEndpointId' => 'DBProxyEndpointId',
+        'DBProxyEndpointMinSlaveCount' => 'DBProxyEndpointMinSlaveCount',
+        'DBProxyEngineType' => 'DBProxyEngineType',
+        'DBProxyFeatures' => 'DBProxyFeatures',
+        'DBProxyNodes' => 'DBProxyNodes',
+        'dbProxyEndpointAliases' => 'DbProxyEndpointAliases',
+        'dbProxyEndpointReadWriteMode' => 'DbProxyEndpointReadWriteMode',
+        'dbProxyEndpointVpcId' => 'DbProxyEndpointVpcId',
+        'dbProxyEndpointVswitchId' => 'DbProxyEndpointVswitchId',
+        'dbProxyEndpointZoneId' => 'DbProxyEndpointZoneId',
+        'endpointConnectItems' => 'EndpointConnectItems',
         'readOnlyInstanceDistributionType' => 'ReadOnlyInstanceDistributionType',
-        'readOnlyInstanceMaxDelayTime'     => 'ReadOnlyInstanceMaxDelayTime',
-        'readOnlyInstanceWeight'           => 'ReadOnlyInstanceWeight',
-        'requestId'                        => 'RequestId',
+        'readOnlyInstanceMaxDelayTime' => 'ReadOnlyInstanceMaxDelayTime',
+        'readOnlyInstanceWeight' => 'ReadOnlyInstanceWeight',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

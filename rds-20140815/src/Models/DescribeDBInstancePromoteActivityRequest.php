@@ -12,33 +12,38 @@ class DescribeDBInstancePromoteActivityRequest extends Model
      * @var string
      */
     public $aliUid;
+
     /**
      * @var string
      */
     public $dbInstanceName;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'aliUid'               => 'AliUid',
-        'dbInstanceName'       => 'DbInstanceName',
-        'ownerId'              => 'OwnerId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'aliUid' => 'AliUid',
+        'dbInstanceName' => 'DbInstanceName',
+        'ownerId' => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

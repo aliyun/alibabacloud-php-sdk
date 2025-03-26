@@ -10,27 +10,53 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCInstanceChargeTypeResponseBody
 class ModifyRCInstanceChargeTypeResponseBody extends Model
 {
     /**
-     * @var feeOfInstances
+     * @var string
+     */
+    public $chargeType;
+
+    /**
+     * @var string[]
+     */
+    public $expiredTime;
+
+    /**
+     * @var feeOfInstances[]
      */
     public $feeOfInstances;
+
+    /**
+     * @var string[]
+     */
+    public $instanceIds;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'chargeType' => 'ChargeType',
+        'expiredTime' => 'ExpiredTime',
         'feeOfInstances' => 'FeeOfInstances',
-        'orderId'        => 'OrderId',
-        'requestId'      => 'RequestId',
+        'instanceIds' => 'InstanceIds',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
-        if (null !== $this->feeOfInstances) {
-            $this->feeOfInstances->validate();
+        if (\is_array($this->expiredTime)) {
+            Model::validateArray($this->expiredTime);
+        }
+        if (\is_array($this->feeOfInstances)) {
+            Model::validateArray($this->feeOfInstances);
+        }
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
         }
         parent::validate();
     }
@@ -38,8 +64,38 @@ class ModifyRCInstanceChargeTypeResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
+
+        if (null !== $this->expiredTime) {
+            if (\is_array($this->expiredTime)) {
+                $res['ExpiredTime'] = [];
+                $n1 = 0;
+                foreach ($this->expiredTime as $item1) {
+                    $res['ExpiredTime'][$n1++] = $item1;
+                }
+            }
+        }
+
         if (null !== $this->feeOfInstances) {
-            $res['FeeOfInstances'] = null !== $this->feeOfInstances ? $this->feeOfInstances->toArray($noStream) : $this->feeOfInstances;
+            if (\is_array($this->feeOfInstances)) {
+                $res['FeeOfInstances'] = [];
+                $n1 = 0;
+                foreach ($this->feeOfInstances as $item1) {
+                    $res['FeeOfInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
+        if (null !== $this->instanceIds) {
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1++] = $item1;
+                }
+            }
         }
 
         if (null !== $this->orderId) {
@@ -61,8 +117,38 @@ class ModifyRCInstanceChargeTypeResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
+
+        if (isset($map['ExpiredTime'])) {
+            if (!empty($map['ExpiredTime'])) {
+                $model->expiredTime = [];
+                $n1 = 0;
+                foreach ($map['ExpiredTime'] as $item1) {
+                    $model->expiredTime[$n1++] = $item1;
+                }
+            }
+        }
+
         if (isset($map['FeeOfInstances'])) {
-            $model->feeOfInstances = feeOfInstances::fromMap($map['FeeOfInstances']);
+            if (!empty($map['FeeOfInstances'])) {
+                $model->feeOfInstances = [];
+                $n1 = 0;
+                foreach ($map['FeeOfInstances'] as $item1) {
+                    $model->feeOfInstances[$n1++] = feeOfInstances::fromMap($item1);
+                }
+            }
+        }
+
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1++] = $item1;
+                }
+            }
         }
 
         if (isset($map['OrderId'])) {

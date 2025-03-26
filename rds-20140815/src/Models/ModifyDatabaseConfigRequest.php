@@ -12,43 +12,50 @@ class ModifyDatabaseConfigRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $databasePropertyName;
+
     /**
      * @var string
      */
     public $databasePropertyValue;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBName'                => 'DBName',
-        'databasePropertyName'  => 'DatabasePropertyName',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
+        'databasePropertyName' => 'DatabasePropertyName',
         'databasePropertyValue' => 'DatabasePropertyValue',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

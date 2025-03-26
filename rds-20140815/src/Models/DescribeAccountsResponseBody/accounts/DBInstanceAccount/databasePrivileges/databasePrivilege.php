@@ -12,18 +12,20 @@ class databasePrivilege extends Model
      * @var string
      */
     public $accountPrivilege;
+
     /**
      * @var string
      */
     public $accountPrivilegeDetail;
+
     /**
      * @var string
      */
     public $DBName;
     protected $_name = [
-        'accountPrivilege'       => 'AccountPrivilege',
+        'accountPrivilege' => 'AccountPrivilege',
         'accountPrivilegeDetail' => 'AccountPrivilegeDetail',
-        'DBName'                 => 'DBName',
+        'DBName' => 'DBName',
     ];
 
     public function validate()

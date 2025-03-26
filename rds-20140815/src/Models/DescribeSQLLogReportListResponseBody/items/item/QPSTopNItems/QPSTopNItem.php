@@ -12,13 +12,14 @@ class QPSTopNItem extends Model
      * @var int
      */
     public $SQLExecuteTimes;
+
     /**
      * @var string
      */
     public $SQLText;
     protected $_name = [
         'SQLExecuteTimes' => 'SQLExecuteTimes',
-        'SQLText'         => 'SQLText',
+        'SQLText' => 'SQLText',
     ];
 
     public function validate()

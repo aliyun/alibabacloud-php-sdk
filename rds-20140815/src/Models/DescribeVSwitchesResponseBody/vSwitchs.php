@@ -12,43 +12,50 @@ class vSwitchs extends Model
      * @var string
      */
     public $availableIpAddressCount;
+
     /**
      * @var string
      */
     public $cidrBlock;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var string
      */
     public $izNo;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vSwitchName;
     protected $_name = [
         'availableIpAddressCount' => 'AvailableIpAddressCount',
-        'cidrBlock'               => 'CidrBlock',
-        'description'             => 'Description',
-        'isDefault'               => 'IsDefault',
-        'izNo'                    => 'IzNo',
-        'status'                  => 'Status',
-        'vSwitchId'               => 'VSwitchId',
-        'vSwitchName'             => 'VSwitchName',
+        'cidrBlock' => 'CidrBlock',
+        'description' => 'Description',
+        'isDefault' => 'IsDefault',
+        'izNo' => 'IzNo',
+        'status' => 'Status',
+        'vSwitchId' => 'VSwitchId',
+        'vSwitchName' => 'VSwitchName',
     ];
 
     public function validate()

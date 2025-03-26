@@ -13,13 +13,14 @@ class DescribeRdsResourceSettingsResponseBody extends Model
      * @var rdsInstanceResourceSettings
      */
     public $rdsInstanceResourceSettings;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'rdsInstanceResourceSettings' => 'RdsInstanceResourceSettings',
-        'requestId'                   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

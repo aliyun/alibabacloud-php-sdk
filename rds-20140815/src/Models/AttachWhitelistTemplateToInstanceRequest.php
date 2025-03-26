@@ -12,33 +12,38 @@ class AttachWhitelistTemplateToInstanceRequest extends Model
      * @var string
      */
     public $insName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'insName'              => 'InsName',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'insName' => 'InsName',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'templateId'           => 'TemplateId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

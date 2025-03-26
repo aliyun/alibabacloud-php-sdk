@@ -13,38 +13,44 @@ class DescribeAccountsResponseBody extends Model
      * @var accounts
      */
     public $accounts;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $systemAdminAccountFirstActivationTime;
+
     /**
      * @var string
      */
     public $systemAdminAccountStatus;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'accounts'                              => 'Accounts',
-        'pageNumber'                            => 'PageNumber',
-        'requestId'                             => 'RequestId',
-        'resourceGroupId'                       => 'ResourceGroupId',
+        'accounts' => 'Accounts',
+        'pageNumber' => 'PageNumber',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
         'systemAdminAccountFirstActivationTime' => 'SystemAdminAccountFirstActivationTime',
-        'systemAdminAccountStatus'              => 'SystemAdminAccountStatus',
-        'totalRecordCount'                      => 'TotalRecordCount',
+        'systemAdminAccountStatus' => 'SystemAdminAccountStatus',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()

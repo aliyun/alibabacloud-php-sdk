@@ -12,18 +12,20 @@ class nodeItems extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $weight;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'nodeId'       => 'NodeId',
-        'weight'       => 'Weight',
+        'nodeId' => 'NodeId',
+        'weight' => 'Weight',
     ];
 
     public function validate()

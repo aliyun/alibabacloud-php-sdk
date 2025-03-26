@@ -12,33 +12,38 @@ class DescribeReplicationLinkLogsRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskName;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'taskId'       => 'TaskId',
-        'taskName'     => 'TaskName',
-        'taskType'     => 'TaskType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

@@ -12,48 +12,56 @@ class DeleteSlotRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $slotName;
+
     /**
      * @var string
      */
     public $slotStatus;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'slotName'             => 'SlotName',
-        'slotStatus'           => 'SlotStatus',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'slotName' => 'SlotName',
+        'slotStatus' => 'SlotStatus',
     ];
 
     public function validate()

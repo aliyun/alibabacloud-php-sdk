@@ -14,68 +14,80 @@ class ModifyDBProxyInstanceRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBProxyEngineType;
+
     /**
      * @var string
      */
     public $DBProxyInstanceNum;
+
     /**
      * @var string
      */
     public $DBProxyInstanceType;
+
     /**
      * @var DBProxyNodes[]
      */
     public $DBProxyNodes;
+
     /**
      * @var string
      */
     public $effectiveSpecificTime;
+
     /**
      * @var string
      */
     public $effectiveTime;
+
     /**
      * @var migrateAZ[]
      */
     public $migrateAZ;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $vSwitchIds;
     protected $_name = [
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBProxyEngineType'     => 'DBProxyEngineType',
-        'DBProxyInstanceNum'    => 'DBProxyInstanceNum',
-        'DBProxyInstanceType'   => 'DBProxyInstanceType',
-        'DBProxyNodes'          => 'DBProxyNodes',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBProxyEngineType' => 'DBProxyEngineType',
+        'DBProxyInstanceNum' => 'DBProxyInstanceNum',
+        'DBProxyInstanceType' => 'DBProxyInstanceType',
+        'DBProxyNodes' => 'DBProxyNodes',
         'effectiveSpecificTime' => 'EffectiveSpecificTime',
-        'effectiveTime'         => 'EffectiveTime',
-        'migrateAZ'             => 'MigrateAZ',
-        'ownerId'               => 'OwnerId',
-        'regionId'              => 'RegionId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'vSwitchIds'            => 'VSwitchIds',
+        'effectiveTime' => 'EffectiveTime',
+        'migrateAZ' => 'MigrateAZ',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vSwitchIds' => 'VSwitchIds',
     ];
 
     public function validate()
@@ -111,7 +123,7 @@ class ModifyDBProxyInstanceRequest extends Model
         if (null !== $this->DBProxyNodes) {
             if (\is_array($this->DBProxyNodes)) {
                 $res['DBProxyNodes'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->DBProxyNodes as $item1) {
                     $res['DBProxyNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -129,7 +141,7 @@ class ModifyDBProxyInstanceRequest extends Model
         if (null !== $this->migrateAZ) {
             if (\is_array($this->migrateAZ)) {
                 $res['MigrateAZ'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->migrateAZ as $item1) {
                     $res['MigrateAZ'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -186,7 +198,7 @@ class ModifyDBProxyInstanceRequest extends Model
         if (isset($map['DBProxyNodes'])) {
             if (!empty($map['DBProxyNodes'])) {
                 $model->DBProxyNodes = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['DBProxyNodes'] as $item1) {
                     $model->DBProxyNodes[$n1++] = DBProxyNodes::fromMap($item1);
                 }
@@ -204,7 +216,7 @@ class ModifyDBProxyInstanceRequest extends Model
         if (isset($map['MigrateAZ'])) {
             if (!empty($map['MigrateAZ'])) {
                 $model->migrateAZ = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['MigrateAZ'] as $item1) {
                     $model->migrateAZ[$n1++] = migrateAZ::fromMap($item1);
                 }

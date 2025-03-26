@@ -12,23 +12,26 @@ class DescribeRdsResourceSettingsRequest extends Model
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceNiche;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'resourceNiche'        => 'ResourceNiche',
+        'ownerId' => 'OwnerId',
+        'resourceNiche' => 'ResourceNiche',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

@@ -13,12 +13,13 @@ class ListUserBackupFilesResponseBody extends Model
      * @var records[]
      */
     public $records;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'records'   => 'Records',
+        'records' => 'Records',
         'requestId' => 'RequestId',
     ];
 
@@ -36,7 +37,7 @@ class ListUserBackupFilesResponseBody extends Model
         if (null !== $this->records) {
             if (\is_array($this->records)) {
                 $res['Records'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->records as $item1) {
                     $res['Records'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class ListUserBackupFilesResponseBody extends Model
         if (isset($map['Records'])) {
             if (!empty($map['Records'])) {
                 $model->records = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Records'] as $item1) {
                     $model->records[$n1++] = records::fromMap($item1);
                 }

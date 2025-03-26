@@ -12,53 +12,62 @@ class binLogFile extends Model
      * @var string
      */
     public $checksum;
+
     /**
      * @var string
      */
     public $downloadLink;
+
     /**
      * @var int
      */
     public $fileSize;
+
     /**
      * @var string
      */
     public $hostInstanceID;
+
     /**
      * @var string
      */
     public $intranetDownloadLink;
+
     /**
      * @var string
      */
     public $linkExpiredTime;
+
     /**
      * @var string
      */
     public $logBeginTime;
+
     /**
      * @var string
      */
     public $logEndTime;
+
     /**
      * @var string
      */
     public $logFileName;
+
     /**
      * @var string
      */
     public $remoteStatus;
     protected $_name = [
-        'checksum'             => 'Checksum',
-        'downloadLink'         => 'DownloadLink',
-        'fileSize'             => 'FileSize',
-        'hostInstanceID'       => 'HostInstanceID',
+        'checksum' => 'Checksum',
+        'downloadLink' => 'DownloadLink',
+        'fileSize' => 'FileSize',
+        'hostInstanceID' => 'HostInstanceID',
         'intranetDownloadLink' => 'IntranetDownloadLink',
-        'linkExpiredTime'      => 'LinkExpiredTime',
-        'logBeginTime'         => 'LogBeginTime',
-        'logEndTime'           => 'LogEndTime',
-        'logFileName'          => 'LogFileName',
-        'remoteStatus'         => 'RemoteStatus',
+        'linkExpiredTime' => 'LinkExpiredTime',
+        'logBeginTime' => 'LogBeginTime',
+        'logEndTime' => 'LogEndTime',
+        'logFileName' => 'LogFileName',
+        'remoteStatus' => 'RemoteStatus',
     ];
 
     public function validate()

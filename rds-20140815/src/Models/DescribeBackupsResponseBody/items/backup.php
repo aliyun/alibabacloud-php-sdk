@@ -13,123 +13,146 @@ class backup extends Model
      * @var backupDownloadLinkByDB
      */
     public $backupDownloadLinkByDB;
+
     /**
      * @var string
      */
     public $backupDownloadURL;
+
     /**
      * @var string
      */
     public $backupEndTime;
+
     /**
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $backupInitiator;
+
     /**
      * @var string
      */
     public $backupIntranetDownloadURL;
+
     /**
      * @var string
      */
     public $backupMethod;
+
     /**
      * @var string
      */
     public $backupMode;
+
     /**
      * @var int
      */
     public $backupSize;
+
     /**
      * @var string
      */
     public $backupStartTime;
+
     /**
      * @var string
      */
     public $backupStatus;
+
     /**
      * @var string
      */
     public $backupType;
+
     /**
      * @var string
      */
     public $checksum;
+
     /**
      * @var int
      */
     public $consistentTime;
+
     /**
      * @var string
      */
     public $copyOnlyBackup;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $encryption;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $hostInstanceID;
+
     /**
      * @var int
      */
     public $isAvail;
+
     /**
      * @var string
      */
     public $metaStatus;
+
     /**
      * @var string
      */
     public $storageClass;
+
     /**
      * @var string
      */
     public $storeStatus;
     protected $_name = [
-        'backupDownloadLinkByDB'    => 'BackupDownloadLinkByDB',
-        'backupDownloadURL'         => 'BackupDownloadURL',
-        'backupEndTime'             => 'BackupEndTime',
-        'backupId'                  => 'BackupId',
-        'backupInitiator'           => 'BackupInitiator',
+        'backupDownloadLinkByDB' => 'BackupDownloadLinkByDB',
+        'backupDownloadURL' => 'BackupDownloadURL',
+        'backupEndTime' => 'BackupEndTime',
+        'backupId' => 'BackupId',
+        'backupInitiator' => 'BackupInitiator',
         'backupIntranetDownloadURL' => 'BackupIntranetDownloadURL',
-        'backupMethod'              => 'BackupMethod',
-        'backupMode'                => 'BackupMode',
-        'backupSize'                => 'BackupSize',
-        'backupStartTime'           => 'BackupStartTime',
-        'backupStatus'              => 'BackupStatus',
-        'backupType'                => 'BackupType',
-        'checksum'                  => 'Checksum',
-        'consistentTime'            => 'ConsistentTime',
-        'copyOnlyBackup'            => 'CopyOnlyBackup',
-        'DBInstanceId'              => 'DBInstanceId',
-        'encryption'                => 'Encryption',
-        'engine'                    => 'Engine',
-        'engineVersion'             => 'EngineVersion',
-        'hostInstanceID'            => 'HostInstanceID',
-        'isAvail'                   => 'IsAvail',
-        'metaStatus'                => 'MetaStatus',
-        'storageClass'              => 'StorageClass',
-        'storeStatus'               => 'StoreStatus',
+        'backupMethod' => 'BackupMethod',
+        'backupMode' => 'BackupMode',
+        'backupSize' => 'BackupSize',
+        'backupStartTime' => 'BackupStartTime',
+        'backupStatus' => 'BackupStatus',
+        'backupType' => 'BackupType',
+        'checksum' => 'Checksum',
+        'consistentTime' => 'ConsistentTime',
+        'copyOnlyBackup' => 'CopyOnlyBackup',
+        'DBInstanceId' => 'DBInstanceId',
+        'encryption' => 'Encryption',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'hostInstanceID' => 'HostInstanceID',
+        'isAvail' => 'IsAvail',
+        'metaStatus' => 'MetaStatus',
+        'storageClass' => 'StorageClass',
+        'storeStatus' => 'StoreStatus',
     ];
 
     public function validate()

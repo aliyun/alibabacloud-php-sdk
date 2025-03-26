@@ -30,7 +30,7 @@ class advancedInfo extends Model
         if (null !== $this->advancedDbProperty) {
             if (\is_array($this->advancedDbProperty)) {
                 $res['AdvancedDbProperty'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->advancedDbProperty as $item1) {
                     if (\is_array($item1)) {
                         $res['AdvancedDbProperty'][$n1++] = [];
@@ -56,7 +56,7 @@ class advancedInfo extends Model
         if (isset($map['AdvancedDbProperty'])) {
             if (!empty($map['AdvancedDbProperty'])) {
                 $model->advancedDbProperty = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['AdvancedDbProperty'] as $item1) {
                     if (!empty($item1)) {
                         $model->advancedDbProperty[$n1++] = [];

@@ -12,48 +12,56 @@ class uninstalledExtensions extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $defaultVersion;
+
     /**
      * @var string
      */
     public $installedVersion;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var string
      */
     public $priority;
+
     /**
      * @var string
      */
     public $requires;
+
     /**
      * @var string
      */
     public $uid;
     protected $_name = [
-        'category'         => 'Category',
-        'comment'          => 'Comment',
-        'defaultVersion'   => 'DefaultVersion',
+        'category' => 'Category',
+        'comment' => 'Comment',
+        'defaultVersion' => 'DefaultVersion',
         'installedVersion' => 'InstalledVersion',
-        'name'             => 'Name',
-        'owner'            => 'Owner',
-        'priority'         => 'Priority',
-        'requires'         => 'Requires',
-        'uid'              => 'Uid',
+        'name' => 'Name',
+        'owner' => 'Owner',
+        'priority' => 'Priority',
+        'requires' => 'Requires',
+        'uid' => 'Uid',
     ];
 
     public function validate()

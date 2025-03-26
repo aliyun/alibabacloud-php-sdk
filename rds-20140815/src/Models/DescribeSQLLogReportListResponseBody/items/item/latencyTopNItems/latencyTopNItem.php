@@ -12,18 +12,20 @@ class latencyTopNItem extends Model
      * @var int
      */
     public $avgLatency;
+
     /**
      * @var int
      */
     public $SQLExecuteTimes;
+
     /**
      * @var string
      */
     public $SQLText;
     protected $_name = [
-        'avgLatency'      => 'AvgLatency',
+        'avgLatency' => 'AvgLatency',
         'SQLExecuteTimes' => 'SQLExecuteTimes',
-        'SQLText'         => 'SQLText',
+        'SQLText' => 'SQLText',
     ];
 
     public function validate()

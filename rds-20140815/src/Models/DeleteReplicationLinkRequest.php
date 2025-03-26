@@ -12,16 +12,18 @@ class DeleteReplicationLinkRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var bool
      */
     public $promoteToMaster;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'promoteToMaster' => 'PromoteToMaster',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];

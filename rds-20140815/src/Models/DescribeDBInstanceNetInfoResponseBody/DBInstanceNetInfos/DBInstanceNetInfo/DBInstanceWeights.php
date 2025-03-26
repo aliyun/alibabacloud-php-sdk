@@ -31,7 +31,7 @@ class DBInstanceWeights extends Model
         if (null !== $this->DBInstanceWeight) {
             if (\is_array($this->DBInstanceWeight)) {
                 $res['DBInstanceWeight'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->DBInstanceWeight as $item1) {
                     $res['DBInstanceWeight'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class DBInstanceWeights extends Model
         if (isset($map['DBInstanceWeight'])) {
             if (!empty($map['DBInstanceWeight'])) {
                 $model->DBInstanceWeight = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['DBInstanceWeight'] as $item1) {
                     $model->DBInstanceWeight[$n1++] = DBInstanceWeight::fromMap($item1);
                 }

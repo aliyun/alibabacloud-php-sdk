@@ -12,48 +12,56 @@ class CreateOnlineDatabaseTaskRequest extends Model
      * @var string
      */
     public $checkDBMode;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $migrateTaskId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'checkDBMode'          => 'CheckDBMode',
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBName'               => 'DBName',
-        'migrateTaskId'        => 'MigrateTaskId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'checkDBMode' => 'CheckDBMode',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
+        'migrateTaskId' => 'MigrateTaskId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

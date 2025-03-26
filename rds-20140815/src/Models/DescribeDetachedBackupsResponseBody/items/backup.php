@@ -12,88 +12,104 @@ class backup extends Model
      * @var string
      */
     public $backupDownloadURL;
+
     /**
      * @var string
      */
     public $backupEndTime;
+
     /**
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $backupIntranetDownloadURL;
+
     /**
      * @var string
      */
     public $backupMethod;
+
     /**
      * @var string
      */
     public $backupMode;
+
     /**
      * @var int
      */
     public $backupSize;
+
     /**
      * @var string
      */
     public $backupStartTime;
+
     /**
      * @var string
      */
     public $backupStatus;
+
     /**
      * @var string
      */
     public $backupType;
+
     /**
      * @var int
      */
     public $consistentTime;
+
     /**
      * @var string
      */
     public $DBInstanceComment;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $hostInstanceID;
+
     /**
      * @var int
      */
     public $isAvail;
+
     /**
      * @var string
      */
     public $metaStatus;
+
     /**
      * @var string
      */
     public $storeStatus;
     protected $_name = [
-        'backupDownloadURL'         => 'BackupDownloadURL',
-        'backupEndTime'             => 'BackupEndTime',
-        'backupId'                  => 'BackupId',
+        'backupDownloadURL' => 'BackupDownloadURL',
+        'backupEndTime' => 'BackupEndTime',
+        'backupId' => 'BackupId',
         'backupIntranetDownloadURL' => 'BackupIntranetDownloadURL',
-        'backupMethod'              => 'BackupMethod',
-        'backupMode'                => 'BackupMode',
-        'backupSize'                => 'BackupSize',
-        'backupStartTime'           => 'BackupStartTime',
-        'backupStatus'              => 'BackupStatus',
-        'backupType'                => 'BackupType',
-        'consistentTime'            => 'ConsistentTime',
-        'DBInstanceComment'         => 'DBInstanceComment',
-        'DBInstanceId'              => 'DBInstanceId',
-        'hostInstanceID'            => 'HostInstanceID',
-        'isAvail'                   => 'IsAvail',
-        'metaStatus'                => 'MetaStatus',
-        'storeStatus'               => 'StoreStatus',
+        'backupMethod' => 'BackupMethod',
+        'backupMode' => 'BackupMode',
+        'backupSize' => 'BackupSize',
+        'backupStartTime' => 'BackupStartTime',
+        'backupStatus' => 'BackupStatus',
+        'backupType' => 'BackupType',
+        'consistentTime' => 'ConsistentTime',
+        'DBInstanceComment' => 'DBInstanceComment',
+        'DBInstanceId' => 'DBInstanceId',
+        'hostInstanceID' => 'HostInstanceID',
+        'isAvail' => 'IsAvail',
+        'metaStatus' => 'MetaStatus',
+        'storeStatus' => 'StoreStatus',
     ];
 
     public function validate()

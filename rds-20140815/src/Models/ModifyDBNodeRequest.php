@@ -13,68 +13,80 @@ class ModifyDBNodeRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var DBNode[]
      */
     public $DBNode;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $effectiveTime;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var bool
      */
     public $produceAsync;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'autoPay'               => 'AutoPay',
-        'clientToken'           => 'ClientToken',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceStorage'     => 'DBInstanceStorage',
+        'autoPay' => 'AutoPay',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStorage' => 'DBInstanceStorage',
         'DBInstanceStorageType' => 'DBInstanceStorageType',
-        'DBNode'                => 'DBNode',
-        'dryRun'                => 'DryRun',
-        'effectiveTime'         => 'EffectiveTime',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'produceAsync'          => 'ProduceAsync',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
+        'DBNode' => 'DBNode',
+        'dryRun' => 'DryRun',
+        'effectiveTime' => 'EffectiveTime',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'produceAsync' => 'ProduceAsync',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -111,7 +123,7 @@ class ModifyDBNodeRequest extends Model
         if (null !== $this->DBNode) {
             if (\is_array($this->DBNode)) {
                 $res['DBNode'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->DBNode as $item1) {
                     $res['DBNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -180,7 +192,7 @@ class ModifyDBNodeRequest extends Model
         if (isset($map['DBNode'])) {
             if (!empty($map['DBNode'])) {
                 $model->DBNode = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['DBNode'] as $item1) {
                     $model->DBNode[$n1++] = DBNode::fromMap($item1);
                 }

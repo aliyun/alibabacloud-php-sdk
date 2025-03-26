@@ -11,49 +11,63 @@ class DescribeRCMetricListRequest extends Model
     /**
      * @var string
      */
+    public $dimensions;
+
+    /**
+     * @var string
+     */
     public $endTime;
+
     /**
      * @var string
      */
     public $express;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $length;
+
     /**
      * @var string
      */
     public $metricName;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
-        'express'    => 'Express',
+        'dimensions' => 'Dimensions',
+        'endTime' => 'EndTime',
+        'express' => 'Express',
         'instanceId' => 'InstanceId',
-        'length'     => 'Length',
+        'length' => 'Length',
         'metricName' => 'MetricName',
-        'nextToken'  => 'NextToken',
-        'period'     => 'Period',
-        'regionId'   => 'RegionId',
-        'startTime'  => 'StartTime',
+        'nextToken' => 'NextToken',
+        'period' => 'Period',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -64,6 +78,10 @@ class DescribeRCMetricListRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dimensions) {
+            $res['Dimensions'] = $this->dimensions;
+        }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -111,6 +129,10 @@ class DescribeRCMetricListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Dimensions'])) {
+            $model->dimensions = $map['Dimensions'];
+        }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }

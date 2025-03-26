@@ -12,18 +12,20 @@ class meta extends Model
      * @var string
      */
     public $database;
+
     /**
      * @var string
      */
     public $size;
+
     /**
      * @var string
      */
     public $tables;
     protected $_name = [
         'database' => 'Database',
-        'size'     => 'Size',
-        'tables'   => 'Tables',
+        'size' => 'Size',
+        'tables' => 'Tables',
     ];
 
     public function validate()

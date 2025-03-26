@@ -12,78 +12,92 @@ class taskProgressInfo extends Model
      * @var string
      */
     public $beginTime;
+
     /**
      * @var string
      */
     public $currentStepName;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $expectedFinishTime;
+
     /**
      * @var string
      */
     public $finishTime;
+
     /**
      * @var string
      */
     public $progress;
+
     /**
      * @var string
      */
     public $progressInfo;
+
     /**
      * @var int
      */
     public $remain;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $stepProgressInfo;
+
     /**
      * @var string
      */
     public $stepsInfo;
+
     /**
      * @var string
      */
     public $taskAction;
+
     /**
      * @var string
      */
     public $taskErrorCode;
+
     /**
      * @var string
      */
     public $taskErrorMessage;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'beginTime'          => 'BeginTime',
-        'currentStepName'    => 'CurrentStepName',
-        'DBName'             => 'DBName',
+        'beginTime' => 'BeginTime',
+        'currentStepName' => 'CurrentStepName',
+        'DBName' => 'DBName',
         'expectedFinishTime' => 'ExpectedFinishTime',
-        'finishTime'         => 'FinishTime',
-        'progress'           => 'Progress',
-        'progressInfo'       => 'ProgressInfo',
-        'remain'             => 'Remain',
-        'status'             => 'Status',
-        'stepProgressInfo'   => 'StepProgressInfo',
-        'stepsInfo'          => 'StepsInfo',
-        'taskAction'         => 'TaskAction',
-        'taskErrorCode'      => 'TaskErrorCode',
-        'taskErrorMessage'   => 'TaskErrorMessage',
-        'taskId'             => 'TaskId',
+        'finishTime' => 'FinishTime',
+        'progress' => 'Progress',
+        'progressInfo' => 'ProgressInfo',
+        'remain' => 'Remain',
+        'status' => 'Status',
+        'stepProgressInfo' => 'StepProgressInfo',
+        'stepsInfo' => 'StepsInfo',
+        'taskAction' => 'TaskAction',
+        'taskErrorCode' => 'TaskErrorCode',
+        'taskErrorMessage' => 'TaskErrorMessage',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

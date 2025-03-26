@@ -12,18 +12,20 @@ class ModifyDBInstanceNetworkTypeResponseBody extends Model
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'connectionString' => 'ConnectionString',
-        'requestId'        => 'RequestId',
-        'taskId'           => 'TaskId',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

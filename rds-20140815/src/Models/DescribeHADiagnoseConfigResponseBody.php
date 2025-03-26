@@ -12,12 +12,13 @@ class DescribeHADiagnoseConfigResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $tcpConnectionType;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'tcpConnectionType' => 'TcpConnectionType',
     ];
 

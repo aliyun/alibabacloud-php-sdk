@@ -12,23 +12,26 @@ class dbProxyEndpointItems extends Model
      * @var string
      */
     public $dbProxyEndpointAliases;
+
     /**
      * @var string
      */
     public $dbProxyEndpointName;
+
     /**
      * @var string
      */
     public $dbProxyEndpointType;
+
     /**
      * @var string
      */
     public $dbProxyReadWriteMode;
     protected $_name = [
         'dbProxyEndpointAliases' => 'DbProxyEndpointAliases',
-        'dbProxyEndpointName'    => 'DbProxyEndpointName',
-        'dbProxyEndpointType'    => 'DbProxyEndpointType',
-        'dbProxyReadWriteMode'   => 'DbProxyReadWriteMode',
+        'dbProxyEndpointName' => 'DbProxyEndpointName',
+        'dbProxyEndpointType' => 'DbProxyEndpointType',
+        'dbProxyReadWriteMode' => 'DbProxyReadWriteMode',
     ];
 
     public function validate()

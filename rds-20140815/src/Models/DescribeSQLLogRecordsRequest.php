@@ -12,78 +12,92 @@ class DescribeSQLLogRecordsRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $database;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $form;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $queryKeywords;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $SQLId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'database'             => 'Database',
-        'endTime'              => 'EndTime',
-        'form'                 => 'Form',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'queryKeywords'        => 'QueryKeywords',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'database' => 'Database',
+        'endTime' => 'EndTime',
+        'form' => 'Form',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'queryKeywords' => 'QueryKeywords',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'SQLId'                => 'SQLId',
-        'startTime'            => 'StartTime',
-        'user'                 => 'User',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'SQLId' => 'SQLId',
+        'startTime' => 'StartTime',
+        'user' => 'User',
     ];
 
     public function validate()

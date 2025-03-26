@@ -12,43 +12,50 @@ class RebuildDBInstanceRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupId;
+
     /**
      * @var string
      */
     public $dedicatedHostId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $rebuildNodeType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'dedicatedHostGroupId' => 'DedicatedHostGroupId',
-        'dedicatedHostId'      => 'DedicatedHostId',
-        'ownerId'              => 'OwnerId',
-        'rebuildNodeType'      => 'RebuildNodeType',
-        'regionId'             => 'RegionId',
+        'dedicatedHostId' => 'DedicatedHostId',
+        'ownerId' => 'OwnerId',
+        'rebuildNodeType' => 'RebuildNodeType',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

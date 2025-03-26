@@ -12,22 +12,25 @@ class DescribeDBInstanceIPArrayListRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $whitelistNetworkType;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'whitelistNetworkType' => 'WhitelistNetworkType',
     ];
 

@@ -13,37 +13,43 @@ class DescribeCrossRegionBackupDBInstanceResponseBody extends Model
      * @var items
      */
     public $items;
+
     /**
      * @var int
      */
     public $itemsNumbers;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalRecords;
     protected $_name = [
-        'items'        => 'Items',
+        'items' => 'Items',
         'itemsNumbers' => 'ItemsNumbers',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'regionId'     => 'RegionId',
-        'requestId'    => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
         'totalRecords' => 'TotalRecords',
     ];
 

@@ -12,53 +12,62 @@ class ModifyDBInstanceEndpointAddressRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $connectionStringPrefix;
+
     /**
      * @var string
      */
     public $DBInstanceEndpointId;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'clientToken'            => 'ClientToken',
-        'connectionString'       => 'ConnectionString',
+        'clientToken' => 'ClientToken',
+        'connectionString' => 'ConnectionString',
         'connectionStringPrefix' => 'ConnectionStringPrefix',
-        'DBInstanceEndpointId'   => 'DBInstanceEndpointId',
-        'DBInstanceId'           => 'DBInstanceId',
-        'port'                   => 'Port',
-        'privateIpAddress'       => 'PrivateIpAddress',
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'vSwitchId'              => 'VSwitchId',
-        'vpcId'                  => 'VpcId',
+        'DBInstanceEndpointId' => 'DBInstanceEndpointId',
+        'DBInstanceId' => 'DBInstanceId',
+        'port' => 'Port',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class ActivateMigrationTargetInstanceRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $forceSwitch;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $switchTime;
+
     /**
      * @var string
      */
     public $switchTimeMode;
     protected $_name = [
-        'DBInstanceName'  => 'DBInstanceName',
-        'forceSwitch'     => 'ForceSwitch',
+        'DBInstanceName' => 'DBInstanceName',
+        'forceSwitch' => 'ForceSwitch',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'switchTime'      => 'SwitchTime',
-        'switchTimeMode'  => 'SwitchTimeMode',
+        'switchTime' => 'SwitchTime',
+        'switchTimeMode' => 'SwitchTimeMode',
     ];
 
     public function validate()

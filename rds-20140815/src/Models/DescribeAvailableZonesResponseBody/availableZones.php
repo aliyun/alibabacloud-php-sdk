@@ -13,18 +13,20 @@ class availableZones extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var supportedEngines[]
      */
     public $supportedEngines;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'regionId'         => 'RegionId',
+        'regionId' => 'RegionId',
         'supportedEngines' => 'SupportedEngines',
-        'zoneId'           => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class availableZones extends Model
         if (null !== $this->supportedEngines) {
             if (\is_array($this->supportedEngines)) {
                 $res['SupportedEngines'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->supportedEngines as $item1) {
                     $res['SupportedEngines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class availableZones extends Model
         if (isset($map['SupportedEngines'])) {
             if (!empty($map['SupportedEngines'])) {
                 $model->supportedEngines = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['SupportedEngines'] as $item1) {
                     $model->supportedEngines[$n1++] = supportedEngines::fromMap($item1);
                 }

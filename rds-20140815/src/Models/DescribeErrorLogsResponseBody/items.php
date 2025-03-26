@@ -31,7 +31,7 @@ class items extends Model
         if (null !== $this->errorLog) {
             if (\is_array($this->errorLog)) {
                 $res['ErrorLog'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->errorLog as $item1) {
                     $res['ErrorLog'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class items extends Model
         if (isset($map['ErrorLog'])) {
             if (!empty($map['ErrorLog'])) {
                 $model->errorLog = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['ErrorLog'] as $item1) {
                     $model->errorLog[$n1++] = errorLog::fromMap($item1);
                 }

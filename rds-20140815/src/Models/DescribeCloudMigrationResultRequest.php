@@ -12,43 +12,50 @@ class DescribeCloudMigrationResultRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $sourceIpAddress;
+
     /**
      * @var int
      */
     public $sourcePort;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskName;
     protected $_name = [
-        'DBInstanceName'  => 'DBInstanceName',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'DBInstanceName' => 'DBInstanceName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceOwnerId' => 'ResourceOwnerId',
         'sourceIpAddress' => 'SourceIpAddress',
-        'sourcePort'      => 'SourcePort',
-        'taskId'          => 'TaskId',
-        'taskName'        => 'TaskName',
+        'sourcePort' => 'SourcePort',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
     ];
 
     public function validate()

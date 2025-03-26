@@ -31,7 +31,7 @@ class readonlyInstanceDelay extends Model
         if (null !== $this->readonlyInstanceDelay) {
             if (\is_array($this->readonlyInstanceDelay)) {
                 $res['ReadonlyInstanceDelay'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->readonlyInstanceDelay as $item1) {
                     $res['ReadonlyInstanceDelay'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class readonlyInstanceDelay extends Model
         if (isset($map['ReadonlyInstanceDelay'])) {
             if (!empty($map['ReadonlyInstanceDelay'])) {
                 $model->readonlyInstanceDelay = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['ReadonlyInstanceDelay'] as $item1) {
                     $model->readonlyInstanceDelay[$n1++] = self::fromMap($item1);
                 }

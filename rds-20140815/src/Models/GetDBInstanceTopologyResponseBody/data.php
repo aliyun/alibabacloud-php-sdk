@@ -14,18 +14,20 @@ class data extends Model
      * @var connections[]
      */
     public $connections;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var nodes[]
      */
     public $nodes;
     protected $_name = [
-        'connections'    => 'Connections',
+        'connections' => 'Connections',
         'DBInstanceName' => 'DBInstanceName',
-        'nodes'          => 'Nodes',
+        'nodes' => 'Nodes',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class data extends Model
         if (null !== $this->connections) {
             if (\is_array($this->connections)) {
                 $res['Connections'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->connections as $item1) {
                     $res['Connections'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -59,7 +61,7 @@ class data extends Model
         if (null !== $this->nodes) {
             if (\is_array($this->nodes)) {
                 $res['Nodes'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->nodes as $item1) {
                     $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -80,7 +82,7 @@ class data extends Model
         if (isset($map['Connections'])) {
             if (!empty($map['Connections'])) {
                 $model->connections = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Connections'] as $item1) {
                     $model->connections[$n1++] = connections::fromMap($item1);
                 }
@@ -94,7 +96,7 @@ class data extends Model
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Nodes'] as $item1) {
                     $model->nodes[$n1++] = nodes::fromMap($item1);
                 }

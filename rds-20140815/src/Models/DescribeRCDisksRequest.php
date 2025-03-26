@@ -12,28 +12,32 @@ class DescribeRCDisksRequest extends Model
      * @var string
      */
     public $diskIds;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'diskIds'    => 'DiskIds',
+        'diskIds' => 'DiskIds',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

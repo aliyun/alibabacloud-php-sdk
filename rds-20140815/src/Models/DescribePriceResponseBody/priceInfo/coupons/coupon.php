@@ -12,23 +12,26 @@ class coupon extends Model
      * @var string
      */
     public $couponNo;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $isSelected;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
-        'couponNo'    => 'CouponNo',
+        'couponNo' => 'CouponNo',
         'description' => 'Description',
-        'isSelected'  => 'IsSelected',
-        'name'        => 'Name',
+        'isSelected' => 'IsSelected',
+        'name' => 'Name',
     ];
 
     public function validate()

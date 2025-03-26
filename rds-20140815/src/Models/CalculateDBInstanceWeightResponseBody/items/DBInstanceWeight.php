@@ -12,23 +12,26 @@ class DBInstanceWeight extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceType;
+
     /**
      * @var string
      */
     public $readonlyInstanceSQLDelayedTime;
+
     /**
      * @var string
      */
     public $weight;
     protected $_name = [
-        'DBInstanceId'                   => 'DBInstanceId',
-        'DBInstanceType'                 => 'DBInstanceType',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceType' => 'DBInstanceType',
         'readonlyInstanceSQLDelayedTime' => 'ReadonlyInstanceSQLDelayedTime',
-        'weight'                         => 'Weight',
+        'weight' => 'Weight',
     ];
 
     public function validate()

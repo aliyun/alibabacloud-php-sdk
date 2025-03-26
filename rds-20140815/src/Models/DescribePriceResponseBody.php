@@ -15,41 +15,48 @@ class DescribePriceResponseBody extends Model
      * @var string
      */
     public $orderParams;
+
     /**
      * @var priceInfo
      */
     public $priceInfo;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var rules
      */
     public $rules;
+
     /**
      * @var serverlessPrice
      */
     public $serverlessPrice;
+
     /**
      * @var bool
      */
     public $showDiscount;
+
     /**
      * @var float
      */
     public $tradeMaxRCUAmount;
+
     /**
      * @var float
      */
     public $tradeMinRCUAmount;
     protected $_name = [
-        'orderParams'       => 'OrderParams',
-        'priceInfo'         => 'PriceInfo',
-        'requestId'         => 'RequestId',
-        'rules'             => 'Rules',
-        'serverlessPrice'   => 'ServerlessPrice',
-        'showDiscount'      => 'ShowDiscount',
+        'orderParams' => 'OrderParams',
+        'priceInfo' => 'PriceInfo',
+        'requestId' => 'RequestId',
+        'rules' => 'Rules',
+        'serverlessPrice' => 'ServerlessPrice',
+        'showDiscount' => 'ShowDiscount',
         'tradeMaxRCUAmount' => 'TradeMaxRCUAmount',
         'tradeMinRCUAmount' => 'TradeMinRCUAmount',
     ];

@@ -12,28 +12,32 @@ class ActivateMigrationTargetInstanceResponseBody extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $sourceIpAddress;
+
     /**
      * @var int
      */
     public $sourcePort;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
-        'DBInstanceName'  => 'DBInstanceName',
-        'requestId'       => 'RequestId',
+        'DBInstanceName' => 'DBInstanceName',
+        'requestId' => 'RequestId',
         'sourceIpAddress' => 'SourceIpAddress',
-        'sourcePort'      => 'SourcePort',
-        'taskId'          => 'TaskId',
+        'sourcePort' => 'SourcePort',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

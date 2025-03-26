@@ -12,168 +12,200 @@ class CreateDdrInstanceRequest extends Model
      * @var string
      */
     public $backupSetId;
+
     /**
      * @var string
      */
     public $backupSetRegion;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $connectionMode;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceNetType;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $encryptionKey;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $restoreTime;
+
     /**
      * @var string
      */
     public $restoreType;
+
     /**
      * @var string
      */
     public $roleARN;
+
     /**
      * @var string
      */
     public $securityIPList;
+
     /**
      * @var string
      */
     public $sourceDBInstanceName;
+
     /**
      * @var string
      */
     public $sourceRegion;
+
     /**
      * @var string
      */
     public $systemDBCharset;
+
     /**
      * @var string
      */
     public $usedTime;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'backupSetId'           => 'BackupSetId',
-        'backupSetRegion'       => 'BackupSetRegion',
-        'clientToken'           => 'ClientToken',
-        'connectionMode'        => 'ConnectionMode',
-        'DBInstanceClass'       => 'DBInstanceClass',
+        'backupSetId' => 'BackupSetId',
+        'backupSetRegion' => 'BackupSetRegion',
+        'clientToken' => 'ClientToken',
+        'connectionMode' => 'ConnectionMode',
+        'DBInstanceClass' => 'DBInstanceClass',
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceNetType'     => 'DBInstanceNetType',
-        'DBInstanceStorage'     => 'DBInstanceStorage',
+        'DBInstanceNetType' => 'DBInstanceNetType',
+        'DBInstanceStorage' => 'DBInstanceStorage',
         'DBInstanceStorageType' => 'DBInstanceStorageType',
-        'encryptionKey'         => 'EncryptionKey',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'instanceNetworkType'   => 'InstanceNetworkType',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'payType'               => 'PayType',
-        'period'                => 'Period',
-        'privateIpAddress'      => 'PrivateIpAddress',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'restoreTime'           => 'RestoreTime',
-        'restoreType'           => 'RestoreType',
-        'roleARN'               => 'RoleARN',
-        'securityIPList'        => 'SecurityIPList',
-        'sourceDBInstanceName'  => 'SourceDBInstanceName',
-        'sourceRegion'          => 'SourceRegion',
-        'systemDBCharset'       => 'SystemDBCharset',
-        'usedTime'              => 'UsedTime',
-        'VPCId'                 => 'VPCId',
-        'vSwitchId'             => 'VSwitchId',
-        'zoneId'                => 'ZoneId',
+        'encryptionKey' => 'EncryptionKey',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'restoreTime' => 'RestoreTime',
+        'restoreType' => 'RestoreType',
+        'roleARN' => 'RoleARN',
+        'securityIPList' => 'SecurityIPList',
+        'sourceDBInstanceName' => 'SourceDBInstanceName',
+        'sourceRegion' => 'SourceRegion',
+        'systemDBCharset' => 'SystemDBCharset',
+        'usedTime' => 'UsedTime',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

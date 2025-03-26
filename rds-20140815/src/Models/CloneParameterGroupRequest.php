@@ -12,48 +12,56 @@ class CloneParameterGroupRequest extends Model
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $parameterGroupDesc;
+
     /**
      * @var string
      */
     public $parameterGroupId;
+
     /**
      * @var string
      */
     public $parameterGroupName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $targetRegionId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'parameterGroupDesc'   => 'ParameterGroupDesc',
-        'parameterGroupId'     => 'ParameterGroupId',
-        'parameterGroupName'   => 'ParameterGroupName',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'ownerId' => 'OwnerId',
+        'parameterGroupDesc' => 'ParameterGroupDesc',
+        'parameterGroupId' => 'ParameterGroupId',
+        'parameterGroupName' => 'ParameterGroupName',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'targetRegionId'       => 'TargetRegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'targetRegionId' => 'TargetRegionId',
     ];
 
     public function validate()

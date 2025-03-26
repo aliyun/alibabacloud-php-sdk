@@ -12,38 +12,44 @@ class CreateRCSnapshotRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $diskId;
+
     /**
      * @var bool
      */
     public $instantAccess;
+
     /**
      * @var int
      */
     public $instantAccessRetentionDays;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $retentionDays;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'description'                => 'Description',
-        'diskId'                     => 'DiskId',
-        'instantAccess'              => 'InstantAccess',
+        'description' => 'Description',
+        'diskId' => 'DiskId',
+        'instantAccess' => 'InstantAccess',
         'instantAccessRetentionDays' => 'InstantAccessRetentionDays',
-        'regionId'                   => 'RegionId',
-        'retentionDays'              => 'RetentionDays',
-        'zoneId'                     => 'ZoneId',
+        'regionId' => 'RegionId',
+        'retentionDays' => 'RetentionDays',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

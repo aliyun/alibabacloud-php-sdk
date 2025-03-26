@@ -12,48 +12,56 @@ class DescribeUpgradeMajorVersionTasksRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $targetMajorVersion;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'targetMajorVersion'   => 'TargetMajorVersion',
-        'taskId'               => 'TaskId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'targetMajorVersion' => 'TargetMajorVersion',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

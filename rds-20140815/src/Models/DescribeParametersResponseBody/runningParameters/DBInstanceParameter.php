@@ -12,28 +12,32 @@ class DBInstanceParameter extends Model
      * @var string
      */
     public $parameterDefaultValue;
+
     /**
      * @var string
      */
     public $parameterDescription;
+
     /**
      * @var string
      */
     public $parameterName;
+
     /**
      * @var string
      */
     public $parameterValue;
+
     /**
      * @var string
      */
     public $parameterValueRange;
     protected $_name = [
         'parameterDefaultValue' => 'ParameterDefaultValue',
-        'parameterDescription'  => 'ParameterDescription',
-        'parameterName'         => 'ParameterName',
-        'parameterValue'        => 'ParameterValue',
-        'parameterValueRange'   => 'ParameterValueRange',
+        'parameterDescription' => 'ParameterDescription',
+        'parameterName' => 'ParameterName',
+        'parameterValue' => 'ParameterValue',
+        'parameterValueRange' => 'ParameterValueRange',
     ];
 
     public function validate()

@@ -12,38 +12,44 @@ class RevokeAccountPrivilegeRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'accountName'          => 'AccountName',
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBName'               => 'DBName',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'accountName' => 'AccountName',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

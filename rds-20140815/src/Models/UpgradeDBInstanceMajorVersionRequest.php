@@ -12,108 +12,128 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
      * @var string
      */
     public $collectStatMode;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $switchOver;
+
     /**
      * @var string
      */
     public $switchTime;
+
     /**
      * @var string
      */
     public $switchTimeMode;
+
     /**
      * @var string
      */
     public $targetMajorVersion;
+
     /**
      * @var string
      */
     public $upgradeMode;
+
     /**
      * @var string
      */
     public $usedTime;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $zoneIdSlave1;
+
     /**
      * @var string
      */
     public $zoneIdSlave2;
     protected $_name = [
-        'collectStatMode'       => 'CollectStatMode',
-        'DBInstanceClass'       => 'DBInstanceClass',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceStorage'     => 'DBInstanceStorage',
+        'collectStatMode' => 'CollectStatMode',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStorage' => 'DBInstanceStorage',
         'DBInstanceStorageType' => 'DBInstanceStorageType',
-        'instanceNetworkType'   => 'InstanceNetworkType',
-        'payType'               => 'PayType',
-        'period'                => 'Period',
-        'privateIpAddress'      => 'PrivateIpAddress',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'switchOver'            => 'SwitchOver',
-        'switchTime'            => 'SwitchTime',
-        'switchTimeMode'        => 'SwitchTimeMode',
-        'targetMajorVersion'    => 'TargetMajorVersion',
-        'upgradeMode'           => 'UpgradeMode',
-        'usedTime'              => 'UsedTime',
-        'VPCId'                 => 'VPCId',
-        'vSwitchId'             => 'VSwitchId',
-        'zoneId'                => 'ZoneId',
-        'zoneIdSlave1'          => 'ZoneIdSlave1',
-        'zoneIdSlave2'          => 'ZoneIdSlave2',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'switchOver' => 'SwitchOver',
+        'switchTime' => 'SwitchTime',
+        'switchTimeMode' => 'SwitchTimeMode',
+        'targetMajorVersion' => 'TargetMajorVersion',
+        'upgradeMode' => 'UpgradeMode',
+        'usedTime' => 'UsedTime',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
+        'zoneIdSlave1' => 'ZoneIdSlave1',
+        'zoneIdSlave2' => 'ZoneIdSlave2',
     ];
 
     public function validate()

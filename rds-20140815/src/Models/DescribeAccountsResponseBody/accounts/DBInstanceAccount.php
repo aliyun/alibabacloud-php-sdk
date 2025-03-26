@@ -13,73 +13,86 @@ class DBInstanceAccount extends Model
      * @var string
      */
     public $accountDescription;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountStatus;
+
     /**
      * @var string
      */
     public $accountType;
+
     /**
      * @var string
      */
     public $bypassRLS;
+
     /**
      * @var bool
      */
     public $checkPolicy;
+
     /**
      * @var string
      */
     public $createDB;
+
     /**
      * @var string
      */
     public $createRole;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var databasePrivileges
      */
     public $databasePrivileges;
+
     /**
      * @var string
      */
     public $passwordExpireTime;
+
     /**
      * @var string
      */
     public $privExceeded;
+
     /**
      * @var string
      */
     public $replication;
+
     /**
      * @var string
      */
     public $validUntil;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
-        'accountName'        => 'AccountName',
-        'accountStatus'      => 'AccountStatus',
-        'accountType'        => 'AccountType',
-        'bypassRLS'          => 'BypassRLS',
-        'checkPolicy'        => 'CheckPolicy',
-        'createDB'           => 'CreateDB',
-        'createRole'         => 'CreateRole',
-        'DBInstanceId'       => 'DBInstanceId',
+        'accountName' => 'AccountName',
+        'accountStatus' => 'AccountStatus',
+        'accountType' => 'AccountType',
+        'bypassRLS' => 'BypassRLS',
+        'checkPolicy' => 'CheckPolicy',
+        'createDB' => 'CreateDB',
+        'createRole' => 'CreateRole',
+        'DBInstanceId' => 'DBInstanceId',
         'databasePrivileges' => 'DatabasePrivileges',
         'passwordExpireTime' => 'PasswordExpireTime',
-        'privExceeded'       => 'PrivExceeded',
-        'replication'        => 'Replication',
-        'validUntil'         => 'ValidUntil',
+        'privExceeded' => 'PrivExceeded',
+        'replication' => 'Replication',
+        'validUntil' => 'ValidUntil',
     ];
 
     public function validate()

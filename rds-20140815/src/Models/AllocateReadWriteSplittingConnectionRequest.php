@@ -12,58 +12,68 @@ class AllocateReadWriteSplittingConnectionRequest extends Model
      * @var string
      */
     public $connectionStringPrefix;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $distributionType;
+
     /**
      * @var string
      */
     public $maxDelayTime;
+
     /**
      * @var string
      */
     public $netType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $weight;
     protected $_name = [
         'connectionStringPrefix' => 'ConnectionStringPrefix',
-        'DBInstanceId'           => 'DBInstanceId',
-        'distributionType'       => 'DistributionType',
-        'maxDelayTime'           => 'MaxDelayTime',
-        'netType'                => 'NetType',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'port'                   => 'Port',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
-        'weight'                 => 'Weight',
+        'DBInstanceId' => 'DBInstanceId',
+        'distributionType' => 'DistributionType',
+        'maxDelayTime' => 'MaxDelayTime',
+        'netType' => 'NetType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'port' => 'Port',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'weight' => 'Weight',
     ];
 
     public function validate()

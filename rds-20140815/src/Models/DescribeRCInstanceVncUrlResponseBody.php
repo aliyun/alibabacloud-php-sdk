@@ -12,12 +12,13 @@ class DescribeRCInstanceVncUrlResponseBody extends Model
      * @var string
      */
     public $loginUrl;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'loginUrl'  => 'LoginUrl',
+        'loginUrl' => 'LoginUrl',
         'requestId' => 'RequestId',
     ];
 

@@ -12,22 +12,25 @@ class RevokeRCSecurityGroupPermissionShrinkRequest extends Model
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $securityGroupRuleIdListShrink;
     protected $_name = [
-        'direction'                     => 'Direction',
-        'regionId'                      => 'RegionId',
-        'securityGroupId'               => 'SecurityGroupId',
+        'direction' => 'Direction',
+        'regionId' => 'RegionId',
+        'securityGroupId' => 'SecurityGroupId',
         'securityGroupRuleIdListShrink' => 'SecurityGroupRuleIdList',
     ];
 

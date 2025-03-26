@@ -12,23 +12,26 @@ class ModifyRCInstanceNetworkSpecRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $internetMaxBandwidthOut;
+
     /**
      * @var string
      */
     public $networkChargeType;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'instanceId'              => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
-        'networkChargeType'       => 'NetworkChargeType',
-        'regionId'                => 'RegionId',
+        'networkChargeType' => 'NetworkChargeType',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

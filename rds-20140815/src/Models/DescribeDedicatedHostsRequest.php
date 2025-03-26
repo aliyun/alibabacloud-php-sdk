@@ -12,58 +12,68 @@ class DescribeDedicatedHostsRequest extends Model
      * @var string
      */
     public $allocationStatus;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupId;
+
     /**
      * @var string
      */
     public $dedicatedHostId;
+
     /**
      * @var string
      */
     public $hostStatus;
+
     /**
      * @var string
      */
     public $hostType;
+
     /**
      * @var int
      */
     public $orderId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'allocationStatus'     => 'AllocationStatus',
+        'allocationStatus' => 'AllocationStatus',
         'dedicatedHostGroupId' => 'DedicatedHostGroupId',
-        'dedicatedHostId'      => 'DedicatedHostId',
-        'hostStatus'           => 'HostStatus',
-        'hostType'             => 'HostType',
-        'orderId'              => 'OrderId',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'dedicatedHostId' => 'DedicatedHostId',
+        'hostStatus' => 'HostStatus',
+        'hostType' => 'HostType',
+        'orderId' => 'OrderId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'zoneId'               => 'ZoneId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

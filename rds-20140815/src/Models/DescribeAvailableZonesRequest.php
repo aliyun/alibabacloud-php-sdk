@@ -12,48 +12,56 @@ class DescribeAvailableZonesRequest extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $dispenseMode;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'category'        => 'Category',
-        'commodityCode'   => 'CommodityCode',
-        'DBInstanceName'  => 'DBInstanceName',
-        'dispenseMode'    => 'DispenseMode',
-        'engine'          => 'Engine',
-        'engineVersion'   => 'EngineVersion',
-        'regionId'        => 'RegionId',
+        'category' => 'Category',
+        'commodityCode' => 'CommodityCode',
+        'DBInstanceName' => 'DBInstanceName',
+        'dispenseMode' => 'DispenseMode',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'regionId' => 'RegionId',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'zoneId'          => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

@@ -13,303 +13,362 @@ class CreateDBInstanceShrinkRequest extends Model
      * @var int
      */
     public $amount;
+
     /**
      * @var bool
      */
     public $autoCreateProxy;
+
     /**
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $autoRenew;
+
     /**
      * @var bool
      */
     public $autoUseCoupon;
+
     /**
      * @var string
      */
     public $babelfishConfig;
+
     /**
      * @var string
      */
     public $bpeEnabled;
+
     /**
      * @var bool
      */
     public $burstingEnabled;
+
     /**
      * @var string
      */
     public $businessInfo;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $coldDataEnabled;
+
     /**
      * @var string
      */
     public $connectionMode;
+
     /**
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $createStrategy;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceNetType;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $DBIsIgnoreCase;
+
     /**
      * @var string
      */
     public $DBParamGroupId;
+
     /**
      * @var string
      */
     public $DBTimeZone;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupId;
+
     /**
      * @var bool
      */
     public $deletionProtection;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $encryptionKey;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $ioAccelerationEnabled;
+
     /**
      * @var string
      */
     public $optimizedWrites;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $promotionCode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $roleARN;
+
     /**
      * @var string
      */
     public $securityIPList;
+
     /**
      * @var string
      */
     public $serverlessConfigShrink;
+
     /**
      * @var string
      */
     public $storageAutoScale;
+
     /**
      * @var int
      */
     public $storageThreshold;
+
     /**
      * @var int
      */
     public $storageUpperBound;
+
     /**
      * @var string
      */
     public $systemDBCharset;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $targetDedicatedHostIdForLog;
+
     /**
      * @var string
      */
     public $targetDedicatedHostIdForMaster;
+
     /**
      * @var string
      */
     public $targetDedicatedHostIdForSlave;
+
     /**
      * @var string
      */
     public $targetMinorVersion;
+
     /**
      * @var string
      */
     public $usedTime;
+
     /**
      * @var string
      */
     public $userBackupId;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $whitelistTemplateList;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $zoneIdSlave1;
+
     /**
      * @var string
      */
     public $zoneIdSlave2;
     protected $_name = [
-        'amount'                         => 'Amount',
-        'autoCreateProxy'                => 'AutoCreateProxy',
-        'autoPay'                        => 'AutoPay',
-        'autoRenew'                      => 'AutoRenew',
-        'autoUseCoupon'                  => 'AutoUseCoupon',
-        'babelfishConfig'                => 'BabelfishConfig',
-        'bpeEnabled'                     => 'BpeEnabled',
-        'burstingEnabled'                => 'BurstingEnabled',
-        'businessInfo'                   => 'BusinessInfo',
-        'category'                       => 'Category',
-        'clientToken'                    => 'ClientToken',
-        'coldDataEnabled'                => 'ColdDataEnabled',
-        'connectionMode'                 => 'ConnectionMode',
-        'connectionString'               => 'ConnectionString',
-        'createStrategy'                 => 'CreateStrategy',
-        'DBInstanceClass'                => 'DBInstanceClass',
-        'DBInstanceDescription'          => 'DBInstanceDescription',
-        'DBInstanceNetType'              => 'DBInstanceNetType',
-        'DBInstanceStorage'              => 'DBInstanceStorage',
-        'DBInstanceStorageType'          => 'DBInstanceStorageType',
-        'DBIsIgnoreCase'                 => 'DBIsIgnoreCase',
-        'DBParamGroupId'                 => 'DBParamGroupId',
-        'DBTimeZone'                     => 'DBTimeZone',
-        'dedicatedHostGroupId'           => 'DedicatedHostGroupId',
-        'deletionProtection'             => 'DeletionProtection',
-        'dryRun'                         => 'DryRun',
-        'encryptionKey'                  => 'EncryptionKey',
-        'engine'                         => 'Engine',
-        'engineVersion'                  => 'EngineVersion',
-        'instanceNetworkType'            => 'InstanceNetworkType',
-        'ioAccelerationEnabled'          => 'IoAccelerationEnabled',
-        'optimizedWrites'                => 'OptimizedWrites',
-        'payType'                        => 'PayType',
-        'period'                         => 'Period',
-        'port'                           => 'Port',
-        'privateIpAddress'               => 'PrivateIpAddress',
-        'promotionCode'                  => 'PromotionCode',
-        'regionId'                       => 'RegionId',
-        'resourceGroupId'                => 'ResourceGroupId',
-        'resourceOwnerId'                => 'ResourceOwnerId',
-        'roleARN'                        => 'RoleARN',
-        'securityIPList'                 => 'SecurityIPList',
-        'serverlessConfigShrink'         => 'ServerlessConfig',
-        'storageAutoScale'               => 'StorageAutoScale',
-        'storageThreshold'               => 'StorageThreshold',
-        'storageUpperBound'              => 'StorageUpperBound',
-        'systemDBCharset'                => 'SystemDBCharset',
-        'tag'                            => 'Tag',
-        'targetDedicatedHostIdForLog'    => 'TargetDedicatedHostIdForLog',
+        'amount' => 'Amount',
+        'autoCreateProxy' => 'AutoCreateProxy',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'autoUseCoupon' => 'AutoUseCoupon',
+        'babelfishConfig' => 'BabelfishConfig',
+        'bpeEnabled' => 'BpeEnabled',
+        'burstingEnabled' => 'BurstingEnabled',
+        'businessInfo' => 'BusinessInfo',
+        'category' => 'Category',
+        'clientToken' => 'ClientToken',
+        'coldDataEnabled' => 'ColdDataEnabled',
+        'connectionMode' => 'ConnectionMode',
+        'connectionString' => 'ConnectionString',
+        'createStrategy' => 'CreateStrategy',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBInstanceNetType' => 'DBInstanceNetType',
+        'DBInstanceStorage' => 'DBInstanceStorage',
+        'DBInstanceStorageType' => 'DBInstanceStorageType',
+        'DBIsIgnoreCase' => 'DBIsIgnoreCase',
+        'DBParamGroupId' => 'DBParamGroupId',
+        'DBTimeZone' => 'DBTimeZone',
+        'dedicatedHostGroupId' => 'DedicatedHostGroupId',
+        'deletionProtection' => 'DeletionProtection',
+        'dryRun' => 'DryRun',
+        'encryptionKey' => 'EncryptionKey',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'ioAccelerationEnabled' => 'IoAccelerationEnabled',
+        'optimizedWrites' => 'OptimizedWrites',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'port' => 'Port',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'promotionCode' => 'PromotionCode',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'roleARN' => 'RoleARN',
+        'securityIPList' => 'SecurityIPList',
+        'serverlessConfigShrink' => 'ServerlessConfig',
+        'storageAutoScale' => 'StorageAutoScale',
+        'storageThreshold' => 'StorageThreshold',
+        'storageUpperBound' => 'StorageUpperBound',
+        'systemDBCharset' => 'SystemDBCharset',
+        'tag' => 'Tag',
+        'targetDedicatedHostIdForLog' => 'TargetDedicatedHostIdForLog',
         'targetDedicatedHostIdForMaster' => 'TargetDedicatedHostIdForMaster',
-        'targetDedicatedHostIdForSlave'  => 'TargetDedicatedHostIdForSlave',
-        'targetMinorVersion'             => 'TargetMinorVersion',
-        'usedTime'                       => 'UsedTime',
-        'userBackupId'                   => 'UserBackupId',
-        'VPCId'                          => 'VPCId',
-        'vSwitchId'                      => 'VSwitchId',
-        'whitelistTemplateList'          => 'WhitelistTemplateList',
-        'zoneId'                         => 'ZoneId',
-        'zoneIdSlave1'                   => 'ZoneIdSlave1',
-        'zoneIdSlave2'                   => 'ZoneIdSlave2',
+        'targetDedicatedHostIdForSlave' => 'TargetDedicatedHostIdForSlave',
+        'targetMinorVersion' => 'TargetMinorVersion',
+        'usedTime' => 'UsedTime',
+        'userBackupId' => 'UserBackupId',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'whitelistTemplateList' => 'WhitelistTemplateList',
+        'zoneId' => 'ZoneId',
+        'zoneIdSlave1' => 'ZoneIdSlave1',
+        'zoneIdSlave2' => 'ZoneIdSlave2',
     ];
 
     public function validate()
@@ -514,7 +573,7 @@ class CreateDBInstanceShrinkRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -771,7 +830,7 @@ class CreateDBInstanceShrinkRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

@@ -12,23 +12,26 @@ class ModifyRCInstanceKeyPairRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $keyPairName;
+
     /**
      * @var bool
      */
     public $reboot;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'keyPairName' => 'KeyPairName',
-        'reboot'      => 'Reboot',
-        'regionId'    => 'RegionId',
+        'reboot' => 'Reboot',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

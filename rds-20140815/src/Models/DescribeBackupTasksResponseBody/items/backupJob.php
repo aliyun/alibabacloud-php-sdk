@@ -12,38 +12,44 @@ class backupJob extends Model
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $backupJobId;
+
     /**
      * @var string
      */
     public $backupProgressStatus;
+
     /**
      * @var string
      */
     public $backupStatus;
+
     /**
      * @var string
      */
     public $jobMode;
+
     /**
      * @var string
      */
     public $process;
+
     /**
      * @var string
      */
     public $taskAction;
     protected $_name = [
-        'backupId'             => 'BackupId',
-        'backupJobId'          => 'BackupJobId',
+        'backupId' => 'BackupId',
+        'backupJobId' => 'BackupJobId',
         'backupProgressStatus' => 'BackupProgressStatus',
-        'backupStatus'         => 'BackupStatus',
-        'jobMode'              => 'JobMode',
-        'process'              => 'Process',
-        'taskAction'           => 'TaskAction',
+        'backupStatus' => 'BackupStatus',
+        'jobMode' => 'JobMode',
+        'process' => 'Process',
+        'taskAction' => 'TaskAction',
     ];
 
     public function validate()

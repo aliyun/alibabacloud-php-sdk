@@ -12,33 +12,38 @@ class CancelActiveOperationTasksRequest extends Model
      * @var string
      */
     public $ids;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $securityToken;
     protected $_name = [
-        'ids'                  => 'Ids',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'ids' => 'Ids',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()

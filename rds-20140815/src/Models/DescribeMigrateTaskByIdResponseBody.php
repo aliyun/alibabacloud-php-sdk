@@ -12,53 +12,62 @@ class DescribeMigrateTaskByIdResponseBody extends Model
      * @var string
      */
     public $backupMode;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $isDBReplaced;
+
     /**
      * @var string
      */
     public $migrateTaskId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'backupMode'     => 'BackupMode',
-        'createTime'     => 'CreateTime',
+        'backupMode' => 'BackupMode',
+        'createTime' => 'CreateTime',
         'DBInstanceName' => 'DBInstanceName',
-        'DBName'         => 'DBName',
-        'description'    => 'Description',
-        'endTime'        => 'EndTime',
-        'isDBReplaced'   => 'IsDBReplaced',
-        'migrateTaskId'  => 'MigrateTaskId',
-        'requestId'      => 'RequestId',
-        'status'         => 'Status',
+        'DBName' => 'DBName',
+        'description' => 'Description',
+        'endTime' => 'EndTime',
+        'isDBReplaced' => 'IsDBReplaced',
+        'migrateTaskId' => 'MigrateTaskId',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
     public function validate()

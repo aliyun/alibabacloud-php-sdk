@@ -30,7 +30,7 @@ class DBProxyAVZones extends Model
         if (null !== $this->DBProxyAVZones) {
             if (\is_array($this->DBProxyAVZones)) {
                 $res['DBProxyAVZones'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->DBProxyAVZones as $item1) {
                     $res['DBProxyAVZones'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class DBProxyAVZones extends Model
         if (isset($map['DBProxyAVZones'])) {
             if (!empty($map['DBProxyAVZones'])) {
                 $model->DBProxyAVZones = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['DBProxyAVZones'] as $item1) {
                     $model->DBProxyAVZones[$n1++] = $item1;
                 }

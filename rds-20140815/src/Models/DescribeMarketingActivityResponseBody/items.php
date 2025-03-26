@@ -12,138 +12,164 @@ class items extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $classCode;
+
     /**
      * @var string
      */
     public $classGroup;
+
     /**
      * @var string
      */
     public $cpu;
+
     /**
      * @var int
      */
     public $diskSize;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var int
      */
     public $maxConnections;
+
     /**
      * @var int
      */
     public $maxIombps;
+
     /**
      * @var int
      */
     public $maxIops;
+
     /**
      * @var int
      */
     public $memory;
+
     /**
      * @var string
      */
     public $storageType;
+
     /**
      * @var string
      */
     public $upgradeCategory;
+
     /**
      * @var string
      */
     public $upgradeClassCode;
+
     /**
      * @var string
      */
     public $upgradeClassGroup;
+
     /**
      * @var string
      */
     public $upgradeCpu;
+
     /**
      * @var string
      */
     public $upgradeDescContent;
+
     /**
      * @var int
      */
     public $upgradeDiskSize;
+
     /**
      * @var int
      */
     public $upgradeMaxConnections;
+
     /**
      * @var int
      */
     public $upgradeMaxIombps;
+
     /**
      * @var int
      */
     public $upgradeMaxIops;
+
     /**
      * @var int
      */
     public $upgradeMemory;
+
     /**
      * @var string
      */
     public $upgradeReferencePrice;
+
     /**
      * @var string
      */
     public $upgradeStorageType;
     protected $_name = [
-        'category'              => 'Category',
-        'chargeType'            => 'ChargeType',
-        'classCode'             => 'ClassCode',
-        'classGroup'            => 'ClassGroup',
-        'cpu'                   => 'Cpu',
-        'diskSize'              => 'DiskSize',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'instanceId'            => 'InstanceId',
-        'instanceName'          => 'InstanceName',
-        'maxConnections'        => 'MaxConnections',
-        'maxIombps'             => 'MaxIombps',
-        'maxIops'               => 'MaxIops',
-        'memory'                => 'Memory',
-        'storageType'           => 'StorageType',
-        'upgradeCategory'       => 'UpgradeCategory',
-        'upgradeClassCode'      => 'UpgradeClassCode',
-        'upgradeClassGroup'     => 'UpgradeClassGroup',
-        'upgradeCpu'            => 'UpgradeCpu',
-        'upgradeDescContent'    => 'UpgradeDescContent',
-        'upgradeDiskSize'       => 'UpgradeDiskSize',
+        'category' => 'Category',
+        'chargeType' => 'ChargeType',
+        'classCode' => 'ClassCode',
+        'classGroup' => 'ClassGroup',
+        'cpu' => 'Cpu',
+        'diskSize' => 'DiskSize',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'maxConnections' => 'MaxConnections',
+        'maxIombps' => 'MaxIombps',
+        'maxIops' => 'MaxIops',
+        'memory' => 'Memory',
+        'storageType' => 'StorageType',
+        'upgradeCategory' => 'UpgradeCategory',
+        'upgradeClassCode' => 'UpgradeClassCode',
+        'upgradeClassGroup' => 'UpgradeClassGroup',
+        'upgradeCpu' => 'UpgradeCpu',
+        'upgradeDescContent' => 'UpgradeDescContent',
+        'upgradeDiskSize' => 'UpgradeDiskSize',
         'upgradeMaxConnections' => 'UpgradeMaxConnections',
-        'upgradeMaxIombps'      => 'UpgradeMaxIombps',
-        'upgradeMaxIops'        => 'UpgradeMaxIops',
-        'upgradeMemory'         => 'UpgradeMemory',
+        'upgradeMaxIombps' => 'UpgradeMaxIombps',
+        'upgradeMaxIops' => 'UpgradeMaxIops',
+        'upgradeMemory' => 'UpgradeMemory',
         'upgradeReferencePrice' => 'UpgradeReferencePrice',
-        'upgradeStorageType'    => 'UpgradeStorageType',
+        'upgradeStorageType' => 'UpgradeStorageType',
     ];
 
     public function validate()

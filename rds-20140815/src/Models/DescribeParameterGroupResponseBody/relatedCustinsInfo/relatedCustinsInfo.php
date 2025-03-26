@@ -12,12 +12,13 @@ class relatedCustinsInfo extends Model
      * @var string
      */
     public $appliedTime;
+
     /**
      * @var string
      */
     public $DBInstanceName;
     protected $_name = [
-        'appliedTime'    => 'AppliedTime',
+        'appliedTime' => 'AppliedTime',
         'DBInstanceName' => 'DBInstanceName',
     ];
 

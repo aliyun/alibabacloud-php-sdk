@@ -13,13 +13,14 @@ class DescribeSlotsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var slots[]
      */
     public $slots;
     protected $_name = [
         'requestId' => 'RequestId',
-        'slots'     => 'Slots',
+        'slots' => 'Slots',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class DescribeSlotsResponseBody extends Model
         if (null !== $this->slots) {
             if (\is_array($this->slots)) {
                 $res['Slots'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->slots as $item1) {
                     $res['Slots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeSlotsResponseBody extends Model
         if (isset($map['Slots'])) {
             if (!empty($map['Slots'])) {
                 $model->slots = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Slots'] as $item1) {
                     $model->slots[$n1++] = slots::fromMap($item1);
                 }

@@ -12,63 +12,74 @@ class nodes extends Model
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $dockerVersion;
+
     /**
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceRole;
+
     /**
      * @var string[]
      */
     public $ipAddresses;
+
     /**
      * @var bool
      */
     public $isAliyunNode;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $nodePoolId;
+
     /**
      * @var string
      */
     public $nodeStatus;
+
     /**
      * @var string
      */
     public $runtimeVersion;
+
     /**
      * @var string
      */
     public $state;
     protected $_name = [
-        'creationTime'   => 'CreationTime',
-        'dockerVersion'  => 'DockerVersion',
-        'imageId'        => 'ImageId',
-        'instanceId'     => 'InstanceId',
-        'instanceRole'   => 'InstanceRole',
-        'ipAddresses'    => 'IpAddresses',
-        'isAliyunNode'   => 'IsAliyunNode',
-        'nodeName'       => 'NodeName',
-        'nodePoolId'     => 'NodePoolId',
-        'nodeStatus'     => 'NodeStatus',
+        'creationTime' => 'CreationTime',
+        'dockerVersion' => 'DockerVersion',
+        'imageId' => 'ImageId',
+        'instanceId' => 'InstanceId',
+        'instanceRole' => 'InstanceRole',
+        'ipAddresses' => 'IpAddresses',
+        'isAliyunNode' => 'IsAliyunNode',
+        'nodeName' => 'NodeName',
+        'nodePoolId' => 'NodePoolId',
+        'nodeStatus' => 'NodeStatus',
         'runtimeVersion' => 'RuntimeVersion',
-        'state'          => 'State',
+        'state' => 'State',
     ];
 
     public function validate()
@@ -105,7 +116,7 @@ class nodes extends Model
         if (null !== $this->ipAddresses) {
             if (\is_array($this->ipAddresses)) {
                 $res['IpAddresses'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->ipAddresses as $item1) {
                     $res['IpAddresses'][$n1++] = $item1;
                 }
@@ -170,7 +181,7 @@ class nodes extends Model
         if (isset($map['IpAddresses'])) {
             if (!empty($map['IpAddresses'])) {
                 $model->ipAddresses = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['IpAddresses'] as $item1) {
                     $model->ipAddresses[$n1++] = $item1;
                 }

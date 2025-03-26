@@ -12,22 +12,25 @@ class DescribeDBInstanceSecurityGroupRuleResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'data' => 'Data',
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 

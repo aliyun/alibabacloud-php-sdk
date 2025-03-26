@@ -13,47 +13,55 @@ class DescribeSlowLogsResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var items
      */
     public $items;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'DBInstanceId'     => 'DBInstanceId',
-        'endTime'          => 'EndTime',
-        'engine'           => 'Engine',
-        'items'            => 'Items',
-        'pageNumber'       => 'PageNumber',
-        'pageRecordCount'  => 'PageRecordCount',
-        'requestId'        => 'RequestId',
-        'startTime'        => 'StartTime',
+        'DBInstanceId' => 'DBInstanceId',
+        'endTime' => 'EndTime',
+        'engine' => 'Engine',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 

@@ -31,7 +31,7 @@ class hostInstanceInfos extends Model
         if (null !== $this->nodeInfo) {
             if (\is_array($this->nodeInfo)) {
                 $res['NodeInfo'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->nodeInfo as $item1) {
                     $res['NodeInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class hostInstanceInfos extends Model
         if (isset($map['NodeInfo'])) {
             if (!empty($map['NodeInfo'])) {
                 $model->nodeInfo = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['NodeInfo'] as $item1) {
                     $model->nodeInfo[$n1++] = nodeInfo::fromMap($item1);
                 }

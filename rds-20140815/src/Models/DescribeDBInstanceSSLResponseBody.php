@@ -12,108 +12,128 @@ class DescribeDBInstanceSSLResponseBody extends Model
      * @var string
      */
     public $ACL;
+
     /**
      * @var string
      */
     public $CAType;
+
     /**
      * @var string
      */
     public $clientCACert;
+
     /**
      * @var string
      */
     public $clientCACertExpireTime;
+
     /**
      * @var string
      */
     public $clientCertRevocationList;
+
     /**
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $forceEncryption;
+
     /**
      * @var string
      */
     public $lastModifyStatus;
+
     /**
      * @var string
      */
     public $modifyStatusReason;
+
     /**
      * @var string
      */
     public $replicationACL;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $requireUpdate;
+
     /**
      * @var string
      */
     public $requireUpdateItem;
+
     /**
      * @var string
      */
     public $requireUpdateReason;
+
     /**
      * @var string
      */
     public $SSLCreateTime;
+
     /**
      * @var string
      */
     public $SSLEnabled;
+
     /**
      * @var string
      */
     public $SSLExpireTime;
+
     /**
      * @var string
      */
     public $serverCAUrl;
+
     /**
      * @var string
      */
     public $serverCert;
+
     /**
      * @var string
      */
     public $serverKey;
+
     /**
      * @var string
      */
     public $tlsVersion;
     protected $_name = [
-        'ACL'                      => 'ACL',
-        'CAType'                   => 'CAType',
-        'clientCACert'             => 'ClientCACert',
-        'clientCACertExpireTime'   => 'ClientCACertExpireTime',
+        'ACL' => 'ACL',
+        'CAType' => 'CAType',
+        'clientCACert' => 'ClientCACert',
+        'clientCACertExpireTime' => 'ClientCACertExpireTime',
         'clientCertRevocationList' => 'ClientCertRevocationList',
-        'connectionString'         => 'ConnectionString',
-        'forceEncryption'          => 'ForceEncryption',
-        'lastModifyStatus'         => 'LastModifyStatus',
-        'modifyStatusReason'       => 'ModifyStatusReason',
-        'replicationACL'           => 'ReplicationACL',
-        'requestId'                => 'RequestId',
-        'requireUpdate'            => 'RequireUpdate',
-        'requireUpdateItem'        => 'RequireUpdateItem',
-        'requireUpdateReason'      => 'RequireUpdateReason',
-        'SSLCreateTime'            => 'SSLCreateTime',
-        'SSLEnabled'               => 'SSLEnabled',
-        'SSLExpireTime'            => 'SSLExpireTime',
-        'serverCAUrl'              => 'ServerCAUrl',
-        'serverCert'               => 'ServerCert',
-        'serverKey'                => 'ServerKey',
-        'tlsVersion'               => 'TlsVersion',
+        'connectionString' => 'ConnectionString',
+        'forceEncryption' => 'ForceEncryption',
+        'lastModifyStatus' => 'LastModifyStatus',
+        'modifyStatusReason' => 'ModifyStatusReason',
+        'replicationACL' => 'ReplicationACL',
+        'requestId' => 'RequestId',
+        'requireUpdate' => 'RequireUpdate',
+        'requireUpdateItem' => 'RequireUpdateItem',
+        'requireUpdateReason' => 'RequireUpdateReason',
+        'SSLCreateTime' => 'SSLCreateTime',
+        'SSLEnabled' => 'SSLEnabled',
+        'SSLExpireTime' => 'SSLExpireTime',
+        'serverCAUrl' => 'ServerCAUrl',
+        'serverCert' => 'ServerCert',
+        'serverKey' => 'ServerKey',
+        'tlsVersion' => 'TlsVersion',
     ];
 
     public function validate()

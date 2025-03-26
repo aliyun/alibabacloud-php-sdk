@@ -12,18 +12,22 @@ class DescribeHistoryEventsStatRequest extends Model
      * @var string
      */
     public $archiveStatus;
+
     /**
      * @var string
      */
     public $fromStartTime;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityToken;
+
     /**
      * @var string
      */
@@ -31,9 +35,9 @@ class DescribeHistoryEventsStatRequest extends Model
     protected $_name = [
         'archiveStatus' => 'ArchiveStatus',
         'fromStartTime' => 'FromStartTime',
-        'regionId'      => 'RegionId',
+        'regionId' => 'RegionId',
         'securityToken' => 'SecurityToken',
-        'toStartTime'   => 'ToStartTime',
+        'toStartTime' => 'ToStartTime',
     ];
 
     public function validate()

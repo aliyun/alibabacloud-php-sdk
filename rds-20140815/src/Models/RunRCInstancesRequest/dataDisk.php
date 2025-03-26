@@ -12,28 +12,44 @@ class dataDisk extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var bool
      */
     public $deleteWithInstance;
+
+    /**
+     * @var string
+     */
+    public $device;
+
     /**
      * @var string
      */
     public $encrypted;
+
     /**
      * @var string
      */
     public $performanceLevel;
+
     /**
      * @var int
      */
     public $size;
+
+    /**
+     * @var string
+     */
+    public $snapshotId;
     protected $_name = [
-        'category'           => 'Category',
+        'category' => 'Category',
         'deleteWithInstance' => 'DeleteWithInstance',
-        'encrypted'          => 'Encrypted',
-        'performanceLevel'   => 'PerformanceLevel',
-        'size'               => 'Size',
+        'device' => 'Device',
+        'encrypted' => 'Encrypted',
+        'performanceLevel' => 'PerformanceLevel',
+        'size' => 'Size',
+        'snapshotId' => 'SnapshotId',
     ];
 
     public function validate()
@@ -52,6 +68,10 @@ class dataDisk extends Model
             $res['DeleteWithInstance'] = $this->deleteWithInstance;
         }
 
+        if (null !== $this->device) {
+            $res['Device'] = $this->device;
+        }
+
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
         }
@@ -62,6 +82,10 @@ class dataDisk extends Model
 
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+
+        if (null !== $this->snapshotId) {
+            $res['SnapshotId'] = $this->snapshotId;
         }
 
         return $res;
@@ -83,6 +107,10 @@ class dataDisk extends Model
             $model->deleteWithInstance = $map['DeleteWithInstance'];
         }
 
+        if (isset($map['Device'])) {
+            $model->device = $map['Device'];
+        }
+
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];
         }
@@ -93,6 +121,10 @@ class dataDisk extends Model
 
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+
+        if (isset($map['SnapshotId'])) {
+            $model->snapshotId = $map['SnapshotId'];
         }
 
         return $model;

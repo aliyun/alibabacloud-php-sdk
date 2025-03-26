@@ -12,43 +12,50 @@ class gadInstanceMembers extends Model
      * @var string
      */
     public $DBInstanceID;
+
     /**
      * @var string
      */
     public $dtsInstance;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'DBInstanceID'    => 'DBInstanceID',
-        'dtsInstance'     => 'DtsInstance',
-        'engine'          => 'Engine',
-        'engineVersion'   => 'EngineVersion',
-        'regionId'        => 'RegionId',
+        'DBInstanceID' => 'DBInstanceID',
+        'dtsInstance' => 'DtsInstance',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'role'            => 'Role',
-        'status'          => 'Status',
+        'role' => 'Role',
+        'status' => 'Status',
     ];
 
     public function validate()

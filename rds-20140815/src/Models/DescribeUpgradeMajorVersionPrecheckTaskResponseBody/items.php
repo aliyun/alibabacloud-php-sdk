@@ -12,53 +12,62 @@ class items extends Model
      * @var string
      */
     public $checkTime;
+
     /**
      * @var string
      */
     public $detail;
+
     /**
      * @var string
      */
     public $effectiveTime;
+
     /**
      * @var int
      */
     public $recommendDiskSize;
+
     /**
      * @var int
      */
     public $recommendLeastMemSize;
+
     /**
      * @var int
      */
     public $recommendMemSize;
+
     /**
      * @var string
      */
     public $result;
+
     /**
      * @var string
      */
     public $sourceMajorVersion;
+
     /**
      * @var string
      */
     public $targetMajorVersion;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
-        'checkTime'             => 'CheckTime',
-        'detail'                => 'Detail',
-        'effectiveTime'         => 'EffectiveTime',
-        'recommendDiskSize'     => 'RecommendDiskSize',
+        'checkTime' => 'CheckTime',
+        'detail' => 'Detail',
+        'effectiveTime' => 'EffectiveTime',
+        'recommendDiskSize' => 'RecommendDiskSize',
         'recommendLeastMemSize' => 'RecommendLeastMemSize',
-        'recommendMemSize'      => 'RecommendMemSize',
-        'result'                => 'Result',
-        'sourceMajorVersion'    => 'SourceMajorVersion',
-        'targetMajorVersion'    => 'TargetMajorVersion',
-        'taskId'                => 'TaskId',
+        'recommendMemSize' => 'RecommendMemSize',
+        'result' => 'Result',
+        'sourceMajorVersion' => 'SourceMajorVersion',
+        'targetMajorVersion' => 'TargetMajorVersion',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

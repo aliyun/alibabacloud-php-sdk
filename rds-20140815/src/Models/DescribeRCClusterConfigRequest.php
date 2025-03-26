@@ -12,18 +12,20 @@ class DescribeRCClusterConfigRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $temporaryDurationMinutes;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'regionId'                 => 'RegionId',
+        'regionId' => 'RegionId',
         'temporaryDurationMinutes' => 'TemporaryDurationMinutes',
-        'vpcId'                    => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

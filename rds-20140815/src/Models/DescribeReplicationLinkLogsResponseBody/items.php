@@ -12,83 +12,98 @@ class items extends Model
      * @var string
      */
     public $detail;
+
     /**
      * @var string
      */
     public $gmtCreated;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $replicationInfo;
+
     /**
      * @var string
      */
     public $replicationState;
+
     /**
      * @var string
      */
     public $replicatorAccount;
+
     /**
      * @var string
      */
     public $replicatorPassword;
+
     /**
      * @var string
      */
     public $sourceAddress;
+
     /**
      * @var string
      */
     public $sourceCategory;
+
     /**
      * @var int
      */
     public $sourcePort;
+
     /**
      * @var string
      */
     public $targetInstanceId;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskName;
+
     /**
      * @var string
      */
     public $taskStage;
+
     /**
      * @var string
      */
     public $taskStatus;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'detail'             => 'Detail',
-        'gmtCreated'         => 'GmtCreated',
-        'gmtModified'        => 'GmtModified',
-        'replicationInfo'    => 'ReplicationInfo',
-        'replicationState'   => 'ReplicationState',
-        'replicatorAccount'  => 'ReplicatorAccount',
+        'detail' => 'Detail',
+        'gmtCreated' => 'GmtCreated',
+        'gmtModified' => 'GmtModified',
+        'replicationInfo' => 'ReplicationInfo',
+        'replicationState' => 'ReplicationState',
+        'replicatorAccount' => 'ReplicatorAccount',
         'replicatorPassword' => 'ReplicatorPassword',
-        'sourceAddress'      => 'SourceAddress',
-        'sourceCategory'     => 'SourceCategory',
-        'sourcePort'         => 'SourcePort',
-        'targetInstanceId'   => 'TargetInstanceId',
-        'taskId'             => 'TaskId',
-        'taskName'           => 'TaskName',
-        'taskStage'          => 'TaskStage',
-        'taskStatus'         => 'TaskStatus',
-        'taskType'           => 'TaskType',
+        'sourceAddress' => 'SourceAddress',
+        'sourceCategory' => 'SourceCategory',
+        'sourcePort' => 'SourcePort',
+        'targetInstanceId' => 'TargetInstanceId',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
+        'taskStage' => 'TaskStage',
+        'taskStatus' => 'TaskStatus',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

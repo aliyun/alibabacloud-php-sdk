@@ -12,10 +12,12 @@ class SwitchDBInstanceNetTypeResponseBody extends Model
      * @var string
      */
     public $newConnectionString;
+
     /**
      * @var string
      */
     public $oldConnectionString;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class SwitchDBInstanceNetTypeResponseBody extends Model
     protected $_name = [
         'newConnectionString' => 'NewConnectionString',
         'oldConnectionString' => 'OldConnectionString',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

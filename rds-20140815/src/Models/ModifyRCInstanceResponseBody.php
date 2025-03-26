@@ -12,12 +12,13 @@ class ModifyRCInstanceResponseBody extends Model
      * @var int
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'orderId'   => 'OrderId',
+        'orderId' => 'OrderId',
         'requestId' => 'RequestId',
     ];
 

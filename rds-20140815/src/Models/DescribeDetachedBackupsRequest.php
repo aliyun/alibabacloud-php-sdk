@@ -12,58 +12,68 @@ class DescribeDetachedBackupsRequest extends Model
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $backupMode;
+
     /**
      * @var string
      */
     public $backupStatus;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'backupId'        => 'BackupId',
-        'backupMode'      => 'BackupMode',
-        'backupStatus'    => 'BackupStatus',
-        'DBInstanceId'    => 'DBInstanceId',
-        'endTime'         => 'EndTime',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'region'          => 'Region',
+        'backupId' => 'BackupId',
+        'backupMode' => 'BackupMode',
+        'backupStatus' => 'BackupStatus',
+        'DBInstanceId' => 'DBInstanceId',
+        'endTime' => 'EndTime',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'region' => 'Region',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'startTime'       => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

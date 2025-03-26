@@ -12,58 +12,74 @@ class CreateReplicationLinkRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $replicatorAccount;
+
     /**
      * @var string
      */
     public $replicatorPassword;
+
     /**
      * @var string
      */
     public $sourceAddress;
+
     /**
      * @var string
      */
     public $sourceCategory;
+
     /**
      * @var string
      */
     public $sourceInstanceName;
+
     /**
      * @var string
      */
     public $sourceInstanceRegionId;
+
     /**
      * @var int
      */
     public $sourcePort;
+
+    /**
+     * @var string
+     */
+    public $targetAddress;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskName;
     protected $_name = [
-        'DBInstanceId'           => 'DBInstanceId',
-        'dryRun'                 => 'DryRun',
-        'replicatorAccount'      => 'ReplicatorAccount',
-        'replicatorPassword'     => 'ReplicatorPassword',
-        'sourceAddress'          => 'SourceAddress',
-        'sourceCategory'         => 'SourceCategory',
-        'sourceInstanceName'     => 'SourceInstanceName',
+        'DBInstanceId' => 'DBInstanceId',
+        'dryRun' => 'DryRun',
+        'replicatorAccount' => 'ReplicatorAccount',
+        'replicatorPassword' => 'ReplicatorPassword',
+        'sourceAddress' => 'SourceAddress',
+        'sourceCategory' => 'SourceCategory',
+        'sourceInstanceName' => 'SourceInstanceName',
         'sourceInstanceRegionId' => 'SourceInstanceRegionId',
-        'sourcePort'             => 'SourcePort',
-        'taskId'                 => 'TaskId',
-        'taskName'               => 'TaskName',
+        'sourcePort' => 'SourcePort',
+        'targetAddress' => 'TargetAddress',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
     ];
 
     public function validate()
@@ -108,6 +124,10 @@ class CreateReplicationLinkRequest extends Model
 
         if (null !== $this->sourcePort) {
             $res['SourcePort'] = $this->sourcePort;
+        }
+
+        if (null !== $this->targetAddress) {
+            $res['TargetAddress'] = $this->targetAddress;
         }
 
         if (null !== $this->taskId) {
@@ -163,6 +183,10 @@ class CreateReplicationLinkRequest extends Model
 
         if (isset($map['SourcePort'])) {
             $model->sourcePort = $map['SourcePort'];
+        }
+
+        if (isset($map['TargetAddress'])) {
+            $model->targetAddress = $map['TargetAddress'];
         }
 
         if (isset($map['TaskId'])) {

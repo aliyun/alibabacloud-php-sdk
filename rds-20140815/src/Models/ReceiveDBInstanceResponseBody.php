@@ -12,13 +12,14 @@ class ReceiveDBInstanceResponseBody extends Model
      * @var string
      */
     public $guardDBInstanceId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'guardDBInstanceId' => 'GuardDBInstanceId',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

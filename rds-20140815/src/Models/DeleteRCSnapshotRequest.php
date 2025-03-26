@@ -12,17 +12,19 @@ class DeleteRCSnapshotRequest extends Model
      * @var bool
      */
     public $force;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $snapshotId;
     protected $_name = [
-        'force'      => 'Force',
-        'regionId'   => 'RegionId',
+        'force' => 'Force',
+        'regionId' => 'RegionId',
         'snapshotId' => 'SnapshotId',
     ];
 

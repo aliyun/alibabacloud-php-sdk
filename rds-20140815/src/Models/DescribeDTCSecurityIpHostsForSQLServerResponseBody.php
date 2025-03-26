@@ -13,23 +13,26 @@ class DescribeDTCSecurityIpHostsForSQLServerResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $ipHostPairNum;
+
     /**
      * @var items
      */
     public $items;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'DBInstanceId'  => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'ipHostPairNum' => 'IpHostPairNum',
-        'items'         => 'Items',
-        'requestId'     => 'RequestId',
+        'items' => 'Items',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

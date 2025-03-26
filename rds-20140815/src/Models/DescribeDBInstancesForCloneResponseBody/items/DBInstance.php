@@ -13,158 +13,188 @@ class DBInstance extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $connectionMode;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceNetType;
+
     /**
      * @var string
      */
     public $DBInstanceStatus;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $DBInstanceType;
+
     /**
      * @var string
      */
     public $destroyTime;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $guardDBInstanceId;
+
     /**
      * @var int
      */
     public $insId;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var string
      */
     public $lockReason;
+
     /**
      * @var string
      */
     public $masterInstanceId;
+
     /**
      * @var bool
      */
     public $mutriORsignle;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var readOnlyDBInstanceIds
      */
     public $readOnlyDBInstanceIds;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replicateId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $tempDBInstanceId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcCloudInstanceId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'category'              => 'Category',
-        'connectionMode'        => 'ConnectionMode',
-        'createTime'            => 'CreateTime',
-        'DBInstanceClass'       => 'DBInstanceClass',
+        'category' => 'Category',
+        'connectionMode' => 'ConnectionMode',
+        'createTime' => 'CreateTime',
+        'DBInstanceClass' => 'DBInstanceClass',
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceNetType'     => 'DBInstanceNetType',
-        'DBInstanceStatus'      => 'DBInstanceStatus',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceNetType' => 'DBInstanceNetType',
+        'DBInstanceStatus' => 'DBInstanceStatus',
         'DBInstanceStorageType' => 'DBInstanceStorageType',
-        'DBInstanceType'        => 'DBInstanceType',
-        'destroyTime'           => 'DestroyTime',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'expireTime'            => 'ExpireTime',
-        'guardDBInstanceId'     => 'GuardDBInstanceId',
-        'insId'                 => 'InsId',
-        'instanceNetworkType'   => 'InstanceNetworkType',
-        'lockMode'              => 'LockMode',
-        'lockReason'            => 'LockReason',
-        'masterInstanceId'      => 'MasterInstanceId',
-        'mutriORsignle'         => 'MutriORsignle',
-        'payType'               => 'PayType',
+        'DBInstanceType' => 'DBInstanceType',
+        'destroyTime' => 'DestroyTime',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'expireTime' => 'ExpireTime',
+        'guardDBInstanceId' => 'GuardDBInstanceId',
+        'insId' => 'InsId',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'lockMode' => 'LockMode',
+        'lockReason' => 'LockReason',
+        'masterInstanceId' => 'MasterInstanceId',
+        'mutriORsignle' => 'MutriORsignle',
+        'payType' => 'PayType',
         'readOnlyDBInstanceIds' => 'ReadOnlyDBInstanceIds',
-        'regionId'              => 'RegionId',
-        'replicateId'           => 'ReplicateId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'tempDBInstanceId'      => 'TempDBInstanceId',
-        'vSwitchId'             => 'VSwitchId',
-        'vpcCloudInstanceId'    => 'VpcCloudInstanceId',
-        'vpcId'                 => 'VpcId',
-        'zoneId'                => 'ZoneId',
+        'regionId' => 'RegionId',
+        'replicateId' => 'ReplicateId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tempDBInstanceId' => 'TempDBInstanceId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcCloudInstanceId' => 'VpcCloudInstanceId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

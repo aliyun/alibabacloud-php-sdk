@@ -31,7 +31,7 @@ class DBInstanceEndpoints extends Model
         if (null !== $this->DBInstanceEndpoint) {
             if (\is_array($this->DBInstanceEndpoint)) {
                 $res['DBInstanceEndpoint'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->DBInstanceEndpoint as $item1) {
                     $res['DBInstanceEndpoint'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class DBInstanceEndpoints extends Model
         if (isset($map['DBInstanceEndpoint'])) {
             if (!empty($map['DBInstanceEndpoint'])) {
                 $model->DBInstanceEndpoint = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['DBInstanceEndpoint'] as $item1) {
                     $model->DBInstanceEndpoint[$n1++] = DBInstanceEndpoint::fromMap($item1);
                 }

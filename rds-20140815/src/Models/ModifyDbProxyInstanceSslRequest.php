@@ -12,33 +12,38 @@ class ModifyDbProxyInstanceSslRequest extends Model
      * @var string
      */
     public $DBProxyEngineType;
+
     /**
      * @var string
      */
     public $dbInstanceId;
+
     /**
      * @var string
      */
     public $dbProxyConnectString;
+
     /**
      * @var string
      */
     public $dbProxyEndpointId;
+
     /**
      * @var string
      */
     public $dbProxySslEnabled;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'DBProxyEngineType'    => 'DBProxyEngineType',
-        'dbInstanceId'         => 'DbInstanceId',
+        'DBProxyEngineType' => 'DBProxyEngineType',
+        'dbInstanceId' => 'DbInstanceId',
         'dbProxyConnectString' => 'DbProxyConnectString',
-        'dbProxyEndpointId'    => 'DbProxyEndpointId',
-        'dbProxySslEnabled'    => 'DbProxySslEnabled',
-        'regionId'             => 'RegionId',
+        'dbProxyEndpointId' => 'DbProxyEndpointId',
+        'dbProxySslEnabled' => 'DbProxySslEnabled',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

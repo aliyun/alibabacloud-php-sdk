@@ -13,13 +13,14 @@ class DescribeCurrentModifyOrderResponseBody extends Model
      * @var modifyOrder[]
      */
     public $modifyOrder;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'modifyOrder' => 'ModifyOrder',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeCurrentModifyOrderResponseBody extends Model
         if (null !== $this->modifyOrder) {
             if (\is_array($this->modifyOrder)) {
                 $res['ModifyOrder'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->modifyOrder as $item1) {
                     $res['ModifyOrder'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeCurrentModifyOrderResponseBody extends Model
         if (isset($map['ModifyOrder'])) {
             if (!empty($map['ModifyOrder'])) {
                 $model->modifyOrder = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ModifyOrder'] as $item1) {
                     $model->modifyOrder[$n1++] = modifyOrder::fromMap($item1);
                 }

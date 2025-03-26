@@ -12,33 +12,38 @@ class DescribeMigrateTaskByIdRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $migrateTaskId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'migrateTaskId'        => 'MigrateTaskId',
-        'ownerId'              => 'OwnerId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'DBInstanceId' => 'DBInstanceId',
+        'migrateTaskId' => 'MigrateTaskId',
+        'ownerId' => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

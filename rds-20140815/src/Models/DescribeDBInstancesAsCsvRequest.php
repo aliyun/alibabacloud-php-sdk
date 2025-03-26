@@ -12,43 +12,50 @@ class DescribeDBInstancesAsCsvRequest extends Model
      * @var bool
      */
     public $cachedAsync;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $exportKey;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'cachedAsync'          => 'CachedAsync',
-        'DBInstanceId'         => 'DBInstanceId',
-        'exportKey'            => 'ExportKey',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'cachedAsync' => 'CachedAsync',
+        'DBInstanceId' => 'DBInstanceId',
+        'exportKey' => 'ExportKey',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

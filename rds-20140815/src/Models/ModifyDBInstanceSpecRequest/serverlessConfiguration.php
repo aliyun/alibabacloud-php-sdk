@@ -12,20 +12,23 @@ class serverlessConfiguration extends Model
      * @var bool
      */
     public $autoPause;
+
     /**
      * @var float
      */
     public $maxCapacity;
+
     /**
      * @var float
      */
     public $minCapacity;
+
     /**
      * @var bool
      */
     public $switchForce;
     protected $_name = [
-        'autoPause'   => 'AutoPause',
+        'autoPause' => 'AutoPause',
         'maxCapacity' => 'MaxCapacity',
         'minCapacity' => 'MinCapacity',
         'switchForce' => 'SwitchForce',

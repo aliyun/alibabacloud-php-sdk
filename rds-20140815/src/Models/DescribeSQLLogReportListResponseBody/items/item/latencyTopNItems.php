@@ -31,7 +31,7 @@ class latencyTopNItems extends Model
         if (null !== $this->latencyTopNItem) {
             if (\is_array($this->latencyTopNItem)) {
                 $res['LatencyTopNItem'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->latencyTopNItem as $item1) {
                     $res['LatencyTopNItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class latencyTopNItems extends Model
         if (isset($map['LatencyTopNItem'])) {
             if (!empty($map['LatencyTopNItem'])) {
                 $model->latencyTopNItem = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['LatencyTopNItem'] as $item1) {
                     $model->latencyTopNItem[$n1++] = latencyTopNItem::fromMap($item1);
                 }

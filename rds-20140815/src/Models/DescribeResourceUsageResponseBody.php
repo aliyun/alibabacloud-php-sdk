@@ -12,83 +12,98 @@ class DescribeResourceUsageResponseBody extends Model
      * @var int
      */
     public $archiveBackupSize;
+
     /**
      * @var int
      */
     public $backupDataSize;
+
     /**
      * @var string
      */
     public $backupEcsSnapshotSize;
+
     /**
      * @var int
      */
     public $backupLogSize;
+
     /**
      * @var int
      */
     public $backupOssDataSize;
+
     /**
      * @var int
      */
     public $backupOssLogSize;
+
     /**
      * @var int
      */
     public $backupSize;
+
     /**
      * @var int
      */
     public $coldBackupSize;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $dataSize;
+
     /**
      * @var int
      */
     public $diskUsed;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var int
      */
     public $logSize;
+
     /**
      * @var int
      */
     public $paidBackupSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $SQLSize;
     protected $_name = [
-        'archiveBackupSize'     => 'ArchiveBackupSize',
-        'backupDataSize'        => 'BackupDataSize',
+        'archiveBackupSize' => 'ArchiveBackupSize',
+        'backupDataSize' => 'BackupDataSize',
         'backupEcsSnapshotSize' => 'BackupEcsSnapshotSize',
-        'backupLogSize'         => 'BackupLogSize',
-        'backupOssDataSize'     => 'BackupOssDataSize',
-        'backupOssLogSize'      => 'BackupOssLogSize',
-        'backupSize'            => 'BackupSize',
-        'coldBackupSize'        => 'ColdBackupSize',
-        'DBInstanceId'          => 'DBInstanceId',
-        'dataSize'              => 'DataSize',
-        'diskUsed'              => 'DiskUsed',
-        'engine'                => 'Engine',
-        'logSize'               => 'LogSize',
-        'paidBackupSize'        => 'PaidBackupSize',
-        'requestId'             => 'RequestId',
-        'SQLSize'               => 'SQLSize',
+        'backupLogSize' => 'BackupLogSize',
+        'backupOssDataSize' => 'BackupOssDataSize',
+        'backupOssLogSize' => 'BackupOssLogSize',
+        'backupSize' => 'BackupSize',
+        'coldBackupSize' => 'ColdBackupSize',
+        'DBInstanceId' => 'DBInstanceId',
+        'dataSize' => 'DataSize',
+        'diskUsed' => 'DiskUsed',
+        'engine' => 'Engine',
+        'logSize' => 'LogSize',
+        'paidBackupSize' => 'PaidBackupSize',
+        'requestId' => 'RequestId',
+        'SQLSize' => 'SQLSize',
     ];
 
     public function validate()

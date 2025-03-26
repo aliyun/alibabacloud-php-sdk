@@ -13,268 +13,320 @@ class DBInstance extends Model
      * @var string
      */
     public $bpeEnabled;
+
     /**
      * @var bool
      */
     public $burstingEnabled;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var bool
      */
     public $coldDataEnabled;
+
     /**
      * @var string
      */
     public $connectionMode;
+
     /**
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $DBInstanceCPU;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $DBInstanceMemory;
+
     /**
      * @var string
      */
     public $DBInstanceNetType;
+
     /**
      * @var string
      */
     public $DBInstanceStatus;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $DBInstanceType;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupId;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupName;
+
     /**
      * @var string
      */
     public $dedicatedHostIdForLog;
+
     /**
      * @var string
      */
     public $dedicatedHostIdForMaster;
+
     /**
      * @var string
      */
     public $dedicatedHostIdForSlave;
+
     /**
      * @var string
      */
     public $dedicatedHostNameForLog;
+
     /**
      * @var string
      */
     public $dedicatedHostNameForMaster;
+
     /**
      * @var string
      */
     public $dedicatedHostNameForSlave;
+
     /**
      * @var string
      */
     public $dedicatedHostZoneIdForLog;
+
     /**
      * @var string
      */
     public $dedicatedHostZoneIdForMaster;
+
     /**
      * @var string
      */
     public $dedicatedHostZoneIdForSlave;
+
     /**
      * @var bool
      */
     public $deletionProtection;
+
     /**
      * @var string
      */
     public $destroyTime;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $generalGroupName;
+
     /**
      * @var string
      */
     public $guardDBInstanceId;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $ioAccelerationEnabled;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var string
      */
     public $lockReason;
+
     /**
      * @var string
      */
     public $masterInstanceId;
+
     /**
      * @var bool
      */
     public $mutriORsignle;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var readOnlyDBInstanceIds
      */
     public $readOnlyDBInstanceIds;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $switchWeight;
+
     /**
      * @var string
      */
     public $tempDBInstanceId;
+
     /**
      * @var string
      */
     public $tips;
+
     /**
      * @var int
      */
     public $tipsLevel;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcCloudInstanceId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $vpcName;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'bpeEnabled'                   => 'BpeEnabled',
-        'burstingEnabled'              => 'BurstingEnabled',
-        'category'                     => 'Category',
-        'coldDataEnabled'              => 'ColdDataEnabled',
-        'connectionMode'               => 'ConnectionMode',
-        'connectionString'             => 'ConnectionString',
-        'createTime'                   => 'CreateTime',
-        'DBInstanceCPU'                => 'DBInstanceCPU',
-        'DBInstanceClass'              => 'DBInstanceClass',
-        'DBInstanceDescription'        => 'DBInstanceDescription',
-        'DBInstanceId'                 => 'DBInstanceId',
-        'DBInstanceMemory'             => 'DBInstanceMemory',
-        'DBInstanceNetType'            => 'DBInstanceNetType',
-        'DBInstanceStatus'             => 'DBInstanceStatus',
-        'DBInstanceStorageType'        => 'DBInstanceStorageType',
-        'DBInstanceType'               => 'DBInstanceType',
-        'dedicatedHostGroupId'         => 'DedicatedHostGroupId',
-        'dedicatedHostGroupName'       => 'DedicatedHostGroupName',
-        'dedicatedHostIdForLog'        => 'DedicatedHostIdForLog',
-        'dedicatedHostIdForMaster'     => 'DedicatedHostIdForMaster',
-        'dedicatedHostIdForSlave'      => 'DedicatedHostIdForSlave',
-        'dedicatedHostNameForLog'      => 'DedicatedHostNameForLog',
-        'dedicatedHostNameForMaster'   => 'DedicatedHostNameForMaster',
-        'dedicatedHostNameForSlave'    => 'DedicatedHostNameForSlave',
-        'dedicatedHostZoneIdForLog'    => 'DedicatedHostZoneIdForLog',
+        'bpeEnabled' => 'BpeEnabled',
+        'burstingEnabled' => 'BurstingEnabled',
+        'category' => 'Category',
+        'coldDataEnabled' => 'ColdDataEnabled',
+        'connectionMode' => 'ConnectionMode',
+        'connectionString' => 'ConnectionString',
+        'createTime' => 'CreateTime',
+        'DBInstanceCPU' => 'DBInstanceCPU',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceMemory' => 'DBInstanceMemory',
+        'DBInstanceNetType' => 'DBInstanceNetType',
+        'DBInstanceStatus' => 'DBInstanceStatus',
+        'DBInstanceStorageType' => 'DBInstanceStorageType',
+        'DBInstanceType' => 'DBInstanceType',
+        'dedicatedHostGroupId' => 'DedicatedHostGroupId',
+        'dedicatedHostGroupName' => 'DedicatedHostGroupName',
+        'dedicatedHostIdForLog' => 'DedicatedHostIdForLog',
+        'dedicatedHostIdForMaster' => 'DedicatedHostIdForMaster',
+        'dedicatedHostIdForSlave' => 'DedicatedHostIdForSlave',
+        'dedicatedHostNameForLog' => 'DedicatedHostNameForLog',
+        'dedicatedHostNameForMaster' => 'DedicatedHostNameForMaster',
+        'dedicatedHostNameForSlave' => 'DedicatedHostNameForSlave',
+        'dedicatedHostZoneIdForLog' => 'DedicatedHostZoneIdForLog',
         'dedicatedHostZoneIdForMaster' => 'DedicatedHostZoneIdForMaster',
-        'dedicatedHostZoneIdForSlave'  => 'DedicatedHostZoneIdForSlave',
-        'deletionProtection'           => 'DeletionProtection',
-        'destroyTime'                  => 'DestroyTime',
-        'engine'                       => 'Engine',
-        'engineVersion'                => 'EngineVersion',
-        'expireTime'                   => 'ExpireTime',
-        'generalGroupName'             => 'GeneralGroupName',
-        'guardDBInstanceId'            => 'GuardDBInstanceId',
-        'instanceNetworkType'          => 'InstanceNetworkType',
-        'ioAccelerationEnabled'        => 'IoAccelerationEnabled',
-        'lockMode'                     => 'LockMode',
-        'lockReason'                   => 'LockReason',
-        'masterInstanceId'             => 'MasterInstanceId',
-        'mutriORsignle'                => 'MutriORsignle',
-        'payType'                      => 'PayType',
-        'readOnlyDBInstanceIds'        => 'ReadOnlyDBInstanceIds',
-        'regionId'                     => 'RegionId',
-        'resourceGroupId'              => 'ResourceGroupId',
-        'switchWeight'                 => 'SwitchWeight',
-        'tempDBInstanceId'             => 'TempDBInstanceId',
-        'tips'                         => 'Tips',
-        'tipsLevel'                    => 'TipsLevel',
-        'vSwitchId'                    => 'VSwitchId',
-        'vpcCloudInstanceId'           => 'VpcCloudInstanceId',
-        'vpcId'                        => 'VpcId',
-        'vpcName'                      => 'VpcName',
-        'zoneId'                       => 'ZoneId',
+        'dedicatedHostZoneIdForSlave' => 'DedicatedHostZoneIdForSlave',
+        'deletionProtection' => 'DeletionProtection',
+        'destroyTime' => 'DestroyTime',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'expireTime' => 'ExpireTime',
+        'generalGroupName' => 'GeneralGroupName',
+        'guardDBInstanceId' => 'GuardDBInstanceId',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'ioAccelerationEnabled' => 'IoAccelerationEnabled',
+        'lockMode' => 'LockMode',
+        'lockReason' => 'LockReason',
+        'masterInstanceId' => 'MasterInstanceId',
+        'mutriORsignle' => 'MutriORsignle',
+        'payType' => 'PayType',
+        'readOnlyDBInstanceIds' => 'ReadOnlyDBInstanceIds',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'switchWeight' => 'SwitchWeight',
+        'tempDBInstanceId' => 'TempDBInstanceId',
+        'tips' => 'Tips',
+        'tipsLevel' => 'TipsLevel',
+        'vSwitchId' => 'VSwitchId',
+        'vpcCloudInstanceId' => 'VpcCloudInstanceId',
+        'vpcId' => 'VpcId',
+        'vpcName' => 'VpcName',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

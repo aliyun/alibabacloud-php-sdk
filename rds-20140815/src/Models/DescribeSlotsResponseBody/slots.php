@@ -12,43 +12,50 @@ class slots extends Model
      * @var string
      */
     public $database;
+
     /**
      * @var string
      */
     public $plugin;
+
     /**
      * @var string
      */
     public $slotName;
+
     /**
      * @var string
      */
     public $slotStatus;
+
     /**
      * @var string
      */
     public $slotType;
+
     /**
      * @var string
      */
     public $subReplayLag;
+
     /**
      * @var string
      */
     public $temporary;
+
     /**
      * @var string
      */
     public $walDelay;
     protected $_name = [
-        'database'     => 'Database',
-        'plugin'       => 'Plugin',
-        'slotName'     => 'SlotName',
-        'slotStatus'   => 'SlotStatus',
-        'slotType'     => 'SlotType',
+        'database' => 'Database',
+        'plugin' => 'Plugin',
+        'slotName' => 'SlotName',
+        'slotStatus' => 'SlotStatus',
+        'slotType' => 'SlotType',
         'subReplayLag' => 'SubReplayLag',
-        'temporary'    => 'Temporary',
-        'walDelay'     => 'WalDelay',
+        'temporary' => 'Temporary',
+        'walDelay' => 'WalDelay',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class UpgradeDBInstanceMajorVersionPrecheckResponseBody extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $targetMajorVersion;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'DBInstanceName'     => 'DBInstanceName',
-        'requestId'          => 'RequestId',
+        'DBInstanceName' => 'DBInstanceName',
+        'requestId' => 'RequestId',
         'targetMajorVersion' => 'TargetMajorVersion',
-        'taskId'             => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

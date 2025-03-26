@@ -12,48 +12,56 @@ class SwitchDBInstanceNetTypeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $connectionStringPrefix;
+
     /**
      * @var string
      */
     public $connectionStringType;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'            => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'connectionStringPrefix' => 'ConnectionStringPrefix',
-        'connectionStringType'   => 'ConnectionStringType',
-        'DBInstanceId'           => 'DBInstanceId',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'port'                   => 'Port',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
+        'connectionStringType' => 'ConnectionStringType',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'port' => 'Port',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

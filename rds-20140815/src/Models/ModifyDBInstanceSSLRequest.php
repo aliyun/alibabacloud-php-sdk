@@ -12,103 +12,122 @@ class ModifyDBInstanceSSLRequest extends Model
      * @var string
      */
     public $ACL;
+
     /**
      * @var string
      */
     public $CAType;
+
     /**
      * @var string
      */
     public $certificate;
+
     /**
      * @var string
      */
     public $clientCACert;
+
     /**
      * @var int
      */
     public $clientCAEnabled;
+
     /**
      * @var string
      */
     public $clientCertRevocationList;
+
     /**
      * @var int
      */
     public $clientCrlEnabled;
+
     /**
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $forceEncryption;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $passWord;
+
     /**
      * @var string
      */
     public $replicationACL;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $SSLEnabled;
+
     /**
      * @var string
      */
     public $serverCert;
+
     /**
      * @var string
      */
     public $serverKey;
+
     /**
      * @var string
      */
     public $tlsVersion;
     protected $_name = [
-        'ACL'                      => 'ACL',
-        'CAType'                   => 'CAType',
-        'certificate'              => 'Certificate',
-        'clientCACert'             => 'ClientCACert',
-        'clientCAEnabled'          => 'ClientCAEnabled',
+        'ACL' => 'ACL',
+        'CAType' => 'CAType',
+        'certificate' => 'Certificate',
+        'clientCACert' => 'ClientCACert',
+        'clientCAEnabled' => 'ClientCAEnabled',
         'clientCertRevocationList' => 'ClientCertRevocationList',
-        'clientCrlEnabled'         => 'ClientCrlEnabled',
-        'connectionString'         => 'ConnectionString',
-        'DBInstanceId'             => 'DBInstanceId',
-        'forceEncryption'          => 'ForceEncryption',
-        'ownerAccount'             => 'OwnerAccount',
-        'ownerId'                  => 'OwnerId',
-        'passWord'                 => 'PassWord',
-        'replicationACL'           => 'ReplicationACL',
-        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
-        'resourceOwnerId'          => 'ResourceOwnerId',
-        'SSLEnabled'               => 'SSLEnabled',
-        'serverCert'               => 'ServerCert',
-        'serverKey'                => 'ServerKey',
-        'tlsVersion'               => 'TlsVersion',
+        'clientCrlEnabled' => 'ClientCrlEnabled',
+        'connectionString' => 'ConnectionString',
+        'DBInstanceId' => 'DBInstanceId',
+        'forceEncryption' => 'ForceEncryption',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'passWord' => 'PassWord',
+        'replicationACL' => 'ReplicationACL',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'SSLEnabled' => 'SSLEnabled',
+        'serverCert' => 'ServerCert',
+        'serverKey' => 'ServerKey',
+        'tlsVersion' => 'TlsVersion',
     ];
 
     public function validate()

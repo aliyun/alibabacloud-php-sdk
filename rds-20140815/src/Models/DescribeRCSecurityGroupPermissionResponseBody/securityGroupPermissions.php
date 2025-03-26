@@ -11,49 +11,63 @@ class securityGroupPermissions extends Model
     /**
      * @var string
      */
+    public $createTime;
+
+    /**
+     * @var string
+     */
     public $destCidrIp;
+
     /**
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $ipProtocol;
+
     /**
      * @var string
      */
     public $policy;
+
     /**
      * @var string
      */
     public $portRange;
+
     /**
      * @var string
      */
     public $priority;
+
     /**
      * @var string
      */
     public $securityGroupRuleId;
+
     /**
      * @var string
      */
     public $sourceCidrIp;
+
     /**
      * @var string
      */
     public $sourcePortRange;
     protected $_name = [
-        'destCidrIp'          => 'DestCidrIp',
-        'direction'           => 'Direction',
-        'ipProtocol'          => 'IpProtocol',
-        'policy'              => 'Policy',
-        'portRange'           => 'PortRange',
-        'priority'            => 'Priority',
+        'createTime' => 'CreateTime',
+        'destCidrIp' => 'DestCidrIp',
+        'direction' => 'Direction',
+        'ipProtocol' => 'IpProtocol',
+        'policy' => 'Policy',
+        'portRange' => 'PortRange',
+        'priority' => 'Priority',
         'securityGroupRuleId' => 'SecurityGroupRuleId',
-        'sourceCidrIp'        => 'SourceCidrIp',
-        'sourcePortRange'     => 'SourcePortRange',
+        'sourceCidrIp' => 'SourceCidrIp',
+        'sourcePortRange' => 'SourcePortRange',
     ];
 
     public function validate()
@@ -64,6 +78,10 @@ class securityGroupPermissions extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
         if (null !== $this->destCidrIp) {
             $res['DestCidrIp'] = $this->destCidrIp;
         }
@@ -111,6 +129,10 @@ class securityGroupPermissions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
         if (isset($map['DestCidrIp'])) {
             $model->destCidrIp = $map['DestCidrIp'];
         }

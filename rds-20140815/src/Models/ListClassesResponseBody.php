@@ -13,17 +13,19 @@ class ListClassesResponseBody extends Model
      * @var items[]
      */
     public $items;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'items'     => 'Items',
-        'regionId'  => 'RegionId',
+        'items' => 'Items',
+        'regionId' => 'RegionId',
         'requestId' => 'RequestId',
     ];
 
@@ -41,7 +43,7 @@ class ListClassesResponseBody extends Model
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['Items'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->items as $item1) {
                     $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListClassesResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Items'] as $item1) {
                     $model->items[$n1++] = items::fromMap($item1);
                 }

@@ -31,7 +31,7 @@ class deploymentSets extends Model
         if (null !== $this->deploymentSet) {
             if (\is_array($this->deploymentSet)) {
                 $res['DeploymentSet'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->deploymentSet as $item1) {
                     $res['DeploymentSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class deploymentSets extends Model
         if (isset($map['DeploymentSet'])) {
             if (!empty($map['DeploymentSet'])) {
                 $model->deploymentSet = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['DeploymentSet'] as $item1) {
                     $model->deploymentSet[$n1++] = deploymentSet::fromMap($item1);
                 }

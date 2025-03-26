@@ -31,7 +31,7 @@ class relatedCustinsInfo extends Model
         if (null !== $this->relatedCustinsInfo) {
             if (\is_array($this->relatedCustinsInfo)) {
                 $res['RelatedCustinsInfo'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->relatedCustinsInfo as $item1) {
                     $res['RelatedCustinsInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class relatedCustinsInfo extends Model
         if (isset($map['RelatedCustinsInfo'])) {
             if (!empty($map['RelatedCustinsInfo'])) {
                 $model->relatedCustinsInfo = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['RelatedCustinsInfo'] as $item1) {
                     $model->relatedCustinsInfo[$n1++] = self::fromMap($item1);
                 }

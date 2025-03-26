@@ -16,88 +16,104 @@ class DescribeDBProxyResponseBody extends Model
      * @var DBProxyAVZones
      */
     public $DBProxyAVZones;
+
     /**
      * @var DBProxyConnectStringItems
      */
     public $DBProxyConnectStringItems;
+
     /**
      * @var string
      */
     public $DBProxyEngineType;
+
     /**
      * @var string
      */
     public $DBProxyInstanceCurrentMinorVersion;
+
     /**
      * @var string
      */
     public $DBProxyInstanceLatestMinorVersion;
+
     /**
      * @var string
      */
     public $DBProxyInstanceName;
+
     /**
      * @var int
      */
     public $DBProxyInstanceNum;
+
     /**
      * @var string
      */
     public $DBProxyInstanceSize;
+
     /**
      * @var string
      */
     public $DBProxyInstanceStatus;
+
     /**
      * @var string
      */
     public $DBProxyInstanceType;
+
     /**
      * @var string
      */
     public $DBProxyKindCode;
+
     /**
      * @var DBProxyNodes
      */
     public $DBProxyNodes;
+
     /**
      * @var string
      */
     public $DBProxyPersistentConnectionStatus;
+
     /**
      * @var string
      */
     public $DBProxyServiceStatus;
+
     /**
      * @var dbProxyEndpointItems
      */
     public $dbProxyEndpointItems;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'DBProxyAVZones'                     => 'DBProxyAVZones',
-        'DBProxyConnectStringItems'          => 'DBProxyConnectStringItems',
-        'DBProxyEngineType'                  => 'DBProxyEngineType',
+        'DBProxyAVZones' => 'DBProxyAVZones',
+        'DBProxyConnectStringItems' => 'DBProxyConnectStringItems',
+        'DBProxyEngineType' => 'DBProxyEngineType',
         'DBProxyInstanceCurrentMinorVersion' => 'DBProxyInstanceCurrentMinorVersion',
-        'DBProxyInstanceLatestMinorVersion'  => 'DBProxyInstanceLatestMinorVersion',
-        'DBProxyInstanceName'                => 'DBProxyInstanceName',
-        'DBProxyInstanceNum'                 => 'DBProxyInstanceNum',
-        'DBProxyInstanceSize'                => 'DBProxyInstanceSize',
-        'DBProxyInstanceStatus'              => 'DBProxyInstanceStatus',
-        'DBProxyInstanceType'                => 'DBProxyInstanceType',
-        'DBProxyKindCode'                    => 'DBProxyKindCode',
-        'DBProxyNodes'                       => 'DBProxyNodes',
-        'DBProxyPersistentConnectionStatus'  => 'DBProxyPersistentConnectionStatus',
-        'DBProxyServiceStatus'               => 'DBProxyServiceStatus',
-        'dbProxyEndpointItems'               => 'DbProxyEndpointItems',
-        'requestId'                          => 'RequestId',
-        'resourceGroupId'                    => 'ResourceGroupId',
+        'DBProxyInstanceLatestMinorVersion' => 'DBProxyInstanceLatestMinorVersion',
+        'DBProxyInstanceName' => 'DBProxyInstanceName',
+        'DBProxyInstanceNum' => 'DBProxyInstanceNum',
+        'DBProxyInstanceSize' => 'DBProxyInstanceSize',
+        'DBProxyInstanceStatus' => 'DBProxyInstanceStatus',
+        'DBProxyInstanceType' => 'DBProxyInstanceType',
+        'DBProxyKindCode' => 'DBProxyKindCode',
+        'DBProxyNodes' => 'DBProxyNodes',
+        'DBProxyPersistentConnectionStatus' => 'DBProxyPersistentConnectionStatus',
+        'DBProxyServiceStatus' => 'DBProxyServiceStatus',
+        'dbProxyEndpointItems' => 'DbProxyEndpointItems',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

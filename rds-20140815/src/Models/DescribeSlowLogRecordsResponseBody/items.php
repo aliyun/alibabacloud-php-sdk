@@ -31,7 +31,7 @@ class items extends Model
         if (null !== $this->SQLSlowRecord) {
             if (\is_array($this->SQLSlowRecord)) {
                 $res['SQLSlowRecord'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->SQLSlowRecord as $item1) {
                     $res['SQLSlowRecord'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class items extends Model
         if (isset($map['SQLSlowRecord'])) {
             if (!empty($map['SQLSlowRecord'])) {
                 $model->SQLSlowRecord = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['SQLSlowRecord'] as $item1) {
                     $model->SQLSlowRecord[$n1++] = SQLSlowRecord::fromMap($item1);
                 }

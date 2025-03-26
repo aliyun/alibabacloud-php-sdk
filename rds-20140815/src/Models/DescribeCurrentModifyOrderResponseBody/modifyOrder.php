@@ -12,47 +12,55 @@ class modifyOrder extends Model
      * @var string
      */
     public $classGroup;
+
     /**
      * @var string
      */
     public $cpu;
+
     /**
      * @var string
      */
     public $dbInstanceId;
+
     /**
      * @var string
      */
     public $effectiveTime;
+
     /**
      * @var string
      */
     public $mark;
+
     /**
      * @var string
      */
     public $memoryClass;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $storage;
+
     /**
      * @var string
      */
     public $targetDBInstanceClass;
     protected $_name = [
-        'classGroup'            => 'ClassGroup',
-        'cpu'                   => 'Cpu',
-        'dbInstanceId'          => 'DbInstanceId',
-        'effectiveTime'         => 'EffectiveTime',
-        'mark'                  => 'Mark',
-        'memoryClass'           => 'MemoryClass',
-        'status'                => 'Status',
-        'storage'               => 'Storage',
+        'classGroup' => 'ClassGroup',
+        'cpu' => 'Cpu',
+        'dbInstanceId' => 'DbInstanceId',
+        'effectiveTime' => 'EffectiveTime',
+        'mark' => 'Mark',
+        'memoryClass' => 'MemoryClass',
+        'status' => 'Status',
+        'storage' => 'Storage',
         'targetDBInstanceClass' => 'TargetDBInstanceClass',
     ];
 

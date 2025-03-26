@@ -12,133 +12,158 @@ class DescribeDBInstancesForCloneRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $connectionMode;
+
     /**
      * @var string
      */
     public $currentInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceStatus;
+
     /**
      * @var string
      */
     public $DBInstanceType;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $expired;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $nodeType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $searchKey;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $proxyId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'connectionMode'       => 'ConnectionMode',
-        'currentInstanceId'    => 'CurrentInstanceId',
-        'DBInstanceClass'      => 'DBInstanceClass',
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBInstanceStatus'     => 'DBInstanceStatus',
-        'DBInstanceType'       => 'DBInstanceType',
-        'engine'               => 'Engine',
-        'engineVersion'        => 'EngineVersion',
-        'expired'              => 'Expired',
-        'instanceNetworkType'  => 'InstanceNetworkType',
-        'nodeType'             => 'NodeType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'payType'              => 'PayType',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'clientToken' => 'ClientToken',
+        'connectionMode' => 'ConnectionMode',
+        'currentInstanceId' => 'CurrentInstanceId',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStatus' => 'DBInstanceStatus',
+        'DBInstanceType' => 'DBInstanceType',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'expired' => 'Expired',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'nodeType' => 'NodeType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'payType' => 'PayType',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'searchKey'            => 'SearchKey',
-        'vSwitchId'            => 'VSwitchId',
-        'vpcId'                => 'VpcId',
-        'zoneId'               => 'ZoneId',
-        'proxyId'              => 'proxyId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'searchKey' => 'SearchKey',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
+        'proxyId' => 'proxyId',
     ];
 
     public function validate()

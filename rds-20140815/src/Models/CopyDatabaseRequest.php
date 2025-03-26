@@ -12,43 +12,50 @@ class CopyDatabaseRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $dstDBName;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $reserveAccount;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $srcDBName;
     protected $_name = [
-        'DBInstanceName'       => 'DBInstanceName',
-        'dstDBName'            => 'DstDBName',
-        'ownerId'              => 'OwnerId',
-        'reserveAccount'       => 'ReserveAccount',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'DBInstanceName' => 'DBInstanceName',
+        'dstDBName' => 'DstDBName',
+        'ownerId' => 'OwnerId',
+        'reserveAccount' => 'ReserveAccount',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'srcDBName'            => 'SrcDBName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'srcDBName' => 'SrcDBName',
     ];
 
     public function validate()

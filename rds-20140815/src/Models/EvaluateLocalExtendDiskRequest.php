@@ -12,38 +12,44 @@ class EvaluateLocalExtendDiskRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $storage;
     protected $_name = [
-        'DBInstanceName'       => 'DBInstanceName',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'DBInstanceName' => 'DBInstanceName',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'storage'              => 'Storage',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'storage' => 'Storage',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class collationTimeZone extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $standardTimeOffset;
+
     /**
      * @var string
      */
     public $timeZone;
     protected $_name = [
-        'description'        => 'Description',
+        'description' => 'Description',
         'standardTimeOffset' => 'StandardTimeOffset',
-        'timeZone'           => 'TimeZone',
+        'timeZone' => 'TimeZone',
     ];
 
     public function validate()

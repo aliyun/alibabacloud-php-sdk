@@ -12,32 +12,37 @@ class CreateBackupRequest extends Model
      * @var string
      */
     public $backupMethod;
+
     /**
      * @var string
      */
     public $backupStrategy;
+
     /**
      * @var string
      */
     public $backupType;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'backupMethod'    => 'BackupMethod',
-        'backupStrategy'  => 'BackupStrategy',
-        'backupType'      => 'BackupType',
-        'DBInstanceId'    => 'DBInstanceId',
-        'DBName'          => 'DBName',
+        'backupMethod' => 'BackupMethod',
+        'backupStrategy' => 'BackupStrategy',
+        'backupType' => 'BackupType',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 

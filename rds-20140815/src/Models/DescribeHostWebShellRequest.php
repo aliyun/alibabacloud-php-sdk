@@ -12,43 +12,50 @@ class DescribeHostWebShellRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountPassword;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $hostName;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionID;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'accountName'          => 'AccountName',
-        'accountPassword'      => 'AccountPassword',
-        'DBInstanceId'         => 'DBInstanceId',
-        'hostName'             => 'HostName',
-        'ownerId'              => 'OwnerId',
-        'regionID'             => 'RegionID',
+        'accountName' => 'AccountName',
+        'accountPassword' => 'AccountPassword',
+        'DBInstanceId' => 'DBInstanceId',
+        'hostName' => 'HostName',
+        'ownerId' => 'OwnerId',
+        'regionID' => 'RegionID',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

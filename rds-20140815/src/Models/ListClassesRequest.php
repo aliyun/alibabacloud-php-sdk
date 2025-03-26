@@ -12,48 +12,56 @@ class ListClassesRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'commodityCode'        => 'CommodityCode',
-        'DBInstanceId'         => 'DBInstanceId',
-        'engine'               => 'Engine',
-        'orderType'            => 'OrderType',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'commodityCode' => 'CommodityCode',
+        'DBInstanceId' => 'DBInstanceId',
+        'engine' => 'Engine',
+        'orderType' => 'OrderType',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

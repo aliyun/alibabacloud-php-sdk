@@ -13,32 +13,37 @@ class DescribeDBInstancesResponseBody extends Model
      * @var items
      */
     public $items;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'items'            => 'Items',
-        'nextToken'        => 'NextToken',
-        'pageNumber'       => 'PageNumber',
-        'pageRecordCount'  => 'PageRecordCount',
-        'requestId'        => 'RequestId',
+        'items' => 'Items',
+        'nextToken' => 'NextToken',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 

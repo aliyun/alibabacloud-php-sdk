@@ -12,18 +12,20 @@ class DescribeDBInstanceIpHostnameResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $ipHostnameInfos;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'ipHostnameInfos' => 'IpHostnameInfos',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

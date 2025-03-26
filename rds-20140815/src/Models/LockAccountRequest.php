@@ -12,28 +12,32 @@ class LockAccountRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'accountName'          => 'AccountName',
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerId'              => 'OwnerId',
+        'accountName' => 'AccountName',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

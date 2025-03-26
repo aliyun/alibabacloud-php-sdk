@@ -12,58 +12,68 @@ class ModifyParameterRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var bool
      */
     public $forcerestart;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $parameterGroupId;
+
     /**
      * @var string
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $switchTime;
+
     /**
      * @var string
      */
     public $switchTimeMode;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'forcerestart'         => 'Forcerestart',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'parameterGroupId'     => 'ParameterGroupId',
-        'parameters'           => 'Parameters',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'forcerestart' => 'Forcerestart',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'parameterGroupId' => 'ParameterGroupId',
+        'parameters' => 'Parameters',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'switchTime'           => 'SwitchTime',
-        'switchTimeMode'       => 'SwitchTimeMode',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'switchTime' => 'SwitchTime',
+        'switchTimeMode' => 'SwitchTimeMode',
     ];
 
     public function validate()

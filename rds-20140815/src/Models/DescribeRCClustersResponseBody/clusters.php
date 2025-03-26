@@ -12,33 +12,38 @@ class clusters extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $clusterName;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $profile;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'clusterName' => 'ClusterName',
-        'createTime'  => 'CreateTime',
-        'profile'     => 'Profile',
-        'status'      => 'Status',
-        'vpcId'       => 'VpcId',
+        'createTime' => 'CreateTime',
+        'profile' => 'Profile',
+        'status' => 'Status',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

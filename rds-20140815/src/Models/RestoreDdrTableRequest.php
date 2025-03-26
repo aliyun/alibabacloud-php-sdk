@@ -12,68 +12,80 @@ class RestoreDdrTableRequest extends Model
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $restoreTime;
+
     /**
      * @var string
      */
     public $restoreType;
+
     /**
      * @var string
      */
     public $sourceDBInstanceName;
+
     /**
      * @var string
      */
     public $sourceRegion;
+
     /**
      * @var string
      */
     public $tableMeta;
     protected $_name = [
-        'backupId'             => 'BackupId',
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'backupId' => 'BackupId',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'restoreTime'          => 'RestoreTime',
-        'restoreType'          => 'RestoreType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'restoreTime' => 'RestoreTime',
+        'restoreType' => 'RestoreType',
         'sourceDBInstanceName' => 'SourceDBInstanceName',
-        'sourceRegion'         => 'SourceRegion',
-        'tableMeta'            => 'TableMeta',
+        'sourceRegion' => 'SourceRegion',
+        'tableMeta' => 'TableMeta',
     ];
 
     public function validate()

@@ -12,48 +12,56 @@ class DescribeDBInstanceNetInfoRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceNetRWSplitType;
+
     /**
      * @var int
      */
     public $flag;
+
     /**
      * @var string
      */
     public $generalGroupName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'              => 'ClientToken',
-        'DBInstanceId'             => 'DBInstanceId',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
         'DBInstanceNetRWSplitType' => 'DBInstanceNetRWSplitType',
-        'flag'                     => 'Flag',
-        'generalGroupName'         => 'GeneralGroupName',
-        'ownerAccount'             => 'OwnerAccount',
-        'ownerId'                  => 'OwnerId',
-        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
-        'resourceOwnerId'          => 'ResourceOwnerId',
+        'flag' => 'Flag',
+        'generalGroupName' => 'GeneralGroupName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

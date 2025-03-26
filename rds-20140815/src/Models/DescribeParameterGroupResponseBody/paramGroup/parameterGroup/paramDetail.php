@@ -31,7 +31,7 @@ class paramDetail extends Model
         if (null !== $this->parameterDetail) {
             if (\is_array($this->parameterDetail)) {
                 $res['ParameterDetail'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->parameterDetail as $item1) {
                     $res['ParameterDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class paramDetail extends Model
         if (isset($map['ParameterDetail'])) {
             if (!empty($map['ParameterDetail'])) {
                 $model->parameterDetail = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ParameterDetail'] as $item1) {
                     $model->parameterDetail[$n1++] = parameterDetail::fromMap($item1);
                 }

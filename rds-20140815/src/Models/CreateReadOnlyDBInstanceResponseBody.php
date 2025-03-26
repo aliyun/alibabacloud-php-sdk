@@ -12,28 +12,32 @@ class CreateReadOnlyDBInstanceResponseBody extends Model
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'connectionString' => 'ConnectionString',
-        'DBInstanceId'     => 'DBInstanceId',
-        'orderId'          => 'OrderId',
-        'port'             => 'Port',
-        'requestId'        => 'RequestId',
+        'DBInstanceId' => 'DBInstanceId',
+        'orderId' => 'OrderId',
+        'port' => 'Port',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

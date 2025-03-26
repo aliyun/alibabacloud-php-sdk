@@ -12,43 +12,50 @@ class DescribeDBProxyEndpointRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBProxyConnectString;
+
     /**
      * @var string
      */
     public $DBProxyEndpointId;
+
     /**
      * @var string
      */
     public $DBProxyEngineType;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'DBProxyConnectString' => 'DBProxyConnectString',
-        'DBProxyEndpointId'    => 'DBProxyEndpointId',
-        'DBProxyEngineType'    => 'DBProxyEngineType',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'DBProxyEndpointId' => 'DBProxyEndpointId',
+        'DBProxyEngineType' => 'DBProxyEngineType',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

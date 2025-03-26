@@ -12,28 +12,32 @@ class systemDisk extends Model
      * @var bool
      */
     public $deleteWithInstance;
+
     /**
      * @var string
      */
     public $encrypted;
+
     /**
      * @var string
      */
     public $systemDiskCategory;
+
     /**
      * @var string
      */
     public $systemDiskPerformanceLevel;
+
     /**
      * @var int
      */
     public $systemDiskSize;
     protected $_name = [
-        'deleteWithInstance'         => 'DeleteWithInstance',
-        'encrypted'                  => 'Encrypted',
-        'systemDiskCategory'         => 'SystemDiskCategory',
+        'deleteWithInstance' => 'DeleteWithInstance',
+        'encrypted' => 'Encrypted',
+        'systemDiskCategory' => 'SystemDiskCategory',
         'systemDiskPerformanceLevel' => 'SystemDiskPerformanceLevel',
-        'systemDiskSize'             => 'SystemDiskSize',
+        'systemDiskSize' => 'SystemDiskSize',
     ];
 
     public function validate()

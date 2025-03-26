@@ -31,7 +31,7 @@ class endpointConnectItems extends Model
         if (null !== $this->endpointConnectItems) {
             if (\is_array($this->endpointConnectItems)) {
                 $res['EndpointConnectItems'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->endpointConnectItems as $item1) {
                     $res['EndpointConnectItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class endpointConnectItems extends Model
         if (isset($map['EndpointConnectItems'])) {
             if (!empty($map['EndpointConnectItems'])) {
                 $model->endpointConnectItems = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['EndpointConnectItems'] as $item1) {
                     $model->endpointConnectItems[$n1++] = self::fromMap($item1);
                 }

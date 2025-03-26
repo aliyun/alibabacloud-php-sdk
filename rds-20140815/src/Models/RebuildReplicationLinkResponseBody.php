@@ -12,23 +12,26 @@ class RebuildReplicationLinkResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskName;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'requestId'    => 'RequestId',
-        'taskId'       => 'TaskId',
-        'taskName'     => 'TaskName',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
     ];
 
     public function validate()

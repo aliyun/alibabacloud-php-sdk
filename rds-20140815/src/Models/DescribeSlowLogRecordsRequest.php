@@ -12,63 +12,74 @@ class DescribeSlowLogRecordsRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $SQLHASH;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBName'               => 'DBName',
-        'endTime'              => 'EndTime',
-        'nodeId'               => 'NodeId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
+        'endTime' => 'EndTime',
+        'nodeId' => 'NodeId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'SQLHASH'              => 'SQLHASH',
-        'startTime'            => 'StartTime',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'SQLHASH' => 'SQLHASH',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

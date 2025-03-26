@@ -12,18 +12,20 @@ class GetDbProxyInstanceSslRequest extends Model
      * @var string
      */
     public $DBProxyEngineType;
+
     /**
      * @var string
      */
     public $dbInstanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'DBProxyEngineType' => 'DBProxyEngineType',
-        'dbInstanceId'      => 'DbInstanceId',
-        'regionId'          => 'RegionId',
+        'dbInstanceId' => 'DbInstanceId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

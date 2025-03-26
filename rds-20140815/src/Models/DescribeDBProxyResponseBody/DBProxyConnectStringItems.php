@@ -31,7 +31,7 @@ class DBProxyConnectStringItems extends Model
         if (null !== $this->DBProxyConnectStringItems) {
             if (\is_array($this->DBProxyConnectStringItems)) {
                 $res['DBProxyConnectStringItems'] = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($this->DBProxyConnectStringItems as $item1) {
                     $res['DBProxyConnectStringItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class DBProxyConnectStringItems extends Model
         if (isset($map['DBProxyConnectStringItems'])) {
             if (!empty($map['DBProxyConnectStringItems'])) {
                 $model->DBProxyConnectStringItems = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($map['DBProxyConnectStringItems'] as $item1) {
                     $model->DBProxyConnectStringItems[$n1++] = self::fromMap($item1);
                 }

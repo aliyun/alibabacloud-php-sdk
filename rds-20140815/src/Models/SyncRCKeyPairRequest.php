@@ -12,18 +12,20 @@ class SyncRCKeyPairRequest extends Model
      * @var string
      */
     public $keyPairName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var bool
      */
     public $syncMode;
     protected $_name = [
         'keyPairName' => 'KeyPairName',
-        'regionId'    => 'RegionId',
-        'syncMode'    => 'SyncMode',
+        'regionId' => 'RegionId',
+        'syncMode' => 'SyncMode',
     ];
 
     public function validate()

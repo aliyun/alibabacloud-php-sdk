@@ -12,48 +12,56 @@ class DescribeDBMiniEngineVersionsRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupId;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $minorVersionTag;
+
     /**
      * @var string
      */
     public $nodeType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $storageType;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'dedicatedHostGroupId' => 'DedicatedHostGroupId',
-        'engine'               => 'Engine',
-        'engineVersion'        => 'EngineVersion',
-        'minorVersionTag'      => 'MinorVersionTag',
-        'nodeType'             => 'NodeType',
-        'regionId'             => 'RegionId',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'storageType'          => 'StorageType',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'minorVersionTag' => 'MinorVersionTag',
+        'nodeType' => 'NodeType',
+        'regionId' => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'storageType' => 'StorageType',
     ];
 
     public function validate()

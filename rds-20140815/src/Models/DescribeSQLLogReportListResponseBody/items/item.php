@@ -14,18 +14,20 @@ class item extends Model
      * @var latencyTopNItems
      */
     public $latencyTopNItems;
+
     /**
      * @var QPSTopNItems
      */
     public $QPSTopNItems;
+
     /**
      * @var string
      */
     public $reportTime;
     protected $_name = [
         'latencyTopNItems' => 'LatencyTopNItems',
-        'QPSTopNItems'     => 'QPSTopNItems',
-        'reportTime'       => 'ReportTime',
+        'QPSTopNItems' => 'QPSTopNItems',
+        'reportTime' => 'ReportTime',
     ];
 
     public function validate()

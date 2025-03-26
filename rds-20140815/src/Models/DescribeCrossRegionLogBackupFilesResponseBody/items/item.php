@@ -12,53 +12,62 @@ class item extends Model
      * @var string
      */
     public $crossBackupRegion;
+
     /**
      * @var string
      */
     public $crossDownloadLink;
+
     /**
      * @var string
      */
     public $crossIntranetDownloadLink;
+
     /**
      * @var int
      */
     public $crossLogBackupId;
+
     /**
      * @var int
      */
     public $crossLogBackupSize;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $linkExpiredTime;
+
     /**
      * @var string
      */
     public $logBeginTime;
+
     /**
      * @var string
      */
     public $logEndTime;
+
     /**
      * @var string
      */
     public $logFileName;
     protected $_name = [
-        'crossBackupRegion'         => 'CrossBackupRegion',
-        'crossDownloadLink'         => 'CrossDownloadLink',
+        'crossBackupRegion' => 'CrossBackupRegion',
+        'crossDownloadLink' => 'CrossDownloadLink',
         'crossIntranetDownloadLink' => 'CrossIntranetDownloadLink',
-        'crossLogBackupId'          => 'CrossLogBackupId',
-        'crossLogBackupSize'        => 'CrossLogBackupSize',
-        'instanceId'                => 'InstanceId',
-        'linkExpiredTime'           => 'LinkExpiredTime',
-        'logBeginTime'              => 'LogBeginTime',
-        'logEndTime'                => 'LogEndTime',
-        'logFileName'               => 'LogFileName',
+        'crossLogBackupId' => 'CrossLogBackupId',
+        'crossLogBackupSize' => 'CrossLogBackupSize',
+        'instanceId' => 'InstanceId',
+        'linkExpiredTime' => 'LinkExpiredTime',
+        'logBeginTime' => 'LogBeginTime',
+        'logEndTime' => 'LogEndTime',
+        'logFileName' => 'LogFileName',
     ];
 
     public function validate()

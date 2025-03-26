@@ -12,68 +12,80 @@ class ModifyDBNodeShrinkRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $DBNodeShrink;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $effectiveTime;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var bool
      */
     public $produceAsync;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'autoPay'               => 'AutoPay',
-        'clientToken'           => 'ClientToken',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceStorage'     => 'DBInstanceStorage',
+        'autoPay' => 'AutoPay',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStorage' => 'DBInstanceStorage',
         'DBInstanceStorageType' => 'DBInstanceStorageType',
-        'DBNodeShrink'          => 'DBNode',
-        'dryRun'                => 'DryRun',
-        'effectiveTime'         => 'EffectiveTime',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'produceAsync'          => 'ProduceAsync',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
+        'DBNodeShrink' => 'DBNode',
+        'dryRun' => 'DryRun',
+        'effectiveTime' => 'EffectiveTime',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'produceAsync' => 'ProduceAsync',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

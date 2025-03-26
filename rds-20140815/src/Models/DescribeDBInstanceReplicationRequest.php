@@ -12,17 +12,19 @@ class DescribeDBInstanceReplicationRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
-        'regionId'        => 'RegionId',
+        'DBInstanceId' => 'DBInstanceId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

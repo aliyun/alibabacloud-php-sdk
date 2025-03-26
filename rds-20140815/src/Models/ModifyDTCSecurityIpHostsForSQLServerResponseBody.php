@@ -12,14 +12,17 @@ class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DTCSetResult;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
         'DTCSetResult' => 'DTCSetResult',
-        'requestId'    => 'RequestId',
-        'taskId'       => 'TaskId',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

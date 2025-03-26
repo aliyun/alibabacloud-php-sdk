@@ -12,88 +12,104 @@ class StartDBInstanceRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $DBInstanceTransType;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupId;
+
     /**
      * @var string
      */
     public $effectiveTime;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $specifiedTime;
+
     /**
      * @var int
      */
     public $storage;
+
     /**
      * @var string
      */
     public $targetDBInstanceClass;
+
     /**
      * @var string
      */
     public $targetDedicatedHostIdForLog;
+
     /**
      * @var string
      */
     public $targetDedicatedHostIdForMaster;
+
     /**
      * @var string
      */
     public $targetDedicatedHostIdForSlave;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'DBInstanceId'                   => 'DBInstanceId',
-        'DBInstanceTransType'            => 'DBInstanceTransType',
-        'dedicatedHostGroupId'           => 'DedicatedHostGroupId',
-        'effectiveTime'                  => 'EffectiveTime',
-        'engineVersion'                  => 'EngineVersion',
-        'ownerId'                        => 'OwnerId',
-        'regionId'                       => 'RegionId',
-        'resourceOwnerAccount'           => 'ResourceOwnerAccount',
-        'resourceOwnerId'                => 'ResourceOwnerId',
-        'specifiedTime'                  => 'SpecifiedTime',
-        'storage'                        => 'Storage',
-        'targetDBInstanceClass'          => 'TargetDBInstanceClass',
-        'targetDedicatedHostIdForLog'    => 'TargetDedicatedHostIdForLog',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceTransType' => 'DBInstanceTransType',
+        'dedicatedHostGroupId' => 'DedicatedHostGroupId',
+        'effectiveTime' => 'EffectiveTime',
+        'engineVersion' => 'EngineVersion',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'specifiedTime' => 'SpecifiedTime',
+        'storage' => 'Storage',
+        'targetDBInstanceClass' => 'TargetDBInstanceClass',
+        'targetDedicatedHostIdForLog' => 'TargetDedicatedHostIdForLog',
         'targetDedicatedHostIdForMaster' => 'TargetDedicatedHostIdForMaster',
-        'targetDedicatedHostIdForSlave'  => 'TargetDedicatedHostIdForSlave',
-        'vSwitchId'                      => 'VSwitchId',
-        'zoneId'                         => 'ZoneId',
+        'targetDedicatedHostIdForSlave' => 'TargetDedicatedHostIdForSlave',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

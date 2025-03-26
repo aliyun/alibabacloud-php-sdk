@@ -13,22 +13,25 @@ class data extends Model
      * @var notifyItemList[]
      */
     public $notifyItemList;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'notifyItemList'   => 'NotifyItemList',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
+        'notifyItemList' => 'NotifyItemList',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->notifyItemList) {
             if (\is_array($this->notifyItemList)) {
                 $res['NotifyItemList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->notifyItemList as $item1) {
                     $res['NotifyItemList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['NotifyItemList'])) {
             if (!empty($map['NotifyItemList'])) {
                 $model->notifyItemList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['NotifyItemList'] as $item1) {
                     $model->notifyItemList[$n1++] = notifyItemList::fromMap($item1);
                 }

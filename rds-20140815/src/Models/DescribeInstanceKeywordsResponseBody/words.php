@@ -30,7 +30,7 @@ class words extends Model
         if (null !== $this->word) {
             if (\is_array($this->word)) {
                 $res['word'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->word as $item1) {
                     $res['word'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class words extends Model
         if (isset($map['word'])) {
             if (!empty($map['word'])) {
                 $model->word = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['word'] as $item1) {
                     $model->word[$n1++] = $item1;
                 }

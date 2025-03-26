@@ -12,23 +12,26 @@ class CreateDBNodesResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $nodeIds;
+
     /**
      * @var int
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'nodeIds'      => 'NodeIds',
-        'orderId'      => 'OrderId',
-        'requestId'    => 'RequestId',
+        'nodeIds' => 'NodeIds',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

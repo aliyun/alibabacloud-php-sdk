@@ -12,17 +12,19 @@ class SyncRCSecurityGroupRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
     protected $_name = [
-        'instanceId'      => 'InstanceId',
-        'regionId'        => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'securityGroupId' => 'SecurityGroupId',
     ];
 

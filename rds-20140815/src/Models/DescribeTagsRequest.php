@@ -12,53 +12,62 @@ class DescribeTagsRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var string
      */
     public $proxyId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'resourceType'         => 'ResourceType',
-        'tags'                 => 'Tags',
-        'proxyId'              => 'proxyId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType' => 'ResourceType',
+        'tags' => 'Tags',
+        'proxyId' => 'proxyId',
     ];
 
     public function validate()

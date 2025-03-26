@@ -12,53 +12,62 @@ class serverlessPrice extends Model
      * @var float
      */
     public $RCUDiscountMaxAmount;
+
     /**
      * @var float
      */
     public $RCUDiscountMinAmount;
+
     /**
      * @var float
      */
     public $RCUOriginalMaxAmount;
+
     /**
      * @var float
      */
     public $RCUOriginalMinAmount;
+
     /**
      * @var float
      */
     public $storageOriginalAmount;
+
     /**
      * @var float
      */
     public $totalOriginalMaxAmount;
+
     /**
      * @var float
      */
     public $totalOriginalMinAmount;
+
     /**
      * @var float
      */
     public $tradeMaxRCUAmount;
+
     /**
      * @var float
      */
     public $tradeMinRCUAmount;
+
     /**
      * @var float
      */
     public $storageDiscountAmount;
     protected $_name = [
-        'RCUDiscountMaxAmount'   => 'RCUDiscountMaxAmount',
-        'RCUDiscountMinAmount'   => 'RCUDiscountMinAmount',
-        'RCUOriginalMaxAmount'   => 'RCUOriginalMaxAmount',
-        'RCUOriginalMinAmount'   => 'RCUOriginalMinAmount',
-        'storageOriginalAmount'  => 'StorageOriginalAmount',
+        'RCUDiscountMaxAmount' => 'RCUDiscountMaxAmount',
+        'RCUDiscountMinAmount' => 'RCUDiscountMinAmount',
+        'RCUOriginalMaxAmount' => 'RCUOriginalMaxAmount',
+        'RCUOriginalMinAmount' => 'RCUOriginalMinAmount',
+        'storageOriginalAmount' => 'StorageOriginalAmount',
         'totalOriginalMaxAmount' => 'TotalOriginalMaxAmount',
         'totalOriginalMinAmount' => 'TotalOriginalMinAmount',
-        'tradeMaxRCUAmount'      => 'TradeMaxRCUAmount',
-        'tradeMinRCUAmount'      => 'TradeMinRCUAmount',
-        'storageDiscountAmount'  => 'storageDiscountAmount',
+        'tradeMaxRCUAmount' => 'TradeMaxRCUAmount',
+        'tradeMinRCUAmount' => 'TradeMinRCUAmount',
+        'storageDiscountAmount' => 'storageDiscountAmount',
     ];
 
     public function validate()

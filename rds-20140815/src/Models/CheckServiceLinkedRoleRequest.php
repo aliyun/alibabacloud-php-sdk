@@ -12,33 +12,38 @@ class CheckServiceLinkedRoleRequest extends Model
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $serviceLinkedRole;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'serviceLinkedRole'    => 'ServiceLinkedRole',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'serviceLinkedRole' => 'ServiceLinkedRole',
     ];
 
     public function validate()

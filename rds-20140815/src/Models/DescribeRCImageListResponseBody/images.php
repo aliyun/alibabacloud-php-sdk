@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCImageListResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeRCImageListResponseBody\images\diskDeviceMappings;
 
 class images extends Model
 {
@@ -12,82 +13,105 @@ class images extends Model
      * @var string
      */
     public $architecture;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
+    /**
+     * @var diskDeviceMappings[]
+     */
+    public $diskDeviceMappings;
+
     /**
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $imageName;
+
     /**
      * @var string
      */
     public $imageVersion;
+
     /**
      * @var bool
      */
     public $isPublic;
+
     /**
      * @var bool
      */
     public $isSupportRdsCustom;
+
     /**
      * @var string
      */
     public $OSName;
+
     /**
      * @var string
      */
     public $OSNameEn;
+
     /**
      * @var string
      */
     public $OSType;
+
     /**
      * @var string
      */
     public $platform;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $usage;
     protected $_name = [
-        'architecture'       => 'Architecture',
-        'creationTime'       => 'CreationTime',
-        'description'        => 'Description',
-        'imageId'            => 'ImageId',
-        'imageName'          => 'ImageName',
-        'imageVersion'       => 'ImageVersion',
-        'isPublic'           => 'IsPublic',
+        'architecture' => 'Architecture',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'diskDeviceMappings' => 'DiskDeviceMappings',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
+        'imageVersion' => 'ImageVersion',
+        'isPublic' => 'IsPublic',
         'isSupportRdsCustom' => 'IsSupportRdsCustom',
-        'OSName'             => 'OSName',
-        'OSNameEn'           => 'OSNameEn',
-        'OSType'             => 'OSType',
-        'platform'           => 'Platform',
-        'size'               => 'Size',
-        'status'             => 'Status',
-        'usage'              => 'Usage',
+        'OSName' => 'OSName',
+        'OSNameEn' => 'OSNameEn',
+        'OSType' => 'OSType',
+        'platform' => 'Platform',
+        'size' => 'Size',
+        'status' => 'Status',
+        'usage' => 'Usage',
     ];
 
     public function validate()
     {
+        if (\is_array($this->diskDeviceMappings)) {
+            Model::validateArray($this->diskDeviceMappings);
+        }
         parent::validate();
     }
 
@@ -104,6 +128,16 @@ class images extends Model
 
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->diskDeviceMappings) {
+            if (\is_array($this->diskDeviceMappings)) {
+                $res['DiskDeviceMappings'] = [];
+                $n1 = 0;
+                foreach ($this->diskDeviceMappings as $item1) {
+                    $res['DiskDeviceMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->imageId) {
@@ -175,6 +209,16 @@ class images extends Model
 
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+
+        if (isset($map['DiskDeviceMappings'])) {
+            if (!empty($map['DiskDeviceMappings'])) {
+                $model->diskDeviceMappings = [];
+                $n1 = 0;
+                foreach ($map['DiskDeviceMappings'] as $item1) {
+                    $model->diskDeviceMappings[$n1++] = diskDeviceMappings::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['ImageId'])) {

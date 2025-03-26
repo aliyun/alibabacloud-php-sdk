@@ -12,33 +12,38 @@ class addressItem extends Model
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $ipAddress;
+
     /**
      * @var string
      */
     public $ipType;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'connectionString' => 'ConnectionString',
-        'ipAddress'        => 'IpAddress',
-        'ipType'           => 'IpType',
-        'port'             => 'Port',
-        'vSwitchId'        => 'VSwitchId',
-        'vpcId'            => 'VpcId',
+        'ipAddress' => 'IpAddress',
+        'ipType' => 'IpType',
+        'port' => 'Port',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

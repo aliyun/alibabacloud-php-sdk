@@ -13,18 +13,20 @@ class DescribeCharacterSetNameResponseBody extends Model
      * @var characterSetNameItems
      */
     public $characterSetNameItems;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'characterSetNameItems' => 'CharacterSetNameItems',
-        'engine'                => 'Engine',
-        'requestId'             => 'RequestId',
+        'engine' => 'Engine',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,48 +12,56 @@ class ModifyAccountMaskingPrivilegeRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $privilege;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'DBInstanceName'       => 'DBInstanceName',
-        'DBName'               => 'DBName',
-        'expireTime'           => 'ExpireTime',
-        'ownerId'              => 'OwnerId',
-        'privilege'            => 'Privilege',
-        'regionId'             => 'RegionId',
+        'DBInstanceName' => 'DBInstanceName',
+        'DBName' => 'DBName',
+        'expireTime' => 'ExpireTime',
+        'ownerId' => 'OwnerId',
+        'privilege' => 'Privilege',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'userName'             => 'UserName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'userName' => 'UserName',
     ];
 
     public function validate()

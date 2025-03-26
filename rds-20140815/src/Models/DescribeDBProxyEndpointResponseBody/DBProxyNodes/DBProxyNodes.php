@@ -12,18 +12,20 @@ class DBProxyNodes extends Model
      * @var string
      */
     public $cpuCores;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'cpuCores' => 'cpuCores',
-        'nodeId'   => 'nodeId',
-        'zoneId'   => 'zoneId',
+        'nodeId' => 'nodeId',
+        'zoneId' => 'zoneId',
     ];
 
     public function validate()

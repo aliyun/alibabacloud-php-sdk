@@ -13,47 +13,55 @@ class DescribeCrossRegionLogBackupFilesResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var items
      */
     public $items;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'DBInstanceId'     => 'DBInstanceId',
-        'endTime'          => 'EndTime',
-        'items'            => 'Items',
-        'pageNumber'       => 'PageNumber',
-        'pageRecordCount'  => 'PageRecordCount',
-        'regionId'         => 'RegionId',
-        'requestId'        => 'RequestId',
-        'startTime'        => 'StartTime',
+        'DBInstanceId' => 'DBInstanceId',
+        'endTime' => 'EndTime',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 

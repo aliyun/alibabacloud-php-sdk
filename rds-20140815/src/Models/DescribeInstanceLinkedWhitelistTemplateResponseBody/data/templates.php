@@ -12,28 +12,32 @@ class templates extends Model
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $ips;
+
     /**
      * @var int
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateName;
+
     /**
      * @var int
      */
     public $userId;
     protected $_name = [
-        'id'           => 'Id',
-        'ips'          => 'Ips',
-        'templateId'   => 'TemplateId',
+        'id' => 'Id',
+        'ips' => 'Ips',
+        'templateId' => 'TemplateId',
         'templateName' => 'TemplateName',
-        'userId'       => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class DeleteSlotResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $slotName;
     protected $_name = [
         'requestId' => 'RequestId',
-        'slotName'  => 'SlotName',
+        'slotName' => 'SlotName',
     ];
 
     public function validate()

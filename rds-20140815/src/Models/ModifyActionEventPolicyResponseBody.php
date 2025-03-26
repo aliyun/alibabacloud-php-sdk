@@ -12,18 +12,20 @@ class ModifyActionEventPolicyResponseBody extends Model
      * @var string
      */
     public $enableEventLog;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'enableEventLog' => 'EnableEventLog',
-        'regionId'       => 'RegionId',
-        'requestId'      => 'RequestId',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

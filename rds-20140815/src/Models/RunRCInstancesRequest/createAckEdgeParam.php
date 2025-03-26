@@ -12,12 +12,13 @@ class createAckEdgeParam extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $nodePoolId;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'nodePoolId' => 'NodePoolId',
     ];
 

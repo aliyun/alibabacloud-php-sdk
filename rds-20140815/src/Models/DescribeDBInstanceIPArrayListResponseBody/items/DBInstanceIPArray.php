@@ -12,23 +12,26 @@ class DBInstanceIPArray extends Model
      * @var string
      */
     public $DBInstanceIPArrayAttribute;
+
     /**
      * @var string
      */
     public $DBInstanceIPArrayName;
+
     /**
      * @var string
      */
     public $securityIPList;
+
     /**
      * @var string
      */
     public $securityIPType;
     protected $_name = [
         'DBInstanceIPArrayAttribute' => 'DBInstanceIPArrayAttribute',
-        'DBInstanceIPArrayName'      => 'DBInstanceIPArrayName',
-        'securityIPList'             => 'SecurityIPList',
-        'securityIPType'             => 'SecurityIPType',
+        'DBInstanceIPArrayName' => 'DBInstanceIPArrayName',
+        'securityIPList' => 'SecurityIPList',
+        'securityIPType' => 'SecurityIPType',
     ];
 
     public function validate()

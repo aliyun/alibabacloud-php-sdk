@@ -31,7 +31,7 @@ class hbaLogItems extends Model
         if (null !== $this->hbaLogItem) {
             if (\is_array($this->hbaLogItem)) {
                 $res['HbaLogItem'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->hbaLogItem as $item1) {
                     $res['HbaLogItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class hbaLogItems extends Model
         if (isset($map['HbaLogItem'])) {
             if (!empty($map['HbaLogItem'])) {
                 $model->hbaLogItem = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['HbaLogItem'] as $item1) {
                     $model->hbaLogItem[$n1++] = hbaLogItem::fromMap($item1);
                 }

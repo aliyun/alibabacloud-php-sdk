@@ -12,13 +12,14 @@ class DescribeAnalyticdbByPrimaryDBInstanceResponseBody extends Model
      * @var int
      */
     public $analyticDBCount;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'analyticDBCount' => 'AnalyticDBCount',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

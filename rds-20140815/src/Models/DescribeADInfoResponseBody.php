@@ -12,33 +12,38 @@ class DescribeADInfoResponseBody extends Model
      * @var string
      */
     public $ADDNS;
+
     /**
      * @var string
      */
     public $ADServerIpAddress;
+
     /**
      * @var string
      */
     public $ADStatus;
+
     /**
      * @var string
      */
     public $abnormalReason;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'ADDNS'             => 'ADDNS',
+        'ADDNS' => 'ADDNS',
         'ADServerIpAddress' => 'ADServerIpAddress',
-        'ADStatus'          => 'ADStatus',
-        'abnormalReason'    => 'AbnormalReason',
-        'requestId'         => 'RequestId',
-        'userName'          => 'UserName',
+        'ADStatus' => 'ADStatus',
+        'abnormalReason' => 'AbnormalReason',
+        'requestId' => 'RequestId',
+        'userName' => 'UserName',
     ];
 
     public function validate()

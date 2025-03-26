@@ -14,10 +14,12 @@ class DescribeRenewalPriceResponseBody extends Model
      * @var priceInfo
      */
     public $priceInfo;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var rules
      */
@@ -25,7 +27,7 @@ class DescribeRenewalPriceResponseBody extends Model
     protected $_name = [
         'priceInfo' => 'PriceInfo',
         'requestId' => 'RequestId',
-        'rules'     => 'Rules',
+        'rules' => 'Rules',
     ];
 
     public function validate()

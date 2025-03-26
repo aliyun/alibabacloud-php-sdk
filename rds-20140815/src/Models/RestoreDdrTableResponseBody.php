@@ -12,13 +12,14 @@ class RestoreDdrTableResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

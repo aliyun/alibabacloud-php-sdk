@@ -12,17 +12,19 @@ class accountPrivilegeInfo extends Model
      * @var string
      */
     public $account;
+
     /**
      * @var string
      */
     public $accountPrivilege;
+
     /**
      * @var string
      */
     public $accountPrivilegeDetail;
     protected $_name = [
-        'account'                => 'Account',
-        'accountPrivilege'       => 'AccountPrivilege',
+        'account' => 'Account',
+        'accountPrivilege' => 'AccountPrivilege',
         'accountPrivilegeDetail' => 'AccountPrivilegeDetail',
     ];
 

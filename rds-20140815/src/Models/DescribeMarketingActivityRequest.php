@@ -12,48 +12,56 @@ class DescribeMarketingActivityRequest extends Model
      * @var int
      */
     public $aliUid;
+
     /**
      * @var string
      */
     public $bid;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $upgradeCode;
     protected $_name = [
-        'aliUid'               => 'AliUid',
-        'bid'                  => 'Bid',
-        'clientToken'          => 'ClientToken',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'aliUid' => 'AliUid',
+        'bid' => 'Bid',
+        'clientToken' => 'ClientToken',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'upgradeCode'          => 'UpgradeCode',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'upgradeCode' => 'UpgradeCode',
     ];
 
     public function validate()

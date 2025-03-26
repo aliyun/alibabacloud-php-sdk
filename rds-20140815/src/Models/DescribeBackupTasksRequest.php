@@ -12,53 +12,62 @@ class DescribeBackupTasksRequest extends Model
      * @var int
      */
     public $backupJobId;
+
     /**
      * @var string
      */
     public $backupJobStatus;
+
     /**
      * @var string
      */
     public $backupMode;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $flag;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'backupJobId'          => 'BackupJobId',
-        'backupJobStatus'      => 'BackupJobStatus',
-        'backupMode'           => 'BackupMode',
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'flag'                 => 'Flag',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'backupJobId' => 'BackupJobId',
+        'backupJobStatus' => 'BackupJobStatus',
+        'backupMode' => 'BackupMode',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'flag' => 'Flag',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

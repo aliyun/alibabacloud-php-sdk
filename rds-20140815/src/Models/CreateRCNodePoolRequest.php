@@ -15,173 +15,206 @@ class CreateRCNodePoolRequest extends Model
      * @var int
      */
     public $amount;
+
     /**
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var bool
      */
     public $autoRenew;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $createMode;
+
     /**
      * @var dataDisk[]
      */
     public $dataDisk;
+
     /**
      * @var string
      */
     public $deploymentSetId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $hostName;
+
     /**
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $internetChargeType;
+
     /**
      * @var int
      */
     public $internetMaxBandwidthOut;
+
     /**
      * @var string
      */
     public $ioOptimized;
+
     /**
      * @var string
      */
     public $keyPairName;
+
     /**
      * @var string
      */
     public $nodePoolName;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $periodUnit;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $securityEnhancementStrategy;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $spotStrategy;
+
     /**
      * @var string
      */
     public $supportCase;
+
     /**
      * @var systemDisk
      */
     public $systemDisk;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $userData;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'amount'                      => 'Amount',
-        'autoPay'                     => 'AutoPay',
-        'autoRenew'                   => 'AutoRenew',
-        'clientToken'                 => 'ClientToken',
-        'clusterId'                   => 'ClusterId',
-        'createMode'                  => 'CreateMode',
-        'dataDisk'                    => 'DataDisk',
-        'deploymentSetId'             => 'DeploymentSetId',
-        'description'                 => 'Description',
-        'dryRun'                      => 'DryRun',
-        'hostName'                    => 'HostName',
-        'imageId'                     => 'ImageId',
-        'instanceChargeType'          => 'InstanceChargeType',
-        'instanceName'                => 'InstanceName',
-        'instanceType'                => 'InstanceType',
-        'internetChargeType'          => 'InternetChargeType',
-        'internetMaxBandwidthOut'     => 'InternetMaxBandwidthOut',
-        'ioOptimized'                 => 'IoOptimized',
-        'keyPairName'                 => 'KeyPairName',
-        'nodePoolName'                => 'NodePoolName',
-        'password'                    => 'Password',
-        'period'                      => 'Period',
-        'periodUnit'                  => 'PeriodUnit',
-        'regionId'                    => 'RegionId',
-        'resourceGroupId'             => 'ResourceGroupId',
+        'amount' => 'Amount',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'clientToken' => 'ClientToken',
+        'clusterId' => 'ClusterId',
+        'createMode' => 'CreateMode',
+        'dataDisk' => 'DataDisk',
+        'deploymentSetId' => 'DeploymentSetId',
+        'description' => 'Description',
+        'dryRun' => 'DryRun',
+        'hostName' => 'HostName',
+        'imageId' => 'ImageId',
+        'instanceChargeType' => 'InstanceChargeType',
+        'instanceName' => 'InstanceName',
+        'instanceType' => 'InstanceType',
+        'internetChargeType' => 'InternetChargeType',
+        'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
+        'ioOptimized' => 'IoOptimized',
+        'keyPairName' => 'KeyPairName',
+        'nodePoolName' => 'NodePoolName',
+        'password' => 'Password',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'securityEnhancementStrategy' => 'SecurityEnhancementStrategy',
-        'securityGroupId'             => 'SecurityGroupId',
-        'spotStrategy'                => 'SpotStrategy',
-        'supportCase'                 => 'SupportCase',
-        'systemDisk'                  => 'SystemDisk',
-        'tag'                         => 'Tag',
-        'userData'                    => 'UserData',
-        'vSwitchId'                   => 'VSwitchId',
-        'zoneId'                      => 'ZoneId',
+        'securityGroupId' => 'SecurityGroupId',
+        'spotStrategy' => 'SpotStrategy',
+        'supportCase' => 'SupportCase',
+        'systemDisk' => 'SystemDisk',
+        'tag' => 'Tag',
+        'userData' => 'UserData',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -228,7 +261,7 @@ class CreateRCNodePoolRequest extends Model
         if (null !== $this->dataDisk) {
             if (\is_array($this->dataDisk)) {
                 $res['DataDisk'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->dataDisk as $item1) {
                     $res['DataDisk'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -330,7 +363,7 @@ class CreateRCNodePoolRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -387,7 +420,7 @@ class CreateRCNodePoolRequest extends Model
         if (isset($map['DataDisk'])) {
             if (!empty($map['DataDisk'])) {
                 $model->dataDisk = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['DataDisk'] as $item1) {
                     $model->dataDisk[$n1++] = dataDisk::fromMap($item1);
                 }
@@ -489,7 +522,7 @@ class CreateRCNodePoolRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

@@ -12,18 +12,22 @@ class dbProxyCertListItems extends Model
      * @var string
      */
     public $certCommonName;
+
     /**
      * @var string
      */
     public $dbInstanceName;
+
     /**
      * @var string
      */
     public $endpointName;
+
     /**
      * @var string
      */
     public $endpointType;
+
     /**
      * @var string
      */
@@ -31,8 +35,8 @@ class dbProxyCertListItems extends Model
     protected $_name = [
         'certCommonName' => 'CertCommonName',
         'dbInstanceName' => 'DbInstanceName',
-        'endpointName'   => 'EndpointName',
-        'endpointType'   => 'EndpointType',
+        'endpointName' => 'EndpointName',
+        'endpointType' => 'EndpointType',
         'sslExpiredTime' => 'SslExpiredTime',
     ];
 

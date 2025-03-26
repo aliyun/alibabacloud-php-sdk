@@ -12,13 +12,14 @@ class CheckInstanceExistResponseBody extends Model
      * @var bool
      */
     public $isExistInstance;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'isExistInstance' => 'IsExistInstance',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

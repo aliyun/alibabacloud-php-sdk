@@ -14,83 +14,122 @@ class RCInstances extends Model
      * @var string
      */
     public $clusterName;
+
     /**
      * @var string
      */
     public $createMode;
+
     /**
      * @var string
      */
     public $dbType;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $gmtCreated;
+
     /**
      * @var string
      */
     public $hostIp;
+
     /**
      * @var string
      */
     public $hostName;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
     /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $instanceType;
+
+    /**
+     * @var string
+     */
+    public $instanceTypeFamily;
+
+    /**
+     * @var string
+     */
+    public $publicIp;
+
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $securityGroupId;
+
     /**
      * @var string
      */
     public $spotStrategy;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tagResources[]
      */
     public $tagResources;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'clusterName'        => 'ClusterName',
-        'createMode'         => 'CreateMode',
-        'dbType'             => 'DbType',
-        'description'        => 'Description',
-        'gmtCreated'         => 'GmtCreated',
-        'hostIp'             => 'HostIp',
-        'hostName'           => 'HostName',
+        'clusterName' => 'ClusterName',
+        'createMode' => 'CreateMode',
+        'dbType' => 'DbType',
+        'description' => 'Description',
+        'gmtCreated' => 'GmtCreated',
+        'hostIp' => 'HostIp',
+        'hostName' => 'HostName',
         'instanceChargeType' => 'InstanceChargeType',
-        'instanceId'         => 'InstanceId',
-        'regionId'           => 'RegionId',
-        'spotStrategy'       => 'SpotStrategy',
-        'status'             => 'Status',
-        'tagResources'       => 'TagResources',
-        'tags'               => 'Tags',
-        'vpcId'              => 'VpcId',
-        'zoneId'             => 'ZoneId',
+        'instanceId' => 'InstanceId',
+        'instanceType' => 'InstanceType',
+        'instanceTypeFamily' => 'InstanceTypeFamily',
+        'publicIp' => 'PublicIp',
+        'regionId' => 'RegionId',
+        'securityGroupId' => 'SecurityGroupId',
+        'spotStrategy' => 'SpotStrategy',
+        'status' => 'Status',
+        'tagResources' => 'TagResources',
+        'tags' => 'Tags',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -143,8 +182,24 @@ class RCInstances extends Model
             $res['InstanceId'] = $this->instanceId;
         }
 
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
+        }
+
+        if (null !== $this->instanceTypeFamily) {
+            $res['InstanceTypeFamily'] = $this->instanceTypeFamily;
+        }
+
+        if (null !== $this->publicIp) {
+            $res['PublicIp'] = $this->publicIp;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
         }
 
         if (null !== $this->spotStrategy) {
@@ -158,7 +213,7 @@ class RCInstances extends Model
         if (null !== $this->tagResources) {
             if (\is_array($this->tagResources)) {
                 $res['TagResources'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->tagResources as $item1) {
                     $res['TagResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -168,7 +223,7 @@ class RCInstances extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -230,8 +285,24 @@ class RCInstances extends Model
             $model->instanceId = $map['InstanceId'];
         }
 
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
+        }
+
+        if (isset($map['InstanceTypeFamily'])) {
+            $model->instanceTypeFamily = $map['InstanceTypeFamily'];
+        }
+
+        if (isset($map['PublicIp'])) {
+            $model->publicIp = $map['PublicIp'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
         }
 
         if (isset($map['SpotStrategy'])) {
@@ -245,7 +316,7 @@ class RCInstances extends Model
         if (isset($map['TagResources'])) {
             if (!empty($map['TagResources'])) {
                 $model->tagResources = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['TagResources'] as $item1) {
                     $model->tagResources[$n1++] = tagResources::fromMap($item1);
                 }
@@ -255,7 +326,7 @@ class RCInstances extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

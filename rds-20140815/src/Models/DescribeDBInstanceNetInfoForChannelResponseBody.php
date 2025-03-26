@@ -13,18 +13,20 @@ class DescribeDBInstanceNetInfoForChannelResponseBody extends Model
      * @var DBInstanceNetInfos
      */
     public $DBInstanceNetInfos;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'DBInstanceNetInfos'  => 'DBInstanceNetInfos',
+        'DBInstanceNetInfos' => 'DBInstanceNetInfos',
         'instanceNetworkType' => 'InstanceNetworkType',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

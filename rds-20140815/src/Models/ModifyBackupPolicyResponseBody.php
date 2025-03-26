@@ -12,43 +12,50 @@ class ModifyBackupPolicyResponseBody extends Model
      * @var string
      */
     public $compressType;
+
     /**
      * @var string
      */
     public $DBInstanceID;
+
     /**
      * @var string
      */
     public $enableBackupLog;
+
     /**
      * @var string
      */
     public $highSpaceUsageProtection;
+
     /**
      * @var int
      */
     public $localLogRetentionHours;
+
     /**
      * @var string
      */
     public $localLogRetentionSpace;
+
     /**
      * @var int
      */
     public $logBackupLocalRetentionNumber;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'compressType'                  => 'CompressType',
-        'DBInstanceID'                  => 'DBInstanceID',
-        'enableBackupLog'               => 'EnableBackupLog',
-        'highSpaceUsageProtection'      => 'HighSpaceUsageProtection',
-        'localLogRetentionHours'        => 'LocalLogRetentionHours',
-        'localLogRetentionSpace'        => 'LocalLogRetentionSpace',
+        'compressType' => 'CompressType',
+        'DBInstanceID' => 'DBInstanceID',
+        'enableBackupLog' => 'EnableBackupLog',
+        'highSpaceUsageProtection' => 'HighSpaceUsageProtection',
+        'localLogRetentionHours' => 'LocalLogRetentionHours',
+        'localLogRetentionSpace' => 'LocalLogRetentionSpace',
         'logBackupLocalRetentionNumber' => 'LogBackupLocalRetentionNumber',
-        'requestId'                     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class DescribeRCInstanceAttributeRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'instanceId'       => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'privateIpAddress' => 'PrivateIpAddress',
-        'regionId'         => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

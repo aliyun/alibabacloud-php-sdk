@@ -14,78 +14,92 @@ class DBInstanceNetInfo extends Model
      * @var string
      */
     public $babelfishPort;
+
     /**
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $connectionStringType;
+
     /**
      * @var DBInstanceWeights
      */
     public $DBInstanceWeights;
+
     /**
      * @var string
      */
     public $distributionType;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $IPAddress;
+
     /**
      * @var string
      */
     public $IPType;
+
     /**
      * @var string
      */
     public $maxDelayTime;
+
     /**
      * @var string
      */
     public $PGBouncerPort;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var securityIPGroups
      */
     public $securityIPGroups;
+
     /**
      * @var string
      */
     public $upgradeable;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'babelfishPort'        => 'BabelfishPort',
-        'connectionString'     => 'ConnectionString',
+        'babelfishPort' => 'BabelfishPort',
+        'connectionString' => 'ConnectionString',
         'connectionStringType' => 'ConnectionStringType',
-        'DBInstanceWeights'    => 'DBInstanceWeights',
-        'distributionType'     => 'DistributionType',
-        'expiredTime'          => 'ExpiredTime',
-        'IPAddress'            => 'IPAddress',
-        'IPType'               => 'IPType',
-        'maxDelayTime'         => 'MaxDelayTime',
-        'PGBouncerPort'        => 'PGBouncerPort',
-        'port'                 => 'Port',
-        'securityIPGroups'     => 'SecurityIPGroups',
-        'upgradeable'          => 'Upgradeable',
-        'VPCId'                => 'VPCId',
-        'vSwitchId'            => 'VSwitchId',
+        'DBInstanceWeights' => 'DBInstanceWeights',
+        'distributionType' => 'DistributionType',
+        'expiredTime' => 'ExpiredTime',
+        'IPAddress' => 'IPAddress',
+        'IPType' => 'IPType',
+        'maxDelayTime' => 'MaxDelayTime',
+        'PGBouncerPort' => 'PGBouncerPort',
+        'port' => 'Port',
+        'securityIPGroups' => 'SecurityIPGroups',
+        'upgradeable' => 'Upgradeable',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()

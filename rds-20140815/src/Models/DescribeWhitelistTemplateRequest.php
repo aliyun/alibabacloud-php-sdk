@@ -12,28 +12,32 @@ class DescribeWhitelistTemplateRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'templateId'           => 'TemplateId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class ModifyActionEventPolicyRequest extends Model
      * @var string
      */
     public $enableEventLog;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'enableEventLog'       => 'EnableEventLog',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'enableEventLog' => 'EnableEventLog',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

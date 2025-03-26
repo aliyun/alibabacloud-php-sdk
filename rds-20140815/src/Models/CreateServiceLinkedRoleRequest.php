@@ -12,28 +12,32 @@ class CreateServiceLinkedRoleRequest extends Model
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $serviceLinkedRole;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'serviceLinkedRole'    => 'ServiceLinkedRole',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'serviceLinkedRole' => 'ServiceLinkedRole',
     ];
 
     public function validate()

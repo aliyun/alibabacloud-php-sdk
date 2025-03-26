@@ -13,18 +13,20 @@ class PreCheckCreateOrderForDeleteDBNodesResponseBody extends Model
      * @var failures
      */
     public $failures;
+
     /**
      * @var bool
      */
     public $preCheckResult;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'failures'       => 'Failures',
+        'failures' => 'Failures',
         'preCheckResult' => 'PreCheckResult',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

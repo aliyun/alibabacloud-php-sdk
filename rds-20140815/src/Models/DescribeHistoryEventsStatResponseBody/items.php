@@ -12,13 +12,14 @@ class items extends Model
      * @var string
      */
     public $eventCategory;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'eventCategory' => 'EventCategory',
-        'totalCount'    => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

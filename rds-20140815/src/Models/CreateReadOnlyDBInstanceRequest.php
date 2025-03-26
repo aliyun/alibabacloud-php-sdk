@@ -12,193 +12,230 @@ class CreateReadOnlyDBInstanceRequest extends Model
      * @var bool
      */
     public $autoCreateProxy;
+
     /**
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $autoRenew;
+
     /**
      * @var bool
      */
     public $autoUseCoupon;
+
     /**
      * @var string
      */
     public $bpeEnabled;
+
     /**
      * @var bool
      */
     public $burstingEnabled;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupId;
+
     /**
      * @var bool
      */
     public $deletionProtection;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $gdnInstanceName;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $instructionSetArch;
+
     /**
      * @var string
      */
     public $ioAccelerationEnabled;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $promotionCode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $targetDedicatedHostIdForMaster;
+
     /**
      * @var string
      */
     public $tddlBizType;
+
     /**
      * @var string
      */
     public $tddlRegionConfig;
+
     /**
      * @var string
      */
     public $usedTime;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'autoCreateProxy'                => 'AutoCreateProxy',
-        'autoPay'                        => 'AutoPay',
-        'autoRenew'                      => 'AutoRenew',
-        'autoUseCoupon'                  => 'AutoUseCoupon',
-        'bpeEnabled'                     => 'BpeEnabled',
-        'burstingEnabled'                => 'BurstingEnabled',
-        'category'                       => 'Category',
-        'clientToken'                    => 'ClientToken',
-        'DBInstanceClass'                => 'DBInstanceClass',
-        'DBInstanceDescription'          => 'DBInstanceDescription',
-        'DBInstanceId'                   => 'DBInstanceId',
-        'DBInstanceStorage'              => 'DBInstanceStorage',
-        'DBInstanceStorageType'          => 'DBInstanceStorageType',
-        'dedicatedHostGroupId'           => 'DedicatedHostGroupId',
-        'deletionProtection'             => 'DeletionProtection',
-        'engineVersion'                  => 'EngineVersion',
-        'gdnInstanceName'                => 'GdnInstanceName',
-        'instanceNetworkType'            => 'InstanceNetworkType',
-        'instructionSetArch'             => 'InstructionSetArch',
-        'ioAccelerationEnabled'          => 'IoAccelerationEnabled',
-        'ownerAccount'                   => 'OwnerAccount',
-        'ownerId'                        => 'OwnerId',
-        'payType'                        => 'PayType',
-        'period'                         => 'Period',
-        'port'                           => 'Port',
-        'privateIpAddress'               => 'PrivateIpAddress',
-        'promotionCode'                  => 'PromotionCode',
-        'regionId'                       => 'RegionId',
-        'resourceGroupId'                => 'ResourceGroupId',
-        'resourceOwnerAccount'           => 'ResourceOwnerAccount',
-        'resourceOwnerId'                => 'ResourceOwnerId',
+        'autoCreateProxy' => 'AutoCreateProxy',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'autoUseCoupon' => 'AutoUseCoupon',
+        'bpeEnabled' => 'BpeEnabled',
+        'burstingEnabled' => 'BurstingEnabled',
+        'category' => 'Category',
+        'clientToken' => 'ClientToken',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStorage' => 'DBInstanceStorage',
+        'DBInstanceStorageType' => 'DBInstanceStorageType',
+        'dedicatedHostGroupId' => 'DedicatedHostGroupId',
+        'deletionProtection' => 'DeletionProtection',
+        'engineVersion' => 'EngineVersion',
+        'gdnInstanceName' => 'GdnInstanceName',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'instructionSetArch' => 'InstructionSetArch',
+        'ioAccelerationEnabled' => 'IoAccelerationEnabled',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'port' => 'Port',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'promotionCode' => 'PromotionCode',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'targetDedicatedHostIdForMaster' => 'TargetDedicatedHostIdForMaster',
-        'tddlBizType'                    => 'TddlBizType',
-        'tddlRegionConfig'               => 'TddlRegionConfig',
-        'usedTime'                       => 'UsedTime',
-        'VPCId'                          => 'VPCId',
-        'vSwitchId'                      => 'VSwitchId',
-        'zoneId'                         => 'ZoneId',
+        'tddlBizType' => 'TddlBizType',
+        'tddlRegionConfig' => 'TddlRegionConfig',
+        'usedTime' => 'UsedTime',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

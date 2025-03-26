@@ -13,13 +13,14 @@ class GetDbProxyInstanceSslResponseBody extends Model
      * @var dbProxyCertListItems
      */
     public $dbProxyCertListItems;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'dbProxyCertListItems' => 'DbProxyCertListItems',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

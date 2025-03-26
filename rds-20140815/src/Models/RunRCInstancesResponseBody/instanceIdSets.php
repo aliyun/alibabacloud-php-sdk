@@ -30,7 +30,7 @@ class instanceIdSets extends Model
         if (null !== $this->instanceIdSet) {
             if (\is_array($this->instanceIdSet)) {
                 $res['InstanceIdSet'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->instanceIdSet as $item1) {
                     $res['InstanceIdSet'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class instanceIdSets extends Model
         if (isset($map['InstanceIdSet'])) {
             if (!empty($map['InstanceIdSet'])) {
                 $model->instanceIdSet = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['InstanceIdSet'] as $item1) {
                     $model->instanceIdSet[$n1++] = $item1;
                 }

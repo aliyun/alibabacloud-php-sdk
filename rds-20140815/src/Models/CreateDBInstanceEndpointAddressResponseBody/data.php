@@ -12,18 +12,20 @@ class data extends Model
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $DBInstanceEndpointId;
+
     /**
      * @var string
      */
     public $DBInstanceName;
     protected $_name = [
-        'connectionString'     => 'ConnectionString',
+        'connectionString' => 'ConnectionString',
         'DBInstanceEndpointId' => 'DBInstanceEndpointId',
-        'DBInstanceName'       => 'DBInstanceName',
+        'DBInstanceName' => 'DBInstanceName',
     ];
 
     public function validate()

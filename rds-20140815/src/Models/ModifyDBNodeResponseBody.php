@@ -12,23 +12,26 @@ class ModifyDBNodeResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'orderId'      => 'OrderId',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

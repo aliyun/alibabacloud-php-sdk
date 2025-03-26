@@ -12,18 +12,20 @@ class DescribeHASwitchConfigResponseBody extends Model
      * @var string
      */
     public $HAConfig;
+
     /**
      * @var string
      */
     public $manualHATime;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'HAConfig'     => 'HAConfig',
+        'HAConfig' => 'HAConfig',
         'manualHATime' => 'ManualHATime',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

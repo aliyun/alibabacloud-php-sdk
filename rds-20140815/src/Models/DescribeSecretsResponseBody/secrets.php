@@ -12,33 +12,38 @@ class secrets extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $secretArn;
+
     /**
      * @var string
      */
     public $secretName;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'accountId'   => 'AccountId',
+        'accountId' => 'AccountId',
         'description' => 'Description',
-        'regionId'    => 'RegionId',
-        'secretArn'   => 'SecretArn',
-        'secretName'  => 'SecretName',
-        'username'    => 'Username',
+        'regionId' => 'RegionId',
+        'secretArn' => 'SecretArn',
+        'secretName' => 'SecretName',
+        'username' => 'Username',
     ];
 
     public function validate()

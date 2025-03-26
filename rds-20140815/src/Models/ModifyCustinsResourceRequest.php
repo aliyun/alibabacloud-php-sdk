@@ -12,38 +12,44 @@ class ModifyCustinsResourceRequest extends Model
      * @var string
      */
     public $adjustDeadline;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $increaseRatio;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $restoreOriginalSpecification;
+
     /**
      * @var int
      */
     public $targetValue;
     protected $_name = [
-        'adjustDeadline'               => 'AdjustDeadline',
-        'DBInstanceId'                 => 'DBInstanceId',
-        'increaseRatio'                => 'IncreaseRatio',
-        'resourceOwnerId'              => 'ResourceOwnerId',
-        'resourceType'                 => 'ResourceType',
+        'adjustDeadline' => 'AdjustDeadline',
+        'DBInstanceId' => 'DBInstanceId',
+        'increaseRatio' => 'IncreaseRatio',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'resourceType' => 'ResourceType',
         'restoreOriginalSpecification' => 'RestoreOriginalSpecification',
-        'targetValue'                  => 'TargetValue',
+        'targetValue' => 'TargetValue',
     ];
 
     public function validate()

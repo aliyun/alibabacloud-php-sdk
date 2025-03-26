@@ -12,83 +12,98 @@ class RenewRCInstanceRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $autoRenew;
+
     /**
      * @var bool
      */
     public $autoUseCoupon;
+
     /**
      * @var string
      */
     public $businessInfo;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var bool
      */
     public $periodAlign;
+
     /**
      * @var string
      */
     public $promotionCode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resource;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string
      */
     public $timeType;
+
     /**
      * @var string
      */
     public $usedTime;
     protected $_name = [
-        'autoPay'              => 'AutoPay',
-        'autoRenew'            => 'AutoRenew',
-        'autoUseCoupon'        => 'AutoUseCoupon',
-        'businessInfo'         => 'BusinessInfo',
-        'clientToken'          => 'ClientToken',
-        'commodityCode'        => 'CommodityCode',
-        'instanceId'           => 'InstanceId',
-        'ownerId'              => 'OwnerId',
-        'payType'              => 'PayType',
-        'periodAlign'          => 'PeriodAlign',
-        'promotionCode'        => 'PromotionCode',
-        'regionId'             => 'RegionId',
-        'resource'             => 'Resource',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'autoUseCoupon' => 'AutoUseCoupon',
+        'businessInfo' => 'BusinessInfo',
+        'clientToken' => 'ClientToken',
+        'commodityCode' => 'CommodityCode',
+        'instanceId' => 'InstanceId',
+        'ownerId' => 'OwnerId',
+        'payType' => 'PayType',
+        'periodAlign' => 'PeriodAlign',
+        'promotionCode' => 'PromotionCode',
+        'regionId' => 'RegionId',
+        'resource' => 'Resource',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'timeType'             => 'TimeType',
-        'usedTime'             => 'UsedTime',
+        'timeType' => 'TimeType',
+        'usedTime' => 'UsedTime',
     ];
 
     public function validate()

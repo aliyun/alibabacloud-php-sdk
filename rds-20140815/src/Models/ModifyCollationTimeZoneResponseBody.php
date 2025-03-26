@@ -12,28 +12,32 @@ class ModifyCollationTimeZoneResponseBody extends Model
      * @var string
      */
     public $collation;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $timezone;
     protected $_name = [
-        'collation'    => 'Collation',
+        'collation' => 'Collation',
         'DBInstanceId' => 'DBInstanceId',
-        'requestId'    => 'RequestId',
-        'taskId'       => 'TaskId',
-        'timezone'     => 'Timezone',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
+        'timezone' => 'Timezone',
     ];
 
     public function validate()

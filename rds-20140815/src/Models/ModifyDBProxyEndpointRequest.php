@@ -12,108 +12,128 @@ class ModifyDBProxyEndpointRequest extends Model
      * @var string
      */
     public $causalConsistReadTimeout;
+
     /**
      * @var string
      */
     public $configDBProxyFeatures;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBProxyEndpointId;
+
     /**
      * @var string
      */
     public $DBProxyEngineType;
+
     /**
      * @var string
      */
     public $dbEndpointAliases;
+
     /**
      * @var string
      */
     public $dbEndpointMinSlaveCount;
+
     /**
      * @var string
      */
     public $dbEndpointOperator;
+
     /**
      * @var string
      */
     public $dbEndpointReadWriteMode;
+
     /**
      * @var string
      */
     public $dbEndpointType;
+
     /**
      * @var string
      */
     public $effectiveSpecificTime;
+
     /**
      * @var string
      */
     public $effectiveTime;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $readOnlyInstanceDistributionType;
+
     /**
      * @var string
      */
     public $readOnlyInstanceMaxDelayTime;
+
     /**
      * @var string
      */
     public $readOnlyInstanceWeight;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'causalConsistReadTimeout'         => 'CausalConsistReadTimeout',
-        'configDBProxyFeatures'            => 'ConfigDBProxyFeatures',
-        'DBInstanceId'                     => 'DBInstanceId',
-        'DBProxyEndpointId'                => 'DBProxyEndpointId',
-        'DBProxyEngineType'                => 'DBProxyEngineType',
-        'dbEndpointAliases'                => 'DbEndpointAliases',
-        'dbEndpointMinSlaveCount'          => 'DbEndpointMinSlaveCount',
-        'dbEndpointOperator'               => 'DbEndpointOperator',
-        'dbEndpointReadWriteMode'          => 'DbEndpointReadWriteMode',
-        'dbEndpointType'                   => 'DbEndpointType',
-        'effectiveSpecificTime'            => 'EffectiveSpecificTime',
-        'effectiveTime'                    => 'EffectiveTime',
-        'ownerId'                          => 'OwnerId',
+        'causalConsistReadTimeout' => 'CausalConsistReadTimeout',
+        'configDBProxyFeatures' => 'ConfigDBProxyFeatures',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBProxyEndpointId' => 'DBProxyEndpointId',
+        'DBProxyEngineType' => 'DBProxyEngineType',
+        'dbEndpointAliases' => 'DbEndpointAliases',
+        'dbEndpointMinSlaveCount' => 'DbEndpointMinSlaveCount',
+        'dbEndpointOperator' => 'DbEndpointOperator',
+        'dbEndpointReadWriteMode' => 'DbEndpointReadWriteMode',
+        'dbEndpointType' => 'DbEndpointType',
+        'effectiveSpecificTime' => 'EffectiveSpecificTime',
+        'effectiveTime' => 'EffectiveTime',
+        'ownerId' => 'OwnerId',
         'readOnlyInstanceDistributionType' => 'ReadOnlyInstanceDistributionType',
-        'readOnlyInstanceMaxDelayTime'     => 'ReadOnlyInstanceMaxDelayTime',
-        'readOnlyInstanceWeight'           => 'ReadOnlyInstanceWeight',
-        'regionId'                         => 'RegionId',
-        'resourceOwnerAccount'             => 'ResourceOwnerAccount',
-        'resourceOwnerId'                  => 'ResourceOwnerId',
-        'vSwitchId'                        => 'VSwitchId',
-        'vpcId'                            => 'VpcId',
+        'readOnlyInstanceMaxDelayTime' => 'ReadOnlyInstanceMaxDelayTime',
+        'readOnlyInstanceWeight' => 'ReadOnlyInstanceWeight',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

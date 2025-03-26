@@ -12,63 +12,74 @@ class MigrateDBInstanceRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupId;
+
     /**
      * @var string
      */
     public $effectiveTime;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $specifiedTime;
+
     /**
      * @var string
      */
     public $targetDedicatedHostIdForMaster;
+
     /**
      * @var string
      */
     public $targetDedicatedHostIdForSlave;
+
     /**
      * @var string
      */
     public $zoneIdForFollower;
+
     /**
      * @var string
      */
     public $zoneIdForLog;
     protected $_name = [
-        'DBInstanceId'                   => 'DBInstanceId',
-        'dedicatedHostGroupId'           => 'DedicatedHostGroupId',
-        'effectiveTime'                  => 'EffectiveTime',
-        'ownerId'                        => 'OwnerId',
-        'regionId'                       => 'RegionId',
-        'resourceOwnerAccount'           => 'ResourceOwnerAccount',
-        'resourceOwnerId'                => 'ResourceOwnerId',
-        'specifiedTime'                  => 'SpecifiedTime',
+        'DBInstanceId' => 'DBInstanceId',
+        'dedicatedHostGroupId' => 'DedicatedHostGroupId',
+        'effectiveTime' => 'EffectiveTime',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'specifiedTime' => 'SpecifiedTime',
         'targetDedicatedHostIdForMaster' => 'TargetDedicatedHostIdForMaster',
-        'targetDedicatedHostIdForSlave'  => 'TargetDedicatedHostIdForSlave',
-        'zoneIdForFollower'              => 'ZoneIdForFollower',
-        'zoneIdForLog'                   => 'ZoneIdForLog',
+        'targetDedicatedHostIdForSlave' => 'TargetDedicatedHostIdForSlave',
+        'zoneIdForFollower' => 'ZoneIdForFollower',
+        'zoneIdForLog' => 'ZoneIdForLog',
     ];
 
     public function validate()

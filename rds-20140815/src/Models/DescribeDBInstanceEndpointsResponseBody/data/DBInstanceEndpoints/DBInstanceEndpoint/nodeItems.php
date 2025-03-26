@@ -31,7 +31,7 @@ class nodeItems extends Model
         if (null !== $this->nodeItem) {
             if (\is_array($this->nodeItem)) {
                 $res['NodeItem'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->nodeItem as $item1) {
                     $res['NodeItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class nodeItems extends Model
         if (isset($map['NodeItem'])) {
             if (!empty($map['NodeItem'])) {
                 $model->nodeItem = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['NodeItem'] as $item1) {
                     $model->nodeItem[$n1++] = nodeItem::fromMap($item1);
                 }

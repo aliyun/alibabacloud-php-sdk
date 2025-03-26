@@ -12,48 +12,56 @@ class rdsInstanceResourceSetting extends Model
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $isTop;
+
     /**
      * @var string
      */
     public $noticeBarContent;
+
     /**
      * @var string
      */
     public $poppedUpButtonText;
+
     /**
      * @var string
      */
     public $poppedUpButtonType;
+
     /**
      * @var string
      */
     public $poppedUpButtonUrl;
+
     /**
      * @var string
      */
     public $poppedUpContent;
+
     /**
      * @var string
      */
     public $resourceNiche;
+
     /**
      * @var string
      */
     public $startDate;
     protected $_name = [
-        'endDate'            => 'EndDate',
-        'isTop'              => 'IsTop',
-        'noticeBarContent'   => 'NoticeBarContent',
+        'endDate' => 'EndDate',
+        'isTop' => 'IsTop',
+        'noticeBarContent' => 'NoticeBarContent',
         'poppedUpButtonText' => 'PoppedUpButtonText',
         'poppedUpButtonType' => 'PoppedUpButtonType',
-        'poppedUpButtonUrl'  => 'PoppedUpButtonUrl',
-        'poppedUpContent'    => 'PoppedUpContent',
-        'resourceNiche'      => 'ResourceNiche',
-        'startDate'          => 'StartDate',
+        'poppedUpButtonUrl' => 'PoppedUpButtonUrl',
+        'poppedUpContent' => 'PoppedUpContent',
+        'resourceNiche' => 'ResourceNiche',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class CreateSecretResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $secretArn;
+
     /**
      * @var string
      */
     public $secretName;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'secretArn'  => 'SecretArn',
+        'requestId' => 'RequestId',
+        'secretArn' => 'SecretArn',
         'secretName' => 'SecretName',
-        'success'    => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

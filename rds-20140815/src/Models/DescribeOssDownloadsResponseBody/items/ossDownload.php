@@ -12,43 +12,50 @@ class ossDownload extends Model
      * @var string
      */
     public $backupMode;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $fileSize;
+
     /**
      * @var string
      */
     public $isAvailable;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'backupMode'  => 'BackupMode',
-        'createTime'  => 'CreateTime',
+        'backupMode' => 'BackupMode',
+        'createTime' => 'CreateTime',
         'description' => 'Description',
-        'endTime'     => 'EndTime',
-        'fileName'    => 'FileName',
-        'fileSize'    => 'FileSize',
+        'endTime' => 'EndTime',
+        'fileName' => 'FileName',
+        'fileSize' => 'FileSize',
         'isAvailable' => 'IsAvailable',
-        'status'      => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

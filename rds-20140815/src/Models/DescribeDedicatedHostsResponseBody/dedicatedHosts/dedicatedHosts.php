@@ -12,143 +12,170 @@ class dedicatedHosts extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $allocationStatus;
+
     /**
      * @var string
      */
     public $bastionInstanceId;
+
     /**
      * @var string
      */
     public $CPUAllocationRatio;
+
     /**
      * @var string
      */
     public $cpuUsed;
+
     /**
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupId;
+
     /**
      * @var string
      */
     public $dedicatedHostId;
+
     /**
      * @var string
      */
     public $diskAllocationRatio;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $hostCPU;
+
     /**
      * @var string
      */
     public $hostClass;
+
     /**
      * @var string
      */
     public $hostMem;
+
     /**
      * @var string
      */
     public $hostName;
+
     /**
      * @var string
      */
     public $hostStatus;
+
     /**
      * @var string
      */
     public $hostStorage;
+
     /**
      * @var string
      */
     public $hostType;
+
     /**
      * @var string
      */
     public $IPAddress;
+
     /**
      * @var string
      */
     public $imageCategory;
+
     /**
      * @var string
      */
     public $instanceNumber;
+
     /**
      * @var string
      */
     public $memAllocationRatio;
+
     /**
      * @var string
      */
     public $memoryUsed;
+
     /**
      * @var string
      */
     public $openPermission;
+
     /**
      * @var string
      */
     public $storageUsed;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'accountName'          => 'AccountName',
-        'allocationStatus'     => 'AllocationStatus',
-        'bastionInstanceId'    => 'BastionInstanceId',
-        'CPUAllocationRatio'   => 'CPUAllocationRatio',
-        'cpuUsed'              => 'CpuUsed',
-        'createdTime'          => 'CreatedTime',
+        'accountName' => 'AccountName',
+        'allocationStatus' => 'AllocationStatus',
+        'bastionInstanceId' => 'BastionInstanceId',
+        'CPUAllocationRatio' => 'CPUAllocationRatio',
+        'cpuUsed' => 'CpuUsed',
+        'createdTime' => 'CreatedTime',
         'dedicatedHostGroupId' => 'DedicatedHostGroupId',
-        'dedicatedHostId'      => 'DedicatedHostId',
-        'diskAllocationRatio'  => 'DiskAllocationRatio',
-        'endTime'              => 'EndTime',
-        'engine'               => 'Engine',
-        'hostCPU'              => 'HostCPU',
-        'hostClass'            => 'HostClass',
-        'hostMem'              => 'HostMem',
-        'hostName'             => 'HostName',
-        'hostStatus'           => 'HostStatus',
-        'hostStorage'          => 'HostStorage',
-        'hostType'             => 'HostType',
-        'IPAddress'            => 'IPAddress',
-        'imageCategory'        => 'ImageCategory',
-        'instanceNumber'       => 'InstanceNumber',
-        'memAllocationRatio'   => 'MemAllocationRatio',
-        'memoryUsed'           => 'MemoryUsed',
-        'openPermission'       => 'OpenPermission',
-        'storageUsed'          => 'StorageUsed',
-        'VPCId'                => 'VPCId',
-        'vSwitchId'            => 'VSwitchId',
-        'zoneId'               => 'ZoneId',
+        'dedicatedHostId' => 'DedicatedHostId',
+        'diskAllocationRatio' => 'DiskAllocationRatio',
+        'endTime' => 'EndTime',
+        'engine' => 'Engine',
+        'hostCPU' => 'HostCPU',
+        'hostClass' => 'HostClass',
+        'hostMem' => 'HostMem',
+        'hostName' => 'HostName',
+        'hostStatus' => 'HostStatus',
+        'hostStorage' => 'HostStorage',
+        'hostType' => 'HostType',
+        'IPAddress' => 'IPAddress',
+        'imageCategory' => 'ImageCategory',
+        'instanceNumber' => 'InstanceNumber',
+        'memAllocationRatio' => 'MemAllocationRatio',
+        'memoryUsed' => 'MemoryUsed',
+        'openPermission' => 'OpenPermission',
+        'storageUsed' => 'StorageUsed',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

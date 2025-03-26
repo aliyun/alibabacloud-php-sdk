@@ -12,12 +12,13 @@ class CalculateDBInstanceWeightRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 

@@ -13,28 +13,32 @@ class DescribeDBInstanceHAConfigResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $HAMode;
+
     /**
      * @var hostInstanceInfos
      */
     public $hostInstanceInfos;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $syncMode;
     protected $_name = [
-        'DBInstanceId'      => 'DBInstanceId',
-        'HAMode'            => 'HAMode',
+        'DBInstanceId' => 'DBInstanceId',
+        'HAMode' => 'HAMode',
         'hostInstanceInfos' => 'HostInstanceInfos',
-        'requestId'         => 'RequestId',
-        'syncMode'          => 'SyncMode',
+        'requestId' => 'RequestId',
+        'syncMode' => 'SyncMode',
     ];
 
     public function validate()

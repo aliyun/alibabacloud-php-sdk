@@ -12,17 +12,19 @@ class CreateRCDiskResponseBody extends Model
      * @var string
      */
     public $diskId;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'diskId'    => 'DiskId',
-        'orderId'   => 'OrderId',
+        'diskId' => 'DiskId',
+        'orderId' => 'OrderId',
         'requestId' => 'RequestId',
     ];
 

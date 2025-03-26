@@ -12,38 +12,44 @@ class ResizeRCInstanceDiskRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $diskId;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $newSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'autoPay'    => 'AutoPay',
-        'diskId'     => 'DiskId',
-        'dryRun'     => 'DryRun',
+        'autoPay' => 'AutoPay',
+        'diskId' => 'DiskId',
+        'dryRun' => 'DryRun',
         'instanceId' => 'InstanceId',
-        'newSize'    => 'NewSize',
-        'regionId'   => 'RegionId',
-        'type'       => 'Type',
+        'newSize' => 'NewSize',
+        'regionId' => 'RegionId',
+        'type' => 'Type',
     ];
 
     public function validate()

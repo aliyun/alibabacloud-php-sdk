@@ -12,163 +12,194 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
      * @var bool
      */
     public $allowMajorVersionUpgrade;
+
     /**
      * @var bool
      */
     public $autoUseCoupon;
+
     /**
      * @var bool
      */
     public $burstingEnabled;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var bool
      */
     public $coldDataEnabled;
+
     /**
      * @var string
      */
     public $compressionMode;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupId;
+
     /**
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $effectiveTime;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $ioAccelerationEnabled;
+
     /**
      * @var string
      */
     public $optimizedWrites;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $promotionCode;
+
     /**
      * @var string
      */
     public $readOnlyDBInstanceClass;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $serverlessConfigurationShrink;
+
     /**
      * @var string
      */
     public $sourceBiz;
+
     /**
      * @var string
      */
     public $switchTime;
+
     /**
      * @var string
      */
     public $targetMinorVersion;
+
     /**
      * @var int
      */
     public $usedTime;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $zoneIdSlave1;
     protected $_name = [
-        'allowMajorVersionUpgrade'      => 'AllowMajorVersionUpgrade',
-        'autoUseCoupon'                 => 'AutoUseCoupon',
-        'burstingEnabled'               => 'BurstingEnabled',
-        'category'                      => 'Category',
-        'coldDataEnabled'               => 'ColdDataEnabled',
-        'compressionMode'               => 'CompressionMode',
-        'DBInstanceClass'               => 'DBInstanceClass',
-        'DBInstanceId'                  => 'DBInstanceId',
-        'DBInstanceStorage'             => 'DBInstanceStorage',
-        'DBInstanceStorageType'         => 'DBInstanceStorageType',
-        'dedicatedHostGroupId'          => 'DedicatedHostGroupId',
-        'direction'                     => 'Direction',
-        'effectiveTime'                 => 'EffectiveTime',
-        'engineVersion'                 => 'EngineVersion',
-        'ioAccelerationEnabled'         => 'IoAccelerationEnabled',
-        'optimizedWrites'               => 'OptimizedWrites',
-        'ownerAccount'                  => 'OwnerAccount',
-        'ownerId'                       => 'OwnerId',
-        'payType'                       => 'PayType',
-        'promotionCode'                 => 'PromotionCode',
-        'readOnlyDBInstanceClass'       => 'ReadOnlyDBInstanceClass',
-        'resourceGroupId'               => 'ResourceGroupId',
-        'resourceOwnerAccount'          => 'ResourceOwnerAccount',
-        'resourceOwnerId'               => 'ResourceOwnerId',
+        'allowMajorVersionUpgrade' => 'AllowMajorVersionUpgrade',
+        'autoUseCoupon' => 'AutoUseCoupon',
+        'burstingEnabled' => 'BurstingEnabled',
+        'category' => 'Category',
+        'coldDataEnabled' => 'ColdDataEnabled',
+        'compressionMode' => 'CompressionMode',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStorage' => 'DBInstanceStorage',
+        'DBInstanceStorageType' => 'DBInstanceStorageType',
+        'dedicatedHostGroupId' => 'DedicatedHostGroupId',
+        'direction' => 'Direction',
+        'effectiveTime' => 'EffectiveTime',
+        'engineVersion' => 'EngineVersion',
+        'ioAccelerationEnabled' => 'IoAccelerationEnabled',
+        'optimizedWrites' => 'OptimizedWrites',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'payType' => 'PayType',
+        'promotionCode' => 'PromotionCode',
+        'readOnlyDBInstanceClass' => 'ReadOnlyDBInstanceClass',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'serverlessConfigurationShrink' => 'ServerlessConfiguration',
-        'sourceBiz'                     => 'SourceBiz',
-        'switchTime'                    => 'SwitchTime',
-        'targetMinorVersion'            => 'TargetMinorVersion',
-        'usedTime'                      => 'UsedTime',
-        'vSwitchId'                     => 'VSwitchId',
-        'zoneId'                        => 'ZoneId',
-        'zoneIdSlave1'                  => 'ZoneIdSlave1',
+        'sourceBiz' => 'SourceBiz',
+        'switchTime' => 'SwitchTime',
+        'targetMinorVersion' => 'TargetMinorVersion',
+        'usedTime' => 'UsedTime',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
+        'zoneIdSlave1' => 'ZoneIdSlave1',
     ];
 
     public function validate()

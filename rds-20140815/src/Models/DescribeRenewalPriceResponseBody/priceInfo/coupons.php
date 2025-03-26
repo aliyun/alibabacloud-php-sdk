@@ -31,7 +31,7 @@ class coupons extends Model
         if (null !== $this->coupon) {
             if (\is_array($this->coupon)) {
                 $res['Coupon'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->coupon as $item1) {
                     $res['Coupon'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class coupons extends Model
         if (isset($map['Coupon'])) {
             if (!empty($map['Coupon'])) {
                 $model->coupon = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Coupon'] as $item1) {
                     $model->coupon[$n1++] = coupon::fromMap($item1);
                 }

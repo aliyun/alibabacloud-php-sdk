@@ -12,28 +12,32 @@ class DescribeDBInstanceDetailResponseBody extends Model
      * @var string
      */
     public $activationState;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $licenseType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'activationState' => 'ActivationState',
-        'DBInstanceId'    => 'DBInstanceId',
-        'licenseType'     => 'LicenseType',
-        'regionId'        => 'RegionId',
-        'requestId'       => 'RequestId',
+        'DBInstanceId' => 'DBInstanceId',
+        'licenseType' => 'LicenseType',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

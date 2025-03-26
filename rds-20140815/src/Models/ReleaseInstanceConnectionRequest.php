@@ -12,38 +12,44 @@ class ReleaseInstanceConnectionRequest extends Model
      * @var string
      */
     public $currentConnectionString;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
         'currentConnectionString' => 'CurrentConnectionString',
-        'DBInstanceId'            => 'DBInstanceId',
-        'instanceNetworkType'     => 'InstanceNetworkType',
-        'ownerAccount'            => 'OwnerAccount',
-        'ownerId'                 => 'OwnerId',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

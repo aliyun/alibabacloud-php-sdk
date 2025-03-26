@@ -12,63 +12,74 @@ class DescribeClassDetailsResponseBody extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $classCode;
+
     /**
      * @var string
      */
     public $classGroup;
+
     /**
      * @var string
      */
     public $cpu;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $instructionSetArch;
+
     /**
      * @var string
      */
     public $maxConnections;
+
     /**
      * @var string
      */
     public $maxIOMBPS;
+
     /**
      * @var string
      */
     public $maxIOPS;
+
     /**
      * @var string
      */
     public $memoryClass;
+
     /**
      * @var string
      */
     public $referencePrice;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'category'              => 'Category',
-        'classCode'             => 'ClassCode',
-        'classGroup'            => 'ClassGroup',
-        'cpu'                   => 'Cpu',
+        'category' => 'Category',
+        'classCode' => 'ClassCode',
+        'classGroup' => 'ClassGroup',
+        'cpu' => 'Cpu',
         'DBInstanceStorageType' => 'DBInstanceStorageType',
-        'instructionSetArch'    => 'InstructionSetArch',
-        'maxConnections'        => 'MaxConnections',
-        'maxIOMBPS'             => 'MaxIOMBPS',
-        'maxIOPS'               => 'MaxIOPS',
-        'memoryClass'           => 'MemoryClass',
-        'referencePrice'        => 'ReferencePrice',
-        'requestId'             => 'RequestId',
+        'instructionSetArch' => 'InstructionSetArch',
+        'maxConnections' => 'MaxConnections',
+        'maxIOMBPS' => 'MaxIOMBPS',
+        'maxIOPS' => 'MaxIOPS',
+        'memoryClass' => 'MemoryClass',
+        'referencePrice' => 'ReferencePrice',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,38 +12,44 @@ class ModifyWhitelistTemplateRequest extends Model
      * @var string
      */
     public $ipWhitelist;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'ipWhitelist'          => 'IpWhitelist',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'ipWhitelist' => 'IpWhitelist',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'templateId'           => 'TemplateId',
-        'templateName'         => 'TemplateName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()

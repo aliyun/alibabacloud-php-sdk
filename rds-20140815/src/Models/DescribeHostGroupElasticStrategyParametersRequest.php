@@ -12,23 +12,26 @@ class DescribeHostGroupElasticStrategyParametersRequest extends Model
      * @var string
      */
     public $dedicatedHostGroupName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
         'dedicatedHostGroupName' => 'DedicatedHostGroupName',
-        'regionId'               => 'RegionId',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'resourceOwnerId'        => 'ResourceOwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

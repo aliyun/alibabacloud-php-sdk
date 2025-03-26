@@ -12,33 +12,38 @@ class ModifyHADiagnoseConfigRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $tcpConnectionType;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tcpConnectionType'    => 'TcpConnectionType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tcpConnectionType' => 'TcpConnectionType',
     ];
 
     public function validate()

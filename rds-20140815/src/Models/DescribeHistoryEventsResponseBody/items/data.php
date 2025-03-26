@@ -12,138 +12,164 @@ class data extends Model
      * @var string
      */
     public $cmsProduct;
+
     /**
      * @var string
      */
     public $dbType;
+
     /**
      * @var string
      */
     public $detailImpact;
+
     /**
      * @var string
      */
     public $detailReason;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $eventCategory;
+
     /**
      * @var string
      */
     public $eventCode;
+
     /**
      * @var string
      */
     public $eventDetail;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $eventImpact;
+
     /**
      * @var string
      */
     public $eventLevel;
+
     /**
      * @var string
      */
     public $eventReason;
+
     /**
      * @var string
      */
     public $eventStatus;
+
     /**
      * @var string
      */
     public $eventType;
+
     /**
      * @var string
      */
     public $gmtCreated;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $handleStatus;
+
     /**
      * @var int
      */
     public $hasLifeCycle;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var int
      */
     public $isClosed;
+
     /**
      * @var string
      */
     public $product;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $sourceType;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $uid;
     protected $_name = [
-        'cmsProduct'    => 'CmsProduct',
-        'dbType'        => 'DbType',
-        'detailImpact'  => 'DetailImpact',
-        'detailReason'  => 'DetailReason',
-        'endTime'       => 'EndTime',
+        'cmsProduct' => 'CmsProduct',
+        'dbType' => 'DbType',
+        'detailImpact' => 'DetailImpact',
+        'detailReason' => 'DetailReason',
+        'endTime' => 'EndTime',
         'eventCategory' => 'EventCategory',
-        'eventCode'     => 'EventCode',
-        'eventDetail'   => 'EventDetail',
-        'eventId'       => 'EventId',
-        'eventImpact'   => 'EventImpact',
-        'eventLevel'    => 'EventLevel',
-        'eventReason'   => 'EventReason',
-        'eventStatus'   => 'EventStatus',
-        'eventType'     => 'EventType',
-        'gmtCreated'    => 'GmtCreated',
-        'gmtModified'   => 'GmtModified',
-        'handleStatus'  => 'HandleStatus',
-        'hasLifeCycle'  => 'HasLifeCycle',
-        'instanceId'    => 'InstanceId',
-        'instanceName'  => 'InstanceName',
-        'isClosed'      => 'IsClosed',
-        'product'       => 'Product',
-        'regionId'      => 'RegionId',
-        'resourceType'  => 'ResourceType',
-        'sourceType'    => 'SourceType',
-        'startTime'     => 'StartTime',
-        'uid'           => 'Uid',
+        'eventCode' => 'EventCode',
+        'eventDetail' => 'EventDetail',
+        'eventId' => 'EventId',
+        'eventImpact' => 'EventImpact',
+        'eventLevel' => 'EventLevel',
+        'eventReason' => 'EventReason',
+        'eventStatus' => 'EventStatus',
+        'eventType' => 'EventType',
+        'gmtCreated' => 'GmtCreated',
+        'gmtModified' => 'GmtModified',
+        'handleStatus' => 'HandleStatus',
+        'hasLifeCycle' => 'HasLifeCycle',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'isClosed' => 'IsClosed',
+        'product' => 'Product',
+        'regionId' => 'RegionId',
+        'resourceType' => 'ResourceType',
+        'sourceType' => 'SourceType',
+        'startTime' => 'StartTime',
+        'uid' => 'Uid',
     ];
 
     public function validate()

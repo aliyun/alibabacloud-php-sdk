@@ -12,23 +12,26 @@ class CopyDatabaseResponseBody extends Model
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $DBStatus;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'DBName'    => 'DBName',
-        'DBStatus'  => 'DBStatus',
+        'DBName' => 'DBName',
+        'DBStatus' => 'DBStatus',
         'requestId' => 'RequestId',
-        'taskId'    => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

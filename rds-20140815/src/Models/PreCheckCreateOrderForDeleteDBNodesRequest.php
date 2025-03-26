@@ -12,78 +12,92 @@ class PreCheckCreateOrderForDeleteDBNodesRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $businessInfo;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string[]
      */
     public $DBNodeId;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $nodeType;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $promotionCode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resource;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'autoPay'              => 'AutoPay',
-        'businessInfo'         => 'BusinessInfo',
-        'clientToken'          => 'ClientToken',
-        'commodityCode'        => 'CommodityCode',
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBNodeId'             => 'DBNodeId',
-        'engineVersion'        => 'EngineVersion',
-        'nodeType'             => 'NodeType',
-        'ownerId'              => 'OwnerId',
-        'promotionCode'        => 'PromotionCode',
-        'regionId'             => 'RegionId',
-        'resource'             => 'Resource',
+        'autoPay' => 'AutoPay',
+        'businessInfo' => 'BusinessInfo',
+        'clientToken' => 'ClientToken',
+        'commodityCode' => 'CommodityCode',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBNodeId' => 'DBNodeId',
+        'engineVersion' => 'EngineVersion',
+        'nodeType' => 'NodeType',
+        'ownerId' => 'OwnerId',
+        'promotionCode' => 'PromotionCode',
+        'regionId' => 'RegionId',
+        'resource' => 'Resource',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'zoneId'               => 'ZoneId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -120,7 +134,7 @@ class PreCheckCreateOrderForDeleteDBNodesRequest extends Model
         if (null !== $this->DBNodeId) {
             if (\is_array($this->DBNodeId)) {
                 $res['DBNodeId'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->DBNodeId as $item1) {
                     $res['DBNodeId'][$n1++] = $item1;
                 }
@@ -197,7 +211,7 @@ class PreCheckCreateOrderForDeleteDBNodesRequest extends Model
         if (isset($map['DBNodeId'])) {
             if (!empty($map['DBNodeId'])) {
                 $model->DBNodeId = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['DBNodeId'] as $item1) {
                     $model->DBNodeId[$n1++] = $item1;
                 }

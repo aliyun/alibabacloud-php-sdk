@@ -13,12 +13,13 @@ class supportedCategorys extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var supportedStorageTypes[]
      */
     public $supportedStorageTypes;
     protected $_name = [
-        'category'              => 'Category',
+        'category' => 'Category',
         'supportedStorageTypes' => 'SupportedStorageTypes',
     ];
 
@@ -40,7 +41,7 @@ class supportedCategorys extends Model
         if (null !== $this->supportedStorageTypes) {
             if (\is_array($this->supportedStorageTypes)) {
                 $res['SupportedStorageTypes'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->supportedStorageTypes as $item1) {
                     $res['SupportedStorageTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class supportedCategorys extends Model
         if (isset($map['SupportedStorageTypes'])) {
             if (!empty($map['SupportedStorageTypes'])) {
                 $model->supportedStorageTypes = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['SupportedStorageTypes'] as $item1) {
                     $model->supportedStorageTypes[$n1++] = supportedStorageTypes::fromMap($item1);
                 }

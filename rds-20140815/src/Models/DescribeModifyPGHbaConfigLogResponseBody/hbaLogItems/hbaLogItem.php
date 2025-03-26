@@ -14,28 +14,32 @@ class hbaLogItem extends Model
      * @var afterHbaItems
      */
     public $afterHbaItems;
+
     /**
      * @var beforeHbaItems
      */
     public $beforeHbaItems;
+
     /**
      * @var string
      */
     public $modifyStatus;
+
     /**
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $statusReason;
     protected $_name = [
-        'afterHbaItems'  => 'AfterHbaItems',
+        'afterHbaItems' => 'AfterHbaItems',
         'beforeHbaItems' => 'BeforeHbaItems',
-        'modifyStatus'   => 'ModifyStatus',
-        'modifyTime'     => 'ModifyTime',
-        'statusReason'   => 'StatusReason',
+        'modifyStatus' => 'ModifyStatus',
+        'modifyTime' => 'ModifyTime',
+        'statusReason' => 'StatusReason',
     ];
 
     public function validate()

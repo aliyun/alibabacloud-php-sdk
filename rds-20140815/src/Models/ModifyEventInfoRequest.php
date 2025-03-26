@@ -12,27 +12,31 @@ class ModifyEventInfoRequest extends Model
      * @var string
      */
     public $actionParams;
+
     /**
      * @var string
      */
     public $eventAction;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityToken;
     protected $_name = [
-        'actionParams'  => 'ActionParams',
-        'eventAction'   => 'EventAction',
-        'eventId'       => 'EventId',
-        'regionId'      => 'RegionId',
+        'actionParams' => 'ActionParams',
+        'eventAction' => 'EventAction',
+        'eventId' => 'EventId',
+        'regionId' => 'RegionId',
         'securityToken' => 'SecurityToken',
     ];
 

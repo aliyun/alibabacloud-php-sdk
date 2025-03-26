@@ -31,7 +31,7 @@ class items extends Model
         if (null !== $this->ecsSecurityGroupRelation) {
             if (\is_array($this->ecsSecurityGroupRelation)) {
                 $res['EcsSecurityGroupRelation'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->ecsSecurityGroupRelation as $item1) {
                     $res['EcsSecurityGroupRelation'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class items extends Model
         if (isset($map['EcsSecurityGroupRelation'])) {
             if (!empty($map['EcsSecurityGroupRelation'])) {
                 $model->ecsSecurityGroupRelation = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['EcsSecurityGroupRelation'] as $item1) {
                     $model->ecsSecurityGroupRelation[$n1++] = ecsSecurityGroupRelation::fromMap($item1);
                 }

@@ -12,28 +12,32 @@ class dataDisk extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var bool
      */
     public $deleteWithInstance;
+
     /**
      * @var string
      */
     public $encrypted;
+
     /**
      * @var string
      */
     public $performanceLevel;
+
     /**
      * @var int
      */
     public $size;
     protected $_name = [
-        'category'           => 'Category',
+        'category' => 'Category',
         'deleteWithInstance' => 'DeleteWithInstance',
-        'encrypted'          => 'Encrypted',
-        'performanceLevel'   => 'PerformanceLevel',
-        'size'               => 'Size',
+        'encrypted' => 'Encrypted',
+        'performanceLevel' => 'PerformanceLevel',
+        'size' => 'Size',
     ];
 
     public function validate()

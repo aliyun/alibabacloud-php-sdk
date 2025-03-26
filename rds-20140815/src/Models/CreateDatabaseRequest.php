@@ -12,43 +12,50 @@ class CreateDatabaseRequest extends Model
      * @var string
      */
     public $characterSetName;
+
     /**
      * @var string
      */
     public $DBDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'characterSetName'     => 'CharacterSetName',
-        'DBDescription'        => 'DBDescription',
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBName'               => 'DBName',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'characterSetName' => 'CharacterSetName',
+        'DBDescription' => 'DBDescription',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

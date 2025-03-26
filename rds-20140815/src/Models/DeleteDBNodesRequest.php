@@ -12,43 +12,50 @@ class DeleteDBNodesRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string[]
      */
     public $DBNodeId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBNodeId'             => 'DBNodeId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBNodeId' => 'DBNodeId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -73,7 +80,7 @@ class DeleteDBNodesRequest extends Model
         if (null !== $this->DBNodeId) {
             if (\is_array($this->DBNodeId)) {
                 $res['DBNodeId'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->DBNodeId as $item1) {
                     $res['DBNodeId'][$n1++] = $item1;
                 }
@@ -122,7 +129,7 @@ class DeleteDBNodesRequest extends Model
         if (isset($map['DBNodeId'])) {
             if (!empty($map['DBNodeId'])) {
                 $model->DBNodeId = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['DBNodeId'] as $item1) {
                     $model->DBNodeId[$n1++] = $item1;
                 }

@@ -30,7 +30,7 @@ class readDelayTimes extends Model
         if (null !== $this->readDelayTime) {
             if (\is_array($this->readDelayTime)) {
                 $res['ReadDelayTime'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->readDelayTime as $item1) {
                     $res['ReadDelayTime'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class readDelayTimes extends Model
         if (isset($map['ReadDelayTime'])) {
             if (!empty($map['ReadDelayTime'])) {
                 $model->readDelayTime = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ReadDelayTime'] as $item1) {
                     $model->readDelayTime[$n1++] = $item1;
                 }

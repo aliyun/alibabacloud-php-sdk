@@ -12,28 +12,32 @@ class parameterChangeLog extends Model
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $newParameterValue;
+
     /**
      * @var string
      */
     public $oldParameterValue;
+
     /**
      * @var string
      */
     public $parameterName;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'modifyTime'        => 'ModifyTime',
+        'modifyTime' => 'ModifyTime',
         'newParameterValue' => 'NewParameterValue',
         'oldParameterValue' => 'OldParameterValue',
-        'parameterName'     => 'ParameterName',
-        'status'            => 'Status',
+        'parameterName' => 'ParameterName',
+        'status' => 'Status',
     ];
 
     public function validate()

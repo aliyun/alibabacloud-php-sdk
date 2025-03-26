@@ -12,13 +12,14 @@ class errorLog extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $errorInfo;
     protected $_name = [
         'createTime' => 'CreateTime',
-        'errorInfo'  => 'ErrorInfo',
+        'errorInfo' => 'ErrorInfo',
     ];
 
     public function validate()

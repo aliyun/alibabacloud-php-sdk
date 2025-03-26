@@ -12,18 +12,20 @@ class DeleteRCNodePoolRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $nodePoolId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'nodePoolId' => 'NodePoolId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

@@ -31,7 +31,7 @@ class DBClusterNodes extends Model
         if (null !== $this->DBClusterNode) {
             if (\is_array($this->DBClusterNode)) {
                 $res['DBClusterNode'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->DBClusterNode as $item1) {
                     $res['DBClusterNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class DBClusterNodes extends Model
         if (isset($map['DBClusterNode'])) {
             if (!empty($map['DBClusterNode'])) {
                 $model->DBClusterNode = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['DBClusterNode'] as $item1) {
                     $model->DBClusterNode[$n1++] = DBClusterNode::fromMap($item1);
                 }

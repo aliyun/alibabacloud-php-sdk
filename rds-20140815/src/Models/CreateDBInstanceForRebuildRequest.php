@@ -12,108 +12,128 @@ class CreateDBInstanceForRebuildRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceNetType;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $securityIPList;
+
     /**
      * @var string
      */
     public $securityToken;
+
     /**
      * @var string
      */
     public $usedTime;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $zoneIdSlave1;
+
     /**
      * @var string
      */
     public $zoneIdSlave2;
     protected $_name = [
-        'clientToken'           => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceNetType'     => 'DBInstanceNetType',
-        'instanceNetworkType'   => 'InstanceNetworkType',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'payType'               => 'PayType',
-        'period'                => 'Period',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'securityIPList'        => 'SecurityIPList',
-        'securityToken'         => 'SecurityToken',
-        'usedTime'              => 'UsedTime',
-        'VPCId'                 => 'VPCId',
-        'vSwitchId'             => 'VSwitchId',
-        'zoneId'                => 'ZoneId',
-        'zoneIdSlave1'          => 'ZoneIdSlave1',
-        'zoneIdSlave2'          => 'ZoneIdSlave2',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceNetType' => 'DBInstanceNetType',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'securityIPList' => 'SecurityIPList',
+        'securityToken' => 'SecurityToken',
+        'usedTime' => 'UsedTime',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
+        'zoneIdSlave1' => 'ZoneIdSlave1',
+        'zoneIdSlave2' => 'ZoneIdSlave2',
     ];
 
     public function validate()

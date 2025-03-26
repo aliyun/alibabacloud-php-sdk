@@ -31,7 +31,7 @@ class items extends Model
         if (null !== $this->meta) {
             if (\is_array($this->meta)) {
                 $res['Meta'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->meta as $item1) {
                     $res['Meta'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class items extends Model
         if (isset($map['Meta'])) {
             if (!empty($map['Meta'])) {
                 $model->meta = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Meta'] as $item1) {
                     $model->meta[$n1++] = meta::fromMap($item1);
                 }

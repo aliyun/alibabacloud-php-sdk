@@ -12,12 +12,13 @@ class dedicatedHostAttribute extends Model
      * @var string
      */
     public $dedicatedHostId;
+
     /**
      * @var string
      */
     public $dedicatedHostName;
     protected $_name = [
-        'dedicatedHostId'   => 'DedicatedHostId',
+        'dedicatedHostId' => 'DedicatedHostId',
         'dedicatedHostName' => 'DedicatedHostName',
     ];
 

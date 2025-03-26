@@ -31,7 +31,7 @@ class items extends Model
         if (null !== $this->parameterChangeLog) {
             if (\is_array($this->parameterChangeLog)) {
                 $res['ParameterChangeLog'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->parameterChangeLog as $item1) {
                     $res['ParameterChangeLog'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class items extends Model
         if (isset($map['ParameterChangeLog'])) {
             if (!empty($map['ParameterChangeLog'])) {
                 $model->parameterChangeLog = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ParameterChangeLog'] as $item1) {
                     $model->parameterChangeLog[$n1++] = parameterChangeLog::fromMap($item1);
                 }

@@ -12,12 +12,13 @@ class CheckAccountNameAvailableResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

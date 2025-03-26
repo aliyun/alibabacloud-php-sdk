@@ -12,168 +12,200 @@ class DescribeDBInstancesRequest extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $connectionMode;
+
     /**
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceStatus;
+
     /**
      * @var string
      */
     public $DBInstanceType;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupId;
+
     /**
      * @var string
      */
     public $dedicatedHostId;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $expired;
+
     /**
      * @var string
      */
     public $filter;
+
     /**
      * @var int
      */
     public $instanceLevel;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $searchKey;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $proxyId;
     protected $_name = [
-        'category'             => 'Category',
-        'clientToken'          => 'ClientToken',
-        'connectionMode'       => 'ConnectionMode',
-        'connectionString'     => 'ConnectionString',
-        'DBInstanceClass'      => 'DBInstanceClass',
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBInstanceStatus'     => 'DBInstanceStatus',
-        'DBInstanceType'       => 'DBInstanceType',
+        'category' => 'Category',
+        'clientToken' => 'ClientToken',
+        'connectionMode' => 'ConnectionMode',
+        'connectionString' => 'ConnectionString',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStatus' => 'DBInstanceStatus',
+        'DBInstanceType' => 'DBInstanceType',
         'dedicatedHostGroupId' => 'DedicatedHostGroupId',
-        'dedicatedHostId'      => 'DedicatedHostId',
-        'engine'               => 'Engine',
-        'engineVersion'        => 'EngineVersion',
-        'expired'              => 'Expired',
-        'filter'               => 'Filter',
-        'instanceLevel'        => 'InstanceLevel',
-        'instanceNetworkType'  => 'InstanceNetworkType',
-        'maxResults'           => 'MaxResults',
-        'nextToken'            => 'NextToken',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'payType'              => 'PayType',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'dedicatedHostId' => 'DedicatedHostId',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'expired' => 'Expired',
+        'filter' => 'Filter',
+        'instanceLevel' => 'InstanceLevel',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'payType' => 'PayType',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'searchKey'            => 'SearchKey',
-        'tags'                 => 'Tags',
-        'vSwitchId'            => 'VSwitchId',
-        'vpcId'                => 'VpcId',
-        'zoneId'               => 'ZoneId',
-        'proxyId'              => 'proxyId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'searchKey' => 'SearchKey',
+        'tags' => 'Tags',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
+        'proxyId' => 'proxyId',
     ];
 
     public function validate()

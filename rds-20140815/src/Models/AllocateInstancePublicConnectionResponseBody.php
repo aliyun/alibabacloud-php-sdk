@@ -12,18 +12,20 @@ class AllocateInstancePublicConnectionResponseBody extends Model
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $dbInstanceName;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'connectionString' => 'ConnectionString',
-        'dbInstanceName'   => 'DbInstanceName',
-        'requestId'        => 'RequestId',
+        'dbInstanceName' => 'DbInstanceName',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

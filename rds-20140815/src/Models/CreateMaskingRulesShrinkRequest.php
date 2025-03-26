@@ -12,53 +12,62 @@ class CreateMaskingRulesShrinkRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $defaultAlgo;
+
     /**
      * @var string
      */
     public $maskingAlgo;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $ruleConfigShrink;
+
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
-        'DBInstanceName'       => 'DBInstanceName',
-        'DBName'               => 'DBName',
-        'defaultAlgo'          => 'DefaultAlgo',
-        'maskingAlgo'          => 'MaskingAlgo',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'DBInstanceName' => 'DBInstanceName',
+        'DBName' => 'DBName',
+        'defaultAlgo' => 'DefaultAlgo',
+        'maskingAlgo' => 'MaskingAlgo',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ruleConfigShrink'     => 'RuleConfig',
-        'ruleName'             => 'RuleName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'ruleConfigShrink' => 'RuleConfig',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()

@@ -18,418 +18,500 @@ class DBInstanceAttribute extends Model
      * @var int
      */
     public $accountMaxQuantity;
+
     /**
      * @var string
      */
     public $advancedFeatures;
+
     /**
      * @var string
      */
     public $autoUpgradeMinorVersion;
+
     /**
      * @var string
      */
     public $availabilityValue;
+
     /**
      * @var babelfishConfig
      */
     public $babelfishConfig;
+
     /**
      * @var string
      */
     public $bpeEnabled;
+
     /**
      * @var bool
      */
     public $burstingEnabled;
+
     /**
      * @var bool
      */
     public $canTempUpgrade;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var bool
      */
     public $coldDataEnabled;
+
     /**
      * @var string
      */
     public $collation;
+
     /**
      * @var string
      */
     public $compressionMode;
+
     /**
      * @var string
      */
     public $compressionRatio;
+
     /**
      * @var string
      */
     public $connectionMode;
+
     /**
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $consoleVersion;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $currentKernelVersion;
+
     /**
      * @var DBClusterNodes
      */
     public $DBClusterNodes;
+
     /**
      * @var string
      */
     public $DBInstanceCPU;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceClassType;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceDiskUsed;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $DBInstanceMemory;
+
     /**
      * @var string
      */
     public $DBInstanceNetType;
+
     /**
      * @var string
      */
     public $DBInstanceStatus;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $DBInstanceType;
+
     /**
      * @var int
      */
     public $DBMaxQuantity;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupId;
+
     /**
      * @var bool
      */
     public $deletionProtection;
+
     /**
      * @var string
      */
     public $disasterRecoveryInfo;
+
     /**
      * @var string
      */
     public $disasterRecoveryInstances;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var extra
      */
     public $extra;
+
     /**
      * @var string
      */
     public $generalGroupName;
+
     /**
      * @var string
      */
     public $guardDBInstanceId;
+
     /**
      * @var string
      */
     public $IPType;
+
     /**
      * @var string
      */
     public $incrementSourceDBInstanceId;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $instructionSetArch;
+
     /**
      * @var string
      */
     public $ioAccelerationEnabled;
+
     /**
      * @var string
      */
     public $latestKernelVersion;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var string
      */
     public $lockReason;
+
     /**
      * @var string
      */
     public $maintainTime;
+
     /**
      * @var string
      */
     public $masterInstanceId;
+
     /**
      * @var string
      */
     public $masterZone;
+
     /**
      * @var int
      */
     public $maxConnections;
+
     /**
      * @var int
      */
     public $maxIOMBPS;
+
     /**
      * @var int
      */
     public $maxIOPS;
+
     /**
      * @var bool
      */
     public $multipleTempUpgrade;
+
     /**
      * @var string
      */
     public $optimizedWritesInfo;
+
     /**
      * @var string
      */
     public $PGBouncerEnabled;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var int
      */
     public $proxyType;
+
     /**
      * @var readOnlyDBInstanceIds
      */
     public $readOnlyDBInstanceIds;
+
     /**
      * @var string
      */
     public $readonlyInstanceSQLDelayedTime;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $securityIPList;
+
     /**
      * @var string
      */
     public $securityIPMode;
+
     /**
      * @var serverlessConfig
      */
     public $serverlessConfig;
+
     /**
      * @var slaveZones
      */
     public $slaveZones;
+
     /**
      * @var string
      */
     public $superPermissionMode;
+
     /**
      * @var bool
      */
     public $supportCompression;
+
     /**
      * @var string
      */
     public $tempDBInstanceId;
+
     /**
      * @var string
      */
     public $tempUpgradeTimeEnd;
+
     /**
      * @var string
      */
     public $tempUpgradeTimeStart;
+
     /**
      * @var string
      */
     public $timeZone;
+
     /**
      * @var string
      */
     public $tips;
+
     /**
      * @var int
      */
     public $tipsLevel;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcCloudInstanceId;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $kindCode;
     protected $_name = [
-        'accountMaxQuantity'             => 'AccountMaxQuantity',
-        'advancedFeatures'               => 'AdvancedFeatures',
-        'autoUpgradeMinorVersion'        => 'AutoUpgradeMinorVersion',
-        'availabilityValue'              => 'AvailabilityValue',
-        'babelfishConfig'                => 'BabelfishConfig',
-        'bpeEnabled'                     => 'BpeEnabled',
-        'burstingEnabled'                => 'BurstingEnabled',
-        'canTempUpgrade'                 => 'CanTempUpgrade',
-        'category'                       => 'Category',
-        'coldDataEnabled'                => 'ColdDataEnabled',
-        'collation'                      => 'Collation',
-        'compressionMode'                => 'CompressionMode',
-        'compressionRatio'               => 'CompressionRatio',
-        'connectionMode'                 => 'ConnectionMode',
-        'connectionString'               => 'ConnectionString',
-        'consoleVersion'                 => 'ConsoleVersion',
-        'creationTime'                   => 'CreationTime',
-        'currentKernelVersion'           => 'CurrentKernelVersion',
-        'DBClusterNodes'                 => 'DBClusterNodes',
-        'DBInstanceCPU'                  => 'DBInstanceCPU',
-        'DBInstanceClass'                => 'DBInstanceClass',
-        'DBInstanceClassType'            => 'DBInstanceClassType',
-        'DBInstanceDescription'          => 'DBInstanceDescription',
-        'DBInstanceDiskUsed'             => 'DBInstanceDiskUsed',
-        'DBInstanceId'                   => 'DBInstanceId',
-        'DBInstanceMemory'               => 'DBInstanceMemory',
-        'DBInstanceNetType'              => 'DBInstanceNetType',
-        'DBInstanceStatus'               => 'DBInstanceStatus',
-        'DBInstanceStorage'              => 'DBInstanceStorage',
-        'DBInstanceStorageType'          => 'DBInstanceStorageType',
-        'DBInstanceType'                 => 'DBInstanceType',
-        'DBMaxQuantity'                  => 'DBMaxQuantity',
-        'dedicatedHostGroupId'           => 'DedicatedHostGroupId',
-        'deletionProtection'             => 'DeletionProtection',
-        'disasterRecoveryInfo'           => 'DisasterRecoveryInfo',
-        'disasterRecoveryInstances'      => 'DisasterRecoveryInstances',
-        'engine'                         => 'Engine',
-        'engineVersion'                  => 'EngineVersion',
-        'expireTime'                     => 'ExpireTime',
-        'extra'                          => 'Extra',
-        'generalGroupName'               => 'GeneralGroupName',
-        'guardDBInstanceId'              => 'GuardDBInstanceId',
-        'IPType'                         => 'IPType',
-        'incrementSourceDBInstanceId'    => 'IncrementSourceDBInstanceId',
-        'instanceNetworkType'            => 'InstanceNetworkType',
-        'instructionSetArch'             => 'InstructionSetArch',
-        'ioAccelerationEnabled'          => 'IoAccelerationEnabled',
-        'latestKernelVersion'            => 'LatestKernelVersion',
-        'lockMode'                       => 'LockMode',
-        'lockReason'                     => 'LockReason',
-        'maintainTime'                   => 'MaintainTime',
-        'masterInstanceId'               => 'MasterInstanceId',
-        'masterZone'                     => 'MasterZone',
-        'maxConnections'                 => 'MaxConnections',
-        'maxIOMBPS'                      => 'MaxIOMBPS',
-        'maxIOPS'                        => 'MaxIOPS',
-        'multipleTempUpgrade'            => 'MultipleTempUpgrade',
-        'optimizedWritesInfo'            => 'OptimizedWritesInfo',
-        'PGBouncerEnabled'               => 'PGBouncerEnabled',
-        'payType'                        => 'PayType',
-        'port'                           => 'Port',
-        'proxyType'                      => 'ProxyType',
-        'readOnlyDBInstanceIds'          => 'ReadOnlyDBInstanceIds',
+        'accountMaxQuantity' => 'AccountMaxQuantity',
+        'advancedFeatures' => 'AdvancedFeatures',
+        'autoUpgradeMinorVersion' => 'AutoUpgradeMinorVersion',
+        'availabilityValue' => 'AvailabilityValue',
+        'babelfishConfig' => 'BabelfishConfig',
+        'bpeEnabled' => 'BpeEnabled',
+        'burstingEnabled' => 'BurstingEnabled',
+        'canTempUpgrade' => 'CanTempUpgrade',
+        'category' => 'Category',
+        'coldDataEnabled' => 'ColdDataEnabled',
+        'collation' => 'Collation',
+        'compressionMode' => 'CompressionMode',
+        'compressionRatio' => 'CompressionRatio',
+        'connectionMode' => 'ConnectionMode',
+        'connectionString' => 'ConnectionString',
+        'consoleVersion' => 'ConsoleVersion',
+        'creationTime' => 'CreationTime',
+        'currentKernelVersion' => 'CurrentKernelVersion',
+        'DBClusterNodes' => 'DBClusterNodes',
+        'DBInstanceCPU' => 'DBInstanceCPU',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceClassType' => 'DBInstanceClassType',
+        'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBInstanceDiskUsed' => 'DBInstanceDiskUsed',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceMemory' => 'DBInstanceMemory',
+        'DBInstanceNetType' => 'DBInstanceNetType',
+        'DBInstanceStatus' => 'DBInstanceStatus',
+        'DBInstanceStorage' => 'DBInstanceStorage',
+        'DBInstanceStorageType' => 'DBInstanceStorageType',
+        'DBInstanceType' => 'DBInstanceType',
+        'DBMaxQuantity' => 'DBMaxQuantity',
+        'dedicatedHostGroupId' => 'DedicatedHostGroupId',
+        'deletionProtection' => 'DeletionProtection',
+        'disasterRecoveryInfo' => 'DisasterRecoveryInfo',
+        'disasterRecoveryInstances' => 'DisasterRecoveryInstances',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'expireTime' => 'ExpireTime',
+        'extra' => 'Extra',
+        'generalGroupName' => 'GeneralGroupName',
+        'guardDBInstanceId' => 'GuardDBInstanceId',
+        'IPType' => 'IPType',
+        'incrementSourceDBInstanceId' => 'IncrementSourceDBInstanceId',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'instructionSetArch' => 'InstructionSetArch',
+        'ioAccelerationEnabled' => 'IoAccelerationEnabled',
+        'latestKernelVersion' => 'LatestKernelVersion',
+        'lockMode' => 'LockMode',
+        'lockReason' => 'LockReason',
+        'maintainTime' => 'MaintainTime',
+        'masterInstanceId' => 'MasterInstanceId',
+        'masterZone' => 'MasterZone',
+        'maxConnections' => 'MaxConnections',
+        'maxIOMBPS' => 'MaxIOMBPS',
+        'maxIOPS' => 'MaxIOPS',
+        'multipleTempUpgrade' => 'MultipleTempUpgrade',
+        'optimizedWritesInfo' => 'OptimizedWritesInfo',
+        'PGBouncerEnabled' => 'PGBouncerEnabled',
+        'payType' => 'PayType',
+        'port' => 'Port',
+        'proxyType' => 'ProxyType',
+        'readOnlyDBInstanceIds' => 'ReadOnlyDBInstanceIds',
         'readonlyInstanceSQLDelayedTime' => 'ReadonlyInstanceSQLDelayedTime',
-        'regionId'                       => 'RegionId',
-        'resourceGroupId'                => 'ResourceGroupId',
-        'securityIPList'                 => 'SecurityIPList',
-        'securityIPMode'                 => 'SecurityIPMode',
-        'serverlessConfig'               => 'ServerlessConfig',
-        'slaveZones'                     => 'SlaveZones',
-        'superPermissionMode'            => 'SuperPermissionMode',
-        'supportCompression'             => 'SupportCompression',
-        'tempDBInstanceId'               => 'TempDBInstanceId',
-        'tempUpgradeTimeEnd'             => 'TempUpgradeTimeEnd',
-        'tempUpgradeTimeStart'           => 'TempUpgradeTimeStart',
-        'timeZone'                       => 'TimeZone',
-        'tips'                           => 'Tips',
-        'tipsLevel'                      => 'TipsLevel',
-        'vSwitchId'                      => 'VSwitchId',
-        'vpcCloudInstanceId'             => 'VpcCloudInstanceId',
-        'vpcId'                          => 'VpcId',
-        'zoneId'                         => 'ZoneId',
-        'kindCode'                       => 'kindCode',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'securityIPList' => 'SecurityIPList',
+        'securityIPMode' => 'SecurityIPMode',
+        'serverlessConfig' => 'ServerlessConfig',
+        'slaveZones' => 'SlaveZones',
+        'superPermissionMode' => 'SuperPermissionMode',
+        'supportCompression' => 'SupportCompression',
+        'tempDBInstanceId' => 'TempDBInstanceId',
+        'tempUpgradeTimeEnd' => 'TempUpgradeTimeEnd',
+        'tempUpgradeTimeStart' => 'TempUpgradeTimeStart',
+        'timeZone' => 'TimeZone',
+        'tips' => 'Tips',
+        'tipsLevel' => 'TipsLevel',
+        'vSwitchId' => 'VSwitchId',
+        'vpcCloudInstanceId' => 'VpcCloudInstanceId',
+        'vpcId' => 'VpcId',
+        'zoneId' => 'ZoneId',
+        'kindCode' => 'kindCode',
     ];
 
     public function validate()

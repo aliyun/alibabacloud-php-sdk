@@ -12,53 +12,62 @@ class AllocateInstancePublicConnectionRequest extends Model
      * @var string
      */
     public $babelfishPort;
+
     /**
      * @var string
      */
     public $connectionStringPrefix;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $generalGroupName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $PGBouncerPort;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'babelfishPort'          => 'BabelfishPort',
+        'babelfishPort' => 'BabelfishPort',
         'connectionStringPrefix' => 'ConnectionStringPrefix',
-        'DBInstanceId'           => 'DBInstanceId',
-        'generalGroupName'       => 'GeneralGroupName',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'PGBouncerPort'          => 'PGBouncerPort',
-        'port'                   => 'Port',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'generalGroupName' => 'GeneralGroupName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'PGBouncerPort' => 'PGBouncerPort',
+        'port' => 'Port',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

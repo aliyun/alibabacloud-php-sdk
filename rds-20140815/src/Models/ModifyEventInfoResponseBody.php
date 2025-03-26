@@ -12,27 +12,31 @@ class ModifyEventInfoResponseBody extends Model
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorEventId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $successCount;
+
     /**
      * @var string
      */
     public $successEventId;
     protected $_name = [
-        'errorCode'      => 'ErrorCode',
-        'errorEventId'   => 'ErrorEventId',
-        'requestId'      => 'RequestId',
-        'successCount'   => 'SuccessCount',
+        'errorCode' => 'ErrorCode',
+        'errorEventId' => 'ErrorEventId',
+        'requestId' => 'RequestId',
+        'successCount' => 'SuccessCount',
         'successEventId' => 'SuccessEventId',
     ];
 

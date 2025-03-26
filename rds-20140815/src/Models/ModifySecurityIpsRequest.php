@@ -12,48 +12,56 @@ class ModifySecurityIpsRequest extends Model
      * @var string
      */
     public $DBInstanceIPArrayAttribute;
+
     /**
      * @var string
      */
     public $DBInstanceIPArrayName;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $freshWhiteListReadins;
+
     /**
      * @var string
      */
     public $modifyMode;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $securityIPType;
+
     /**
      * @var string
      */
     public $securityIps;
+
     /**
      * @var string
      */
     public $whitelistNetworkType;
     protected $_name = [
         'DBInstanceIPArrayAttribute' => 'DBInstanceIPArrayAttribute',
-        'DBInstanceIPArrayName'      => 'DBInstanceIPArrayName',
-        'DBInstanceId'               => 'DBInstanceId',
-        'freshWhiteListReadins'      => 'FreshWhiteListReadins',
-        'modifyMode'                 => 'ModifyMode',
-        'resourceOwnerId'            => 'ResourceOwnerId',
-        'securityIPType'             => 'SecurityIPType',
-        'securityIps'                => 'SecurityIps',
-        'whitelistNetworkType'       => 'WhitelistNetworkType',
+        'DBInstanceIPArrayName' => 'DBInstanceIPArrayName',
+        'DBInstanceId' => 'DBInstanceId',
+        'freshWhiteListReadins' => 'FreshWhiteListReadins',
+        'modifyMode' => 'ModifyMode',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'securityIPType' => 'SecurityIPType',
+        'securityIps' => 'SecurityIps',
+        'whitelistNetworkType' => 'WhitelistNetworkType',
     ];
 
     public function validate()

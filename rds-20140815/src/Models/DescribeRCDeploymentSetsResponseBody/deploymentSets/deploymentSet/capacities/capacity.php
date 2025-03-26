@@ -12,18 +12,20 @@ class capacity extends Model
      * @var int
      */
     public $availableAmount;
+
     /**
      * @var int
      */
     public $usedAmount;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'availableAmount' => 'AvailableAmount',
-        'usedAmount'      => 'UsedAmount',
-        'zoneId'          => 'ZoneId',
+        'usedAmount' => 'UsedAmount',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

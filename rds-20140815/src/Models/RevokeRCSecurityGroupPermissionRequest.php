@@ -12,22 +12,25 @@ class RevokeRCSecurityGroupPermissionRequest extends Model
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string[]
      */
     public $securityGroupRuleIdList;
     protected $_name = [
-        'direction'               => 'Direction',
-        'regionId'                => 'RegionId',
-        'securityGroupId'         => 'SecurityGroupId',
+        'direction' => 'Direction',
+        'regionId' => 'RegionId',
+        'securityGroupId' => 'SecurityGroupId',
         'securityGroupRuleIdList' => 'SecurityGroupRuleIdList',
     ];
 
@@ -57,7 +60,7 @@ class RevokeRCSecurityGroupPermissionRequest extends Model
         if (null !== $this->securityGroupRuleIdList) {
             if (\is_array($this->securityGroupRuleIdList)) {
                 $res['SecurityGroupRuleIdList'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->securityGroupRuleIdList as $item1) {
                     $res['SecurityGroupRuleIdList'][$n1++] = $item1;
                 }
@@ -90,7 +93,7 @@ class RevokeRCSecurityGroupPermissionRequest extends Model
         if (isset($map['SecurityGroupRuleIdList'])) {
             if (!empty($map['SecurityGroupRuleIdList'])) {
                 $model->securityGroupRuleIdList = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['SecurityGroupRuleIdList'] as $item1) {
                     $model->securityGroupRuleIdList[$n1++] = $item1;
                 }

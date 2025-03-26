@@ -12,23 +12,26 @@ class DescribeLocalAvailableRecoveryTimeResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $recoveryBeginTime;
+
     /**
      * @var string
      */
     public $recoveryEndTime;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'DBInstanceId'      => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'recoveryBeginTime' => 'RecoveryBeginTime',
-        'recoveryEndTime'   => 'RecoveryEndTime',
-        'requestId'         => 'RequestId',
+        'recoveryEndTime' => 'RecoveryEndTime',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

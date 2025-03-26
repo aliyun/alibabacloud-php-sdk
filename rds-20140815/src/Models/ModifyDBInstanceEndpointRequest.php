@@ -13,33 +13,38 @@ class ModifyDBInstanceEndpointRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceEndpointDescription;
+
     /**
      * @var string
      */
     public $DBInstanceEndpointId;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var nodeItems[]
      */
     public $nodeItems;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'                   => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'DBInstanceEndpointDescription' => 'DBInstanceEndpointDescription',
-        'DBInstanceEndpointId'          => 'DBInstanceEndpointId',
-        'DBInstanceId'                  => 'DBInstanceId',
-        'nodeItems'                     => 'NodeItems',
-        'resourceOwnerId'               => 'ResourceOwnerId',
+        'DBInstanceEndpointId' => 'DBInstanceEndpointId',
+        'DBInstanceId' => 'DBInstanceId',
+        'nodeItems' => 'NodeItems',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -72,7 +77,7 @@ class ModifyDBInstanceEndpointRequest extends Model
         if (null !== $this->nodeItems) {
             if (\is_array($this->nodeItems)) {
                 $res['NodeItems'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->nodeItems as $item1) {
                     $res['NodeItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -113,7 +118,7 @@ class ModifyDBInstanceEndpointRequest extends Model
         if (isset($map['NodeItems'])) {
             if (!empty($map['NodeItems'])) {
                 $model->nodeItems = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['NodeItems'] as $item1) {
                     $model->nodeItems[$n1++] = nodeItems::fromMap($item1);
                 }

@@ -13,38 +13,44 @@ class CreateGadInstanceMemberRequest extends Model
      * @var string
      */
     public $centralDBInstanceId;
+
     /**
      * @var string
      */
     public $centralRdsDtsAdminAccount;
+
     /**
      * @var string
      */
     public $centralRdsDtsAdminPassword;
+
     /**
      * @var string
      */
     public $centralRegionId;
+
     /**
      * @var string
      */
     public $DBList;
+
     /**
      * @var string
      */
     public $gadInstanceId;
+
     /**
      * @var unitNode[]
      */
     public $unitNode;
     protected $_name = [
-        'centralDBInstanceId'        => 'CentralDBInstanceId',
-        'centralRdsDtsAdminAccount'  => 'CentralRdsDtsAdminAccount',
+        'centralDBInstanceId' => 'CentralDBInstanceId',
+        'centralRdsDtsAdminAccount' => 'CentralRdsDtsAdminAccount',
         'centralRdsDtsAdminPassword' => 'CentralRdsDtsAdminPassword',
-        'centralRegionId'            => 'CentralRegionId',
-        'DBList'                     => 'DBList',
-        'gadInstanceId'              => 'GadInstanceId',
-        'unitNode'                   => 'UnitNode',
+        'centralRegionId' => 'CentralRegionId',
+        'DBList' => 'DBList',
+        'gadInstanceId' => 'GadInstanceId',
+        'unitNode' => 'UnitNode',
     ];
 
     public function validate()
@@ -85,7 +91,7 @@ class CreateGadInstanceMemberRequest extends Model
         if (null !== $this->unitNode) {
             if (\is_array($this->unitNode)) {
                 $res['UnitNode'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->unitNode as $item1) {
                     $res['UnitNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -130,7 +136,7 @@ class CreateGadInstanceMemberRequest extends Model
         if (isset($map['UnitNode'])) {
             if (!empty($map['UnitNode'])) {
                 $model->unitNode = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['UnitNode'] as $item1) {
                     $model->unitNode[$n1++] = unitNode::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class migrateAZ extends Model
      * @var string
      */
     public $dbProxyEndpointId;
+
     /**
      * @var string
      */
     public $destVSwitchId;
+
     /**
      * @var string
      */
     public $destVpcId;
     protected $_name = [
         'dbProxyEndpointId' => 'dbProxyEndpointId',
-        'destVSwitchId'     => 'destVSwitchId',
-        'destVpcId'         => 'destVpcId',
+        'destVSwitchId' => 'destVSwitchId',
+        'destVpcId' => 'destVpcId',
     ];
 
     public function validate()

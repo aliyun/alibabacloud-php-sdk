@@ -12,138 +12,164 @@ class ModifyBackupPolicyRequest extends Model
      * @var int
      */
     public $archiveBackupKeepCount;
+
     /**
      * @var string
      */
     public $archiveBackupKeepPolicy;
+
     /**
      * @var string
      */
     public $archiveBackupRetentionPeriod;
+
     /**
      * @var string
      */
     public $backupInterval;
+
     /**
      * @var string
      */
     public $backupLog;
+
     /**
      * @var string
      */
     public $backupMethod;
+
     /**
      * @var string
      */
     public $backupPolicyMode;
+
     /**
      * @var int
      */
     public $backupPriority;
+
     /**
      * @var string
      */
     public $backupRetentionPeriod;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $compressType;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $enableBackupLog;
+
     /**
      * @var bool
      */
     public $enableIncrementDataBackup;
+
     /**
      * @var string
      */
     public $highSpaceUsageProtection;
+
     /**
      * @var string
      */
     public $localLogRetentionHours;
+
     /**
      * @var string
      */
     public $localLogRetentionSpace;
+
     /**
      * @var string
      */
     public $logBackupFrequency;
+
     /**
      * @var int
      */
     public $logBackupLocalRetentionNumber;
+
     /**
      * @var string
      */
     public $logBackupRetentionPeriod;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $preferredBackupPeriod;
+
     /**
      * @var string
      */
     public $preferredBackupTime;
+
     /**
      * @var string
      */
     public $releasedKeepPolicy;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'archiveBackupKeepCount'        => 'ArchiveBackupKeepCount',
-        'archiveBackupKeepPolicy'       => 'ArchiveBackupKeepPolicy',
-        'archiveBackupRetentionPeriod'  => 'ArchiveBackupRetentionPeriod',
-        'backupInterval'                => 'BackupInterval',
-        'backupLog'                     => 'BackupLog',
-        'backupMethod'                  => 'BackupMethod',
-        'backupPolicyMode'              => 'BackupPolicyMode',
-        'backupPriority'                => 'BackupPriority',
-        'backupRetentionPeriod'         => 'BackupRetentionPeriod',
-        'category'                      => 'Category',
-        'compressType'                  => 'CompressType',
-        'DBInstanceId'                  => 'DBInstanceId',
-        'enableBackupLog'               => 'EnableBackupLog',
-        'enableIncrementDataBackup'     => 'EnableIncrementDataBackup',
-        'highSpaceUsageProtection'      => 'HighSpaceUsageProtection',
-        'localLogRetentionHours'        => 'LocalLogRetentionHours',
-        'localLogRetentionSpace'        => 'LocalLogRetentionSpace',
-        'logBackupFrequency'            => 'LogBackupFrequency',
+        'archiveBackupKeepCount' => 'ArchiveBackupKeepCount',
+        'archiveBackupKeepPolicy' => 'ArchiveBackupKeepPolicy',
+        'archiveBackupRetentionPeriod' => 'ArchiveBackupRetentionPeriod',
+        'backupInterval' => 'BackupInterval',
+        'backupLog' => 'BackupLog',
+        'backupMethod' => 'BackupMethod',
+        'backupPolicyMode' => 'BackupPolicyMode',
+        'backupPriority' => 'BackupPriority',
+        'backupRetentionPeriod' => 'BackupRetentionPeriod',
+        'category' => 'Category',
+        'compressType' => 'CompressType',
+        'DBInstanceId' => 'DBInstanceId',
+        'enableBackupLog' => 'EnableBackupLog',
+        'enableIncrementDataBackup' => 'EnableIncrementDataBackup',
+        'highSpaceUsageProtection' => 'HighSpaceUsageProtection',
+        'localLogRetentionHours' => 'LocalLogRetentionHours',
+        'localLogRetentionSpace' => 'LocalLogRetentionSpace',
+        'logBackupFrequency' => 'LogBackupFrequency',
         'logBackupLocalRetentionNumber' => 'LogBackupLocalRetentionNumber',
-        'logBackupRetentionPeriod'      => 'LogBackupRetentionPeriod',
-        'ownerAccount'                  => 'OwnerAccount',
-        'ownerId'                       => 'OwnerId',
-        'preferredBackupPeriod'         => 'PreferredBackupPeriod',
-        'preferredBackupTime'           => 'PreferredBackupTime',
-        'releasedKeepPolicy'            => 'ReleasedKeepPolicy',
-        'resourceOwnerAccount'          => 'ResourceOwnerAccount',
-        'resourceOwnerId'               => 'ResourceOwnerId',
+        'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'preferredBackupPeriod' => 'PreferredBackupPeriod',
+        'preferredBackupTime' => 'PreferredBackupTime',
+        'releasedKeepPolicy' => 'ReleasedKeepPolicy',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

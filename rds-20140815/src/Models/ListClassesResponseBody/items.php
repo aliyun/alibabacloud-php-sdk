@@ -12,63 +12,74 @@ class items extends Model
      * @var string
      */
     public $classCode;
+
     /**
      * @var string
      */
     public $classGroup;
+
     /**
      * @var string
      */
     public $cpu;
+
     /**
      * @var string
      */
     public $encryptedMemory;
+
     /**
      * @var string
      */
     public $instructionSetArch;
+
     /**
      * @var string
      */
     public $maxConnections;
+
     /**
      * @var string
      */
     public $maxIOMBPS;
+
     /**
      * @var string
      */
     public $maxIOPS;
+
     /**
      * @var string
      */
     public $memoryClass;
+
     /**
      * @var string
      */
     public $referencePrice;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $storageType;
     protected $_name = [
-        'classCode'          => 'ClassCode',
-        'classGroup'         => 'ClassGroup',
-        'cpu'                => 'Cpu',
-        'encryptedMemory'    => 'EncryptedMemory',
+        'classCode' => 'ClassCode',
+        'classGroup' => 'ClassGroup',
+        'cpu' => 'Cpu',
+        'encryptedMemory' => 'EncryptedMemory',
         'instructionSetArch' => 'InstructionSetArch',
-        'maxConnections'     => 'MaxConnections',
-        'maxIOMBPS'          => 'MaxIOMBPS',
-        'maxIOPS'            => 'MaxIOPS',
-        'memoryClass'        => 'MemoryClass',
-        'referencePrice'     => 'ReferencePrice',
-        'category'           => 'category',
-        'storageType'        => 'storageType',
+        'maxConnections' => 'MaxConnections',
+        'maxIOMBPS' => 'MaxIOMBPS',
+        'maxIOPS' => 'MaxIOPS',
+        'memoryClass' => 'MemoryClass',
+        'referencePrice' => 'ReferencePrice',
+        'category' => 'category',
+        'storageType' => 'storageType',
     ];
 
     public function validate()

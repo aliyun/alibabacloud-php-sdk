@@ -12,53 +12,62 @@ class ModifyADInfoRequest extends Model
      * @var string
      */
     public $ADAccountName;
+
     /**
      * @var string
      */
     public $ADDNS;
+
     /**
      * @var string
      */
     public $ADPassword;
+
     /**
      * @var string
      */
     public $ADServerIpAddress;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'ADAccountName'        => 'ADAccountName',
-        'ADDNS'                => 'ADDNS',
-        'ADPassword'           => 'ADPassword',
-        'ADServerIpAddress'    => 'ADServerIpAddress',
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'ADAccountName' => 'ADAccountName',
+        'ADDNS' => 'ADDNS',
+        'ADPassword' => 'ADPassword',
+        'ADServerIpAddress' => 'ADServerIpAddress',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

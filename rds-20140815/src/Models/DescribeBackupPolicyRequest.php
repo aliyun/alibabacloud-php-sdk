@@ -12,43 +12,50 @@ class DescribeBackupPolicyRequest extends Model
      * @var string
      */
     public $backupPolicyMode;
+
     /**
      * @var string
      */
     public $compressType;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $releasedKeepPolicy;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'backupPolicyMode'     => 'BackupPolicyMode',
-        'compressType'         => 'CompressType',
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'releasedKeepPolicy'   => 'ReleasedKeepPolicy',
+        'backupPolicyMode' => 'BackupPolicyMode',
+        'compressType' => 'CompressType',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'releasedKeepPolicy' => 'ReleasedKeepPolicy',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

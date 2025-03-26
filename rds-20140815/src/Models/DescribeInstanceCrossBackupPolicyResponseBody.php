@@ -12,83 +12,98 @@ class DescribeInstanceCrossBackupPolicyResponseBody extends Model
      * @var string
      */
     public $backupEnabled;
+
     /**
      * @var string
      */
     public $backupEnabledTime;
+
     /**
      * @var string
      */
     public $crossBackupRegion;
+
     /**
      * @var string
      */
     public $crossBackupType;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceStatus;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var string
      */
     public $logBackupEnabled;
+
     /**
      * @var string
      */
     public $logBackupEnabledTime;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $retentType;
+
     /**
      * @var int
      */
     public $retention;
     protected $_name = [
-        'backupEnabled'         => 'BackupEnabled',
-        'backupEnabledTime'     => 'BackupEnabledTime',
-        'crossBackupRegion'     => 'CrossBackupRegion',
-        'crossBackupType'       => 'CrossBackupType',
+        'backupEnabled' => 'BackupEnabled',
+        'backupEnabledTime' => 'BackupEnabledTime',
+        'crossBackupRegion' => 'CrossBackupRegion',
+        'crossBackupType' => 'CrossBackupType',
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceStatus'      => 'DBInstanceStatus',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'lockMode'              => 'LockMode',
-        'logBackupEnabled'      => 'LogBackupEnabled',
-        'logBackupEnabledTime'  => 'LogBackupEnabledTime',
-        'regionId'              => 'RegionId',
-        'requestId'             => 'RequestId',
-        'retentType'            => 'RetentType',
-        'retention'             => 'Retention',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStatus' => 'DBInstanceStatus',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'lockMode' => 'LockMode',
+        'logBackupEnabled' => 'LogBackupEnabled',
+        'logBackupEnabledTime' => 'LogBackupEnabledTime',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'retentType' => 'RetentType',
+        'retention' => 'Retention',
     ];
 
     public function validate()

@@ -14,28 +14,32 @@ class DBInstanceEndpoint extends Model
      * @var addressItems
      */
     public $addressItems;
+
     /**
      * @var string
      */
     public $endpointDescription;
+
     /**
      * @var string
      */
     public $endpointId;
+
     /**
      * @var string
      */
     public $endpointType;
+
     /**
      * @var nodeItems
      */
     public $nodeItems;
     protected $_name = [
-        'addressItems'        => 'AddressItems',
+        'addressItems' => 'AddressItems',
         'endpointDescription' => 'EndpointDescription',
-        'endpointId'          => 'EndpointId',
-        'endpointType'        => 'EndpointType',
-        'nodeItems'           => 'NodeItems',
+        'endpointId' => 'EndpointId',
+        'endpointType' => 'EndpointType',
+        'nodeItems' => 'NodeItems',
     ];
 
     public function validate()

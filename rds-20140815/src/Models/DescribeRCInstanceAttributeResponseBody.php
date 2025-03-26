@@ -22,223 +22,272 @@ class DescribeRCInstanceAttributeResponseBody extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $cpu;
+
+    /**
+     * @var int
+     */
+    public $createMode;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $creditSpecification;
+
     /**
      * @var dataDisks
      */
     public $dataDisks;
+
     /**
      * @var string
      */
     public $dbType;
+
     /**
      * @var dedicatedHostAttribute
      */
     public $dedicatedHostAttribute;
+
     /**
      * @var string
      */
     public $deploymentSetId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $diskType;
+
     /**
      * @var string
      */
     public $ecsInstanceType;
+
     /**
      * @var eipAddress
      */
     public $eipAddress;
+
     /**
      * @var bool
      */
     public $enableJumboFrame;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $hostName;
+
     /**
      * @var string
      */
     public $hostType;
+
     /**
      * @var string
      */
     public $imageId;
+
     /**
      * @var innerIpAddress
      */
     public $innerIpAddress;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $internetChargeType;
+
     /**
      * @var int
      */
     public $internetMaxBandwidthIn;
+
     /**
      * @var int
      */
     public $internetMaxBandwidthOut;
+
     /**
      * @var string
      */
     public $ioOptimized;
+
     /**
      * @var string
      */
     public $keyPairName;
+
     /**
      * @var int
      */
     public $memory;
+
     /**
      * @var operationLocks
      */
     public $operationLocks;
+
     /**
      * @var publicIpAddress
      */
     public $publicIpAddress;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var securityGroupIds
      */
     public $securityGroupIds;
+
     /**
      * @var string
      */
     public $serialNumber;
+
     /**
      * @var string
      */
     public $spotStrategy;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $stoppedMode;
+
     /**
      * @var systemDisk
      */
     public $systemDisk;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var string
      */
     public $vlanId;
+
     /**
      * @var vpcAttributes
      */
     public $vpcAttributes;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'clusterId'               => 'ClusterId',
-        'cpu'                     => 'Cpu',
-        'creationTime'            => 'CreationTime',
-        'creditSpecification'     => 'CreditSpecification',
-        'dataDisks'               => 'DataDisks',
-        'dbType'                  => 'DbType',
-        'dedicatedHostAttribute'  => 'DedicatedHostAttribute',
-        'deploymentSetId'         => 'DeploymentSetId',
-        'description'             => 'Description',
-        'diskType'                => 'DiskType',
-        'ecsInstanceType'         => 'EcsInstanceType',
-        'eipAddress'              => 'EipAddress',
-        'enableJumboFrame'        => 'EnableJumboFrame',
-        'expiredTime'             => 'ExpiredTime',
-        'hostName'                => 'HostName',
-        'hostType'                => 'HostType',
-        'imageId'                 => 'ImageId',
-        'innerIpAddress'          => 'InnerIpAddress',
-        'instanceChargeType'      => 'InstanceChargeType',
-        'instanceId'              => 'InstanceId',
-        'instanceName'            => 'InstanceName',
-        'instanceNetworkType'     => 'InstanceNetworkType',
-        'instanceType'            => 'InstanceType',
-        'internetChargeType'      => 'InternetChargeType',
-        'internetMaxBandwidthIn'  => 'InternetMaxBandwidthIn',
+        'clusterId' => 'ClusterId',
+        'cpu' => 'Cpu',
+        'createMode' => 'CreateMode',
+        'creationTime' => 'CreationTime',
+        'creditSpecification' => 'CreditSpecification',
+        'dataDisks' => 'DataDisks',
+        'dbType' => 'DbType',
+        'dedicatedHostAttribute' => 'DedicatedHostAttribute',
+        'deploymentSetId' => 'DeploymentSetId',
+        'description' => 'Description',
+        'diskType' => 'DiskType',
+        'ecsInstanceType' => 'EcsInstanceType',
+        'eipAddress' => 'EipAddress',
+        'enableJumboFrame' => 'EnableJumboFrame',
+        'expiredTime' => 'ExpiredTime',
+        'hostName' => 'HostName',
+        'hostType' => 'HostType',
+        'imageId' => 'ImageId',
+        'innerIpAddress' => 'InnerIpAddress',
+        'instanceChargeType' => 'InstanceChargeType',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'instanceType' => 'InstanceType',
+        'internetChargeType' => 'InternetChargeType',
+        'internetMaxBandwidthIn' => 'InternetMaxBandwidthIn',
         'internetMaxBandwidthOut' => 'InternetMaxBandwidthOut',
-        'ioOptimized'             => 'IoOptimized',
-        'keyPairName'             => 'KeyPairName',
-        'memory'                  => 'Memory',
-        'operationLocks'          => 'OperationLocks',
-        'publicIpAddress'         => 'PublicIpAddress',
-        'regionId'                => 'RegionId',
-        'requestId'               => 'RequestId',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'securityGroupIds'        => 'SecurityGroupIds',
-        'serialNumber'            => 'SerialNumber',
-        'spotStrategy'            => 'SpotStrategy',
-        'status'                  => 'Status',
-        'stoppedMode'             => 'StoppedMode',
-        'systemDisk'              => 'SystemDisk',
-        'tags'                    => 'Tags',
-        'vlanId'                  => 'VlanId',
-        'vpcAttributes'           => 'VpcAttributes',
-        'zoneId'                  => 'ZoneId',
+        'ioOptimized' => 'IoOptimized',
+        'keyPairName' => 'KeyPairName',
+        'memory' => 'Memory',
+        'operationLocks' => 'OperationLocks',
+        'publicIpAddress' => 'PublicIpAddress',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'securityGroupIds' => 'SecurityGroupIds',
+        'serialNumber' => 'SerialNumber',
+        'spotStrategy' => 'SpotStrategy',
+        'status' => 'Status',
+        'stoppedMode' => 'StoppedMode',
+        'systemDisk' => 'SystemDisk',
+        'tags' => 'Tags',
+        'vlanId' => 'VlanId',
+        'vpcAttributes' => 'VpcAttributes',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -285,6 +334,10 @@ class DescribeRCInstanceAttributeResponseBody extends Model
 
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
+        }
+
+        if (null !== $this->createMode) {
+            $res['CreateMode'] = $this->createMode;
         }
 
         if (null !== $this->creationTime) {
@@ -472,6 +525,10 @@ class DescribeRCInstanceAttributeResponseBody extends Model
 
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
+        }
+
+        if (isset($map['CreateMode'])) {
+            $model->createMode = $map['CreateMode'];
         }
 
         if (isset($map['CreationTime'])) {

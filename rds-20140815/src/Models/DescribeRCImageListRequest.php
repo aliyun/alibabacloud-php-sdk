@@ -12,43 +12,50 @@ class DescribeRCImageListRequest extends Model
      * @var string
      */
     public $architecture;
+
     /**
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $imageName;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'architecture' => 'Architecture',
-        'imageId'      => 'ImageId',
-        'imageName'    => 'ImageName',
+        'imageId' => 'ImageId',
+        'imageName' => 'ImageName',
         'instanceType' => 'InstanceType',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'regionId'     => 'RegionId',
-        'type'         => 'Type',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'type' => 'Type',
     ];
 
     public function validate()

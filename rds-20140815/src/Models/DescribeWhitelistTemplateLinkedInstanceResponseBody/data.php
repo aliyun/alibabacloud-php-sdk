@@ -12,12 +12,13 @@ class data extends Model
      * @var string[]
      */
     public $insName;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'insName'    => 'InsName',
+        'insName' => 'InsName',
         'templateId' => 'TemplateId',
     ];
 
@@ -35,7 +36,7 @@ class data extends Model
         if (null !== $this->insName) {
             if (\is_array($this->insName)) {
                 $res['InsName'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->insName as $item1) {
                     $res['InsName'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class data extends Model
         if (isset($map['InsName'])) {
             if (!empty($map['InsName'])) {
                 $model->insName = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['InsName'] as $item1) {
                     $model->insName[$n1++] = $item1;
                 }

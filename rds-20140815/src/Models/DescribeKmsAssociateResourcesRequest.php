@@ -12,58 +12,68 @@ class DescribeKmsAssociateResourcesRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $kmsResourceId;
+
     /**
      * @var string
      */
     public $kmsResourceRegionId;
+
     /**
      * @var string
      */
     public $kmsResourceType;
+
     /**
      * @var string
      */
     public $kmsResourceUser;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'kmsResourceId'        => 'KmsResourceId',
-        'kmsResourceRegionId'  => 'KmsResourceRegionId',
-        'kmsResourceType'      => 'KmsResourceType',
-        'kmsResourceUser'      => 'KmsResourceUser',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'clientToken' => 'ClientToken',
+        'kmsResourceId' => 'KmsResourceId',
+        'kmsResourceRegionId' => 'KmsResourceRegionId',
+        'kmsResourceType' => 'KmsResourceType',
+        'kmsResourceUser' => 'KmsResourceUser',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

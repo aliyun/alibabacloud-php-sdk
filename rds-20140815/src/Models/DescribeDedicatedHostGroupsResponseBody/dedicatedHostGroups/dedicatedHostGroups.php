@@ -13,138 +13,164 @@ class dedicatedHostGroups extends Model
      * @var string
      */
     public $allocationPolicy;
+
     /**
      * @var string
      */
     public $bastionInstanceId;
+
     /**
      * @var float
      */
     public $cpuAllocateRation;
+
     /**
      * @var float
      */
     public $cpuAllocatedAmount;
+
     /**
      * @var int
      */
     public $cpuAllocationRatio;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var mixed[]
      */
     public $dedicatedHostCountGroupByHostType;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupDesc;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupId;
+
     /**
      * @var float
      */
     public $diskAllocateRation;
+
     /**
      * @var float
      */
     public $diskAllocatedAmount;
+
     /**
      * @var int
      */
     public $diskAllocationRatio;
+
     /**
      * @var float
      */
     public $diskUsedAmount;
+
     /**
      * @var float
      */
     public $diskUtility;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var int
      */
     public $hostNumber;
+
     /**
      * @var string
      */
     public $hostReplacePolicy;
+
     /**
      * @var int
      */
     public $instanceNumber;
+
     /**
      * @var float
      */
     public $memAllocateRation;
+
     /**
      * @var float
      */
     public $memAllocatedAmount;
+
     /**
      * @var int
      */
     public $memAllocationRatio;
+
     /**
      * @var float
      */
     public $memUsedAmount;
+
     /**
      * @var float
      */
     public $memUtility;
+
     /**
      * @var string
      */
     public $openPermission;
+
     /**
      * @var string
      */
     public $text;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var zoneIDList
      */
     public $zoneIDList;
     protected $_name = [
-        'allocationPolicy'                  => 'AllocationPolicy',
-        'bastionInstanceId'                 => 'BastionInstanceId',
-        'cpuAllocateRation'                 => 'CpuAllocateRation',
-        'cpuAllocatedAmount'                => 'CpuAllocatedAmount',
-        'cpuAllocationRatio'                => 'CpuAllocationRatio',
-        'createTime'                        => 'CreateTime',
+        'allocationPolicy' => 'AllocationPolicy',
+        'bastionInstanceId' => 'BastionInstanceId',
+        'cpuAllocateRation' => 'CpuAllocateRation',
+        'cpuAllocatedAmount' => 'CpuAllocatedAmount',
+        'cpuAllocationRatio' => 'CpuAllocationRatio',
+        'createTime' => 'CreateTime',
         'dedicatedHostCountGroupByHostType' => 'DedicatedHostCountGroupByHostType',
-        'dedicatedHostGroupDesc'            => 'DedicatedHostGroupDesc',
-        'dedicatedHostGroupId'              => 'DedicatedHostGroupId',
-        'diskAllocateRation'                => 'DiskAllocateRation',
-        'diskAllocatedAmount'               => 'DiskAllocatedAmount',
-        'diskAllocationRatio'               => 'DiskAllocationRatio',
-        'diskUsedAmount'                    => 'DiskUsedAmount',
-        'diskUtility'                       => 'DiskUtility',
-        'engine'                            => 'Engine',
-        'hostNumber'                        => 'HostNumber',
-        'hostReplacePolicy'                 => 'HostReplacePolicy',
-        'instanceNumber'                    => 'InstanceNumber',
-        'memAllocateRation'                 => 'MemAllocateRation',
-        'memAllocatedAmount'                => 'MemAllocatedAmount',
-        'memAllocationRatio'                => 'MemAllocationRatio',
-        'memUsedAmount'                     => 'MemUsedAmount',
-        'memUtility'                        => 'MemUtility',
-        'openPermission'                    => 'OpenPermission',
-        'text'                              => 'Text',
-        'VPCId'                             => 'VPCId',
-        'zoneIDList'                        => 'ZoneIDList',
+        'dedicatedHostGroupDesc' => 'DedicatedHostGroupDesc',
+        'dedicatedHostGroupId' => 'DedicatedHostGroupId',
+        'diskAllocateRation' => 'DiskAllocateRation',
+        'diskAllocatedAmount' => 'DiskAllocatedAmount',
+        'diskAllocationRatio' => 'DiskAllocationRatio',
+        'diskUsedAmount' => 'DiskUsedAmount',
+        'diskUtility' => 'DiskUtility',
+        'engine' => 'Engine',
+        'hostNumber' => 'HostNumber',
+        'hostReplacePolicy' => 'HostReplacePolicy',
+        'instanceNumber' => 'InstanceNumber',
+        'memAllocateRation' => 'MemAllocateRation',
+        'memAllocatedAmount' => 'MemAllocatedAmount',
+        'memAllocationRatio' => 'MemAllocationRatio',
+        'memUsedAmount' => 'MemUsedAmount',
+        'memUtility' => 'MemUtility',
+        'openPermission' => 'OpenPermission',
+        'text' => 'Text',
+        'VPCId' => 'VPCId',
+        'zoneIDList' => 'ZoneIDList',
     ];
 
     public function validate()

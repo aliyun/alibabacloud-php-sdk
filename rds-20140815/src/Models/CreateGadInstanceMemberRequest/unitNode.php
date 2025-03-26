@@ -12,78 +12,92 @@ class unitNode extends Model
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $dbInstanceClass;
+
     /**
      * @var string
      */
     public $dtsConflict;
+
     /**
      * @var string
      */
     public $dtsInstanceClass;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $regionID;
+
     /**
      * @var string
      */
     public $securityIPList;
+
     /**
      * @var string
      */
     public $vSwitchID;
+
     /**
      * @var string
      */
     public $vpcID;
+
     /**
      * @var string
      */
     public $zoneID;
+
     /**
      * @var string
      */
     public $zoneIDSlave1;
+
     /**
      * @var string
      */
     public $zoneIDSlave2;
     protected $_name = [
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceStorage'     => 'DBInstanceStorage',
+        'DBInstanceStorage' => 'DBInstanceStorage',
         'DBInstanceStorageType' => 'DBInstanceStorageType',
-        'dbInstanceClass'       => 'DbInstanceClass',
-        'dtsConflict'           => 'DtsConflict',
-        'dtsInstanceClass'      => 'DtsInstanceClass',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'regionID'              => 'RegionID',
-        'securityIPList'        => 'SecurityIPList',
-        'vSwitchID'             => 'VSwitchID',
-        'vpcID'                 => 'VpcID',
-        'zoneID'                => 'ZoneID',
-        'zoneIDSlave1'          => 'ZoneIDSlave1',
-        'zoneIDSlave2'          => 'ZoneIDSlave2',
+        'dbInstanceClass' => 'DbInstanceClass',
+        'dtsConflict' => 'DtsConflict',
+        'dtsInstanceClass' => 'DtsInstanceClass',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'regionID' => 'RegionID',
+        'securityIPList' => 'SecurityIPList',
+        'vSwitchID' => 'VSwitchID',
+        'vpcID' => 'VpcID',
+        'zoneID' => 'ZoneID',
+        'zoneIDSlave1' => 'ZoneIDSlave1',
+        'zoneIDSlave2' => 'ZoneIDSlave2',
     ];
 
     public function validate()

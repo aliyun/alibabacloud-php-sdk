@@ -12,68 +12,80 @@ class CreateSecretRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $dbInstanceId;
+
     /**
      * @var string
      */
     public $dbNames;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $secretName;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'dbInstanceId'         => 'DbInstanceId',
-        'dbNames'              => 'DbNames',
-        'description'          => 'Description',
-        'engine'               => 'Engine',
-        'ownerId'              => 'OwnerId',
-        'password'             => 'Password',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'clientToken' => 'ClientToken',
+        'dbInstanceId' => 'DbInstanceId',
+        'dbNames' => 'DbNames',
+        'description' => 'Description',
+        'engine' => 'Engine',
+        'ownerId' => 'OwnerId',
+        'password' => 'Password',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'secretName'           => 'SecretName',
-        'username'             => 'Username',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'secretName' => 'SecretName',
+        'username' => 'Username',
     ];
 
     public function validate()

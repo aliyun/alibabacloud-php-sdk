@@ -12,53 +12,62 @@ class CreateDBInstanceResponseBody extends Model
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var bool
      */
     public $dryRunResult;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $tagResult;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'connectionString' => 'ConnectionString',
-        'DBInstanceId'     => 'DBInstanceId',
-        'dryRun'           => 'DryRun',
-        'dryRunResult'     => 'DryRunResult',
-        'message'          => 'Message',
-        'orderId'          => 'OrderId',
-        'port'             => 'Port',
-        'requestId'        => 'RequestId',
-        'tagResult'        => 'TagResult',
-        'taskId'           => 'TaskId',
+        'DBInstanceId' => 'DBInstanceId',
+        'dryRun' => 'DryRun',
+        'dryRunResult' => 'DryRunResult',
+        'message' => 'Message',
+        'orderId' => 'OrderId',
+        'port' => 'Port',
+        'requestId' => 'RequestId',
+        'tagResult' => 'TagResult',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

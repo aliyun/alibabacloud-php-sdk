@@ -12,27 +12,31 @@ class DeleteRCInstancesRequest extends Model
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var bool
      */
     public $force;
+
     /**
      * @var string[]
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var bool
      */
     public $terminateSubscription;
     protected $_name = [
-        'dryRun'                => 'DryRun',
-        'force'                 => 'Force',
-        'instanceId'            => 'InstanceId',
-        'regionId'              => 'RegionId',
+        'dryRun' => 'DryRun',
+        'force' => 'Force',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'terminateSubscription' => 'TerminateSubscription',
     ];
 
@@ -58,7 +62,7 @@ class DeleteRCInstancesRequest extends Model
         if (null !== $this->instanceId) {
             if (\is_array($this->instanceId)) {
                 $res['InstanceId'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->instanceId as $item1) {
                     $res['InstanceId'][$n1++] = $item1;
                 }
@@ -95,7 +99,7 @@ class DeleteRCInstancesRequest extends Model
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {
                 $model->instanceId = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['InstanceId'] as $item1) {
                     $model->instanceId[$n1++] = $item1;
                 }

@@ -31,7 +31,7 @@ class parameters extends Model
         if (null !== $this->templateRecord) {
             if (\is_array($this->templateRecord)) {
                 $res['TemplateRecord'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->templateRecord as $item1) {
                     $res['TemplateRecord'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class parameters extends Model
         if (isset($map['TemplateRecord'])) {
             if (!empty($map['TemplateRecord'])) {
                 $model->templateRecord = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['TemplateRecord'] as $item1) {
                     $model->templateRecord[$n1++] = templateRecord::fromMap($item1);
                 }

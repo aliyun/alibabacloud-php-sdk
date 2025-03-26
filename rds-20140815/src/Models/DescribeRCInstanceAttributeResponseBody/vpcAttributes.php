@@ -13,23 +13,26 @@ class vpcAttributes extends Model
      * @var string
      */
     public $natIpAddress;
+
     /**
      * @var privateIpAddress
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'natIpAddress'     => 'NatIpAddress',
+        'natIpAddress' => 'NatIpAddress',
         'privateIpAddress' => 'PrivateIpAddress',
-        'vSwitchId'        => 'VSwitchId',
-        'vpcId'            => 'VpcId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

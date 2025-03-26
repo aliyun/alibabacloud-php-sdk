@@ -13,18 +13,20 @@ class DescribeKmsAssociateResourcesResponseBody extends Model
      * @var associateDBInstances[]
      */
     public $associateDBInstances;
+
     /**
      * @var bool
      */
     public $associateStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'associateDBInstances' => 'AssociateDBInstances',
-        'associateStatus'      => 'AssociateStatus',
-        'requestId'            => 'RequestId',
+        'associateStatus' => 'AssociateStatus',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class DescribeKmsAssociateResourcesResponseBody extends Model
         if (null !== $this->associateDBInstances) {
             if (\is_array($this->associateDBInstances)) {
                 $res['AssociateDBInstances'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->associateDBInstances as $item1) {
                     $res['AssociateDBInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeKmsAssociateResourcesResponseBody extends Model
         if (isset($map['AssociateDBInstances'])) {
             if (!empty($map['AssociateDBInstances'])) {
                 $model->associateDBInstances = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['AssociateDBInstances'] as $item1) {
                     $model->associateDBInstances[$n1++] = associateDBInstances::fromMap($item1);
                 }

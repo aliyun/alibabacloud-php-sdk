@@ -12,33 +12,38 @@ class DescribeDBInstancePerformanceRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
-        'endTime'         => 'EndTime',
-        'key'             => 'Key',
-        'nodeId'          => 'NodeId',
+        'DBInstanceId' => 'DBInstanceId',
+        'endTime' => 'EndTime',
+        'key' => 'Key',
+        'nodeId' => 'NodeId',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'startTime'       => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

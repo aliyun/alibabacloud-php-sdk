@@ -12,103 +12,122 @@ class items extends Model
      * @var string
      */
     public $actionInfo;
+
     /**
      * @var string
      */
     public $callerSource;
+
     /**
      * @var string
      */
     public $callerUid;
+
     /**
      * @var string
      */
     public $currentStepName;
+
     /**
      * @var string
      */
     public $dbType;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $product;
+
     /**
      * @var float
      */
     public $progress;
+
     /**
      * @var string
      */
     public $reasonCode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $remainTime;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskDetail;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskType;
+
     /**
      * @var string
      */
     public $uid;
     protected $_name = [
-        'actionInfo'      => 'ActionInfo',
-        'callerSource'    => 'CallerSource',
-        'callerUid'       => 'CallerUid',
+        'actionInfo' => 'ActionInfo',
+        'callerSource' => 'CallerSource',
+        'callerUid' => 'CallerUid',
         'currentStepName' => 'CurrentStepName',
-        'dbType'          => 'DbType',
-        'endTime'         => 'EndTime',
-        'instanceId'      => 'InstanceId',
-        'instanceName'    => 'InstanceName',
-        'instanceType'    => 'InstanceType',
-        'product'         => 'Product',
-        'progress'        => 'Progress',
-        'reasonCode'      => 'ReasonCode',
-        'regionId'        => 'RegionId',
-        'remainTime'      => 'RemainTime',
-        'startTime'       => 'StartTime',
-        'status'          => 'Status',
-        'taskDetail'      => 'TaskDetail',
-        'taskId'          => 'TaskId',
-        'taskType'        => 'TaskType',
-        'uid'             => 'Uid',
+        'dbType' => 'DbType',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
+        'instanceType' => 'InstanceType',
+        'product' => 'Product',
+        'progress' => 'Progress',
+        'reasonCode' => 'ReasonCode',
+        'regionId' => 'RegionId',
+        'remainTime' => 'RemainTime',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'taskDetail' => 'TaskDetail',
+        'taskId' => 'TaskId',
+        'taskType' => 'TaskType',
+        'uid' => 'Uid',
     ];
 
     public function validate()

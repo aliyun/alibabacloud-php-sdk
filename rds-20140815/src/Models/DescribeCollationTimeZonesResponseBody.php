@@ -13,13 +13,14 @@ class DescribeCollationTimeZonesResponseBody extends Model
      * @var collationTimeZones
      */
     public $collationTimeZones;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'collationTimeZones' => 'CollationTimeZones',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

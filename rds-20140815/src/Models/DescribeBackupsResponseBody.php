@@ -13,33 +13,38 @@ class DescribeBackupsResponseBody extends Model
      * @var items
      */
     public $items;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalEcsSnapshotSize;
+
     /**
      * @var string
      */
     public $totalRecordCount;
     protected $_name = [
-        'items'                => 'Items',
-        'pageNumber'           => 'PageNumber',
-        'pageRecordCount'      => 'PageRecordCount',
-        'requestId'            => 'RequestId',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
         'totalEcsSnapshotSize' => 'TotalEcsSnapshotSize',
-        'totalRecordCount'     => 'TotalRecordCount',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()

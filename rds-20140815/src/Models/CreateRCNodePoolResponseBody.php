@@ -12,23 +12,26 @@ class CreateRCNodePoolResponseBody extends Model
      * @var string[]
      */
     public $instanceIdSets;
+
     /**
      * @var string
      */
     public $nodePoolId;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceIdSets' => 'InstanceIdSets',
-        'nodePoolId'     => 'NodePoolId',
-        'orderId'        => 'OrderId',
-        'requestId'      => 'RequestId',
+        'nodePoolId' => 'NodePoolId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -45,7 +48,7 @@ class CreateRCNodePoolResponseBody extends Model
         if (null !== $this->instanceIdSets) {
             if (\is_array($this->instanceIdSets)) {
                 $res['InstanceIdSets'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->instanceIdSets as $item1) {
                     $res['InstanceIdSets'][$n1++] = $item1;
                 }
@@ -78,7 +81,7 @@ class CreateRCNodePoolResponseBody extends Model
         if (isset($map['InstanceIdSets'])) {
             if (!empty($map['InstanceIdSets'])) {
                 $model->instanceIdSets = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['InstanceIdSets'] as $item1) {
                     $model->instanceIdSets[$n1++] = $item1;
                 }

@@ -13,33 +13,38 @@ class DescribeDBProxyPerformanceResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBProxyEngineType;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var performanceKeys
      */
     public $performanceKeys;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'DBInstanceId'      => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'DBProxyEngineType' => 'DBProxyEngineType',
-        'endTime'           => 'EndTime',
-        'performanceKeys'   => 'PerformanceKeys',
-        'requestId'         => 'RequestId',
-        'startTime'         => 'StartTime',
+        'endTime' => 'EndTime',
+        'performanceKeys' => 'PerformanceKeys',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

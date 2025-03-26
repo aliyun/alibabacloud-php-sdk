@@ -13,42 +13,49 @@ class DescribeModifyParameterLogResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var items
      */
     public $items;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'DBInstanceId'     => 'DBInstanceId',
-        'engine'           => 'Engine',
-        'engineVersion'    => 'EngineVersion',
-        'items'            => 'Items',
-        'pageNumber'       => 'PageNumber',
-        'pageRecordCount'  => 'PageRecordCount',
-        'requestId'        => 'RequestId',
+        'DBInstanceId' => 'DBInstanceId',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 

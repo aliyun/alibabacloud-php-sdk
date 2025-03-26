@@ -12,98 +12,116 @@ class records extends Model
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $binlogInfo;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $finishTime;
+
     /**
      * @var string
      */
     public $modificationTime;
+
     /**
      * @var string
      */
     public $ossBucket;
+
     /**
      * @var string
      */
     public $ossFileMetaData;
+
     /**
      * @var string
      */
     public $ossFileName;
+
     /**
      * @var string
      */
     public $ossFilePath;
+
     /**
      * @var int
      */
     public $ossFileSize;
+
     /**
      * @var string
      */
     public $ossUrl;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $restoreSize;
+
     /**
      * @var int
      */
     public $retention;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'backupId'         => 'BackupId',
-        'binlogInfo'       => 'BinlogInfo',
-        'comment'          => 'Comment',
-        'creationTime'     => 'CreationTime',
-        'engine'           => 'Engine',
-        'engineVersion'    => 'EngineVersion',
-        'finishTime'       => 'FinishTime',
+        'backupId' => 'BackupId',
+        'binlogInfo' => 'BinlogInfo',
+        'comment' => 'Comment',
+        'creationTime' => 'CreationTime',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'finishTime' => 'FinishTime',
         'modificationTime' => 'ModificationTime',
-        'ossBucket'        => 'OssBucket',
-        'ossFileMetaData'  => 'OssFileMetaData',
-        'ossFileName'      => 'OssFileName',
-        'ossFilePath'      => 'OssFilePath',
-        'ossFileSize'      => 'OssFileSize',
-        'ossUrl'           => 'OssUrl',
-        'reason'           => 'Reason',
-        'restoreSize'      => 'RestoreSize',
-        'retention'        => 'Retention',
-        'status'           => 'Status',
-        'zoneId'           => 'ZoneId',
+        'ossBucket' => 'OssBucket',
+        'ossFileMetaData' => 'OssFileMetaData',
+        'ossFileName' => 'OssFileName',
+        'ossFilePath' => 'OssFilePath',
+        'ossFileSize' => 'OssFileSize',
+        'ossUrl' => 'OssUrl',
+        'reason' => 'Reason',
+        'restoreSize' => 'RestoreSize',
+        'retention' => 'Retention',
+        'status' => 'Status',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

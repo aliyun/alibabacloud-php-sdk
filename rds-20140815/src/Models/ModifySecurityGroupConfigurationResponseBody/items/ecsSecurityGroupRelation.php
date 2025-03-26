@@ -12,17 +12,19 @@ class ecsSecurityGroupRelation extends Model
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
     protected $_name = [
-        'networkType'     => 'NetworkType',
-        'regionId'        => 'RegionId',
+        'networkType' => 'NetworkType',
+        'regionId' => 'RegionId',
         'securityGroupId' => 'SecurityGroupId',
     ];
 

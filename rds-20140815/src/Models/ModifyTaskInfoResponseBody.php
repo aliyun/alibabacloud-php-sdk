@@ -12,22 +12,25 @@ class ModifyTaskInfoResponseBody extends Model
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorTaskId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $successCount;
     protected $_name = [
-        'errorCode'    => 'ErrorCode',
-        'errorTaskId'  => 'ErrorTaskId',
-        'requestId'    => 'RequestId',
+        'errorCode' => 'ErrorCode',
+        'errorTaskId' => 'ErrorTaskId',
+        'requestId' => 'RequestId',
         'successCount' => 'SuccessCount',
     ];
 

@@ -13,163 +13,194 @@ class CloneDBInstanceRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $backupType;
+
     /**
      * @var string
      */
     public $bpeEnabled;
+
     /**
      * @var bool
      */
     public $burstingEnabled;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $dbNames;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupId;
+
     /**
      * @var bool
      */
     public $deletionProtection;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $ioAccelerationEnabled;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $restoreTable;
+
     /**
      * @var string
      */
     public $restoreTime;
+
     /**
      * @var serverlessConfig
      */
     public $serverlessConfig;
+
     /**
      * @var string
      */
     public $tableMeta;
+
     /**
      * @var int
      */
     public $usedTime;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $zoneIdSlave1;
+
     /**
      * @var string
      */
     public $zoneIdSlave2;
     protected $_name = [
-        'autoPay'               => 'AutoPay',
-        'backupId'              => 'BackupId',
-        'backupType'            => 'BackupType',
-        'bpeEnabled'            => 'BpeEnabled',
-        'burstingEnabled'       => 'BurstingEnabled',
-        'category'              => 'Category',
-        'clientToken'           => 'ClientToken',
-        'DBInstanceClass'       => 'DBInstanceClass',
+        'autoPay' => 'AutoPay',
+        'backupId' => 'BackupId',
+        'backupType' => 'BackupType',
+        'bpeEnabled' => 'BpeEnabled',
+        'burstingEnabled' => 'BurstingEnabled',
+        'category' => 'Category',
+        'clientToken' => 'ClientToken',
+        'DBInstanceClass' => 'DBInstanceClass',
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceStorage'     => 'DBInstanceStorage',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStorage' => 'DBInstanceStorage',
         'DBInstanceStorageType' => 'DBInstanceStorageType',
-        'dbNames'               => 'DbNames',
-        'dedicatedHostGroupId'  => 'DedicatedHostGroupId',
-        'deletionProtection'    => 'DeletionProtection',
-        'instanceNetworkType'   => 'InstanceNetworkType',
+        'dbNames' => 'DbNames',
+        'dedicatedHostGroupId' => 'DedicatedHostGroupId',
+        'deletionProtection' => 'DeletionProtection',
+        'instanceNetworkType' => 'InstanceNetworkType',
         'ioAccelerationEnabled' => 'IoAccelerationEnabled',
-        'payType'               => 'PayType',
-        'period'                => 'Period',
-        'privateIpAddress'      => 'PrivateIpAddress',
-        'regionId'              => 'RegionId',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'restoreTable'          => 'RestoreTable',
-        'restoreTime'           => 'RestoreTime',
-        'serverlessConfig'      => 'ServerlessConfig',
-        'tableMeta'             => 'TableMeta',
-        'usedTime'              => 'UsedTime',
-        'VPCId'                 => 'VPCId',
-        'vSwitchId'             => 'VSwitchId',
-        'zoneId'                => 'ZoneId',
-        'zoneIdSlave1'          => 'ZoneIdSlave1',
-        'zoneIdSlave2'          => 'ZoneIdSlave2',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'regionId' => 'RegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'restoreTable' => 'RestoreTable',
+        'restoreTime' => 'RestoreTime',
+        'serverlessConfig' => 'ServerlessConfig',
+        'tableMeta' => 'TableMeta',
+        'usedTime' => 'UsedTime',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
+        'zoneIdSlave1' => 'ZoneIdSlave1',
+        'zoneIdSlave2' => 'ZoneIdSlave2',
     ];
 
     public function validate()

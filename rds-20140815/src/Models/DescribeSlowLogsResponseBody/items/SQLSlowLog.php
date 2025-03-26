@@ -12,238 +12,284 @@ class SQLSlowLog extends Model
      * @var int
      */
     public $avgExecutionTime;
+
     /**
      * @var int
      */
     public $avgIOWriteCounts;
+
     /**
      * @var int
      */
     public $avgLastRowsAffectedCounts;
+
     /**
      * @var int
      */
     public $avgLogicalReadCounts;
+
     /**
      * @var int
      */
     public $avgPhysicalReadCounts;
+
     /**
      * @var int
      */
     public $avgRowsAffectedCounts;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var int
      */
     public $maxExecutionTime;
+
     /**
      * @var int
      */
     public $maxExecutionTimeMS;
+
     /**
      * @var int
      */
     public $maxIOWriteCounts;
+
     /**
      * @var int
      */
     public $maxLastRowsAffectedCounts;
+
     /**
      * @var int
      */
     public $maxLockTime;
+
     /**
      * @var int
      */
     public $maxLockTimeMS;
+
     /**
      * @var int
      */
     public $maxLogicalReadCounts;
+
     /**
      * @var int
      */
     public $maxPhysicalReadCounts;
+
     /**
      * @var int
      */
     public $maxRowsAffectedCounts;
+
     /**
      * @var int
      */
     public $minIOWriteCounts;
+
     /**
      * @var int
      */
     public $minLastRowsAffectedCounts;
+
     /**
      * @var int
      */
     public $minLogicalReadCounts;
+
     /**
      * @var int
      */
     public $minPhysicalReadCounts;
+
     /**
      * @var int
      */
     public $minRowsAffectedCounts;
+
     /**
      * @var int
      */
     public $mySQLTotalExecutionCounts;
+
     /**
      * @var int
      */
     public $mySQLTotalExecutionTimes;
+
     /**
      * @var int
      */
     public $parseMaxRowCount;
+
     /**
      * @var int
      */
     public $parseTotalRowCounts;
+
     /**
      * @var string
      */
     public $reportTime;
+
     /**
      * @var int
      */
     public $returnMaxRowCount;
+
     /**
      * @var int
      */
     public $returnTotalRowCounts;
+
     /**
      * @var string
      */
     public $SQLHASH;
+
     /**
      * @var string
      */
     public $SQLIdStr;
+
     /**
      * @var int
      */
     public $SQLServerAvgCpuTime;
+
     /**
      * @var int
      */
     public $SQLServerAvgExecutionTime;
+
     /**
      * @var int
      */
     public $SQLServerMaxCpuTime;
+
     /**
      * @var int
      */
     public $SQLServerMinCpuTime;
+
     /**
      * @var int
      */
     public $SQLServerMinExecutionTime;
+
     /**
      * @var int
      */
     public $SQLServerTotalCpuTime;
+
     /**
      * @var int
      */
     public $SQLServerTotalExecutionCounts;
+
     /**
      * @var int
      */
     public $SQLServerTotalExecutionTimes;
+
     /**
      * @var string
      */
     public $SQLText;
+
     /**
      * @var int
      */
     public $slowLogId;
+
     /**
      * @var int
      */
     public $totalIOWriteCounts;
+
     /**
      * @var int
      */
     public $totalLastRowsAffectedCounts;
+
     /**
      * @var int
      */
     public $totalLockTimes;
+
     /**
      * @var int
      */
     public $totalLogicalReadCounts;
+
     /**
      * @var int
      */
     public $totalPhysicalReadCounts;
+
     /**
      * @var int
      */
     public $totalRowsAffectedCounts;
     protected $_name = [
-        'avgExecutionTime'              => 'AvgExecutionTime',
-        'avgIOWriteCounts'              => 'AvgIOWriteCounts',
-        'avgLastRowsAffectedCounts'     => 'AvgLastRowsAffectedCounts',
-        'avgLogicalReadCounts'          => 'AvgLogicalReadCounts',
-        'avgPhysicalReadCounts'         => 'AvgPhysicalReadCounts',
-        'avgRowsAffectedCounts'         => 'AvgRowsAffectedCounts',
-        'createTime'                    => 'CreateTime',
-        'DBName'                        => 'DBName',
-        'maxExecutionTime'              => 'MaxExecutionTime',
-        'maxExecutionTimeMS'            => 'MaxExecutionTimeMS',
-        'maxIOWriteCounts'              => 'MaxIOWriteCounts',
-        'maxLastRowsAffectedCounts'     => 'MaxLastRowsAffectedCounts',
-        'maxLockTime'                   => 'MaxLockTime',
-        'maxLockTimeMS'                 => 'MaxLockTimeMS',
-        'maxLogicalReadCounts'          => 'MaxLogicalReadCounts',
-        'maxPhysicalReadCounts'         => 'MaxPhysicalReadCounts',
-        'maxRowsAffectedCounts'         => 'MaxRowsAffectedCounts',
-        'minIOWriteCounts'              => 'MinIOWriteCounts',
-        'minLastRowsAffectedCounts'     => 'MinLastRowsAffectedCounts',
-        'minLogicalReadCounts'          => 'MinLogicalReadCounts',
-        'minPhysicalReadCounts'         => 'MinPhysicalReadCounts',
-        'minRowsAffectedCounts'         => 'MinRowsAffectedCounts',
-        'mySQLTotalExecutionCounts'     => 'MySQLTotalExecutionCounts',
-        'mySQLTotalExecutionTimes'      => 'MySQLTotalExecutionTimes',
-        'parseMaxRowCount'              => 'ParseMaxRowCount',
-        'parseTotalRowCounts'           => 'ParseTotalRowCounts',
-        'reportTime'                    => 'ReportTime',
-        'returnMaxRowCount'             => 'ReturnMaxRowCount',
-        'returnTotalRowCounts'          => 'ReturnTotalRowCounts',
-        'SQLHASH'                       => 'SQLHASH',
-        'SQLIdStr'                      => 'SQLIdStr',
-        'SQLServerAvgCpuTime'           => 'SQLServerAvgCpuTime',
-        'SQLServerAvgExecutionTime'     => 'SQLServerAvgExecutionTime',
-        'SQLServerMaxCpuTime'           => 'SQLServerMaxCpuTime',
-        'SQLServerMinCpuTime'           => 'SQLServerMinCpuTime',
-        'SQLServerMinExecutionTime'     => 'SQLServerMinExecutionTime',
-        'SQLServerTotalCpuTime'         => 'SQLServerTotalCpuTime',
+        'avgExecutionTime' => 'AvgExecutionTime',
+        'avgIOWriteCounts' => 'AvgIOWriteCounts',
+        'avgLastRowsAffectedCounts' => 'AvgLastRowsAffectedCounts',
+        'avgLogicalReadCounts' => 'AvgLogicalReadCounts',
+        'avgPhysicalReadCounts' => 'AvgPhysicalReadCounts',
+        'avgRowsAffectedCounts' => 'AvgRowsAffectedCounts',
+        'createTime' => 'CreateTime',
+        'DBName' => 'DBName',
+        'maxExecutionTime' => 'MaxExecutionTime',
+        'maxExecutionTimeMS' => 'MaxExecutionTimeMS',
+        'maxIOWriteCounts' => 'MaxIOWriteCounts',
+        'maxLastRowsAffectedCounts' => 'MaxLastRowsAffectedCounts',
+        'maxLockTime' => 'MaxLockTime',
+        'maxLockTimeMS' => 'MaxLockTimeMS',
+        'maxLogicalReadCounts' => 'MaxLogicalReadCounts',
+        'maxPhysicalReadCounts' => 'MaxPhysicalReadCounts',
+        'maxRowsAffectedCounts' => 'MaxRowsAffectedCounts',
+        'minIOWriteCounts' => 'MinIOWriteCounts',
+        'minLastRowsAffectedCounts' => 'MinLastRowsAffectedCounts',
+        'minLogicalReadCounts' => 'MinLogicalReadCounts',
+        'minPhysicalReadCounts' => 'MinPhysicalReadCounts',
+        'minRowsAffectedCounts' => 'MinRowsAffectedCounts',
+        'mySQLTotalExecutionCounts' => 'MySQLTotalExecutionCounts',
+        'mySQLTotalExecutionTimes' => 'MySQLTotalExecutionTimes',
+        'parseMaxRowCount' => 'ParseMaxRowCount',
+        'parseTotalRowCounts' => 'ParseTotalRowCounts',
+        'reportTime' => 'ReportTime',
+        'returnMaxRowCount' => 'ReturnMaxRowCount',
+        'returnTotalRowCounts' => 'ReturnTotalRowCounts',
+        'SQLHASH' => 'SQLHASH',
+        'SQLIdStr' => 'SQLIdStr',
+        'SQLServerAvgCpuTime' => 'SQLServerAvgCpuTime',
+        'SQLServerAvgExecutionTime' => 'SQLServerAvgExecutionTime',
+        'SQLServerMaxCpuTime' => 'SQLServerMaxCpuTime',
+        'SQLServerMinCpuTime' => 'SQLServerMinCpuTime',
+        'SQLServerMinExecutionTime' => 'SQLServerMinExecutionTime',
+        'SQLServerTotalCpuTime' => 'SQLServerTotalCpuTime',
         'SQLServerTotalExecutionCounts' => 'SQLServerTotalExecutionCounts',
-        'SQLServerTotalExecutionTimes'  => 'SQLServerTotalExecutionTimes',
-        'SQLText'                       => 'SQLText',
-        'slowLogId'                     => 'SlowLogId',
-        'totalIOWriteCounts'            => 'TotalIOWriteCounts',
-        'totalLastRowsAffectedCounts'   => 'TotalLastRowsAffectedCounts',
-        'totalLockTimes'                => 'TotalLockTimes',
-        'totalLogicalReadCounts'        => 'TotalLogicalReadCounts',
-        'totalPhysicalReadCounts'       => 'TotalPhysicalReadCounts',
-        'totalRowsAffectedCounts'       => 'TotalRowsAffectedCounts',
+        'SQLServerTotalExecutionTimes' => 'SQLServerTotalExecutionTimes',
+        'SQLText' => 'SQLText',
+        'slowLogId' => 'SlowLogId',
+        'totalIOWriteCounts' => 'TotalIOWriteCounts',
+        'totalLastRowsAffectedCounts' => 'TotalLastRowsAffectedCounts',
+        'totalLockTimes' => 'TotalLockTimes',
+        'totalLogicalReadCounts' => 'TotalLogicalReadCounts',
+        'totalPhysicalReadCounts' => 'TotalPhysicalReadCounts',
+        'totalRowsAffectedCounts' => 'TotalRowsAffectedCounts',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class SwitchDBInstanceVpcRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'DBInstanceId'     => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'privateIpAddress' => 'PrivateIpAddress',
-        'resourceOwnerId'  => 'ResourceOwnerId',
-        'VPCId'            => 'VPCId',
-        'vSwitchId'        => 'VSwitchId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()

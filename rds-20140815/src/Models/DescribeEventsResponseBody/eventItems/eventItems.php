@@ -12,63 +12,74 @@ class eventItems extends Model
      * @var int
      */
     public $callerUid;
+
     /**
      * @var int
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $eventName;
+
     /**
      * @var string
      */
     public $eventPayload;
+
     /**
      * @var string
      */
     public $eventReason;
+
     /**
      * @var string
      */
     public $eventRecordTime;
+
     /**
      * @var string
      */
     public $eventTime;
+
     /**
      * @var string
      */
     public $eventType;
+
     /**
      * @var string
      */
     public $eventUserType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'callerUid'       => 'CallerUid',
-        'eventId'         => 'EventId',
-        'eventName'       => 'EventName',
-        'eventPayload'    => 'EventPayload',
-        'eventReason'     => 'EventReason',
+        'callerUid' => 'CallerUid',
+        'eventId' => 'EventId',
+        'eventName' => 'EventName',
+        'eventPayload' => 'EventPayload',
+        'eventReason' => 'EventReason',
         'eventRecordTime' => 'EventRecordTime',
-        'eventTime'       => 'EventTime',
-        'eventType'       => 'EventType',
-        'eventUserType'   => 'EventUserType',
-        'regionId'        => 'RegionId',
-        'resourceName'    => 'ResourceName',
-        'resourceType'    => 'ResourceType',
+        'eventTime' => 'EventTime',
+        'eventType' => 'EventType',
+        'eventUserType' => 'EventUserType',
+        'regionId' => 'RegionId',
+        'resourceName' => 'ResourceName',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

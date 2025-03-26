@@ -12,6 +12,7 @@ class DescribeSupportOnlineResizeDiskRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */

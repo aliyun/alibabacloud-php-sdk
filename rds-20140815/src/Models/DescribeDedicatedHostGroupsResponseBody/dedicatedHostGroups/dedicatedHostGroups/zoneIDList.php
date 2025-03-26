@@ -30,7 +30,7 @@ class zoneIDList extends Model
         if (null !== $this->zoneIDList) {
             if (\is_array($this->zoneIDList)) {
                 $res['ZoneIDList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->zoneIDList as $item1) {
                     $res['ZoneIDList'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class zoneIDList extends Model
         if (isset($map['ZoneIDList'])) {
             if (!empty($map['ZoneIDList'])) {
                 $model->zoneIDList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ZoneIDList'] as $item1) {
                     $model->zoneIDList[$n1++] = $item1;
                 }

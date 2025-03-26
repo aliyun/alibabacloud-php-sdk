@@ -12,58 +12,68 @@ class CreateMigrateTaskRequest extends Model
      * @var string
      */
     public $backupMode;
+
     /**
      * @var string
      */
     public $checkDBMode;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $isOnlineDB;
+
     /**
      * @var string
      */
     public $migrateTaskId;
+
     /**
      * @var string
      */
     public $OSSUrls;
+
     /**
      * @var string
      */
     public $ossObjectPositions;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'backupMode'           => 'BackupMode',
-        'checkDBMode'          => 'CheckDBMode',
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBName'               => 'DBName',
-        'isOnlineDB'           => 'IsOnlineDB',
-        'migrateTaskId'        => 'MigrateTaskId',
-        'OSSUrls'              => 'OSSUrls',
-        'ossObjectPositions'   => 'OssObjectPositions',
-        'ownerId'              => 'OwnerId',
+        'backupMode' => 'BackupMode',
+        'checkDBMode' => 'CheckDBMode',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
+        'isOnlineDB' => 'IsOnlineDB',
+        'migrateTaskId' => 'MigrateTaskId',
+        'OSSUrls' => 'OSSUrls',
+        'ossObjectPositions' => 'OssObjectPositions',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

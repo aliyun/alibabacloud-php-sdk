@@ -12,48 +12,56 @@ class ModifyInstanceCrossBackupPolicyResponseBody extends Model
      * @var string
      */
     public $backupEnabled;
+
     /**
      * @var string
      */
     public $crossBackupRegion;
+
     /**
      * @var string
      */
     public $crossBackupType;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $logBackupEnabled;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $retentType;
+
     /**
      * @var int
      */
     public $retention;
     protected $_name = [
-        'backupEnabled'     => 'BackupEnabled',
+        'backupEnabled' => 'BackupEnabled',
         'crossBackupRegion' => 'CrossBackupRegion',
-        'crossBackupType'   => 'CrossBackupType',
-        'DBInstanceId'      => 'DBInstanceId',
-        'logBackupEnabled'  => 'LogBackupEnabled',
-        'regionId'          => 'RegionId',
-        'requestId'         => 'RequestId',
-        'retentType'        => 'RetentType',
-        'retention'         => 'Retention',
+        'crossBackupType' => 'CrossBackupType',
+        'DBInstanceId' => 'DBInstanceId',
+        'logBackupEnabled' => 'LogBackupEnabled',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'retentType' => 'RetentType',
+        'retention' => 'Retention',
     ];
 
     public function validate()

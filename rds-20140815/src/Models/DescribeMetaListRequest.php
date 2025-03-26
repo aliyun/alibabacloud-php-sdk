@@ -12,68 +12,80 @@ class DescribeMetaListRequest extends Model
      * @var int
      */
     public $backupSetID;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $getDbName;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageIndex;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $pattern;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $restoreTime;
+
     /**
      * @var string
      */
     public $restoreType;
     protected $_name = [
-        'backupSetID'          => 'BackupSetID',
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'getDbName'            => 'GetDbName',
-        'ownerId'              => 'OwnerId',
-        'pageIndex'            => 'PageIndex',
-        'pageSize'             => 'PageSize',
-        'pattern'              => 'Pattern',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'backupSetID' => 'BackupSetID',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'getDbName' => 'GetDbName',
+        'ownerId' => 'OwnerId',
+        'pageIndex' => 'PageIndex',
+        'pageSize' => 'PageSize',
+        'pattern' => 'Pattern',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'restoreTime'          => 'RestoreTime',
-        'restoreType'          => 'RestoreType',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'restoreTime' => 'RestoreTime',
+        'restoreType' => 'RestoreType',
     ];
 
     public function validate()

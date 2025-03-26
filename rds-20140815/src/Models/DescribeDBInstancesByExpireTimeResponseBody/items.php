@@ -31,7 +31,7 @@ class items extends Model
         if (null !== $this->DBInstanceExpireTime) {
             if (\is_array($this->DBInstanceExpireTime)) {
                 $res['DBInstanceExpireTime'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->DBInstanceExpireTime as $item1) {
                     $res['DBInstanceExpireTime'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class items extends Model
         if (isset($map['DBInstanceExpireTime'])) {
             if (!empty($map['DBInstanceExpireTime'])) {
                 $model->DBInstanceExpireTime = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['DBInstanceExpireTime'] as $item1) {
                     $model->DBInstanceExpireTime[$n1++] = DBInstanceExpireTime::fromMap($item1);
                 }

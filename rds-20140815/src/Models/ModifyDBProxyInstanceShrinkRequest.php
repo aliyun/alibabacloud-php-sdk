@@ -12,68 +12,80 @@ class ModifyDBProxyInstanceShrinkRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBProxyEngineType;
+
     /**
      * @var string
      */
     public $DBProxyInstanceNum;
+
     /**
      * @var string
      */
     public $DBProxyInstanceType;
+
     /**
      * @var string
      */
     public $DBProxyNodesShrink;
+
     /**
      * @var string
      */
     public $effectiveSpecificTime;
+
     /**
      * @var string
      */
     public $effectiveTime;
+
     /**
      * @var string
      */
     public $migrateAZShrink;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $vSwitchIds;
     protected $_name = [
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBProxyEngineType'     => 'DBProxyEngineType',
-        'DBProxyInstanceNum'    => 'DBProxyInstanceNum',
-        'DBProxyInstanceType'   => 'DBProxyInstanceType',
-        'DBProxyNodesShrink'    => 'DBProxyNodes',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBProxyEngineType' => 'DBProxyEngineType',
+        'DBProxyInstanceNum' => 'DBProxyInstanceNum',
+        'DBProxyInstanceType' => 'DBProxyInstanceType',
+        'DBProxyNodesShrink' => 'DBProxyNodes',
         'effectiveSpecificTime' => 'EffectiveSpecificTime',
-        'effectiveTime'         => 'EffectiveTime',
-        'migrateAZShrink'       => 'MigrateAZ',
-        'ownerId'               => 'OwnerId',
-        'regionId'              => 'RegionId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'vSwitchIds'            => 'VSwitchIds',
+        'effectiveTime' => 'EffectiveTime',
+        'migrateAZShrink' => 'MigrateAZ',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vSwitchIds' => 'VSwitchIds',
     ];
 
     public function validate()

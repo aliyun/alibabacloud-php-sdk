@@ -12,68 +12,80 @@ class ImportUserBackupFileRequest extends Model
      * @var string
      */
     public $backupFile;
+
     /**
      * @var string
      */
     public $bucketRegion;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $restoreSize;
+
     /**
      * @var int
      */
     public $retention;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'backupFile'           => 'BackupFile',
-        'bucketRegion'         => 'BucketRegion',
-        'comment'              => 'Comment',
-        'DBInstanceId'         => 'DBInstanceId',
-        'engineVersion'        => 'EngineVersion',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'backupFile' => 'BackupFile',
+        'bucketRegion' => 'BucketRegion',
+        'comment' => 'Comment',
+        'DBInstanceId' => 'DBInstanceId',
+        'engineVersion' => 'EngineVersion',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'restoreSize'          => 'RestoreSize',
-        'retention'            => 'Retention',
-        'zoneId'               => 'ZoneId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'restoreSize' => 'RestoreSize',
+        'retention' => 'Retention',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

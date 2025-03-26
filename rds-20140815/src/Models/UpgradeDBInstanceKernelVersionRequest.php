@@ -12,38 +12,44 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $switchTime;
+
     /**
      * @var string
      */
     public $targetMinorVersion;
+
     /**
      * @var string
      */
     public $upgradeTime;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerId'              => 'OwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'switchTime'           => 'SwitchTime',
-        'targetMinorVersion'   => 'TargetMinorVersion',
-        'upgradeTime'          => 'UpgradeTime',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'switchTime' => 'SwitchTime',
+        'targetMinorVersion' => 'TargetMinorVersion',
+        'upgradeTime' => 'UpgradeTime',
     ];
 
     public function validate()

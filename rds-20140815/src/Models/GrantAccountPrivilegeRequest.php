@@ -12,28 +12,32 @@ class GrantAccountPrivilegeRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountPrivilege;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'accountName'      => 'AccountName',
+        'accountName' => 'AccountName',
         'accountPrivilege' => 'AccountPrivilege',
-        'DBInstanceId'     => 'DBInstanceId',
-        'DBName'           => 'DBName',
-        'resourceOwnerId'  => 'ResourceOwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

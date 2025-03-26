@@ -12,18 +12,20 @@ class DescribeRCClustersRequest extends Model
      * @var string
      */
     public $profile;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'profile'  => 'Profile',
+        'profile' => 'Profile',
         'regionId' => 'RegionId',
-        'vpcId'    => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

@@ -12,53 +12,62 @@ class CreateParameterGroupRequest extends Model
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $parameterGroupDesc;
+
     /**
      * @var string
      */
     public $parameterGroupName;
+
     /**
      * @var string
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'engine'               => 'Engine',
-        'engineVersion'        => 'EngineVersion',
-        'ownerId'              => 'OwnerId',
-        'parameterGroupDesc'   => 'ParameterGroupDesc',
-        'parameterGroupName'   => 'ParameterGroupName',
-        'parameters'           => 'Parameters',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'ownerId' => 'OwnerId',
+        'parameterGroupDesc' => 'ParameterGroupDesc',
+        'parameterGroupName' => 'ParameterGroupName',
+        'parameters' => 'Parameters',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

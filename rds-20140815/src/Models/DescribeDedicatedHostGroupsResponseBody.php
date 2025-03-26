@@ -13,13 +13,14 @@ class DescribeDedicatedHostGroupsResponseBody extends Model
      * @var dedicatedHostGroups
      */
     public $dedicatedHostGroups;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'dedicatedHostGroups' => 'DedicatedHostGroups',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class UpgradeDBInstanceMajorVersionPrecheckRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $targetMajorVersion;
     protected $_name = [
-        'DBInstanceId'       => 'DBInstanceId',
-        'resourceOwnerId'    => 'ResourceOwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'targetMajorVersion' => 'TargetMajorVersion',
     ];
 

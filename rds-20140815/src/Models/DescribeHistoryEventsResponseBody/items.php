@@ -13,43 +13,50 @@ class items extends Model
      * @var data
      */
     public $data;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var string
      */
     public $specversion;
+
     /**
      * @var string
      */
     public $subject;
+
     /**
      * @var string
      */
     public $time;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'data'        => 'Data',
-        'id'          => 'Id',
-        'region'      => 'Region',
-        'source'      => 'Source',
+        'data' => 'Data',
+        'id' => 'Id',
+        'region' => 'Region',
+        'source' => 'Source',
         'specversion' => 'Specversion',
-        'subject'     => 'Subject',
-        'time'        => 'Time',
-        'type'        => 'Type',
+        'subject' => 'Subject',
+        'time' => 'Time',
+        'type' => 'Type',
     ];
 
     public function validate()

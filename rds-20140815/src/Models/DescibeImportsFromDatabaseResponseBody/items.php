@@ -31,7 +31,7 @@ class items extends Model
         if (null !== $this->importResultFromDB) {
             if (\is_array($this->importResultFromDB)) {
                 $res['ImportResultFromDB'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->importResultFromDB as $item1) {
                     $res['ImportResultFromDB'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class items extends Model
         if (isset($map['ImportResultFromDB'])) {
             if (!empty($map['ImportResultFromDB'])) {
                 $model->importResultFromDB = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ImportResultFromDB'] as $item1) {
                     $model->importResultFromDB[$n1++] = importResultFromDB::fromMap($item1);
                 }

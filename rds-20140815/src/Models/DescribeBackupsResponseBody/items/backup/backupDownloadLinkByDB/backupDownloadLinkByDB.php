@@ -12,17 +12,19 @@ class backupDownloadLinkByDB extends Model
      * @var string
      */
     public $dataBase;
+
     /**
      * @var string
      */
     public $downloadLink;
+
     /**
      * @var string
      */
     public $intranetDownloadLink;
     protected $_name = [
-        'dataBase'             => 'DataBase',
-        'downloadLink'         => 'DownloadLink',
+        'dataBase' => 'DataBase',
+        'downloadLink' => 'DownloadLink',
         'intranetDownloadLink' => 'IntranetDownloadLink',
     ];
 

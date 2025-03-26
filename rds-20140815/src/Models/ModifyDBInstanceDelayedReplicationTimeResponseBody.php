@@ -12,23 +12,26 @@ class ModifyDBInstanceDelayedReplicationTimeResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $readSQLReplicationTime;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'DBInstanceId'           => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'readSQLReplicationTime' => 'ReadSQLReplicationTime',
-        'requestId'              => 'RequestId',
-        'taskId'                 => 'TaskId',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

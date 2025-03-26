@@ -12,18 +12,20 @@ class ruleConfig extends Model
      * @var string[]
      */
     public $columns;
+
     /**
      * @var string[]
      */
     public $databases;
+
     /**
      * @var string[]
      */
     public $tables;
     protected $_name = [
-        'columns'   => 'Columns',
+        'columns' => 'Columns',
         'databases' => 'Databases',
-        'tables'    => 'Tables',
+        'tables' => 'Tables',
     ];
 
     public function validate()
@@ -46,7 +48,7 @@ class ruleConfig extends Model
         if (null !== $this->columns) {
             if (\is_array($this->columns)) {
                 $res['Columns'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->columns as $item1) {
                     $res['Columns'][$n1++] = $item1;
                 }
@@ -56,7 +58,7 @@ class ruleConfig extends Model
         if (null !== $this->databases) {
             if (\is_array($this->databases)) {
                 $res['Databases'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->databases as $item1) {
                     $res['Databases'][$n1++] = $item1;
                 }
@@ -66,7 +68,7 @@ class ruleConfig extends Model
         if (null !== $this->tables) {
             if (\is_array($this->tables)) {
                 $res['Tables'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tables as $item1) {
                     $res['Tables'][$n1++] = $item1;
                 }
@@ -87,7 +89,7 @@ class ruleConfig extends Model
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
                     $model->columns[$n1++] = $item1;
                 }
@@ -97,7 +99,7 @@ class ruleConfig extends Model
         if (isset($map['Databases'])) {
             if (!empty($map['Databases'])) {
                 $model->databases = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Databases'] as $item1) {
                     $model->databases[$n1++] = $item1;
                 }
@@ -107,7 +109,7 @@ class ruleConfig extends Model
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
                 $model->tables = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Tables'] as $item1) {
                     $model->tables[$n1++] = $item1;
                 }

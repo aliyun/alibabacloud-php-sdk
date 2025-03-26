@@ -12,28 +12,32 @@ class EvaluateLocalExtendDiskResponseBody extends Model
      * @var string
      */
     public $available;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceTransType;
+
     /**
      * @var int
      */
     public $localUpgradeDiskLimit;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'available'             => 'Available',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceTransType'   => 'DBInstanceTransType',
+        'available' => 'Available',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceTransType' => 'DBInstanceTransType',
         'localUpgradeDiskLimit' => 'LocalUpgradeDiskLimit',
-        'requestId'             => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

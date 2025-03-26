@@ -12,6 +12,7 @@ class serverlessConfig extends Model
      * @var float
      */
     public $maxCapacity;
+
     /**
      * @var float
      */

@@ -12,78 +12,92 @@ class ModifyDBProxyShrinkRequest extends Model
      * @var string
      */
     public $configDBProxyService;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBProxyEngineType;
+
     /**
      * @var string
      */
     public $DBProxyInstanceNum;
+
     /**
      * @var string
      */
     public $DBProxyInstanceType;
+
     /**
      * @var string
      */
     public $DBProxyNodesShrink;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $persistentConnectionStatus;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'configDBProxyService'       => 'ConfigDBProxyService',
-        'DBInstanceId'               => 'DBInstanceId',
-        'DBProxyEngineType'          => 'DBProxyEngineType',
-        'DBProxyInstanceNum'         => 'DBProxyInstanceNum',
-        'DBProxyInstanceType'        => 'DBProxyInstanceType',
-        'DBProxyNodesShrink'         => 'DBProxyNodes',
-        'instanceNetworkType'        => 'InstanceNetworkType',
-        'ownerId'                    => 'OwnerId',
+        'configDBProxyService' => 'ConfigDBProxyService',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBProxyEngineType' => 'DBProxyEngineType',
+        'DBProxyInstanceNum' => 'DBProxyInstanceNum',
+        'DBProxyInstanceType' => 'DBProxyInstanceType',
+        'DBProxyNodesShrink' => 'DBProxyNodes',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'ownerId' => 'OwnerId',
         'persistentConnectionStatus' => 'PersistentConnectionStatus',
-        'regionId'                   => 'RegionId',
-        'resourceGroupId'            => 'ResourceGroupId',
-        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
-        'resourceOwnerId'            => 'ResourceOwnerId',
-        'VPCId'                      => 'VPCId',
-        'vSwitchId'                  => 'VSwitchId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()

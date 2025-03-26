@@ -12,48 +12,56 @@ class DescribeDBInstanceEncryptionKeyRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $encryptionKey;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $securityToken;
+
     /**
      * @var string
      */
     public $targetRegionId;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'encryptionKey'        => 'EncryptionKey',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'DBInstanceId' => 'DBInstanceId',
+        'encryptionKey' => 'EncryptionKey',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
-        'targetRegionId'       => 'TargetRegionId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'securityToken' => 'SecurityToken',
+        'targetRegionId' => 'TargetRegionId',
     ];
 
     public function validate()

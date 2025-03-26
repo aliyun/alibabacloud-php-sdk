@@ -13,13 +13,14 @@ class DeleteBackupFileResponseBody extends Model
      * @var deletedBaksetIds
      */
     public $deletedBaksetIds;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'deletedBaksetIds' => 'DeletedBaksetIds',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

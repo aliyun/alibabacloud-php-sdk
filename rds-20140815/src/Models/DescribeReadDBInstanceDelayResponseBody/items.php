@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class items extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items[]
+     * @var items\items[]
      */
     public $items;
     protected $_name = [
@@ -30,7 +30,7 @@ class items extends Model
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['Items'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->items as $item1) {
                     $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -51,9 +51,9 @@ class items extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Items'] as $item1) {
-                    $model->items[$n1++] = \AlibabaCloud\SDK\Rds\V20140815\Models\DescribeReadDBInstanceDelayResponseBody\items\items::fromMap($item1);
+                    $model->items[$n1++] = items\items::fromMap($item1);
                 }
             }
         }

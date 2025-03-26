@@ -13,78 +13,92 @@ class ModifyDBProxyRequest extends Model
      * @var string
      */
     public $configDBProxyService;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBProxyEngineType;
+
     /**
      * @var string
      */
     public $DBProxyInstanceNum;
+
     /**
      * @var string
      */
     public $DBProxyInstanceType;
+
     /**
      * @var DBProxyNodes[]
      */
     public $DBProxyNodes;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $persistentConnectionStatus;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'configDBProxyService'       => 'ConfigDBProxyService',
-        'DBInstanceId'               => 'DBInstanceId',
-        'DBProxyEngineType'          => 'DBProxyEngineType',
-        'DBProxyInstanceNum'         => 'DBProxyInstanceNum',
-        'DBProxyInstanceType'        => 'DBProxyInstanceType',
-        'DBProxyNodes'               => 'DBProxyNodes',
-        'instanceNetworkType'        => 'InstanceNetworkType',
-        'ownerId'                    => 'OwnerId',
+        'configDBProxyService' => 'ConfigDBProxyService',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBProxyEngineType' => 'DBProxyEngineType',
+        'DBProxyInstanceNum' => 'DBProxyInstanceNum',
+        'DBProxyInstanceType' => 'DBProxyInstanceType',
+        'DBProxyNodes' => 'DBProxyNodes',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'ownerId' => 'OwnerId',
         'persistentConnectionStatus' => 'PersistentConnectionStatus',
-        'regionId'                   => 'RegionId',
-        'resourceGroupId'            => 'ResourceGroupId',
-        'resourceOwnerAccount'       => 'ResourceOwnerAccount',
-        'resourceOwnerId'            => 'ResourceOwnerId',
-        'VPCId'                      => 'VPCId',
-        'vSwitchId'                  => 'VSwitchId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()
@@ -121,7 +135,7 @@ class ModifyDBProxyRequest extends Model
         if (null !== $this->DBProxyNodes) {
             if (\is_array($this->DBProxyNodes)) {
                 $res['DBProxyNodes'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->DBProxyNodes as $item1) {
                     $res['DBProxyNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -198,7 +212,7 @@ class ModifyDBProxyRequest extends Model
         if (isset($map['DBProxyNodes'])) {
             if (!empty($map['DBProxyNodes'])) {
                 $model->DBProxyNodes = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['DBProxyNodes'] as $item1) {
                     $model->DBProxyNodes[$n1++] = DBProxyNodes::fromMap($item1);
                 }

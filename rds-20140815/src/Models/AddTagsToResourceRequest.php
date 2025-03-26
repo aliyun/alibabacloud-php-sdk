@@ -13,58 +13,68 @@ class AddTagsToResourceRequest extends Model
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var string
      */
     public $proxyId;
     protected $_name = [
-        'tag'                  => 'Tag',
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'tag' => 'Tag',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'tags'                 => 'Tags',
-        'proxyId'              => 'proxyId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'tags' => 'Tags',
+        'proxyId' => 'proxyId',
     ];
 
     public function validate()
@@ -81,7 +91,7 @@ class AddTagsToResourceRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -142,7 +152,7 @@ class AddTagsToResourceRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

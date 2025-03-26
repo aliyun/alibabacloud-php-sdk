@@ -13,43 +13,50 @@ class ModifyPGHbaConfigRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var hbaItem[]
      */
     public $hbaItem;
+
     /**
      * @var string
      */
     public $opsType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'hbaItem'              => 'HbaItem',
-        'opsType'              => 'OpsType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'hbaItem' => 'HbaItem',
+        'opsType' => 'OpsType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -74,7 +81,7 @@ class ModifyPGHbaConfigRequest extends Model
         if (null !== $this->hbaItem) {
             if (\is_array($this->hbaItem)) {
                 $res['HbaItem'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->hbaItem as $item1) {
                     $res['HbaItem'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -123,7 +130,7 @@ class ModifyPGHbaConfigRequest extends Model
         if (isset($map['HbaItem'])) {
             if (!empty($map['HbaItem'])) {
                 $model->hbaItem = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['HbaItem'] as $item1) {
                     $model->hbaItem[$n1++] = hbaItem::fromMap($item1);
                 }

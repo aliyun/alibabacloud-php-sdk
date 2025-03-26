@@ -12,18 +12,20 @@ class endpointConnectItems extends Model
      * @var string
      */
     public $dbProxyEndpointConnectString;
+
     /**
      * @var string
      */
     public $dbProxyEndpointNetType;
+
     /**
      * @var string
      */
     public $dbProxyEndpointPort;
     protected $_name = [
         'dbProxyEndpointConnectString' => 'DbProxyEndpointConnectString',
-        'dbProxyEndpointNetType'       => 'DbProxyEndpointNetType',
-        'dbProxyEndpointPort'          => 'DbProxyEndpointPort',
+        'dbProxyEndpointNetType' => 'DbProxyEndpointNetType',
+        'dbProxyEndpointPort' => 'DbProxyEndpointPort',
     ];
 
     public function validate()

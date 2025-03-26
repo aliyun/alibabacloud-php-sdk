@@ -12,17 +12,19 @@ class MigrateSecurityIPModeResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $securityIPMode;
     protected $_name = [
-        'DBInstanceId'   => 'DBInstanceId',
-        'requestId'      => 'RequestId',
+        'DBInstanceId' => 'DBInstanceId',
+        'requestId' => 'RequestId',
         'securityIPMode' => 'SecurityIPMode',
     ];
 

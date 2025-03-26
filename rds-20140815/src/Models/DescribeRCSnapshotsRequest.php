@@ -12,27 +12,31 @@ class DescribeRCSnapshotsRequest extends Model
      * @var string
      */
     public $diskId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $snapshotIds;
     protected $_name = [
-        'diskId'      => 'DiskId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
+        'diskId' => 'DiskId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'snapshotIds' => 'SnapshotIds',
     ];
 

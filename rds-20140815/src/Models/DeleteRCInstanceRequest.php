@@ -12,18 +12,20 @@ class DeleteRCInstanceRequest extends Model
      * @var bool
      */
     public $force;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'force'      => 'Force',
+        'force' => 'Force',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

@@ -12,118 +12,140 @@ class data extends Model
      * @var string
      */
     public $cpuAdjustDeadline;
+
     /**
      * @var string
      */
     public $cpuAdjustableMaxRatio;
+
     /**
      * @var string
      */
     public $cpuAdjustableMaxValue;
+
     /**
      * @var string
      */
     public $cpuIncreaseRatio;
+
     /**
      * @var string
      */
     public $cpuIncreaseRatioValue;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $iopsAdjustableMaxValue;
+
     /**
      * @var string
      */
     public $maxConnAdjustDeadline;
+
     /**
      * @var string
      */
     public $maxConnAdjustableMaxValue;
+
     /**
      * @var string
      */
     public $maxConnIncreaseRatio;
+
     /**
      * @var string
      */
     public $maxConnIncreaseRatioValue;
+
     /**
      * @var string
      */
     public $maxIopsAdjustDeadline;
+
     /**
      * @var string
      */
     public $maxIopsIncreaseRatio;
+
     /**
      * @var string
      */
     public $maxIopsIncreaseRatioValue;
+
     /**
      * @var string
      */
     public $memAdjustableMaxRatio;
+
     /**
      * @var string
      */
     public $memAdjustableMaxValue;
+
     /**
      * @var string
      */
     public $memoryAdjustDeadline;
+
     /**
      * @var string
      */
     public $memoryIncreaseRatio;
+
     /**
      * @var string
      */
     public $memoryIncreaseRatioValue;
+
     /**
      * @var string
      */
     public $originCpu;
+
     /**
      * @var string
      */
     public $originMaxConn;
+
     /**
      * @var string
      */
     public $originMaxIops;
+
     /**
      * @var string
      */
     public $originMemory;
     protected $_name = [
-        'cpuAdjustDeadline'         => 'CpuAdjustDeadline',
-        'cpuAdjustableMaxRatio'     => 'CpuAdjustableMaxRatio',
-        'cpuAdjustableMaxValue'     => 'CpuAdjustableMaxValue',
-        'cpuIncreaseRatio'          => 'CpuIncreaseRatio',
-        'cpuIncreaseRatioValue'     => 'CpuIncreaseRatioValue',
-        'DBInstanceId'              => 'DBInstanceId',
-        'iopsAdjustableMaxValue'    => 'IopsAdjustableMaxValue',
-        'maxConnAdjustDeadline'     => 'MaxConnAdjustDeadline',
+        'cpuAdjustDeadline' => 'CpuAdjustDeadline',
+        'cpuAdjustableMaxRatio' => 'CpuAdjustableMaxRatio',
+        'cpuAdjustableMaxValue' => 'CpuAdjustableMaxValue',
+        'cpuIncreaseRatio' => 'CpuIncreaseRatio',
+        'cpuIncreaseRatioValue' => 'CpuIncreaseRatioValue',
+        'DBInstanceId' => 'DBInstanceId',
+        'iopsAdjustableMaxValue' => 'IopsAdjustableMaxValue',
+        'maxConnAdjustDeadline' => 'MaxConnAdjustDeadline',
         'maxConnAdjustableMaxValue' => 'MaxConnAdjustableMaxValue',
-        'maxConnIncreaseRatio'      => 'MaxConnIncreaseRatio',
+        'maxConnIncreaseRatio' => 'MaxConnIncreaseRatio',
         'maxConnIncreaseRatioValue' => 'MaxConnIncreaseRatioValue',
-        'maxIopsAdjustDeadline'     => 'MaxIopsAdjustDeadline',
-        'maxIopsIncreaseRatio'      => 'MaxIopsIncreaseRatio',
+        'maxIopsAdjustDeadline' => 'MaxIopsAdjustDeadline',
+        'maxIopsIncreaseRatio' => 'MaxIopsIncreaseRatio',
         'maxIopsIncreaseRatioValue' => 'MaxIopsIncreaseRatioValue',
-        'memAdjustableMaxRatio'     => 'MemAdjustableMaxRatio',
-        'memAdjustableMaxValue'     => 'MemAdjustableMaxValue',
-        'memoryAdjustDeadline'      => 'MemoryAdjustDeadline',
-        'memoryIncreaseRatio'       => 'MemoryIncreaseRatio',
-        'memoryIncreaseRatioValue'  => 'MemoryIncreaseRatioValue',
-        'originCpu'                 => 'OriginCpu',
-        'originMaxConn'             => 'OriginMaxConn',
-        'originMaxIops'             => 'OriginMaxIops',
-        'originMemory'              => 'OriginMemory',
+        'memAdjustableMaxRatio' => 'MemAdjustableMaxRatio',
+        'memAdjustableMaxValue' => 'MemAdjustableMaxValue',
+        'memoryAdjustDeadline' => 'MemoryAdjustDeadline',
+        'memoryIncreaseRatio' => 'MemoryIncreaseRatio',
+        'memoryIncreaseRatioValue' => 'MemoryIncreaseRatioValue',
+        'originCpu' => 'OriginCpu',
+        'originMaxConn' => 'OriginMaxConn',
+        'originMaxIops' => 'OriginMaxIops',
+        'originMemory' => 'OriginMemory',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class CreateCloudMigrationPrecheckTaskRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $sourceAccount;
+
     /**
      * @var string
      */
     public $sourceCategory;
+
     /**
      * @var string
      */
     public $sourceIpAddress;
+
     /**
      * @var string
      */
     public $sourcePassword;
+
     /**
      * @var int
      */
     public $sourcePort;
+
     /**
      * @var string
      */
     public $taskName;
     protected $_name = [
-        'DBInstanceName'  => 'DBInstanceName',
+        'DBInstanceName' => 'DBInstanceName',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'sourceAccount'   => 'SourceAccount',
-        'sourceCategory'  => 'SourceCategory',
+        'sourceAccount' => 'SourceAccount',
+        'sourceCategory' => 'SourceCategory',
         'sourceIpAddress' => 'SourceIpAddress',
-        'sourcePassword'  => 'SourcePassword',
-        'sourcePort'      => 'SourcePort',
-        'taskName'        => 'TaskName',
+        'sourcePassword' => 'SourcePassword',
+        'sourcePort' => 'SourcePort',
+        'taskName' => 'TaskName',
     ];
 
     public function validate()

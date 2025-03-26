@@ -12,48 +12,56 @@ class CreateDBInstanceSecurityGroupRuleRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $ipProtocol;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $portRange;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $sourceCidrIp;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'description'          => 'Description',
-        'ipProtocol'           => 'IpProtocol',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'portRange'            => 'PortRange',
+        'DBInstanceId' => 'DBInstanceId',
+        'description' => 'Description',
+        'ipProtocol' => 'IpProtocol',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'portRange' => 'PortRange',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'sourceCidrIp'         => 'SourceCidrIp',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sourceCidrIp' => 'SourceCidrIp',
     ];
 
     public function validate()

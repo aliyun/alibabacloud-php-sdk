@@ -14,113 +14,134 @@ class DescribePriceRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var DBNode[]
      */
     public $DBNode;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var int
      */
     public $instanceUsedType;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var int
      */
     public $quantity;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var serverlessConfig
      */
     public $serverlessConfig;
+
     /**
      * @var string
      */
     public $timeType;
+
     /**
      * @var int
      */
     public $usedTime;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'clientToken'           => 'ClientToken',
-        'commodityCode'         => 'CommodityCode',
-        'DBInstanceClass'       => 'DBInstanceClass',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceStorage'     => 'DBInstanceStorage',
+        'clientToken' => 'ClientToken',
+        'commodityCode' => 'CommodityCode',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStorage' => 'DBInstanceStorage',
         'DBInstanceStorageType' => 'DBInstanceStorageType',
-        'DBNode'                => 'DBNode',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'instanceUsedType'      => 'InstanceUsedType',
-        'orderType'             => 'OrderType',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'payType'               => 'PayType',
-        'quantity'              => 'Quantity',
-        'regionId'              => 'RegionId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'serverlessConfig'      => 'ServerlessConfig',
-        'timeType'              => 'TimeType',
-        'usedTime'              => 'UsedTime',
-        'zoneId'                => 'ZoneId',
+        'DBNode' => 'DBNode',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'instanceUsedType' => 'InstanceUsedType',
+        'orderType' => 'OrderType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'payType' => 'PayType',
+        'quantity' => 'Quantity',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'serverlessConfig' => 'ServerlessConfig',
+        'timeType' => 'TimeType',
+        'usedTime' => 'UsedTime',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -164,7 +185,7 @@ class DescribePriceRequest extends Model
         if (null !== $this->DBNode) {
             if (\is_array($this->DBNode)) {
                 $res['DBNode'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->DBNode as $item1) {
                     $res['DBNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -269,7 +290,7 @@ class DescribePriceRequest extends Model
         if (isset($map['DBNode'])) {
             if (!empty($map['DBNode'])) {
                 $model->DBNode = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['DBNode'] as $item1) {
                     $model->DBNode[$n1++] = DBNode::fromMap($item1);
                 }

@@ -12,13 +12,14 @@ class DBNode extends Model
      * @var string
      */
     public $classCode;
+
     /**
      * @var string
      */
     public $nodeId;
     protected $_name = [
         'classCode' => 'classCode',
-        'nodeId'    => 'nodeId',
+        'nodeId' => 'nodeId',
     ];
 
     public function validate()

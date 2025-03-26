@@ -12,38 +12,44 @@ class ModifyHASwitchConfigRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $HAConfig;
+
     /**
      * @var string
      */
     public $manualHATime;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'HAConfig'             => 'HAConfig',
-        'manualHATime'         => 'ManualHATime',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'DBInstanceId' => 'DBInstanceId',
+        'HAConfig' => 'HAConfig',
+        'manualHATime' => 'ManualHATime',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

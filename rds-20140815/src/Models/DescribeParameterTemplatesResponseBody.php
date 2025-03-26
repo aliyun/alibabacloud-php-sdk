@@ -13,28 +13,32 @@ class DescribeParameterTemplatesResponseBody extends Model
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $parameterCount;
+
     /**
      * @var parameters
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'engine'         => 'Engine',
-        'engineVersion'  => 'EngineVersion',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
         'parameterCount' => 'ParameterCount',
-        'parameters'     => 'Parameters',
-        'requestId'      => 'RequestId',
+        'parameters' => 'Parameters',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -13,22 +13,25 @@ class AuthorizeRCSecurityGroupPermissionRequest extends Model
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var securityGroupPermissions[]
      */
     public $securityGroupPermissions;
     protected $_name = [
-        'direction'                => 'Direction',
-        'regionId'                 => 'RegionId',
-        'securityGroupId'          => 'SecurityGroupId',
+        'direction' => 'Direction',
+        'regionId' => 'RegionId',
+        'securityGroupId' => 'SecurityGroupId',
         'securityGroupPermissions' => 'SecurityGroupPermissions',
     ];
 
@@ -58,7 +61,7 @@ class AuthorizeRCSecurityGroupPermissionRequest extends Model
         if (null !== $this->securityGroupPermissions) {
             if (\is_array($this->securityGroupPermissions)) {
                 $res['SecurityGroupPermissions'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->securityGroupPermissions as $item1) {
                     $res['SecurityGroupPermissions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -91,7 +94,7 @@ class AuthorizeRCSecurityGroupPermissionRequest extends Model
         if (isset($map['SecurityGroupPermissions'])) {
             if (!empty($map['SecurityGroupPermissions'])) {
                 $model->securityGroupPermissions = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['SecurityGroupPermissions'] as $item1) {
                     $model->securityGroupPermissions[$n1++] = securityGroupPermissions::fromMap($item1);
                 }

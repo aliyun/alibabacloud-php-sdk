@@ -31,7 +31,7 @@ class databasePrivileges extends Model
         if (null !== $this->databasePrivilege) {
             if (\is_array($this->databasePrivilege)) {
                 $res['DatabasePrivilege'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->databasePrivilege as $item1) {
                     $res['DatabasePrivilege'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class databasePrivileges extends Model
         if (isset($map['DatabasePrivilege'])) {
             if (!empty($map['DatabasePrivilege'])) {
                 $model->databasePrivilege = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['DatabasePrivilege'] as $item1) {
                     $model->databasePrivilege[$n1++] = databasePrivilege::fromMap($item1);
                 }

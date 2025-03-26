@@ -12,18 +12,20 @@ class ModifyRCInstanceDescriptionRequest extends Model
      * @var string
      */
     public $instanceDescription;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'instanceDescription' => 'InstanceDescription',
-        'instanceId'          => 'InstanceId',
-        'regionId'            => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

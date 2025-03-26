@@ -12,17 +12,19 @@ class DescribeQuickSaleConfigResponseBody extends Model
      * @var string
      */
     public $commodity;
+
     /**
      * @var mixed[]
      */
     public $items;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'commodity' => 'Commodity',
-        'items'     => 'Items',
+        'items' => 'Items',
         'requestId' => 'RequestId',
     ];
 

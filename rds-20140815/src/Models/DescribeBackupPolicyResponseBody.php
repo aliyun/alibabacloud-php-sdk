@@ -12,148 +12,176 @@ class DescribeBackupPolicyResponseBody extends Model
      * @var string
      */
     public $archiveBackupKeepCount;
+
     /**
      * @var string
      */
     public $archiveBackupKeepPolicy;
+
     /**
      * @var string
      */
     public $archiveBackupRetentionPeriod;
+
     /**
      * @var string
      */
     public $backupInterval;
+
     /**
      * @var string
      */
     public $backupLog;
+
     /**
      * @var string
      */
     public $backupMethod;
+
     /**
      * @var int
      */
     public $backupPriority;
+
     /**
      * @var int
      */
     public $backupRetentionPeriod;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $compressType;
+
     /**
      * @var string
      */
     public $enableBackupLog;
+
     /**
      * @var bool
      */
     public $enableIncrementDataBackup;
+
     /**
      * @var bool
      */
     public $enablePitrProtection;
+
     /**
      * @var string
      */
     public $highSpaceUsageProtection;
+
     /**
      * @var int
      */
     public $localLogRetentionHours;
+
     /**
      * @var string
      */
     public $localLogRetentionSpace;
+
     /**
      * @var string
      */
     public $logBackupFrequency;
+
     /**
      * @var int
      */
     public $logBackupLocalRetentionNumber;
+
     /**
      * @var int
      */
     public $logBackupRetentionPeriod;
+
     /**
      * @var int
      */
     public $pitrRetentionPeriod;
+
     /**
      * @var string
      */
     public $preferredBackupPeriod;
+
     /**
      * @var string
      */
     public $preferredBackupTime;
+
     /**
      * @var string
      */
     public $preferredNextBackupTime;
+
     /**
      * @var string
      */
     public $releasedKeepPolicy;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $supportModifyBackupPriority;
+
     /**
      * @var int
      */
     public $supportReleasedKeep;
+
     /**
      * @var int
      */
     public $supportVolumeShadowCopy;
+
     /**
      * @var int
      */
     public $supportsHighFrequencyBackup;
     protected $_name = [
-        'archiveBackupKeepCount'        => 'ArchiveBackupKeepCount',
-        'archiveBackupKeepPolicy'       => 'ArchiveBackupKeepPolicy',
-        'archiveBackupRetentionPeriod'  => 'ArchiveBackupRetentionPeriod',
-        'backupInterval'                => 'BackupInterval',
-        'backupLog'                     => 'BackupLog',
-        'backupMethod'                  => 'BackupMethod',
-        'backupPriority'                => 'BackupPriority',
-        'backupRetentionPeriod'         => 'BackupRetentionPeriod',
-        'category'                      => 'Category',
-        'compressType'                  => 'CompressType',
-        'enableBackupLog'               => 'EnableBackupLog',
-        'enableIncrementDataBackup'     => 'EnableIncrementDataBackup',
-        'enablePitrProtection'          => 'EnablePitrProtection',
-        'highSpaceUsageProtection'      => 'HighSpaceUsageProtection',
-        'localLogRetentionHours'        => 'LocalLogRetentionHours',
-        'localLogRetentionSpace'        => 'LocalLogRetentionSpace',
-        'logBackupFrequency'            => 'LogBackupFrequency',
+        'archiveBackupKeepCount' => 'ArchiveBackupKeepCount',
+        'archiveBackupKeepPolicy' => 'ArchiveBackupKeepPolicy',
+        'archiveBackupRetentionPeriod' => 'ArchiveBackupRetentionPeriod',
+        'backupInterval' => 'BackupInterval',
+        'backupLog' => 'BackupLog',
+        'backupMethod' => 'BackupMethod',
+        'backupPriority' => 'BackupPriority',
+        'backupRetentionPeriod' => 'BackupRetentionPeriod',
+        'category' => 'Category',
+        'compressType' => 'CompressType',
+        'enableBackupLog' => 'EnableBackupLog',
+        'enableIncrementDataBackup' => 'EnableIncrementDataBackup',
+        'enablePitrProtection' => 'EnablePitrProtection',
+        'highSpaceUsageProtection' => 'HighSpaceUsageProtection',
+        'localLogRetentionHours' => 'LocalLogRetentionHours',
+        'localLogRetentionSpace' => 'LocalLogRetentionSpace',
+        'logBackupFrequency' => 'LogBackupFrequency',
         'logBackupLocalRetentionNumber' => 'LogBackupLocalRetentionNumber',
-        'logBackupRetentionPeriod'      => 'LogBackupRetentionPeriod',
-        'pitrRetentionPeriod'           => 'PitrRetentionPeriod',
-        'preferredBackupPeriod'         => 'PreferredBackupPeriod',
-        'preferredBackupTime'           => 'PreferredBackupTime',
-        'preferredNextBackupTime'       => 'PreferredNextBackupTime',
-        'releasedKeepPolicy'            => 'ReleasedKeepPolicy',
-        'requestId'                     => 'RequestId',
-        'supportModifyBackupPriority'   => 'SupportModifyBackupPriority',
-        'supportReleasedKeep'           => 'SupportReleasedKeep',
-        'supportVolumeShadowCopy'       => 'SupportVolumeShadowCopy',
-        'supportsHighFrequencyBackup'   => 'SupportsHighFrequencyBackup',
+        'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
+        'pitrRetentionPeriod' => 'PitrRetentionPeriod',
+        'preferredBackupPeriod' => 'PreferredBackupPeriod',
+        'preferredBackupTime' => 'PreferredBackupTime',
+        'preferredNextBackupTime' => 'PreferredNextBackupTime',
+        'releasedKeepPolicy' => 'ReleasedKeepPolicy',
+        'requestId' => 'RequestId',
+        'supportModifyBackupPriority' => 'SupportModifyBackupPriority',
+        'supportReleasedKeep' => 'SupportReleasedKeep',
+        'supportVolumeShadowCopy' => 'SupportVolumeShadowCopy',
+        'supportsHighFrequencyBackup' => 'SupportsHighFrequencyBackup',
     ];
 
     public function validate()

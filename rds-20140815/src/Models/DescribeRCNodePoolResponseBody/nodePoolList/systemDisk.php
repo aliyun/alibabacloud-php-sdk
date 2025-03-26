@@ -12,18 +12,20 @@ class systemDisk extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $performanceLevel;
+
     /**
      * @var int
      */
     public $size;
     protected $_name = [
-        'category'         => 'Category',
+        'category' => 'Category',
         'performanceLevel' => 'PerformanceLevel',
-        'size'             => 'Size',
+        'size' => 'Size',
     ];
 
     public function validate()

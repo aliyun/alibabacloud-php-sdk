@@ -14,73 +14,86 @@ class DBInstanceNetInfo extends Model
      * @var string
      */
     public $availability;
+
     /**
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $connectionStringType;
+
     /**
      * @var DBInstanceWeights
      */
     public $DBInstanceWeights;
+
     /**
      * @var string
      */
     public $distributionType;
+
     /**
      * @var string
      */
     public $IPAddress;
+
     /**
      * @var string
      */
     public $IPType;
+
     /**
      * @var string
      */
     public $maxDelayTime;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var securityIPGroups
      */
     public $securityIPGroups;
+
     /**
      * @var string
      */
     public $upgradeable;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $expiredTime;
     protected $_name = [
-        'availability'         => 'Availability',
-        'connectionString'     => 'ConnectionString',
+        'availability' => 'Availability',
+        'connectionString' => 'ConnectionString',
         'connectionStringType' => 'ConnectionStringType',
-        'DBInstanceWeights'    => 'DBInstanceWeights',
-        'distributionType'     => 'DistributionType',
-        'IPAddress'            => 'IPAddress',
-        'IPType'               => 'IPType',
-        'maxDelayTime'         => 'MaxDelayTime',
-        'port'                 => 'Port',
-        'securityIPGroups'     => 'SecurityIPGroups',
-        'upgradeable'          => 'Upgradeable',
-        'VPCId'                => 'VPCId',
-        'vSwitchId'            => 'VSwitchId',
-        'expiredTime'          => 'expiredTime',
+        'DBInstanceWeights' => 'DBInstanceWeights',
+        'distributionType' => 'DistributionType',
+        'IPAddress' => 'IPAddress',
+        'IPType' => 'IPType',
+        'maxDelayTime' => 'MaxDelayTime',
+        'port' => 'Port',
+        'securityIPGroups' => 'SecurityIPGroups',
+        'upgradeable' => 'Upgradeable',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'expiredTime' => 'expiredTime',
     ];
 
     public function validate()

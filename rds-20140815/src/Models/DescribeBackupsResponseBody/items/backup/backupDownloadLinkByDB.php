@@ -31,7 +31,7 @@ class backupDownloadLinkByDB extends Model
         if (null !== $this->backupDownloadLinkByDB) {
             if (\is_array($this->backupDownloadLinkByDB)) {
                 $res['BackupDownloadLinkByDB'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->backupDownloadLinkByDB as $item1) {
                     $res['BackupDownloadLinkByDB'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class backupDownloadLinkByDB extends Model
         if (isset($map['BackupDownloadLinkByDB'])) {
             if (!empty($map['BackupDownloadLinkByDB'])) {
                 $model->backupDownloadLinkByDB = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['BackupDownloadLinkByDB'] as $item1) {
                     $model->backupDownloadLinkByDB[$n1++] = self::fromMap($item1);
                 }

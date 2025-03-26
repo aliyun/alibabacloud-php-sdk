@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class failures extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Rds\V20140815\Models\PreCheckCreateOrderForDeleteDBNodesResponseBody\failures\failures[]
+     * @var failures\failures[]
      */
     public $failures;
     protected $_name = [
@@ -30,7 +30,7 @@ class failures extends Model
         if (null !== $this->failures) {
             if (\is_array($this->failures)) {
                 $res['Failures'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->failures as $item1) {
                     $res['Failures'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -51,9 +51,9 @@ class failures extends Model
         if (isset($map['Failures'])) {
             if (!empty($map['Failures'])) {
                 $model->failures = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Failures'] as $item1) {
-                    $model->failures[$n1++] = \AlibabaCloud\SDK\Rds\V20140815\Models\PreCheckCreateOrderForDeleteDBNodesResponseBody\failures\failures::fromMap($item1);
+                    $model->failures[$n1++] = failures\failures::fromMap($item1);
                 }
             }
         }

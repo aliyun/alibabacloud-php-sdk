@@ -12,68 +12,80 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
      * @var string
      */
     public $classicExpiredDays;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var int
      */
     public $readWriteSplittingClassicExpiredDays;
+
     /**
      * @var string
      */
     public $readWriteSplittingPrivateIpAddress;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $retainClassic;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'classicExpiredDays'                   => 'ClassicExpiredDays',
-        'DBInstanceId'                         => 'DBInstanceId',
-        'instanceNetworkType'                  => 'InstanceNetworkType',
-        'ownerAccount'                         => 'OwnerAccount',
-        'ownerId'                              => 'OwnerId',
-        'privateIpAddress'                     => 'PrivateIpAddress',
+        'classicExpiredDays' => 'ClassicExpiredDays',
+        'DBInstanceId' => 'DBInstanceId',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'privateIpAddress' => 'PrivateIpAddress',
         'readWriteSplittingClassicExpiredDays' => 'ReadWriteSplittingClassicExpiredDays',
-        'readWriteSplittingPrivateIpAddress'   => 'ReadWriteSplittingPrivateIpAddress',
-        'resourceOwnerAccount'                 => 'ResourceOwnerAccount',
-        'resourceOwnerId'                      => 'ResourceOwnerId',
-        'retainClassic'                        => 'RetainClassic',
-        'VPCId'                                => 'VPCId',
-        'vSwitchId'                            => 'VSwitchId',
+        'readWriteSplittingPrivateIpAddress' => 'ReadWriteSplittingPrivateIpAddress',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'retainClassic' => 'RetainClassic',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()

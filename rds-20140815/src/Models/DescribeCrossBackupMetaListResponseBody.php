@@ -13,37 +13,43 @@ class DescribeCrossBackupMetaListResponseBody extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var items
      */
     public $items;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalPageCount;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'DBInstanceName'   => 'DBInstanceName',
-        'items'            => 'Items',
-        'pageNumber'       => 'PageNumber',
-        'pageRecordCount'  => 'PageRecordCount',
-        'requestId'        => 'RequestId',
-        'totalPageCount'   => 'TotalPageCount',
+        'DBInstanceName' => 'DBInstanceName',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
+        'totalPageCount' => 'TotalPageCount',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 

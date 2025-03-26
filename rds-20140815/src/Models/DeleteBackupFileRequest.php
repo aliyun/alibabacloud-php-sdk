@@ -12,43 +12,50 @@ class DeleteBackupFileRequest extends Model
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $backupTime;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'backupId'             => 'BackupId',
-        'backupTime'           => 'BackupTime',
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBName'               => 'DBName',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'backupId' => 'BackupId',
+        'backupTime' => 'BackupTime',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

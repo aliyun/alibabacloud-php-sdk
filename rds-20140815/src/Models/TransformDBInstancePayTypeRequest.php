@@ -12,68 +12,80 @@ class TransformDBInstancePayTypeRequest extends Model
      * @var string
      */
     public $autoRenew;
+
     /**
      * @var bool
      */
     public $autoUseCoupon;
+
     /**
      * @var string
      */
     public $businessInfo;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $promotionCode;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $usedTime;
     protected $_name = [
-        'autoRenew'            => 'AutoRenew',
-        'autoUseCoupon'        => 'AutoUseCoupon',
-        'businessInfo'         => 'BusinessInfo',
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'payType'              => 'PayType',
-        'period'               => 'Period',
-        'promotionCode'        => 'PromotionCode',
+        'autoRenew' => 'AutoRenew',
+        'autoUseCoupon' => 'AutoUseCoupon',
+        'businessInfo' => 'BusinessInfo',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'promotionCode' => 'PromotionCode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'usedTime'             => 'UsedTime',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'usedTime' => 'UsedTime',
     ];
 
     public function validate()

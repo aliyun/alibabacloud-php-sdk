@@ -12,17 +12,19 @@ class CheckServiceLinkedRoleResponseBody extends Model
      * @var string
      */
     public $hasServiceLinkedRole;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $requireServiceLinkedRole;
     protected $_name = [
-        'hasServiceLinkedRole'     => 'HasServiceLinkedRole',
-        'requestId'                => 'RequestId',
+        'hasServiceLinkedRole' => 'HasServiceLinkedRole',
+        'requestId' => 'RequestId',
         'requireServiceLinkedRole' => 'RequireServiceLinkedRole',
     ];
 

@@ -12,28 +12,32 @@ class ModifyDBInstanceReplicationSwitchRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $externalReplication;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBInstanceId'        => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'externalReplication' => 'ExternalReplication',
-        'regionId'            => 'RegionId',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'resourceOwnerId'     => 'ResourceOwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

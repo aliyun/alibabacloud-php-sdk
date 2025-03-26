@@ -12,83 +12,98 @@ class items extends Model
      * @var string
      */
     public $detail;
+
     /**
      * @var string
      */
     public $gmtCreated;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $migrateStage;
+
     /**
      * @var string
      */
     public $replicationInfo;
+
     /**
      * @var string
      */
     public $replicationState;
+
     /**
      * @var string
      */
     public $sourceAccount;
+
     /**
      * @var string
      */
     public $sourceCategory;
+
     /**
      * @var string
      */
     public $sourceIpAddress;
+
     /**
      * @var string
      */
     public $sourcePassword;
+
     /**
      * @var int
      */
     public $sourcePort;
+
     /**
      * @var string
      */
     public $switchTime;
+
     /**
      * @var string
      */
     public $targetEip;
+
     /**
      * @var string
      */
     public $targetInstanceName;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskName;
     protected $_name = [
-        'detail'             => 'Detail',
-        'gmtCreated'         => 'GmtCreated',
-        'gmtModified'        => 'GmtModified',
-        'migrateStage'       => 'MigrateStage',
-        'replicationInfo'    => 'ReplicationInfo',
-        'replicationState'   => 'ReplicationState',
-        'sourceAccount'      => 'SourceAccount',
-        'sourceCategory'     => 'SourceCategory',
-        'sourceIpAddress'    => 'SourceIpAddress',
-        'sourcePassword'     => 'SourcePassword',
-        'sourcePort'         => 'SourcePort',
-        'switchTime'         => 'SwitchTime',
-        'targetEip'          => 'TargetEip',
+        'detail' => 'Detail',
+        'gmtCreated' => 'GmtCreated',
+        'gmtModified' => 'GmtModified',
+        'migrateStage' => 'MigrateStage',
+        'replicationInfo' => 'ReplicationInfo',
+        'replicationState' => 'ReplicationState',
+        'sourceAccount' => 'SourceAccount',
+        'sourceCategory' => 'SourceCategory',
+        'sourceIpAddress' => 'SourceIpAddress',
+        'sourcePassword' => 'SourcePassword',
+        'sourcePort' => 'SourcePort',
+        'switchTime' => 'SwitchTime',
+        'targetEip' => 'TargetEip',
         'targetInstanceName' => 'TargetInstanceName',
-        'taskId'             => 'TaskId',
-        'taskName'           => 'TaskName',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
     ];
 
     public function validate()

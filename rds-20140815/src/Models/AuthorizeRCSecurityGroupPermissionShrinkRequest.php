@@ -12,22 +12,25 @@ class AuthorizeRCSecurityGroupPermissionShrinkRequest extends Model
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $securityGroupPermissionsShrink;
     protected $_name = [
-        'direction'                      => 'Direction',
-        'regionId'                       => 'RegionId',
-        'securityGroupId'                => 'SecurityGroupId',
+        'direction' => 'Direction',
+        'regionId' => 'RegionId',
+        'securityGroupId' => 'SecurityGroupId',
         'securityGroupPermissionsShrink' => 'SecurityGroupPermissions',
     ];
 

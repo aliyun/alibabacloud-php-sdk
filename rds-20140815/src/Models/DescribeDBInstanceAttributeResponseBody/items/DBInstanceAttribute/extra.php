@@ -13,18 +13,20 @@ class extra extends Model
      * @var string
      */
     public $accountSecurityPolicy;
+
     /**
      * @var DBInstanceIds
      */
     public $DBInstanceIds;
+
     /**
      * @var string
      */
     public $recoveryModel;
     protected $_name = [
         'accountSecurityPolicy' => 'AccountSecurityPolicy',
-        'DBInstanceIds'         => 'DBInstanceIds',
-        'recoveryModel'         => 'RecoveryModel',
+        'DBInstanceIds' => 'DBInstanceIds',
+        'recoveryModel' => 'RecoveryModel',
     ];
 
     public function validate()

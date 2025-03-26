@@ -12,28 +12,32 @@ class DeleteDBProxyEndpointAddressRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBProxyConnectStringNetType;
+
     /**
      * @var string
      */
     public $DBProxyEndpointId;
+
     /**
      * @var string
      */
     public $DBProxyEngineType;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'DBInstanceId'                => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'DBProxyConnectStringNetType' => 'DBProxyConnectStringNetType',
-        'DBProxyEndpointId'           => 'DBProxyEndpointId',
-        'DBProxyEngineType'           => 'DBProxyEngineType',
-        'regionId'                    => 'RegionId',
+        'DBProxyEndpointId' => 'DBProxyEndpointId',
+        'DBProxyEngineType' => 'DBProxyEngineType',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

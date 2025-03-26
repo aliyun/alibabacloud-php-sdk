@@ -12,28 +12,32 @@ class CreateDBInstanceForRebuildResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'message'      => 'Message',
-        'orderId'      => 'OrderId',
-        'requestId'    => 'RequestId',
-        'taskId'       => 'TaskId',
+        'message' => 'Message',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

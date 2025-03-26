@@ -12,23 +12,26 @@ class eipAddress extends Model
      * @var string
      */
     public $allocationId;
+
     /**
      * @var int
      */
     public $bandwidth;
+
     /**
      * @var string
      */
     public $internetChargeType;
+
     /**
      * @var string
      */
     public $ipAddress;
     protected $_name = [
-        'allocationId'       => 'AllocationId',
-        'bandwidth'          => 'Bandwidth',
+        'allocationId' => 'AllocationId',
+        'bandwidth' => 'Bandwidth',
         'internetChargeType' => 'InternetChargeType',
-        'ipAddress'          => 'IpAddress',
+        'ipAddress' => 'IpAddress',
     ];
 
     public function validate()

@@ -12,53 +12,62 @@ class CreateDBProxyEndpointAddressRequest extends Model
      * @var string
      */
     public $connectionStringPrefix;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBProxyConnectStringNetType;
+
     /**
      * @var string
      */
     public $DBProxyEndpointId;
+
     /**
      * @var string
      */
     public $DBProxyEngineType;
+
     /**
      * @var string
      */
     public $DBProxyNewConnectStringPort;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'connectionStringPrefix'      => 'ConnectionStringPrefix',
-        'DBInstanceId'                => 'DBInstanceId',
+        'connectionStringPrefix' => 'ConnectionStringPrefix',
+        'DBInstanceId' => 'DBInstanceId',
         'DBProxyConnectStringNetType' => 'DBProxyConnectStringNetType',
-        'DBProxyEndpointId'           => 'DBProxyEndpointId',
-        'DBProxyEngineType'           => 'DBProxyEngineType',
+        'DBProxyEndpointId' => 'DBProxyEndpointId',
+        'DBProxyEngineType' => 'DBProxyEngineType',
         'DBProxyNewConnectStringPort' => 'DBProxyNewConnectStringPort',
-        'regionId'                    => 'RegionId',
-        'resourceGroupId'             => 'ResourceGroupId',
-        'VPCId'                       => 'VPCId',
-        'vSwitchId'                   => 'VSwitchId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class TransformDBInstancePayTypeResponseBody extends Model
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var int
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'chargeType'   => 'ChargeType',
+        'chargeType' => 'ChargeType',
         'DBInstanceId' => 'DBInstanceId',
-        'expiredTime'  => 'ExpiredTime',
-        'orderId'      => 'OrderId',
-        'requestId'    => 'RequestId',
+        'expiredTime' => 'ExpiredTime',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

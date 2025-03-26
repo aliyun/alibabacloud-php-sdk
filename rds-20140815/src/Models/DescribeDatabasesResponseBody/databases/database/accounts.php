@@ -31,7 +31,7 @@ class accounts extends Model
         if (null !== $this->accountPrivilegeInfo) {
             if (\is_array($this->accountPrivilegeInfo)) {
                 $res['AccountPrivilegeInfo'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->accountPrivilegeInfo as $item1) {
                     $res['AccountPrivilegeInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class accounts extends Model
         if (isset($map['AccountPrivilegeInfo'])) {
             if (!empty($map['AccountPrivilegeInfo'])) {
                 $model->accountPrivilegeInfo = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['AccountPrivilegeInfo'] as $item1) {
                     $model->accountPrivilegeInfo[$n1++] = accountPrivilegeInfo::fromMap($item1);
                 }

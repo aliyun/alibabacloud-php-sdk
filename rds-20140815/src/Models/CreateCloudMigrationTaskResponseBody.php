@@ -12,23 +12,26 @@ class CreateCloudMigrationTaskResponseBody extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskName;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'requestId'      => 'RequestId',
-        'taskId'         => 'TaskId',
-        'taskName'       => 'TaskName',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
     ];
 
     public function validate()

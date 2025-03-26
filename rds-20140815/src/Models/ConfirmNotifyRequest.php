@@ -12,12 +12,13 @@ class ConfirmNotifyRequest extends Model
      * @var int
      */
     public $confirmor;
+
     /**
      * @var int[]
      */
     public $notifyIdList;
     protected $_name = [
-        'confirmor'    => 'Confirmor',
+        'confirmor' => 'Confirmor',
         'notifyIdList' => 'NotifyIdList',
     ];
 
@@ -39,7 +40,7 @@ class ConfirmNotifyRequest extends Model
         if (null !== $this->notifyIdList) {
             if (\is_array($this->notifyIdList)) {
                 $res['NotifyIdList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->notifyIdList as $item1) {
                     $res['NotifyIdList'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class ConfirmNotifyRequest extends Model
         if (isset($map['NotifyIdList'])) {
             if (!empty($map['NotifyIdList'])) {
                 $model->notifyIdList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['NotifyIdList'] as $item1) {
                     $model->notifyIdList[$n1++] = $item1;
                 }

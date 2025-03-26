@@ -31,7 +31,7 @@ class dbProxyCertListItems extends Model
         if (null !== $this->dbProxyCertListItems) {
             if (\is_array($this->dbProxyCertListItems)) {
                 $res['DbProxyCertListItems'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->dbProxyCertListItems as $item1) {
                     $res['DbProxyCertListItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class dbProxyCertListItems extends Model
         if (isset($map['DbProxyCertListItems'])) {
             if (!empty($map['DbProxyCertListItems'])) {
                 $model->dbProxyCertListItems = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['DbProxyCertListItems'] as $item1) {
                     $model->dbProxyCertListItems[$n1++] = self::fromMap($item1);
                 }

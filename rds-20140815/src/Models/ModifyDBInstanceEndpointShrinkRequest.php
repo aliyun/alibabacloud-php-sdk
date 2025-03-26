@@ -12,33 +12,38 @@ class ModifyDBInstanceEndpointShrinkRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceEndpointDescription;
+
     /**
      * @var string
      */
     public $DBInstanceEndpointId;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $nodeItemsShrink;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'                   => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'DBInstanceEndpointDescription' => 'DBInstanceEndpointDescription',
-        'DBInstanceEndpointId'          => 'DBInstanceEndpointId',
-        'DBInstanceId'                  => 'DBInstanceId',
-        'nodeItemsShrink'               => 'NodeItems',
-        'resourceOwnerId'               => 'ResourceOwnerId',
+        'DBInstanceEndpointId' => 'DBInstanceEndpointId',
+        'DBInstanceId' => 'DBInstanceId',
+        'nodeItemsShrink' => 'NodeItems',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

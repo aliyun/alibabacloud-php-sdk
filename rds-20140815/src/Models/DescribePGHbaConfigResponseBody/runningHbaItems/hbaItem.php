@@ -12,43 +12,50 @@ class hbaItem extends Model
      * @var string
      */
     public $address;
+
     /**
      * @var string
      */
     public $database;
+
     /**
      * @var string
      */
     public $mask;
+
     /**
      * @var string
      */
     public $method;
+
     /**
      * @var string
      */
     public $option;
+
     /**
      * @var int
      */
     public $priorityId;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'address'    => 'Address',
-        'database'   => 'Database',
-        'mask'       => 'Mask',
-        'method'     => 'Method',
-        'option'     => 'Option',
+        'address' => 'Address',
+        'database' => 'Database',
+        'mask' => 'Mask',
+        'method' => 'Method',
+        'option' => 'Option',
         'priorityId' => 'PriorityId',
-        'type'       => 'Type',
-        'user'       => 'User',
+        'type' => 'Type',
+        'user' => 'User',
     ];
 
     public function validate()

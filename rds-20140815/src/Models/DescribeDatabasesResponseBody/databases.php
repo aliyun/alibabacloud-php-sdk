@@ -31,7 +31,7 @@ class databases extends Model
         if (null !== $this->database) {
             if (\is_array($this->database)) {
                 $res['Database'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->database as $item1) {
                     $res['Database'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class databases extends Model
         if (isset($map['Database'])) {
             if (!empty($map['Database'])) {
                 $model->database = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Database'] as $item1) {
                     $model->database[$n1++] = database::fromMap($item1);
                 }

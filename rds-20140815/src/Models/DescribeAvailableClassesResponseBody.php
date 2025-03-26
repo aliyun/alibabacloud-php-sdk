@@ -13,13 +13,14 @@ class DescribeAvailableClassesResponseBody extends Model
      * @var DBInstanceClasses[]
      */
     public $DBInstanceClasses;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBInstanceClasses' => 'DBInstanceClasses',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeAvailableClassesResponseBody extends Model
         if (null !== $this->DBInstanceClasses) {
             if (\is_array($this->DBInstanceClasses)) {
                 $res['DBInstanceClasses'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->DBInstanceClasses as $item1) {
                     $res['DBInstanceClasses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeAvailableClassesResponseBody extends Model
         if (isset($map['DBInstanceClasses'])) {
             if (!empty($map['DBInstanceClasses'])) {
                 $model->DBInstanceClasses = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['DBInstanceClasses'] as $item1) {
                     $model->DBInstanceClasses[$n1++] = DBInstanceClasses::fromMap($item1);
                 }

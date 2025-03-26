@@ -12,12 +12,13 @@ class DeleteDBInstanceResponseBody extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'regionId'  => 'RegionId',
+        'regionId' => 'RegionId',
         'requestId' => 'RequestId',
     ];
 

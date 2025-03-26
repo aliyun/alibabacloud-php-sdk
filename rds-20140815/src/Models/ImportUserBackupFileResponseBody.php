@@ -12,18 +12,20 @@ class ImportUserBackupFileResponseBody extends Model
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $status;
     protected $_name = [
-        'backupId'  => 'BackupId',
+        'backupId' => 'BackupId',
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

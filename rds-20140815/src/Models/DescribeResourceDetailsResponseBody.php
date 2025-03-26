@@ -13,73 +13,86 @@ class DescribeResourceDetailsResponseBody extends Model
      * @var int
      */
     public $backupDataSize;
+
     /**
      * @var int
      */
     public $backupLogSize;
+
     /**
      * @var int
      */
     public $backupSize;
+
     /**
      * @var int
      */
     public $dbInstanceStorage;
+
     /**
      * @var string
      */
     public $dbProxyInstanceName;
+
     /**
      * @var int
      */
     public $diskUsed;
+
     /**
      * @var string
      */
     public $instanceStorageType;
+
     /**
      * @var rdsEcsSecurityGroupRel[]
      */
     public $rdsEcsSecurityGroupRel;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $securityIPList;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'backupDataSize'         => 'BackupDataSize',
-        'backupLogSize'          => 'BackupLogSize',
-        'backupSize'             => 'BackupSize',
-        'dbInstanceStorage'      => 'DbInstanceStorage',
-        'dbProxyInstanceName'    => 'DbProxyInstanceName',
-        'diskUsed'               => 'DiskUsed',
-        'instanceStorageType'    => 'InstanceStorageType',
+        'backupDataSize' => 'BackupDataSize',
+        'backupLogSize' => 'BackupLogSize',
+        'backupSize' => 'BackupSize',
+        'dbInstanceStorage' => 'DbInstanceStorage',
+        'dbProxyInstanceName' => 'DbProxyInstanceName',
+        'diskUsed' => 'DiskUsed',
+        'instanceStorageType' => 'InstanceStorageType',
         'rdsEcsSecurityGroupRel' => 'RdsEcsSecurityGroupRel',
-        'region'                 => 'Region',
-        'requestId'              => 'RequestId',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'securityIPList'         => 'SecurityIPList',
-        'vSwitchId'              => 'VSwitchId',
-        'vpcId'                  => 'VpcId',
+        'region' => 'Region',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'securityIPList' => 'SecurityIPList',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -124,7 +137,7 @@ class DescribeResourceDetailsResponseBody extends Model
         if (null !== $this->rdsEcsSecurityGroupRel) {
             if (\is_array($this->rdsEcsSecurityGroupRel)) {
                 $res['RdsEcsSecurityGroupRel'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->rdsEcsSecurityGroupRel as $item1) {
                     $res['RdsEcsSecurityGroupRel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -197,7 +210,7 @@ class DescribeResourceDetailsResponseBody extends Model
         if (isset($map['RdsEcsSecurityGroupRel'])) {
             if (!empty($map['RdsEcsSecurityGroupRel'])) {
                 $model->rdsEcsSecurityGroupRel = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['RdsEcsSecurityGroupRel'] as $item1) {
                     $model->rdsEcsSecurityGroupRel[$n1++] = rdsEcsSecurityGroupRel::fromMap($item1);
                 }

@@ -12,58 +12,68 @@ class ModifyRCSecurityGroupPermissionRequest extends Model
      * @var string
      */
     public $destCidrIp;
+
     /**
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $ipProtocol;
+
     /**
      * @var string
      */
     public $policy;
+
     /**
      * @var string
      */
     public $portRange;
+
     /**
      * @var string
      */
     public $priority;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $securityGroupRuleId;
+
     /**
      * @var string
      */
     public $sourceCidrIp;
+
     /**
      * @var string
      */
     public $sourcePortRange;
     protected $_name = [
-        'destCidrIp'          => 'DestCidrIp',
-        'direction'           => 'Direction',
-        'ipProtocol'          => 'IpProtocol',
-        'policy'              => 'Policy',
-        'portRange'           => 'PortRange',
-        'priority'            => 'Priority',
-        'regionId'            => 'RegionId',
-        'securityGroupId'     => 'SecurityGroupId',
+        'destCidrIp' => 'DestCidrIp',
+        'direction' => 'Direction',
+        'ipProtocol' => 'IpProtocol',
+        'policy' => 'Policy',
+        'portRange' => 'PortRange',
+        'priority' => 'Priority',
+        'regionId' => 'RegionId',
+        'securityGroupId' => 'SecurityGroupId',
         'securityGroupRuleId' => 'SecurityGroupRuleId',
-        'sourceCidrIp'        => 'SourceCidrIp',
-        'sourcePortRange'     => 'SourcePortRange',
+        'sourceCidrIp' => 'SourceCidrIp',
+        'sourcePortRange' => 'SourcePortRange',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class DBInstanceWeight extends Model
      * @var string
      */
     public $availability;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceType;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $weight;
     protected $_name = [
-        'availability'   => 'Availability',
-        'DBInstanceId'   => 'DBInstanceId',
+        'availability' => 'Availability',
+        'DBInstanceId' => 'DBInstanceId',
         'DBInstanceType' => 'DBInstanceType',
-        'role'           => 'Role',
-        'weight'         => 'Weight',
+        'role' => 'Role',
+        'weight' => 'Weight',
     ];
 
     public function validate()

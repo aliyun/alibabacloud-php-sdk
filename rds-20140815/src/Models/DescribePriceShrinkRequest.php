@@ -12,113 +12,134 @@ class DescribePriceShrinkRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $DBNodeShrink;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var int
      */
     public $instanceUsedType;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var int
      */
     public $quantity;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $serverlessConfigShrink;
+
     /**
      * @var string
      */
     public $timeType;
+
     /**
      * @var int
      */
     public $usedTime;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'clientToken'            => 'ClientToken',
-        'commodityCode'          => 'CommodityCode',
-        'DBInstanceClass'        => 'DBInstanceClass',
-        'DBInstanceId'           => 'DBInstanceId',
-        'DBInstanceStorage'      => 'DBInstanceStorage',
-        'DBInstanceStorageType'  => 'DBInstanceStorageType',
-        'DBNodeShrink'           => 'DBNode',
-        'engine'                 => 'Engine',
-        'engineVersion'          => 'EngineVersion',
-        'instanceUsedType'       => 'InstanceUsedType',
-        'orderType'              => 'OrderType',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'payType'                => 'PayType',
-        'quantity'               => 'Quantity',
-        'regionId'               => 'RegionId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
+        'clientToken' => 'ClientToken',
+        'commodityCode' => 'CommodityCode',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStorage' => 'DBInstanceStorage',
+        'DBInstanceStorageType' => 'DBInstanceStorageType',
+        'DBNodeShrink' => 'DBNode',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'instanceUsedType' => 'InstanceUsedType',
+        'orderType' => 'OrderType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'payType' => 'PayType',
+        'quantity' => 'Quantity',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
         'serverlessConfigShrink' => 'ServerlessConfig',
-        'timeType'               => 'TimeType',
-        'usedTime'               => 'UsedTime',
-        'zoneId'                 => 'ZoneId',
+        'timeType' => 'TimeType',
+        'usedTime' => 'UsedTime',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

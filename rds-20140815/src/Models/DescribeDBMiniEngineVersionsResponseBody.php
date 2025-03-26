@@ -13,33 +13,38 @@ class DescribeDBMiniEngineVersionsResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $maxRecordsPerPage;
+
     /**
      * @var minorVersionItems[]
      */
     public $minorVersionItems;
+
     /**
      * @var int
      */
     public $pageNumbers;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'DBInstanceId'      => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'maxRecordsPerPage' => 'MaxRecordsPerPage',
         'minorVersionItems' => 'MinorVersionItems',
-        'pageNumbers'       => 'PageNumbers',
-        'requestId'         => 'RequestId',
-        'totalCount'        => 'TotalCount',
+        'pageNumbers' => 'PageNumbers',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -64,7 +69,7 @@ class DescribeDBMiniEngineVersionsResponseBody extends Model
         if (null !== $this->minorVersionItems) {
             if (\is_array($this->minorVersionItems)) {
                 $res['MinorVersionItems'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->minorVersionItems as $item1) {
                     $res['MinorVersionItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -105,7 +110,7 @@ class DescribeDBMiniEngineVersionsResponseBody extends Model
         if (isset($map['MinorVersionItems'])) {
             if (!empty($map['MinorVersionItems'])) {
                 $model->minorVersionItems = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['MinorVersionItems'] as $item1) {
                     $model->minorVersionItems[$n1++] = minorVersionItems::fromMap($item1);
                 }

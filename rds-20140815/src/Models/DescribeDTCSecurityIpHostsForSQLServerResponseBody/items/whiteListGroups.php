@@ -12,12 +12,13 @@ class whiteListGroups extends Model
      * @var string
      */
     public $securityIpHosts;
+
     /**
      * @var string
      */
     public $whitelistGroupName;
     protected $_name = [
-        'securityIpHosts'    => 'SecurityIpHosts',
+        'securityIpHosts' => 'SecurityIpHosts',
         'whitelistGroupName' => 'WhitelistGroupName',
     ];
 

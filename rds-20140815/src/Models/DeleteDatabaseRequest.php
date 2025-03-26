@@ -12,17 +12,19 @@ class DeleteDatabaseRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
-        'DBName'          => 'DBName',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 

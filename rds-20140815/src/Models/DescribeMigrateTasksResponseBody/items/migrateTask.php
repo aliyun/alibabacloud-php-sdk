@@ -12,43 +12,50 @@ class migrateTask extends Model
      * @var string
      */
     public $backupMode;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $isDBReplaced;
+
     /**
      * @var string
      */
     public $migrateTaskId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'backupMode'    => 'BackupMode',
-        'createTime'    => 'CreateTime',
-        'DBName'        => 'DBName',
-        'description'   => 'Description',
-        'endTime'       => 'EndTime',
-        'isDBReplaced'  => 'IsDBReplaced',
+        'backupMode' => 'BackupMode',
+        'createTime' => 'CreateTime',
+        'DBName' => 'DBName',
+        'description' => 'Description',
+        'endTime' => 'EndTime',
+        'isDBReplaced' => 'IsDBReplaced',
         'migrateTaskId' => 'MigrateTaskId',
-        'status'        => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

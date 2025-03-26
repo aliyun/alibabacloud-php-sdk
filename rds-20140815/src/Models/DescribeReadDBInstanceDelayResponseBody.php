@@ -13,28 +13,32 @@ class DescribeReadDBInstanceDelayResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $delayTime;
+
     /**
      * @var items
      */
     public $items;
+
     /**
      * @var string
      */
     public $readDBInstanceId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'DBInstanceId'     => 'DBInstanceId',
-        'delayTime'        => 'DelayTime',
-        'items'            => 'Items',
+        'DBInstanceId' => 'DBInstanceId',
+        'delayTime' => 'DelayTime',
+        'items' => 'Items',
         'readDBInstanceId' => 'ReadDBInstanceId',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

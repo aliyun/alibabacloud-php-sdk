@@ -12,18 +12,20 @@ class responses extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $message;
     protected $_name = [
-        'code'       => 'Code',
+        'code' => 'Code',
         'instanceId' => 'InstanceId',
-        'message'    => 'Message',
+        'message' => 'Message',
     ];
 
     public function validate()

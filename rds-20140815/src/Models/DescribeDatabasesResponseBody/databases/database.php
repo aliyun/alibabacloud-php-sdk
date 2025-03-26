@@ -16,88 +16,104 @@ class database extends Model
      * @var accounts
      */
     public $accounts;
+
     /**
      * @var advancedInfo
      */
     public $advancedInfo;
+
     /**
      * @var basicInfo
      */
     public $basicInfo;
+
     /**
      * @var string
      */
     public $characterSetName;
+
     /**
      * @var string
      */
     public $collate;
+
     /**
      * @var string
      */
     public $connLimit;
+
     /**
      * @var string
      */
     public $ctype;
+
     /**
      * @var string
      */
     public $DBDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $DBStatus;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var runtimeInfo
      */
     public $runtimeInfo;
+
     /**
      * @var string
      */
     public $tablespace;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'accounts'         => 'Accounts',
-        'advancedInfo'     => 'AdvancedInfo',
-        'basicInfo'        => 'BasicInfo',
+        'accounts' => 'Accounts',
+        'advancedInfo' => 'AdvancedInfo',
+        'basicInfo' => 'BasicInfo',
         'characterSetName' => 'CharacterSetName',
-        'collate'          => 'Collate',
-        'connLimit'        => 'ConnLimit',
-        'ctype'            => 'Ctype',
-        'DBDescription'    => 'DBDescription',
-        'DBInstanceId'     => 'DBInstanceId',
-        'DBName'           => 'DBName',
-        'DBStatus'         => 'DBStatus',
-        'engine'           => 'Engine',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'runtimeInfo'      => 'RuntimeInfo',
-        'tablespace'       => 'Tablespace',
-        'totalCount'       => 'TotalCount',
+        'collate' => 'Collate',
+        'connLimit' => 'ConnLimit',
+        'ctype' => 'Ctype',
+        'DBDescription' => 'DBDescription',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
+        'DBStatus' => 'DBStatus',
+        'engine' => 'Engine',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'runtimeInfo' => 'RuntimeInfo',
+        'tablespace' => 'Tablespace',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

@@ -12,68 +12,86 @@ class CreateRCDiskRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var bool
      */
     public $autoRenew;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $diskCategory;
+
     /**
      * @var string
      */
     public $diskName;
+
     /**
      * @var string
      */
     public $instanceChargeType;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
     /**
      * @var string
      */
     public $performanceLevel;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $periodUnit;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var string
      */
     public $snapshotId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'autoPay'            => 'AutoPay',
-        'autoRenew'          => 'AutoRenew',
-        'description'        => 'Description',
-        'diskCategory'       => 'DiskCategory',
-        'diskName'           => 'DiskName',
+        'autoPay' => 'AutoPay',
+        'autoRenew' => 'AutoRenew',
+        'description' => 'Description',
+        'diskCategory' => 'DiskCategory',
+        'diskName' => 'DiskName',
         'instanceChargeType' => 'InstanceChargeType',
-        'performanceLevel'   => 'PerformanceLevel',
-        'period'             => 'Period',
-        'periodUnit'         => 'PeriodUnit',
-        'regionId'           => 'RegionId',
-        'size'               => 'Size',
-        'snapshotId'         => 'SnapshotId',
-        'zoneId'             => 'ZoneId',
+        'instanceId' => 'InstanceId',
+        'performanceLevel' => 'PerformanceLevel',
+        'period' => 'Period',
+        'periodUnit' => 'PeriodUnit',
+        'regionId' => 'RegionId',
+        'size' => 'Size',
+        'snapshotId' => 'SnapshotId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -106,6 +124,10 @@ class CreateRCDiskRequest extends Model
 
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
+        }
+
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         if (null !== $this->performanceLevel) {
@@ -169,6 +191,10 @@ class CreateRCDiskRequest extends Model
 
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];
+        }
+
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         if (isset($map['PerformanceLevel'])) {

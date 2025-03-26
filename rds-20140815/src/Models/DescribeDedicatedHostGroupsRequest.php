@@ -12,33 +12,38 @@ class DescribeDedicatedHostGroupsRequest extends Model
      * @var string
      */
     public $dedicatedHostGroupId;
+
     /**
      * @var string
      */
     public $imageCategory;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
         'dedicatedHostGroupId' => 'DedicatedHostGroupId',
-        'imageCategory'        => 'ImageCategory',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'imageCategory' => 'ImageCategory',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

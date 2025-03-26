@@ -13,32 +13,37 @@ class DescribeRCImageListResponseBody extends Model
      * @var images[]
      */
     public $images;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'images'     => 'Images',
+        'images' => 'Images',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -56,7 +61,7 @@ class DescribeRCImageListResponseBody extends Model
         if (null !== $this->images) {
             if (\is_array($this->images)) {
                 $res['Images'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->images as $item1) {
                     $res['Images'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class DescribeRCImageListResponseBody extends Model
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Images'] as $item1) {
                     $model->images[$n1++] = images::fromMap($item1);
                 }

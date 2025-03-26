@@ -12,43 +12,50 @@ class DescribeDBInstanceConnectivityRequest extends Model
      * @var string
      */
     public $dbInstanceName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $securityToken;
+
     /**
      * @var string
      */
     public $sourceIpAddress;
     protected $_name = [
-        'dbInstanceName'       => 'DbInstanceName',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'dbInstanceName' => 'DbInstanceName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
-        'sourceIpAddress'      => 'SourceIpAddress',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'securityToken' => 'SecurityToken',
+        'sourceIpAddress' => 'SourceIpAddress',
     ];
 
     public function validate()

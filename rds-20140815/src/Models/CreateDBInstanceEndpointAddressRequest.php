@@ -12,43 +12,50 @@ class CreateDBInstanceEndpointAddressRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $connectionStringPrefix;
+
     /**
      * @var string
      */
     public $DBInstanceEndpointId;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $ipType;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'            => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'connectionStringPrefix' => 'ConnectionStringPrefix',
-        'DBInstanceEndpointId'   => 'DBInstanceEndpointId',
-        'DBInstanceId'           => 'DBInstanceId',
-        'ipType'                 => 'IpType',
-        'port'                   => 'Port',
-        'resourceGroupId'        => 'ResourceGroupId',
-        'resourceOwnerId'        => 'ResourceOwnerId',
+        'DBInstanceEndpointId' => 'DBInstanceEndpointId',
+        'DBInstanceId' => 'DBInstanceId',
+        'ipType' => 'IpType',
+        'port' => 'Port',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

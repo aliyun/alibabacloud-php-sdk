@@ -12,23 +12,26 @@ class RenewRCInstanceResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $orderIds;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'orderId'      => 'OrderId',
-        'orderIds'     => 'OrderIds',
-        'requestId'    => 'RequestId',
+        'orderId' => 'OrderId',
+        'orderIds' => 'OrderIds',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

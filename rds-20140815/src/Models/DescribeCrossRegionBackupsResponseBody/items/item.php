@@ -13,98 +13,116 @@ class item extends Model
      * @var string
      */
     public $backupEndTime;
+
     /**
      * @var string
      */
     public $backupMethod;
+
     /**
      * @var int
      */
     public $backupSetScale;
+
     /**
      * @var int
      */
     public $backupSetStatus;
+
     /**
      * @var string
      */
     public $backupStartTime;
+
     /**
      * @var string
      */
     public $backupType;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $consistentTime;
+
     /**
      * @var string
      */
     public $crossBackupDownloadLink;
+
     /**
      * @var int
      */
     public $crossBackupId;
+
     /**
      * @var string
      */
     public $crossBackupRegion;
+
     /**
      * @var string
      */
     public $crossBackupSetFile;
+
     /**
      * @var string
      */
     public $crossBackupSetLocation;
+
     /**
      * @var int
      */
     public $crossBackupSetSize;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var restoreRegions
      */
     public $restoreRegions;
     protected $_name = [
-        'backupEndTime'           => 'BackupEndTime',
-        'backupMethod'            => 'BackupMethod',
-        'backupSetScale'          => 'BackupSetScale',
-        'backupSetStatus'         => 'BackupSetStatus',
-        'backupStartTime'         => 'BackupStartTime',
-        'backupType'              => 'BackupType',
-        'category'                => 'Category',
-        'consistentTime'          => 'ConsistentTime',
+        'backupEndTime' => 'BackupEndTime',
+        'backupMethod' => 'BackupMethod',
+        'backupSetScale' => 'BackupSetScale',
+        'backupSetStatus' => 'BackupSetStatus',
+        'backupStartTime' => 'BackupStartTime',
+        'backupType' => 'BackupType',
+        'category' => 'Category',
+        'consistentTime' => 'ConsistentTime',
         'crossBackupDownloadLink' => 'CrossBackupDownloadLink',
-        'crossBackupId'           => 'CrossBackupId',
-        'crossBackupRegion'       => 'CrossBackupRegion',
-        'crossBackupSetFile'      => 'CrossBackupSetFile',
-        'crossBackupSetLocation'  => 'CrossBackupSetLocation',
-        'crossBackupSetSize'      => 'CrossBackupSetSize',
-        'DBInstanceStorageType'   => 'DBInstanceStorageType',
-        'engine'                  => 'Engine',
-        'engineVersion'           => 'EngineVersion',
-        'instanceId'              => 'InstanceId',
-        'restoreRegions'          => 'RestoreRegions',
+        'crossBackupId' => 'CrossBackupId',
+        'crossBackupRegion' => 'CrossBackupRegion',
+        'crossBackupSetFile' => 'CrossBackupSetFile',
+        'crossBackupSetLocation' => 'CrossBackupSetLocation',
+        'crossBackupSetSize' => 'CrossBackupSetSize',
+        'DBInstanceStorageType' => 'DBInstanceStorageType',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'instanceId' => 'InstanceId',
+        'restoreRegions' => 'RestoreRegions',
     ];
 
     public function validate()

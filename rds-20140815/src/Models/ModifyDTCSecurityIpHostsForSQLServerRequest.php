@@ -12,48 +12,56 @@ class ModifyDTCSecurityIpHostsForSQLServerRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $securityIpHosts;
+
     /**
      * @var string
      */
     public $securityToken;
+
     /**
      * @var string
      */
     public $whiteListGroupName;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityIpHosts'      => 'SecurityIpHosts',
-        'securityToken'        => 'SecurityToken',
-        'whiteListGroupName'   => 'WhiteListGroupName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'securityIpHosts' => 'SecurityIpHosts',
+        'securityToken' => 'SecurityToken',
+        'whiteListGroupName' => 'WhiteListGroupName',
     ];
 
     public function validate()

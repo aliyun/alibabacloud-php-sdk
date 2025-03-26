@@ -12,68 +12,80 @@ class items extends Model
      * @var string
      */
     public $collectStatMode;
+
     /**
      * @var string
      */
     public $detail;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $result;
+
     /**
      * @var string
      */
     public $sourceInsName;
+
     /**
      * @var string
      */
     public $sourceMajorVersion;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $switchEndTime;
+
     /**
      * @var string
      */
     public $switchTime;
+
     /**
      * @var string
      */
     public $targetInsName;
+
     /**
      * @var string
      */
     public $targetMajorVersion;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $upgradeMode;
     protected $_name = [
-        'collectStatMode'    => 'CollectStatMode',
-        'detail'             => 'Detail',
-        'endTime'            => 'EndTime',
-        'result'             => 'Result',
-        'sourceInsName'      => 'SourceInsName',
+        'collectStatMode' => 'CollectStatMode',
+        'detail' => 'Detail',
+        'endTime' => 'EndTime',
+        'result' => 'Result',
+        'sourceInsName' => 'SourceInsName',
         'sourceMajorVersion' => 'SourceMajorVersion',
-        'startTime'          => 'StartTime',
-        'switchEndTime'      => 'SwitchEndTime',
-        'switchTime'         => 'SwitchTime',
-        'targetInsName'      => 'TargetInsName',
+        'startTime' => 'StartTime',
+        'switchEndTime' => 'SwitchEndTime',
+        'switchTime' => 'SwitchTime',
+        'targetInsName' => 'TargetInsName',
         'targetMajorVersion' => 'TargetMajorVersion',
-        'taskId'             => 'TaskId',
-        'upgradeMode'        => 'UpgradeMode',
+        'taskId' => 'TaskId',
+        'upgradeMode' => 'UpgradeMode',
     ];
 
     public function validate()

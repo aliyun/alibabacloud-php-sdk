@@ -13,33 +13,38 @@ class DescribeRCSecurityGroupPermissionResponseBody extends Model
      * @var string
      */
     public $innerAccessPolicy;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var securityGroupPermissions[]
      */
     public $securityGroupPermissions;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'innerAccessPolicy'        => 'InnerAccessPolicy',
-        'regionId'                 => 'RegionId',
-        'requestId'                => 'RequestId',
-        'securityGroupId'          => 'SecurityGroupId',
+        'innerAccessPolicy' => 'InnerAccessPolicy',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'securityGroupId' => 'SecurityGroupId',
         'securityGroupPermissions' => 'SecurityGroupPermissions',
-        'vpcId'                    => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -72,7 +77,7 @@ class DescribeRCSecurityGroupPermissionResponseBody extends Model
         if (null !== $this->securityGroupPermissions) {
             if (\is_array($this->securityGroupPermissions)) {
                 $res['SecurityGroupPermissions'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->securityGroupPermissions as $item1) {
                     $res['SecurityGroupPermissions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -113,7 +118,7 @@ class DescribeRCSecurityGroupPermissionResponseBody extends Model
         if (isset($map['SecurityGroupPermissions'])) {
             if (!empty($map['SecurityGroupPermissions'])) {
                 $model->securityGroupPermissions = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['SecurityGroupPermissions'] as $item1) {
                     $model->securityGroupPermissions[$n1++] = securityGroupPermissions::fromMap($item1);
                 }

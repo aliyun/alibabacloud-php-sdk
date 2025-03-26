@@ -12,88 +12,104 @@ class snapshots extends Model
      * @var bool
      */
     public $available;
+
     /**
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $encrypted;
+
     /**
      * @var bool
      */
     public $instantAccess;
+
     /**
      * @var string
      */
     public $progress;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $snapshotId;
+
     /**
      * @var string
      */
     public $snapshotName;
+
     /**
      * @var string
      */
     public $snapshotType;
+
     /**
      * @var string
      */
     public $sourceDiskId;
+
     /**
      * @var int
      */
     public $sourceDiskSize;
+
     /**
      * @var string
      */
     public $sourceDiskType;
+
     /**
      * @var string
      */
     public $sourceStorageType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $usage;
     protected $_name = [
-        'available'         => 'Available',
-        'category'          => 'Category',
-        'creationTime'      => 'CreationTime',
-        'description'       => 'Description',
-        'encrypted'         => 'Encrypted',
-        'instantAccess'     => 'InstantAccess',
-        'progress'          => 'Progress',
-        'regionId'          => 'RegionId',
-        'snapshotId'        => 'SnapshotId',
-        'snapshotName'      => 'SnapshotName',
-        'snapshotType'      => 'SnapshotType',
-        'sourceDiskId'      => 'SourceDiskId',
-        'sourceDiskSize'    => 'SourceDiskSize',
-        'sourceDiskType'    => 'SourceDiskType',
+        'available' => 'Available',
+        'category' => 'Category',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
+        'encrypted' => 'Encrypted',
+        'instantAccess' => 'InstantAccess',
+        'progress' => 'Progress',
+        'regionId' => 'RegionId',
+        'snapshotId' => 'SnapshotId',
+        'snapshotName' => 'SnapshotName',
+        'snapshotType' => 'SnapshotType',
+        'sourceDiskId' => 'SourceDiskId',
+        'sourceDiskSize' => 'SourceDiskSize',
+        'sourceDiskType' => 'SourceDiskType',
         'sourceStorageType' => 'SourceStorageType',
-        'status'            => 'Status',
-        'usage'             => 'Usage',
+        'status' => 'Status',
+        'usage' => 'Usage',
     ];
 
     public function validate()

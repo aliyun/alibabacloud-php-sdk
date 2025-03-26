@@ -14,38 +14,44 @@ class DescribePGHbaConfigResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var defaultHbaItems
      */
     public $defaultHbaItems;
+
     /**
      * @var string
      */
     public $hbaModifyTime;
+
     /**
      * @var string
      */
     public $lastModifyStatus;
+
     /**
      * @var string
      */
     public $modifyStatusReason;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var runningHbaItems
      */
     public $runningHbaItems;
     protected $_name = [
-        'DBInstanceId'       => 'DBInstanceId',
-        'defaultHbaItems'    => 'DefaultHbaItems',
-        'hbaModifyTime'      => 'HbaModifyTime',
-        'lastModifyStatus'   => 'LastModifyStatus',
+        'DBInstanceId' => 'DBInstanceId',
+        'defaultHbaItems' => 'DefaultHbaItems',
+        'hbaModifyTime' => 'HbaModifyTime',
+        'lastModifyStatus' => 'LastModifyStatus',
         'modifyStatusReason' => 'ModifyStatusReason',
-        'requestId'          => 'RequestId',
-        'runningHbaItems'    => 'RunningHbaItems',
+        'requestId' => 'RequestId',
+        'runningHbaItems' => 'RunningHbaItems',
     ];
 
     public function validate()

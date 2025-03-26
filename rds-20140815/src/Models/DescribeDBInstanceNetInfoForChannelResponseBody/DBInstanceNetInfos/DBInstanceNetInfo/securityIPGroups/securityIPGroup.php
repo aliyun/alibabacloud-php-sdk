@@ -12,13 +12,14 @@ class securityIPGroup extends Model
      * @var string
      */
     public $securityIPGroupName;
+
     /**
      * @var string
      */
     public $securityIPs;
     protected $_name = [
         'securityIPGroupName' => 'SecurityIPGroupName',
-        'securityIPs'         => 'SecurityIPs',
+        'securityIPs' => 'SecurityIPs',
     ];
 
     public function validate()

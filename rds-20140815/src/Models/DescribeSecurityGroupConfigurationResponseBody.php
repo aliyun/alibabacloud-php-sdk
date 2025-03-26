@@ -13,18 +13,20 @@ class DescribeSecurityGroupConfigurationResponseBody extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var items
      */
     public $items;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'items'          => 'Items',
-        'requestId'      => 'RequestId',
+        'items' => 'Items',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

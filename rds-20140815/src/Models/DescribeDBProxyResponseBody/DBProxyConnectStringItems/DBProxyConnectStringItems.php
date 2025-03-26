@@ -12,48 +12,56 @@ class DBProxyConnectStringItems extends Model
      * @var string
      */
     public $DBProxyConnectString;
+
     /**
      * @var string
      */
     public $DBProxyConnectStringNetType;
+
     /**
      * @var string
      */
     public $DBProxyConnectStringNetWorkType;
+
     /**
      * @var string
      */
     public $DBProxyConnectStringPort;
+
     /**
      * @var string
      */
     public $DBProxyEndpointId;
+
     /**
      * @var string
      */
     public $DBProxyEndpointName;
+
     /**
      * @var string
      */
     public $DBProxyVpcId;
+
     /**
      * @var string
      */
     public $DBProxyVpcInstanceId;
+
     /**
      * @var string
      */
     public $DBProxyVswitchId;
     protected $_name = [
-        'DBProxyConnectString'            => 'DBProxyConnectString',
-        'DBProxyConnectStringNetType'     => 'DBProxyConnectStringNetType',
+        'DBProxyConnectString' => 'DBProxyConnectString',
+        'DBProxyConnectStringNetType' => 'DBProxyConnectStringNetType',
         'DBProxyConnectStringNetWorkType' => 'DBProxyConnectStringNetWorkType',
-        'DBProxyConnectStringPort'        => 'DBProxyConnectStringPort',
-        'DBProxyEndpointId'               => 'DBProxyEndpointId',
-        'DBProxyEndpointName'             => 'DBProxyEndpointName',
-        'DBProxyVpcId'                    => 'DBProxyVpcId',
-        'DBProxyVpcInstanceId'            => 'DBProxyVpcInstanceId',
-        'DBProxyVswitchId'                => 'DBProxyVswitchId',
+        'DBProxyConnectStringPort' => 'DBProxyConnectStringPort',
+        'DBProxyEndpointId' => 'DBProxyEndpointId',
+        'DBProxyEndpointName' => 'DBProxyEndpointName',
+        'DBProxyVpcId' => 'DBProxyVpcId',
+        'DBProxyVpcInstanceId' => 'DBProxyVpcInstanceId',
+        'DBProxyVswitchId' => 'DBProxyVswitchId',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class RebootRCInstanceRequest extends Model
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var bool
      */
     public $forceStop;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'dryRun'     => 'DryRun',
-        'forceStop'  => 'ForceStop',
+        'dryRun' => 'DryRun',
+        'forceStop' => 'ForceStop',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

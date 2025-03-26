@@ -12,23 +12,26 @@ class DescribeDBInstanceProxyConfigurationResponseBody extends Model
      * @var string
      */
     public $attacksProtectionConfiguration;
+
     /**
      * @var string
      */
     public $persistentConnectionsConfiguration;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $transparentSwitchConfiguration;
     protected $_name = [
-        'attacksProtectionConfiguration'     => 'AttacksProtectionConfiguration',
+        'attacksProtectionConfiguration' => 'AttacksProtectionConfiguration',
         'persistentConnectionsConfiguration' => 'PersistentConnectionsConfiguration',
-        'requestId'                          => 'RequestId',
-        'transparentSwitchConfiguration'     => 'TransparentSwitchConfiguration',
+        'requestId' => 'RequestId',
+        'transparentSwitchConfiguration' => 'TransparentSwitchConfiguration',
     ];
 
     public function validate()

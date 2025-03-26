@@ -30,7 +30,7 @@ class publicIpAddress extends Model
         if (null !== $this->ipAddress) {
             if (\is_array($this->ipAddress)) {
                 $res['IpAddress'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->ipAddress as $item1) {
                     $res['IpAddress'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class publicIpAddress extends Model
         if (isset($map['IpAddress'])) {
             if (!empty($map['IpAddress'])) {
                 $model->ipAddress = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['IpAddress'] as $item1) {
                     $model->ipAddress[$n1++] = $item1;
                 }

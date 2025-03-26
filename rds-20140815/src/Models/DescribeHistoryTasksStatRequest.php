@@ -12,73 +12,86 @@ class DescribeHistoryTasksStatRequest extends Model
      * @var int
      */
     public $fromExecTime;
+
     /**
      * @var string
      */
     public $fromStartTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $securityToken;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskType;
+
     /**
      * @var int
      */
     public $toExecTime;
+
     /**
      * @var string
      */
     public $toStartTime;
     protected $_name = [
-        'fromExecTime'         => 'FromExecTime',
-        'fromStartTime'        => 'FromStartTime',
-        'instanceId'           => 'InstanceId',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'fromExecTime' => 'FromExecTime',
+        'fromStartTime' => 'FromStartTime',
+        'instanceId' => 'InstanceId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
-        'status'               => 'Status',
-        'taskId'               => 'TaskId',
-        'taskType'             => 'TaskType',
-        'toExecTime'           => 'ToExecTime',
-        'toStartTime'          => 'ToStartTime',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'securityToken' => 'SecurityToken',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskType' => 'TaskType',
+        'toExecTime' => 'ToExecTime',
+        'toStartTime' => 'ToStartTime',
     ];
 
     public function validate()

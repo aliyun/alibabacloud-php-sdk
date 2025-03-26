@@ -12,20 +12,23 @@ class paramGroupInfo extends Model
      * @var string
      */
     public $paramGroupId;
+
     /**
      * @var string
      */
     public $parameterGroupDesc;
+
     /**
      * @var string
      */
     public $parameterGroupName;
+
     /**
      * @var string
      */
     public $parameterGroupType;
     protected $_name = [
-        'paramGroupId'       => 'ParamGroupId',
+        'paramGroupId' => 'ParamGroupId',
         'parameterGroupDesc' => 'ParameterGroupDesc',
         'parameterGroupName' => 'ParameterGroupName',
         'parameterGroupType' => 'ParameterGroupType',

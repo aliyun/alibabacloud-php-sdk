@@ -12,28 +12,32 @@ class ModifyDBInstancePayTypeRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $usedTime;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
-        'payType'         => 'PayType',
-        'period'          => 'Period',
+        'DBInstanceId' => 'DBInstanceId',
+        'payType' => 'PayType',
+        'period' => 'Period',
         'resourceOwnerId' => 'ResourceOwnerId',
-        'usedTime'        => 'UsedTime',
+        'usedTime' => 'UsedTime',
     ];
 
     public function validate()

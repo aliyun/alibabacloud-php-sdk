@@ -13,23 +13,26 @@ class performanceKey extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $unit;
+
     /**
      * @var string
      */
     public $valueFormat;
+
     /**
      * @var values
      */
     public $values;
     protected $_name = [
-        'key'         => 'Key',
-        'unit'        => 'Unit',
+        'key' => 'Key',
+        'unit' => 'Unit',
         'valueFormat' => 'ValueFormat',
-        'values'      => 'Values',
+        'values' => 'Values',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class logFile extends Model
      * @var string
      */
     public $fileID;
+
     /**
      * @var string
      */
     public $logDownloadURL;
+
     /**
      * @var string
      */
     public $logEndTime;
+
     /**
      * @var string
      */
     public $logSize;
+
     /**
      * @var string
      */
     public $logStartTime;
+
     /**
      * @var string
      */
     public $logStatus;
     protected $_name = [
-        'fileID'         => 'FileID',
+        'fileID' => 'FileID',
         'logDownloadURL' => 'LogDownloadURL',
-        'logEndTime'     => 'LogEndTime',
-        'logSize'        => 'LogSize',
-        'logStartTime'   => 'LogStartTime',
-        'logStatus'      => 'LogStatus',
+        'logEndTime' => 'LogEndTime',
+        'logSize' => 'LogSize',
+        'logStartTime' => 'LogStartTime',
+        'logStatus' => 'LogStatus',
     ];
 
     public function validate()

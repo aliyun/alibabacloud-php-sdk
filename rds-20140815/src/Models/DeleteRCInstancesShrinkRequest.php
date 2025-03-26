@@ -12,27 +12,31 @@ class DeleteRCInstancesShrinkRequest extends Model
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var bool
      */
     public $force;
+
     /**
      * @var string
      */
     public $instanceIdShrink;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var bool
      */
     public $terminateSubscription;
     protected $_name = [
-        'dryRun'                => 'DryRun',
-        'force'                 => 'Force',
-        'instanceIdShrink'      => 'InstanceId',
-        'regionId'              => 'RegionId',
+        'dryRun' => 'DryRun',
+        'force' => 'Force',
+        'instanceIdShrink' => 'InstanceId',
+        'regionId' => 'RegionId',
         'terminateSubscription' => 'TerminateSubscription',
     ];
 

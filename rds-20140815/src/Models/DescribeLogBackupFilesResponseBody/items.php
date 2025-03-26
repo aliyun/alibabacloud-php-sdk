@@ -31,7 +31,7 @@ class items extends Model
         if (null !== $this->binLogFile) {
             if (\is_array($this->binLogFile)) {
                 $res['BinLogFile'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->binLogFile as $item1) {
                     $res['BinLogFile'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class items extends Model
         if (isset($map['BinLogFile'])) {
             if (!empty($map['BinLogFile'])) {
                 $model->binLogFile = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['BinLogFile'] as $item1) {
                     $model->binLogFile[$n1++] = binLogFile::fromMap($item1);
                 }

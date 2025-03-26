@@ -13,53 +13,62 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $deleteDate;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $encryptionKey;
+
     /**
      * @var encryptionKeyList[]
      */
     public $encryptionKeyList;
+
     /**
      * @var string
      */
     public $encryptionKeyStatus;
+
     /**
      * @var string
      */
     public $keyUsage;
+
     /**
      * @var string
      */
     public $materialExpireTime;
+
     /**
      * @var string
      */
     public $origin;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'creator'             => 'Creator',
-        'deleteDate'          => 'DeleteDate',
-        'description'         => 'Description',
-        'encryptionKey'       => 'EncryptionKey',
-        'encryptionKeyList'   => 'EncryptionKeyList',
+        'creator' => 'Creator',
+        'deleteDate' => 'DeleteDate',
+        'description' => 'Description',
+        'encryptionKey' => 'EncryptionKey',
+        'encryptionKeyList' => 'EncryptionKeyList',
         'encryptionKeyStatus' => 'EncryptionKeyStatus',
-        'keyUsage'            => 'KeyUsage',
-        'materialExpireTime'  => 'MaterialExpireTime',
-        'origin'              => 'Origin',
-        'requestId'           => 'RequestId',
+        'keyUsage' => 'KeyUsage',
+        'materialExpireTime' => 'MaterialExpireTime',
+        'origin' => 'Origin',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -92,7 +101,7 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
         if (null !== $this->encryptionKeyList) {
             if (\is_array($this->encryptionKeyList)) {
                 $res['EncryptionKeyList'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->encryptionKeyList as $item1) {
                     $res['EncryptionKeyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -149,7 +158,7 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
         if (isset($map['EncryptionKeyList'])) {
             if (!empty($map['EncryptionKeyList'])) {
                 $model->encryptionKeyList = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['EncryptionKeyList'] as $item1) {
                     $model->encryptionKeyList[$n1++] = encryptionKeyList::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class userPrivilege extends Model
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $privilege;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
         'expireTime' => 'ExpireTime',
-        'privilege'  => 'Privilege',
-        'userName'   => 'UserName',
+        'privilege' => 'Privilege',
+        'userName' => 'UserName',
     ];
 
     public function validate()

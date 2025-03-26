@@ -12,63 +12,74 @@ class CreatePostgresExtensionsRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBNames;
+
     /**
      * @var string
      */
     public $extensions;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var bool
      */
     public $riskConfirmed;
+
     /**
      * @var string
      */
     public $sourceDatabase;
     protected $_name = [
-        'accountName'          => 'AccountName',
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBNames'              => 'DBNames',
-        'extensions'           => 'Extensions',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'accountName' => 'AccountName',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBNames' => 'DBNames',
+        'extensions' => 'Extensions',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'riskConfirmed'        => 'RiskConfirmed',
-        'sourceDatabase'       => 'SourceDatabase',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'riskConfirmed' => 'RiskConfirmed',
+        'sourceDatabase' => 'SourceDatabase',
     ];
 
     public function validate()

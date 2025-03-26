@@ -12,33 +12,38 @@ class CreateMigrateTaskResponseBody extends Model
      * @var string
      */
     public $backupMode;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $migrateTaskId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'backupMode'    => 'BackupMode',
-        'DBInstanceId'  => 'DBInstanceId',
-        'DBName'        => 'DBName',
+        'backupMode' => 'BackupMode',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
         'migrateTaskId' => 'MigrateTaskId',
-        'requestId'     => 'RequestId',
-        'taskId'        => 'TaskId',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

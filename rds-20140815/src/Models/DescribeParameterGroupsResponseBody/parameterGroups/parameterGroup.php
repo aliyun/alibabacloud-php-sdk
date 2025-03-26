@@ -12,53 +12,62 @@ class parameterGroup extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var int
      */
     public $forceRestart;
+
     /**
      * @var int
      */
     public $paramCounts;
+
     /**
      * @var string
      */
     public $parameterGroupDesc;
+
     /**
      * @var string
      */
     public $parameterGroupId;
+
     /**
      * @var string
      */
     public $parameterGroupName;
+
     /**
      * @var int
      */
     public $parameterGroupType;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'         => 'CreateTime',
-        'engine'             => 'Engine',
-        'engineVersion'      => 'EngineVersion',
-        'forceRestart'       => 'ForceRestart',
-        'paramCounts'        => 'ParamCounts',
+        'createTime' => 'CreateTime',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'forceRestart' => 'ForceRestart',
+        'paramCounts' => 'ParamCounts',
         'parameterGroupDesc' => 'ParameterGroupDesc',
-        'parameterGroupId'   => 'ParameterGroupId',
+        'parameterGroupId' => 'ParameterGroupId',
         'parameterGroupName' => 'ParameterGroupName',
         'parameterGroupType' => 'ParameterGroupType',
-        'updateTime'         => 'UpdateTime',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

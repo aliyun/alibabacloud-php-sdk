@@ -12,38 +12,44 @@ class nodeInfo extends Model
      * @var string
      */
     public $dataSyncTime;
+
     /**
      * @var string
      */
     public $logSyncTime;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $syncStatus;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'dataSyncTime' => 'DataSyncTime',
-        'logSyncTime'  => 'LogSyncTime',
-        'nodeId'       => 'NodeId',
-        'nodeType'     => 'NodeType',
-        'regionId'     => 'RegionId',
-        'syncStatus'   => 'SyncStatus',
-        'zoneId'       => 'ZoneId',
+        'logSyncTime' => 'LogSyncTime',
+        'nodeId' => 'NodeId',
+        'nodeType' => 'NodeType',
+        'regionId' => 'RegionId',
+        'syncStatus' => 'SyncStatus',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

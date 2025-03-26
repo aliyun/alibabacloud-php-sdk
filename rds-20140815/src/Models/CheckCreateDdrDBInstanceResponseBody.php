@@ -12,12 +12,13 @@ class CheckCreateDdrDBInstanceResponseBody extends Model
      * @var string
      */
     public $isValid;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'isValid'   => 'IsValid',
+        'isValid' => 'IsValid',
         'requestId' => 'RequestId',
     ];
 

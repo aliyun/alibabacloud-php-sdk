@@ -12,18 +12,20 @@ class activityInfo extends Model
      * @var string
      */
     public $checkErrMsg;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
         'checkErrMsg' => 'CheckErrMsg',
-        'errorCode'   => 'ErrorCode',
-        'success'     => 'Success',
+        'errorCode' => 'ErrorCode',
+        'success' => 'Success',
     ];
 
     public function validate()

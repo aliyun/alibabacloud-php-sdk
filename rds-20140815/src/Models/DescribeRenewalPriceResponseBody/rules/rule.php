@@ -12,18 +12,20 @@ class rule extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $ruleId;
     protected $_name = [
         'description' => 'Description',
-        'name'        => 'Name',
-        'ruleId'      => 'RuleId',
+        'name' => 'Name',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()

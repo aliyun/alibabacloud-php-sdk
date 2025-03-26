@@ -12,23 +12,26 @@ class connections extends Model
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $netType;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'connectionString' => 'ConnectionString',
-        'DBInstanceName'   => 'DBInstanceName',
-        'netType'          => 'NetType',
-        'zoneId'           => 'ZoneId',
+        'DBInstanceName' => 'DBInstanceName',
+        'netType' => 'NetType',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

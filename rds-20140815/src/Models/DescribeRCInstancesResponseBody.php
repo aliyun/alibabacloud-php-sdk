@@ -13,28 +13,32 @@ class DescribeRCInstancesResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var RCInstances[]
      */
     public $RCInstances;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'RCInstances' => 'RCInstances',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class DescribeRCInstancesResponseBody extends Model
         if (null !== $this->RCInstances) {
             if (\is_array($this->RCInstances)) {
                 $res['RCInstances'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->RCInstances as $item1) {
                     $res['RCInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class DescribeRCInstancesResponseBody extends Model
         if (isset($map['RCInstances'])) {
             if (!empty($map['RCInstances'])) {
                 $model->RCInstances = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['RCInstances'] as $item1) {
                     $model->RCInstances[$n1++] = RCInstances::fromMap($item1);
                 }

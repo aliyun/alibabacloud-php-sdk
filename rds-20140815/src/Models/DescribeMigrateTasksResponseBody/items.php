@@ -31,7 +31,7 @@ class items extends Model
         if (null !== $this->migrateTask) {
             if (\is_array($this->migrateTask)) {
                 $res['MigrateTask'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->migrateTask as $item1) {
                     $res['MigrateTask'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class items extends Model
         if (isset($map['MigrateTask'])) {
             if (!empty($map['MigrateTask'])) {
                 $model->migrateTask = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['MigrateTask'] as $item1) {
                     $model->migrateTask[$n1++] = migrateTask::fromMap($item1);
                 }

@@ -12,53 +12,62 @@ class DescribeCrossBackupMetaListRequest extends Model
      * @var string
      */
     public $backupSetId;
+
     /**
      * @var string
      */
     public $getDbName;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $pageIndex;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $pattern;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'backupSetId'          => 'BackupSetId',
-        'getDbName'            => 'GetDbName',
-        'ownerId'              => 'OwnerId',
-        'pageIndex'            => 'PageIndex',
-        'pageSize'             => 'PageSize',
-        'pattern'              => 'Pattern',
-        'region'               => 'Region',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'backupSetId' => 'BackupSetId',
+        'getDbName' => 'GetDbName',
+        'ownerId' => 'OwnerId',
+        'pageIndex' => 'PageIndex',
+        'pageSize' => 'PageSize',
+        'pattern' => 'Pattern',
+        'region' => 'Region',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class DBInstanceExpireTime extends Model
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceStatus;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var string
      */
     public $payType;
     protected $_name = [
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceStatus'      => 'DBInstanceStatus',
-        'expireTime'            => 'ExpireTime',
-        'lockMode'              => 'LockMode',
-        'payType'               => 'PayType',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStatus' => 'DBInstanceStatus',
+        'expireTime' => 'ExpireTime',
+        'lockMode' => 'LockMode',
+        'payType' => 'PayType',
     ];
 
     public function validate()

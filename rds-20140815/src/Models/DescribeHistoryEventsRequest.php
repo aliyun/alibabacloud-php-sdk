@@ -12,83 +12,98 @@ class DescribeHistoryEventsRequest extends Model
      * @var string
      */
     public $archiveStatus;
+
     /**
      * @var string
      */
     public $eventCategory;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $eventLevel;
+
     /**
      * @var string
      */
     public $eventStatus;
+
     /**
      * @var string
      */
     public $eventType;
+
     /**
      * @var string
      */
     public $fromStartTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $securityToken;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $toStartTime;
     protected $_name = [
-        'archiveStatus'   => 'ArchiveStatus',
-        'eventCategory'   => 'EventCategory',
-        'eventId'         => 'EventId',
-        'eventLevel'      => 'EventLevel',
-        'eventStatus'     => 'EventStatus',
-        'eventType'       => 'EventType',
-        'fromStartTime'   => 'FromStartTime',
-        'instanceId'      => 'InstanceId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'archiveStatus' => 'ArchiveStatus',
+        'eventCategory' => 'EventCategory',
+        'eventId' => 'EventId',
+        'eventLevel' => 'EventLevel',
+        'eventStatus' => 'EventStatus',
+        'eventType' => 'EventType',
+        'fromStartTime' => 'FromStartTime',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceType'    => 'ResourceType',
-        'securityToken'   => 'SecurityToken',
-        'taskId'          => 'TaskId',
-        'toStartTime'     => 'ToStartTime',
+        'resourceType' => 'ResourceType',
+        'securityToken' => 'SecurityToken',
+        'taskId' => 'TaskId',
+        'toStartTime' => 'ToStartTime',
     ];
 
     public function validate()

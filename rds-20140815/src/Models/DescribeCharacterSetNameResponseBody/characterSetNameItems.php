@@ -30,7 +30,7 @@ class characterSetNameItems extends Model
         if (null !== $this->characterSetName) {
             if (\is_array($this->characterSetName)) {
                 $res['CharacterSetName'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->characterSetName as $item1) {
                     $res['CharacterSetName'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class characterSetNameItems extends Model
         if (isset($map['CharacterSetName'])) {
             if (!empty($map['CharacterSetName'])) {
                 $model->characterSetName = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['CharacterSetName'] as $item1) {
                     $model->characterSetName[$n1++] = $item1;
                 }

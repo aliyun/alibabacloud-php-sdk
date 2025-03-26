@@ -12,48 +12,56 @@ class items extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $dimension;
+
     /**
      * @var string
      */
     public $groupKey;
+
     /**
      * @var string
      */
     public $groupKeyType;
+
     /**
      * @var string
      */
     public $method;
+
     /**
      * @var string
      */
     public $metricsKey;
+
     /**
      * @var string
      */
     public $metricsKeyAlias;
+
     /**
      * @var int
      */
     public $sortRule;
+
     /**
      * @var string
      */
     public $unit;
     protected $_name = [
-        'description'     => 'Description',
-        'dimension'       => 'Dimension',
-        'groupKey'        => 'GroupKey',
-        'groupKeyType'    => 'GroupKeyType',
-        'method'          => 'Method',
-        'metricsKey'      => 'MetricsKey',
+        'description' => 'Description',
+        'dimension' => 'Dimension',
+        'groupKey' => 'GroupKey',
+        'groupKeyType' => 'GroupKeyType',
+        'method' => 'Method',
+        'metricsKey' => 'MetricsKey',
         'metricsKeyAlias' => 'MetricsKeyAlias',
-        'sortRule'        => 'SortRule',
-        'unit'            => 'Unit',
+        'sortRule' => 'SortRule',
+        'unit' => 'Unit',
     ];
 
     public function validate()

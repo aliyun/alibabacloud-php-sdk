@@ -31,7 +31,7 @@ class data extends Model
         if (null !== $this->userPrivilege) {
             if (\is_array($this->userPrivilege)) {
                 $res['UserPrivilege'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->userPrivilege as $item1) {
                     $res['UserPrivilege'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class data extends Model
         if (isset($map['UserPrivilege'])) {
             if (!empty($map['UserPrivilege'])) {
                 $model->userPrivilege = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['UserPrivilege'] as $item1) {
                     $model->userPrivilege[$n1++] = userPrivilege::fromMap($item1);
                 }

@@ -12,33 +12,38 @@ class DeleteParameterGroupRequest extends Model
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $parameterGroupId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'ownerId'              => 'OwnerId',
-        'parameterGroupId'     => 'ParameterGroupId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'ownerId' => 'OwnerId',
+        'parameterGroupId' => 'ParameterGroupId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

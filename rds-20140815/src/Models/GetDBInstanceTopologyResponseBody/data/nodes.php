@@ -12,33 +12,38 @@ class nodes extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $dedicatedHostGroupId;
+
     /**
      * @var string
      */
     public $dedicatedHostId;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'DBInstanceName'       => 'DBInstanceName',
+        'DBInstanceName' => 'DBInstanceName',
         'dedicatedHostGroupId' => 'DedicatedHostGroupId',
-        'dedicatedHostId'      => 'DedicatedHostId',
-        'nodeId'               => 'NodeId',
-        'role'                 => 'Role',
-        'zoneId'               => 'ZoneId',
+        'dedicatedHostId' => 'DedicatedHostId',
+        'nodeId' => 'NodeId',
+        'role' => 'Role',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

@@ -12,83 +12,98 @@ class RecoveryDBInstanceRequest extends Model
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $dbNames;
+
     /**
      * @var string
      */
     public $instanceNetworkType;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $restoreTime;
+
     /**
      * @var string
      */
     public $targetDBInstanceId;
+
     /**
      * @var string
      */
     public $usedTime;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'backupId'              => 'BackupId',
-        'DBInstanceClass'       => 'DBInstanceClass',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceStorage'     => 'DBInstanceStorage',
+        'backupId' => 'BackupId',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStorage' => 'DBInstanceStorage',
         'DBInstanceStorageType' => 'DBInstanceStorageType',
-        'dbNames'               => 'DbNames',
-        'instanceNetworkType'   => 'InstanceNetworkType',
-        'payType'               => 'PayType',
-        'period'                => 'Period',
-        'privateIpAddress'      => 'PrivateIpAddress',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'restoreTime'           => 'RestoreTime',
-        'targetDBInstanceId'    => 'TargetDBInstanceId',
-        'usedTime'              => 'UsedTime',
-        'VPCId'                 => 'VPCId',
-        'vSwitchId'             => 'VSwitchId',
+        'dbNames' => 'DbNames',
+        'instanceNetworkType' => 'InstanceNetworkType',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'restoreTime' => 'RestoreTime',
+        'targetDBInstanceId' => 'TargetDBInstanceId',
+        'usedTime' => 'UsedTime',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()

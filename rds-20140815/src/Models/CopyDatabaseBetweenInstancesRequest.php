@@ -12,37 +12,43 @@ class CopyDatabaseBetweenInstancesRequest extends Model
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $dbNames;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $restoreTime;
+
     /**
      * @var string
      */
     public $syncUserPrivilege;
+
     /**
      * @var string
      */
     public $targetDBInstanceId;
     protected $_name = [
-        'backupId'           => 'BackupId',
-        'DBInstanceId'       => 'DBInstanceId',
-        'dbNames'            => 'DbNames',
-        'resourceOwnerId'    => 'ResourceOwnerId',
-        'restoreTime'        => 'RestoreTime',
-        'syncUserPrivilege'  => 'SyncUserPrivilege',
+        'backupId' => 'BackupId',
+        'DBInstanceId' => 'DBInstanceId',
+        'dbNames' => 'DbNames',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'restoreTime' => 'RestoreTime',
+        'syncUserPrivilege' => 'SyncUserPrivilege',
         'targetDBInstanceId' => 'TargetDBInstanceId',
     ];
 

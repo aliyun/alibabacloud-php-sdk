@@ -13,63 +13,74 @@ class CreateDBInstanceEndpointRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $connectionStringPrefix;
+
     /**
      * @var string
      */
     public $DBInstanceEndpointDescription;
+
     /**
      * @var string
      */
     public $DBInstanceEndpointType;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var nodeItems[]
      */
     public $nodeItems;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'clientToken'                   => 'ClientToken',
-        'connectionStringPrefix'        => 'ConnectionStringPrefix',
+        'clientToken' => 'ClientToken',
+        'connectionStringPrefix' => 'ConnectionStringPrefix',
         'DBInstanceEndpointDescription' => 'DBInstanceEndpointDescription',
-        'DBInstanceEndpointType'        => 'DBInstanceEndpointType',
-        'DBInstanceId'                  => 'DBInstanceId',
-        'nodeItems'                     => 'NodeItems',
-        'port'                          => 'Port',
-        'privateIpAddress'              => 'PrivateIpAddress',
-        'resourceGroupId'               => 'ResourceGroupId',
-        'resourceOwnerId'               => 'ResourceOwnerId',
-        'vSwitchId'                     => 'VSwitchId',
-        'vpcId'                         => 'VpcId',
+        'DBInstanceEndpointType' => 'DBInstanceEndpointType',
+        'DBInstanceId' => 'DBInstanceId',
+        'nodeItems' => 'NodeItems',
+        'port' => 'Port',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -106,7 +117,7 @@ class CreateDBInstanceEndpointRequest extends Model
         if (null !== $this->nodeItems) {
             if (\is_array($this->nodeItems)) {
                 $res['NodeItems'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->nodeItems as $item1) {
                     $res['NodeItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -171,7 +182,7 @@ class CreateDBInstanceEndpointRequest extends Model
         if (isset($map['NodeItems'])) {
             if (!empty($map['NodeItems'])) {
                 $model->nodeItems = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['NodeItems'] as $item1) {
                     $model->nodeItems[$n1++] = nodeItems::fromMap($item1);
                 }

@@ -31,7 +31,7 @@ class DBInstanceNetInfos extends Model
         if (null !== $this->DBInstanceNetInfo) {
             if (\is_array($this->DBInstanceNetInfo)) {
                 $res['DBInstanceNetInfo'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->DBInstanceNetInfo as $item1) {
                     $res['DBInstanceNetInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class DBInstanceNetInfos extends Model
         if (isset($map['DBInstanceNetInfo'])) {
             if (!empty($map['DBInstanceNetInfo'])) {
                 $model->DBInstanceNetInfo = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['DBInstanceNetInfo'] as $item1) {
                     $model->DBInstanceNetInfo[$n1++] = DBInstanceNetInfo::fromMap($item1);
                 }

@@ -30,7 +30,7 @@ class DBInstanceIds extends Model
         if (null !== $this->DBInstanceId) {
             if (\is_array($this->DBInstanceId)) {
                 $res['DBInstanceId'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->DBInstanceId as $item1) {
                     $res['DBInstanceId'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class DBInstanceIds extends Model
         if (isset($map['DBInstanceId'])) {
             if (!empty($map['DBInstanceId'])) {
                 $model->DBInstanceId = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['DBInstanceId'] as $item1) {
                     $model->DBInstanceId[$n1++] = $item1;
                 }

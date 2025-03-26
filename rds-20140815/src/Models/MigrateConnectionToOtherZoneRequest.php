@@ -12,28 +12,32 @@ class MigrateConnectionToOtherZoneRequest extends Model
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'connectionString' => 'ConnectionString',
-        'DBInstanceId'     => 'DBInstanceId',
-        'ownerId'          => 'OwnerId',
-        'resourceOwnerId'  => 'ResourceOwnerId',
-        'zoneId'           => 'ZoneId',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

@@ -31,7 +31,7 @@ class items extends Model
         if (null !== $this->taskProgressInfo) {
             if (\is_array($this->taskProgressInfo)) {
                 $res['TaskProgressInfo'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->taskProgressInfo as $item1) {
                     $res['TaskProgressInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class items extends Model
         if (isset($map['TaskProgressInfo'])) {
             if (!empty($map['TaskProgressInfo'])) {
                 $model->taskProgressInfo = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['TaskProgressInfo'] as $item1) {
                     $model->taskProgressInfo[$n1++] = taskProgressInfo::fromMap($item1);
                 }

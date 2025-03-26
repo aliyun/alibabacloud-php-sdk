@@ -13,32 +13,37 @@ class DescribeLogBackupFilesResponseBody extends Model
      * @var items
      */
     public $items;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalFileSize;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'items'            => 'Items',
-        'pageNumber'       => 'PageNumber',
-        'pageRecordCount'  => 'PageRecordCount',
-        'requestId'        => 'RequestId',
-        'totalFileSize'    => 'TotalFileSize',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
+        'totalFileSize' => 'TotalFileSize',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 

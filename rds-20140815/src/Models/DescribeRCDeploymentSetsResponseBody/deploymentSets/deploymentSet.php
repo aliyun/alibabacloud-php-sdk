@@ -15,68 +15,80 @@ class deploymentSet extends Model
      * @var capacities
      */
     public $capacities;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $deploymentSetDescription;
+
     /**
      * @var string
      */
     public $deploymentSetId;
+
     /**
      * @var string
      */
     public $deploymentSetName;
+
     /**
      * @var string
      */
     public $deploymentStrategy;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $granularity;
+
     /**
      * @var int
      */
     public $groupCount;
+
     /**
      * @var int
      */
     public $instanceAmount;
+
     /**
      * @var instanceIds
      */
     public $instanceIds;
+
     /**
      * @var string
      */
     public $strategy;
+
     /**
      * @var tags
      */
     public $tags;
     protected $_name = [
-        'capacities'               => 'Capacities',
-        'createTime'               => 'CreateTime',
+        'capacities' => 'Capacities',
+        'createTime' => 'CreateTime',
         'deploymentSetDescription' => 'DeploymentSetDescription',
-        'deploymentSetId'          => 'DeploymentSetId',
-        'deploymentSetName'        => 'DeploymentSetName',
-        'deploymentStrategy'       => 'DeploymentStrategy',
-        'domain'                   => 'Domain',
-        'granularity'              => 'Granularity',
-        'groupCount'               => 'GroupCount',
-        'instanceAmount'           => 'InstanceAmount',
-        'instanceIds'              => 'InstanceIds',
-        'strategy'                 => 'Strategy',
-        'tags'                     => 'Tags',
+        'deploymentSetId' => 'DeploymentSetId',
+        'deploymentSetName' => 'DeploymentSetName',
+        'deploymentStrategy' => 'DeploymentStrategy',
+        'domain' => 'Domain',
+        'granularity' => 'Granularity',
+        'groupCount' => 'GroupCount',
+        'instanceAmount' => 'InstanceAmount',
+        'instanceIds' => 'InstanceIds',
+        'strategy' => 'Strategy',
+        'tags' => 'Tags',
     ];
 
     public function validate()

@@ -13,23 +13,26 @@ class DescribeSecretsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var secrets[]
      */
     public $secrets;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'secrets'    => 'Secrets',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'secrets' => 'Secrets',
     ];
 
     public function validate()
@@ -58,7 +61,7 @@ class DescribeSecretsResponseBody extends Model
         if (null !== $this->secrets) {
             if (\is_array($this->secrets)) {
                 $res['Secrets'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->secrets as $item1) {
                     $res['Secrets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -91,7 +94,7 @@ class DescribeSecretsResponseBody extends Model
         if (isset($map['Secrets'])) {
             if (!empty($map['Secrets'])) {
                 $model->secrets = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Secrets'] as $item1) {
                     $model->secrets[$n1++] = secrets::fromMap($item1);
                 }

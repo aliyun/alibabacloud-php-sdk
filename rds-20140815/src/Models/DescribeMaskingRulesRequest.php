@@ -12,38 +12,44 @@ class DescribeMaskingRulesRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
-        'DBInstanceName'       => 'DBInstanceName',
-        'DBName'               => 'DBName',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'DBInstanceName' => 'DBInstanceName',
+        'DBName' => 'DBName',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'ruleName'             => 'RuleName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()

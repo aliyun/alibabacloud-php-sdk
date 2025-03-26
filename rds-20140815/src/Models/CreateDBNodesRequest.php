@@ -13,43 +13,50 @@ class CreateDBNodesRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var DBNode[]
      */
     public $DBNode;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBNode'               => 'DBNode',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBNode' => 'DBNode',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -74,7 +81,7 @@ class CreateDBNodesRequest extends Model
         if (null !== $this->DBNode) {
             if (\is_array($this->DBNode)) {
                 $res['DBNode'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->DBNode as $item1) {
                     $res['DBNode'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -123,7 +130,7 @@ class CreateDBNodesRequest extends Model
         if (isset($map['DBNode'])) {
             if (!empty($map['DBNode'])) {
                 $model->DBNode = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['DBNode'] as $item1) {
                     $model->DBNode[$n1++] = DBNode::fromMap($item1);
                 }

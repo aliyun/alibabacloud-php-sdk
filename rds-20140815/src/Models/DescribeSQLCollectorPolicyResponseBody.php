@@ -12,18 +12,20 @@ class DescribeSQLCollectorPolicyResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $SQLCollectorStatus;
+
     /**
      * @var int
      */
     public $storagePeriod;
     protected $_name = [
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
         'SQLCollectorStatus' => 'SQLCollectorStatus',
-        'storagePeriod'      => 'StoragePeriod',
+        'storagePeriod' => 'StoragePeriod',
     ];
 
     public function validate()

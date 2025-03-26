@@ -12,28 +12,32 @@ class importResultFromDB extends Model
      * @var string
      */
     public $importDataStatus;
+
     /**
      * @var string
      */
     public $importDataStatusDescription;
+
     /**
      * @var string
      */
     public $importDataType;
+
     /**
      * @var int
      */
     public $importId;
+
     /**
      * @var string
      */
     public $incrementalImportingTime;
     protected $_name = [
-        'importDataStatus'            => 'ImportDataStatus',
+        'importDataStatus' => 'ImportDataStatus',
         'importDataStatusDescription' => 'ImportDataStatusDescription',
-        'importDataType'              => 'ImportDataType',
-        'importId'                    => 'ImportId',
-        'incrementalImportingTime'    => 'IncrementalImportingTime',
+        'importDataType' => 'ImportDataType',
+        'importId' => 'ImportId',
+        'incrementalImportingTime' => 'IncrementalImportingTime',
     ];
 
     public function validate()

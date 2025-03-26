@@ -12,58 +12,68 @@ class DescribeDBProxyPerformanceRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBProxyEngineType;
+
     /**
      * @var string
      */
     public $DBProxyInstanceType;
+
     /**
      * @var string
      */
     public $dimension;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $metricsName;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBProxyEngineType'    => 'DBProxyEngineType',
-        'DBProxyInstanceType'  => 'DBProxyInstanceType',
-        'dimension'            => 'Dimension',
-        'endTime'              => 'EndTime',
-        'metricsName'          => 'MetricsName',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBProxyEngineType' => 'DBProxyEngineType',
+        'DBProxyInstanceType' => 'DBProxyInstanceType',
+        'dimension' => 'Dimension',
+        'endTime' => 'EndTime',
+        'metricsName' => 'MetricsName',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'startTime'            => 'StartTime',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

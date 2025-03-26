@@ -12,23 +12,26 @@ class associateDBInstances extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $keyUsedBy;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'engine'         => 'Engine',
-        'keyUsedBy'      => 'KeyUsedBy',
-        'status'         => 'Status',
+        'engine' => 'Engine',
+        'keyUsedBy' => 'KeyUsedBy',
+        'status' => 'Status',
     ];
 
     public function validate()

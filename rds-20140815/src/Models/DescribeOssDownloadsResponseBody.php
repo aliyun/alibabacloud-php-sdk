@@ -13,23 +13,26 @@ class DescribeOssDownloadsResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var items
      */
     public $items;
+
     /**
      * @var string
      */
     public $migrateTaskId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'DBInstanceId'  => 'DBInstanceId',
-        'items'         => 'Items',
+        'DBInstanceId' => 'DBInstanceId',
+        'items' => 'Items',
         'migrateTaskId' => 'MigrateTaskId',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

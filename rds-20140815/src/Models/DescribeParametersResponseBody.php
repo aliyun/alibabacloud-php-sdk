@@ -15,32 +15,37 @@ class DescribeParametersResponseBody extends Model
      * @var configParameters
      */
     public $configParameters;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var paramGroupInfo
      */
     public $paramGroupInfo;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var runningParameters
      */
     public $runningParameters;
     protected $_name = [
-        'configParameters'  => 'ConfigParameters',
-        'engine'            => 'Engine',
-        'engineVersion'     => 'EngineVersion',
-        'paramGroupInfo'    => 'ParamGroupInfo',
-        'requestId'         => 'RequestId',
+        'configParameters' => 'ConfigParameters',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'paramGroupInfo' => 'ParamGroupInfo',
+        'requestId' => 'RequestId',
         'runningParameters' => 'RunningParameters',
     ];
 

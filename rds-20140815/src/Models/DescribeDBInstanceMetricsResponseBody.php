@@ -13,22 +13,25 @@ class DescribeDBInstanceMetricsResponseBody extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var items[]
      */
     public $items;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'DBInstanceName'   => 'DBInstanceName',
-        'items'            => 'Items',
-        'requestId'        => 'RequestId',
+        'DBInstanceName' => 'DBInstanceName',
+        'items' => 'Items',
+        'requestId' => 'RequestId',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
@@ -50,7 +53,7 @@ class DescribeDBInstanceMetricsResponseBody extends Model
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['Items'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->items as $item1) {
                     $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -83,7 +86,7 @@ class DescribeDBInstanceMetricsResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Items'] as $item1) {
                     $model->items[$n1++] = items::fromMap($item1);
                 }

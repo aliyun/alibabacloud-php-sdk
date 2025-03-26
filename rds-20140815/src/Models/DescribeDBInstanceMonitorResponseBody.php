@@ -12,12 +12,13 @@ class DescribeDBInstanceMonitorResponseBody extends Model
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'period'    => 'Period',
+        'period' => 'Period',
         'requestId' => 'RequestId',
     ];
 

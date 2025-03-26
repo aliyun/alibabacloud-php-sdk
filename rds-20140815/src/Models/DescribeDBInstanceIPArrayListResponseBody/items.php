@@ -31,7 +31,7 @@ class items extends Model
         if (null !== $this->DBInstanceIPArray) {
             if (\is_array($this->DBInstanceIPArray)) {
                 $res['DBInstanceIPArray'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->DBInstanceIPArray as $item1) {
                     $res['DBInstanceIPArray'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class items extends Model
         if (isset($map['DBInstanceIPArray'])) {
             if (!empty($map['DBInstanceIPArray'])) {
                 $model->DBInstanceIPArray = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['DBInstanceIPArray'] as $item1) {
                     $model->DBInstanceIPArray[$n1++] = DBInstanceIPArray::fromMap($item1);
                 }

@@ -12,22 +12,25 @@ class serverlessConfig extends Model
      * @var bool
      */
     public $autoPause;
+
     /**
      * @var float
      */
     public $scaleMax;
+
     /**
      * @var float
      */
     public $scaleMin;
+
     /**
      * @var bool
      */
     public $switchForce;
     protected $_name = [
-        'autoPause'   => 'AutoPause',
-        'scaleMax'    => 'ScaleMax',
-        'scaleMin'    => 'ScaleMin',
+        'autoPause' => 'AutoPause',
+        'scaleMax' => 'ScaleMax',
+        'scaleMin' => 'ScaleMin',
         'switchForce' => 'SwitchForce',
     ];
 

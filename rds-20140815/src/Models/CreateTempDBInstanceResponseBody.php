@@ -12,12 +12,13 @@ class CreateTempDBInstanceResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $tempDBInstanceId;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'tempDBInstanceId' => 'TempDBInstanceId',
     ];
 

@@ -12,58 +12,68 @@ class ModifyInstanceCrossBackupPolicyRequest extends Model
      * @var string
      */
     public $backupEnabled;
+
     /**
      * @var string
      */
     public $crossBackupRegion;
+
     /**
      * @var string
      */
     public $crossBackupType;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $logBackupEnabled;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var int
      */
     public $retentType;
+
     /**
      * @var int
      */
     public $retention;
     protected $_name = [
-        'backupEnabled'        => 'BackupEnabled',
-        'crossBackupRegion'    => 'CrossBackupRegion',
-        'crossBackupType'      => 'CrossBackupType',
-        'DBInstanceId'         => 'DBInstanceId',
-        'logBackupEnabled'     => 'LogBackupEnabled',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'backupEnabled' => 'BackupEnabled',
+        'crossBackupRegion' => 'CrossBackupRegion',
+        'crossBackupType' => 'CrossBackupType',
+        'DBInstanceId' => 'DBInstanceId',
+        'logBackupEnabled' => 'LogBackupEnabled',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'retentType'           => 'RetentType',
-        'retention'            => 'Retention',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'retentType' => 'RetentType',
+        'retention' => 'Retention',
     ];
 
     public function validate()

@@ -13,27 +13,31 @@ class DescribeEventsResponseBody extends Model
      * @var eventItems
      */
     public $eventItems;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'eventItems'       => 'EventItems',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'requestId'        => 'RequestId',
+        'eventItems' => 'EventItems',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 

@@ -12,23 +12,26 @@ class UpgradeDBInstanceMajorVersionResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'orderId'      => 'OrderId',
-        'requestId'    => 'RequestId',
-        'taskId'       => 'TaskId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

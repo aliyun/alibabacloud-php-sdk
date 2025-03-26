@@ -12,17 +12,19 @@ class DescribeDBInstanceAttributeRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $expired;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
-        'expired'         => 'Expired',
+        'DBInstanceId' => 'DBInstanceId',
+        'expired' => 'Expired',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 

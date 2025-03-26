@@ -12,53 +12,62 @@ class ModifyParameterGroupRequest extends Model
      * @var string
      */
     public $modifyMode;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $parameterGroupDesc;
+
     /**
      * @var string
      */
     public $parameterGroupId;
+
     /**
      * @var string
      */
     public $parameterGroupName;
+
     /**
      * @var string
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'modifyMode'           => 'ModifyMode',
-        'ownerId'              => 'OwnerId',
-        'parameterGroupDesc'   => 'ParameterGroupDesc',
-        'parameterGroupId'     => 'ParameterGroupId',
-        'parameterGroupName'   => 'ParameterGroupName',
-        'parameters'           => 'Parameters',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'modifyMode' => 'ModifyMode',
+        'ownerId' => 'OwnerId',
+        'parameterGroupDesc' => 'ParameterGroupDesc',
+        'parameterGroupId' => 'ParameterGroupId',
+        'parameterGroupName' => 'ParameterGroupName',
+        'parameters' => 'Parameters',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

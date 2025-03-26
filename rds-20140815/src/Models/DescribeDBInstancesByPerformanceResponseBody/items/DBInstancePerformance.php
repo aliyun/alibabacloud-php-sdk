@@ -12,33 +12,38 @@ class DBInstancePerformance extends Model
      * @var string
      */
     public $CPUUsage;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $diskUsage;
+
     /**
      * @var string
      */
     public $IOPSUsage;
+
     /**
      * @var string
      */
     public $sessionUsage;
     protected $_name = [
-        'CPUUsage'              => 'CPUUsage',
+        'CPUUsage' => 'CPUUsage',
         'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceId'          => 'DBInstanceId',
-        'diskUsage'             => 'DiskUsage',
-        'IOPSUsage'             => 'IOPSUsage',
-        'sessionUsage'          => 'SessionUsage',
+        'DBInstanceId' => 'DBInstanceId',
+        'diskUsage' => 'DiskUsage',
+        'IOPSUsage' => 'IOPSUsage',
+        'sessionUsage' => 'SessionUsage',
     ];
 
     public function validate()

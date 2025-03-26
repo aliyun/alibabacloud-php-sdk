@@ -31,7 +31,7 @@ class dedicatedHosts extends Model
         if (null !== $this->dedicatedHosts) {
             if (\is_array($this->dedicatedHosts)) {
                 $res['DedicatedHosts'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->dedicatedHosts as $item1) {
                     $res['DedicatedHosts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class dedicatedHosts extends Model
         if (isset($map['DedicatedHosts'])) {
             if (!empty($map['DedicatedHosts'])) {
                 $model->dedicatedHosts = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['DedicatedHosts'] as $item1) {
                     $model->dedicatedHosts[$n1++] = self::fromMap($item1);
                 }

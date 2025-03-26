@@ -30,7 +30,7 @@ class ruleIds extends Model
         if (null !== $this->ruleId) {
             if (\is_array($this->ruleId)) {
                 $res['RuleId'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->ruleId as $item1) {
                     $res['RuleId'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class ruleIds extends Model
         if (isset($map['RuleId'])) {
             if (!empty($map['RuleId'])) {
                 $model->ruleId = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['RuleId'] as $item1) {
                     $model->ruleId[$n1++] = $item1;
                 }

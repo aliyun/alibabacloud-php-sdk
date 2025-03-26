@@ -13,13 +13,14 @@ class DBInstanceTag extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var tags
      */
     public $tags;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'tags'         => 'Tags',
+        'tags' => 'Tags',
     ];
 
     public function validate()

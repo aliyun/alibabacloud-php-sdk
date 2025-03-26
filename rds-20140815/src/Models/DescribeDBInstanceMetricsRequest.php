@@ -12,16 +12,18 @@ class DescribeDBInstanceMetricsRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBInstanceName'  => 'DBInstanceName',
+        'DBInstanceName' => 'DBInstanceName',
         'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];

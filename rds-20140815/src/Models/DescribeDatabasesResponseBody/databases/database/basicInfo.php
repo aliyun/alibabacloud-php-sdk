@@ -30,7 +30,7 @@ class basicInfo extends Model
         if (null !== $this->basicDbProperty) {
             if (\is_array($this->basicDbProperty)) {
                 $res['BasicDbProperty'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->basicDbProperty as $item1) {
                     if (\is_array($item1)) {
                         $res['BasicDbProperty'][$n1++] = [];
@@ -56,7 +56,7 @@ class basicInfo extends Model
         if (isset($map['BasicDbProperty'])) {
             if (!empty($map['BasicDbProperty'])) {
                 $model->basicDbProperty = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['BasicDbProperty'] as $item1) {
                     if (!empty($item1)) {
                         $model->basicDbProperty[$n1++] = [];

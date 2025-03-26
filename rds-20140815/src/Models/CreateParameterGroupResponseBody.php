@@ -12,13 +12,14 @@ class CreateParameterGroupResponseBody extends Model
      * @var string
      */
     public $parameterGroupId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'parameterGroupId' => 'ParameterGroupId',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

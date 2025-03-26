@@ -12,23 +12,26 @@ class DetachGadInstanceMemberRequest extends Model
      * @var string
      */
     public $gadInstanceName;
+
     /**
      * @var string
      */
     public $memberInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'gadInstanceName'    => 'GadInstanceName',
+        'gadInstanceName' => 'GadInstanceName',
         'memberInstanceName' => 'MemberInstanceName',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

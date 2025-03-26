@@ -13,13 +13,14 @@ class DescribeGadInstancesResponseBody extends Model
      * @var gadInstances[]
      */
     public $gadInstances;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'gadInstances' => 'GadInstances',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeGadInstancesResponseBody extends Model
         if (null !== $this->gadInstances) {
             if (\is_array($this->gadInstances)) {
                 $res['GadInstances'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->gadInstances as $item1) {
                     $res['GadInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeGadInstancesResponseBody extends Model
         if (isset($map['GadInstances'])) {
             if (!empty($map['GadInstances'])) {
                 $model->gadInstances = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['GadInstances'] as $item1) {
                     $model->gadInstances[$n1++] = gadInstances::fromMap($item1);
                 }

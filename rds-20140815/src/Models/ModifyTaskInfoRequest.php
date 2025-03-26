@@ -12,43 +12,50 @@ class ModifyTaskInfoRequest extends Model
      * @var string
      */
     public $actionParams;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $securityToken;
+
     /**
      * @var string
      */
     public $stepName;
+
     /**
      * @var string
      */
     public $taskAction;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'actionParams'         => 'ActionParams',
-        'regionId'             => 'RegionId',
+        'actionParams' => 'ActionParams',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
-        'stepName'             => 'StepName',
-        'taskAction'           => 'TaskAction',
-        'taskId'               => 'TaskId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'securityToken' => 'SecurityToken',
+        'stepName' => 'StepName',
+        'taskAction' => 'TaskAction',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

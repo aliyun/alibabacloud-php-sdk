@@ -13,17 +13,19 @@ class DescribeParameterGroupsResponseBody extends Model
      * @var parameterGroups
      */
     public $parameterGroups;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $signalForOptimizeParams;
     protected $_name = [
-        'parameterGroups'         => 'ParameterGroups',
-        'requestId'               => 'RequestId',
+        'parameterGroups' => 'ParameterGroups',
+        'requestId' => 'RequestId',
         'signalForOptimizeParams' => 'SignalForOptimizeParams',
     ];
 

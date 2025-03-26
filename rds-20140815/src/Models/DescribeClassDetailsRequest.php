@@ -12,53 +12,62 @@ class DescribeClassDetailsRequest extends Model
      * @var string
      */
     public $classCode;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'classCode'            => 'ClassCode',
-        'clientToken'          => 'ClientToken',
-        'commodityCode'        => 'CommodityCode',
-        'engine'               => 'Engine',
-        'engineVersion'        => 'EngineVersion',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'classCode' => 'ClassCode',
+        'clientToken' => 'ClientToken',
+        'commodityCode' => 'CommodityCode',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

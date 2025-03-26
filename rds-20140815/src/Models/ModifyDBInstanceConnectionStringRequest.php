@@ -12,58 +12,68 @@ class ModifyDBInstanceConnectionStringRequest extends Model
      * @var string
      */
     public $babelfishPort;
+
     /**
      * @var string
      */
     public $connectionStringPrefix;
+
     /**
      * @var string
      */
     public $currentConnectionString;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $generalGroupName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $PGBouncerPort;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'babelfishPort'           => 'BabelfishPort',
-        'connectionStringPrefix'  => 'ConnectionStringPrefix',
+        'babelfishPort' => 'BabelfishPort',
+        'connectionStringPrefix' => 'ConnectionStringPrefix',
         'currentConnectionString' => 'CurrentConnectionString',
-        'DBInstanceId'            => 'DBInstanceId',
-        'generalGroupName'        => 'GeneralGroupName',
-        'ownerAccount'            => 'OwnerAccount',
-        'ownerId'                 => 'OwnerId',
-        'PGBouncerPort'           => 'PGBouncerPort',
-        'port'                    => 'Port',
-        'resourceOwnerAccount'    => 'ResourceOwnerAccount',
-        'resourceOwnerId'         => 'ResourceOwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'generalGroupName' => 'GeneralGroupName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'PGBouncerPort' => 'PGBouncerPort',
+        'port' => 'Port',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

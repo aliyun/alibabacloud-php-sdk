@@ -12,43 +12,50 @@ class ModifyDasInstanceConfigRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $storageAutoScale;
+
     /**
      * @var int
      */
     public $storageThreshold;
+
     /**
      * @var int
      */
     public $storageUpperBound;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'DBInstanceId'         => 'DBInstanceId',
-        'ownerId'              => 'OwnerId',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'storageAutoScale'     => 'StorageAutoScale',
-        'storageThreshold'     => 'StorageThreshold',
-        'storageUpperBound'    => 'StorageUpperBound',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'storageAutoScale' => 'StorageAutoScale',
+        'storageThreshold' => 'StorageThreshold',
+        'storageUpperBound' => 'StorageUpperBound',
     ];
 
     public function validate()

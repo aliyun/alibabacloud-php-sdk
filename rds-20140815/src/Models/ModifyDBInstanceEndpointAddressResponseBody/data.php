@@ -12,13 +12,14 @@ class data extends Model
      * @var string
      */
     public $DBInstanceEndpointId;
+
     /**
      * @var string
      */
     public $DBInstanceName;
     protected $_name = [
         'DBInstanceEndpointId' => 'DBInstanceEndpointId',
-        'DBInstanceName'       => 'DBInstanceName',
+        'DBInstanceName' => 'DBInstanceName',
     ];
 
     public function validate()

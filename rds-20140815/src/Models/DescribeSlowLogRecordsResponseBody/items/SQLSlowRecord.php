@@ -12,98 +12,116 @@ class SQLSlowRecord extends Model
      * @var string
      */
     public $applicationName;
+
     /**
      * @var string
      */
     public $clientHostName;
+
     /**
      * @var int
      */
     public $cpuTime;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $executionStartTime;
+
     /**
      * @var string
      */
     public $hostAddress;
+
     /**
      * @var int
      */
     public $lastRowsAffectedCount;
+
     /**
      * @var int
      */
     public $lockTimes;
+
     /**
      * @var int
      */
     public $logicalIORead;
+
     /**
      * @var int
      */
     public $parseRowCounts;
+
     /**
      * @var int
      */
     public $physicalIORead;
+
     /**
      * @var int
      */
     public $queryTimeMS;
+
     /**
      * @var int
      */
     public $queryTimes;
+
     /**
      * @var int
      */
     public $returnRowCounts;
+
     /**
      * @var int
      */
     public $rowsAffectedCount;
+
     /**
      * @var string
      */
     public $SQLHash;
+
     /**
      * @var string
      */
     public $SQLText;
+
     /**
      * @var string
      */
     public $userName;
+
     /**
      * @var int
      */
     public $writeIOCount;
     protected $_name = [
-        'applicationName'       => 'ApplicationName',
-        'clientHostName'        => 'ClientHostName',
-        'cpuTime'               => 'CpuTime',
-        'DBName'                => 'DBName',
-        'executionStartTime'    => 'ExecutionStartTime',
-        'hostAddress'           => 'HostAddress',
+        'applicationName' => 'ApplicationName',
+        'clientHostName' => 'ClientHostName',
+        'cpuTime' => 'CpuTime',
+        'DBName' => 'DBName',
+        'executionStartTime' => 'ExecutionStartTime',
+        'hostAddress' => 'HostAddress',
         'lastRowsAffectedCount' => 'LastRowsAffectedCount',
-        'lockTimes'             => 'LockTimes',
-        'logicalIORead'         => 'LogicalIORead',
-        'parseRowCounts'        => 'ParseRowCounts',
-        'physicalIORead'        => 'PhysicalIORead',
-        'queryTimeMS'           => 'QueryTimeMS',
-        'queryTimes'            => 'QueryTimes',
-        'returnRowCounts'       => 'ReturnRowCounts',
-        'rowsAffectedCount'     => 'RowsAffectedCount',
-        'SQLHash'               => 'SQLHash',
-        'SQLText'               => 'SQLText',
-        'userName'              => 'UserName',
-        'writeIOCount'          => 'WriteIOCount',
+        'lockTimes' => 'LockTimes',
+        'logicalIORead' => 'LogicalIORead',
+        'parseRowCounts' => 'ParseRowCounts',
+        'physicalIORead' => 'PhysicalIORead',
+        'queryTimeMS' => 'QueryTimeMS',
+        'queryTimes' => 'QueryTimes',
+        'returnRowCounts' => 'ReturnRowCounts',
+        'rowsAffectedCount' => 'RowsAffectedCount',
+        'SQLHash' => 'SQLHash',
+        'SQLText' => 'SQLText',
+        'userName' => 'UserName',
+        'writeIOCount' => 'WriteIOCount',
     ];
 
     public function validate()

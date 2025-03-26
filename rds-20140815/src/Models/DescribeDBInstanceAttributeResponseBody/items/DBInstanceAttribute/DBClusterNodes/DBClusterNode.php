@@ -12,48 +12,56 @@ class DBClusterNode extends Model
      * @var string
      */
     public $classCode;
+
     /**
      * @var string
      */
     public $classType;
+
     /**
      * @var string
      */
     public $cpu;
+
     /**
      * @var string
      */
     public $memory;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeRegionId;
+
     /**
      * @var string
      */
     public $nodeRole;
+
     /**
      * @var string
      */
     public $nodeZoneId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'classCode'    => 'ClassCode',
-        'classType'    => 'ClassType',
-        'cpu'          => 'Cpu',
-        'memory'       => 'Memory',
-        'nodeId'       => 'NodeId',
+        'classCode' => 'ClassCode',
+        'classType' => 'ClassType',
+        'cpu' => 'Cpu',
+        'memory' => 'Memory',
+        'nodeId' => 'NodeId',
         'nodeRegionId' => 'NodeRegionId',
-        'nodeRole'     => 'NodeRole',
-        'nodeZoneId'   => 'NodeZoneId',
-        'status'       => 'Status',
+        'nodeRole' => 'NodeRole',
+        'nodeZoneId' => 'NodeZoneId',
+        'status' => 'Status',
     ];
 
     public function validate()

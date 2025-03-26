@@ -12,12 +12,13 @@ class parameterDetail extends Model
      * @var string
      */
     public $paramName;
+
     /**
      * @var string
      */
     public $paramValue;
     protected $_name = [
-        'paramName'  => 'ParamName',
+        'paramName' => 'ParamName',
         'paramValue' => 'ParamValue',
     ];
 

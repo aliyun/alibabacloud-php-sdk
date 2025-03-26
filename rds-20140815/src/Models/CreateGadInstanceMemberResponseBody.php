@@ -13,13 +13,14 @@ class CreateGadInstanceMemberResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var result
      */
     public $result;
     protected $_name = [
         'requestId' => 'RequestId',
-        'result'    => 'Result',
+        'result' => 'Result',
     ];
 
     public function validate()

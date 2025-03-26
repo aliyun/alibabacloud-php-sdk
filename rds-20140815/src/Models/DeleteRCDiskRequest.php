@@ -12,12 +12,13 @@ class DeleteRCDiskRequest extends Model
      * @var string
      */
     public $diskId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'diskId'   => 'DiskId',
+        'diskId' => 'DiskId',
         'regionId' => 'RegionId',
     ];
 

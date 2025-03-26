@@ -12,12 +12,13 @@ class DescribeRCSecurityGroupPermissionRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
     protected $_name = [
-        'regionId'        => 'RegionId',
+        'regionId' => 'RegionId',
         'securityGroupId' => 'SecurityGroupId',
     ];
 

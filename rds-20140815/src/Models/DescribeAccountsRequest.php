@@ -12,33 +12,38 @@ class DescribeAccountsRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'accountName'          => 'AccountName',
-        'DBInstanceId'         => 'DBInstanceId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
+        'accountName' => 'AccountName',
+        'DBInstanceId' => 'DBInstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

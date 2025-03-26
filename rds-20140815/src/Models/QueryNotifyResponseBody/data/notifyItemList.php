@@ -12,63 +12,74 @@ class notifyItemList extends Model
      * @var int
      */
     public $aliUid;
+
     /**
      * @var bool
      */
     public $confirmFlag;
+
     /**
      * @var int
      */
     public $confirmor;
+
     /**
      * @var string
      */
     public $gmtCreated;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $idempotentCount;
+
     /**
      * @var string
      */
     public $idempotentId;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var string
      */
     public $notifyElement;
+
     /**
      * @var string
      */
     public $templateName;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'aliUid'          => 'AliUid',
-        'confirmFlag'     => 'ConfirmFlag',
-        'confirmor'       => 'Confirmor',
-        'gmtCreated'      => 'GmtCreated',
-        'gmtModified'     => 'GmtModified',
-        'id'              => 'Id',
+        'aliUid' => 'AliUid',
+        'confirmFlag' => 'ConfirmFlag',
+        'confirmor' => 'Confirmor',
+        'gmtCreated' => 'GmtCreated',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
         'idempotentCount' => 'IdempotentCount',
-        'idempotentId'    => 'IdempotentId',
-        'level'           => 'Level',
-        'notifyElement'   => 'NotifyElement',
-        'templateName'    => 'TemplateName',
-        'type'            => 'Type',
+        'idempotentId' => 'IdempotentId',
+        'level' => 'Level',
+        'notifyElement' => 'NotifyElement',
+        'templateName' => 'TemplateName',
+        'type' => 'Type',
     ];
 
     public function validate()

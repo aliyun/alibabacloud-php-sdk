@@ -12,23 +12,26 @@ class CreateMaskingRulesResponseBody extends Model
      * @var string[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'data'      => 'Data',
-        'message'   => 'Message',
+        'data' => 'Data',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

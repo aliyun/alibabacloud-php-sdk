@@ -12,43 +12,50 @@ class DescribeAllWhitelistTemplateRequest extends Model
      * @var bool
      */
     public $fuzzySearch;
+
     /**
      * @var int
      */
     public $maxRecordsPerPage;
+
     /**
      * @var int
      */
     public $pageNumbers;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'fuzzySearch'          => 'FuzzySearch',
-        'maxRecordsPerPage'    => 'MaxRecordsPerPage',
-        'pageNumbers'          => 'PageNumbers',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'fuzzySearch' => 'FuzzySearch',
+        'maxRecordsPerPage' => 'MaxRecordsPerPage',
+        'pageNumbers' => 'PageNumbers',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'templateName'         => 'TemplateName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class ReplaceRCInstanceSystemDiskRequest extends Model
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $isLocalDisk;
+
     /**
      * @var string
      */
     public $keyPairName;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'imageId'     => 'ImageId',
-        'instanceId'  => 'InstanceId',
+        'imageId' => 'ImageId',
+        'instanceId' => 'InstanceId',
         'isLocalDisk' => 'IsLocalDisk',
         'keyPairName' => 'KeyPairName',
-        'password'    => 'Password',
-        'regionId'    => 'RegionId',
+        'password' => 'Password',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

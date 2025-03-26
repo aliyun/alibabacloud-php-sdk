@@ -12,48 +12,56 @@ class ModifyDBProxyEndpointAddressRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBProxyConnectStringNetType;
+
     /**
      * @var string
      */
     public $DBProxyEndpointId;
+
     /**
      * @var string
      */
     public $DBProxyEngineType;
+
     /**
      * @var string
      */
     public $DBProxyNewConnectString;
+
     /**
      * @var string
      */
     public $DBProxyNewConnectStringPort;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'DBInstanceId'                => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'DBProxyConnectStringNetType' => 'DBProxyConnectStringNetType',
-        'DBProxyEndpointId'           => 'DBProxyEndpointId',
-        'DBProxyEngineType'           => 'DBProxyEngineType',
-        'DBProxyNewConnectString'     => 'DBProxyNewConnectString',
+        'DBProxyEndpointId' => 'DBProxyEndpointId',
+        'DBProxyEngineType' => 'DBProxyEngineType',
+        'DBProxyNewConnectString' => 'DBProxyNewConnectString',
         'DBProxyNewConnectStringPort' => 'DBProxyNewConnectStringPort',
-        'ownerId'                     => 'OwnerId',
-        'resourceOwnerAccount'        => 'ResourceOwnerAccount',
-        'resourceOwnerId'             => 'ResourceOwnerId',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

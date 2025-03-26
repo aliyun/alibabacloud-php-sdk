@@ -13,28 +13,32 @@ class rules extends Model
      * @var string
      */
     public $defaultAlgo;
+
     /**
      * @var string
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $maskingAlgo;
+
     /**
      * @var ruleConfig
      */
     public $ruleConfig;
+
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
         'defaultAlgo' => 'DefaultAlgo',
-        'enabled'     => 'Enabled',
+        'enabled' => 'Enabled',
         'maskingAlgo' => 'MaskingAlgo',
-        'ruleConfig'  => 'RuleConfig',
-        'ruleName'    => 'RuleName',
+        'ruleConfig' => 'RuleConfig',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()

@@ -12,63 +12,74 @@ class minorVersionItems extends Model
      * @var string
      */
     public $communityMinorVersion;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $expireDate;
+
     /**
      * @var string
      */
     public $expireStatus;
+
     /**
      * @var bool
      */
     public $isHotfixVersion;
+
     /**
      * @var string
      */
     public $minorVersion;
+
     /**
      * @var string
      */
     public $nodeType;
+
     /**
      * @var string
      */
     public $releaseNote;
+
     /**
      * @var string
      */
     public $releaseType;
+
     /**
      * @var string
      */
     public $statusDesc;
+
     /**
      * @var string
      */
     public $tag;
     protected $_name = [
         'communityMinorVersion' => 'CommunityMinorVersion',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'expireDate'            => 'ExpireDate',
-        'expireStatus'          => 'ExpireStatus',
-        'isHotfixVersion'       => 'IsHotfixVersion',
-        'minorVersion'          => 'MinorVersion',
-        'nodeType'              => 'NodeType',
-        'releaseNote'           => 'ReleaseNote',
-        'releaseType'           => 'ReleaseType',
-        'statusDesc'            => 'StatusDesc',
-        'tag'                   => 'Tag',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'expireDate' => 'ExpireDate',
+        'expireStatus' => 'ExpireStatus',
+        'isHotfixVersion' => 'IsHotfixVersion',
+        'minorVersion' => 'MinorVersion',
+        'nodeType' => 'NodeType',
+        'releaseNote' => 'ReleaseNote',
+        'releaseType' => 'ReleaseType',
+        'statusDesc' => 'StatusDesc',
+        'tag' => 'Tag',
     ];
 
     public function validate()

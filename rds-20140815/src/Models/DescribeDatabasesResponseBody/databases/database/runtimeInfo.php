@@ -30,7 +30,7 @@ class runtimeInfo extends Model
         if (null !== $this->runtimeDbProperty) {
             if (\is_array($this->runtimeDbProperty)) {
                 $res['RuntimeDbProperty'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->runtimeDbProperty as $item1) {
                     if (\is_array($item1)) {
                         $res['RuntimeDbProperty'][$n1++] = [];
@@ -56,7 +56,7 @@ class runtimeInfo extends Model
         if (isset($map['RuntimeDbProperty'])) {
             if (!empty($map['RuntimeDbProperty'])) {
                 $model->runtimeDbProperty = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['RuntimeDbProperty'] as $item1) {
                     if (!empty($item1)) {
                         $model->runtimeDbProperty[$n1++] = [];

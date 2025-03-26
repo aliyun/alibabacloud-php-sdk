@@ -31,7 +31,7 @@ class items extends Model
         if (null !== $this->DBInstancePerformance) {
             if (\is_array($this->DBInstancePerformance)) {
                 $res['DBInstancePerformance'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->DBInstancePerformance as $item1) {
                     $res['DBInstancePerformance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class items extends Model
         if (isset($map['DBInstancePerformance'])) {
             if (!empty($map['DBInstancePerformance'])) {
                 $model->DBInstancePerformance = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['DBInstancePerformance'] as $item1) {
                     $model->DBInstancePerformance[$n1++] = DBInstancePerformance::fromMap($item1);
                 }

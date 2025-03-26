@@ -12,63 +12,74 @@ class CreateDBInstanceEndpointShrinkRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $connectionStringPrefix;
+
     /**
      * @var string
      */
     public $DBInstanceEndpointDescription;
+
     /**
      * @var string
      */
     public $DBInstanceEndpointType;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $nodeItemsShrink;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $privateIpAddress;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'clientToken'                   => 'ClientToken',
-        'connectionStringPrefix'        => 'ConnectionStringPrefix',
+        'clientToken' => 'ClientToken',
+        'connectionStringPrefix' => 'ConnectionStringPrefix',
         'DBInstanceEndpointDescription' => 'DBInstanceEndpointDescription',
-        'DBInstanceEndpointType'        => 'DBInstanceEndpointType',
-        'DBInstanceId'                  => 'DBInstanceId',
-        'nodeItemsShrink'               => 'NodeItems',
-        'port'                          => 'Port',
-        'privateIpAddress'              => 'PrivateIpAddress',
-        'resourceGroupId'               => 'ResourceGroupId',
-        'resourceOwnerId'               => 'ResourceOwnerId',
-        'vSwitchId'                     => 'VSwitchId',
-        'vpcId'                         => 'VpcId',
+        'DBInstanceEndpointType' => 'DBInstanceEndpointType',
+        'DBInstanceId' => 'DBInstanceId',
+        'nodeItemsShrink' => 'NodeItems',
+        'port' => 'Port',
+        'privateIpAddress' => 'PrivateIpAddress',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

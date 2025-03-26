@@ -13,23 +13,26 @@ class DescribeModifyPGHbaConfigLogResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var hbaLogItems
      */
     public $hbaLogItems;
+
     /**
      * @var int
      */
     public $logItemCount;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'hbaLogItems'  => 'HbaLogItems',
+        'hbaLogItems' => 'HbaLogItems',
         'logItemCount' => 'LogItemCount',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

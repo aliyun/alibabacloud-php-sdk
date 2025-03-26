@@ -12,43 +12,50 @@ class ModifyActiveOperationTasksRequest extends Model
      * @var string
      */
     public $ids;
+
     /**
      * @var int
      */
     public $immediateStart;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $securityToken;
+
     /**
      * @var string
      */
     public $switchTime;
     protected $_name = [
-        'ids'                  => 'Ids',
-        'immediateStart'       => 'ImmediateStart',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
+        'ids' => 'Ids',
+        'immediateStart' => 'ImmediateStart',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
-        'switchTime'           => 'SwitchTime',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'securityToken' => 'SecurityToken',
+        'switchTime' => 'SwitchTime',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class DescribeAvailableRecoveryTimeResponseBody extends Model
      * @var int
      */
     public $crossBackupId;
+
     /**
      * @var string
      */
     public $recoveryBeginTime;
+
     /**
      * @var string
      */
     public $recoveryEndTime;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'crossBackupId'     => 'CrossBackupId',
+        'crossBackupId' => 'CrossBackupId',
         'recoveryBeginTime' => 'RecoveryBeginTime',
-        'recoveryEndTime'   => 'RecoveryEndTime',
-        'regionId'          => 'RegionId',
-        'requestId'         => 'RequestId',
+        'recoveryEndTime' => 'RecoveryEndTime',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

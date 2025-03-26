@@ -12,12 +12,13 @@ class UpdateUserBackupFileResponseBody extends Model
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'backupId'  => 'BackupId',
+        'backupId' => 'BackupId',
         'requestId' => 'RequestId',
     ];
 

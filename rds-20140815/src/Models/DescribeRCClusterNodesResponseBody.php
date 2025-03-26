@@ -14,17 +14,19 @@ class DescribeRCClusterNodesResponseBody extends Model
      * @var nodes[]
      */
     public $nodes;
+
     /**
      * @var page
      */
     public $page;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'nodes'     => 'Nodes',
-        'page'      => 'Page',
+        'nodes' => 'Nodes',
+        'page' => 'Page',
         'requestId' => 'RequestId',
     ];
 
@@ -45,7 +47,7 @@ class DescribeRCClusterNodesResponseBody extends Model
         if (null !== $this->nodes) {
             if (\is_array($this->nodes)) {
                 $res['Nodes'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->nodes as $item1) {
                     $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class DescribeRCClusterNodesResponseBody extends Model
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Nodes'] as $item1) {
                     $model->nodes[$n1++] = nodes::fromMap($item1);
                 }

@@ -30,7 +30,7 @@ class slaveZones extends Model
         if (null !== $this->slaveRegion) {
             if (\is_array($this->slaveRegion)) {
                 $res['slaveRegion'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->slaveRegion as $item1) {
                     $res['slaveRegion'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class slaveZones extends Model
         if (isset($map['slaveRegion'])) {
             if (!empty($map['slaveRegion'])) {
                 $model->slaveRegion = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['slaveRegion'] as $item1) {
                     $model->slaveRegion[$n1++] = $item1;
                 }

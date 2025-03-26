@@ -12,12 +12,13 @@ class DescribeRegionsRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'acceptLanguage'  => 'AcceptLanguage',
+        'acceptLanguage' => 'AcceptLanguage',
         'resourceOwnerId' => 'ResourceOwnerId',
     ];
 

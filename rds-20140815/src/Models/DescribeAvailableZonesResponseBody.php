@@ -13,13 +13,14 @@ class DescribeAvailableZonesResponseBody extends Model
      * @var availableZones[]
      */
     public $availableZones;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'availableZones' => 'AvailableZones',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeAvailableZonesResponseBody extends Model
         if (null !== $this->availableZones) {
             if (\is_array($this->availableZones)) {
                 $res['AvailableZones'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->availableZones as $item1) {
                     $res['AvailableZones'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeAvailableZonesResponseBody extends Model
         if (isset($map['AvailableZones'])) {
             if (!empty($map['AvailableZones'])) {
                 $model->availableZones = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['AvailableZones'] as $item1) {
                     $model->availableZones[$n1++] = availableZones::fromMap($item1);
                 }

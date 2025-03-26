@@ -12,53 +12,62 @@ class ListUserBackupFilesRequest extends Model
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $ossUrl;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tags;
     protected $_name = [
-        'backupId'             => 'BackupId',
-        'comment'              => 'Comment',
-        'ossUrl'               => 'OssUrl',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'backupId' => 'BackupId',
+        'comment' => 'Comment',
+        'ossUrl' => 'OssUrl',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'status'               => 'Status',
-        'tags'                 => 'Tags',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'status' => 'Status',
+        'tags' => 'Tags',
     ];
 
     public function validate()

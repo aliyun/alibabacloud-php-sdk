@@ -12,88 +12,110 @@ class MigrateToOtherZoneRequest extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
+    /**
+     * @var string
+     */
+    public $DBInstanceStorageType;
+
     /**
      * @var string
      */
     public $effectiveTime;
+
     /**
      * @var string
      */
     public $ioAccelerationEnabled;
+
     /**
      * @var string
      */
     public $isModifySpec;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $switchTime;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $zoneIdSlave1;
+
     /**
      * @var string
      */
     public $zoneIdSlave2;
     protected $_name = [
-        'category'              => 'Category',
-        'DBInstanceClass'       => 'DBInstanceClass',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceStorage'     => 'DBInstanceStorage',
-        'effectiveTime'         => 'EffectiveTime',
+        'category' => 'Category',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceStorage' => 'DBInstanceStorage',
+        'DBInstanceStorageType' => 'DBInstanceStorageType',
+        'effectiveTime' => 'EffectiveTime',
         'ioAccelerationEnabled' => 'IoAccelerationEnabled',
-        'isModifySpec'          => 'IsModifySpec',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'switchTime'            => 'SwitchTime',
-        'VPCId'                 => 'VPCId',
-        'vSwitchId'             => 'VSwitchId',
-        'zoneId'                => 'ZoneId',
-        'zoneIdSlave1'          => 'ZoneIdSlave1',
-        'zoneIdSlave2'          => 'ZoneIdSlave2',
+        'isModifySpec' => 'IsModifySpec',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'switchTime' => 'SwitchTime',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
+        'zoneIdSlave1' => 'ZoneIdSlave1',
+        'zoneIdSlave2' => 'ZoneIdSlave2',
     ];
 
     public function validate()
@@ -118,6 +140,10 @@ class MigrateToOtherZoneRequest extends Model
 
         if (null !== $this->DBInstanceStorage) {
             $res['DBInstanceStorage'] = $this->DBInstanceStorage;
+        }
+
+        if (null !== $this->DBInstanceStorageType) {
+            $res['DBInstanceStorageType'] = $this->DBInstanceStorageType;
         }
 
         if (null !== $this->effectiveTime) {
@@ -197,6 +223,10 @@ class MigrateToOtherZoneRequest extends Model
 
         if (isset($map['DBInstanceStorage'])) {
             $model->DBInstanceStorage = $map['DBInstanceStorage'];
+        }
+
+        if (isset($map['DBInstanceStorageType'])) {
+            $model->DBInstanceStorageType = $map['DBInstanceStorageType'];
         }
 
         if (isset($map['EffectiveTime'])) {

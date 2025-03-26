@@ -12,13 +12,14 @@ class DescribeSQLCollectorRetentionResponseBody extends Model
      * @var string
      */
     public $configValue;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'configValue' => 'ConfigValue',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -31,7 +31,7 @@ class items extends Model
         if (null !== $this->ossDownload) {
             if (\is_array($this->ossDownload)) {
                 $res['OssDownload'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->ossDownload as $item1) {
                     $res['OssDownload'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class items extends Model
         if (isset($map['OssDownload'])) {
             if (!empty($map['OssDownload'])) {
                 $model->ossDownload = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['OssDownload'] as $item1) {
                     $model->ossDownload[$n1++] = ossDownload::fromMap($item1);
                 }

@@ -12,33 +12,38 @@ class DescribeDBInstanceReplicationResponseBody extends Model
      * @var string
      */
     public $externalReplication;
+
     /**
      * @var string
      */
     public $replicationDelay;
+
     /**
      * @var string
      */
     public $replicationErrorMessage;
+
     /**
      * @var string
      */
     public $replicationSource;
+
     /**
      * @var string
      */
     public $replicationState;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'externalReplication'     => 'ExternalReplication',
-        'replicationDelay'        => 'ReplicationDelay',
+        'externalReplication' => 'ExternalReplication',
+        'replicationDelay' => 'ReplicationDelay',
         'replicationErrorMessage' => 'ReplicationErrorMessage',
-        'replicationSource'       => 'ReplicationSource',
-        'replicationState'        => 'ReplicationState',
-        'requestId'               => 'RequestId',
+        'replicationSource' => 'ReplicationSource',
+        'replicationState' => 'ReplicationState',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

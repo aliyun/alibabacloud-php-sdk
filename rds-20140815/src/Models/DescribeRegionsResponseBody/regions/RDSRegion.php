@@ -12,28 +12,32 @@ class RDSRegion extends Model
      * @var string
      */
     public $localName;
+
     /**
      * @var string
      */
     public $regionEndpoint;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $zoneName;
     protected $_name = [
-        'localName'      => 'LocalName',
+        'localName' => 'LocalName',
         'regionEndpoint' => 'RegionEndpoint',
-        'regionId'       => 'RegionId',
-        'zoneId'         => 'ZoneId',
-        'zoneName'       => 'ZoneName',
+        'regionId' => 'RegionId',
+        'zoneId' => 'ZoneId',
+        'zoneName' => 'ZoneName',
     ];
 
     public function validate()

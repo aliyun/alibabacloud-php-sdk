@@ -12,12 +12,13 @@ class ConfirmNotifyShrinkRequest extends Model
      * @var int
      */
     public $confirmor;
+
     /**
      * @var string
      */
     public $notifyIdListShrink;
     protected $_name = [
-        'confirmor'          => 'Confirmor',
+        'confirmor' => 'Confirmor',
         'notifyIdListShrink' => 'NotifyIdList',
     ];
 

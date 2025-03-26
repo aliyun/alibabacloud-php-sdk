@@ -13,38 +13,44 @@ class gadInstances extends Model
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var gadInstanceMembers[]
      */
     public $gadInstanceMembers;
+
     /**
      * @var string
      */
     public $gadInstanceName;
+
     /**
      * @var string
      */
     public $modificationTime;
+
     /**
      * @var string
      */
     public $service;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'creationTime'       => 'CreationTime',
-        'description'        => 'Description',
+        'creationTime' => 'CreationTime',
+        'description' => 'Description',
         'gadInstanceMembers' => 'GadInstanceMembers',
-        'gadInstanceName'    => 'GadInstanceName',
-        'modificationTime'   => 'ModificationTime',
-        'service'            => 'Service',
-        'status'             => 'Status',
+        'gadInstanceName' => 'GadInstanceName',
+        'modificationTime' => 'ModificationTime',
+        'service' => 'Service',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -69,7 +75,7 @@ class gadInstances extends Model
         if (null !== $this->gadInstanceMembers) {
             if (\is_array($this->gadInstanceMembers)) {
                 $res['GadInstanceMembers'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->gadInstanceMembers as $item1) {
                     $res['GadInstanceMembers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -114,7 +120,7 @@ class gadInstances extends Model
         if (isset($map['GadInstanceMembers'])) {
             if (!empty($map['GadInstanceMembers'])) {
                 $model->gadInstanceMembers = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['GadInstanceMembers'] as $item1) {
                     $model->gadInstanceMembers[$n1++] = gadInstanceMembers::fromMap($item1);
                 }

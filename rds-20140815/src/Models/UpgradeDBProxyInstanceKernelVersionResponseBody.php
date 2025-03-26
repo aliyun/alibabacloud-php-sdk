@@ -12,18 +12,20 @@ class UpgradeDBProxyInstanceKernelVersionResponseBody extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'requestId'      => 'RequestId',
-        'taskId'         => 'TaskId',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

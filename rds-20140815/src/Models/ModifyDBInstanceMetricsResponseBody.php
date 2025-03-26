@@ -12,18 +12,20 @@ class ModifyDBInstanceMetricsResponseBody extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $scope;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'requestId'    => 'RequestId',
-        'scope'        => 'Scope',
+        'requestId' => 'RequestId',
+        'scope' => 'Scope',
     ];
 
     public function validate()

@@ -30,7 +30,7 @@ class readDBInstanceNames extends Model
         if (null !== $this->readDBInstanceName) {
             if (\is_array($this->readDBInstanceName)) {
                 $res['ReadDBInstanceName'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->readDBInstanceName as $item1) {
                     $res['ReadDBInstanceName'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class readDBInstanceNames extends Model
         if (isset($map['ReadDBInstanceName'])) {
             if (!empty($map['ReadDBInstanceName'])) {
                 $model->readDBInstanceName = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ReadDBInstanceName'] as $item1) {
                     $model->readDBInstanceName[$n1++] = $item1;
                 }

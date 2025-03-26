@@ -12,13 +12,14 @@ class babelfishConfig extends Model
      * @var string
      */
     public $babelfishEnabled;
+
     /**
      * @var string
      */
     public $migrationMode;
     protected $_name = [
         'babelfishEnabled' => 'BabelfishEnabled',
-        'migrationMode'    => 'MigrationMode',
+        'migrationMode' => 'MigrationMode',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class DescribeDBInstanceEndpointsRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceEndpointId;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'DBInstanceEndpointId' => 'DBInstanceEndpointId',
-        'DBInstanceId'         => 'DBInstanceId',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'DBInstanceId' => 'DBInstanceId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

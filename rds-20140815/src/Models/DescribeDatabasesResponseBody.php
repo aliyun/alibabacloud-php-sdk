@@ -13,6 +13,7 @@ class DescribeDatabasesResponseBody extends Model
      * @var databases
      */
     public $databases;
+
     /**
      * @var string
      */

@@ -12,37 +12,43 @@ class securityGroupPermissions extends Model
      * @var string
      */
     public $destCidrIp;
+
     /**
      * @var string
      */
     public $ipProtocol;
+
     /**
      * @var string
      */
     public $policy;
+
     /**
      * @var string
      */
     public $portRange;
+
     /**
-     * @var string
+     * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $sourceCidrIp;
+
     /**
      * @var string
      */
     public $sourcePortRange;
     protected $_name = [
-        'destCidrIp'      => 'DestCidrIp',
-        'ipProtocol'      => 'IpProtocol',
-        'policy'          => 'Policy',
-        'portRange'       => 'PortRange',
-        'priority'        => 'Priority',
-        'sourceCidrIp'    => 'SourceCidrIp',
+        'destCidrIp' => 'DestCidrIp',
+        'ipProtocol' => 'IpProtocol',
+        'policy' => 'Policy',
+        'portRange' => 'PortRange',
+        'priority' => 'Priority',
+        'sourceCidrIp' => 'SourceCidrIp',
         'sourcePortRange' => 'SourcePortRange',
     ];
 

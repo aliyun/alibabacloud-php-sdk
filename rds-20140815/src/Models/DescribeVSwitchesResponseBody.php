@@ -13,28 +13,32 @@ class DescribeVSwitchesResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var vSwitchs[]
      */
     public $vSwitchs;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
-        'vSwitchs'   => 'VSwitchs',
+        'vSwitchs' => 'VSwitchs',
     ];
 
     public function validate()
@@ -67,7 +71,7 @@ class DescribeVSwitchesResponseBody extends Model
         if (null !== $this->vSwitchs) {
             if (\is_array($this->vSwitchs)) {
                 $res['VSwitchs'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->vSwitchs as $item1) {
                     $res['VSwitchs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class DescribeVSwitchesResponseBody extends Model
         if (isset($map['VSwitchs'])) {
             if (!empty($map['VSwitchs'])) {
                 $model->vSwitchs = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['VSwitchs'] as $item1) {
                     $model->vSwitchs[$n1++] = vSwitchs::fromMap($item1);
                 }

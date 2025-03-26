@@ -12,38 +12,44 @@ class DescribeDBInstancePromoteActivityResponseBody extends Model
      * @var string
      */
     public $aliUid;
+
     /**
      * @var string
      */
     public $bid;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $DBType;
+
     /**
      * @var string
      */
     public $isActivity;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'aliUid'         => 'AliUid',
-        'bid'            => 'Bid',
-        'DBInstanceId'   => 'DBInstanceId',
+        'aliUid' => 'AliUid',
+        'bid' => 'Bid',
+        'DBInstanceId' => 'DBInstanceId',
         'DBInstanceName' => 'DBInstanceName',
-        'DBType'         => 'DBType',
-        'isActivity'     => 'IsActivity',
-        'requestId'      => 'RequestId',
+        'DBType' => 'DBType',
+        'isActivity' => 'IsActivity',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

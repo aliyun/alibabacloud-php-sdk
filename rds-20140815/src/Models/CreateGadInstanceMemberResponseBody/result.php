@@ -12,12 +12,13 @@ class result extends Model
      * @var string
      */
     public $createCount;
+
     /**
      * @var string
      */
     public $gadInstanceName;
     protected $_name = [
-        'createCount'     => 'CreateCount',
+        'createCount' => 'CreateCount',
         'gadInstanceName' => 'GadInstanceName',
     ];
 

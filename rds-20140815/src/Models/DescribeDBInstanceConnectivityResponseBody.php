@@ -12,28 +12,32 @@ class DescribeDBInstanceConnectivityResponseBody extends Model
      * @var string
      */
     public $connCheckErrorCode;
+
     /**
      * @var string
      */
     public $connCheckErrorMessage;
+
     /**
      * @var string
      */
     public $connCheckResult;
+
     /**
      * @var string
      */
     public $dbInstanceName;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'connCheckErrorCode'    => 'ConnCheckErrorCode',
+        'connCheckErrorCode' => 'ConnCheckErrorCode',
         'connCheckErrorMessage' => 'ConnCheckErrorMessage',
-        'connCheckResult'       => 'ConnCheckResult',
-        'dbInstanceName'        => 'DbInstanceName',
-        'requestId'             => 'RequestId',
+        'connCheckResult' => 'ConnCheckResult',
+        'dbInstanceName' => 'DbInstanceName',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

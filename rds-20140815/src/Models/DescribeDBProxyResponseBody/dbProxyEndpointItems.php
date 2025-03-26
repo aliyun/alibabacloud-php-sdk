@@ -31,7 +31,7 @@ class dbProxyEndpointItems extends Model
         if (null !== $this->dbProxyEndpointItems) {
             if (\is_array($this->dbProxyEndpointItems)) {
                 $res['DbProxyEndpointItems'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->dbProxyEndpointItems as $item1) {
                     $res['DbProxyEndpointItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class dbProxyEndpointItems extends Model
         if (isset($map['DbProxyEndpointItems'])) {
             if (!empty($map['DbProxyEndpointItems'])) {
                 $model->dbProxyEndpointItems = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['DbProxyEndpointItems'] as $item1) {
                     $model->dbProxyEndpointItems[$n1++] = self::fromMap($item1);
                 }

@@ -12,78 +12,92 @@ class DescribeRenewalPriceRequest extends Model
      * @var string
      */
     public $businessInfo;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var int
      */
     public $quantity;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $timeType;
+
     /**
      * @var int
      */
     public $usedTime;
     protected $_name = [
-        'businessInfo'         => 'BusinessInfo',
-        'clientToken'          => 'ClientToken',
-        'DBInstanceClass'      => 'DBInstanceClass',
-        'DBInstanceId'         => 'DBInstanceId',
-        'orderType'            => 'OrderType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'payType'              => 'PayType',
-        'quantity'             => 'Quantity',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'businessInfo' => 'BusinessInfo',
+        'clientToken' => 'ClientToken',
+        'DBInstanceClass' => 'DBInstanceClass',
+        'DBInstanceId' => 'DBInstanceId',
+        'orderType' => 'OrderType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'payType' => 'PayType',
+        'quantity' => 'Quantity',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'timeType'             => 'TimeType',
-        'usedTime'             => 'UsedTime',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'timeType' => 'TimeType',
+        'usedTime' => 'UsedTime',
     ];
 
     public function validate()

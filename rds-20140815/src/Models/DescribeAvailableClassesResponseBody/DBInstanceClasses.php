@@ -13,12 +13,13 @@ class DBInstanceClasses extends Model
      * @var string
      */
     public $DBInstanceClass;
+
     /**
      * @var DBInstanceStorageRange
      */
     public $DBInstanceStorageRange;
     protected $_name = [
-        'DBInstanceClass'        => 'DBInstanceClass',
+        'DBInstanceClass' => 'DBInstanceClass',
         'DBInstanceStorageRange' => 'DBInstanceStorageRange',
     ];
 

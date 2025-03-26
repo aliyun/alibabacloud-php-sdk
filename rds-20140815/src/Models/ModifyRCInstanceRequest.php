@@ -12,33 +12,38 @@ class ModifyRCInstanceRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $direction;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'autoPay'      => 'AutoPay',
-        'direction'    => 'Direction',
-        'dryRun'       => 'DryRun',
-        'instanceId'   => 'InstanceId',
+        'autoPay' => 'AutoPay',
+        'direction' => 'Direction',
+        'dryRun' => 'DryRun',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

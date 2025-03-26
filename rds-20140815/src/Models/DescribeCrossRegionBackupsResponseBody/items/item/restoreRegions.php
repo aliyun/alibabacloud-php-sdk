@@ -30,7 +30,7 @@ class restoreRegions extends Model
         if (null !== $this->restoreRegion) {
             if (\is_array($this->restoreRegion)) {
                 $res['RestoreRegion'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->restoreRegion as $item1) {
                     $res['RestoreRegion'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class restoreRegions extends Model
         if (isset($map['RestoreRegion'])) {
             if (!empty($map['RestoreRegion'])) {
                 $model->restoreRegion = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['RestoreRegion'] as $item1) {
                     $model->restoreRegion[$n1++] = $item1;
                 }

@@ -12,23 +12,26 @@ class DetachRCDiskRequest extends Model
      * @var bool
      */
     public $deleteWithInstance;
+
     /**
      * @var string
      */
     public $diskId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'deleteWithInstance' => 'DeleteWithInstance',
-        'diskId'             => 'DiskId',
-        'instanceId'         => 'InstanceId',
-        'regionId'           => 'RegionId',
+        'diskId' => 'DiskId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

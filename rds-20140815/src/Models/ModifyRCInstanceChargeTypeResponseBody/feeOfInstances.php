@@ -5,37 +5,47 @@
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCInstanceChargeTypeResponseBody;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyRCInstanceChargeTypeResponseBody\feeOfInstances\feeOfInstance;
 
 class feeOfInstances extends Model
 {
     /**
-     * @var feeOfInstance[]
+     * @var string
      */
-    public $feeOfInstance;
+    public $currency;
+
+    /**
+     * @var string
+     */
+    public $fee;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
     protected $_name = [
-        'feeOfInstance' => 'FeeOfInstance',
+        'currency' => 'Currency',
+        'fee' => 'Fee',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
     {
-        if (\is_array($this->feeOfInstance)) {
-            Model::validateArray($this->feeOfInstance);
-        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->feeOfInstance) {
-            if (\is_array($this->feeOfInstance)) {
-                $res['FeeOfInstance'] = [];
-                $n1                   = 0;
-                foreach ($this->feeOfInstance as $item1) {
-                    $res['FeeOfInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
-                }
-            }
+        if (null !== $this->currency) {
+            $res['Currency'] = $this->currency;
+        }
+
+        if (null !== $this->fee) {
+            $res['Fee'] = $this->fee;
+        }
+
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
 
         return $res;
@@ -49,14 +59,16 @@ class feeOfInstances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FeeOfInstance'])) {
-            if (!empty($map['FeeOfInstance'])) {
-                $model->feeOfInstance = [];
-                $n1                   = 0;
-                foreach ($map['FeeOfInstance'] as $item1) {
-                    $model->feeOfInstance[$n1++] = feeOfInstance::fromMap($item1);
-                }
-            }
+        if (isset($map['Currency'])) {
+            $model->currency = $map['Currency'];
+        }
+
+        if (isset($map['Fee'])) {
+            $model->fee = $map['Fee'];
+        }
+
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
 
         return $model;

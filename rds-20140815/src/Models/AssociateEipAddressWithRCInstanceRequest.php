@@ -12,18 +12,20 @@ class AssociateEipAddressWithRCInstanceRequest extends Model
      * @var string
      */
     public $allocationId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'allocationId' => 'AllocationId',
-        'instanceId'   => 'InstanceId',
-        'regionId'     => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

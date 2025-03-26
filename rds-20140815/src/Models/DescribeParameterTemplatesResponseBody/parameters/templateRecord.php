@@ -12,33 +12,38 @@ class templateRecord extends Model
      * @var string
      */
     public $checkingCode;
+
     /**
      * @var string
      */
     public $forceModify;
+
     /**
      * @var string
      */
     public $forceRestart;
+
     /**
      * @var string
      */
     public $parameterDescription;
+
     /**
      * @var string
      */
     public $parameterName;
+
     /**
      * @var string
      */
     public $parameterValue;
     protected $_name = [
-        'checkingCode'         => 'CheckingCode',
-        'forceModify'          => 'ForceModify',
-        'forceRestart'         => 'ForceRestart',
+        'checkingCode' => 'CheckingCode',
+        'forceModify' => 'ForceModify',
+        'forceRestart' => 'ForceRestart',
         'parameterDescription' => 'ParameterDescription',
-        'parameterName'        => 'ParameterName',
-        'parameterValue'       => 'ParameterValue',
+        'parameterName' => 'ParameterName',
+        'parameterValue' => 'ParameterValue',
     ];
 
     public function validate()

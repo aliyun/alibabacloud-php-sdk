@@ -13,18 +13,20 @@ class tagInfos extends Model
      * @var DBInstanceIds
      */
     public $DBInstanceIds;
+
     /**
      * @var string
      */
     public $tagKey;
+
     /**
      * @var string
      */
     public $tagValue;
     protected $_name = [
         'DBInstanceIds' => 'DBInstanceIds',
-        'tagKey'        => 'TagKey',
-        'tagValue'      => 'TagValue',
+        'tagKey' => 'TagKey',
+        'tagValue' => 'TagValue',
     ];
 
     public function validate()

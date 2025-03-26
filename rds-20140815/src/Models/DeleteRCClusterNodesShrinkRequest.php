@@ -12,23 +12,26 @@ class DeleteRCClusterNodesShrinkRequest extends Model
      * @var string
      */
     public $instanceIdsShrink;
+
     /**
      * @var string
      */
     public $nodesShrink;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'instanceIdsShrink' => 'InstanceIds',
-        'nodesShrink'       => 'Nodes',
-        'regionId'          => 'RegionId',
-        'vpcId'             => 'VpcId',
+        'nodesShrink' => 'Nodes',
+        'regionId' => 'RegionId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

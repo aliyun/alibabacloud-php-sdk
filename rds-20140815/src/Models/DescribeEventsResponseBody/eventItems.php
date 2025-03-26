@@ -31,7 +31,7 @@ class eventItems extends Model
         if (null !== $this->eventItems) {
             if (\is_array($this->eventItems)) {
                 $res['EventItems'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->eventItems as $item1) {
                     $res['EventItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class eventItems extends Model
         if (isset($map['EventItems'])) {
             if (!empty($map['EventItems'])) {
                 $model->eventItems = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['EventItems'] as $item1) {
                     $model->eventItems[$n1++] = self::fromMap($item1);
                 }

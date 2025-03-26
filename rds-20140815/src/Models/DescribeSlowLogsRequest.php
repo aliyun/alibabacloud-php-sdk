@@ -12,58 +12,68 @@ class DescribeSlowLogsRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $sortKey;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBName'               => 'DBName',
-        'endTime'              => 'EndTime',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
+        'endTime' => 'EndTime',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'sortKey'              => 'SortKey',
-        'startTime'            => 'StartTime',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sortKey' => 'SortKey',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

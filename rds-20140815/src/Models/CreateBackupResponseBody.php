@@ -12,13 +12,14 @@ class CreateBackupResponseBody extends Model
      * @var string
      */
     public $backupJobId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'backupJobId' => 'BackupJobId',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

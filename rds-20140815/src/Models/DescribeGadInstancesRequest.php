@@ -12,17 +12,19 @@ class DescribeGadInstancesRequest extends Model
      * @var string
      */
     public $gadInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
         'gadInstanceName' => 'GadInstanceName',
-        'regionId'        => 'RegionId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

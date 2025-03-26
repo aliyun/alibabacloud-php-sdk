@@ -12,43 +12,50 @@ class readonlyInstanceDelay extends Model
      * @var string
      */
     public $flushLag;
+
     /**
      * @var string
      */
     public $flushLatency;
+
     /**
      * @var string
      */
     public $readDBInstanceName;
+
     /**
      * @var string
      */
     public $replayLag;
+
     /**
      * @var string
      */
     public $replayLatency;
+
     /**
      * @var string
      */
     public $sendLatency;
+
     /**
      * @var string
      */
     public $writeLag;
+
     /**
      * @var string
      */
     public $writeLatency;
     protected $_name = [
-        'flushLag'           => 'FlushLag',
-        'flushLatency'       => 'FlushLatency',
+        'flushLag' => 'FlushLag',
+        'flushLatency' => 'FlushLatency',
         'readDBInstanceName' => 'ReadDBInstanceName',
-        'replayLag'          => 'ReplayLag',
-        'replayLatency'      => 'ReplayLatency',
-        'sendLatency'        => 'SendLatency',
-        'writeLag'           => 'WriteLag',
-        'writeLatency'       => 'WriteLatency',
+        'replayLag' => 'ReplayLag',
+        'replayLatency' => 'ReplayLatency',
+        'sendLatency' => 'SendLatency',
+        'writeLag' => 'WriteLag',
+        'writeLatency' => 'WriteLatency',
     ];
 
     public function validate()

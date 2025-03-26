@@ -12,32 +12,37 @@ class ModifyRCInstanceAttributeRequest extends Model
      * @var string
      */
     public $hostName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var bool
      */
     public $reboot;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroupId;
     protected $_name = [
-        'hostName'        => 'HostName',
-        'instanceId'      => 'InstanceId',
-        'password'        => 'Password',
-        'reboot'          => 'Reboot',
-        'regionId'        => 'RegionId',
+        'hostName' => 'HostName',
+        'instanceId' => 'InstanceId',
+        'password' => 'Password',
+        'reboot' => 'Reboot',
+        'regionId' => 'RegionId',
         'securityGroupId' => 'SecurityGroupId',
     ];
 

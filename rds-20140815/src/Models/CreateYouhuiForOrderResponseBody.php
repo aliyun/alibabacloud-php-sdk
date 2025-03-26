@@ -12,18 +12,20 @@ class CreateYouhuiForOrderResponseBody extends Model
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $youhuiId;
     protected $_name = [
-        'message'   => 'Message',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'youhuiId'  => 'YouhuiId',
+        'youhuiId' => 'YouhuiId',
     ];
 
     public function validate()

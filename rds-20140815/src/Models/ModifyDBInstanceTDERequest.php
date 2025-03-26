@@ -12,68 +12,80 @@ class ModifyDBInstanceTDERequest extends Model
      * @var string
      */
     public $certificate;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $encryptionKey;
+
     /**
      * @var bool
      */
     public $isRotate;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $passWord;
+
     /**
      * @var string
      */
     public $privateKey;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $roleArn;
+
     /**
      * @var string
      */
     public $TDEStatus;
     protected $_name = [
-        'certificate'          => 'Certificate',
-        'DBInstanceId'         => 'DBInstanceId',
-        'DBName'               => 'DBName',
-        'encryptionKey'        => 'EncryptionKey',
-        'isRotate'             => 'IsRotate',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'passWord'             => 'PassWord',
-        'privateKey'           => 'PrivateKey',
+        'certificate' => 'Certificate',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBName' => 'DBName',
+        'encryptionKey' => 'EncryptionKey',
+        'isRotate' => 'IsRotate',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'passWord' => 'PassWord',
+        'privateKey' => 'PrivateKey',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'roleArn'              => 'RoleArn',
-        'TDEStatus'            => 'TDEStatus',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'roleArn' => 'RoleArn',
+        'TDEStatus' => 'TDEStatus',
     ];
 
     public function validate()

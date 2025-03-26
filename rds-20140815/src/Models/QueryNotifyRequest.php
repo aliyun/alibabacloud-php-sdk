@@ -12,27 +12,31 @@ class QueryNotifyRequest extends Model
      * @var string
      */
     public $from;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $to;
+
     /**
      * @var bool
      */
     public $withConfirmed;
     protected $_name = [
-        'from'          => 'From',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'to'            => 'To',
+        'from' => 'From',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'to' => 'To',
         'withConfirmed' => 'WithConfirmed',
     ];
 
