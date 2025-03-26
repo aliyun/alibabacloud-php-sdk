@@ -4,319 +4,118 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeBundlesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeBundlesResponseBody\bundles\desktopTypeAttribute;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeBundlesResponseBody\bundles\disks;
-use AlibabaCloud\Tea\Model;
 
 class bundles extends Model
 {
     /**
-     * @description The ID of the cloud computer template.
-     *
-     * @example bundle_ecd_graphics.2xlarge_s15d15_win2019
-     *
      * @var string
      */
     public $bundleId;
 
     /**
-     * @description The name of the cloud computer template.
-     *
-     * @example Advanced graphics with Windows 2019
-     *
      * @var string
      */
     public $bundleName;
 
     /**
-     * @description The type of the cloud computer template.
-     *
-     * Valid values:
-     *
-     *   SYSTEM: system template
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   CUSTOM: custom template
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * @example SYSTEM
-     *
      * @var string
      */
     public $bundleType;
 
     /**
-     * @description The time when the cloud computer template was created.
-     *
-     * @example 2021-09-30T06:09Z
-     *
      * @var string
      */
     public $creationTime;
 
     /**
-     * @description The category of the data disk. Valid values:
-     *
-     *   cloud_efficiency: ultra disk
-     *   cloud_auto: SSD
-     *   cloud_essd: ESSD (supported by specific specifications)
-     *
-     * @example cloud_efficiency
-     *
      * @var string
      */
     public $dataDiskCategory;
 
     /**
-     * @description The description of the cloud computer template.
-     *
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The instance type of the cloud computer.
-     *
-     * @example ecd.graphics.2xlarge
-     *
      * @var string
      */
     public $desktopType;
 
     /**
-     * @description The details of the cloud computer instance type.
-     *
      * @var desktopTypeAttribute
      */
     public $desktopTypeAttribute;
 
     /**
-     * @description The instance family of the cloud computer.
-     *
-     * Valid values:
-     *
-     *   eds.graphics: graphical instance family
-     *   eds.hf: instance family with a high clock speed
-     *   eds.general: general-purpose instance family
-     *
-     * @example eds.general
-     *
      * @var string
      */
     public $desktopTypeFamily;
 
     /**
-     * @description Details of the disks.
-     *
      * @var disks[]
      */
     public $disks;
 
     /**
-     * @description The image ID.
-     *
-     * @example desktopimage-windows-server-2019-64-ch-vgpu
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @description The image name.
-     *
-     * @example Windows server 2019 Chinese
-     *
      * @var string
      */
     public $imageName;
 
     /**
-     * @description The status of the image.
-     *
-     * @example Available
-     *
      * @var string
      */
     public $imageStatus;
 
     /**
-     * @description The OS language of the image.
-     *
-     * Valid values:
-     *
-     *   en-US: English
-     *   zh-HK: Chinese, Traditional (Hong Kong, China)
-     *   zh-CN: Simplified Chinese
-     *   ja-JP: Japanese
-     *
-     * @example en-US
-     *
      * @var string
      */
     public $language;
 
     /**
-     * @description The type of the OS.
-     *
-     * Valid values:
-     *
-     *   Linux
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   Windows
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * @example Windows
-     *
      * @var string
      */
     public $osType;
 
     /**
-     * @description The OS.
-     *
-     * Valid values:
-     *
-     *   Ubuntu
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   Windows Server 2022
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   UOS
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   CentOS
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   Windows Server 2019
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   Windows Server 2016
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * @example Windows Server 2019
-     *
      * @var string
      */
     public $platform;
 
     /**
-     * @description The protocol type.
-     *
-     * Valid values:
-     *
-     *   HDX: HDX protocol
-     *   ASP: in-house ASP
-     *
-     * @example ASP
-     *
      * @var string
      */
     public $protocolType;
 
     /**
-     * @description The session type.
-     *
-     * Valid values:
-     *
-     *   0: single-session
-     *   1: multi-session
-     *
-     * @example 0
-     *
      * @var string
      */
     public $sessionType;
 
     /**
-     * @description The inventory status of the cloud computer instance type. This parameter is returned only if you set the `CheckStock` parameter to `true`.
-     *
-     * @example Sufficient
-     *
      * @var string
      */
     public $stockState;
 
     /**
-     * @description The category of the system disk. Valid values:
-     *
-     *   cloud_efficiency: ultra disk
-     *   cloud_auto: SSD
-     *   cloud_essd: ESSD (supported by specific specifications)
-     *
-     * @example cloud_efficiency
-     *
      * @var string
      */
     public $systemDiskCategory;
 
     /**
-     * @description Indicates whether disk encryption is enabled.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $volumeEncryptionEnabled;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key that is used when disk encryption is enabled.
-     *
-     * @example 08c33a6f-4e0a-4a1b-a3fa-7ddfa1d4****
-     *
      * @var string
      */
     public $volumeEncryptionKey;
@@ -345,80 +144,110 @@ class bundles extends Model
         'volumeEncryptionKey' => 'VolumeEncryptionKey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->desktopTypeAttribute) {
+            $this->desktopTypeAttribute->validate();
+        }
+        if (\is_array($this->disks)) {
+            Model::validateArray($this->disks);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bundleId) {
             $res['BundleId'] = $this->bundleId;
         }
+
         if (null !== $this->bundleName) {
             $res['BundleName'] = $this->bundleName;
         }
+
         if (null !== $this->bundleType) {
             $res['BundleType'] = $this->bundleType;
         }
+
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+
         if (null !== $this->dataDiskCategory) {
             $res['DataDiskCategory'] = $this->dataDiskCategory;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->desktopType) {
             $res['DesktopType'] = $this->desktopType;
         }
+
         if (null !== $this->desktopTypeAttribute) {
-            $res['DesktopTypeAttribute'] = null !== $this->desktopTypeAttribute ? $this->desktopTypeAttribute->toMap() : null;
+            $res['DesktopTypeAttribute'] = null !== $this->desktopTypeAttribute ? $this->desktopTypeAttribute->toArray($noStream) : $this->desktopTypeAttribute;
         }
+
         if (null !== $this->desktopTypeFamily) {
             $res['DesktopTypeFamily'] = $this->desktopTypeFamily;
         }
+
         if (null !== $this->disks) {
-            $res['Disks'] = [];
-            if (null !== $this->disks && \is_array($this->disks)) {
-                $n = 0;
-                foreach ($this->disks as $item) {
-                    $res['Disks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->disks)) {
+                $res['Disks'] = [];
+                $n1 = 0;
+                foreach ($this->disks as $item1) {
+                    $res['Disks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+
         if (null !== $this->imageName) {
             $res['ImageName'] = $this->imageName;
         }
+
         if (null !== $this->imageStatus) {
             $res['ImageStatus'] = $this->imageStatus;
         }
+
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+
         if (null !== $this->osType) {
             $res['OsType'] = $this->osType;
         }
+
         if (null !== $this->platform) {
             $res['Platform'] = $this->platform;
         }
+
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
         }
+
         if (null !== $this->sessionType) {
             $res['SessionType'] = $this->sessionType;
         }
+
         if (null !== $this->stockState) {
             $res['StockState'] = $this->stockState;
         }
+
         if (null !== $this->systemDiskCategory) {
             $res['SystemDiskCategory'] = $this->systemDiskCategory;
         }
+
         if (null !== $this->volumeEncryptionEnabled) {
             $res['VolumeEncryptionEnabled'] = $this->volumeEncryptionEnabled;
         }
+
         if (null !== $this->volumeEncryptionKey) {
             $res['VolumeEncryptionKey'] = $this->volumeEncryptionKey;
         }
@@ -426,83 +255,104 @@ class bundles extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return bundles
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BundleId'])) {
             $model->bundleId = $map['BundleId'];
         }
+
         if (isset($map['BundleName'])) {
             $model->bundleName = $map['BundleName'];
         }
+
         if (isset($map['BundleType'])) {
             $model->bundleType = $map['BundleType'];
         }
+
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+
         if (isset($map['DataDiskCategory'])) {
             $model->dataDiskCategory = $map['DataDiskCategory'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['DesktopType'])) {
             $model->desktopType = $map['DesktopType'];
         }
+
         if (isset($map['DesktopTypeAttribute'])) {
             $model->desktopTypeAttribute = desktopTypeAttribute::fromMap($map['DesktopTypeAttribute']);
         }
+
         if (isset($map['DesktopTypeFamily'])) {
             $model->desktopTypeFamily = $map['DesktopTypeFamily'];
         }
+
         if (isset($map['Disks'])) {
             if (!empty($map['Disks'])) {
                 $model->disks = [];
-                $n = 0;
-                foreach ($map['Disks'] as $item) {
-                    $model->disks[$n++] = null !== $item ? disks::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Disks'] as $item1) {
+                    $model->disks[$n1++] = disks::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+
         if (isset($map['ImageName'])) {
             $model->imageName = $map['ImageName'];
         }
+
         if (isset($map['ImageStatus'])) {
             $model->imageStatus = $map['ImageStatus'];
         }
+
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+
         if (isset($map['OsType'])) {
             $model->osType = $map['OsType'];
         }
+
         if (isset($map['Platform'])) {
             $model->platform = $map['Platform'];
         }
+
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
         }
+
         if (isset($map['SessionType'])) {
             $model->sessionType = $map['SessionType'];
         }
+
         if (isset($map['StockState'])) {
             $model->stockState = $map['StockState'];
         }
+
         if (isset($map['SystemDiskCategory'])) {
             $model->systemDiskCategory = $map['SystemDiskCategory'];
         }
+
         if (isset($map['VolumeEncryptionEnabled'])) {
             $model->volumeEncryptionEnabled = $map['VolumeEncryptionEnabled'];
         }
+
         if (isset($map['VolumeEncryptionKey'])) {
             $model->volumeEncryptionKey = $map['VolumeEncryptionKey'];
         }

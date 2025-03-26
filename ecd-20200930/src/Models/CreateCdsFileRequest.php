@@ -4,153 +4,41 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCdsFileRequest extends Model
 {
     /**
-     * @description The ID of the cloud disk.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou+cds-82414*****
-     *
      * @var string
      */
     public $cdsId;
 
     /**
-     * @description The policy that is used when the file that you want to upload has the same name as an existing file in the cloud disk.
-     *
-     * Valid values:
-     *
-     *   refuse
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * denies creating the file
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     *   auto_rename
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * automatically renames the file
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     *   ignore
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * allows the file to use the same name as the existing file in the cloud disk
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     *   over_write
-     *
-     * <!-- -->
-     *
-     * :
-     *
-     * <!-- -->
-     *
-     * overwrites the existing file in the cloud disk
-     *
-     * <!-- -->
-     *
-     * .
-     *
-     * @example ignore
-     *
      * @var string
      */
     public $conflictPolicy;
 
     /**
-     * @description The user ID.
-     *
-     * @example test1
-     *
      * @var string
      */
     public $endUserId;
 
     /**
-     * @description The hash value of the SHA1 algorithm that is used by the file.
-     *
-     * @example 7C4A8D09CA3762AF61E59520943DC26494F8****
-     *
      * @var string
      */
     public $fileHash;
 
     /**
-     * @description The file size. Unit: bytes.
-     *
-     * This parameter is required.
-     *
-     * @example 2048
-     *
      * @var int
      */
     public $fileLength;
 
     /**
-     * @description The file name.
-     *
-     * This parameter is required.
-     *
-     * @example testFile.txt
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description The file type.
-     *
-     * Valid values:
-     *
-     *   file
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   folder
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * This parameter is required.
-     *
-     * @example file
-     *
      * @var string
      */
     public $fileType;
@@ -161,23 +49,11 @@ class CreateCdsFileRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the parent folder.
-     *
-     * This parameter is required.
-     *
-     * @example 637c9163b453b1a384874264ba79f3f9eab9****
-     *
      * @var string
      */
     public $parentFileId;
 
     /**
-     * @description The region ID.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -194,38 +70,50 @@ class CreateCdsFileRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cdsId) {
             $res['CdsId'] = $this->cdsId;
         }
+
         if (null !== $this->conflictPolicy) {
             $res['ConflictPolicy'] = $this->conflictPolicy;
         }
+
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
+
         if (null !== $this->fileHash) {
             $res['FileHash'] = $this->fileHash;
         }
+
         if (null !== $this->fileLength) {
             $res['FileLength'] = $this->fileLength;
         }
+
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
+
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->parentFileId) {
             $res['ParentFileId'] = $this->parentFileId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -233,41 +121,50 @@ class CreateCdsFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCdsFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CdsId'])) {
             $model->cdsId = $map['CdsId'];
         }
+
         if (isset($map['ConflictPolicy'])) {
             $model->conflictPolicy = $map['ConflictPolicy'];
         }
+
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
+
         if (isset($map['FileHash'])) {
             $model->fileHash = $map['FileHash'];
         }
+
         if (isset($map['FileLength'])) {
             $model->fileLength = $map['FileLength'];
         }
+
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
+
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['ParentFileId'])) {
             $model->parentFileId = $map['ParentFileId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

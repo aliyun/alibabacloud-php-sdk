@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UnbindConfigGroupResponseBody extends Model
 {
     /**
-     * @description The IDs of the configuration groups.
-     *
      * @var string[]
      */
     public $groupIds;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example AD0FF13D-FC7D-56AD-934F-91C8487*****
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +22,27 @@ class UnbindConfigGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->groupIds)) {
+            Model::validateArray($this->groupIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->groupIds) {
-            $res['GroupIds'] = $this->groupIds;
+            if (\is_array($this->groupIds)) {
+                $res['GroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->groupIds as $item1) {
+                    $res['GroupIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,19 +50,24 @@ class UnbindConfigGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnbindConfigGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GroupIds'])) {
             if (!empty($map['GroupIds'])) {
-                $model->groupIds = $map['GroupIds'];
+                $model->groupIds = [];
+                $n1 = 0;
+                foreach ($map['GroupIds'] as $item1) {
+                    $model->groupIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

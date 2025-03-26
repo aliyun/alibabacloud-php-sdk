@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopGroupSessionsResponseBody\sessions;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDesktopGroupSessionsResponseBody extends Model
 {
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
-     *
-     * @example caeba0bbb2
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The request ID.
-     *
-     * @example D0920845-7359-59FC-9899-B****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The sessions.
-     *
      * @var sessions[]
      */
     public $sessions;
 
     /**
-     * @description The total number of sessions.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $totalCount;
@@ -49,26 +35,35 @@ class DescribeDesktopGroupSessionsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sessions)) {
+            Model::validateArray($this->sessions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->sessions) {
-            $res['Sessions'] = [];
-            if (null !== $this->sessions && \is_array($this->sessions)) {
-                $n = 0;
-                foreach ($this->sessions as $item) {
-                    $res['Sessions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sessions)) {
+                $res['Sessions'] = [];
+                $n1 = 0;
+                foreach ($this->sessions as $item1) {
+                    $res['Sessions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -76,29 +71,32 @@ class DescribeDesktopGroupSessionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDesktopGroupSessionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Sessions'])) {
             if (!empty($map['Sessions'])) {
                 $model->sessions = [];
-                $n = 0;
-                foreach ($map['Sessions'] as $item) {
-                    $model->sessions[$n++] = null !== $item ? sessions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Sessions'] as $item1) {
+                    $model->sessions[$n1++] = sessions::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

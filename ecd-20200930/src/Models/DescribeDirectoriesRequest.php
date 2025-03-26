@@ -4,155 +4,41 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDirectoriesRequest extends Model
 {
     /**
-     * @description Details of directory IDs. You can specify one or more directory IDs.
-     *
-     * @example cn-hangzhou+dir-gx2x1dhsmu52rd****
-     *
      * @var string[]
      */
     public $directoryId;
 
     /**
-     * @description The directory status. This parameter is equivalent to `Status`.
-     *
-     * @example REGISTERED
-     *
      * @var string
      */
     public $directoryStatus;
 
     /**
-     * @description The directory type.
-     *
-     * Valid values:
-     *
-     *   SIMPLE: a directory of the convenience account type
-     *   AD_CONNECTOR: an AD directory
-     *   RAM: a RAM directory
-     *
-     * @example RAM
-     *
      * @var string
      */
     public $directoryType;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * Maximum value: 100.
-     *
-     * Default value: 10.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the next query. If this parameter is empty, all results are returned.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The directory status.
-     *
-     * Valid values:
-     *
-     *   REGISTERING: The directory is being registered.
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   DEREGISTERING: The directory is being deregistered.
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   REGISTERED: The directory is registered.
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   NEEDCONFIGTRUST: A trust relationship needs to be configured for the directory.
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   CONFIGTRUSTFAILED: A trust relationship fails to be configured for the directory.
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   DEREGISTERED: The directory is deregistered.
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   ERROR: One or more configurations of the directory are invalid.
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   CONFIGTRUSTING: A trust relationship is being configured.
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     *   NEEDCONFIGUSER: Users need to be configured for the directory.
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * <!-- -->
-     *
-     * @example REGISTERED
-     *
      * @var string
      */
     public $status;
@@ -166,29 +52,47 @@ class DescribeDirectoriesRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->directoryId)) {
+            Model::validateArray($this->directoryId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->directoryId) {
-            $res['DirectoryId'] = $this->directoryId;
+            if (\is_array($this->directoryId)) {
+                $res['DirectoryId'] = [];
+                $n1 = 0;
+                foreach ($this->directoryId as $item1) {
+                    $res['DirectoryId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->directoryStatus) {
             $res['DirectoryStatus'] = $this->directoryStatus;
         }
+
         if (null !== $this->directoryType) {
             $res['DirectoryType'] = $this->directoryType;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -196,34 +100,44 @@ class DescribeDirectoriesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDirectoriesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DirectoryId'])) {
             if (!empty($map['DirectoryId'])) {
-                $model->directoryId = $map['DirectoryId'];
+                $model->directoryId = [];
+                $n1 = 0;
+                foreach ($map['DirectoryId'] as $item1) {
+                    $model->directoryId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['DirectoryStatus'])) {
             $model->directoryStatus = $map['DirectoryStatus'];
         }
+
         if (isset($map['DirectoryType'])) {
             $model->directoryType = $map['DirectoryType'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

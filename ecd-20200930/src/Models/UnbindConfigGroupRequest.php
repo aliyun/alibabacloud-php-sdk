@@ -4,40 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\UnbindConfigGroupRequest\resourceInfos;
-use AlibabaCloud\Tea\Model;
 
 class UnbindConfigGroupRequest extends Model
 {
     /**
-     * @description The ID of the region. Set the value to `cn-shanghai`.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The resources from which you want to unbind the configuration group.
-     *
-     * This parameter is required.
-     *
      * @var resourceInfos[]
      */
     public $resourceInfos;
 
     /**
-     * @description The type of the configuration group.
-     *
-     * Valid value:
-     *
-     *   Timer: the scheduled task type.
-     *
-     * This parameter is required.
-     *
-     * @example Timer
-     *
      * @var string
      */
     public $type;
@@ -47,23 +29,31 @@ class UnbindConfigGroupRequest extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->resourceInfos)) {
+            Model::validateArray($this->resourceInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceInfos) {
-            $res['ResourceInfos'] = [];
-            if (null !== $this->resourceInfos && \is_array($this->resourceInfos)) {
-                $n = 0;
-                foreach ($this->resourceInfos as $item) {
-                    $res['ResourceInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceInfos)) {
+                $res['ResourceInfos'] = [];
+                $n1 = 0;
+                foreach ($this->resourceInfos as $item1) {
+                    $res['ResourceInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -71,26 +61,28 @@ class UnbindConfigGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UnbindConfigGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceInfos'])) {
             if (!empty($map['ResourceInfos'])) {
                 $model->resourceInfos = [];
-                $n = 0;
-                foreach ($map['ResourceInfos'] as $item) {
-                    $model->resourceInfos[$n++] = null !== $item ? resourceInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResourceInfos'] as $item1) {
+                    $model->resourceInfos[$n1++] = resourceInfos::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

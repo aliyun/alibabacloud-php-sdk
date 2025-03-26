@@ -4,53 +4,31 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeVirtualMFADevicesRequest extends Model
 {
     /**
-     * @description The names of the AD users.
-     *
-     * @example testuser
-     *
      * @var string[]
      */
     public $endUserId;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 500. Default value: 100.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The ID of the workspace.
-     *
-     * @example cn-hangzhou+dir-269345****
-     *
      * @var string
      */
     public $officeSiteId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -62,23 +40,39 @@ class DescribeVirtualMFADevicesRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->endUserId)) {
+            Model::validateArray($this->endUserId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endUserId) {
-            $res['EndUserId'] = $this->endUserId;
+            if (\is_array($this->endUserId)) {
+                $res['EndUserId'] = [];
+                $n1 = 0;
+                foreach ($this->endUserId as $item1) {
+                    $res['EndUserId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -86,28 +80,36 @@ class DescribeVirtualMFADevicesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeVirtualMFADevicesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndUserId'])) {
             if (!empty($map['EndUserId'])) {
-                $model->endUserId = $map['EndUserId'];
+                $model->endUserId = [];
+                $n1 = 0;
+                foreach ($map['EndUserId'] as $item1) {
+                    $model->endUserId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeNASFileSystemsResponseBody\fileSystems;
-use AlibabaCloud\Tea\Model;
 
 class DescribeNASFileSystemsResponseBody extends Model
 {
     /**
-     * @description Details about the NAS file systems.
-     *
      * @var fileSystems[]
      */
     public $fileSystems;
 
     /**
-     * @description The token that determines the start point of the next query. This parameter is empty if no additional results exist.
-     *
-     * @example caeba0bbb2be03f84eb48b699f0a4883
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 269BDB16-2CD8-4865-84BD-11C40BC21DB0
-     *
      * @var string
      */
     public $requestId;
@@ -39,23 +29,31 @@ class DescribeNASFileSystemsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fileSystems)) {
+            Model::validateArray($this->fileSystems);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileSystems) {
-            $res['FileSystems'] = [];
-            if (null !== $this->fileSystems && \is_array($this->fileSystems)) {
-                $n = 0;
-                foreach ($this->fileSystems as $item) {
-                    $res['FileSystems'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fileSystems)) {
+                $res['FileSystems'] = [];
+                $n1 = 0;
+                foreach ($this->fileSystems as $item1) {
+                    $res['FileSystems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -63,26 +61,28 @@ class DescribeNASFileSystemsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNASFileSystemsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileSystems'])) {
             if (!empty($map['FileSystems'])) {
                 $model->fileSystems = [];
-                $n = 0;
-                foreach ($map['FileSystems'] as $item) {
-                    $model->fileSystems[$n++] = null !== $item ? fileSystems::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FileSystems'] as $item1) {
+                    $model->fileSystems[$n1++] = fileSystems::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

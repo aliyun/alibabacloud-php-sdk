@@ -4,48 +4,26 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CancelCoordinationForMonitoringRequest extends Model
 {
     /**
-     * @description The IDs of stream collaboration tasks.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $coIds;
 
     /**
-     * @description The ID of the end user that initiates stream collaboration. If the initiator is the administrator, skip this parameter.
-     *
-     * @example alice
-     *
      * @var string
      */
     public $endUserId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/436773.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The type of the user.
-     *
-     * Valid value:
-     *
-     * TENANT_ADMIN: administrator.
-     *
-     * @example TENANT_ADMIN
-     *
      * @var string
      */
     public $userType;
@@ -56,20 +34,35 @@ class CancelCoordinationForMonitoringRequest extends Model
         'userType' => 'UserType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->coIds)) {
+            Model::validateArray($this->coIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->coIds) {
-            $res['CoIds'] = $this->coIds;
+            if (\is_array($this->coIds)) {
+                $res['CoIds'] = [];
+                $n1 = 0;
+                foreach ($this->coIds as $item1) {
+                    $res['CoIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
         }
@@ -77,25 +70,32 @@ class CancelCoordinationForMonitoringRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CancelCoordinationForMonitoringRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CoIds'])) {
             if (!empty($map['CoIds'])) {
-                $model->coIds = $map['CoIds'];
+                $model->coIds = [];
+                $n1 = 0;
+                foreach ($map['CoIds'] as $item1) {
+                    $model->coIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];
         }

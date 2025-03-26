@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRenewalPriceRequest extends Model
 {
     /**
-     * @example ecd-6ldllk9zxcpfhs****
-     *
      * @var string
      */
     public $instanceId;
@@ -21,31 +19,21 @@ class DescribeRenewalPriceRequest extends Model
     public $instanceIds;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @example Month
-     *
      * @var string
      */
     public $periodUnit;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example Desktop
-     *
      * @var string
      */
     public $resourceType;
@@ -58,26 +46,43 @@ class DescribeRenewalPriceRequest extends Model
         'resourceType' => 'ResourceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceIds)) {
+            Model::validateArray($this->instanceIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = $this->instanceIds;
+            if (\is_array($this->instanceIds)) {
+                $res['InstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceIds as $item1) {
+                    $res['InstanceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
@@ -85,31 +90,40 @@ class DescribeRenewalPriceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRenewalPriceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
-                $model->instanceIds = $map['InstanceIds'];
+                $model->instanceIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceIds'] as $item1) {
+                    $model->instanceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }

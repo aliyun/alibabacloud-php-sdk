@@ -4,67 +4,37 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\AddFilePermissionRequest\memberList;
-use AlibabaCloud\Tea\Model;
 
 class AddFilePermissionRequest extends Model
 {
     /**
-     * @description The ID of the cloud disk whose folder you want to share.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou+cds-352282****
-     *
      * @var string
      */
     public $cdsId;
 
     /**
-     * @description The ID of the end user who uses the cloud disk.
-     *
-     * @example user01
-     *
      * @var string
      */
     public $endUserId;
 
     /**
-     * @description The ID of the file.
-     *
-     * This parameter is required.
-     *
-     * @example 6333e553a133ce21e6f747cf948bb9ef95d7****
-     *
      * @var string
      */
     public $fileId;
 
     /**
-     * @description The ID of the team that uses cloud disks in Cloud Drive Service.
-     *
-     * @example cg-i1ruuudp92qpj****
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The members who are granted the folder permissions.
-     *
-     * This parameter is required.
-     *
      * @var memberList[]
      */
     public $memberList;
 
     /**
-     * @description The region ID of the folder. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -77,32 +47,43 @@ class AddFilePermissionRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->memberList)) {
+            Model::validateArray($this->memberList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cdsId) {
             $res['CdsId'] = $this->cdsId;
         }
+
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
+
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
+
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+
         if (null !== $this->memberList) {
-            $res['MemberList'] = [];
-            if (null !== $this->memberList && \is_array($this->memberList)) {
-                $n = 0;
-                foreach ($this->memberList as $item) {
-                    $res['MemberList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->memberList)) {
+                $res['MemberList'] = [];
+                $n1 = 0;
+                foreach ($this->memberList as $item1) {
+                    $res['MemberList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -110,35 +91,40 @@ class AddFilePermissionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddFilePermissionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CdsId'])) {
             $model->cdsId = $map['CdsId'];
         }
+
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
+
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }
+
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+
         if (isset($map['MemberList'])) {
             if (!empty($map['MemberList'])) {
                 $model->memberList = [];
-                $n = 0;
-                foreach ($map['MemberList'] as $item) {
-                    $model->memberList[$n++] = null !== $item ? memberList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['MemberList'] as $item1) {
+                    $model->memberList[$n1++] = memberList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

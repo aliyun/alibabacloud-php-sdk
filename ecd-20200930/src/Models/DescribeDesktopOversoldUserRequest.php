@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeDesktopOversoldUserRequest extends Model
 {
@@ -52,29 +52,47 @@ class DescribeDesktopOversoldUserRequest extends Model
         'userGroupId' => 'UserGroupId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->userDesktopIds)) {
+            Model::validateArray($this->userDesktopIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
+
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->oversoldGroupId) {
             $res['OversoldGroupId'] = $this->oversoldGroupId;
         }
+
         if (null !== $this->userDesktopIds) {
-            $res['UserDesktopIds'] = $this->userDesktopIds;
+            if (\is_array($this->userDesktopIds)) {
+                $res['UserDesktopIds'] = [];
+                $n1 = 0;
+                foreach ($this->userDesktopIds as $item1) {
+                    $res['UserDesktopIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->userGroupId) {
             $res['UserGroupId'] = $this->userGroupId;
         }
@@ -82,34 +100,44 @@ class DescribeDesktopOversoldUserRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDesktopOversoldUserRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }
+
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['OversoldGroupId'])) {
             $model->oversoldGroupId = $map['OversoldGroupId'];
         }
+
         if (isset($map['UserDesktopIds'])) {
             if (!empty($map['UserDesktopIds'])) {
-                $model->userDesktopIds = $map['UserDesktopIds'];
+                $model->userDesktopIds = [];
+                $n1 = 0;
+                foreach ($map['UserDesktopIds'] as $item1) {
+                    $model->userDesktopIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['UserGroupId'])) {
             $model->userGroupId = $map['UserGroupId'];
         }

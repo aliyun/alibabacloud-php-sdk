@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\CreateCdsFileResponseBody\fileModel;
-use AlibabaCloud\Tea\Model;
 
 class CreateCdsFileResponseBody extends Model
 {
@@ -15,10 +15,6 @@ class CreateCdsFileResponseBody extends Model
     public $fileModel;
 
     /**
-     * @description The request ID.
-     *
-     * @example 2BAFE05D-FFB9-5938-96D0-08017DB9****
-     *
      * @var string
      */
     public $requestId;
@@ -27,14 +23,21 @@ class CreateCdsFileResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->fileModel) {
+            $this->fileModel->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileModel) {
-            $res['FileModel'] = null !== $this->fileModel ? $this->fileModel->toMap() : null;
+            $res['FileModel'] = null !== $this->fileModel ? $this->fileModel->toArray($noStream) : $this->fileModel;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,17 +45,18 @@ class CreateCdsFileResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCdsFileResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileModel'])) {
             $model->fileModel = fileModel::fromMap($map['FileModel']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

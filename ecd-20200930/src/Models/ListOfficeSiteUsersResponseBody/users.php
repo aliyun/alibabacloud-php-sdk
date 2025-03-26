@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\ListOfficeSiteUsersResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class users extends Model
 {
@@ -14,10 +14,6 @@ class users extends Model
     public $assignedDesktopNumber;
 
     /**
-     * @description The display name of the user.
-     *
-     * @example Alice
-     *
      * @var string
      */
     public $displayName;
@@ -28,10 +24,6 @@ class users extends Model
     public $email;
 
     /**
-     * @description The name of the AD user.
-     *
-     * @example Alice
-     *
      * @var string
      */
     public $endUser;
@@ -48,23 +40,30 @@ class users extends Model
         'phone' => 'Phone',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assignedDesktopNumber) {
             $res['AssignedDesktopNumber'] = $this->assignedDesktopNumber;
         }
+
         if (null !== $this->displayName) {
             $res['DisplayName'] = $this->displayName;
         }
+
         if (null !== $this->email) {
             $res['Email'] = $this->email;
         }
+
         if (null !== $this->endUser) {
             $res['EndUser'] = $this->endUser;
         }
+
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
         }
@@ -72,26 +71,30 @@ class users extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return users
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssignedDesktopNumber'])) {
             $model->assignedDesktopNumber = $map['AssignedDesktopNumber'];
         }
+
         if (isset($map['DisplayName'])) {
             $model->displayName = $map['DisplayName'];
         }
+
         if (isset($map['Email'])) {
             $model->email = $map['Email'];
         }
+
         if (isset($map['EndUser'])) {
             $model->endUser = $map['EndUser'];
         }
+
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
         }

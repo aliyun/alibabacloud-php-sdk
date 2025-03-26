@@ -4,43 +4,27 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\ModifyDesktopTimerRequest\desktopTimers;
-use AlibabaCloud\Tea\Model;
 
 class ModifyDesktopTimerRequest extends Model
 {
     /**
-     * @description The IDs of the cloud computers.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $desktopId;
 
     /**
-     * @description The details of the scheduled task on cloud computers.
-     *
      * @var desktopTimers[]
      */
     public $desktopTimers;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the most recent region list.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description Specifies whether to use the `DesktopTimers`** parameter. Set the value to `true`**.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $useDesktopTimers;
@@ -51,26 +35,44 @@ class ModifyDesktopTimerRequest extends Model
         'useDesktopTimers' => 'UseDesktopTimers',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->desktopId)) {
+            Model::validateArray($this->desktopId);
+        }
+        if (\is_array($this->desktopTimers)) {
+            Model::validateArray($this->desktopTimers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->desktopId) {
-            $res['DesktopId'] = $this->desktopId;
-        }
-        if (null !== $this->desktopTimers) {
-            $res['DesktopTimers'] = [];
-            if (null !== $this->desktopTimers && \is_array($this->desktopTimers)) {
-                $n = 0;
-                foreach ($this->desktopTimers as $item) {
-                    $res['DesktopTimers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->desktopId)) {
+                $res['DesktopId'] = [];
+                $n1 = 0;
+                foreach ($this->desktopId as $item1) {
+                    $res['DesktopId'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->desktopTimers) {
+            if (\is_array($this->desktopTimers)) {
+                $res['DesktopTimers'] = [];
+                $n1 = 0;
+                foreach ($this->desktopTimers as $item1) {
+                    $res['DesktopTimers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->useDesktopTimers) {
             $res['UseDesktopTimers'] = $this->useDesktopTimers;
         }
@@ -78,31 +80,38 @@ class ModifyDesktopTimerRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyDesktopTimerRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DesktopId'])) {
             if (!empty($map['DesktopId'])) {
-                $model->desktopId = $map['DesktopId'];
-            }
-        }
-        if (isset($map['DesktopTimers'])) {
-            if (!empty($map['DesktopTimers'])) {
-                $model->desktopTimers = [];
-                $n = 0;
-                foreach ($map['DesktopTimers'] as $item) {
-                    $model->desktopTimers[$n++] = null !== $item ? desktopTimers::fromMap($item) : $item;
+                $model->desktopId = [];
+                $n1 = 0;
+                foreach ($map['DesktopId'] as $item1) {
+                    $model->desktopId[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['DesktopTimers'])) {
+            if (!empty($map['DesktopTimers'])) {
+                $model->desktopTimers = [];
+                $n1 = 0;
+                foreach ($map['DesktopTimers'] as $item1) {
+                    $model->desktopTimers[$n1++] = desktopTimers::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['UseDesktopTimers'])) {
             $model->useDesktopTimers = $map['UseDesktopTimers'];
         }

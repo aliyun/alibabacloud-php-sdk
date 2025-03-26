@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeCloudDrivePermissionsResponseBody\cloudDrivePermissionModels;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCloudDrivePermissionsResponseBody extends Model
 {
@@ -15,8 +15,6 @@ class DescribeCloudDrivePermissionsResponseBody extends Model
     public $cloudDrivePermissionModels;
 
     /**
-     * @example A87DBB05-653A-5E4B-B72B-5F4A1E07E5B3
-     *
      * @var string
      */
     public $requestId;
@@ -25,20 +23,27 @@ class DescribeCloudDrivePermissionsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->cloudDrivePermissionModels)) {
+            Model::validateArray($this->cloudDrivePermissionModels);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cloudDrivePermissionModels) {
-            $res['CloudDrivePermissionModels'] = [];
-            if (null !== $this->cloudDrivePermissionModels && \is_array($this->cloudDrivePermissionModels)) {
-                $n = 0;
-                foreach ($this->cloudDrivePermissionModels as $item) {
-                    $res['CloudDrivePermissionModels'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->cloudDrivePermissionModels)) {
+                $res['CloudDrivePermissionModels'] = [];
+                $n1 = 0;
+                foreach ($this->cloudDrivePermissionModels as $item1) {
+                    $res['CloudDrivePermissionModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,23 +51,24 @@ class DescribeCloudDrivePermissionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCloudDrivePermissionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CloudDrivePermissionModels'])) {
             if (!empty($map['CloudDrivePermissionModels'])) {
                 $model->cloudDrivePermissionModels = [];
-                $n = 0;
-                foreach ($map['CloudDrivePermissionModels'] as $item) {
-                    $model->cloudDrivePermissionModels[$n++] = null !== $item ? cloudDrivePermissionModels::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CloudDrivePermissionModels'] as $item1) {
+                    $model->cloudDrivePermissionModels[$n1++] = cloudDrivePermissionModels::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

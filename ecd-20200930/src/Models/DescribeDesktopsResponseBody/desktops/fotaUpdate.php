@@ -4,60 +4,36 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\DescribeDesktopsResponseBody\desktops;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class fotaUpdate extends Model
 {
     /**
-     * @description The current image version of the cloud computer.
-     *
-     * @example 0.0.0-D-20220102.000000
-     *
      * @var string
      */
     public $currentAppVersion;
 
     /**
-     * @description The version number to which the image of the cloud computer can be updated.
-     *
-     * @example 0.0.0-R-20220307.190736
-     *
      * @var string
      */
     public $newAppVersion;
 
     /**
-     * @description The description of the version to which the image of the cloud computer can be updated.
-     *
-     * @example Upgrade package for testing 03-07
-     *
      * @var string
      */
     public $releaseNote;
 
     /**
-     * @description The English description of the version to which the image of the cloud computer can be updated.
-     *
-     * @example Release note
-     *
      * @var string
      */
     public $releaseNoteEn;
 
     /**
-     * @description The Japanese description of the image version to which the cloud desktop can be updated.
-     *
-     * @example リリースノート
-     *
      * @var string
      */
     public $releaseNoteJp;
 
     /**
-     * @description The size of the installation package for the image to which the cloud desktop can be updated. Unit: KB.
-     *
-     * @example 108815097
-     *
      * @var int
      */
     public $size;
@@ -70,26 +46,34 @@ class fotaUpdate extends Model
         'size' => 'Size',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentAppVersion) {
             $res['CurrentAppVersion'] = $this->currentAppVersion;
         }
+
         if (null !== $this->newAppVersion) {
             $res['NewAppVersion'] = $this->newAppVersion;
         }
+
         if (null !== $this->releaseNote) {
             $res['ReleaseNote'] = $this->releaseNote;
         }
+
         if (null !== $this->releaseNoteEn) {
             $res['ReleaseNoteEn'] = $this->releaseNoteEn;
         }
+
         if (null !== $this->releaseNoteJp) {
             $res['ReleaseNoteJp'] = $this->releaseNoteJp;
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -97,29 +81,34 @@ class fotaUpdate extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return fotaUpdate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentAppVersion'])) {
             $model->currentAppVersion = $map['CurrentAppVersion'];
         }
+
         if (isset($map['NewAppVersion'])) {
             $model->newAppVersion = $map['NewAppVersion'];
         }
+
         if (isset($map['ReleaseNote'])) {
             $model->releaseNote = $map['ReleaseNote'];
         }
+
         if (isset($map['ReleaseNoteEn'])) {
             $model->releaseNoteEn = $map['ReleaseNoteEn'];
         }
+
         if (isset($map['ReleaseNoteJp'])) {
             $model->releaseNoteJp = $map['ReleaseNoteJp'];
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

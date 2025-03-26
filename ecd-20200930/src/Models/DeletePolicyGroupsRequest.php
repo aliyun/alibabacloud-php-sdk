@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeletePolicyGroupsRequest extends Model
 {
     /**
-     * @description The cloud computer policy IDs. You can specify 1 to 100 policies.
-     *
-     * This parameter is required.
-     *
-     * @example pg-gx2x1dhsmthe9****
-     *
      * @var string[]
      */
     public $policyGroupId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by EDS.
-     *
-     * This parameter is required.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -34,14 +22,27 @@ class DeletePolicyGroupsRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->policyGroupId)) {
+            Model::validateArray($this->policyGroupId);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->policyGroupId) {
-            $res['PolicyGroupId'] = $this->policyGroupId;
+            if (\is_array($this->policyGroupId)) {
+                $res['PolicyGroupId'] = [];
+                $n1 = 0;
+                foreach ($this->policyGroupId as $item1) {
+                    $res['PolicyGroupId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -49,19 +50,24 @@ class DeletePolicyGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeletePolicyGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PolicyGroupId'])) {
             if (!empty($map['PolicyGroupId'])) {
-                $model->policyGroupId = $map['PolicyGroupId'];
+                $model->policyGroupId = [];
+                $n1 = 0;
+                foreach ($map['PolicyGroupId'] as $item1) {
+                    $model->policyGroupId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

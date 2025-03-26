@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListFilePermissionResponseBody extends Model
 {
     /**
-     * @description The permissions on the shared file.
-     *
      * @var FilePermissionMember[]
      */
     public $filePermissions;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
-     *
      * @var string
      */
     public $requestId;
@@ -28,20 +22,27 @@ class ListFilePermissionResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->filePermissions)) {
+            Model::validateArray($this->filePermissions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filePermissions) {
-            $res['FilePermissions'] = [];
-            if (null !== $this->filePermissions && \is_array($this->filePermissions)) {
-                $n = 0;
-                foreach ($this->filePermissions as $item) {
-                    $res['FilePermissions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->filePermissions)) {
+                $res['FilePermissions'] = [];
+                $n1 = 0;
+                foreach ($this->filePermissions as $item1) {
+                    $res['FilePermissions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -49,23 +50,24 @@ class ListFilePermissionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFilePermissionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FilePermissions'])) {
             if (!empty($map['FilePermissions'])) {
                 $model->filePermissions = [];
-                $n = 0;
-                foreach ($map['FilePermissions'] as $item) {
-                    $model->filePermissions[$n++] = null !== $item ? FilePermissionMember::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FilePermissions'] as $item1) {
+                    $model->filePermissions[$n1++] = FilePermissionMember::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

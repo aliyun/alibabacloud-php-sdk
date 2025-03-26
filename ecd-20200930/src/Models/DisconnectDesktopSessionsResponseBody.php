@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Ecd\V20200930\Models\DisconnectDesktopSessionsResponseBody\invalidSessions;
-use AlibabaCloud\Tea\Model;
 
 class DisconnectDesktopSessionsResponseBody extends Model
 {
     /**
-     * @description The list of invalid sessions.
-     *
      * @var invalidSessions[]
      */
     public $invalidSessions;
 
     /**
-     * @description The request ID.
-     *
-     * @example 2507CFA8-FEAB-5208-98F5-5E028C50XXXX
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,27 @@ class DisconnectDesktopSessionsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->invalidSessions)) {
+            Model::validateArray($this->invalidSessions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->invalidSessions) {
-            $res['InvalidSessions'] = [];
-            if (null !== $this->invalidSessions && \is_array($this->invalidSessions)) {
-                $n = 0;
-                foreach ($this->invalidSessions as $item) {
-                    $res['InvalidSessions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->invalidSessions)) {
+                $res['InvalidSessions'] = [];
+                $n1 = 0;
+                foreach ($this->invalidSessions as $item1) {
+                    $res['InvalidSessions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +51,24 @@ class DisconnectDesktopSessionsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DisconnectDesktopSessionsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InvalidSessions'])) {
             if (!empty($map['InvalidSessions'])) {
                 $model->invalidSessions = [];
-                $n = 0;
-                foreach ($map['InvalidSessions'] as $item) {
-                    $model->invalidSessions[$n++] = null !== $item ? invalidSessions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InvalidSessions'] as $item1) {
+                    $model->invalidSessions[$n1++] = invalidSessions::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

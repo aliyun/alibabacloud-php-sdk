@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Ecd\V20200930\Models\ListUserAdOrganizationUnitsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class OUNames extends Model
 {
     /**
-     * @description The name of the OU.
-     *
-     * @example wuying_computers
-     *
      * @var string
      */
     public $displayOUName;
 
     /**
-     * @description The canonical name (CNAME) of the OU in the AD domain controller.
-     *
-     * @example example.com/wuying_computers
-     *
      * @var string
      */
     public $OUName;
 
     /**
-     * @description The enterprise AD office network ID.
-     *
-     * @example cn-hangzhou+dir-485361****
-     *
      * @var string
      */
     public $officeSiteId;
@@ -40,17 +28,22 @@ class OUNames extends Model
         'officeSiteId' => 'OfficeSiteId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->displayOUName) {
             $res['DisplayOUName'] = $this->displayOUName;
         }
+
         if (null !== $this->OUName) {
             $res['OUName'] = $this->OUName;
         }
+
         if (null !== $this->officeSiteId) {
             $res['OfficeSiteId'] = $this->officeSiteId;
         }
@@ -58,20 +51,22 @@ class OUNames extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return OUNames
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DisplayOUName'])) {
             $model->displayOUName = $map['DisplayOUName'];
         }
+
         if (isset($map['OUName'])) {
             $model->OUName = $map['OUName'];
         }
+
         if (isset($map['OfficeSiteId'])) {
             $model->officeSiteId = $map['OfficeSiteId'];
         }
