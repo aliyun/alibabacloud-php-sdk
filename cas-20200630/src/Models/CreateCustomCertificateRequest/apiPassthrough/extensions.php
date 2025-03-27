@@ -14,22 +14,25 @@ class extensions extends Model
      * @var string[]
      */
     public $criticals;
+
     /**
      * @var string[]
      */
     public $extendedKeyUsages;
+
     /**
      * @var keyUsage
      */
     public $keyUsage;
+
     /**
      * @var subjectAlternativeNames[]
      */
     public $subjectAlternativeNames;
     protected $_name = [
-        'criticals'               => 'Criticals',
-        'extendedKeyUsages'       => 'ExtendedKeyUsages',
-        'keyUsage'                => 'KeyUsage',
+        'criticals' => 'Criticals',
+        'extendedKeyUsages' => 'ExtendedKeyUsages',
+        'keyUsage' => 'KeyUsage',
         'subjectAlternativeNames' => 'SubjectAlternativeNames',
     ];
 
@@ -56,7 +59,7 @@ class extensions extends Model
         if (null !== $this->criticals) {
             if (\is_array($this->criticals)) {
                 $res['Criticals'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->criticals as $item1) {
                     $res['Criticals'][$n1++] = $item1;
                 }
@@ -66,7 +69,7 @@ class extensions extends Model
         if (null !== $this->extendedKeyUsages) {
             if (\is_array($this->extendedKeyUsages)) {
                 $res['ExtendedKeyUsages'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->extendedKeyUsages as $item1) {
                     $res['ExtendedKeyUsages'][$n1++] = $item1;
                 }
@@ -80,7 +83,7 @@ class extensions extends Model
         if (null !== $this->subjectAlternativeNames) {
             if (\is_array($this->subjectAlternativeNames)) {
                 $res['SubjectAlternativeNames'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->subjectAlternativeNames as $item1) {
                     $res['SubjectAlternativeNames'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -101,7 +104,7 @@ class extensions extends Model
         if (isset($map['Criticals'])) {
             if (!empty($map['Criticals'])) {
                 $model->criticals = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Criticals'] as $item1) {
                     $model->criticals[$n1++] = $item1;
                 }
@@ -111,7 +114,7 @@ class extensions extends Model
         if (isset($map['ExtendedKeyUsages'])) {
             if (!empty($map['ExtendedKeyUsages'])) {
                 $model->extendedKeyUsages = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ExtendedKeyUsages'] as $item1) {
                     $model->extendedKeyUsages[$n1++] = $item1;
                 }
@@ -125,7 +128,7 @@ class extensions extends Model
         if (isset($map['SubjectAlternativeNames'])) {
             if (!empty($map['SubjectAlternativeNames'])) {
                 $model->subjectAlternativeNames = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['SubjectAlternativeNames'] as $item1) {
                     $model->subjectAlternativeNames[$n1++] = subjectAlternativeNames::fromMap($item1);
                 }

@@ -14,18 +14,20 @@ class apiPassthrough extends Model
      * @var extensions
      */
     public $extensions;
+
     /**
      * @var string
      */
     public $serialNumber;
+
     /**
      * @var subject
      */
     public $subject;
     protected $_name = [
-        'extensions'   => 'Extensions',
+        'extensions' => 'Extensions',
         'serialNumber' => 'SerialNumber',
-        'subject'      => 'Subject',
+        'subject' => 'Subject',
     ];
 
     public function validate()

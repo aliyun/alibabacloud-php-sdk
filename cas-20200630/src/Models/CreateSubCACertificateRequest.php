@@ -12,68 +12,80 @@ class CreateSubCACertificateRequest extends Model
      * @var string
      */
     public $algorithm;
+
     /**
      * @var string
      */
     public $commonName;
+
     /**
      * @var string
      */
     public $countryCode;
+
     /**
      * @var int
      */
     public $crlDay;
+
     /**
      * @var bool
      */
     public $enableCrl;
+
     /**
      * @var string[]
      */
     public $extendedKeyUsages;
+
     /**
      * @var string
      */
     public $locality;
+
     /**
      * @var string
      */
     public $organization;
+
     /**
      * @var string
      */
     public $organizationUnit;
+
     /**
      * @var string
      */
     public $parentIdentifier;
+
     /**
      * @var int
      */
     public $pathLenConstraint;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $years;
     protected $_name = [
-        'algorithm'         => 'Algorithm',
-        'commonName'        => 'CommonName',
-        'countryCode'       => 'CountryCode',
-        'crlDay'            => 'CrlDay',
-        'enableCrl'         => 'EnableCrl',
+        'algorithm' => 'Algorithm',
+        'commonName' => 'CommonName',
+        'countryCode' => 'CountryCode',
+        'crlDay' => 'CrlDay',
+        'enableCrl' => 'EnableCrl',
         'extendedKeyUsages' => 'ExtendedKeyUsages',
-        'locality'          => 'Locality',
-        'organization'      => 'Organization',
-        'organizationUnit'  => 'OrganizationUnit',
-        'parentIdentifier'  => 'ParentIdentifier',
+        'locality' => 'Locality',
+        'organization' => 'Organization',
+        'organizationUnit' => 'OrganizationUnit',
+        'parentIdentifier' => 'ParentIdentifier',
         'pathLenConstraint' => 'PathLenConstraint',
-        'state'             => 'State',
-        'years'             => 'Years',
+        'state' => 'State',
+        'years' => 'Years',
     ];
 
     public function validate()
@@ -110,7 +122,7 @@ class CreateSubCACertificateRequest extends Model
         if (null !== $this->extendedKeyUsages) {
             if (\is_array($this->extendedKeyUsages)) {
                 $res['ExtendedKeyUsages'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->extendedKeyUsages as $item1) {
                     $res['ExtendedKeyUsages'][$n1++] = $item1;
                 }
@@ -179,7 +191,7 @@ class CreateSubCACertificateRequest extends Model
         if (isset($map['ExtendedKeyUsages'])) {
             if (!empty($map['ExtendedKeyUsages'])) {
                 $model->extendedKeyUsages = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ExtendedKeyUsages'] as $item1) {
                     $model->extendedKeyUsages[$n1++] = $item1;
                 }

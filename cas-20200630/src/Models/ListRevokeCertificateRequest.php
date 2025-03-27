@@ -12,13 +12,14 @@ class ListRevokeCertificateRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $showSize;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'showSize'    => 'ShowSize',
+        'showSize' => 'ShowSize',
     ];
 
     public function validate()

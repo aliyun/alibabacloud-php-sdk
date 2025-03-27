@@ -13,38 +13,44 @@ class subject extends Model
      * @var string
      */
     public $commonName;
+
     /**
      * @var string
      */
     public $country;
+
     /**
      * @var customAttributes[]
      */
     public $customAttributes;
+
     /**
      * @var string
      */
     public $locality;
+
     /**
      * @var string
      */
     public $organization;
+
     /**
      * @var string
      */
     public $organizationUnit;
+
     /**
      * @var string
      */
     public $state;
     protected $_name = [
-        'commonName'       => 'CommonName',
-        'country'          => 'Country',
+        'commonName' => 'CommonName',
+        'country' => 'Country',
         'customAttributes' => 'CustomAttributes',
-        'locality'         => 'Locality',
-        'organization'     => 'Organization',
+        'locality' => 'Locality',
+        'organization' => 'Organization',
         'organizationUnit' => 'OrganizationUnit',
-        'state'            => 'State',
+        'state' => 'State',
     ];
 
     public function validate()
@@ -69,7 +75,7 @@ class subject extends Model
         if (null !== $this->customAttributes) {
             if (\is_array($this->customAttributes)) {
                 $res['CustomAttributes'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->customAttributes as $item1) {
                     $res['CustomAttributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -114,7 +120,7 @@ class subject extends Model
         if (isset($map['CustomAttributes'])) {
             if (!empty($map['CustomAttributes'])) {
                 $model->customAttributes = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['CustomAttributes'] as $item1) {
                     $model->customAttributes[$n1++] = customAttributes::fromMap($item1);
                 }

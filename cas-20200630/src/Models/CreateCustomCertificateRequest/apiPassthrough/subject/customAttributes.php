@@ -12,13 +12,14 @@ class customAttributes extends Model
      * @var string
      */
     public $objectIdentifier;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'objectIdentifier' => 'ObjectIdentifier',
-        'value'            => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

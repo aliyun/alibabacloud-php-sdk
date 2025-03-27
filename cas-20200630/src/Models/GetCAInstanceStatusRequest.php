@@ -12,6 +12,7 @@ class GetCAInstanceStatusRequest extends Model
      * @var string
      */
     public $identifier;
+
     /**
      * @var string
      */

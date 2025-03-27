@@ -13,13 +13,14 @@ class DescribeClientCertificateResponseBody extends Model
      * @var certificate
      */
     public $certificate;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'certificate' => 'Certificate',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

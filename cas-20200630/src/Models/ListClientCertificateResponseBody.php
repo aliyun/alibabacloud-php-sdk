@@ -13,33 +13,38 @@ class ListClientCertificateResponseBody extends Model
      * @var certificateList[]
      */
     public $certificateList;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $pageCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $showSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'certificateList' => 'CertificateList',
-        'currentPage'     => 'CurrentPage',
-        'pageCount'       => 'PageCount',
-        'requestId'       => 'RequestId',
-        'showSize'        => 'ShowSize',
-        'totalCount'      => 'TotalCount',
+        'currentPage' => 'CurrentPage',
+        'pageCount' => 'PageCount',
+        'requestId' => 'RequestId',
+        'showSize' => 'ShowSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class ListClientCertificateResponseBody extends Model
         if (null !== $this->certificateList) {
             if (\is_array($this->certificateList)) {
                 $res['CertificateList'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->certificateList as $item1) {
                     $res['CertificateList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class ListClientCertificateResponseBody extends Model
         if (isset($map['CertificateList'])) {
             if (!empty($map['CertificateList'])) {
                 $model->certificateList = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['CertificateList'] as $item1) {
                     $model->certificateList[$n1++] = certificateList::fromMap($item1);
                 }

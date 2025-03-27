@@ -12,108 +12,128 @@ class certificateList extends Model
      * @var string
      */
     public $afterDate;
+
     /**
      * @var string
      */
     public $algorithm;
+
     /**
      * @var string
      */
     public $beforeDate;
+
     /**
      * @var string
      */
     public $certificateType;
+
     /**
      * @var string
      */
     public $commonName;
+
     /**
      * @var string
      */
     public $countryCode;
+
     /**
      * @var string
      */
     public $identifier;
+
     /**
      * @var int
      */
     public $keySize;
+
     /**
      * @var string
      */
     public $locality;
+
     /**
      * @var string
      */
     public $md5;
+
     /**
      * @var string
      */
     public $organization;
+
     /**
      * @var string
      */
     public $organizationUnit;
+
     /**
      * @var string
      */
     public $parentIdentifier;
+
     /**
      * @var string
      */
     public $revokeDate;
+
     /**
      * @var string
      */
     public $sans;
+
     /**
      * @var string
      */
     public $serialNumber;
+
     /**
      * @var string
      */
     public $sha2;
+
     /**
      * @var string
      */
     public $signAlgorithm;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $subjectDN;
     protected $_name = [
-        'afterDate'        => 'AfterDate',
-        'algorithm'        => 'Algorithm',
-        'beforeDate'       => 'BeforeDate',
-        'certificateType'  => 'CertificateType',
-        'commonName'       => 'CommonName',
-        'countryCode'      => 'CountryCode',
-        'identifier'       => 'Identifier',
-        'keySize'          => 'KeySize',
-        'locality'         => 'Locality',
-        'md5'              => 'Md5',
-        'organization'     => 'Organization',
+        'afterDate' => 'AfterDate',
+        'algorithm' => 'Algorithm',
+        'beforeDate' => 'BeforeDate',
+        'certificateType' => 'CertificateType',
+        'commonName' => 'CommonName',
+        'countryCode' => 'CountryCode',
+        'identifier' => 'Identifier',
+        'keySize' => 'KeySize',
+        'locality' => 'Locality',
+        'md5' => 'Md5',
+        'organization' => 'Organization',
         'organizationUnit' => 'OrganizationUnit',
         'parentIdentifier' => 'ParentIdentifier',
-        'revokeDate'       => 'RevokeDate',
-        'sans'             => 'Sans',
-        'serialNumber'     => 'SerialNumber',
-        'sha2'             => 'Sha2',
-        'signAlgorithm'    => 'SignAlgorithm',
-        'state'            => 'State',
-        'status'           => 'Status',
-        'subjectDN'        => 'SubjectDN',
+        'revokeDate' => 'RevokeDate',
+        'sans' => 'Sans',
+        'serialNumber' => 'SerialNumber',
+        'sha2' => 'Sha2',
+        'signAlgorithm' => 'SignAlgorithm',
+        'state' => 'State',
+        'status' => 'Status',
+        'subjectDN' => 'SubjectDN',
     ];
 
     public function validate()

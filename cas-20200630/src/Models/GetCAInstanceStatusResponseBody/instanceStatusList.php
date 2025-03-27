@@ -12,48 +12,56 @@ class instanceStatusList extends Model
      * @var int
      */
     public $afterTime;
+
     /**
      * @var int
      */
     public $beforeTime;
+
     /**
      * @var int
      */
     public $certIssuedCount;
+
     /**
      * @var int
      */
     public $certTotalCount;
+
     /**
      * @var string
      */
     public $identifier;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var int
      */
     public $useExpireTime;
     protected $_name = [
-        'afterTime'       => 'AfterTime',
-        'beforeTime'      => 'BeforeTime',
+        'afterTime' => 'AfterTime',
+        'beforeTime' => 'BeforeTime',
         'certIssuedCount' => 'CertIssuedCount',
-        'certTotalCount'  => 'CertTotalCount',
-        'identifier'      => 'Identifier',
-        'instanceId'      => 'InstanceId',
-        'status'          => 'Status',
-        'type'            => 'Type',
-        'useExpireTime'   => 'UseExpireTime',
+        'certTotalCount' => 'CertTotalCount',
+        'identifier' => 'Identifier',
+        'instanceId' => 'InstanceId',
+        'status' => 'Status',
+        'type' => 'Type',
+        'useExpireTime' => 'UseExpireTime',
     ];
 
     public function validate()

@@ -13,33 +13,38 @@ class CreateCustomCertificateRequest extends Model
      * @var apiPassthrough
      */
     public $apiPassthrough;
+
     /**
      * @var string
      */
     public $csr;
+
     /**
      * @var int
      */
     public $enableCrl;
+
     /**
      * @var int
      */
     public $immediately;
+
     /**
      * @var string
      */
     public $parentIdentifier;
+
     /**
      * @var string
      */
     public $validity;
     protected $_name = [
-        'apiPassthrough'   => 'ApiPassthrough',
-        'csr'              => 'Csr',
-        'enableCrl'        => 'EnableCrl',
-        'immediately'      => 'Immediately',
+        'apiPassthrough' => 'ApiPassthrough',
+        'csr' => 'Csr',
+        'enableCrl' => 'EnableCrl',
+        'immediately' => 'Immediately',
         'parentIdentifier' => 'ParentIdentifier',
-        'validity'         => 'Validity',
+        'validity' => 'Validity',
     ];
 
     public function validate()

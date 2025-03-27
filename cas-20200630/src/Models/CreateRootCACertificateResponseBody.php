@@ -12,23 +12,26 @@ class CreateRootCACertificateResponseBody extends Model
      * @var string
      */
     public $certificate;
+
     /**
      * @var string
      */
     public $certificateChain;
+
     /**
      * @var string
      */
     public $identifier;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'certificate'      => 'Certificate',
+        'certificate' => 'Certificate',
         'certificateChain' => 'CertificateChain',
-        'identifier'       => 'Identifier',
-        'requestId'        => 'RequestId',
+        'identifier' => 'Identifier',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

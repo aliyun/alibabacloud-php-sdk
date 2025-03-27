@@ -13,13 +13,14 @@ class DescribeClientCertificateStatusResponseBody extends Model
      * @var certificateStatus[]
      */
     public $certificateStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'certificateStatus' => 'CertificateStatus',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeClientCertificateStatusResponseBody extends Model
         if (null !== $this->certificateStatus) {
             if (\is_array($this->certificateStatus)) {
                 $res['CertificateStatus'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->certificateStatus as $item1) {
                     $res['CertificateStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeClientCertificateStatusResponseBody extends Model
         if (isset($map['CertificateStatus'])) {
             if (!empty($map['CertificateStatus'])) {
                 $model->certificateStatus = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['CertificateStatus'] as $item1) {
                     $model->certificateStatus[$n1++] = certificateStatus::fromMap($item1);
                 }

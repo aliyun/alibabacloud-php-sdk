@@ -53,58 +53,58 @@ class Cas extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-hangzhou'                 => 'cas.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'cas.aliyuncs.com',
-            'ap-southeast-3'              => 'cas.aliyuncs.com',
-            'ap-southeast-5'              => 'cas.aliyuncs.com',
-            'cn-beijing'                  => 'cas.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'cas.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'cas.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'cas.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'cas.aliyuncs.com',
-            'cn-chengdu'                  => 'cas.aliyuncs.com',
-            'cn-edge-1'                   => 'cas.aliyuncs.com',
-            'cn-fujian'                   => 'cas.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'cas.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'cas.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'cas.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-hangzhou' => 'cas.aliyuncs.com',
+            'ap-northeast-2-pop' => 'cas.aliyuncs.com',
+            'ap-southeast-3' => 'cas.aliyuncs.com',
+            'ap-southeast-5' => 'cas.aliyuncs.com',
+            'cn-beijing' => 'cas.aliyuncs.com',
+            'cn-beijing-finance-1' => 'cas.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'cas.aliyuncs.com',
+            'cn-beijing-gov-1' => 'cas.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'cas.aliyuncs.com',
+            'cn-chengdu' => 'cas.aliyuncs.com',
+            'cn-edge-1' => 'cas.aliyuncs.com',
+            'cn-fujian' => 'cas.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'cas.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'cas.aliyuncs.com',
+            'cn-hangzhou-finance' => 'cas.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'cas.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'cas.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'cas.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'cas.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'cas.aliyuncs.com',
-            'cn-hongkong'                 => 'cas.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'cas.aliyuncs.com',
-            'cn-huhehaote'                => 'cas.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'cas.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'cas.aliyuncs.com',
-            'cn-qingdao'                  => 'cas.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'cas.aliyuncs.com',
-            'cn-shanghai'                 => 'cas.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'cas.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'cas.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'cas.aliyuncs.com',
-            'cn-shanghai-inner'           => 'cas.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'cas.aliyuncs.com',
+            'cn-hongkong' => 'cas.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'cas.aliyuncs.com',
+            'cn-huhehaote' => 'cas.aliyuncs.com',
+            'cn-huhehaote-nebula-1' => 'cas.aliyuncs.com',
+            'cn-north-2-gov-1' => 'cas.aliyuncs.com',
+            'cn-qingdao' => 'cas.aliyuncs.com',
+            'cn-qingdao-nebula' => 'cas.aliyuncs.com',
+            'cn-shanghai' => 'cas.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'cas.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'cas.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'cas.aliyuncs.com',
+            'cn-shanghai-inner' => 'cas.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'cas.aliyuncs.com',
-            'cn-shenzhen'                 => 'cas.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'cas.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'cas.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'cas.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'cas.aliyuncs.com',
-            'cn-wuhan'                    => 'cas.aliyuncs.com',
-            'cn-wulanchabu'               => 'cas.aliyuncs.com',
-            'cn-yushanfang'               => 'cas.aliyuncs.com',
-            'cn-zhangbei'                 => 'cas.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'cas.aliyuncs.com',
-            'cn-zhangjiakou'              => 'cas.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'cas.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'cas.aliyuncs.com',
-            'eu-west-1'                   => 'cas.aliyuncs.com',
-            'eu-west-1-oxs'               => 'cas.aliyuncs.com',
-            'rus-west-1-pop'              => 'cas.aliyuncs.com',
-            'us-east-1'                   => 'cas.aliyuncs.com',
-            'us-west-1'                   => 'cas.aliyuncs.com',
+            'cn-shenzhen' => 'cas.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'cas.aliyuncs.com',
+            'cn-shenzhen-inner' => 'cas.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'cas.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'cas.aliyuncs.com',
+            'cn-wuhan' => 'cas.aliyuncs.com',
+            'cn-wulanchabu' => 'cas.aliyuncs.com',
+            'cn-yushanfang' => 'cas.aliyuncs.com',
+            'cn-zhangbei' => 'cas.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'cas.aliyuncs.com',
+            'cn-zhangjiakou' => 'cas.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'cas.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'cas.aliyuncs.com',
+            'eu-west-1' => 'cas.aliyuncs.com',
+            'eu-west-1-oxs' => 'cas.aliyuncs.com',
+            'rus-west-1-pop' => 'cas.aliyuncs.com',
+            'us-east-1' => 'cas.aliyuncs.com',
+            'us-west-1' => 'cas.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('cas', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -144,6 +144,7 @@ class Cas extends OpenApiClient
      *
      * @param request - CreateClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateClientCertificateResponse
      *
      * @param CreateClientCertificateRequest $request
@@ -227,15 +228,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateClientCertificate',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateClientCertificate',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -253,6 +254,7 @@ class Cas extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreateClientCertificateRequest
+     *
      * @returns CreateClientCertificateResponse
      *
      * @param CreateClientCertificateRequest $request
@@ -276,6 +278,7 @@ class Cas extends OpenApiClient
      *
      * @param request - CreateClientCertificateWithCsrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateClientCertificateWithCsrResponse
      *
      * @param CreateClientCertificateWithCsrRequest $request
@@ -363,15 +366,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateClientCertificateWithCsr',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateClientCertificateWithCsr',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateClientCertificateWithCsrResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -389,6 +392,7 @@ class Cas extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreateClientCertificateWithCsrRequest
+     *
      * @returns CreateClientCertificateWithCsrResponse
      *
      * @param CreateClientCertificateWithCsrRequest $request
@@ -424,6 +428,7 @@ class Cas extends OpenApiClient
      *
      * @param request - CreateCustomCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCustomCertificateResponse
      *
      * @param CreateCustomCertificateRequest $request
@@ -463,15 +468,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCustomCertificate',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCustomCertificate',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCustomCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -501,6 +506,7 @@ class Cas extends OpenApiClient
      * Note: Compliant certificate authorities (CAs) are managed by third-party authorities. This operation is not supported for compliant CAs.
      *
      * @param request - CreateCustomCertificateRequest
+     *
      * @returns CreateCustomCertificateResponse
      *
      * @param CreateCustomCertificateRequest $request
@@ -525,6 +531,7 @@ class Cas extends OpenApiClient
      *
      * @param request - CreateRevokeClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateRevokeClientCertificateResponse
      *
      * @param CreateRevokeClientCertificateRequest $request
@@ -544,15 +551,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRevokeClientCertificate',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRevokeClientCertificate',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateRevokeClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -571,6 +578,7 @@ class Cas extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreateRevokeClientCertificateRequest
+     *
      * @returns CreateRevokeClientCertificateResponse
      *
      * @param CreateRevokeClientCertificateRequest $request
@@ -595,6 +603,7 @@ class Cas extends OpenApiClient
      *
      * @param request - CreateRootCACertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateRootCACertificateResponse
      *
      * @param CreateRootCACertificateRequest $request
@@ -642,15 +651,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRootCACertificate',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRootCACertificate',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateRootCACertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -669,6 +678,7 @@ class Cas extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreateRootCACertificateRequest
+     *
      * @returns CreateRootCACertificateResponse
      *
      * @param CreateRootCACertificateRequest $request
@@ -692,6 +702,7 @@ class Cas extends OpenApiClient
      *
      * @param request - CreateServerCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateServerCertificateResponse
      *
      * @param CreateServerCertificateRequest $request
@@ -771,15 +782,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateServerCertificate',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServerCertificate',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateServerCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -797,6 +808,7 @@ class Cas extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreateServerCertificateRequest
+     *
      * @returns CreateServerCertificateResponse
      *
      * @param CreateServerCertificateRequest $request
@@ -819,6 +831,7 @@ class Cas extends OpenApiClient
      *
      * @param request - CreateServerCertificateWithCsrRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateServerCertificateWithCsrResponse
      *
      * @param CreateServerCertificateWithCsrRequest $request
@@ -902,15 +915,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateServerCertificateWithCsr',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateServerCertificateWithCsr',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateServerCertificateWithCsrResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -927,6 +940,7 @@ class Cas extends OpenApiClient
      * Before you call this operation, make sure that you have created a root certificate authority (CA) certificate by calling the [CreateRootCACertificate](https://help.aliyun.com/document_detail/328093.html) operation and an intermediate CA certificate by calling the [CreateSubCACertificate](https://help.aliyun.com/document_detail/328094.html) operation. Only intermediate CA certificates can be used to issue server certificates.
      *
      * @param request - CreateServerCertificateWithCsrRequest
+     *
      * @returns CreateServerCertificateWithCsrResponse
      *
      * @param CreateServerCertificateWithCsrRequest $request
@@ -951,6 +965,7 @@ class Cas extends OpenApiClient
      *
      * @param request - CreateSubCACertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSubCACertificateResponse
      *
      * @param CreateSubCACertificateRequest $request
@@ -1018,15 +1033,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSubCACertificate',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSubCACertificate',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSubCACertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1045,6 +1060,7 @@ class Cas extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - CreateSubCACertificateRequest
+     *
      * @returns CreateSubCACertificateResponse
      *
      * @param CreateSubCACertificateRequest $request
@@ -1068,6 +1084,7 @@ class Cas extends OpenApiClient
      *
      * @param request - DeleteClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteClientCertificateResponse
      *
      * @param DeleteClientCertificateRequest $request
@@ -1087,15 +1104,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteClientCertificate',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteClientCertificate',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1113,6 +1130,7 @@ class Cas extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DeleteClientCertificateRequest
+     *
      * @returns DeleteClientCertificateResponse
      *
      * @param DeleteClientCertificateRequest $request
@@ -1137,6 +1155,7 @@ class Cas extends OpenApiClient
      *
      * @param request - DescribeCACertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCACertificateResponse
      *
      * @param DescribeCACertificateRequest $request
@@ -1156,15 +1175,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCACertificate',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCACertificate',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCACertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1183,6 +1202,7 @@ class Cas extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeCACertificateRequest
+     *
      * @returns DescribeCACertificateResponse
      *
      * @param DescribeCACertificateRequest $request
@@ -1206,6 +1226,7 @@ class Cas extends OpenApiClient
      *
      * @param request - DescribeCACertificateCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCACertificateCountResponse
      *
      * @param RuntimeOptions $runtime
@@ -1214,17 +1235,17 @@ class Cas extends OpenApiClient
      */
     public function describeCACertificateCountWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeCACertificateCount',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCACertificateCount',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCACertificateCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1240,6 +1261,7 @@ class Cas extends OpenApiClient
      * You can call the DescribeCACertificateCount operation to query the number of created CA certificates, which includes root CA certificates and intermediate CA certificates.
      * ## Limits
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *
      * @returns DescribeCACertificateCountResponse
      *
      * @return DescribeCACertificateCountResponse
@@ -1261,6 +1283,7 @@ class Cas extends OpenApiClient
      *
      * @param request - DescribeCACertificateListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCACertificateListResponse
      *
      * @param DescribeCACertificateListRequest $request
@@ -1288,15 +1311,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCACertificateList',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCACertificateList',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCACertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1314,6 +1337,7 @@ class Cas extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeCACertificateListRequest
+     *
      * @returns DescribeCACertificateListResponse
      *
      * @param DescribeCACertificateListRequest $request
@@ -1345,6 +1369,7 @@ class Cas extends OpenApiClient
      *
      * @param request - DescribeCertificatePrivateKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCertificatePrivateKeyResponse
      *
      * @param DescribeCertificatePrivateKeyRequest $request
@@ -1368,15 +1393,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCertificatePrivateKey',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCertificatePrivateKey',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCertificatePrivateKeyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1402,6 +1427,7 @@ class Cas extends OpenApiClient
      * You can call this operation up to 100 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeCertificatePrivateKeyRequest
+     *
      * @returns DescribeCertificatePrivateKeyResponse
      *
      * @param DescribeCertificatePrivateKeyRequest $request
@@ -1432,6 +1458,7 @@ class Cas extends OpenApiClient
      *
      * @param request - DescribeClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeClientCertificateResponse
      *
      * @param DescribeClientCertificateRequest $request
@@ -1451,15 +1478,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeClientCertificate',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeClientCertificate',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1484,6 +1511,7 @@ class Cas extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeClientCertificateRequest
+     *
      * @returns DescribeClientCertificateResponse
      *
      * @param DescribeClientCertificateRequest $request
@@ -1507,6 +1535,7 @@ class Cas extends OpenApiClient
      *
      * @param request - DescribeClientCertificateStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeClientCertificateStatusResponse
      *
      * @param DescribeClientCertificateStatusRequest $request
@@ -1526,15 +1555,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeClientCertificateStatus',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeClientCertificateStatus',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeClientCertificateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1552,6 +1581,7 @@ class Cas extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - DescribeClientCertificateStatusRequest
+     *
      * @returns DescribeClientCertificateStatusResponse
      *
      * @param DescribeClientCertificateStatusRequest $request
@@ -1575,6 +1605,7 @@ class Cas extends OpenApiClient
      *
      * @param request - GetCAInstanceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCAInstanceStatusResponse
      *
      * @param GetCAInstanceStatusRequest $request
@@ -1598,15 +1629,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCAInstanceStatus',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCAInstanceStatus',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetCAInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1624,6 +1655,7 @@ class Cas extends OpenApiClient
      * Before you call this operation, make sure that you have purchased a private CA by using the [SSL Certificates Service console](https://yundun.console.aliyun.com/?p=cas#/pca/rootlist). For more information, see [Create a private CA](https://help.aliyun.com/document_detail/208553.html).
      *
      * @param request - GetCAInstanceStatusRequest
+     *
      * @returns GetCAInstanceStatusResponse
      *
      * @param GetCAInstanceStatusRequest $request
@@ -1647,6 +1679,7 @@ class Cas extends OpenApiClient
      *
      * @param request - ListClientCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListClientCertificateResponse
      *
      * @param ListClientCertificateRequest $request
@@ -1674,15 +1707,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListClientCertificate',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListClientCertificate',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListClientCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1700,6 +1733,7 @@ class Cas extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - ListClientCertificateRequest
+     *
      * @returns ListClientCertificateResponse
      *
      * @param ListClientCertificateRequest $request
@@ -1723,6 +1757,7 @@ class Cas extends OpenApiClient
      *
      * @param request - ListRevokeCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRevokeCertificateResponse
      *
      * @param ListRevokeCertificateRequest $request
@@ -1746,15 +1781,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRevokeCertificate',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRevokeCertificate',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListRevokeCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1772,6 +1807,7 @@ class Cas extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - ListRevokeCertificateRequest
+     *
      * @returns ListRevokeCertificateResponse
      *
      * @param ListRevokeCertificateRequest $request
@@ -1796,6 +1832,7 @@ class Cas extends OpenApiClient
      *
      * @param request - UpdateCACertificateStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCACertificateStatusResponse
      *
      * @param UpdateCACertificateStatusRequest $request
@@ -1819,15 +1856,15 @@ class Cas extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCACertificateStatus',
-            'version'     => '2020-06-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCACertificateStatus',
+            'version' => '2020-06-30',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateCACertificateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1846,6 +1883,7 @@ class Cas extends OpenApiClient
      * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @param request - UpdateCACertificateStatusRequest
+     *
      * @returns UpdateCACertificateStatusResponse
      *
      * @param UpdateCACertificateStatusRequest $request

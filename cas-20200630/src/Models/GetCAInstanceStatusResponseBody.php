@@ -13,13 +13,14 @@ class GetCAInstanceStatusResponseBody extends Model
      * @var instanceStatusList[]
      */
     public $instanceStatusList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceStatusList' => 'InstanceStatusList',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class GetCAInstanceStatusResponseBody extends Model
         if (null !== $this->instanceStatusList) {
             if (\is_array($this->instanceStatusList)) {
                 $res['InstanceStatusList'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->instanceStatusList as $item1) {
                     $res['InstanceStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class GetCAInstanceStatusResponseBody extends Model
         if (isset($map['InstanceStatusList'])) {
             if (!empty($map['InstanceStatusList'])) {
                 $model->instanceStatusList = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['InstanceStatusList'] as $item1) {
                     $model->instanceStatusList[$n1++] = instanceStatusList::fromMap($item1);
                 }

@@ -12,93 +12,110 @@ class CreateClientCertificateWithCsrRequest extends Model
      * @var int
      */
     public $afterTime;
+
     /**
      * @var string
      */
     public $algorithm;
+
     /**
      * @var int
      */
     public $beforeTime;
+
     /**
      * @var string
      */
     public $commonName;
+
     /**
      * @var string
      */
     public $country;
+
     /**
      * @var string
      */
     public $csr;
+
     /**
      * @var int
      */
     public $days;
+
     /**
      * @var int
      */
     public $enableCrl;
+
     /**
      * @var int
      */
     public $immediately;
+
     /**
      * @var string
      */
     public $locality;
+
     /**
      * @var int
      */
     public $months;
+
     /**
      * @var string
      */
     public $organization;
+
     /**
      * @var string
      */
     public $organizationUnit;
+
     /**
      * @var string
      */
     public $parentIdentifier;
+
     /**
      * @var int
      */
     public $sanType;
+
     /**
      * @var string
      */
     public $sanValue;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $years;
     protected $_name = [
-        'afterTime'        => 'AfterTime',
-        'algorithm'        => 'Algorithm',
-        'beforeTime'       => 'BeforeTime',
-        'commonName'       => 'CommonName',
-        'country'          => 'Country',
-        'csr'              => 'Csr',
-        'days'             => 'Days',
-        'enableCrl'        => 'EnableCrl',
-        'immediately'      => 'Immediately',
-        'locality'         => 'Locality',
-        'months'           => 'Months',
-        'organization'     => 'Organization',
+        'afterTime' => 'AfterTime',
+        'algorithm' => 'Algorithm',
+        'beforeTime' => 'BeforeTime',
+        'commonName' => 'CommonName',
+        'country' => 'Country',
+        'csr' => 'Csr',
+        'days' => 'Days',
+        'enableCrl' => 'EnableCrl',
+        'immediately' => 'Immediately',
+        'locality' => 'Locality',
+        'months' => 'Months',
+        'organization' => 'Organization',
         'organizationUnit' => 'OrganizationUnit',
         'parentIdentifier' => 'ParentIdentifier',
-        'sanType'          => 'SanType',
-        'sanValue'         => 'SanValue',
-        'state'            => 'State',
-        'years'            => 'Years',
+        'sanType' => 'SanType',
+        'sanValue' => 'SanValue',
+        'state' => 'State',
+        'years' => 'Years',
     ];
 
     public function validate()

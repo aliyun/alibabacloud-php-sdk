@@ -13,18 +13,20 @@ class DescribeCACertificateResponseBody extends Model
      * @var certificate
      */
     public $certificate;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $years;
     protected $_name = [
         'certificate' => 'Certificate',
-        'requestId'   => 'RequestId',
-        'years'       => 'Years',
+        'requestId' => 'RequestId',
+        'years' => 'Years',
     ];
 
     public function validate()

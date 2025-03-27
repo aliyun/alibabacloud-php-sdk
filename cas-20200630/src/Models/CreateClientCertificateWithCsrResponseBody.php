@@ -11,29 +11,45 @@ class CreateClientCertificateWithCsrResponseBody extends Model
     /**
      * @var string
      */
+    public $certKmcRep1;
+
+    /**
+     * @var string
+     */
+    public $certSignBufKmc;
+
+    /**
+     * @var string
+     */
     public $certificateChain;
+
     /**
      * @var string
      */
     public $identifier;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $serialNumber;
+
     /**
      * @var string
      */
     public $x509Certificate;
     protected $_name = [
+        'certKmcRep1' => 'CertKmcRep1',
+        'certSignBufKmc' => 'CertSignBufKmc',
         'certificateChain' => 'CertificateChain',
-        'identifier'       => 'Identifier',
-        'requestId'        => 'RequestId',
-        'serialNumber'     => 'SerialNumber',
-        'x509Certificate'  => 'X509Certificate',
+        'identifier' => 'Identifier',
+        'requestId' => 'RequestId',
+        'serialNumber' => 'SerialNumber',
+        'x509Certificate' => 'X509Certificate',
     ];
 
     public function validate()
@@ -44,6 +60,14 @@ class CreateClientCertificateWithCsrResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->certKmcRep1) {
+            $res['CertKmcRep1'] = $this->certKmcRep1;
+        }
+
+        if (null !== $this->certSignBufKmc) {
+            $res['CertSignBufKmc'] = $this->certSignBufKmc;
+        }
+
         if (null !== $this->certificateChain) {
             $res['CertificateChain'] = $this->certificateChain;
         }
@@ -75,6 +99,14 @@ class CreateClientCertificateWithCsrResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CertKmcRep1'])) {
+            $model->certKmcRep1 = $map['CertKmcRep1'];
+        }
+
+        if (isset($map['CertSignBufKmc'])) {
+            $model->certSignBufKmc = $map['CertSignBufKmc'];
+        }
+
         if (isset($map['CertificateChain'])) {
             $model->certificateChain = $map['CertificateChain'];
         }

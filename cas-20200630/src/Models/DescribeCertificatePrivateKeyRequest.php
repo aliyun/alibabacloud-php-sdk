@@ -12,13 +12,14 @@ class DescribeCertificatePrivateKeyRequest extends Model
      * @var string
      */
     public $encryptedCode;
+
     /**
      * @var string
      */
     public $identifier;
     protected $_name = [
         'encryptedCode' => 'EncryptedCode',
-        'identifier'    => 'Identifier',
+        'identifier' => 'Identifier',
     ];
 
     public function validate()

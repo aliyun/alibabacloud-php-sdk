@@ -12,18 +12,20 @@ class DescribeCACertificateListRequest extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var string
      */
     public $identifier;
+
     /**
      * @var int
      */
     public $showSize;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'identifier'  => 'Identifier',
-        'showSize'    => 'ShowSize',
+        'identifier' => 'Identifier',
+        'showSize' => 'ShowSize',
     ];
 
     public function validate()

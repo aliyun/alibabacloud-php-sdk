@@ -12,28 +12,32 @@ class CreateCustomCertificateResponseBody extends Model
      * @var string
      */
     public $certificate;
+
     /**
      * @var string
      */
     public $certificateChain;
+
     /**
      * @var string
      */
     public $identifier;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $serialNumber;
     protected $_name = [
-        'certificate'      => 'Certificate',
+        'certificate' => 'Certificate',
         'certificateChain' => 'CertificateChain',
-        'identifier'       => 'Identifier',
-        'requestId'        => 'RequestId',
-        'serialNumber'     => 'SerialNumber',
+        'identifier' => 'Identifier',
+        'requestId' => 'RequestId',
+        'serialNumber' => 'SerialNumber',
     ];
 
     public function validate()

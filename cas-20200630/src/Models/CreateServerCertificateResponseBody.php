@@ -12,28 +12,32 @@ class CreateServerCertificateResponseBody extends Model
      * @var string
      */
     public $certificateChain;
+
     /**
      * @var string
      */
     public $identifier;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $serialNumber;
+
     /**
      * @var string
      */
     public $x509Certificate;
     protected $_name = [
         'certificateChain' => 'CertificateChain',
-        'identifier'       => 'Identifier',
-        'requestId'        => 'RequestId',
-        'serialNumber'     => 'SerialNumber',
-        'x509Certificate'  => 'X509Certificate',
+        'identifier' => 'Identifier',
+        'requestId' => 'RequestId',
+        'serialNumber' => 'SerialNumber',
+        'x509Certificate' => 'X509Certificate',
     ];
 
     public function validate()

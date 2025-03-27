@@ -12,13 +12,14 @@ class UpdateCACertificateStatusRequest extends Model
      * @var string
      */
     public $identifier;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'identifier' => 'Identifier',
-        'status'     => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

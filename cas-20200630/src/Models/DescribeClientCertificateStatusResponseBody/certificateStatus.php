@@ -12,18 +12,20 @@ class certificateStatus extends Model
      * @var int
      */
     public $revokeTime;
+
     /**
      * @var string
      */
     public $serialNumber;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'revokeTime'   => 'RevokeTime',
+        'revokeTime' => 'RevokeTime',
         'serialNumber' => 'SerialNumber',
-        'status'       => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

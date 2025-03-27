@@ -12,43 +12,50 @@ class keyUsage extends Model
      * @var bool
      */
     public $contentCommitment;
+
     /**
      * @var bool
      */
     public $dataEncipherment;
+
     /**
      * @var bool
      */
     public $decipherOnly;
+
     /**
      * @var bool
      */
     public $digitalSignature;
+
     /**
      * @var bool
      */
     public $encipherOnly;
+
     /**
      * @var bool
      */
     public $keyAgreement;
+
     /**
      * @var bool
      */
     public $keyEncipherment;
+
     /**
      * @var bool
      */
     public $nonRepudiation;
     protected $_name = [
         'contentCommitment' => 'ContentCommitment',
-        'dataEncipherment'  => 'DataEncipherment',
-        'decipherOnly'      => 'DecipherOnly',
-        'digitalSignature'  => 'DigitalSignature',
-        'encipherOnly'      => 'EncipherOnly',
-        'keyAgreement'      => 'KeyAgreement',
-        'keyEncipherment'   => 'KeyEncipherment',
-        'nonRepudiation'    => 'NonRepudiation',
+        'dataEncipherment' => 'DataEncipherment',
+        'decipherOnly' => 'DecipherOnly',
+        'digitalSignature' => 'DigitalSignature',
+        'encipherOnly' => 'EncipherOnly',
+        'keyAgreement' => 'KeyAgreement',
+        'keyEncipherment' => 'KeyEncipherment',
+        'nonRepudiation' => 'NonRepudiation',
     ];
 
     public function validate()

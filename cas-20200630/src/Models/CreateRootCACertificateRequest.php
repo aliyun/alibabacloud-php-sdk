@@ -12,43 +12,50 @@ class CreateRootCACertificateRequest extends Model
      * @var string
      */
     public $algorithm;
+
     /**
      * @var string
      */
     public $commonName;
+
     /**
      * @var string
      */
     public $countryCode;
+
     /**
      * @var string
      */
     public $locality;
+
     /**
      * @var string
      */
     public $organization;
+
     /**
      * @var string
      */
     public $organizationUnit;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $years;
     protected $_name = [
-        'algorithm'        => 'Algorithm',
-        'commonName'       => 'CommonName',
-        'countryCode'      => 'CountryCode',
-        'locality'         => 'Locality',
-        'organization'     => 'Organization',
+        'algorithm' => 'Algorithm',
+        'commonName' => 'CommonName',
+        'countryCode' => 'CountryCode',
+        'locality' => 'Locality',
+        'organization' => 'Organization',
         'organizationUnit' => 'OrganizationUnit',
-        'state'            => 'State',
-        'years'            => 'Years',
+        'state' => 'State',
+        'years' => 'Years',
     ];
 
     public function validate()

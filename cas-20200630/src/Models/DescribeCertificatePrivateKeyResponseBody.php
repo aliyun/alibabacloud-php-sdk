@@ -12,13 +12,14 @@ class DescribeCertificatePrivateKeyResponseBody extends Model
      * @var string
      */
     public $encryptedData;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'encryptedData' => 'EncryptedData',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
