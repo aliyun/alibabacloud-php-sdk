@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyAppPolicyShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example pg-ee2znjktwgxu2****
-     *
      * @var string
      */
     public $appPolicyId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example CloudApp
-     *
      * @var string
      */
     public $productType;
@@ -31,24 +23,27 @@ class ModifyAppPolicyShrinkRequest extends Model
      */
     public $videoPolicyShrink;
     protected $_name = [
-        'appPolicyId'       => 'AppPolicyId',
-        'productType'       => 'ProductType',
+        'appPolicyId' => 'AppPolicyId',
+        'productType' => 'ProductType',
         'videoPolicyShrink' => 'VideoPolicy',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appPolicyId) {
             $res['AppPolicyId'] = $this->appPolicyId;
         }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
+
         if (null !== $this->videoPolicyShrink) {
             $res['VideoPolicy'] = $this->videoPolicyShrink;
         }
@@ -56,20 +51,22 @@ class ModifyAppPolicyShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAppPolicyShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppPolicyId'])) {
             $model->appPolicyId = $map['AppPolicyId'];
         }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
+
         if (isset($map['VideoPolicy'])) {
             $model->videoPolicyShrink = $map['VideoPolicy'];
         }

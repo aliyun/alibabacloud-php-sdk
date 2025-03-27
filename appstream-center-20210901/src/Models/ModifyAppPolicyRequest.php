@@ -4,25 +4,17 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppPolicyRequest\videoPolicy;
-use AlibabaCloud\Tea\Model;
 
 class ModifyAppPolicyRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example pg-ee2znjktwgxu2****
-     *
      * @var string
      */
     public $appPolicyId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example CloudApp
-     *
      * @var string
      */
     public $productType;
@@ -39,38 +31,46 @@ class ModifyAppPolicyRequest extends Model
 
     public function validate()
     {
+        if (null !== $this->videoPolicy) {
+            $this->videoPolicy->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appPolicyId) {
             $res['AppPolicyId'] = $this->appPolicyId;
         }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
+
         if (null !== $this->videoPolicy) {
-            $res['VideoPolicy'] = null !== $this->videoPolicy ? $this->videoPolicy->toMap() : null;
+            $res['VideoPolicy'] = null !== $this->videoPolicy ? $this->videoPolicy->toArray($noStream) : $this->videoPolicy;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyAppPolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppPolicyId'])) {
             $model->appPolicyId = $map['AppPolicyId'];
         }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }
+
         if (isset($map['VideoPolicy'])) {
             $model->videoPolicy = videoPolicy::fromMap($map['VideoPolicy']);
         }

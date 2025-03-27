@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourceRenewPriceResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class rules extends Model
 {
     /**
-     * @description The description of the price calculation rule.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the price calculation rule.
-     *
-     * @example 20002****
-     *
      * @var int
      */
     public $ruleId;
     protected $_name = [
         'description' => 'Description',
-        'ruleId'      => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -45,17 +41,18 @@ class rules extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return rules
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

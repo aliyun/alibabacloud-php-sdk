@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListAppInstanceGroupResponseBody\appInstanceGroupModels;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class resourceTags extends Model
 {
     /**
-     * @description The tag key.
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag type. Valid values: Custom and System.
-     *
      * @var string
      */
     public $scope;
 
     /**
-     * @description The tag value.
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'scope' => 'Scope',
         'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -54,20 +51,22 @@ class resourceTags extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return resourceTags
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

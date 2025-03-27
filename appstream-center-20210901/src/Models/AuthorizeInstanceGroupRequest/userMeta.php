@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\AuthorizeInstanceGroupRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class userMeta extends Model
 {
@@ -19,19 +19,21 @@ class userMeta extends Model
     public $type;
     protected $_name = [
         'adDomain' => 'AdDomain',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->adDomain) {
             $res['AdDomain'] = $this->adDomain;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -39,17 +41,18 @@ class userMeta extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return userMeta
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdDomain'])) {
             $model->adDomain = $map['AdDomain'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

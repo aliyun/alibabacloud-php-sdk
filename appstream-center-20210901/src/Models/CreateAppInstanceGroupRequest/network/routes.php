@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\network;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class routes extends Model
 {
     /**
-     * @example 139.196.XX.XX/32
-     *
      * @var string
      */
     public $destination;
 
     /**
-     * @example Shared
-     *
      * @var string
      */
     public $mode;
     protected $_name = [
         'destination' => 'Destination',
-        'mode'        => 'Mode',
+        'mode' => 'Mode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->destination) {
             $res['Destination'] = $this->destination;
         }
+
         if (null !== $this->mode) {
             $res['Mode'] = $this->mode;
         }
@@ -43,17 +41,18 @@ class routes extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return routes
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Destination'])) {
             $model->destination = $map['Destination'];
         }
+
         if (isset($map['Mode'])) {
             $model->mode = $map['Mode'];
         }

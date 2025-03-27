@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyNodePoolAttributeShrinkRequest extends Model
 {
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $bizRegionId;
 
     /**
-     * @example 2
-     *
      * @var int
      */
     public $nodeCapacity;
@@ -28,47 +24,46 @@ class ModifyNodePoolAttributeShrinkRequest extends Model
     public $nodePoolStrategyShrink;
 
     /**
-     * @example rg-ew7va2g1wl3vm****
-     *
      * @var string
      */
     public $poolId;
 
     /**
-     * @description 产品类型。
-     *
-     * @example CloudApp
-     *
      * @var string
      */
     public $productType;
     protected $_name = [
-        'bizRegionId'            => 'BizRegionId',
-        'nodeCapacity'           => 'NodeCapacity',
+        'bizRegionId' => 'BizRegionId',
+        'nodeCapacity' => 'NodeCapacity',
         'nodePoolStrategyShrink' => 'NodePoolStrategy',
-        'poolId'                 => 'PoolId',
-        'productType'            => 'ProductType',
+        'poolId' => 'PoolId',
+        'productType' => 'ProductType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
         }
+
         if (null !== $this->nodeCapacity) {
             $res['NodeCapacity'] = $this->nodeCapacity;
         }
+
         if (null !== $this->nodePoolStrategyShrink) {
             $res['NodePoolStrategy'] = $this->nodePoolStrategyShrink;
         }
+
         if (null !== $this->poolId) {
             $res['PoolId'] = $this->poolId;
         }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
@@ -76,26 +71,30 @@ class ModifyNodePoolAttributeShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyNodePoolAttributeShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];
         }
+
         if (isset($map['NodeCapacity'])) {
             $model->nodeCapacity = $map['NodeCapacity'];
         }
+
         if (isset($map['NodePoolStrategy'])) {
             $model->nodePoolStrategyShrink = $map['NodePoolStrategy'];
         }
+
         if (isset($map['PoolId'])) {
             $model->poolId = $map['PoolId'];
         }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }

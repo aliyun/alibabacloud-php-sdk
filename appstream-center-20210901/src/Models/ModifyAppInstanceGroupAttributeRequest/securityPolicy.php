@@ -4,52 +4,36 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class securityPolicy extends Model
 {
     /**
-     * @description Specifies whether to reset after unbinding from a delivery group.
-     *
-     * Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $resetAfterUnbind;
 
     /**
-     * @description Specifies whether to skip user permission verification.
-     *
-     * Valid values:
-     *
-     *   true
-     *   false: This is the default value.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $skipUserAuthCheck;
     protected $_name = [
-        'resetAfterUnbind'  => 'ResetAfterUnbind',
+        'resetAfterUnbind' => 'ResetAfterUnbind',
         'skipUserAuthCheck' => 'SkipUserAuthCheck',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resetAfterUnbind) {
             $res['ResetAfterUnbind'] = $this->resetAfterUnbind;
         }
+
         if (null !== $this->skipUserAuthCheck) {
             $res['SkipUserAuthCheck'] = $this->skipUserAuthCheck;
         }
@@ -57,17 +41,18 @@ class securityPolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return securityPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ResetAfterUnbind'])) {
             $model->resetAfterUnbind = $map['ResetAfterUnbind'];
         }
+
         if (isset($map['SkipUserAuthCheck'])) {
             $model->skipUserAuthCheck = $map['SkipUserAuthCheck'];
         }

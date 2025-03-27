@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListNodesRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example aig-53fvrq1oanz6c****
-     *
      * @var string
      */
     public $appInstanceGroupId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example CloudApp
-     *
      * @var string
      */
     public $productType;
     protected $_name = [
         'appInstanceGroupId' => 'AppInstanceGroupId',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'productType'        => 'ProductType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'productType' => 'ProductType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appInstanceGroupId) {
             $res['AppInstanceGroupId'] = $this->appInstanceGroupId;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
         }
@@ -73,23 +61,26 @@ class ListNodesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListNodesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppInstanceGroupId'])) {
             $model->appInstanceGroupId = $map['AppInstanceGroupId'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];
         }

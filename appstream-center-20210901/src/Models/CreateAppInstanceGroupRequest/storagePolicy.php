@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\storagePolicy\userProfile;
-use AlibabaCloud\Tea\Model;
 
 class storagePolicy extends Model
 {
@@ -20,39 +20,58 @@ class storagePolicy extends Model
     public $userProfile;
     protected $_name = [
         'storageTypeList' => 'StorageTypeList',
-        'userProfile'     => 'UserProfile',
+        'userProfile' => 'UserProfile',
     ];
 
     public function validate()
     {
+        if (\is_array($this->storageTypeList)) {
+            Model::validateArray($this->storageTypeList);
+        }
+        if (null !== $this->userProfile) {
+            $this->userProfile->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->storageTypeList) {
-            $res['StorageTypeList'] = $this->storageTypeList;
+            if (\is_array($this->storageTypeList)) {
+                $res['StorageTypeList'] = [];
+                $n1 = 0;
+                foreach ($this->storageTypeList as $item1) {
+                    $res['StorageTypeList'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->userProfile) {
-            $res['UserProfile'] = null !== $this->userProfile ? $this->userProfile->toMap() : null;
+            $res['UserProfile'] = null !== $this->userProfile ? $this->userProfile->toArray($noStream) : $this->userProfile;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return storagePolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['StorageTypeList'])) {
             if (!empty($map['StorageTypeList'])) {
-                $model->storageTypeList = $map['StorageTypeList'];
+                $model->storageTypeList = [];
+                $n1 = 0;
+                foreach ($map['StorageTypeList'] as $item1) {
+                    $model->storageTypeList[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['UserProfile'])) {
             $model->userProfile = userProfile::fromMap($map['UserProfile']);
         }
