@@ -19694,6 +19694,10 @@ class ICE extends OpenApiClient
             @$query['OutputConfig'] = $request->outputConfig;
         }
 
+        if (null !== $request->templateConfig) {
+            @$query['TemplateConfig'] = $request->templateConfig;
+        }
+
         if (null !== $request->userData) {
             @$query['UserData'] = $request->userData;
         }

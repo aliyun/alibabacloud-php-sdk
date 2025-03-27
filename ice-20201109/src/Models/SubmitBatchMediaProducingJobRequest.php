@@ -31,12 +31,18 @@ class SubmitBatchMediaProducingJobRequest extends Model
     /**
      * @var string
      */
+    public $templateConfig;
+
+    /**
+     * @var string
+     */
     public $userData;
     protected $_name = [
         'clientToken' => 'ClientToken',
         'editingConfig' => 'EditingConfig',
         'inputConfig' => 'InputConfig',
         'outputConfig' => 'OutputConfig',
+        'templateConfig' => 'TemplateConfig',
         'userData' => 'UserData',
     ];
 
@@ -62,6 +68,10 @@ class SubmitBatchMediaProducingJobRequest extends Model
 
         if (null !== $this->outputConfig) {
             $res['OutputConfig'] = $this->outputConfig;
+        }
+
+        if (null !== $this->templateConfig) {
+            $res['TemplateConfig'] = $this->templateConfig;
         }
 
         if (null !== $this->userData) {
@@ -93,6 +103,10 @@ class SubmitBatchMediaProducingJobRequest extends Model
 
         if (isset($map['OutputConfig'])) {
             $model->outputConfig = $map['OutputConfig'];
+        }
+
+        if (isset($map['TemplateConfig'])) {
+            $model->templateConfig = $map['TemplateConfig'];
         }
 
         if (isset($map['UserData'])) {
