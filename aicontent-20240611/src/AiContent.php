@@ -44,6 +44,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantRefineBy
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantRefineByContextResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantRetryConversationRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantRetryConversationResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantSseDialogueRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantSseDialogueResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantStartConversationRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantStartConversationResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ExecuteTextbookAssistantSuggestionRequest;
@@ -56,6 +58,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\GetAITeacherSyncDialogueSuggesti
 use AlibabaCloud\SDK\AiContent\V20240611\Models\GetAITeacherSyncDialogueSuggestionResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\GetTextbookAssistantTokenRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\GetTextbookAssistantTokenResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantArticleDetailsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantArticleDetailsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantArticlesRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantArticlesResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantBookDirectoriesRequest;
@@ -64,6 +68,8 @@ use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantBooksReques
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantBooksResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantGradeVolumesRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantGradeVolumesResponse;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantSceneDetailsRequest;
+use AlibabaCloud\SDK\AiContent\V20240611\Models\ListTextbookAssistantSceneDetailsResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageAddInferenceJobRequest;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageAddInferenceJobResponse;
 use AlibabaCloud\SDK\AiContent\V20240611\Models\PersonalizedTextToImageQueryImageAssetRequest;
@@ -1736,6 +1742,82 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * 进行对话-流式输出.
+     *
+     * @param request - ExecuteTextbookAssistantSseDialogueRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExecuteTextbookAssistantSseDialogueResponse
+     *
+     * @param ExecuteTextbookAssistantSseDialogueRequest $request
+     * @param string[]                                   $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ExecuteTextbookAssistantSseDialogueResponse
+     */
+    public function executeTextbookAssistantSseDialogueWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->authToken) {
+            @$body['authToken'] = $request->authToken;
+        }
+
+        if (null !== $request->chatId) {
+            @$body['chatId'] = $request->chatId;
+        }
+
+        if (null !== $request->scenario) {
+            @$body['scenario'] = $request->scenario;
+        }
+
+        if (null !== $request->userMessage) {
+            @$body['userMessage'] = $request->userMessage;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ExecuteTextbookAssistantSseDialogue',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/textbookAssistant/dialogue/ExecuteSseDialogue',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExecuteTextbookAssistantSseDialogueResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ExecuteTextbookAssistantSseDialogueResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 进行对话-流式输出.
+     *
+     * @param request - ExecuteTextbookAssistantSseDialogueRequest
+     *
+     * @returns ExecuteTextbookAssistantSseDialogueResponse
+     *
+     * @param ExecuteTextbookAssistantSseDialogueRequest $request
+     *
+     * @return ExecuteTextbookAssistantSseDialogueResponse
+     */
+    public function executeTextbookAssistantSseDialogue($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->executeTextbookAssistantSseDialogueWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 开启自由对话.
      *
      * @param request - ExecuteTextbookAssistantStartConversationRequest
@@ -2196,6 +2278,74 @@ class AiContent extends OpenApiClient
     }
 
     /**
+     * 批量获取文章详情.
+     *
+     * @param request - ListTextbookAssistantArticleDetailsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTextbookAssistantArticleDetailsResponse
+     *
+     * @param ListTextbookAssistantArticleDetailsRequest $request
+     * @param string[]                                   $headers
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ListTextbookAssistantArticleDetailsResponse
+     */
+    public function listTextbookAssistantArticleDetailsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->articleIdList) {
+            @$body['articleIdList'] = $request->articleIdList;
+        }
+
+        if (null !== $request->authToken) {
+            @$body['authToken'] = $request->authToken;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListTextbookAssistantArticleDetails',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/textbookAssistant/teachingResource/ListArticleDetails',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTextbookAssistantArticleDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListTextbookAssistantArticleDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 批量获取文章详情.
+     *
+     * @param request - ListTextbookAssistantArticleDetailsRequest
+     *
+     * @returns ListTextbookAssistantArticleDetailsResponse
+     *
+     * @param ListTextbookAssistantArticleDetailsRequest $request
+     *
+     * @return ListTextbookAssistantArticleDetailsResponse
+     */
+    public function listTextbookAssistantArticleDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTextbookAssistantArticleDetailsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 获取文章列表.
      *
      * @param request - ListTextbookAssistantArticlesRequest
@@ -2489,6 +2639,74 @@ class AiContent extends OpenApiClient
         $headers = [];
 
         return $this->listTextbookAssistantGradeVolumesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 获取文章内容详情.
+     *
+     * @param request - ListTextbookAssistantSceneDetailsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTextbookAssistantSceneDetailsResponse
+     *
+     * @param ListTextbookAssistantSceneDetailsRequest $request
+     * @param string[]                                 $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return ListTextbookAssistantSceneDetailsResponse
+     */
+    public function listTextbookAssistantSceneDetailsWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->authToken) {
+            @$body['authToken'] = $request->authToken;
+        }
+
+        if (null !== $request->sceneIdList) {
+            @$body['sceneIdList'] = $request->sceneIdList;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'ListTextbookAssistantSceneDetails',
+            'version' => '20240611',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/textbookAssistant/teachingResource/ListSceneDetails',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTextbookAssistantSceneDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListTextbookAssistantSceneDetailsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取文章内容详情.
+     *
+     * @param request - ListTextbookAssistantSceneDetailsRequest
+     *
+     * @returns ListTextbookAssistantSceneDetailsResponse
+     *
+     * @param ListTextbookAssistantSceneDetailsRequest $request
+     *
+     * @return ListTextbookAssistantSceneDetailsResponse
+     */
+    public function listTextbookAssistantSceneDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTextbookAssistantSceneDetailsWithOptions($request, $headers, $runtime);
     }
 
     /**
