@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateIndividuationTextTaskRequest extends Model
 {
@@ -14,8 +14,6 @@ class CreateIndividuationTextTaskRequest extends Model
     public $crowdPack;
 
     /**
-     * @example 840015278620459008
-     *
      * @var string
      */
     public $projectId;
@@ -27,22 +25,40 @@ class CreateIndividuationTextTaskRequest extends Model
     protected $_name = [
         'crowdPack' => 'crowdPack',
         'projectId' => 'projectId',
-        'taskName'  => 'taskName',
+        'taskName' => 'taskName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->crowdPack)) {
+            Model::validateArray($this->crowdPack);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->crowdPack) {
-            $res['crowdPack'] = $this->crowdPack;
+            if (\is_array($this->crowdPack)) {
+                $res['crowdPack'] = [];
+                $n1 = 0;
+                foreach ($this->crowdPack as $item1) {
+                    if (\is_array($item1)) {
+                        $res['crowdPack'][$n1++] = [];
+                        $n2 = 0;
+                        foreach ($item1 as $item2) {
+                            $res['crowdPack'][$n1++][$n2++] = $item2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->projectId) {
             $res['projectId'] = $this->projectId;
         }
+
         if (null !== $this->taskName) {
             $res['taskName'] = $this->taskName;
         }
@@ -50,22 +66,34 @@ class CreateIndividuationTextTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateIndividuationTextTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['crowdPack'])) {
             if (!empty($map['crowdPack'])) {
-                $model->crowdPack = $map['crowdPack'];
+                $model->crowdPack = [];
+                $n1 = 0;
+                foreach ($map['crowdPack'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->crowdPack[$n1++] = [];
+                        $n2 = 0;
+                        foreach ($item1 as $item2) {
+                            $model->crowdPack[$n1++][$n2++] = $item2;
+                        }
+                    }
+                }
             }
         }
+
         if (isset($map['projectId'])) {
             $model->projectId = $map['projectId'];
         }
+
         if (isset($map['taskName'])) {
             $model->taskName = $map['taskName'];
         }

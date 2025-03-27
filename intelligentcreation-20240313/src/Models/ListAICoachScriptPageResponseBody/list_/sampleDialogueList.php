@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\ListAICoachScriptPageResponseBody\list_;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sampleDialogueList extends Model
 {
@@ -14,26 +14,26 @@ class sampleDialogueList extends Model
     public $message;
 
     /**
-     * @example student
-     *
      * @var string
      */
     public $role;
     protected $_name = [
         'message' => 'message',
-        'role'    => 'role',
+        'role' => 'role',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['message'] = $this->message;
         }
+
         if (null !== $this->role) {
             $res['role'] = $this->role;
         }
@@ -41,17 +41,18 @@ class sampleDialogueList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sampleDialogueList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['message'])) {
             $model->message = $map['message'];
         }
+
         if (isset($map['role'])) {
             $model->role = $map['role'];
         }

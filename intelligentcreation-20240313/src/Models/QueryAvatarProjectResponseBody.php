@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryAvatarProjectResponseBody\frames;
-use AlibabaCloud\Tea\Model;
 
 class QueryAvatarProjectResponseBody extends Model
 {
     /**
-     * @example 1000222
-     *
      * @var string
      */
     public $agentId;
 
     /**
-     * @example error
-     *
      * @var string
      */
     public $errorMsg;
@@ -29,15 +25,11 @@ class QueryAvatarProjectResponseBody extends Model
     public $frames;
 
     /**
-     * @example doc_test_3
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example 2C331582-7390-5949-8D9A-AC8239185B37
-     *
      * @var string
      */
     public $requestId;
@@ -53,56 +45,65 @@ class QueryAvatarProjectResponseBody extends Model
     public $scaleType;
 
     /**
-     * @example DEPLOYING
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'agentId'     => 'agentId',
-        'errorMsg'    => 'errorMsg',
-        'frames'      => 'frames',
+        'agentId' => 'agentId',
+        'errorMsg' => 'errorMsg',
+        'frames' => 'frames',
         'projectName' => 'projectName',
-        'requestId'   => 'requestId',
+        'requestId' => 'requestId',
         'resSpecType' => 'resSpecType',
-        'scaleType'   => 'scaleType',
-        'status'      => 'status',
+        'scaleType' => 'scaleType',
+        'status' => 'status',
     ];
 
     public function validate()
     {
+        if (\is_array($this->frames)) {
+            Model::validateArray($this->frames);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->agentId) {
             $res['agentId'] = $this->agentId;
         }
+
         if (null !== $this->errorMsg) {
             $res['errorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->frames) {
-            $res['frames'] = [];
-            if (null !== $this->frames && \is_array($this->frames)) {
-                $n = 0;
-                foreach ($this->frames as $item) {
-                    $res['frames'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->frames)) {
+                $res['frames'] = [];
+                $n1 = 0;
+                foreach ($this->frames as $item1) {
+                    $res['frames'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->projectName) {
             $res['projectName'] = $this->projectName;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->resSpecType) {
             $res['resSpecType'] = $this->resSpecType;
         }
+
         if (null !== $this->scaleType) {
             $res['scaleType'] = $this->scaleType;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
@@ -110,41 +111,48 @@ class QueryAvatarProjectResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return QueryAvatarProjectResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['agentId'])) {
             $model->agentId = $map['agentId'];
         }
+
         if (isset($map['errorMsg'])) {
             $model->errorMsg = $map['errorMsg'];
         }
+
         if (isset($map['frames'])) {
             if (!empty($map['frames'])) {
                 $model->frames = [];
-                $n             = 0;
-                foreach ($map['frames'] as $item) {
-                    $model->frames[$n++] = null !== $item ? frames::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['frames'] as $item1) {
+                    $model->frames[$n1++] = frames::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['projectName'])) {
             $model->projectName = $map['projectName'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['resSpecType'])) {
             $model->resSpecType = $map['resSpecType'];
         }
+
         if (isset($map['scaleType'])) {
             $model->scaleType = $map['scaleType'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }

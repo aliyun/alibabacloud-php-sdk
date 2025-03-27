@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AnchorResponse extends Model
 {
@@ -83,72 +83,87 @@ class AnchorResponse extends Model
      */
     public $useScene;
     protected $_name = [
-        'anchorCategory'     => 'anchorCategory',
-        'anchorId'           => 'anchorId',
+        'anchorCategory' => 'anchorCategory',
+        'anchorId' => 'anchorId',
         'anchorMaterialName' => 'anchorMaterialName',
-        'anchorType'         => 'anchorType',
-        'coverHeight'        => 'coverHeight',
-        'coverRate'          => 'coverRate',
-        'coverThumbnailUrl'  => 'coverThumbnailUrl',
-        'coverUrl'           => 'coverUrl',
-        'coverWeight'        => 'coverWeight',
-        'digitalHumanType'   => 'digitalHumanType',
-        'gender'             => 'gender',
-        'resourceTypeDesc'   => 'resourceTypeDesc',
-        'status'             => 'status',
-        'supportBgChange'    => 'supportBgChange',
-        'useScene'           => 'useScene',
+        'anchorType' => 'anchorType',
+        'coverHeight' => 'coverHeight',
+        'coverRate' => 'coverRate',
+        'coverThumbnailUrl' => 'coverThumbnailUrl',
+        'coverUrl' => 'coverUrl',
+        'coverWeight' => 'coverWeight',
+        'digitalHumanType' => 'digitalHumanType',
+        'gender' => 'gender',
+        'resourceTypeDesc' => 'resourceTypeDesc',
+        'status' => 'status',
+        'supportBgChange' => 'supportBgChange',
+        'useScene' => 'useScene',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->anchorCategory) {
             $res['anchorCategory'] = $this->anchorCategory;
         }
+
         if (null !== $this->anchorId) {
             $res['anchorId'] = $this->anchorId;
         }
+
         if (null !== $this->anchorMaterialName) {
             $res['anchorMaterialName'] = $this->anchorMaterialName;
         }
+
         if (null !== $this->anchorType) {
             $res['anchorType'] = $this->anchorType;
         }
+
         if (null !== $this->coverHeight) {
             $res['coverHeight'] = $this->coverHeight;
         }
+
         if (null !== $this->coverRate) {
             $res['coverRate'] = $this->coverRate;
         }
+
         if (null !== $this->coverThumbnailUrl) {
             $res['coverThumbnailUrl'] = $this->coverThumbnailUrl;
         }
+
         if (null !== $this->coverUrl) {
             $res['coverUrl'] = $this->coverUrl;
         }
+
         if (null !== $this->coverWeight) {
             $res['coverWeight'] = $this->coverWeight;
         }
+
         if (null !== $this->digitalHumanType) {
             $res['digitalHumanType'] = $this->digitalHumanType;
         }
+
         if (null !== $this->gender) {
             $res['gender'] = $this->gender;
         }
+
         if (null !== $this->resourceTypeDesc) {
             $res['resourceTypeDesc'] = $this->resourceTypeDesc;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->supportBgChange) {
             $res['supportBgChange'] = $this->supportBgChange;
         }
+
         if (null !== $this->useScene) {
             $res['useScene'] = $this->useScene;
         }
@@ -156,56 +171,70 @@ class AnchorResponse extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AnchorResponse
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['anchorCategory'])) {
             $model->anchorCategory = $map['anchorCategory'];
         }
+
         if (isset($map['anchorId'])) {
             $model->anchorId = $map['anchorId'];
         }
+
         if (isset($map['anchorMaterialName'])) {
             $model->anchorMaterialName = $map['anchorMaterialName'];
         }
+
         if (isset($map['anchorType'])) {
             $model->anchorType = $map['anchorType'];
         }
+
         if (isset($map['coverHeight'])) {
             $model->coverHeight = $map['coverHeight'];
         }
+
         if (isset($map['coverRate'])) {
             $model->coverRate = $map['coverRate'];
         }
+
         if (isset($map['coverThumbnailUrl'])) {
             $model->coverThumbnailUrl = $map['coverThumbnailUrl'];
         }
+
         if (isset($map['coverUrl'])) {
             $model->coverUrl = $map['coverUrl'];
         }
+
         if (isset($map['coverWeight'])) {
             $model->coverWeight = $map['coverWeight'];
         }
+
         if (isset($map['digitalHumanType'])) {
             $model->digitalHumanType = $map['digitalHumanType'];
         }
+
         if (isset($map['gender'])) {
             $model->gender = $map['gender'];
         }
+
         if (isset($map['resourceTypeDesc'])) {
             $model->resourceTypeDesc = $map['resourceTypeDesc'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['supportBgChange'])) {
             $model->supportBgChange = $map['supportBgChange'];
         }
+
         if (isset($map['useScene'])) {
             $model->useScene = $map['useScene'];
         }

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddDocumentResult extends Model
 {
     /**
-     * @example example.pdf
-     *
      * @var string
      */
     public $docName;
@@ -21,41 +19,44 @@ class AddDocumentResult extends Model
     public $documentInfo;
 
     /**
-     * @example true
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'docName'      => 'docName',
+        'docName' => 'docName',
         'documentInfo' => 'documentInfo',
         'errorMessage' => 'errorMessage',
-        'success'      => 'success',
+        'success' => 'success',
     ];
 
     public function validate()
     {
+        if (null !== $this->documentInfo) {
+            $this->documentInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->docName) {
             $res['docName'] = $this->docName;
         }
+
         if (null !== $this->documentInfo) {
-            $res['documentInfo'] = null !== $this->documentInfo ? $this->documentInfo->toMap() : null;
+            $res['documentInfo'] = null !== $this->documentInfo ? $this->documentInfo->toArray($noStream) : $this->documentInfo;
         }
+
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -63,23 +64,26 @@ class AddDocumentResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddDocumentResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['docName'])) {
             $model->docName = $map['docName'];
         }
+
         if (isset($map['documentInfo'])) {
             $model->documentInfo = DocumentInfo::fromMap($map['documentInfo']);
         }
+
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

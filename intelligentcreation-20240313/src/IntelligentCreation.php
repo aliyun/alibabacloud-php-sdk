@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\AddTextFeedbackRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\AddTextFeedbackResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchAddDocumentRequest;
@@ -125,11 +125,10 @@ use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SubmitProjectTaskReque
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\SubmitProjectTaskResponse;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\TransferPortraitStyleRequest;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\TransferPortraitStyleResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class IntelligentCreation extends OpenApiClient
 {
@@ -154,54 +153,64 @@ class IntelligentCreation extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary 添加文案反馈
-     *  *
-     * @param AddTextFeedbackRequest $request AddTextFeedbackRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 添加文案反馈.
      *
-     * @return AddTextFeedbackResponse AddTextFeedbackResponse
+     * @param request - AddTextFeedbackRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddTextFeedbackResponse
+     *
+     * @param AddTextFeedbackRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return AddTextFeedbackResponse
      */
     public function addTextFeedbackWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->quality)) {
-            $body['quality'] = $request->quality;
+
+        if (null !== $request->quality) {
+            @$body['quality'] = $request->quality;
         }
-        if (!Utils::isUnset($request->textId)) {
-            $body['textId'] = $request->textId;
+
+        if (null !== $request->textId) {
+            @$body['textId'] = $request->textId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddTextFeedback',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/addTextFeedback',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddTextFeedback',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/addTextFeedback',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddTextFeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -209,11 +218,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 添加文案反馈
-     *  *
-     * @param AddTextFeedbackRequest $request AddTextFeedbackRequest
+     * 添加文案反馈.
      *
-     * @return AddTextFeedbackResponse AddTextFeedbackResponse
+     * @param request - AddTextFeedbackRequest
+     *
+     * @returns AddTextFeedbackResponse
+     *
+     * @param AddTextFeedbackRequest $request
+     *
+     * @return AddTextFeedbackResponse
      */
     public function addTextFeedback($request)
     {
@@ -224,38 +237,45 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 批量添加知识文档
-     *  *
-     * @param string                  $knowledgeBaseId
-     * @param BatchAddDocumentRequest $request         BatchAddDocumentRequest
-     * @param string[]                $headers         map
-     * @param RuntimeOptions          $runtime         runtime options for this request RuntimeOptions
+     * 批量添加知识文档.
      *
-     * @return BatchAddDocumentResponse BatchAddDocumentResponse
+     * @param request - BatchAddDocumentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchAddDocumentResponse
+     *
+     * @param string                  $knowledgeBaseId
+     * @param BatchAddDocumentRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return BatchAddDocumentResponse
      */
     public function batchAddDocumentWithOptions($knowledgeBaseId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->addDocumentInfos)) {
-            $body['addDocumentInfos'] = $request->addDocumentInfos;
+        if (null !== $request->addDocumentInfos) {
+            @$body['addDocumentInfos'] = $request->addDocumentInfos;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchAddDocument',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/knowledge-base/' . OpenApiUtilClient::getEncodeParam($knowledgeBaseId) . '/documents',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BatchAddDocument',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/knowledge-base/' . Url::percentEncode($knowledgeBaseId) . '/documents',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BatchAddDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -263,12 +283,16 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 批量添加知识文档
-     *  *
-     * @param string                  $knowledgeBaseId
-     * @param BatchAddDocumentRequest $request         BatchAddDocumentRequest
+     * 批量添加知识文档.
      *
-     * @return BatchAddDocumentResponse BatchAddDocumentResponse
+     * @param request - BatchAddDocumentRequest
+     *
+     * @returns BatchAddDocumentResponse
+     *
+     * @param string                  $knowledgeBaseId
+     * @param BatchAddDocumentRequest $request
+     *
+     * @return BatchAddDocumentResponse
      */
     public function batchAddDocument($knowledgeBaseId, $request)
     {
@@ -279,43 +303,52 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 批量发布剧本任务
-     *  *
-     * @param BatchCreateAICoachTaskRequest $request BatchCreateAICoachTaskRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 批量发布剧本任务
      *
-     * @return BatchCreateAICoachTaskResponse BatchCreateAICoachTaskResponse
+     * @param request - BatchCreateAICoachTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchCreateAICoachTaskResponse
+     *
+     * @param BatchCreateAICoachTaskRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return BatchCreateAICoachTaskResponse
      */
     public function batchCreateAICoachTaskWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->requestId)) {
-            $body['requestId'] = $request->requestId;
+        if (null !== $request->requestId) {
+            @$body['requestId'] = $request->requestId;
         }
-        if (!Utils::isUnset($request->scriptRecordId)) {
-            $body['scriptRecordId'] = $request->scriptRecordId;
+
+        if (null !== $request->scriptRecordId) {
+            @$body['scriptRecordId'] = $request->scriptRecordId;
         }
-        if (!Utils::isUnset($request->studentIds)) {
-            $body['studentIds'] = $request->studentIds;
+
+        if (null !== $request->studentIds) {
+            @$body['studentIds'] = $request->studentIds;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'BatchCreateAICoachTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/aicoach/batchCreateTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BatchCreateAICoachTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/batchCreateTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BatchCreateAICoachTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -323,11 +356,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 批量发布剧本任务
-     *  *
-     * @param BatchCreateAICoachTaskRequest $request BatchCreateAICoachTaskRequest
+     * 批量发布剧本任务
      *
-     * @return BatchCreateAICoachTaskResponse BatchCreateAICoachTaskResponse
+     * @param request - BatchCreateAICoachTaskRequest
+     *
+     * @returns BatchCreateAICoachTaskResponse
+     *
+     * @param BatchCreateAICoachTaskRequest $request
+     *
+     * @return BatchCreateAICoachTaskResponse
      */
     public function batchCreateAICoachTask($request)
     {
@@ -338,42 +375,50 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 批量查询项目信息
-     *  *
-     * @param BatchGetProjectTaskRequest $tmpReq  BatchGetProjectTaskRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 批量查询项目信息.
      *
-     * @return BatchGetProjectTaskResponse BatchGetProjectTaskResponse
+     * @param tmpReq - BatchGetProjectTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchGetProjectTaskResponse
+     *
+     * @param BatchGetProjectTaskRequest $tmpReq
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return BatchGetProjectTaskResponse
      */
     public function batchGetProjectTaskWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchGetProjectTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->taskIdList)) {
-            $request->taskIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskIdList, 'taskIdList', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskIdList) {
+            $request->taskIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskIdList, 'taskIdList', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->taskIdListShrink)) {
-            $query['taskIdList'] = $request->taskIdListShrink;
+        if (null !== $request->taskIdListShrink) {
+            @$query['taskIdList'] = $request->taskIdListShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchGetProjectTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/project/batchGetProjectTask',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BatchGetProjectTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/digitalHuman/project/batchGetProjectTask',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BatchGetProjectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -381,11 +426,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 批量查询项目信息
-     *  *
-     * @param BatchGetProjectTaskRequest $request BatchGetProjectTaskRequest
+     * 批量查询项目信息.
      *
-     * @return BatchGetProjectTaskResponse BatchGetProjectTaskResponse
+     * @param request - BatchGetProjectTaskRequest
+     *
+     * @returns BatchGetProjectTaskResponse
+     *
+     * @param BatchGetProjectTaskRequest $request
+     *
+     * @return BatchGetProjectTaskResponse
      */
     public function batchGetProjectTask($request)
     {
@@ -396,45 +445,54 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 批量查询声音复刻任务
-     *  *
-     * @param BatchGetTrainTaskRequest $tmpReq  BatchGetTrainTaskRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 批量查询声音复刻任务
      *
-     * @return BatchGetTrainTaskResponse BatchGetTrainTaskResponse
+     * @param tmpReq - BatchGetTrainTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchGetTrainTaskResponse
+     *
+     * @param BatchGetTrainTaskRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return BatchGetTrainTaskResponse
      */
     public function batchGetTrainTaskWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchGetTrainTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->taskIdList)) {
-            $request->taskIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskIdList, 'taskIdList', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskIdList) {
+            $request->taskIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskIdList, 'taskIdList', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->aliyunMainId)) {
-            $query['aliyunMainId'] = $request->aliyunMainId;
+        if (null !== $request->aliyunMainId) {
+            @$query['aliyunMainId'] = $request->aliyunMainId;
         }
-        if (!Utils::isUnset($request->taskIdListShrink)) {
-            $query['taskIdList'] = $request->taskIdListShrink;
+
+        if (null !== $request->taskIdListShrink) {
+            @$query['taskIdList'] = $request->taskIdListShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchGetTrainTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/train/task/batchGetTrainTaskInfo',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BatchGetTrainTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/train/task/batchGetTrainTaskInfo',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BatchGetTrainTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -442,11 +500,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 批量查询声音复刻任务
-     *  *
-     * @param BatchGetTrainTaskRequest $request BatchGetTrainTaskRequest
+     * 批量查询声音复刻任务
      *
-     * @return BatchGetTrainTaskResponse BatchGetTrainTaskResponse
+     * @param request - BatchGetTrainTaskRequest
+     *
+     * @returns BatchGetTrainTaskResponse
+     *
+     * @param BatchGetTrainTaskRequest $request
+     *
+     * @return BatchGetTrainTaskResponse
      */
     public function batchGetTrainTask($request)
     {
@@ -457,42 +519,50 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 批量查询视频切片任务信息
-     *  *
-     * @param BatchGetVideoClipTaskRequest $tmpReq  BatchGetVideoClipTaskRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 批量查询视频切片任务信息.
      *
-     * @return BatchGetVideoClipTaskResponse BatchGetVideoClipTaskResponse
+     * @param tmpReq - BatchGetVideoClipTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchGetVideoClipTaskResponse
+     *
+     * @param BatchGetVideoClipTaskRequest $tmpReq
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return BatchGetVideoClipTaskResponse
      */
     public function batchGetVideoClipTaskWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchGetVideoClipTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->taskIdList)) {
-            $request->taskIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskIdList, 'taskIdList', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->taskIdList) {
+            $request->taskIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->taskIdList, 'taskIdList', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->taskIdListShrink)) {
-            $query['taskIdList'] = $request->taskIdListShrink;
+        if (null !== $request->taskIdListShrink) {
+            @$query['taskIdList'] = $request->taskIdListShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchGetVideoClipTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/video/clip/batchGetVideoClipTask',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BatchGetVideoClipTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/video/clip/batchGetVideoClipTask',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BatchGetVideoClipTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -500,11 +570,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 批量查询视频切片任务信息
-     *  *
-     * @param BatchGetVideoClipTaskRequest $request BatchGetVideoClipTaskRequest
+     * 批量查询视频切片任务信息.
      *
-     * @return BatchGetVideoClipTaskResponse BatchGetVideoClipTaskResponse
+     * @param request - BatchGetVideoClipTaskRequest
+     *
+     * @returns BatchGetVideoClipTaskResponse
+     *
+     * @param BatchGetVideoClipTaskRequest $request
+     *
+     * @return BatchGetVideoClipTaskResponse
      */
     public function batchGetVideoClipTask($request)
     {
@@ -515,42 +589,50 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 批量查询文案
-     *  *
-     * @param BatchQueryIndividuationTextRequest $tmpReq  BatchQueryIndividuationTextRequest
-     * @param string[]                           $headers map
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 批量查询文案.
      *
-     * @return BatchQueryIndividuationTextResponse BatchQueryIndividuationTextResponse
+     * @param tmpReq - BatchQueryIndividuationTextRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns BatchQueryIndividuationTextResponse
+     *
+     * @param BatchQueryIndividuationTextRequest $tmpReq
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return BatchQueryIndividuationTextResponse
      */
     public function batchQueryIndividuationTextWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new BatchQueryIndividuationTextShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->textIdList)) {
-            $request->textIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->textIdList, 'textIdList', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->textIdList) {
+            $request->textIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->textIdList, 'textIdList', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->textIdListShrink)) {
-            $query['textIdList'] = $request->textIdListShrink;
+        if (null !== $request->textIdListShrink) {
+            @$query['textIdList'] = $request->textIdListShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchQueryIndividuationText',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/individuationText/batchQueryText',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'BatchQueryIndividuationText',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/individuationText/batchQueryText',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BatchQueryIndividuationTextResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -558,11 +640,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 批量查询文案
-     *  *
-     * @param BatchQueryIndividuationTextRequest $request BatchQueryIndividuationTextRequest
+     * 批量查询文案.
      *
-     * @return BatchQueryIndividuationTextResponse BatchQueryIndividuationTextResponse
+     * @param request - BatchQueryIndividuationTextRequest
+     *
+     * @returns BatchQueryIndividuationTextResponse
+     *
+     * @param BatchQueryIndividuationTextRequest $request
+     *
+     * @return BatchQueryIndividuationTextResponse
      */
     public function batchQueryIndividuationText($request)
     {
@@ -573,40 +659,48 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 检查会话状态
-     *  *
-     * @param CheckSessionRequest $request CheckSessionRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 检查会话状态
      *
-     * @return CheckSessionResponse CheckSessionResponse
+     * @param request - CheckSessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CheckSessionResponse
+     *
+     * @param CheckSessionRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CheckSessionResponse
      */
     public function checkSessionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $body['projectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$body['projectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['sessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CheckSession',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/avatar/project/checkSession',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CheckSession',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/avatar/project/checkSession',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CheckSessionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -614,11 +708,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 检查会话状态
-     *  *
-     * @param CheckSessionRequest $request CheckSessionRequest
+     * 检查会话状态
      *
-     * @return CheckSessionResponse CheckSessionResponse
+     * @param request - CheckSessionRequest
+     *
+     * @returns CheckSessionResponse
+     *
+     * @param CheckSessionRequest $request
+     *
+     * @return CheckSessionResponse
      */
     public function checkSession($request)
     {
@@ -629,40 +727,48 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 学员关闭会话
-     *  *
-     * @param CloseAICoachTaskSessionRequest $request CloseAICoachTaskSessionRequest
-     * @param string[]                       $headers map
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 学员关闭会话.
      *
-     * @return CloseAICoachTaskSessionResponse CloseAICoachTaskSessionResponse
+     * @param request - CloseAICoachTaskSessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CloseAICoachTaskSessionResponse
+     *
+     * @param CloseAICoachTaskSessionRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CloseAICoachTaskSessionResponse
      */
     public function closeAICoachTaskSessionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['sessionId'] = $request->sessionId;
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->uid)) {
-            $body['uid'] = $request->uid;
+
+        if (null !== $request->uid) {
+            @$body['uid'] = $request->uid;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CloseAICoachTaskSession',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/aicoach/closeSession',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CloseAICoachTaskSession',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/closeSession',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CloseAICoachTaskSessionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -670,11 +776,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 学员关闭会话
-     *  *
-     * @param CloseAICoachTaskSessionRequest $request CloseAICoachTaskSessionRequest
+     * 学员关闭会话.
      *
-     * @return CloseAICoachTaskSessionResponse CloseAICoachTaskSessionResponse
+     * @param request - CloseAICoachTaskSessionRequest
+     *
+     * @returns CloseAICoachTaskSessionResponse
+     *
+     * @param CloseAICoachTaskSessionRequest $request
+     *
+     * @return CloseAICoachTaskSessionResponse
      */
     public function closeAICoachTaskSession($request)
     {
@@ -685,46 +795,56 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 文本数量统计
-     *  *
-     * @param CountTextRequest $request CountTextRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 文本数量统计
      *
-     * @return CountTextResponse CountTextResponse
+     * @param request - CountTextRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CountTextResponse
+     *
+     * @param CountTextRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return CountTextResponse
      */
     public function countTextWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->generationSource)) {
-            $query['generationSource'] = $request->generationSource;
+        if (null !== $request->generationSource) {
+            @$query['generationSource'] = $request->generationSource;
         }
-        if (!Utils::isUnset($request->industry)) {
-            $query['industry'] = $request->industry;
+
+        if (null !== $request->industry) {
+            @$query['industry'] = $request->industry;
         }
-        if (!Utils::isUnset($request->publishStatus)) {
-            $query['publishStatus'] = $request->publishStatus;
+
+        if (null !== $request->publishStatus) {
+            @$query['publishStatus'] = $request->publishStatus;
         }
-        if (!Utils::isUnset($request->style)) {
-            $query['style'] = $request->style;
+
+        if (null !== $request->style) {
+            @$query['style'] = $request->style;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CountText',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/countText',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CountText',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/countText',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CountTextResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -732,11 +852,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 文本数量统计
-     *  *
-     * @param CountTextRequest $request CountTextRequest
+     * 文本数量统计
      *
-     * @return CountTextResponse CountTextResponse
+     * @param request - CountTextRequest
+     *
+     * @returns CountTextResponse
+     *
+     * @param CountTextRequest $request
+     *
+     * @return CountTextResponse
      */
     public function countText($request)
     {
@@ -747,43 +871,52 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询剧本列表
-     *  *
-     * @param CreateAICoachTaskRequest $request CreateAICoachTaskRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询剧本列表.
      *
-     * @return CreateAICoachTaskResponse CreateAICoachTaskResponse
+     * @param request - CreateAICoachTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAICoachTaskResponse
+     *
+     * @param CreateAICoachTaskRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateAICoachTaskResponse
      */
     public function createAICoachTaskWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->requestId)) {
-            $body['requestId'] = $request->requestId;
+        if (null !== $request->requestId) {
+            @$body['requestId'] = $request->requestId;
         }
-        if (!Utils::isUnset($request->scriptRecordId)) {
-            $body['scriptRecordId'] = $request->scriptRecordId;
+
+        if (null !== $request->scriptRecordId) {
+            @$body['scriptRecordId'] = $request->scriptRecordId;
         }
-        if (!Utils::isUnset($request->studentId)) {
-            $body['studentId'] = $request->studentId;
+
+        if (null !== $request->studentId) {
+            @$body['studentId'] = $request->studentId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAICoachTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/aicoach/createTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateAICoachTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/createTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateAICoachTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -791,11 +924,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询剧本列表
-     *  *
-     * @param CreateAICoachTaskRequest $request CreateAICoachTaskRequest
+     * 查询剧本列表.
      *
-     * @return CreateAICoachTaskResponse CreateAICoachTaskResponse
+     * @param request - CreateAICoachTaskRequest
+     *
+     * @returns CreateAICoachTaskResponse
+     *
+     * @param CreateAICoachTaskRequest $request
+     *
+     * @return CreateAICoachTaskResponse
      */
     public function createAICoachTask($request)
     {
@@ -806,40 +943,48 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 学员开启对练会话
-     *  *
-     * @param CreateAICoachTaskSessionRequest $request CreateAICoachTaskSessionRequest
-     * @param string[]                        $headers map
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 学员开启对练会话.
      *
-     * @return CreateAICoachTaskSessionResponse CreateAICoachTaskSessionResponse
+     * @param request - CreateAICoachTaskSessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAICoachTaskSessionResponse
+     *
+     * @param CreateAICoachTaskSessionRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateAICoachTaskSessionResponse
      */
     public function createAICoachTaskSessionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['taskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
         }
-        if (!Utils::isUnset($request->uid)) {
-            $body['uid'] = $request->uid;
+
+        if (null !== $request->uid) {
+            @$body['uid'] = $request->uid;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAICoachTaskSession',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/aicoach/startSession',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateAICoachTaskSession',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/startSession',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateAICoachTaskSessionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -847,11 +992,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 学员开启对练会话
-     *  *
-     * @param CreateAICoachTaskSessionRequest $request CreateAICoachTaskSessionRequest
+     * 学员开启对练会话.
      *
-     * @return CreateAICoachTaskSessionResponse CreateAICoachTaskSessionResponse
+     * @param request - CreateAICoachTaskSessionRequest
+     *
+     * @returns CreateAICoachTaskSessionResponse
+     *
+     * @param CreateAICoachTaskSessionRequest $request
+     *
+     * @return CreateAICoachTaskSessionResponse
      */
     public function createAICoachTaskSession($request)
     {
@@ -862,49 +1011,60 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 创建照片数字人
-     *  *
-     * @param CreateAnchorRequest $request CreateAnchorRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 创建照片数字人.
      *
-     * @return CreateAnchorResponse CreateAnchorResponse
+     * @param request - CreateAnchorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateAnchorResponse
+     *
+     * @param CreateAnchorRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateAnchorResponse
      */
     public function createAnchorWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->anchorMaterialName)) {
-            $body['anchorMaterialName'] = $request->anchorMaterialName;
+        if (null !== $request->anchorMaterialName) {
+            @$body['anchorMaterialName'] = $request->anchorMaterialName;
         }
-        if (!Utils::isUnset($request->coverUrl)) {
-            $body['coverUrl'] = $request->coverUrl;
+
+        if (null !== $request->coverUrl) {
+            @$body['coverUrl'] = $request->coverUrl;
         }
-        if (!Utils::isUnset($request->digitalHumanType)) {
-            $body['digitalHumanType'] = $request->digitalHumanType;
+
+        if (null !== $request->digitalHumanType) {
+            @$body['digitalHumanType'] = $request->digitalHumanType;
         }
-        if (!Utils::isUnset($request->gender)) {
-            $body['gender'] = $request->gender;
+
+        if (null !== $request->gender) {
+            @$body['gender'] = $request->gender;
         }
-        if (!Utils::isUnset($request->useScene)) {
-            $body['useScene'] = $request->useScene;
+
+        if (null !== $request->useScene) {
+            @$body['useScene'] = $request->useScene;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAnchor',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/anchorOpen/createAnchor',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateAnchor',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/digitalHuman/anchorOpen/createAnchor',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateAnchorResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -912,11 +1072,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 创建照片数字人
-     *  *
-     * @param CreateAnchorRequest $request CreateAnchorRequest
+     * 创建照片数字人.
      *
-     * @return CreateAnchorResponse CreateAnchorResponse
+     * @param request - CreateAnchorRequest
+     *
+     * @returns CreateAnchorResponse
+     *
+     * @param CreateAnchorRequest $request
+     *
+     * @return CreateAnchorResponse
      */
     public function createAnchor($request)
     {
@@ -927,34 +1091,40 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 创建配图生成任务
-     *  *
-     * @param string                        $textId
-     * @param CreateIllustrationTaskRequest $request CreateIllustrationTaskRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * 创建配图生成任务
      *
-     * @return CreateIllustrationTaskResponse CreateIllustrationTaskResponse
+     * @param request - CreateIllustrationTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateIllustrationTaskResponse
+     *
+     * @param string                        $textId
+     * @param CreateIllustrationTaskRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateIllustrationTaskResponse
      */
     public function createIllustrationTaskWithOptions($textId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateIllustrationTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/texts/' . OpenApiUtilClient::getEncodeParam($textId) . '/illustrationTasks',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateIllustrationTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/texts/' . Url::percentEncode($textId) . '/illustrationTasks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateIllustrationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -962,12 +1132,16 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 创建配图生成任务
-     *  *
-     * @param string                        $textId
-     * @param CreateIllustrationTaskRequest $request CreateIllustrationTaskRequest
+     * 创建配图生成任务
      *
-     * @return CreateIllustrationTaskResponse CreateIllustrationTaskResponse
+     * @param request - CreateIllustrationTaskRequest
+     *
+     * @returns CreateIllustrationTaskResponse
+     *
+     * @param string                        $textId
+     * @param CreateIllustrationTaskRequest $request
+     *
+     * @return CreateIllustrationTaskResponse
      */
     public function createIllustrationTask($textId, $request)
     {
@@ -978,46 +1152,56 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 创建个性化文案项目
-     *  *
-     * @param CreateIndividuationProjectRequest $request CreateIndividuationProjectRequest
-     * @param string[]                          $headers map
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 创建个性化文案项目.
      *
-     * @return CreateIndividuationProjectResponse CreateIndividuationProjectResponse
+     * @param request - CreateIndividuationProjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateIndividuationProjectResponse
+     *
+     * @param CreateIndividuationProjectRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreateIndividuationProjectResponse
      */
     public function createIndividuationProjectWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->projectInfo)) {
-            $body['projectInfo'] = $request->projectInfo;
+        if (null !== $request->projectInfo) {
+            @$body['projectInfo'] = $request->projectInfo;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['projectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['projectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->purpose)) {
-            $body['purpose'] = $request->purpose;
+
+        if (null !== $request->purpose) {
+            @$body['purpose'] = $request->purpose;
         }
-        if (!Utils::isUnset($request->sceneId)) {
-            $body['sceneId'] = $request->sceneId;
+
+        if (null !== $request->sceneId) {
+            @$body['sceneId'] = $request->sceneId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateIndividuationProject',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/individuationText/createProject',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateIndividuationProject',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/individuationText/createProject',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateIndividuationProjectResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1025,11 +1209,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 创建个性化文案项目
-     *  *
-     * @param CreateIndividuationProjectRequest $request CreateIndividuationProjectRequest
+     * 创建个性化文案项目.
      *
-     * @return CreateIndividuationProjectResponse CreateIndividuationProjectResponse
+     * @param request - CreateIndividuationProjectRequest
+     *
+     * @returns CreateIndividuationProjectResponse
+     *
+     * @param CreateIndividuationProjectRequest $request
+     *
+     * @return CreateIndividuationProjectResponse
      */
     public function createIndividuationProject($request)
     {
@@ -1040,43 +1228,52 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 创建个性化文案任务
-     *  *
-     * @param CreateIndividuationTextTaskRequest $request CreateIndividuationTextTaskRequest
-     * @param string[]                           $headers map
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 创建个性化文案任务
      *
-     * @return CreateIndividuationTextTaskResponse CreateIndividuationTextTaskResponse
+     * @param request - CreateIndividuationTextTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateIndividuationTextTaskResponse
+     *
+     * @param CreateIndividuationTextTaskRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateIndividuationTextTaskResponse
      */
     public function createIndividuationTextTaskWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->crowdPack)) {
-            $body['crowdPack'] = $request->crowdPack;
+        if (null !== $request->crowdPack) {
+            @$body['crowdPack'] = $request->crowdPack;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['projectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['projectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->taskName)) {
-            $body['taskName'] = $request->taskName;
+
+        if (null !== $request->taskName) {
+            @$body['taskName'] = $request->taskName;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateIndividuationTextTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/individuationText/createTextTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateIndividuationTextTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/individuationText/createTextTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateIndividuationTextTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1084,11 +1281,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 创建个性化文案任务
-     *  *
-     * @param CreateIndividuationTextTaskRequest $request CreateIndividuationTextTaskRequest
+     * 创建个性化文案任务
      *
-     * @return CreateIndividuationTextTaskResponse CreateIndividuationTextTaskResponse
+     * @param request - CreateIndividuationTextTaskRequest
+     *
+     * @returns CreateIndividuationTextTaskResponse
+     *
+     * @param CreateIndividuationTextTaskRequest $request
+     *
+     * @return CreateIndividuationTextTaskResponse
      */
     public function createIndividuationTextTask($request)
     {
@@ -1099,76 +1300,96 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 写实人像创作
-     *  *
-     * @param CreateRealisticPortraitRequest $request CreateRealisticPortraitRequest
-     * @param string[]                       $headers map
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 写实人像创作.
      *
-     * @return CreateRealisticPortraitResponse CreateRealisticPortraitResponse
+     * @param request - CreateRealisticPortraitRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRealisticPortraitResponse
+     *
+     * @param CreateRealisticPortraitRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateRealisticPortraitResponse
      */
     public function createRealisticPortraitWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->ages)) {
-            $body['ages'] = $request->ages;
+        if (null !== $request->ages) {
+            @$body['ages'] = $request->ages;
         }
-        if (!Utils::isUnset($request->cloth)) {
-            $body['cloth'] = $request->cloth;
+
+        if (null !== $request->cloth) {
+            @$body['cloth'] = $request->cloth;
         }
-        if (!Utils::isUnset($request->color)) {
-            $body['color'] = $request->color;
+
+        if (null !== $request->color) {
+            @$body['color'] = $request->color;
         }
-        if (!Utils::isUnset($request->custom)) {
-            $body['custom'] = $request->custom;
+
+        if (null !== $request->custom) {
+            @$body['custom'] = $request->custom;
         }
-        if (!Utils::isUnset($request->face)) {
-            $body['face'] = $request->face;
+
+        if (null !== $request->face) {
+            @$body['face'] = $request->face;
         }
-        if (!Utils::isUnset($request->figure)) {
-            $body['figure'] = $request->figure;
+
+        if (null !== $request->figure) {
+            @$body['figure'] = $request->figure;
         }
-        if (!Utils::isUnset($request->gender)) {
-            $body['gender'] = $request->gender;
+
+        if (null !== $request->gender) {
+            @$body['gender'] = $request->gender;
         }
-        if (!Utils::isUnset($request->hairColor)) {
-            $body['hairColor'] = $request->hairColor;
+
+        if (null !== $request->hairColor) {
+            @$body['hairColor'] = $request->hairColor;
         }
-        if (!Utils::isUnset($request->hairstyle)) {
-            $body['hairstyle'] = $request->hairstyle;
+
+        if (null !== $request->hairstyle) {
+            @$body['hairstyle'] = $request->hairstyle;
         }
-        if (!Utils::isUnset($request->height)) {
-            $body['height'] = $request->height;
+
+        if (null !== $request->height) {
+            @$body['height'] = $request->height;
         }
-        if (!Utils::isUnset($request->imageUrl)) {
-            $body['imageUrl'] = $request->imageUrl;
+
+        if (null !== $request->imageUrl) {
+            @$body['imageUrl'] = $request->imageUrl;
         }
-        if (!Utils::isUnset($request->numbers)) {
-            $body['numbers'] = $request->numbers;
+
+        if (null !== $request->numbers) {
+            @$body['numbers'] = $request->numbers;
         }
-        if (!Utils::isUnset($request->ratio)) {
-            $body['ratio'] = $request->ratio;
+
+        if (null !== $request->ratio) {
+            @$body['ratio'] = $request->ratio;
         }
-        if (!Utils::isUnset($request->width)) {
-            $body['width'] = $request->width;
+
+        if (null !== $request->width) {
+            @$body['width'] = $request->width;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateRealisticPortrait',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/images/portrait/realistic',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateRealisticPortrait',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/images/portrait/realistic',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateRealisticPortraitResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1176,11 +1397,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 写实人像创作
-     *  *
-     * @param CreateRealisticPortraitRequest $request CreateRealisticPortraitRequest
+     * 写实人像创作.
      *
-     * @return CreateRealisticPortraitResponse CreateRealisticPortraitResponse
+     * @param request - CreateRealisticPortraitRequest
+     *
+     * @returns CreateRealisticPortraitResponse
+     *
+     * @param CreateRealisticPortraitRequest $request
+     *
+     * @return CreateRealisticPortraitResponse
      */
     public function createRealisticPortrait($request)
     {
@@ -1191,33 +1416,39 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 创建文案生成任务
-     *  *
-     * @param CreateTextTaskRequest $request CreateTextTaskRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 创建文案生成任务
      *
-     * @return CreateTextTaskResponse CreateTextTaskResponse
+     * @param request - CreateTextTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTextTaskResponse
+     *
+     * @param CreateTextTaskRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTextTaskResponse
      */
     public function createTextTaskWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
+            'body' => Utils::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTextTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/textTasks',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateTextTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/textTasks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTextTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1225,11 +1456,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 创建文案生成任务
-     *  *
-     * @param CreateTextTaskRequest $request CreateTextTaskRequest
+     * 创建文案生成任务
      *
-     * @return CreateTextTaskResponse CreateTextTaskResponse
+     * @param request - CreateTextTaskRequest
+     *
+     * @returns CreateTextTaskResponse
+     *
+     * @param CreateTextTaskRequest $request
+     *
+     * @return CreateTextTaskResponse
      */
     public function createTextTask($request)
     {
@@ -1240,58 +1475,72 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 提交声音复刻任务
-     *  *
-     * @param CreateTrainTaskRequest $request CreateTrainTaskRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 提交声音复刻任务
      *
-     * @return CreateTrainTaskResponse CreateTrainTaskResponse
+     * @param request - CreateTrainTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateTrainTaskResponse
+     *
+     * @param CreateTrainTaskRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateTrainTaskResponse
      */
     public function createTrainTaskWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aliyunMainId)) {
-            $body['aliyunMainId'] = $request->aliyunMainId;
+        if (null !== $request->aliyunMainId) {
+            @$body['aliyunMainId'] = $request->aliyunMainId;
         }
-        if (!Utils::isUnset($request->resSpecType)) {
-            $body['resSpecType'] = $request->resSpecType;
+
+        if (null !== $request->resSpecType) {
+            @$body['resSpecType'] = $request->resSpecType;
         }
-        if (!Utils::isUnset($request->taskType)) {
-            $body['taskType'] = $request->taskType;
+
+        if (null !== $request->taskType) {
+            @$body['taskType'] = $request->taskType;
         }
-        if (!Utils::isUnset($request->useScene)) {
-            $body['useScene'] = $request->useScene;
+
+        if (null !== $request->useScene) {
+            @$body['useScene'] = $request->useScene;
         }
-        if (!Utils::isUnset($request->voiceGender)) {
-            $body['voiceGender'] = $request->voiceGender;
+
+        if (null !== $request->voiceGender) {
+            @$body['voiceGender'] = $request->voiceGender;
         }
-        if (!Utils::isUnset($request->voiceLanguage)) {
-            $body['voiceLanguage'] = $request->voiceLanguage;
+
+        if (null !== $request->voiceLanguage) {
+            @$body['voiceLanguage'] = $request->voiceLanguage;
         }
-        if (!Utils::isUnset($request->voiceName)) {
-            $body['voiceName'] = $request->voiceName;
+
+        if (null !== $request->voiceName) {
+            @$body['voiceName'] = $request->voiceName;
         }
-        if (!Utils::isUnset($request->voicePath)) {
-            $body['voicePath'] = $request->voicePath;
+
+        if (null !== $request->voicePath) {
+            @$body['voicePath'] = $request->voicePath;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTrainTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/train/task/createTrainTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateTrainTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/train/task/createTrainTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTrainTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1299,11 +1548,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 提交声音复刻任务
-     *  *
-     * @param CreateTrainTaskRequest $request CreateTrainTaskRequest
+     * 提交声音复刻任务
      *
-     * @return CreateTrainTaskResponse CreateTrainTaskResponse
+     * @param request - CreateTrainTaskRequest
+     *
+     * @returns CreateTrainTaskResponse
+     *
+     * @param CreateTrainTaskRequest $request
+     *
+     * @return CreateTrainTaskResponse
      */
     public function createTrainTask($request)
     {
@@ -1314,46 +1567,56 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 提交视频切片任务
-     *  *
-     * @param CreateVideoClipTaskRequest $request CreateVideoClipTaskRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 提交视频切片任务
      *
-     * @return CreateVideoClipTaskResponse CreateVideoClipTaskResponse
+     * @param request - CreateVideoClipTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateVideoClipTaskResponse
+     *
+     * @param CreateVideoClipTaskRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateVideoClipTaskResponse
      */
     public function createVideoClipTaskWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aliyunMainId)) {
-            $body['aliyunMainId'] = $request->aliyunMainId;
+        if (null !== $request->aliyunMainId) {
+            @$body['aliyunMainId'] = $request->aliyunMainId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->ossKeys)) {
-            $body['ossKeys'] = $request->ossKeys;
+
+        if (null !== $request->ossKeys) {
+            @$body['ossKeys'] = $request->ossKeys;
         }
-        if (!Utils::isUnset($request->requirement)) {
-            $body['requirement'] = $request->requirement;
+
+        if (null !== $request->requirement) {
+            @$body['requirement'] = $request->requirement;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateVideoClipTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/video/clip/createVideoClipTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateVideoClipTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/video/clip/createVideoClipTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVideoClipTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1361,11 +1624,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 提交视频切片任务
-     *  *
-     * @param CreateVideoClipTaskRequest $request CreateVideoClipTaskRequest
+     * 提交视频切片任务
      *
-     * @return CreateVideoClipTaskResponse CreateVideoClipTaskResponse
+     * @param request - CreateVideoClipTaskRequest
+     *
+     * @returns CreateVideoClipTaskResponse
+     *
+     * @param CreateVideoClipTaskRequest $request
+     *
+     * @return CreateVideoClipTaskResponse
      */
     public function createVideoClipTask($request)
     {
@@ -1376,37 +1643,44 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 删除个性化文案项目
-     *  *
-     * @param DeleteIndividuationProjectRequest $request DeleteIndividuationProjectRequest
-     * @param string[]                          $headers map
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 删除个性化文案项目.
      *
-     * @return DeleteIndividuationProjectResponse DeleteIndividuationProjectResponse
+     * @param request - DeleteIndividuationProjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteIndividuationProjectResponse
+     *
+     * @param DeleteIndividuationProjectRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteIndividuationProjectResponse
      */
     public function deleteIndividuationProjectWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $body['projectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$body['projectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIndividuationProject',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/individuationText/deleteProject',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteIndividuationProject',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/individuationText/deleteProject',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteIndividuationProjectResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1414,11 +1688,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 删除个性化文案项目
-     *  *
-     * @param DeleteIndividuationProjectRequest $request DeleteIndividuationProjectRequest
+     * 删除个性化文案项目.
      *
-     * @return DeleteIndividuationProjectResponse DeleteIndividuationProjectResponse
+     * @param request - DeleteIndividuationProjectRequest
+     *
+     * @returns DeleteIndividuationProjectResponse
+     *
+     * @param DeleteIndividuationProjectRequest $request
+     *
+     * @return DeleteIndividuationProjectResponse
      */
     public function deleteIndividuationProject($request)
     {
@@ -1429,37 +1707,44 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 删除个性化文案
-     *  *
-     * @param DeleteIndividuationTextRequest $request DeleteIndividuationTextRequest
-     * @param string[]                       $headers map
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * 删除个性化文案.
      *
-     * @return DeleteIndividuationTextResponse DeleteIndividuationTextResponse
+     * @param request - DeleteIndividuationTextRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteIndividuationTextResponse
+     *
+     * @param DeleteIndividuationTextRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteIndividuationTextResponse
      */
     public function deleteIndividuationTextWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->textIdList)) {
-            $body['textIdList'] = $request->textIdList;
+        if (null !== $request->textIdList) {
+            @$body['textIdList'] = $request->textIdList;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteIndividuationText',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/individuationText/deleteText',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteIndividuationText',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/individuationText/deleteText',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteIndividuationTextResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1467,11 +1752,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 删除个性化文案
-     *  *
-     * @param DeleteIndividuationTextRequest $request DeleteIndividuationTextRequest
+     * 删除个性化文案.
      *
-     * @return DeleteIndividuationTextResponse DeleteIndividuationTextResponse
+     * @param request - DeleteIndividuationTextRequest
+     *
+     * @returns DeleteIndividuationTextResponse
+     *
+     * @param DeleteIndividuationTextRequest $request
+     *
+     * @return DeleteIndividuationTextResponse
      */
     public function deleteIndividuationText($request)
     {
@@ -1482,14 +1771,19 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询文档信息与状态
-     *  *
+     * 查询文档信息与状态
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeDocumentResponse
+     *
      * @param string         $knowledgeBaseId
      * @param string         $documentId
-     * @param string[]       $headers         map
-     * @param RuntimeOptions $runtime         runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeDocumentResponse DescribeDocumentResponse
+     * @return DescribeDocumentResponse
      */
     public function describeDocumentWithOptions($knowledgeBaseId, $documentId, $headers, $runtime)
     {
@@ -1497,17 +1791,17 @@ class IntelligentCreation extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeDocument',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/knowledge-base/' . OpenApiUtilClient::getEncodeParam($knowledgeBaseId) . '/documents/' . OpenApiUtilClient::getEncodeParam($documentId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeDocument',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/knowledge-base/' . Url::percentEncode($knowledgeBaseId) . '/documents/' . Url::percentEncode($documentId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDocumentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1515,12 +1809,14 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询文档信息与状态
-     *  *
+     * 查询文档信息与状态
+     *
+     * @returns DescribeDocumentResponse
+     *
      * @param string $knowledgeBaseId
      * @param string $documentId
      *
-     * @return DescribeDocumentResponse DescribeDocumentResponse
+     * @return DescribeDocumentResponse
      */
     public function describeDocument($knowledgeBaseId, $documentId)
     {
@@ -1531,40 +1827,48 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 学员完成会话
-     *  *
-     * @param FinishAICoachTaskSessionRequest $request FinishAICoachTaskSessionRequest
-     * @param string[]                        $headers map
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * 学员完成会话.
      *
-     * @return FinishAICoachTaskSessionResponse FinishAICoachTaskSessionResponse
+     * @param request - FinishAICoachTaskSessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FinishAICoachTaskSessionResponse
+     *
+     * @param FinishAICoachTaskSessionRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return FinishAICoachTaskSessionResponse
      */
     public function finishAICoachTaskSessionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['sessionId'] = $request->sessionId;
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->uid)) {
-            $body['uid'] = $request->uid;
+
+        if (null !== $request->uid) {
+            @$body['uid'] = $request->uid;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'FinishAICoachTaskSession',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/aicoach/finishSession',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'FinishAICoachTaskSession',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/finishSession',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return FinishAICoachTaskSessionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1572,11 +1876,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 学员完成会话
-     *  *
-     * @param FinishAICoachTaskSessionRequest $request FinishAICoachTaskSessionRequest
+     * 学员完成会话.
      *
-     * @return FinishAICoachTaskSessionResponse FinishAICoachTaskSessionResponse
+     * @param request - FinishAICoachTaskSessionRequest
+     *
+     * @returns FinishAICoachTaskSessionResponse
+     *
+     * @param FinishAICoachTaskSessionRequest $request
+     *
+     * @return FinishAICoachTaskSessionResponse
      */
     public function finishAICoachTaskSession($request)
     {
@@ -1587,37 +1895,44 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询剧本详情
-     *  *
-     * @param GetAICoachScriptRequest $request GetAICoachScriptRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询剧本详情.
      *
-     * @return GetAICoachScriptResponse GetAICoachScriptResponse
+     * @param request - GetAICoachScriptRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAICoachScriptResponse
+     *
+     * @param GetAICoachScriptRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return GetAICoachScriptResponse
      */
     public function getAICoachScriptWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->scriptRecordId)) {
-            $query['scriptRecordId'] = $request->scriptRecordId;
+        if (null !== $request->scriptRecordId) {
+            @$query['scriptRecordId'] = $request->scriptRecordId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAICoachScript',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/aicoach/getScript',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAICoachScript',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/getScript',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAICoachScriptResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1625,11 +1940,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询剧本详情
-     *  *
-     * @param GetAICoachScriptRequest $request GetAICoachScriptRequest
+     * 查询剧本详情.
      *
-     * @return GetAICoachScriptResponse GetAICoachScriptResponse
+     * @param request - GetAICoachScriptRequest
+     *
+     * @returns GetAICoachScriptResponse
+     *
+     * @param GetAICoachScriptRequest $request
+     *
+     * @return GetAICoachScriptResponse
      */
     public function getAICoachScript($request)
     {
@@ -1640,46 +1959,56 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 学员查询会话历史
-     *  *
-     * @param GetAICoachTaskSessionHistoryRequest $request GetAICoachTaskSessionHistoryRequest
-     * @param string[]                            $headers map
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * 学员查询会话历史.
      *
-     * @return GetAICoachTaskSessionHistoryResponse GetAICoachTaskSessionHistoryResponse
+     * @param request - GetAICoachTaskSessionHistoryRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAICoachTaskSessionHistoryResponse
+     *
+     * @param GetAICoachTaskSessionHistoryRequest $request
+     * @param string[]                            $headers
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetAICoachTaskSessionHistoryResponse
      */
     public function getAICoachTaskSessionHistoryWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['sessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$query['sessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->uid)) {
-            $query['uid'] = $request->uid;
+
+        if (null !== $request->uid) {
+            @$query['uid'] = $request->uid;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAICoachTaskSessionHistory',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/aicoach/querySessionHistory',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAICoachTaskSessionHistory',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/querySessionHistory',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAICoachTaskSessionHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1687,11 +2016,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 学员查询会话历史
-     *  *
-     * @param GetAICoachTaskSessionHistoryRequest $request GetAICoachTaskSessionHistoryRequest
+     * 学员查询会话历史.
      *
-     * @return GetAICoachTaskSessionHistoryResponse GetAICoachTaskSessionHistoryResponse
+     * @param request - GetAICoachTaskSessionHistoryRequest
+     *
+     * @returns GetAICoachTaskSessionHistoryResponse
+     *
+     * @param GetAICoachTaskSessionHistoryRequest $request
+     *
+     * @return GetAICoachTaskSessionHistoryResponse
      */
     public function getAICoachTaskSessionHistory($request)
     {
@@ -1702,40 +2035,48 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 学员查询会话评测报告
-     *  *
-     * @param GetAICoachTaskSessionReportRequest $request GetAICoachTaskSessionReportRequest
-     * @param string[]                           $headers map
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * 学员查询会话评测报告.
      *
-     * @return GetAICoachTaskSessionReportResponse GetAICoachTaskSessionReportResponse
+     * @param request - GetAICoachTaskSessionReportRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAICoachTaskSessionReportResponse
+     *
+     * @param GetAICoachTaskSessionReportRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetAICoachTaskSessionReportResponse
      */
     public function getAICoachTaskSessionReportWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->sessionId)) {
-            $query['sessionId'] = $request->sessionId;
+        if (null !== $request->sessionId) {
+            @$query['sessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->uid)) {
-            $query['uid'] = $request->uid;
+
+        if (null !== $request->uid) {
+            @$query['uid'] = $request->uid;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAICoachTaskSessionReport',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/aicoach/queryTaskSessionReport',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetAICoachTaskSessionReport',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/queryTaskSessionReport',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAICoachTaskSessionReportResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1743,11 +2084,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 学员查询会话评测报告
-     *  *
-     * @param GetAICoachTaskSessionReportRequest $request GetAICoachTaskSessionReportRequest
+     * 学员查询会话评测报告.
      *
-     * @return GetAICoachTaskSessionReportResponse GetAICoachTaskSessionReportResponse
+     * @param request - GetAICoachTaskSessionReportRequest
+     *
+     * @returns GetAICoachTaskSessionReportResponse
+     *
+     * @param GetAICoachTaskSessionReportRequest $request
+     *
+     * @return GetAICoachTaskSessionReportResponse
      */
     public function getAICoachTaskSessionReport($request)
     {
@@ -1758,14 +2103,19 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询配图
-     *  *
+     * 查询配图.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIllustrationResponse
+     *
      * @param string         $textId
      * @param string         $illustrationId
-     * @param string[]       $headers        map
-     * @param RuntimeOptions $runtime        runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetIllustrationResponse GetIllustrationResponse
+     * @return GetIllustrationResponse
      */
     public function getIllustrationWithOptions($textId, $illustrationId, $headers, $runtime)
     {
@@ -1773,17 +2123,17 @@ class IntelligentCreation extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetIllustration',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/texts/' . OpenApiUtilClient::getEncodeParam($textId) . '/illustrations/' . OpenApiUtilClient::getEncodeParam($illustrationId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetIllustration',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/texts/' . Url::percentEncode($textId) . '/illustrations/' . Url::percentEncode($illustrationId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetIllustrationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1791,12 +2141,14 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询配图
-     *  *
+     * 查询配图.
+     *
+     * @returns GetIllustrationResponse
+     *
      * @param string $textId
      * @param string $illustrationId
      *
-     * @return GetIllustrationResponse GetIllustrationResponse
+     * @return GetIllustrationResponse
      */
     public function getIllustration($textId, $illustrationId)
     {
@@ -1807,14 +2159,19 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询配图任务
-     *  *
+     * 查询配图任务
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetIllustrationTaskResponse
+     *
      * @param string         $textId
      * @param string         $illustrationTaskId
-     * @param string[]       $headers            map
-     * @param RuntimeOptions $runtime            runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetIllustrationTaskResponse GetIllustrationTaskResponse
+     * @return GetIllustrationTaskResponse
      */
     public function getIllustrationTaskWithOptions($textId, $illustrationTaskId, $headers, $runtime)
     {
@@ -1822,17 +2179,17 @@ class IntelligentCreation extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetIllustrationTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/texts/' . OpenApiUtilClient::getEncodeParam($textId) . '/illustrationTasks/' . OpenApiUtilClient::getEncodeParam($illustrationTaskId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetIllustrationTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/texts/' . Url::percentEncode($textId) . '/illustrationTasks/' . Url::percentEncode($illustrationTaskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetIllustrationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1840,12 +2197,14 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询配图任务
-     *  *
+     * 查询配图任务
+     *
+     * @returns GetIllustrationTaskResponse
+     *
      * @param string $textId
      * @param string $illustrationTaskId
      *
-     * @return GetIllustrationTaskResponse GetIllustrationTaskResponse
+     * @return GetIllustrationTaskResponse
      */
     public function getIllustrationTask($textId, $illustrationTaskId)
     {
@@ -1856,43 +2215,52 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 获取图片上传oss token
-     *  *
-     * @param GetOssUploadTokenRequest $request GetOssUploadTokenRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 获取图片上传oss token.
      *
-     * @return GetOssUploadTokenResponse GetOssUploadTokenResponse
+     * @param request - GetOssUploadTokenRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetOssUploadTokenResponse
+     *
+     * @param GetOssUploadTokenRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetOssUploadTokenResponse
      */
     public function getOssUploadTokenWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['fileName'] = $request->fileName;
+        if (null !== $request->fileName) {
+            @$query['fileName'] = $request->fileName;
         }
-        if (!Utils::isUnset($request->fileType)) {
-            $query['fileType'] = $request->fileType;
+
+        if (null !== $request->fileType) {
+            @$query['fileType'] = $request->fileType;
         }
-        if (!Utils::isUnset($request->uploadType)) {
-            $query['uploadType'] = $request->uploadType;
+
+        if (null !== $request->uploadType) {
+            @$query['uploadType'] = $request->uploadType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetOssUploadToken',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/uploadToken',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetOssUploadToken',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/uploadToken',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetOssUploadTokenResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1900,11 +2268,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 获取图片上传oss token
-     *  *
-     * @param GetOssUploadTokenRequest $request GetOssUploadTokenRequest
+     * 获取图片上传oss token.
      *
-     * @return GetOssUploadTokenResponse GetOssUploadTokenResponse
+     * @param request - GetOssUploadTokenRequest
+     *
+     * @returns GetOssUploadTokenResponse
+     *
+     * @param GetOssUploadTokenRequest $request
+     *
+     * @return GetOssUploadTokenResponse
      */
     public function getOssUploadToken($request)
     {
@@ -1915,40 +2287,48 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据人合成信息
-     *  *
-     * @param GetProjectTaskRequest $request GetProjectTaskRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 获取数据人合成信息.
      *
-     * @return GetProjectTaskResponse GetProjectTaskResponse
+     * @param request - GetProjectTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetProjectTaskResponse
+     *
+     * @param GetProjectTaskRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetProjectTaskResponse
      */
     public function getProjectTaskWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->idempotentId)) {
-            $query['IdempotentId'] = $request->idempotentId;
+        if (null !== $request->idempotentId) {
+            @$query['IdempotentId'] = $request->idempotentId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['taskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetProjectTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/project/getProjectTask',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetProjectTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/digitalHuman/project/getProjectTask',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetProjectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1956,11 +2336,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 获取数据人合成信息
-     *  *
-     * @param GetProjectTaskRequest $request GetProjectTaskRequest
+     * 获取数据人合成信息.
      *
-     * @return GetProjectTaskResponse GetProjectTaskResponse
+     * @param request - GetProjectTaskRequest
+     *
+     * @returns GetProjectTaskResponse
+     *
+     * @param GetProjectTaskRequest $request
+     *
+     * @return GetProjectTaskResponse
      */
     public function getProjectTask($request)
     {
@@ -1971,13 +2355,18 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询文案
-     *  *
-     * @param string         $textId
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询文案.
      *
-     * @return GetTextResponse GetTextResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTextResponse
+     *
+     * @param string         $textId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTextResponse
      */
     public function getTextWithOptions($textId, $headers, $runtime)
     {
@@ -1985,17 +2374,17 @@ class IntelligentCreation extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetText',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/texts/' . OpenApiUtilClient::getEncodeParam($textId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetText',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/texts/' . Url::percentEncode($textId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTextResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2003,11 +2392,13 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询文案
-     *  *
+     * 查询文案.
+     *
+     * @returns GetTextResponse
+     *
      * @param string $textId
      *
-     * @return GetTextResponse GetTextResponse
+     * @return GetTextResponse
      */
     public function getText($textId)
     {
@@ -2018,13 +2409,18 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询文案任务
-     *  *
-     * @param string         $textTaskId
-     * @param string[]       $headers    map
-     * @param RuntimeOptions $runtime    runtime options for this request RuntimeOptions
+     * 查询文案任务
      *
-     * @return GetTextTaskResponse GetTextTaskResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTextTaskResponse
+     *
+     * @param string         $textTaskId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetTextTaskResponse
      */
     public function getTextTaskWithOptions($textTaskId, $headers, $runtime)
     {
@@ -2032,17 +2428,17 @@ class IntelligentCreation extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetTextTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/textTasks/' . OpenApiUtilClient::getEncodeParam($textTaskId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTextTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/textTasks/' . Url::percentEncode($textTaskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTextTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2050,11 +2446,13 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询文案任务
-     *  *
+     * 查询文案任务
+     *
+     * @returns GetTextTaskResponse
+     *
      * @param string $textTaskId
      *
-     * @return GetTextTaskResponse GetTextTaskResponse
+     * @return GetTextTaskResponse
      */
     public function getTextTask($textTaskId)
     {
@@ -2065,37 +2463,44 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询表单配置
-     *  *
-     * @param GetTextTemplateRequest $request GetTextTemplateRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 查询表单配置.
      *
-     * @return GetTextTemplateResponse GetTextTemplateResponse
+     * @param request - GetTextTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTextTemplateResponse
+     *
+     * @param GetTextTemplateRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetTextTemplateResponse
      */
     public function getTextTemplateWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->industry)) {
-            $query['industry'] = $request->industry;
+        if (null !== $request->industry) {
+            @$query['industry'] = $request->industry;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTextTemplate',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/texts/commands/getTextTemplate',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetTextTemplate',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/texts/commands/getTextTemplate',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTextTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2103,11 +2508,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询表单配置
-     *  *
-     * @param GetTextTemplateRequest $request GetTextTemplateRequest
+     * 查询表单配置.
      *
-     * @return GetTextTemplateResponse GetTextTemplateResponse
+     * @param request - GetTextTemplateRequest
+     *
+     * @returns GetTextTemplateResponse
+     *
+     * @param GetTextTemplateRequest $request
+     *
+     * @return GetTextTemplateResponse
      */
     public function getTextTemplate($request)
     {
@@ -2118,43 +2527,52 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 营销文案互动问答
-     *  *
-     * @param InteractTextRequest $request InteractTextRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * 营销文案互动问答.
      *
-     * @return InteractTextResponse InteractTextResponse
+     * @param request - InteractTextRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns InteractTextResponse
+     *
+     * @param InteractTextRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return InteractTextResponse
      */
     public function interactTextWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $body['agentId'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->content)) {
-            $body['content'] = $request->content;
+
+        if (null !== $request->content) {
+            @$body['content'] = $request->content;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['sessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'InteractText',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/stream/interactText',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'InteractText',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/stream/interactText',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return InteractTextResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2162,11 +2580,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 营销文案互动问答
-     *  *
-     * @param InteractTextRequest $request InteractTextRequest
+     * 营销文案互动问答.
      *
-     * @return InteractTextResponse InteractTextResponse
+     * @param request - InteractTextRequest
+     *
+     * @returns InteractTextResponse
+     *
+     * @param InteractTextRequest $request
+     *
+     * @return InteractTextResponse
      */
     public function interactText($request)
     {
@@ -2177,49 +2599,60 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询剧本列表
-     *  *
-     * @param ListAICoachScriptPageRequest $request ListAICoachScriptPageRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 查询剧本列表.
      *
-     * @return ListAICoachScriptPageResponse ListAICoachScriptPageResponse
+     * @param request - ListAICoachScriptPageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAICoachScriptPageResponse
+     *
+     * @param ListAICoachScriptPageRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListAICoachScriptPageResponse
      */
     public function listAICoachScriptPageWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAICoachScriptPage',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/aicoach/pageScript',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAICoachScriptPage',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/pageScript',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAICoachScriptPageResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2227,11 +2660,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询剧本列表
-     *  *
-     * @param ListAICoachScriptPageRequest $request ListAICoachScriptPageRequest
+     * 查询剧本列表.
      *
-     * @return ListAICoachScriptPageResponse ListAICoachScriptPageResponse
+     * @param request - ListAICoachScriptPageRequest
+     *
+     * @returns ListAICoachScriptPageResponse
+     *
+     * @param ListAICoachScriptPageRequest $request
+     *
+     * @return ListAICoachScriptPageResponse
      */
     public function listAICoachScriptPage($request)
     {
@@ -2242,49 +2679,60 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询任务列表
-     *  *
-     * @param ListAICoachTaskPageRequest $request ListAICoachTaskPageRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查询任务列表.
      *
-     * @return ListAICoachTaskPageResponse ListAICoachTaskPageResponse
+     * @param request - ListAICoachTaskPageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAICoachTaskPageResponse
+     *
+     * @param ListAICoachTaskPageRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ListAICoachTaskPageResponse
      */
     public function listAICoachTaskPageWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
-        if (!Utils::isUnset($request->studentId)) {
-            $query['studentId'] = $request->studentId;
+
+        if (null !== $request->studentId) {
+            @$query['studentId'] = $request->studentId;
         }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['taskId'] = $request->taskId;
+
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAICoachTaskPage',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/aicoach/listTaskPage',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAICoachTaskPage',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/aicoach/listTaskPage',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAICoachTaskPageResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2292,11 +2740,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询任务列表
-     *  *
-     * @param ListAICoachTaskPageRequest $request ListAICoachTaskPageRequest
+     * 查询任务列表.
      *
-     * @return ListAICoachTaskPageResponse ListAICoachTaskPageResponse
+     * @param request - ListAICoachTaskPageRequest
+     *
+     * @returns ListAICoachTaskPageResponse
+     *
+     * @param ListAICoachTaskPageRequest $request
+     *
+     * @return ListAICoachTaskPageResponse
      */
     public function listAICoachTaskPage($request)
     {
@@ -2307,52 +2759,64 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询智能体
-     *  *
-     * @param ListAgentsRequest $request ListAgentsRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 分页查询智能体.
      *
-     * @return ListAgentsResponse ListAgentsResponse
+     * @param request - ListAgentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAgentsResponse
+     *
+     * @param ListAgentsRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListAgentsResponse
      */
     public function listAgentsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $query['agentId'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$query['agentId'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->agentScene)) {
-            $query['agentScene'] = $request->agentScene;
+
+        if (null !== $request->agentScene) {
+            @$query['agentScene'] = $request->agentScene;
         }
-        if (!Utils::isUnset($request->owner)) {
-            $query['owner'] = $request->owner;
+
+        if (null !== $request->owner) {
+            @$query['owner'] = $request->owner;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['status'] = $request->status;
+
+        if (null !== $request->status) {
+            @$query['status'] = $request->status;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAgents',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/agent/listAgents',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAgents',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/agent/listAgents',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAgentsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2360,11 +2824,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 分页查询智能体
-     *  *
-     * @param ListAgentsRequest $request ListAgentsRequest
+     * 分页查询智能体.
      *
-     * @return ListAgentsResponse ListAgentsResponse
+     * @param request - ListAgentsRequest
+     *
+     * @returns ListAgentsResponse
+     *
+     * @param ListAgentsRequest $request
+     *
+     * @return ListAgentsResponse
      */
     public function listAgents($request)
     {
@@ -2375,58 +2843,72 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 获取数字人模特列表
-     *  *
-     * @param ListAnchorRequest $request ListAnchorRequest
-     * @param string[]          $headers map
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * 获取数字人模特列表.
      *
-     * @return ListAnchorResponse ListAnchorResponse
+     * @param request - ListAnchorRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAnchorResponse
+     *
+     * @param ListAnchorRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListAnchorResponse
      */
     public function listAnchorWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->anchorCategory)) {
-            $query['anchorCategory'] = $request->anchorCategory;
+        if (null !== $request->anchorCategory) {
+            @$query['anchorCategory'] = $request->anchorCategory;
         }
-        if (!Utils::isUnset($request->anchorType)) {
-            $query['anchorType'] = $request->anchorType;
+
+        if (null !== $request->anchorType) {
+            @$query['anchorType'] = $request->anchorType;
         }
-        if (!Utils::isUnset($request->coverRate)) {
-            $query['coverRate'] = $request->coverRate;
+
+        if (null !== $request->coverRate) {
+            @$query['coverRate'] = $request->coverRate;
         }
-        if (!Utils::isUnset($request->digitalHumanType)) {
-            $query['digitalHumanType'] = $request->digitalHumanType;
+
+        if (null !== $request->digitalHumanType) {
+            @$query['digitalHumanType'] = $request->digitalHumanType;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resSpecType)) {
-            $query['resSpecType'] = $request->resSpecType;
+
+        if (null !== $request->resSpecType) {
+            @$query['resSpecType'] = $request->resSpecType;
         }
-        if (!Utils::isUnset($request->useScene)) {
-            $query['useScene'] = $request->useScene;
+
+        if (null !== $request->useScene) {
+            @$query['useScene'] = $request->useScene;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAnchor',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/anchorOpen/listAnchor',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAnchor',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/digitalHuman/anchorOpen/listAnchor',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAnchorResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2434,11 +2916,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 获取数字人模特列表
-     *  *
-     * @param ListAnchorRequest $request ListAnchorRequest
+     * 获取数字人模特列表.
      *
-     * @return ListAnchorResponse ListAnchorResponse
+     * @param request - ListAnchorRequest
+     *
+     * @returns ListAnchorResponse
+     *
+     * @param ListAnchorRequest $request
+     *
+     * @return ListAnchorResponse
      */
     public function listAnchor($request)
     {
@@ -2449,42 +2935,50 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 批量查询数字人项目启动结果
-     *  *
-     * @param ListAvatarProjectRequest $tmpReq  ListAvatarProjectRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 批量查询数字人项目启动结果.
      *
-     * @return ListAvatarProjectResponse ListAvatarProjectResponse
+     * @param tmpReq - ListAvatarProjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListAvatarProjectResponse
+     *
+     * @param ListAvatarProjectRequest $tmpReq
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListAvatarProjectResponse
      */
     public function listAvatarProjectWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListAvatarProjectShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->projectIdList)) {
-            $request->projectIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->projectIdList, 'projectIdList', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->projectIdList) {
+            $request->projectIdListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->projectIdList, 'projectIdList', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->projectIdListShrink)) {
-            $query['projectIdList'] = $request->projectIdListShrink;
+        if (null !== $request->projectIdListShrink) {
+            @$query['projectIdList'] = $request->projectIdListShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAvatarProject',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/avatar/project/listAvatarProject',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAvatarProject',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/avatar/project/listAvatarProject',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAvatarProjectResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2492,11 +2986,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 批量查询数字人项目启动结果
-     *  *
-     * @param ListAvatarProjectRequest $request ListAvatarProjectRequest
+     * 批量查询数字人项目启动结果.
      *
-     * @return ListAvatarProjectResponse ListAvatarProjectResponse
+     * @param request - ListAvatarProjectRequest
+     *
+     * @returns ListAvatarProjectResponse
+     *
+     * @param ListAvatarProjectRequest $request
+     *
+     * @return ListAvatarProjectResponse
      */
     public function listAvatarProject($request)
     {
@@ -2507,43 +3005,52 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询知识库
-     *  *
-     * @param ListKnowledgeBaseRequest $request ListKnowledgeBaseRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 查询知识库.
      *
-     * @return ListKnowledgeBaseResponse ListKnowledgeBaseResponse
+     * @param request - ListKnowledgeBaseRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListKnowledgeBaseResponse
+     *
+     * @param ListKnowledgeBaseRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListKnowledgeBaseResponse
      */
     public function listKnowledgeBaseWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->knowledgeBaseId)) {
-            $query['knowledgeBaseId'] = $request->knowledgeBaseId;
+        if (null !== $request->knowledgeBaseId) {
+            @$query['knowledgeBaseId'] = $request->knowledgeBaseId;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListKnowledgeBase',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/knowledge-base',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListKnowledgeBase',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/knowledge-base',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListKnowledgeBaseResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2551,11 +3058,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询知识库
-     *  *
-     * @param ListKnowledgeBaseRequest $request ListKnowledgeBaseRequest
+     * 查询知识库.
      *
-     * @return ListKnowledgeBaseResponse ListKnowledgeBaseResponse
+     * @param request - ListKnowledgeBaseRequest
+     *
+     * @returns ListKnowledgeBaseResponse
+     *
+     * @param ListKnowledgeBaseRequest $request
+     *
+     * @return ListKnowledgeBaseResponse
      */
     public function listKnowledgeBase($request)
     {
@@ -2566,37 +3077,44 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询文案主题列表
-     *  *
-     * @param ListTextThemesRequest $request ListTextThemesRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 查询文案主题列表.
      *
-     * @return ListTextThemesResponse ListTextThemesResponse
+     * @param request - ListTextThemesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTextThemesResponse
+     *
+     * @param ListTextThemesRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListTextThemesResponse
      */
     public function listTextThemesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->industry)) {
-            $query['industry'] = $request->industry;
+        if (null !== $request->industry) {
+            @$query['industry'] = $request->industry;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTextThemes',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/textThemes',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTextThemes',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/textThemes',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTextThemesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2604,11 +3122,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询文案主题列表
-     *  *
-     * @param ListTextThemesRequest $request ListTextThemesRequest
+     * 查询文案主题列表.
      *
-     * @return ListTextThemesResponse ListTextThemesResponse
+     * @param request - ListTextThemesRequest
+     *
+     * @returns ListTextThemesResponse
+     *
+     * @param ListTextThemesRequest $request
+     *
+     * @return ListTextThemesResponse
      */
     public function listTextThemes($request)
     {
@@ -2619,58 +3141,72 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 列举文案
-     *  *
-     * @param ListTextsRequest $request ListTextsRequest
-     * @param string[]         $headers map
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * 列举文案.
      *
-     * @return ListTextsResponse ListTextsResponse
+     * @param request - ListTextsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTextsResponse
+     *
+     * @param ListTextsRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return ListTextsResponse
      */
     public function listTextsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->generationSource)) {
-            $query['generationSource'] = $request->generationSource;
+        if (null !== $request->generationSource) {
+            @$query['generationSource'] = $request->generationSource;
         }
-        if (!Utils::isUnset($request->industry)) {
-            $query['industry'] = $request->industry;
+
+        if (null !== $request->industry) {
+            @$query['industry'] = $request->industry;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->publishStatus)) {
-            $query['publishStatus'] = $request->publishStatus;
+
+        if (null !== $request->publishStatus) {
+            @$query['publishStatus'] = $request->publishStatus;
         }
-        if (!Utils::isUnset($request->textStyleType)) {
-            $query['textStyleType'] = $request->textStyleType;
+
+        if (null !== $request->textStyleType) {
+            @$query['textStyleType'] = $request->textStyleType;
         }
-        if (!Utils::isUnset($request->textTheme)) {
-            $query['textTheme'] = $request->textTheme;
+
+        if (null !== $request->textTheme) {
+            @$query['textTheme'] = $request->textTheme;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTexts',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/texts',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTexts',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/texts',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTextsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2678,11 +3214,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 列举文案
-     *  *
-     * @param ListTextsRequest $request ListTextsRequest
+     * 列举文案.
      *
-     * @return ListTextsResponse ListTextsResponse
+     * @param request - ListTextsRequest
+     *
+     * @returns ListTextsResponse
+     *
+     * @param ListTextsRequest $request
+     *
+     * @return ListTextsResponse
      */
     public function listTexts($request)
     {
@@ -2693,52 +3233,64 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 获取声音模版列表
-     *  *
-     * @param ListVoiceModelsRequest $request ListVoiceModelsRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 获取声音模版列表.
      *
-     * @return ListVoiceModelsResponse ListVoiceModelsResponse
+     * @param request - ListVoiceModelsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListVoiceModelsResponse
+     *
+     * @param ListVoiceModelsRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListVoiceModelsResponse
      */
     public function listVoiceModelsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resSpecType)) {
-            $query['resSpecType'] = $request->resSpecType;
+
+        if (null !== $request->resSpecType) {
+            @$query['resSpecType'] = $request->resSpecType;
         }
-        if (!Utils::isUnset($request->useScene)) {
-            $query['useScene'] = $request->useScene;
+
+        if (null !== $request->useScene) {
+            @$query['useScene'] = $request->useScene;
         }
-        if (!Utils::isUnset($request->voiceLanguage)) {
-            $query['voiceLanguage'] = $request->voiceLanguage;
+
+        if (null !== $request->voiceLanguage) {
+            @$query['voiceLanguage'] = $request->voiceLanguage;
         }
-        if (!Utils::isUnset($request->voiceType)) {
-            $query['voiceType'] = $request->voiceType;
+
+        if (null !== $request->voiceType) {
+            @$query['voiceType'] = $request->voiceType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVoiceModels',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/voiceOpen/listVoiceModels',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListVoiceModels',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/digitalHuman/voiceOpen/listVoiceModels',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVoiceModelsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2746,11 +3298,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 获取声音模版列表
-     *  *
-     * @param ListVoiceModelsRequest $request ListVoiceModelsRequest
+     * 获取声音模版列表.
      *
-     * @return ListVoiceModelsResponse ListVoiceModelsResponse
+     * @param request - ListVoiceModelsRequest
+     *
+     * @returns ListVoiceModelsResponse
+     *
+     * @param ListVoiceModelsRequest $request
+     *
+     * @return ListVoiceModelsResponse
      */
     public function listVoiceModels($request)
     {
@@ -2761,46 +3317,56 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 操作实时数字人项目
-     *  *
-     * @param OperateAvatarProjectRequest $request OperateAvatarProjectRequest
-     * @param string[]                    $headers map
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * 操作实时数字人项目.
      *
-     * @return OperateAvatarProjectResponse OperateAvatarProjectResponse
+     * @param request - OperateAvatarProjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns OperateAvatarProjectResponse
+     *
+     * @param OperateAvatarProjectRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return OperateAvatarProjectResponse
      */
     public function operateAvatarProjectWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->operateType)) {
-            $body['operateType'] = $request->operateType;
+        if (null !== $request->operateType) {
+            @$body['operateType'] = $request->operateType;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['projectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['projectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->resChannelNumber)) {
-            $body['resChannelNumber'] = $request->resChannelNumber;
+
+        if (null !== $request->resChannelNumber) {
+            @$body['resChannelNumber'] = $request->resChannelNumber;
         }
-        if (!Utils::isUnset($request->resType)) {
-            $body['resType'] = $request->resType;
+
+        if (null !== $request->resType) {
+            @$body['resType'] = $request->resType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'OperateAvatarProject',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/avatar/project/operateProjectAvatar',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'OperateAvatarProject',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/avatar/project/operateProjectAvatar',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return OperateAvatarProjectResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2808,11 +3374,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 操作实时数字人项目
-     *  *
-     * @param OperateAvatarProjectRequest $request OperateAvatarProjectRequest
+     * 操作实时数字人项目.
      *
-     * @return OperateAvatarProjectResponse OperateAvatarProjectResponse
+     * @param request - OperateAvatarProjectRequest
+     *
+     * @returns OperateAvatarProjectResponse
+     *
+     * @param OperateAvatarProjectRequest $request
+     *
+     * @return OperateAvatarProjectResponse
      */
     public function operateAvatarProject($request)
     {
@@ -2823,37 +3393,44 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询数字人项目信息
-     *  *
-     * @param QueryAvatarProjectRequest $request QueryAvatarProjectRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 查询数字人项目信息.
      *
-     * @return QueryAvatarProjectResponse QueryAvatarProjectResponse
+     * @param request - QueryAvatarProjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAvatarProjectResponse
+     *
+     * @param QueryAvatarProjectRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryAvatarProjectResponse
      */
     public function queryAvatarProjectWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $query['projectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$query['projectId'] = $request->projectId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryAvatarProject',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/avatar/project/queryAvatarProject',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryAvatarProject',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/avatar/project/queryAvatarProject',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryAvatarProjectResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2861,11 +3438,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询数字人项目信息
-     *  *
-     * @param QueryAvatarProjectRequest $request QueryAvatarProjectRequest
+     * 查询数字人项目信息.
      *
-     * @return QueryAvatarProjectResponse QueryAvatarProjectResponse
+     * @param request - QueryAvatarProjectRequest
+     *
+     * @returns QueryAvatarProjectResponse
+     *
+     * @param QueryAvatarProjectRequest $request
+     *
+     * @return QueryAvatarProjectResponse
      */
     public function queryAvatarProject($request)
     {
@@ -2876,37 +3457,44 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查找资源
-     *  *
-     * @param QueryAvatarResourceRequest $request QueryAvatarResourceRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * 查找资源.
      *
-     * @return QueryAvatarResourceResponse QueryAvatarResourceResponse
+     * @param request - QueryAvatarResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryAvatarResourceResponse
+     *
+     * @param QueryAvatarResourceRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryAvatarResourceResponse
      */
     public function queryAvatarResourceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->idempotentId)) {
-            $query['idempotentId'] = $request->idempotentId;
+        if (null !== $request->idempotentId) {
+            @$query['idempotentId'] = $request->idempotentId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryAvatarResource',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/avatar/project/queryResource',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryAvatarResource',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/avatar/project/queryResource',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryAvatarResourceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2914,11 +3502,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查找资源
-     *  *
-     * @param QueryAvatarResourceRequest $request QueryAvatarResourceRequest
+     * 查找资源.
      *
-     * @return QueryAvatarResourceResponse QueryAvatarResourceResponse
+     * @param request - QueryAvatarResourceRequest
+     *
+     * @returns QueryAvatarResourceResponse
+     *
+     * @param QueryAvatarResourceRequest $request
+     *
+     * @return QueryAvatarResourceResponse
      */
     public function queryAvatarResource($request)
     {
@@ -2929,37 +3521,44 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询个性化文案任务
-     *  *
-     * @param QueryIndividuationTextTaskRequest $request QueryIndividuationTextTaskRequest
-     * @param string[]                          $headers map
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * 查询个性化文案任务
      *
-     * @return QueryIndividuationTextTaskResponse QueryIndividuationTextTaskResponse
+     * @param request - QueryIndividuationTextTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryIndividuationTextTaskResponse
+     *
+     * @param QueryIndividuationTextTaskRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return QueryIndividuationTextTaskResponse
      */
     public function queryIndividuationTextTaskWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $query['taskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$query['taskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryIndividuationTextTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/individuationText/queryTextTask',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryIndividuationTextTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/individuationText/queryTextTask',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryIndividuationTextTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2967,11 +3566,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询个性化文案任务
-     *  *
-     * @param QueryIndividuationTextTaskRequest $request QueryIndividuationTextTaskRequest
+     * 查询个性化文案任务
      *
-     * @return QueryIndividuationTextTaskResponse QueryIndividuationTextTaskResponse
+     * @param request - QueryIndividuationTextTaskRequest
+     *
+     * @returns QueryIndividuationTextTaskResponse
+     *
+     * @param QueryIndividuationTextTaskRequest $request
+     *
+     * @return QueryIndividuationTextTaskResponse
      */
     public function queryIndividuationTextTask($request)
     {
@@ -2982,51 +3585,62 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询会话信息
-     *  *
-     * @param QuerySessionInfoRequest $tmpReq  QuerySessionInfoRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * 查询会话信息.
      *
-     * @return QuerySessionInfoResponse QuerySessionInfoResponse
+     * @param tmpReq - QuerySessionInfoRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QuerySessionInfoResponse
+     *
+     * @param QuerySessionInfoRequest $tmpReq
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QuerySessionInfoResponse
      */
     public function querySessionInfoWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new QuerySessionInfoShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->statusList)) {
-            $request->statusListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->statusList, 'statusList', 'simple');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->statusList) {
+            $request->statusListShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->statusList, 'statusList', 'simple');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['pageNo'] = $request->pageNo;
+        if (null !== $request->pageNo) {
+            @$query['pageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $query['projectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$query['projectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->statusListShrink)) {
-            $query['statusList'] = $request->statusListShrink;
+
+        if (null !== $request->statusListShrink) {
+            @$query['statusList'] = $request->statusListShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySessionInfo',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/avatar/project/querySessionInfo',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QuerySessionInfo',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/avatar/project/querySessionInfo',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QuerySessionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3034,11 +3648,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询会话信息
-     *  *
-     * @param QuerySessionInfoRequest $request QuerySessionInfoRequest
+     * 查询会话信息.
      *
-     * @return QuerySessionInfoResponse QuerySessionInfoResponse
+     * @param request - QuerySessionInfoRequest
+     *
+     * @returns QuerySessionInfoResponse
+     *
+     * @param QuerySessionInfoRequest $request
+     *
+     * @return QuerySessionInfoResponse
      */
     public function querySessionInfo($request)
     {
@@ -3049,13 +3667,18 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 流式输出文案
-     *  *
-     * @param string         $textId
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 流式输出文案.
      *
-     * @return QueryTextStreamResponse QueryTextStreamResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns QueryTextStreamResponse
+     *
+     * @param string         $textId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return QueryTextStreamResponse
      */
     public function queryTextStreamWithOptions($textId, $headers, $runtime)
     {
@@ -3063,17 +3686,17 @@ class IntelligentCreation extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'QueryTextStream',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/stream/queryTextStream/' . OpenApiUtilClient::getEncodeParam($textId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'QueryTextStream',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/stream/queryTextStream/' . Url::percentEncode($textId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryTextStreamResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3081,11 +3704,13 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 流式输出文案
-     *  *
+     * 流式输出文案.
+     *
+     * @returns QueryTextStreamResponse
+     *
      * @param string $textId
      *
-     * @return QueryTextStreamResponse QueryTextStreamResponse
+     * @return QueryTextStreamResponse
      */
     public function queryTextStream($textId)
     {
@@ -3096,67 +3721,84 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 保存实时数字人项目
-     *  *
-     * @param SaveAvatarProjectRequest $request SaveAvatarProjectRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 保存实时数字人项目.
      *
-     * @return SaveAvatarProjectResponse SaveAvatarProjectResponse
+     * @param request - SaveAvatarProjectRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SaveAvatarProjectResponse
+     *
+     * @param SaveAvatarProjectRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SaveAvatarProjectResponse
      */
     public function saveAvatarProjectWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->agentId)) {
-            $body['agentId'] = $request->agentId;
+        if (null !== $request->agentId) {
+            @$body['agentId'] = $request->agentId;
         }
-        if (!Utils::isUnset($request->bitRate)) {
-            $body['bitRate'] = $request->bitRate;
+
+        if (null !== $request->bitRate) {
+            @$body['bitRate'] = $request->bitRate;
         }
-        if (!Utils::isUnset($request->frameRate)) {
-            $body['frameRate'] = $request->frameRate;
+
+        if (null !== $request->frameRate) {
+            @$body['frameRate'] = $request->frameRate;
         }
-        if (!Utils::isUnset($request->frames)) {
-            $body['frames'] = $request->frames;
+
+        if (null !== $request->frames) {
+            @$body['frames'] = $request->frames;
         }
-        if (!Utils::isUnset($request->operateType)) {
-            $body['operateType'] = $request->operateType;
+
+        if (null !== $request->operateType) {
+            @$body['operateType'] = $request->operateType;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['projectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['projectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->projectName)) {
-            $body['projectName'] = $request->projectName;
+
+        if (null !== $request->projectName) {
+            @$body['projectName'] = $request->projectName;
         }
-        if (!Utils::isUnset($request->resSpecType)) {
-            $body['resSpecType'] = $request->resSpecType;
+
+        if (null !== $request->resSpecType) {
+            @$body['resSpecType'] = $request->resSpecType;
         }
-        if (!Utils::isUnset($request->resolution)) {
-            $body['resolution'] = $request->resolution;
+
+        if (null !== $request->resolution) {
+            @$body['resolution'] = $request->resolution;
         }
-        if (!Utils::isUnset($request->scaleType)) {
-            $body['scaleType'] = $request->scaleType;
+
+        if (null !== $request->scaleType) {
+            @$body['scaleType'] = $request->scaleType;
         }
-        if (!Utils::isUnset($request->synchronizedDisplay)) {
-            $body['synchronizedDisplay'] = $request->synchronizedDisplay;
+
+        if (null !== $request->synchronizedDisplay) {
+            @$body['synchronizedDisplay'] = $request->synchronizedDisplay;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SaveAvatarProject',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/avatar/project/saveAvatarProject',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SaveAvatarProject',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/avatar/project/saveAvatarProject',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SaveAvatarProjectResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3164,11 +3806,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 保存实时数字人项目
-     *  *
-     * @param SaveAvatarProjectRequest $request SaveAvatarProjectRequest
+     * 保存实时数字人项目.
      *
-     * @return SaveAvatarProjectResponse SaveAvatarProjectResponse
+     * @param request - SaveAvatarProjectRequest
+     *
+     * @returns SaveAvatarProjectResponse
+     *
+     * @param SaveAvatarProjectRequest $request
+     *
+     * @return SaveAvatarProjectResponse
      */
     public function saveAvatarProject($request)
     {
@@ -3179,13 +3825,18 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询图片任务
-     *  *
-     * @param string         $taskId
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * 查询图片任务
      *
-     * @return SelectImageTaskResponse SelectImageTaskResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SelectImageTaskResponse
+     *
+     * @param string         $taskId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return SelectImageTaskResponse
      */
     public function selectImageTaskWithOptions($taskId, $headers, $runtime)
     {
@@ -3193,17 +3844,17 @@ class IntelligentCreation extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'SelectImageTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/images/portrait/select/' . OpenApiUtilClient::getEncodeParam($taskId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SelectImageTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/images/portrait/select/' . Url::percentEncode($taskId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SelectImageTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3211,11 +3862,13 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询图片任务
-     *  *
+     * 查询图片任务
+     *
+     * @returns SelectImageTaskResponse
+     *
      * @param string $taskId
      *
-     * @return SelectImageTaskResponse SelectImageTaskResponse
+     * @return SelectImageTaskResponse
      */
     public function selectImageTask($taskId)
     {
@@ -3226,37 +3879,44 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询离线数字人剩余资源
-     *  *
-     * @param SelectResourceRequest $request SelectResourceRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 查询离线数字人剩余资源.
      *
-     * @return SelectResourceResponse SelectResourceResponse
+     * @param request - SelectResourceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SelectResourceResponse
+     *
+     * @param SelectResourceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SelectResourceResponse
      */
     public function selectResourceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->idempotentId)) {
-            $query['idempotentId'] = $request->idempotentId;
+        if (null !== $request->idempotentId) {
+            @$query['idempotentId'] = $request->idempotentId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SelectResource',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/project/commands/overview',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SelectResource',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/digitalHuman/project/commands/overview',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SelectResourceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3264,11 +3924,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 查询离线数字人剩余资源
-     *  *
-     * @param SelectResourceRequest $request SelectResourceRequest
+     * 查询离线数字人剩余资源.
      *
-     * @return SelectResourceResponse SelectResourceResponse
+     * @param request - SelectResourceRequest
+     *
+     * @returns SelectResourceResponse
+     *
+     * @param SelectResourceRequest $request
+     *
+     * @return SelectResourceResponse
      */
     public function selectResource($request)
     {
@@ -3279,49 +3943,60 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 发送sdk消息
-     *  *
-     * @param SendSdkMessageRequest $request SendSdkMessageRequest
-     * @param string[]              $headers map
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * 发送sdk消息.
      *
-     * @return SendSdkMessageResponse SendSdkMessageResponse
+     * @param request - SendSdkMessageRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendSdkMessageResponse
+     *
+     * @param SendSdkMessageRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return SendSdkMessageResponse
      */
     public function sendSdkMessageWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->data)) {
-            $body['data'] = $request->data;
+        if (null !== $request->data) {
+            @$body['data'] = $request->data;
         }
-        if (!Utils::isUnset($request->header)) {
-            $body['header'] = $request->header;
+
+        if (null !== $request->header) {
+            @$body['header'] = $request->header;
         }
-        if (!Utils::isUnset($request->moduleName)) {
-            $body['moduleName'] = $request->moduleName;
+
+        if (null !== $request->moduleName) {
+            @$body['moduleName'] = $request->moduleName;
         }
-        if (!Utils::isUnset($request->operationName)) {
-            $body['operationName'] = $request->operationName;
+
+        if (null !== $request->operationName) {
+            @$body['operationName'] = $request->operationName;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $body['userId'] = $request->userId;
+
+        if (null !== $request->userId) {
+            @$body['userId'] = $request->userId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SendSdkMessage',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/sdk/sendMessage',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SendSdkMessage',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/sdk/sendMessage',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SendSdkMessageResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3329,11 +4004,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 发送sdk消息
-     *  *
-     * @param SendSdkMessageRequest $request SendSdkMessageRequest
+     * 发送sdk消息.
      *
-     * @return SendSdkMessageResponse SendSdkMessageResponse
+     * @param request - SendSdkMessageRequest
+     *
+     * @returns SendSdkMessageResponse
+     *
+     * @param SendSdkMessageRequest $request
+     *
+     * @return SendSdkMessageResponse
      */
     public function sendSdkMessage($request)
     {
@@ -3344,49 +4023,60 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 发送文本消息
-     *  *
-     * @param SendTextMsgRequest $request SendTextMsgRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * 发送文本消息.
      *
-     * @return SendTextMsgResponse SendTextMsgResponse
+     * @param request - SendTextMsgRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SendTextMsgResponse
+     *
+     * @param SendTextMsgRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SendTextMsgResponse
      */
     public function sendTextMsgWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $body['projectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$body['projectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->requestId)) {
-            $body['requestId'] = $request->requestId;
+
+        if (null !== $request->requestId) {
+            @$body['requestId'] = $request->requestId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['sessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
         }
-        if (!Utils::isUnset($request->text)) {
-            $body['text'] = $request->text;
+
+        if (null !== $request->text) {
+            @$body['text'] = $request->text;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SendTextMsg',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/avatar/project/sendTextMsg',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SendTextMsg',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/avatar/project/sendTextMsg',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SendTextMsgResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3394,11 +4084,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 发送文本消息
-     *  *
-     * @param SendTextMsgRequest $request SendTextMsgRequest
+     * 发送文本消息.
      *
-     * @return SendTextMsgResponse SendTextMsgResponse
+     * @param request - SendTextMsgRequest
+     *
+     * @returns SendTextMsgResponse
+     *
+     * @param SendTextMsgRequest $request
+     *
+     * @return SendTextMsgResponse
      */
     public function sendTextMsg($request)
     {
@@ -3409,49 +4103,60 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 启动会话
-     *  *
-     * @param StartAvatarSessionRequest $request StartAvatarSessionRequest
-     * @param string[]                  $headers map
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * 启动会话.
      *
-     * @return StartAvatarSessionResponse StartAvatarSessionResponse
+     * @param request - StartAvatarSessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StartAvatarSessionResponse
+     *
+     * @param StartAvatarSessionRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StartAvatarSessionResponse
      */
     public function startAvatarSessionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->channelToken)) {
-            $body['channelToken'] = $request->channelToken;
+        if (null !== $request->channelToken) {
+            @$body['channelToken'] = $request->channelToken;
         }
-        if (!Utils::isUnset($request->customPushUrl)) {
-            $body['customPushUrl'] = $request->customPushUrl;
+
+        if (null !== $request->customPushUrl) {
+            @$body['customPushUrl'] = $request->customPushUrl;
         }
-        if (!Utils::isUnset($request->customUserId)) {
-            $body['customUserId'] = $request->customUserId;
+
+        if (null !== $request->customUserId) {
+            @$body['customUserId'] = $request->customUserId;
         }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['projectId'] = $request->projectId;
+
+        if (null !== $request->projectId) {
+            @$body['projectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->requestId)) {
-            $body['requestId'] = $request->requestId;
+
+        if (null !== $request->requestId) {
+            @$body['requestId'] = $request->requestId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartAvatarSession',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/avatar/project/startAvatarSession',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartAvatarSession',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/avatar/project/startAvatarSession',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartAvatarSessionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3459,11 +4164,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 启动会话
-     *  *
-     * @param StartAvatarSessionRequest $request StartAvatarSessionRequest
+     * 启动会话.
      *
-     * @return StartAvatarSessionResponse StartAvatarSessionResponse
+     * @param request - StartAvatarSessionRequest
+     *
+     * @returns StartAvatarSessionResponse
+     *
+     * @param StartAvatarSessionRequest $request
+     *
+     * @return StartAvatarSessionResponse
      */
     public function startAvatarSession($request)
     {
@@ -3474,40 +4183,48 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 停止会话
-     *  *
-     * @param StopAvatarSessionRequest $request StopAvatarSessionRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 停止会话.
      *
-     * @return StopAvatarSessionResponse StopAvatarSessionResponse
+     * @param request - StopAvatarSessionRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopAvatarSessionResponse
+     *
+     * @param StopAvatarSessionRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return StopAvatarSessionResponse
      */
     public function stopAvatarSessionWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->projectId)) {
-            $body['projectId'] = $request->projectId;
+        if (null !== $request->projectId) {
+            @$body['projectId'] = $request->projectId;
         }
-        if (!Utils::isUnset($request->sessionId)) {
-            $body['sessionId'] = $request->sessionId;
+
+        if (null !== $request->sessionId) {
+            @$body['sessionId'] = $request->sessionId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StopAvatarSession',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/avatar/project/stopAvatarSession',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopAvatarSession',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/avatar/project/stopAvatarSession',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopAvatarSessionResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3515,11 +4232,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 停止会话
-     *  *
-     * @param StopAvatarSessionRequest $request StopAvatarSessionRequest
+     * 停止会话.
      *
-     * @return StopAvatarSessionResponse StopAvatarSessionResponse
+     * @param request - StopAvatarSessionRequest
+     *
+     * @returns StopAvatarSessionResponse
+     *
+     * @param StopAvatarSessionRequest $request
+     *
+     * @return StopAvatarSessionResponse
      */
     public function stopAvatarSession($request)
     {
@@ -3530,37 +4251,44 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 视频合成任务停止
-     *  *
-     * @param StopProjectTaskRequest $request StopProjectTaskRequest
-     * @param string[]               $headers map
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * 视频合成任务停止.
      *
-     * @return StopProjectTaskResponse StopProjectTaskResponse
+     * @param request - StopProjectTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns StopProjectTaskResponse
+     *
+     * @param StopProjectTaskRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return StopProjectTaskResponse
      */
     public function stopProjectTaskWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $body['taskId'] = $request->taskId;
+        if (null !== $request->taskId) {
+            @$body['taskId'] = $request->taskId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StopProjectTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/project/stop',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopProjectTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/digitalHuman/project/stop',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopProjectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3568,11 +4296,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 视频合成任务停止
-     *  *
-     * @param StopProjectTaskRequest $request StopProjectTaskRequest
+     * 视频合成任务停止.
      *
-     * @return StopProjectTaskResponse StopProjectTaskResponse
+     * @param request - StopProjectTaskRequest
+     *
+     * @returns StopProjectTaskResponse
+     *
+     * @param StopProjectTaskRequest $request
+     *
+     * @return StopProjectTaskResponse
      */
     public function stopProjectTask($request)
     {
@@ -3583,46 +4315,56 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 提交离线数字人合成任务
-     *  *
-     * @param SubmitProjectTaskRequest $request SubmitProjectTaskRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * 提交离线数字人合成任务
      *
-     * @return SubmitProjectTaskResponse SubmitProjectTaskResponse
+     * @param request - SubmitProjectTaskRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SubmitProjectTaskResponse
+     *
+     * @param SubmitProjectTaskRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SubmitProjectTaskResponse
      */
     public function submitProjectTaskWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->frames)) {
-            $body['frames'] = $request->frames;
+        if (null !== $request->frames) {
+            @$body['frames'] = $request->frames;
         }
-        if (!Utils::isUnset($request->scaleType)) {
-            $body['scaleType'] = $request->scaleType;
+
+        if (null !== $request->scaleType) {
+            @$body['scaleType'] = $request->scaleType;
         }
-        if (!Utils::isUnset($request->subtitleTag)) {
-            $body['subtitleTag'] = $request->subtitleTag;
+
+        if (null !== $request->subtitleTag) {
+            @$body['subtitleTag'] = $request->subtitleTag;
         }
-        if (!Utils::isUnset($request->transparentBackground)) {
-            $body['transparentBackground'] = $request->transparentBackground;
+
+        if (null !== $request->transparentBackground) {
+            @$body['transparentBackground'] = $request->transparentBackground;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SubmitProjectTask',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/digitalHuman/project/submitProjectTask',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SubmitProjectTask',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/digitalHuman/project/submitProjectTask',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubmitProjectTaskResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3630,11 +4372,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 提交离线数字人合成任务
-     *  *
-     * @param SubmitProjectTaskRequest $request SubmitProjectTaskRequest
+     * 提交离线数字人合成任务
      *
-     * @return SubmitProjectTaskResponse SubmitProjectTaskResponse
+     * @param request - SubmitProjectTaskRequest
+     *
+     * @returns SubmitProjectTaskResponse
+     *
+     * @param SubmitProjectTaskRequest $request
+     *
+     * @return SubmitProjectTaskResponse
      */
     public function submitProjectTask($request)
     {
@@ -3645,52 +4391,64 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 人像风格变化
-     *  *
-     * @param TransferPortraitStyleRequest $request TransferPortraitStyleRequest
-     * @param string[]                     $headers map
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * 人像风格变化.
      *
-     * @return TransferPortraitStyleResponse TransferPortraitStyleResponse
+     * @param request - TransferPortraitStyleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TransferPortraitStyleResponse
+     *
+     * @param TransferPortraitStyleRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return TransferPortraitStyleResponse
      */
     public function transferPortraitStyleWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->height)) {
-            $body['height'] = $request->height;
+        if (null !== $request->height) {
+            @$body['height'] = $request->height;
         }
-        if (!Utils::isUnset($request->imageUrl)) {
-            $body['imageUrl'] = $request->imageUrl;
+
+        if (null !== $request->imageUrl) {
+            @$body['imageUrl'] = $request->imageUrl;
         }
-        if (!Utils::isUnset($request->numbers)) {
-            $body['numbers'] = $request->numbers;
+
+        if (null !== $request->numbers) {
+            @$body['numbers'] = $request->numbers;
         }
-        if (!Utils::isUnset($request->redrawAmplitude)) {
-            $body['redrawAmplitude'] = $request->redrawAmplitude;
+
+        if (null !== $request->redrawAmplitude) {
+            @$body['redrawAmplitude'] = $request->redrawAmplitude;
         }
-        if (!Utils::isUnset($request->style)) {
-            $body['style'] = $request->style;
+
+        if (null !== $request->style) {
+            @$body['style'] = $request->style;
         }
-        if (!Utils::isUnset($request->width)) {
-            $body['width'] = $request->width;
+
+        if (null !== $request->width) {
+            @$body['width'] = $request->width;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TransferPortraitStyle',
-            'version'     => '2024-03-13',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/yic/yic-console/openService/v1/images/portrait/transferPortraitStyle',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'TransferPortraitStyle',
+            'version' => '2024-03-13',
+            'protocol' => 'HTTPS',
+            'pathname' => '/yic/yic-console/openService/v1/images/portrait/transferPortraitStyle',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TransferPortraitStyleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3698,11 +4456,15 @@ class IntelligentCreation extends OpenApiClient
     }
 
     /**
-     * @summary 人像风格变化
-     *  *
-     * @param TransferPortraitStyleRequest $request TransferPortraitStyleRequest
+     * 人像风格变化.
      *
-     * @return TransferPortraitStyleResponse TransferPortraitStyleResponse
+     * @param request - TransferPortraitStyleRequest
+     *
+     * @returns TransferPortraitStyleResponse
+     *
+     * @param TransferPortraitStyleRequest $request
+     *
+     * @return TransferPortraitStyleResponse
      */
     public function transferPortraitStyle($request)
     {

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TextQueryResult extends Model
 {
@@ -19,36 +19,40 @@ class TextQueryResult extends Model
     public $texts;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $total;
     protected $_name = [
         'requestId' => 'requestId',
-        'texts'     => 'texts',
-        'total'     => 'total',
+        'texts' => 'texts',
+        'total' => 'total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->texts)) {
+            Model::validateArray($this->texts);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->texts) {
-            $res['texts'] = [];
-            if (null !== $this->texts && \is_array($this->texts)) {
-                $n = 0;
-                foreach ($this->texts as $item) {
-                    $res['texts'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->texts)) {
+                $res['texts'] = [];
+                $n1 = 0;
+                foreach ($this->texts as $item1) {
+                    $res['texts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -56,26 +60,28 @@ class TextQueryResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TextQueryResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['texts'])) {
             if (!empty($map['texts'])) {
                 $model->texts = [];
-                $n            = 0;
-                foreach ($map['texts'] as $item) {
-                    $model->texts[$n++] = null !== $item ? Text::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['texts'] as $item1) {
+                    $model->texts[$n1++] = Text::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

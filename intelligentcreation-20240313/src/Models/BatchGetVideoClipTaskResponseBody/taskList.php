@@ -4,35 +4,27 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchGetVideoClipTaskResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchGetVideoClipTaskResponseBody\taskList\videoList;
-use AlibabaCloud\Tea\Model;
 
 class taskList extends Model
 {
     /**
-     * @example FINISHED
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example 864413342857035776
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @example 43335
-     *
      * @var float
      */
     public $totalDuration;
 
     /**
-     * @example 11
-     *
      * @var int
      */
     public $totalToken;
@@ -42,38 +34,46 @@ class taskList extends Model
      */
     public $videoList;
     protected $_name = [
-        'status'        => 'status',
-        'taskId'        => 'taskId',
+        'status' => 'status',
+        'taskId' => 'taskId',
         'totalDuration' => 'totalDuration',
-        'totalToken'    => 'totalToken',
-        'videoList'     => 'videoList',
+        'totalToken' => 'totalToken',
+        'videoList' => 'videoList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->videoList)) {
+            Model::validateArray($this->videoList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
         }
+
         if (null !== $this->totalDuration) {
             $res['totalDuration'] = $this->totalDuration;
         }
+
         if (null !== $this->totalToken) {
             $res['totalToken'] = $this->totalToken;
         }
+
         if (null !== $this->videoList) {
-            $res['videoList'] = [];
-            if (null !== $this->videoList && \is_array($this->videoList)) {
-                $n = 0;
-                foreach ($this->videoList as $item) {
-                    $res['videoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->videoList)) {
+                $res['videoList'] = [];
+                $n1 = 0;
+                foreach ($this->videoList as $item1) {
+                    $res['videoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -81,32 +81,36 @@ class taskList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return taskList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
         }
+
         if (isset($map['totalDuration'])) {
             $model->totalDuration = $map['totalDuration'];
         }
+
         if (isset($map['totalToken'])) {
             $model->totalToken = $map['totalToken'];
         }
+
         if (isset($map['videoList'])) {
             if (!empty($map['videoList'])) {
                 $model->videoList = [];
-                $n                = 0;
-                foreach ($map['videoList'] as $item) {
-                    $model->videoList[$n++] = null !== $item ? videoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['videoList'] as $item1) {
+                    $model->videoList[$n1++] = videoList::fromMap($item1);
                 }
             }
         }

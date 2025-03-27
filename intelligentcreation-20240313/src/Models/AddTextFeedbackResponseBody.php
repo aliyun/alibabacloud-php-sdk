@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddTextFeedbackResponseBody extends Model
 {
     /**
-     * @example 3239281273464326823
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example True
-     *
      * @var bool
      */
     public $success;
     protected $_name = [
         'requestId' => 'requestId',
-        'success'   => 'success',
+        'success' => 'success',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['success'] = $this->success;
         }
@@ -43,17 +41,18 @@ class AddTextFeedbackResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddTextFeedbackResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['success'])) {
             $model->success = $map['success'];
         }

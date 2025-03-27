@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class KnowledgeBaseListResult extends Model
 {
@@ -14,45 +14,45 @@ class KnowledgeBaseListResult extends Model
     public $knowledgeBases;
 
     /**
-     * @example 3239281273464326823
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $total;
     protected $_name = [
         'knowledgeBases' => 'knowledgeBases',
-        'requestId'      => 'requestId',
-        'total'          => 'total',
+        'requestId' => 'requestId',
+        'total' => 'total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->knowledgeBases)) {
+            Model::validateArray($this->knowledgeBases);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->knowledgeBases) {
-            $res['knowledgeBases'] = [];
-            if (null !== $this->knowledgeBases && \is_array($this->knowledgeBases)) {
-                $n = 0;
-                foreach ($this->knowledgeBases as $item) {
-                    $res['knowledgeBases'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->knowledgeBases)) {
+                $res['knowledgeBases'] = [];
+                $n1 = 0;
+                foreach ($this->knowledgeBases as $item1) {
+                    $res['knowledgeBases'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->total) {
             $res['total'] = $this->total;
         }
@@ -60,26 +60,28 @@ class KnowledgeBaseListResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return KnowledgeBaseListResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['knowledgeBases'])) {
             if (!empty($map['knowledgeBases'])) {
                 $model->knowledgeBases = [];
-                $n                     = 0;
-                foreach ($map['knowledgeBases'] as $item) {
-                    $model->knowledgeBases[$n++] = null !== $item ? KnowledgeBaseInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['knowledgeBases'] as $item1) {
+                    $model->knowledgeBases[$n1++] = KnowledgeBaseInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['total'])) {
             $model->total = $map['total'];
         }

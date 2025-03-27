@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\BatchGetTrainTaskResponseBody\voiceList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class voiceMaterial extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $voiceId;
 
     /**
-     * @example zh
-     *
      * @var string
      */
     public $voiceLanguage;
 
     /**
-     * @example http://www.voice.com
-     *
      * @var string
      */
     public $voiceUrl;
     protected $_name = [
-        'voiceId'       => 'voiceId',
+        'voiceId' => 'voiceId',
         'voiceLanguage' => 'voiceLanguage',
-        'voiceUrl'      => 'voiceUrl',
+        'voiceUrl' => 'voiceUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->voiceId) {
             $res['voiceId'] = $this->voiceId;
         }
+
         if (null !== $this->voiceLanguage) {
             $res['voiceLanguage'] = $this->voiceLanguage;
         }
+
         if (null !== $this->voiceUrl) {
             $res['voiceUrl'] = $this->voiceUrl;
         }
@@ -54,20 +51,22 @@ class voiceMaterial extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return voiceMaterial
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['voiceId'])) {
             $model->voiceId = $map['voiceId'];
         }
+
         if (isset($map['voiceLanguage'])) {
             $model->voiceLanguage = $map['voiceLanguage'];
         }
+
         if (isset($map['voiceUrl'])) {
             $model->voiceUrl = $map['voiceUrl'];
         }

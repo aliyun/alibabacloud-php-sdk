@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DocumentResult extends Model
 {
@@ -14,26 +14,29 @@ class DocumentResult extends Model
     public $documentInfo;
 
     /**
-     * @example 3239281273464326823
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'documentInfo' => 'documentInfo',
-        'requestId'    => 'requestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->documentInfo) {
+            $this->documentInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->documentInfo) {
-            $res['documentInfo'] = null !== $this->documentInfo ? $this->documentInfo->toMap() : null;
+            $res['documentInfo'] = null !== $this->documentInfo ? $this->documentInfo->toArray($noStream) : $this->documentInfo;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -41,17 +44,18 @@ class DocumentResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DocumentResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['documentInfo'])) {
             $model->documentInfo = DocumentInfo::fromMap($map['documentInfo']);
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

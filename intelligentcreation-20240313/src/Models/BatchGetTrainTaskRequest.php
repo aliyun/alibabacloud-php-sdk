@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchGetTrainTaskRequest extends Model
 {
     /**
-     * @example 1524004782431111
-     *
      * @var string
      */
     public $aliyunMainId;
@@ -21,40 +19,56 @@ class BatchGetTrainTaskRequest extends Model
     public $taskIdList;
     protected $_name = [
         'aliyunMainId' => 'aliyunMainId',
-        'taskIdList'   => 'taskIdList',
+        'taskIdList' => 'taskIdList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->taskIdList)) {
+            Model::validateArray($this->taskIdList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliyunMainId) {
             $res['aliyunMainId'] = $this->aliyunMainId;
         }
+
         if (null !== $this->taskIdList) {
-            $res['taskIdList'] = $this->taskIdList;
+            if (\is_array($this->taskIdList)) {
+                $res['taskIdList'] = [];
+                $n1 = 0;
+                foreach ($this->taskIdList as $item1) {
+                    $res['taskIdList'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchGetTrainTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aliyunMainId'])) {
             $model->aliyunMainId = $map['aliyunMainId'];
         }
+
         if (isset($map['taskIdList'])) {
             if (!empty($map['taskIdList'])) {
-                $model->taskIdList = $map['taskIdList'];
+                $model->taskIdList = [];
+                $n1 = 0;
+                foreach ($map['taskIdList'] as $item1) {
+                    $model->taskIdList[$n1++] = $item1;
+                }
             }
         }
 

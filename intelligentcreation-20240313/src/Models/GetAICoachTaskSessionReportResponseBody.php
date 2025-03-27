@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetAICoachTaskSessionReportResponseBody extends Model
 {
     /**
-     * @example 0
-     *
      * @var int
      */
     public $duration;
 
     /**
-     * @example 2024-11-08 09:33:21
-     *
      * @var string
      */
     public $endTime;
@@ -28,8 +24,6 @@ class GetAICoachTaskSessionReportResponseBody extends Model
     public $evaluationRating;
 
     /**
-     * @example {}
-     *
      * @var string
      */
     public $evaluationResult;
@@ -40,8 +34,6 @@ class GetAICoachTaskSessionReportResponseBody extends Model
     public $feedback;
 
     /**
-     * @example 0E8B1746-AE35-5C4B-A3A8-345B274AE32C
-     *
      * @var string
      */
     public $requestId;
@@ -52,8 +44,6 @@ class GetAICoachTaskSessionReportResponseBody extends Model
     public $scriptName;
 
     /**
-     * @example 2024-10-11 09:58:01
-     *
      * @var string
      */
     public $startTime;
@@ -64,58 +54,66 @@ class GetAICoachTaskSessionReportResponseBody extends Model
     public $status;
 
     /**
-     * @example 1276673855116835
-     *
      * @var string
      */
     public $uid;
     protected $_name = [
-        'duration'         => 'duration',
-        'endTime'          => 'endTime',
+        'duration' => 'duration',
+        'endTime' => 'endTime',
         'evaluationRating' => 'evaluationRating',
         'evaluationResult' => 'evaluationResult',
-        'feedback'         => 'feedback',
-        'requestId'        => 'requestId',
-        'scriptName'       => 'scriptName',
-        'startTime'        => 'startTime',
-        'status'           => 'status',
-        'uid'              => 'uid',
+        'feedback' => 'feedback',
+        'requestId' => 'requestId',
+        'scriptName' => 'scriptName',
+        'startTime' => 'startTime',
+        'status' => 'status',
+        'uid' => 'uid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->duration) {
             $res['duration'] = $this->duration;
         }
+
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
+
         if (null !== $this->evaluationRating) {
             $res['evaluationRating'] = $this->evaluationRating;
         }
+
         if (null !== $this->evaluationResult) {
             $res['evaluationResult'] = $this->evaluationResult;
         }
+
         if (null !== $this->feedback) {
             $res['feedback'] = $this->feedback;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->scriptName) {
             $res['scriptName'] = $this->scriptName;
         }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
+
         if (null !== $this->status) {
             $res['status'] = $this->status;
         }
+
         if (null !== $this->uid) {
             $res['uid'] = $this->uid;
         }
@@ -123,41 +121,50 @@ class GetAICoachTaskSessionReportResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetAICoachTaskSessionReportResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['duration'])) {
             $model->duration = $map['duration'];
         }
+
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
+
         if (isset($map['evaluationRating'])) {
             $model->evaluationRating = $map['evaluationRating'];
         }
+
         if (isset($map['evaluationResult'])) {
             $model->evaluationResult = $map['evaluationResult'];
         }
+
         if (isset($map['feedback'])) {
             $model->feedback = $map['feedback'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['scriptName'])) {
             $model->scriptName = $map['scriptName'];
         }
+
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }
+
         if (isset($map['status'])) {
             $model->status = $map['status'];
         }
+
         if (isset($map['uid'])) {
             $model->uid = $map['uid'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchAddDocumentRequest extends Model
 {
@@ -18,17 +18,21 @@ class BatchAddDocumentRequest extends Model
 
     public function validate()
     {
+        if (\is_array($this->addDocumentInfos)) {
+            Model::validateArray($this->addDocumentInfos);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->addDocumentInfos) {
-            $res['addDocumentInfos'] = [];
-            if (null !== $this->addDocumentInfos && \is_array($this->addDocumentInfos)) {
-                $n = 0;
-                foreach ($this->addDocumentInfos as $item) {
-                    $res['addDocumentInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->addDocumentInfos)) {
+                $res['addDocumentInfos'] = [];
+                $n1 = 0;
+                foreach ($this->addDocumentInfos as $item1) {
+                    $res['addDocumentInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +40,20 @@ class BatchAddDocumentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchAddDocumentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['addDocumentInfos'])) {
             if (!empty($map['addDocumentInfos'])) {
                 $model->addDocumentInfos = [];
-                $n                       = 0;
-                foreach ($map['addDocumentInfos'] as $item) {
-                    $model->addDocumentInfos[$n++] = null !== $item ? AddDocumentInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['addDocumentInfos'] as $item1) {
+                    $model->addDocumentInfos[$n1++] = AddDocumentInfo::fromMap($item1);
                 }
             }
         }

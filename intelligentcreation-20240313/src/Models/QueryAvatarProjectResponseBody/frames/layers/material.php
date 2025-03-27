@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models\QueryAvatarProjectResponseBody\frames\layers;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class material extends Model
 {
@@ -24,23 +24,26 @@ class material extends Model
     public $url;
     protected $_name = [
         'format' => 'format',
-        'id'     => 'id',
-        'url'    => 'url',
+        'id' => 'id',
+        'url' => 'url',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->format) {
             $res['format'] = $this->format;
         }
+
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
+
         if (null !== $this->url) {
             $res['url'] = $this->url;
         }
@@ -48,20 +51,22 @@ class material extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return material
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['format'])) {
             $model->format = $map['format'];
         }
+
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
+
         if (isset($map['url'])) {
             $model->url = $map['url'];
         }

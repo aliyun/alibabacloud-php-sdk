@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateVideoClipTaskRequest extends Model
 {
     /**
-     * @example 1314445556
-     *
      * @var string
      */
     public $aliyunMainId;
@@ -31,27 +29,40 @@ class CreateVideoClipTaskRequest extends Model
     public $requirement;
     protected $_name = [
         'aliyunMainId' => 'aliyunMainId',
-        'description'  => 'description',
-        'ossKeys'      => 'ossKeys',
-        'requirement'  => 'requirement',
+        'description' => 'description',
+        'ossKeys' => 'ossKeys',
+        'requirement' => 'requirement',
     ];
 
     public function validate()
     {
+        if (\is_array($this->ossKeys)) {
+            Model::validateArray($this->ossKeys);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aliyunMainId) {
             $res['aliyunMainId'] = $this->aliyunMainId;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->ossKeys) {
-            $res['ossKeys'] = $this->ossKeys;
+            if (\is_array($this->ossKeys)) {
+                $res['ossKeys'] = [];
+                $n1 = 0;
+                foreach ($this->ossKeys as $item1) {
+                    $res['ossKeys'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requirement) {
             $res['requirement'] = $this->requirement;
         }
@@ -59,25 +70,32 @@ class CreateVideoClipTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateVideoClipTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['aliyunMainId'])) {
             $model->aliyunMainId = $map['aliyunMainId'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['ossKeys'])) {
             if (!empty($map['ossKeys'])) {
-                $model->ossKeys = $map['ossKeys'];
+                $model->ossKeys = [];
+                $n1 = 0;
+                foreach ($map['ossKeys'] as $item1) {
+                    $model->ossKeys[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['requirement'])) {
             $model->requirement = $map['requirement'];
         }

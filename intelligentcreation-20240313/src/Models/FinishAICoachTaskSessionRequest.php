@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FinishAICoachTaskSessionRequest extends Model
 {
     /**
-     * @example 111
-     *
      * @var string
      */
     public $sessionId;
 
     /**
-     * @example 222
-     *
      * @var string
      */
     public $uid;
     protected $_name = [
         'sessionId' => 'sessionId',
-        'uid'       => 'uid',
+        'uid' => 'uid',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sessionId) {
             $res['sessionId'] = $this->sessionId;
         }
+
         if (null !== $this->uid) {
             $res['uid'] = $this->uid;
         }
@@ -43,17 +41,18 @@ class FinishAICoachTaskSessionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FinishAICoachTaskSessionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['sessionId'])) {
             $model->sessionId = $map['sessionId'];
         }
+
         if (isset($map['uid'])) {
             $model->uid = $map['uid'];
         }

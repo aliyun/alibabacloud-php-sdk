@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetOssUploadTokenRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 8021678.png
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example ProductImage
-     *
      * @var string
      */
     public $fileType;
@@ -31,24 +23,27 @@ class GetOssUploadTokenRequest extends Model
      */
     public $uploadType;
     protected $_name = [
-        'fileName'   => 'fileName',
-        'fileType'   => 'fileType',
+        'fileName' => 'fileName',
+        'fileType' => 'fileType',
         'uploadType' => 'uploadType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileName) {
             $res['fileName'] = $this->fileName;
         }
+
         if (null !== $this->fileType) {
             $res['fileType'] = $this->fileType;
         }
+
         if (null !== $this->uploadType) {
             $res['uploadType'] = $this->uploadType;
         }
@@ -56,20 +51,22 @@ class GetOssUploadTokenRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetOssUploadTokenRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['fileName'])) {
             $model->fileName = $map['fileName'];
         }
+
         if (isset($map['fileType'])) {
             $model->fileType = $map['fileType'];
         }
+
         if (isset($map['uploadType'])) {
             $model->uploadType = $map['uploadType'];
         }

@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\IntelligentCreation\V20240313\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateVideoClipTaskResponseBody extends Model
 {
     /**
-     * @example 86A90C40-D1AB-50DA-A4B1-0D545F80F2FE
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 837091359375048704
-     *
      * @var string
      */
     public $taskId;
     protected $_name = [
         'requestId' => 'requestId',
-        'taskId'    => 'taskId',
+        'taskId' => 'taskId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['taskId'] = $this->taskId;
         }
@@ -43,17 +41,18 @@ class CreateVideoClipTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateVideoClipTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }
+
         if (isset($map['taskId'])) {
             $model->taskId = $map['taskId'];
         }
