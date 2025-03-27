@@ -12,23 +12,26 @@ class DescribeServiceMirrorResponseBody extends Model
      * @var string
      */
     public $ratio;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $target;
     protected $_name = [
-        'ratio'       => 'Ratio',
-        'requestId'   => 'RequestId',
+        'ratio' => 'Ratio',
+        'requestId' => 'RequestId',
         'serviceName' => 'ServiceName',
-        'target'      => 'Target',
+        'target' => 'Target',
     ];
 
     public function validate()

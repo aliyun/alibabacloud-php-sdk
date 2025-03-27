@@ -81,6 +81,7 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeGroupResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeMachineSpecRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeMachineSpecResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeMachineSpecShrinkRequest;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceDLinkResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceLogResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceResponse;
@@ -190,22 +191,22 @@ class Eas extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-beijing'            => 'pai-eas.cn-beijing.aliyuncs.com',
-            'cn-zhangjiakou'        => 'pai-eas.cn-zhangjiakou.aliyuncs.com',
-            'cn-hangzhou'           => 'pai-eas.cn-hangzhou.aliyuncs.com',
-            'cn-shanghai'           => 'pai-eas.cn-shanghai.aliyuncs.com',
-            'cn-shenzhen'           => 'pai-eas.cn-shenzhen.aliyuncs.com',
-            'cn-hongkong'           => 'pai-eas.cn-hongkong.aliyuncs.com',
-            'ap-southeast-1'        => 'pai-eas.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-5'        => 'pai-eas.ap-southeast-5.aliyuncs.com',
-            'us-east-1'             => 'pai-eas.us-east-1.aliyuncs.com',
-            'us-west-1'             => 'pai-eas.us-west-1.aliyuncs.com',
-            'eu-central-1'          => 'pai-eas.eu-central-1.aliyuncs.com',
-            'ap-south-1'            => 'pai-eas.ap-south-1.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-beijing' => 'pai-eas.cn-beijing.aliyuncs.com',
+            'cn-zhangjiakou' => 'pai-eas.cn-zhangjiakou.aliyuncs.com',
+            'cn-hangzhou' => 'pai-eas.cn-hangzhou.aliyuncs.com',
+            'cn-shanghai' => 'pai-eas.cn-shanghai.aliyuncs.com',
+            'cn-shenzhen' => 'pai-eas.cn-shenzhen.aliyuncs.com',
+            'cn-hongkong' => 'pai-eas.cn-hongkong.aliyuncs.com',
+            'ap-southeast-1' => 'pai-eas.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5' => 'pai-eas.ap-southeast-5.aliyuncs.com',
+            'us-east-1' => 'pai-eas.us-east-1.aliyuncs.com',
+            'us-west-1' => 'pai-eas.us-west-1.aliyuncs.com',
+            'eu-central-1' => 'pai-eas.eu-central-1.aliyuncs.com',
+            'ap-south-1' => 'pai-eas.ap-south-1.aliyuncs.com',
             'cn-shanghai-finance-1' => 'pai-eas.cn-shanghai-finance-1.aliyuncs.com',
-            'cn-north-2-gov-1'      => 'pai-eas.cn-north-2-gov-1.aliyuncs.com',
-            'cn-chengdu'            => 'pai-eas.cn-chengdu.aliyuncs.com',
+            'cn-north-2-gov-1' => 'pai-eas.cn-north-2-gov-1.aliyuncs.com',
+            'cn-chengdu' => 'pai-eas.cn-chengdu.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('eas', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -241,6 +242,7 @@ class Eas extends OpenApiClient
      * @param tmpReq - AttachGatewayDomainRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachGatewayDomainResponse
      *
      * @param string                     $ClusterId
@@ -267,18 +269,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachGatewayDomain',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/domain/attach',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AttachGatewayDomain',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/domain/attach',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AttachGatewayDomainResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -291,6 +293,7 @@ class Eas extends OpenApiClient
      * Binds a custom domain name to a private gateway.
      *
      * @param request - AttachGatewayDomainRequest
+     *
      * @returns AttachGatewayDomainResponse
      *
      * @param string                     $ClusterId
@@ -313,6 +316,7 @@ class Eas extends OpenApiClient
      * @param tmpReq - CloneServiceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CloneServiceResponse
      *
      * @param string              $ClusterId
@@ -339,19 +343,19 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'CloneService',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/clone',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CloneService',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/clone',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CloneServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -364,6 +368,7 @@ class Eas extends OpenApiClient
      * Clones a service.
      *
      * @param request - CloneServiceRequest
+     *
      * @returns CloneServiceResponse
      *
      * @param string              $ClusterId
@@ -385,6 +390,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CommitServiceResponse
      *
      * @param string         $ClusterId
@@ -400,15 +406,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'CommitService',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/commit',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CommitService',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/commit',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CommitServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -441,6 +447,7 @@ class Eas extends OpenApiClient
      * @param tmpReq - CreateAclPolicyRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAclPolicyResponse
      *
      * @param string                 $ClusterId
@@ -471,18 +478,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAclPolicy',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/acl_policy',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateAclPolicy',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/acl_policy',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateAclPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -495,6 +502,7 @@ class Eas extends OpenApiClient
      * Creates an access control list (ACL) for a private gateway. The IP CIDR blocks added to the ACL can access the private gateway.
      *
      * @param request - CreateAclPolicyRequest
+     *
      * @returns CreateAclPolicyResponse
      *
      * @param string                 $ClusterId
@@ -517,6 +525,7 @@ class Eas extends OpenApiClient
      * @param request - CreateAppServiceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAppServiceResponse
      *
      * @param CreateAppServiceRequest $request
@@ -564,19 +573,19 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAppService',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/app_services',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateAppService',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/app_services',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateAppServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -589,6 +598,7 @@ class Eas extends OpenApiClient
      * Creates an application service.
      *
      * @param request - CreateAppServiceRequest
+     *
      * @returns CreateAppServiceResponse
      *
      * @param CreateAppServiceRequest $request
@@ -609,6 +619,7 @@ class Eas extends OpenApiClient
      * @param request - CreateBenchmarkTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateBenchmarkTaskResponse
      *
      * @param CreateBenchmarkTaskRequest $request
@@ -622,18 +633,18 @@ class Eas extends OpenApiClient
         $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'CreateBenchmarkTask',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateBenchmarkTask',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/benchmark-tasks',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateBenchmarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -646,6 +657,7 @@ class Eas extends OpenApiClient
      * Creates a stress testing task.
      *
      * @param request - CreateBenchmarkTaskRequest
+     *
      * @returns CreateBenchmarkTaskResponse
      *
      * @param CreateBenchmarkTaskRequest $request
@@ -666,6 +678,7 @@ class Eas extends OpenApiClient
      * @param request - CreateGatewayRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateGatewayResponse
      *
      * @param CreateGatewayRequest $request
@@ -713,19 +726,19 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateGateway',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateGateway',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -738,6 +751,7 @@ class Eas extends OpenApiClient
      * Creates a gateway.
      *
      * @param request - CreateGatewayRequest
+     *
      * @returns CreateGatewayResponse
      *
      * @param CreateGatewayRequest $request
@@ -758,6 +772,7 @@ class Eas extends OpenApiClient
      * @param request - CreateGatewayIntranetLinkedVpcRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateGatewayIntranetLinkedVpcResponse
      *
      * @param string                                $ClusterId
@@ -772,6 +787,10 @@ class Eas extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->enableAuthoritativeDns) {
+            @$query['EnableAuthoritativeDns'] = $request->enableAuthoritativeDns;
+        }
+
         if (null !== $request->vSwitchId) {
             @$query['VSwitchId'] = $request->vSwitchId;
         }
@@ -782,18 +801,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateGatewayIntranetLinkedVpc',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateGatewayIntranetLinkedVpc',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateGatewayIntranetLinkedVpcResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -806,6 +825,7 @@ class Eas extends OpenApiClient
      * Creates an internal endpoint of a private gateway.
      *
      * @param request - CreateGatewayIntranetLinkedVpcRequest
+     *
      * @returns CreateGatewayIntranetLinkedVpcResponse
      *
      * @param string                                $ClusterId
@@ -828,6 +848,7 @@ class Eas extends OpenApiClient
      * @param tmpReq - CreateGatewayIntranetLinkedVpcPeerRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateGatewayIntranetLinkedVpcPeerResponse
      *
      * @param string                                    $ClusterId
@@ -858,18 +879,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateGatewayIntranetLinkedVpcPeer',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateGatewayIntranetLinkedVpcPeer',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateGatewayIntranetLinkedVpcPeerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -882,6 +903,7 @@ class Eas extends OpenApiClient
      * Creates a VPC peering connection on an internal endpoint of a gateway.
      *
      * @param request - CreateGatewayIntranetLinkedVpcPeerRequest
+     *
      * @returns CreateGatewayIntranetLinkedVpcPeerResponse
      *
      * @param string                                    $ClusterId
@@ -907,6 +929,7 @@ class Eas extends OpenApiClient
      * @param request - CreateResourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateResourceResponse
      *
      * @param CreateResourceRequest $request
@@ -957,18 +980,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateResource',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateResource',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -984,6 +1007,7 @@ class Eas extends OpenApiClient
      * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
      *
      * @param request - CreateResourceRequest
+     *
      * @returns CreateResourceResponse
      *
      * @param CreateResourceRequest $request
@@ -1004,6 +1028,7 @@ class Eas extends OpenApiClient
      * @param request - CreateResourceInstancesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateResourceInstancesResponse
      *
      * @param string                         $ClusterId
@@ -1052,18 +1077,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateResourceInstances',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateResourceInstances',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateResourceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1076,6 +1101,7 @@ class Eas extends OpenApiClient
      * Creates instances in a dedicated resource group.
      *
      * @param request - CreateResourceInstancesRequest
+     *
      * @returns CreateResourceInstancesResponse
      *
      * @param string                         $ClusterId
@@ -1098,6 +1124,7 @@ class Eas extends OpenApiClient
      * @param request - CreateResourceLogRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateResourceLogResponse
      *
      * @param string                   $ClusterId
@@ -1122,18 +1149,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateResourceLog',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/log',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateResourceLog',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/log',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateResourceLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1146,6 +1173,7 @@ class Eas extends OpenApiClient
      * Enables the LogShipper feature of Log Service for a resource group.
      *
      * @param request - CreateResourceLogRequest
+     *
      * @returns CreateResourceLogResponse
      *
      * @param string                   $ClusterId
@@ -1171,6 +1199,7 @@ class Eas extends OpenApiClient
      * @param tmpReq - CreateServiceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateServiceResponse
      *
      * @param CreateServiceRequest $tmpReq
@@ -1203,19 +1232,19 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'CreateService',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateService',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1231,6 +1260,7 @@ class Eas extends OpenApiClient
      * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
      *
      * @param request - CreateServiceRequest
+     *
      * @returns CreateServiceResponse
      *
      * @param CreateServiceRequest $request
@@ -1251,6 +1281,7 @@ class Eas extends OpenApiClient
      * @param request - CreateServiceAutoScalerRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateServiceAutoScalerResponse
      *
      * @param string                         $ClusterId
@@ -1283,18 +1314,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceAutoScaler',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/autoscaler',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateServiceAutoScaler',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/autoscaler',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateServiceAutoScalerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1307,6 +1338,7 @@ class Eas extends OpenApiClient
      * Enables the Autoscaler feature and creates an Autoscaler controller for a service.
      *
      * @param request - CreateServiceAutoScalerRequest
+     *
      * @returns CreateServiceAutoScalerResponse
      *
      * @param string                         $ClusterId
@@ -1329,6 +1361,7 @@ class Eas extends OpenApiClient
      * @param request - CreateServiceCronScalerRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateServiceCronScalerResponse
      *
      * @param string                         $ClusterId
@@ -1353,18 +1386,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceCronScaler',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/cronscaler',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateServiceCronScaler',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/cronscaler',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateServiceCronScalerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1377,6 +1410,7 @@ class Eas extends OpenApiClient
      * Enables the Cron Horizontal Pod Autoscaler (CronHPA) feature for a service.
      *
      * @param request - CreateServiceCronScalerRequest
+     *
      * @returns CreateServiceCronScalerResponse
      *
      * @param string                         $ClusterId
@@ -1399,6 +1433,7 @@ class Eas extends OpenApiClient
      * @param request - CreateServiceMirrorRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateServiceMirrorResponse
      *
      * @param string                     $ClusterId
@@ -1423,18 +1458,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateServiceMirror',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/mirror',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateServiceMirror',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/mirror',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateServiceMirrorResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1447,6 +1482,7 @@ class Eas extends OpenApiClient
      * Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
      *
      * @param request - CreateServiceMirrorRequest
+     *
      * @returns CreateServiceMirrorResponse
      *
      * @param string                     $ClusterId
@@ -1469,6 +1505,7 @@ class Eas extends OpenApiClient
      * @param request - CreateVirtualResourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateVirtualResourceResponse
      *
      * @param CreateVirtualResourceRequest $request
@@ -1495,18 +1532,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateVirtualResource',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/virtualresources',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateVirtualResource',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/virtualresources',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateVirtualResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1519,6 +1556,7 @@ class Eas extends OpenApiClient
      * Creates a virtual resource group.
      *
      * @param request - CreateVirtualResourceRequest
+     *
      * @returns CreateVirtualResourceResponse
      *
      * @param CreateVirtualResourceRequest $request
@@ -1539,6 +1577,7 @@ class Eas extends OpenApiClient
      * @param tmpReq - DeleteAclPolicyRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAclPolicyResponse
      *
      * @param string                 $ClusterId
@@ -1569,18 +1608,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAclPolicy',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/acl_policy',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteAclPolicy',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/acl_policy',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteAclPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1593,6 +1632,7 @@ class Eas extends OpenApiClient
      * Deletes an access control list (ACL) for a private gateway. The IP CIDR block that is deleted from the ACL cannot access the private gateway.
      *
      * @param request - DeleteAclPolicyRequest
+     *
      * @returns DeleteAclPolicyResponse
      *
      * @param string                 $ClusterId
@@ -1614,6 +1654,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteBenchmarkTaskResponse
      *
      * @param string         $ClusterId
@@ -1629,15 +1670,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteBenchmarkTask',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteBenchmarkTask',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteBenchmarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1669,6 +1710,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteGatewayResponse
      *
      * @param string         $ClusterId
@@ -1684,15 +1726,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteGateway',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteGateway',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1725,6 +1767,7 @@ class Eas extends OpenApiClient
      * @param request - DeleteGatewayIntranetLinkedVpcRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteGatewayIntranetLinkedVpcResponse
      *
      * @param string                                $ClusterId
@@ -1749,18 +1792,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteGatewayIntranetLinkedVpc',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteGatewayIntranetLinkedVpc',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteGatewayIntranetLinkedVpcResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1773,6 +1816,7 @@ class Eas extends OpenApiClient
      * 删除网关内网访问端点.
      *
      * @param request - DeleteGatewayIntranetLinkedVpcRequest
+     *
      * @returns DeleteGatewayIntranetLinkedVpcResponse
      *
      * @param string                                $ClusterId
@@ -1795,6 +1839,7 @@ class Eas extends OpenApiClient
      * @param tmpReq - DeleteGatewayIntranetLinkedVpcPeerRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteGatewayIntranetLinkedVpcPeerResponse
      *
      * @param string                                    $ClusterId
@@ -1825,18 +1870,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteGatewayIntranetLinkedVpcPeer',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteGatewayIntranetLinkedVpcPeer',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteGatewayIntranetLinkedVpcPeerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1849,6 +1894,7 @@ class Eas extends OpenApiClient
      * Deletes a VPC peering connection from an internal endpoint of a gateway.
      *
      * @param request - DeleteGatewayIntranetLinkedVpcPeerRequest
+     *
      * @returns DeleteGatewayIntranetLinkedVpcPeerResponse
      *
      * @param string                                    $ClusterId
@@ -1870,6 +1916,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteResourceResponse
      *
      * @param string         $ClusterId
@@ -1885,15 +1932,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteResource',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteResource',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1925,6 +1972,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteResourceDLinkResponse
      *
      * @param string         $ClusterId
@@ -1940,15 +1988,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteResourceDLink',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/dlink',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteResourceDLink',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/dlink',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteResourceDLinkResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1981,6 +2029,7 @@ class Eas extends OpenApiClient
      * @param tmpReq - DeleteResourceInstanceLabelRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteResourceInstanceLabelResponse
      *
      * @param string                             $ClusterId
@@ -2019,18 +2068,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteResourceInstanceLabel',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/label',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteResourceInstanceLabel',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/label',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteResourceInstanceLabelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2043,6 +2092,7 @@ class Eas extends OpenApiClient
      * Deletes the tags of an instance in a resource group.
      *
      * @param request - DeleteResourceInstanceLabelRequest
+     *
      * @returns DeleteResourceInstanceLabelResponse
      *
      * @param string                             $ClusterId
@@ -2065,6 +2115,7 @@ class Eas extends OpenApiClient
      * @param request - DeleteResourceInstancesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteResourceInstancesResponse
      *
      * @param string                         $ClusterId
@@ -2089,18 +2140,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteResourceInstances',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteResourceInstances',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteResourceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2113,6 +2164,7 @@ class Eas extends OpenApiClient
      * Deletes instances in a dedicated resource group. You can delete only pay-as-you-go instances as a regular user.
      *
      * @param request - DeleteResourceInstancesRequest
+     *
      * @returns DeleteResourceInstancesResponse
      *
      * @param string                         $ClusterId
@@ -2134,6 +2186,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteResourceLogResponse
      *
      * @param string         $ClusterId
@@ -2149,15 +2202,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteResourceLog',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/log',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteResourceLog',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/log',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteResourceLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2189,6 +2242,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteServiceResponse
      *
      * @param string         $ClusterId
@@ -2204,15 +2258,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteService',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteService',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2244,6 +2298,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteServiceAutoScalerResponse
      *
      * @param string         $ClusterId
@@ -2259,15 +2314,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteServiceAutoScaler',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/autoscaler',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteServiceAutoScaler',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/autoscaler',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteServiceAutoScalerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2299,6 +2354,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteServiceCronScalerResponse
      *
      * @param string         $ClusterId
@@ -2314,15 +2370,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteServiceCronScaler',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/cronscaler',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteServiceCronScaler',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/cronscaler',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteServiceCronScalerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2355,6 +2411,7 @@ class Eas extends OpenApiClient
      * @param request - DeleteServiceInstancesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteServiceInstancesResponse
      *
      * @param string                        $ClusterId
@@ -2383,18 +2440,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteServiceInstances',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteServiceInstances',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteServiceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2407,6 +2464,7 @@ class Eas extends OpenApiClient
      * Restarts the instances of a service.
      *
      * @param request - DeleteServiceInstancesRequest
+     *
      * @returns DeleteServiceInstancesResponse
      *
      * @param string                        $ClusterId
@@ -2429,6 +2487,7 @@ class Eas extends OpenApiClient
      * @param tmpReq - DeleteServiceLabelRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteServiceLabelResponse
      *
      * @param string                    $ClusterId
@@ -2455,18 +2514,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteServiceLabel',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/label',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteServiceLabel',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/label',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteServiceLabelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2479,6 +2538,7 @@ class Eas extends OpenApiClient
      * Deletes existing service tags.
      *
      * @param request - DeleteServiceLabelRequest
+     *
      * @returns DeleteServiceLabelResponse
      *
      * @param string                    $ClusterId
@@ -2500,6 +2560,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteServiceMirrorResponse
      *
      * @param string         $ClusterId
@@ -2515,15 +2576,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteServiceMirror',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/mirror',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteServiceMirror',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/mirror',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteServiceMirrorResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2555,6 +2616,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteVirtualResourceResponse
      *
      * @param string         $ClusterId
@@ -2570,15 +2632,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteVirtualResource',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/virtualresources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($VirtualResourceId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteVirtualResource',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/virtualresources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($VirtualResourceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteVirtualResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2610,6 +2672,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBenchmarkTaskResponse
      *
      * @param string         $ClusterId
@@ -2625,15 +2688,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeBenchmarkTask',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeBenchmarkTask',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBenchmarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2666,6 +2729,7 @@ class Eas extends OpenApiClient
      * @param request - DescribeBenchmarkTaskReportRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBenchmarkTaskReportResponse
      *
      * @param string                             $ClusterId
@@ -2686,18 +2750,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBenchmarkTaskReport',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '/report',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeBenchmarkTaskReport',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '/report',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBenchmarkTaskReportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2710,6 +2774,7 @@ class Eas extends OpenApiClient
      * Queries the report of a stress testing task.
      *
      * @param request - DescribeBenchmarkTaskReportRequest
+     *
      * @returns DescribeBenchmarkTaskReportResponse
      *
      * @param string                             $ClusterId
@@ -2731,6 +2796,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGatewayResponse
      *
      * @param string         $ClusterId
@@ -2746,15 +2812,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeGateway',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeGateway',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2786,6 +2852,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGroupResponse
      *
      * @param string         $ClusterId
@@ -2801,15 +2868,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeGroup',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/groups/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GroupName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeGroup',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/groups/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GroupName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2841,6 +2908,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGroupEndpointsResponse
      *
      * @param string         $ClusterId
@@ -2856,15 +2924,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeGroupEndpoints',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/groups/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GroupName) . '/endpoints',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeGroupEndpoints',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/groups/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GroupName) . '/endpoints',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeGroupEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2892,11 +2960,12 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * 查询可用机器规格
+     * Queries a list of instance types for an available instance in a shared resource group.
      *
      * @param tmpReq - DescribeMachineSpecRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeMachineSpecResponse
      *
      * @param DescribeMachineSpecRequest $tmpReq
@@ -2921,18 +2990,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMachineSpec',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/public/instance_types',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeMachineSpec',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/public/instance_types',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeMachineSpecResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2942,9 +3011,10 @@ class Eas extends OpenApiClient
     }
 
     /**
-     * 查询可用机器规格
+     * Queries a list of instance types for an available instance in a shared resource group.
      *
      * @param request - DescribeMachineSpecRequest
+     *
      * @returns DescribeMachineSpecResponse
      *
      * @param DescribeMachineSpecRequest $request
@@ -2960,10 +3030,62 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * 查询可用的地域信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegionsWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DescribeRegions',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/regions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询可用的地域信息.
+     *
+     * @returns DescribeRegionsResponse
+     *
+     * @return DescribeRegionsResponse
+     */
+    public function describeRegions()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeRegionsWithOptions($headers, $runtime);
+    }
+
+    /**
      * Queries the information about a resource group.
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeResourceResponse
      *
      * @param string         $ClusterId
@@ -2979,15 +3101,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeResource',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeResource',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3019,6 +3141,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeResourceDLinkResponse
      *
      * @param string         $ClusterId
@@ -3034,15 +3157,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeResourceDLink',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/dlink',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeResourceDLink',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/dlink',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeResourceDLinkResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3074,6 +3197,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeResourceLogResponse
      *
      * @param string         $ClusterId
@@ -3089,15 +3213,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeResourceLog',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/log',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeResourceLog',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/log',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeResourceLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3129,6 +3253,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeServiceResponse
      *
      * @param string         $ClusterId
@@ -3144,15 +3269,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeService',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeService',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3184,6 +3309,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeServiceAutoScalerResponse
      *
      * @param string         $ClusterId
@@ -3199,15 +3325,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeServiceAutoScaler',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/autoscaler',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeServiceAutoScaler',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/autoscaler',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeServiceAutoScalerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3239,6 +3365,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeServiceCronScalerResponse
      *
      * @param string         $ClusterId
@@ -3254,15 +3381,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeServiceCronScaler',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/cronscaler',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeServiceCronScaler',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/cronscaler',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeServiceCronScalerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3294,6 +3421,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeServiceDiagnosisResponse
      *
      * @param string         $ClusterId
@@ -3309,15 +3437,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeServiceDiagnosis',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/diagnosis',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeServiceDiagnosis',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/diagnosis',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeServiceDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3349,6 +3477,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeServiceEndpointsResponse
      *
      * @param string         $ClusterId
@@ -3364,15 +3493,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeServiceEndpoints',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/endpoints',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeServiceEndpoints',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/endpoints',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeServiceEndpointsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3405,6 +3534,7 @@ class Eas extends OpenApiClient
      * @param request - DescribeServiceEventRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeServiceEventResponse
      *
      * @param string                      $ClusterId
@@ -3445,18 +3575,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeServiceEvent',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/events',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeServiceEvent',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/events',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeServiceEventResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3469,6 +3599,7 @@ class Eas extends OpenApiClient
      * Queries information about recent service deployment events.
      *
      * @param request - DescribeServiceEventRequest
+     *
      * @returns DescribeServiceEventResponse
      *
      * @param string                      $ClusterId
@@ -3490,6 +3621,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeServiceInstanceDiagnosisResponse
      *
      * @param string         $ClusterId
@@ -3506,15 +3638,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeServiceInstanceDiagnosis',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances/' . Url::percentEncode($InstanceName) . '/diagnosis',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeServiceInstanceDiagnosis',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances/' . Url::percentEncode($InstanceName) . '/diagnosis',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeServiceInstanceDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3548,6 +3680,7 @@ class Eas extends OpenApiClient
      * @param request - DescribeServiceLogRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeServiceLogResponse
      *
      * @param string                    $ClusterId
@@ -3600,18 +3733,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeServiceLog',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/logs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeServiceLog',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/logs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeServiceLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3624,6 +3757,7 @@ class Eas extends OpenApiClient
      * Queries the information about the logs of a service.
      *
      * @param request - DescribeServiceLogRequest
+     *
      * @returns DescribeServiceLogResponse
      *
      * @param string                    $ClusterId
@@ -3645,6 +3779,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeServiceMirrorResponse
      *
      * @param string         $ClusterId
@@ -3660,15 +3795,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeServiceMirror',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/mirror',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeServiceMirror',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/mirror',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeServiceMirrorResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3701,6 +3836,7 @@ class Eas extends OpenApiClient
      * @param request - DescribeServiceSignedUrlRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeServiceSignedUrlResponse
      *
      * @param string                          $ClusterId
@@ -3729,18 +3865,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeServiceSignedUrl',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/signed_url',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeServiceSignedUrl',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/signed_url',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeServiceSignedUrlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3753,6 +3889,7 @@ class Eas extends OpenApiClient
      * Obtains the logon-free URL of the service.
      *
      * @param request - DescribeServiceSignedUrlRequest
+     *
      * @returns DescribeServiceSignedUrlResponse
      *
      * @param string                          $ClusterId
@@ -3775,6 +3912,7 @@ class Eas extends OpenApiClient
      * @param request - DescribeSpotDiscountHistoryRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSpotDiscountHistoryResponse
      *
      * @param DescribeSpotDiscountHistoryRequest $request
@@ -3797,18 +3935,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSpotDiscountHistory',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/public/spot_discount',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeSpotDiscountHistory',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/public/spot_discount',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSpotDiscountHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3821,6 +3959,7 @@ class Eas extends OpenApiClient
      * Queries the historical prices of preemptible instances. For more information about preemptible instances, see Create and use preemptible instances.
      *
      * @param request - DescribeSpotDiscountHistoryRequest
+     *
      * @returns DescribeSpotDiscountHistoryResponse
      *
      * @param DescribeSpotDiscountHistoryRequest $request
@@ -3840,6 +3979,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVirtualResourceResponse
      *
      * @param string         $ClusterId
@@ -3855,15 +3995,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DescribeVirtualResource',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/virtualresources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($VirtualResourceId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DescribeVirtualResource',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/virtualresources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($VirtualResourceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVirtualResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3896,6 +4036,7 @@ class Eas extends OpenApiClient
      * @param tmpReq - DetachGatewayDomainRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetachGatewayDomainResponse
      *
      * @param string                     $ClusterId
@@ -3922,18 +4063,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachGatewayDomain',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/domain/detach',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DetachGatewayDomain',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/domain/detach',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DetachGatewayDomainResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3946,6 +4087,7 @@ class Eas extends OpenApiClient
      * Unbinds a custom domain name from a private gateway.
      *
      * @param request - DetachGatewayDomainRequest
+     *
      * @returns DetachGatewayDomainResponse
      *
      * @param string                     $ClusterId
@@ -3968,6 +4110,7 @@ class Eas extends OpenApiClient
      * @param request - DevelopServiceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DevelopServiceResponse
      *
      * @param string                $ClusterId
@@ -3988,18 +4131,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DevelopService',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/develop',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DevelopService',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/develop',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DevelopServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4012,6 +4155,7 @@ class Eas extends OpenApiClient
      * Switches a container service to development mode or exits development mode.
      *
      * @param request - DevelopServiceRequest
+     *
      * @returns DevelopServiceResponse
      *
      * @param string                $ClusterId
@@ -4034,6 +4178,7 @@ class Eas extends OpenApiClient
      * @param request - ListAclPolicyRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAclPolicyResponse
      *
      * @param string               $ClusterId
@@ -4054,18 +4199,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAclPolicy',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/acl_policy',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListAclPolicy',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/acl_policy',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAclPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4078,6 +4223,7 @@ class Eas extends OpenApiClient
      * Queries access control lists (ACLs) created for a private gateway.
      *
      * @param request - ListAclPolicyRequest
+     *
      * @returns ListAclPolicyResponse
      *
      * @param string               $ClusterId
@@ -4100,6 +4246,7 @@ class Eas extends OpenApiClient
      * @param request - ListBenchmarkTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListBenchmarkTaskResponse
      *
      * @param ListBenchmarkTaskRequest $request
@@ -4130,18 +4277,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListBenchmarkTask',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListBenchmarkTask',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/benchmark-tasks',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListBenchmarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4154,6 +4301,7 @@ class Eas extends OpenApiClient
      * Queries a list of stress testing tasks that are created by the current user.
      *
      * @param request - ListBenchmarkTaskRequest
+     *
      * @returns ListBenchmarkTaskResponse
      *
      * @param ListBenchmarkTaskRequest $request
@@ -4174,6 +4322,7 @@ class Eas extends OpenApiClient
      * @param request - ListGatewayRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListGatewayResponse
      *
      * @param ListGatewayRequest $request
@@ -4208,18 +4357,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListGateway',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListGateway',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4232,6 +4381,7 @@ class Eas extends OpenApiClient
      * Queries a list of private gateways.
      *
      * @param request - ListGatewayRequest
+     *
      * @returns ListGatewayResponse
      *
      * @param ListGatewayRequest $request
@@ -4251,6 +4401,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListGatewayDomainsResponse
      *
      * @param string         $ClusterId
@@ -4266,15 +4417,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListGatewayDomains',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/domains',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListGatewayDomains',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/domains',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListGatewayDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4306,6 +4457,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListGatewayIntranetLinkedVpcResponse
      *
      * @param string         $ClusterId
@@ -4321,15 +4473,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListGatewayIntranetLinkedVpc',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListGatewayIntranetLinkedVpc',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListGatewayIntranetLinkedVpcResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4362,6 +4514,7 @@ class Eas extends OpenApiClient
      * @param request - ListGatewayIntranetLinkedVpcPeerRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListGatewayIntranetLinkedVpcPeerResponse
      *
      * @param string                                  $ClusterId
@@ -4382,18 +4535,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListGatewayIntranetLinkedVpcPeer',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListGatewayIntranetLinkedVpcPeer',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_endpoint_linked_vpc_peer',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListGatewayIntranetLinkedVpcPeerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4406,6 +4559,7 @@ class Eas extends OpenApiClient
      * Obtains a list of all VPC peering connections on internal endpoint of a gateway.
      *
      * @param request - ListGatewayIntranetLinkedVpcPeerRequest
+     *
      * @returns ListGatewayIntranetLinkedVpcPeerResponse
      *
      * @param string                                  $ClusterId
@@ -4427,6 +4581,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListGatewayIntranetSupportedZoneResponse
      *
      * @param string         $GatewayId
@@ -4442,15 +4597,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListGatewayIntranetSupportedZone',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_supported_zone',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListGatewayIntranetSupportedZone',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '/intranet_supported_zone',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListGatewayIntranetSupportedZoneResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4483,6 +4638,7 @@ class Eas extends OpenApiClient
      * @param request - ListGroupsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListGroupsResponse
      *
      * @param ListGroupsRequest $request
@@ -4513,18 +4669,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListGroups',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/groups',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListGroups',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/groups',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4537,6 +4693,7 @@ class Eas extends OpenApiClient
      * Queries created service groups.
      *
      * @param request - ListGroupsRequest
+     *
      * @returns ListGroupsResponse
      *
      * @param ListGroupsRequest $request
@@ -4557,6 +4714,7 @@ class Eas extends OpenApiClient
      * @param request - ListResourceInstanceWorkerRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResourceInstanceWorkerResponse
      *
      * @param string                            $ClusterId
@@ -4586,18 +4744,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceInstanceWorker',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instance/' . Url::percentEncode($InstanceName) . '/workers',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListResourceInstanceWorker',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instance/' . Url::percentEncode($InstanceName) . '/workers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListResourceInstanceWorkerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4610,6 +4768,7 @@ class Eas extends OpenApiClient
      * Queries a list of workers in a resource group.
      *
      * @param request - ListResourceInstanceWorkerRequest
+     *
      * @returns ListResourceInstanceWorkerResponse
      *
      * @param string                            $ClusterId
@@ -4633,6 +4792,7 @@ class Eas extends OpenApiClient
      * @param tmpReq - ListResourceInstancesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResourceInstancesResponse
      *
      * @param string                       $ClusterId
@@ -4699,18 +4859,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceInstances',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListResourceInstances',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListResourceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4723,6 +4883,7 @@ class Eas extends OpenApiClient
      * Queries a list of instances in a dedicated resource group.
      *
      * @param request - ListResourceInstancesRequest
+     *
      * @returns ListResourceInstancesResponse
      *
      * @param string                       $ClusterId
@@ -4740,7 +4901,6 @@ class Eas extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries a list of services that are deployed in the dedicated resource group.
      *
@@ -4749,6 +4909,7 @@ class Eas extends OpenApiClient
      * @param request - ListResourceServicesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResourceServicesResponse
      *
      * @param string                      $ClusterId
@@ -4773,18 +4934,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceServices',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/services',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListResourceServices',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/services',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListResourceServicesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4794,13 +4955,13 @@ class Eas extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries a list of services that are deployed in the dedicated resource group.
      *
      * @deprecated OpenAPI ListResourceServices is deprecated
      *
      * @param request - ListResourceServicesRequest
+     *
      * @returns ListResourceServicesResponse
      *
      * @param string                      $ClusterId
@@ -4823,6 +4984,7 @@ class Eas extends OpenApiClient
      * @param request - ListResourcesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResourcesResponse
      *
      * @param ListResourcesRequest $request
@@ -4869,18 +5031,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResources',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListResources',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4893,6 +5055,7 @@ class Eas extends OpenApiClient
      * Queries a list of dedicated resource groups for the current user.
      *
      * @param request - ListResourcesRequest
+     *
      * @returns ListResourcesResponse
      *
      * @param ListResourcesRequest $request
@@ -4912,6 +5075,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListServiceContainersResponse
      *
      * @param string         $ClusterId
@@ -4928,15 +5092,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListServiceContainers',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances/' . Url::percentEncode($InstanceName) . '/containers',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListServiceContainers',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances/' . Url::percentEncode($InstanceName) . '/containers',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListServiceContainersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4970,6 +5134,7 @@ class Eas extends OpenApiClient
      * @param request - ListServiceInstancesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListServiceInstancesResponse
      *
      * @param string                      $ClusterId
@@ -5038,18 +5203,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceInstances',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListServiceInstances',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListServiceInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5062,6 +5227,7 @@ class Eas extends OpenApiClient
      * Queries instances of a service.
      *
      * @param request - ListServiceInstancesRequest
+     *
      * @returns ListServiceInstancesResponse
      *
      * @param string                      $ClusterId
@@ -5084,6 +5250,7 @@ class Eas extends OpenApiClient
      * @param request - ListServiceVersionsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListServiceVersionsResponse
      *
      * @param string                     $ClusterId
@@ -5108,18 +5275,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServiceVersions',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/versions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListServiceVersions',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/versions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListServiceVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5132,6 +5299,7 @@ class Eas extends OpenApiClient
      * Queries the information about the historical versions of a service.
      *
      * @param request - ListServiceVersionsRequest
+     *
      * @returns ListServiceVersionsResponse
      *
      * @param string                     $ClusterId
@@ -5154,6 +5322,7 @@ class Eas extends OpenApiClient
      * @param tmpReq - ListServicesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListServicesResponse
      *
      * @param ListServicesRequest $tmpReq
@@ -5212,6 +5381,10 @@ class Eas extends OpenApiClient
             @$query['ResourceName'] = $request->resourceName;
         }
 
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
         if (null !== $request->role) {
             @$query['Role'] = $request->role;
         }
@@ -5242,18 +5415,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListServices',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListServices',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5266,6 +5439,7 @@ class Eas extends OpenApiClient
      * Lists services.
      *
      * @param request - ListServicesRequest
+     *
      * @returns ListServicesResponse
      *
      * @param ListServicesRequest $request
@@ -5285,6 +5459,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTenantAddonsResponse
      *
      * @param string[]       $headers
@@ -5298,15 +5473,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListTenantAddons',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/tenantaddons',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListTenantAddons',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/tenantaddons',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTenantAddonsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5336,6 +5511,7 @@ class Eas extends OpenApiClient
      * @param request - ListVirtualResourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListVirtualResourceResponse
      *
      * @param ListVirtualResourceRequest $request
@@ -5366,18 +5542,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListVirtualResource',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/virtualresources',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListVirtualResource',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/virtualresources',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListVirtualResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5390,6 +5566,7 @@ class Eas extends OpenApiClient
      * Queries a list of virtual resource groups for the current user.
      *
      * @param request - ListVirtualResourceRequest
+     *
      * @returns ListVirtualResourceResponse
      *
      * @param ListVirtualResourceRequest $request
@@ -5409,6 +5586,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReinstallTenantAddonResponse
      *
      * @param string         $ClusterId
@@ -5424,15 +5602,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ReinstallTenantAddon',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/tenantaddons/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TenantAddonName) . '/reinstall',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ReinstallTenantAddon',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/tenantaddons/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TenantAddonName) . '/reinstall',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReinstallTenantAddonResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5465,6 +5643,7 @@ class Eas extends OpenApiClient
      * @param request - ReleaseServiceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleaseServiceResponse
      *
      * @param string                $ClusterId
@@ -5489,18 +5668,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseService',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/release',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ReleaseService',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/release',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleaseServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5513,6 +5692,7 @@ class Eas extends OpenApiClient
      * Switch the traffic state or weight of the service.
      *
      * @param request - ReleaseServiceRequest
+     *
      * @returns ReleaseServiceResponse
      *
      * @param string                $ClusterId
@@ -5534,6 +5714,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RestartServiceResponse
      *
      * @param string         $ClusterId
@@ -5549,15 +5730,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RestartService',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/restart',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RestartService',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/restart',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RestartServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5589,6 +5770,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartBenchmarkTaskResponse
      *
      * @param string         $ClusterId
@@ -5604,15 +5786,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StartBenchmarkTask',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '/start',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartBenchmarkTask',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '/start',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartBenchmarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5644,6 +5826,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartServiceResponse
      *
      * @param string         $ClusterId
@@ -5659,15 +5842,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StartService',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/start',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StartService',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/start',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5699,6 +5882,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopBenchmarkTaskResponse
      *
      * @param string         $ClusterId
@@ -5714,15 +5898,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StopBenchmarkTask',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '/stop',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopBenchmarkTask',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '/stop',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopBenchmarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5754,6 +5938,7 @@ class Eas extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopServiceResponse
      *
      * @param string         $ClusterId
@@ -5769,15 +5954,15 @@ class Eas extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'StopService',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/stop',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopService',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/stop',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5810,6 +5995,7 @@ class Eas extends OpenApiClient
      * @param request - UpdateAppServiceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateAppServiceResponse
      *
      * @param string                  $ClusterId
@@ -5855,19 +6041,19 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateAppService',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/app_services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateAppService',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/app_services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateAppServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5880,6 +6066,7 @@ class Eas extends OpenApiClient
      * Updates an application service.
      *
      * @param request - UpdateAppServiceRequest
+     *
      * @returns UpdateAppServiceResponse
      *
      * @param string                  $ClusterId
@@ -5902,6 +6089,7 @@ class Eas extends OpenApiClient
      * @param request - UpdateBenchmarkTaskRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateBenchmarkTaskResponse
      *
      * @param string                     $ClusterId
@@ -5917,18 +6105,18 @@ class Eas extends OpenApiClient
         $request->validate();
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => $request->body,
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'UpdateBenchmarkTask',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateBenchmarkTask',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/benchmark-tasks/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($TaskName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateBenchmarkTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5941,6 +6129,7 @@ class Eas extends OpenApiClient
      * Updates a stress testing task.
      *
      * @param request - UpdateBenchmarkTaskRequest
+     *
      * @returns UpdateBenchmarkTaskResponse
      *
      * @param string                     $ClusterId
@@ -5963,6 +6152,7 @@ class Eas extends OpenApiClient
      * @param request - UpdateGatewayRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateGatewayResponse
      *
      * @param string               $GatewayId
@@ -6007,18 +6197,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateGateway',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateGateway',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/gateways/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($GatewayId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6031,6 +6221,7 @@ class Eas extends OpenApiClient
      * Update a private gateway.
      *
      * @param request - UpdateGatewayRequest
+     *
      * @returns UpdateGatewayResponse
      *
      * @param string               $GatewayId
@@ -6053,6 +6244,7 @@ class Eas extends OpenApiClient
      * @param request - UpdateResourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateResourceResponse
      *
      * @param string                $ClusterId
@@ -6077,18 +6269,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateResource',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateResource',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6101,6 +6293,7 @@ class Eas extends OpenApiClient
      * Updates the information about a dedicated resource group. Only the name of a dedicated resource group can be updated.
      *
      * @param request - UpdateResourceRequest
+     *
      * @returns UpdateResourceResponse
      *
      * @param string                $ClusterId
@@ -6123,6 +6316,7 @@ class Eas extends OpenApiClient
      * @param request - UpdateResourceDLinkRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateResourceDLinkResponse
      *
      * @param string                     $ClusterId
@@ -6155,18 +6349,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateResourceDLink',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/dlink',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateResourceDLink',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/dlink',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateResourceDLinkResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6179,6 +6373,7 @@ class Eas extends OpenApiClient
      * Updates the configurations of a virtual private cloud (VPC) direct connection for a dedicated resource group.
      *
      * @param request - UpdateResourceDLinkRequest
+     *
      * @returns UpdateResourceDLinkResponse
      *
      * @param string                     $ClusterId
@@ -6201,6 +6396,7 @@ class Eas extends OpenApiClient
      * @param request - UpdateResourceInstanceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateResourceInstanceResponse
      *
      * @param string                        $ClusterId
@@ -6222,18 +6418,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateResourceInstance',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances/' . Url::percentEncode($InstanceId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateResourceInstance',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/instances/' . Url::percentEncode($InstanceId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateResourceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6246,6 +6442,7 @@ class Eas extends OpenApiClient
      * Updates the service scheduling status of an instance in a dedicated resource group.
      *
      * @param request - UpdateResourceInstanceRequest
+     *
      * @returns UpdateResourceInstanceResponse
      *
      * @param string                        $ClusterId
@@ -6269,6 +6466,7 @@ class Eas extends OpenApiClient
      * @param tmpReq - UpdateResourceInstanceLabelRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateResourceInstanceLabelResponse
      *
      * @param string                             $ClusterId
@@ -6304,19 +6502,19 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => Utils::parseToMap($body),
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateResourceInstanceLabel',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/label',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateResourceInstanceLabel',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/resources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ResourceId) . '/label',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateResourceInstanceLabelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6329,6 +6527,7 @@ class Eas extends OpenApiClient
      * Updates the tag of an instance in a resource group.
      *
      * @param request - UpdateResourceInstanceLabelRequest
+     *
      * @returns UpdateResourceInstanceLabelResponse
      *
      * @param string                             $ClusterId
@@ -6351,6 +6550,7 @@ class Eas extends OpenApiClient
      * @param request - UpdateServiceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateServiceResponse
      *
      * @param string               $ClusterId
@@ -6371,19 +6571,19 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
-            'body'    => $request->body,
+            'query' => Utils::query($query),
+            'body' => $request->body,
         ]);
         $params = new Params([
-            'action'      => 'UpdateService',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateService',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6396,6 +6596,7 @@ class Eas extends OpenApiClient
      * Updates a model or processor of a service. If only the metadata.instance field is updated, manual scaling can be performed.
      *
      * @param request - UpdateServiceRequest
+     *
      * @returns UpdateServiceResponse
      *
      * @param string               $ClusterId
@@ -6418,6 +6619,7 @@ class Eas extends OpenApiClient
      * @param request - UpdateServiceAutoScalerRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateServiceAutoScalerResponse
      *
      * @param string                         $ClusterId
@@ -6450,18 +6652,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServiceAutoScaler',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/autoscaler',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateServiceAutoScaler',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/autoscaler',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateServiceAutoScalerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6474,6 +6676,7 @@ class Eas extends OpenApiClient
      * Updates the Autoscaler configurations of a service.
      *
      * @param request - UpdateServiceAutoScalerRequest
+     *
      * @returns UpdateServiceAutoScalerResponse
      *
      * @param string                         $ClusterId
@@ -6496,6 +6699,7 @@ class Eas extends OpenApiClient
      * @param request - UpdateServiceCronScalerRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateServiceCronScalerResponse
      *
      * @param string                         $ClusterId
@@ -6520,18 +6724,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServiceCronScaler',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/cronscaler',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateServiceCronScaler',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/cronscaler',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateServiceCronScalerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6544,6 +6748,7 @@ class Eas extends OpenApiClient
      * Updates the Cron Horizontal Pod Autoscaler (CronHPA) settings of a service.
      *
      * @param request - UpdateServiceCronScalerRequest
+     *
      * @returns UpdateServiceCronScalerResponse
      *
      * @param string                         $ClusterId
@@ -6566,6 +6771,7 @@ class Eas extends OpenApiClient
      * @param request - UpdateServiceInstanceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateServiceInstanceResponse
      *
      * @param string                       $ClusterId
@@ -6587,18 +6793,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServiceInstance',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances/' . Url::percentEncode($InstanceName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateServiceInstance',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/instances/' . Url::percentEncode($InstanceName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6611,6 +6817,7 @@ class Eas extends OpenApiClient
      * Updates attributes of service instances. Only isolation can be performed for service instances.
      *
      * @param request - UpdateServiceInstanceRequest
+     *
      * @returns UpdateServiceInstanceResponse
      *
      * @param string                       $ClusterId
@@ -6634,6 +6841,7 @@ class Eas extends OpenApiClient
      * @param request - UpdateServiceLabelRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateServiceLabelResponse
      *
      * @param string                    $ClusterId
@@ -6654,18 +6862,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServiceLabel',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/label',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateServiceLabel',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/label',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateServiceLabelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6678,6 +6886,7 @@ class Eas extends OpenApiClient
      * Adds service tags or updates existing service tags.
      *
      * @param request - UpdateServiceLabelRequest
+     *
      * @returns UpdateServiceLabelResponse
      *
      * @param string                    $ClusterId
@@ -6700,6 +6909,7 @@ class Eas extends OpenApiClient
      * @param request - UpdateServiceMirrorRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateServiceMirrorResponse
      *
      * @param string                     $ClusterId
@@ -6724,18 +6934,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServiceMirror',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/mirror',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateServiceMirror',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/mirror',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateServiceMirrorResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6748,6 +6958,7 @@ class Eas extends OpenApiClient
      * Updates the traffic mirroring configurations of a service.
      *
      * @param request - UpdateServiceMirrorRequest
+     *
      * @returns UpdateServiceMirrorResponse
      *
      * @param string                     $ClusterId
@@ -6770,6 +6981,7 @@ class Eas extends OpenApiClient
      * @param request - UpdateServiceSafetyLockRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateServiceSafetyLockResponse
      *
      * @param string                         $ClusterId
@@ -6790,18 +7002,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServiceSafetyLock',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/lock',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateServiceSafetyLock',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/lock',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateServiceSafetyLockResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6814,6 +7026,7 @@ class Eas extends OpenApiClient
      * Updates the safety lock of a service to minimize misoperations on the service.
      *
      * @param request - UpdateServiceSafetyLockRequest
+     *
      * @returns UpdateServiceSafetyLockResponse
      *
      * @param string                         $ClusterId
@@ -6836,6 +7049,7 @@ class Eas extends OpenApiClient
      * @param request - UpdateServiceVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateServiceVersionResponse
      *
      * @param string                      $ClusterId
@@ -6856,18 +7070,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateServiceVersion',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/version',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateServiceVersion',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/services/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($ServiceName) . '/version',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateServiceVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6880,6 +7094,7 @@ class Eas extends OpenApiClient
      * Updates the version of a service or rolls back the service to a specific version.
      *
      * @param request - UpdateServiceVersionRequest
+     *
      * @returns UpdateServiceVersionResponse
      *
      * @param string                      $ClusterId
@@ -6902,6 +7117,7 @@ class Eas extends OpenApiClient
      * @param request - UpdateVirtualResourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateVirtualResourceResponse
      *
      * @param string                       $ClusterId
@@ -6930,18 +7146,18 @@ class Eas extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateVirtualResource',
-            'version'     => '2021-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/virtualresources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($VirtualResourceId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateVirtualResource',
+            'version' => '2021-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v2/virtualresources/' . Url::percentEncode($ClusterId) . '/' . Url::percentEncode($VirtualResourceId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateVirtualResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6954,6 +7170,7 @@ class Eas extends OpenApiClient
      * Updates the information about a virtual resource group.
      *
      * @param request - UpdateVirtualResourceRequest
+     *
      * @returns UpdateVirtualResourceResponse
      *
      * @param string                       $ClusterId

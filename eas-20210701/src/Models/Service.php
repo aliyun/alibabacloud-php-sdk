@@ -13,223 +13,278 @@ class Service extends Model
      * @var string
      */
     public $accessToken;
+
     /**
      * @var string
      */
     public $appConfig;
+
     /**
      * @var string
      */
     public $appSpecName;
+
     /**
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $appVersion;
+
     /**
      * @var string
      */
     public $callerUid;
+
     /**
      * @var int
      */
     public $cpu;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $currentVersion;
+
     /**
      * @var string
      */
     public $extraData;
+
+    /**
+     * @var string
+     */
+    public $gateway;
+
     /**
      * @var int
      */
     public $gpu;
+
     /**
      * @var string
      */
     public $image;
+
     /**
      * @var string
      */
     public $internetEndpoint;
+
     /**
      * @var string
      */
     public $intranetEndpoint;
+
     /**
      * @var labels[]
      */
     public $labels;
+
     /**
      * @var int
      */
     public $latestVersion;
+
     /**
      * @var int
      */
     public $memory;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var string
      */
     public $parentUid;
+
     /**
      * @var int
      */
     public $pendingInstance;
+
+    /**
+     * @var string
+     */
+    public $quotaId;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resource;
+
     /**
      * @var string
      */
     public $resourceAlias;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $roleAttrs;
+
     /**
      * @var int
      */
     public $runningInstance;
+
     /**
      * @var string
      */
     public $safetyLock;
+
     /**
      * @var string
      */
     public $secondaryInternetEndpoint;
+
     /**
      * @var string
      */
     public $secondaryIntranetEndpoint;
+
     /**
      * @var string
      */
     public $serviceConfig;
+
     /**
      * @var string
      */
     public $serviceGroup;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $serviceUid;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $totalInstance;
+
     /**
      * @var string
      */
     public $trafficState;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var int
      */
     public $weight;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'accessToken'               => 'AccessToken',
-        'appConfig'                 => 'AppConfig',
-        'appSpecName'               => 'AppSpecName',
-        'appType'                   => 'AppType',
-        'appVersion'                => 'AppVersion',
-        'callerUid'                 => 'CallerUid',
-        'cpu'                       => 'Cpu',
-        'createTime'                => 'CreateTime',
-        'currentVersion'            => 'CurrentVersion',
-        'extraData'                 => 'ExtraData',
-        'gpu'                       => 'Gpu',
-        'image'                     => 'Image',
-        'internetEndpoint'          => 'InternetEndpoint',
-        'intranetEndpoint'          => 'IntranetEndpoint',
-        'labels'                    => 'Labels',
-        'latestVersion'             => 'LatestVersion',
-        'memory'                    => 'Memory',
-        'message'                   => 'Message',
-        'namespace'                 => 'Namespace',
-        'parentUid'                 => 'ParentUid',
-        'pendingInstance'           => 'PendingInstance',
-        'reason'                    => 'Reason',
-        'region'                    => 'Region',
-        'requestId'                 => 'RequestId',
-        'resource'                  => 'Resource',
-        'resourceAlias'             => 'ResourceAlias',
-        'role'                      => 'Role',
-        'roleAttrs'                 => 'RoleAttrs',
-        'runningInstance'           => 'RunningInstance',
-        'safetyLock'                => 'SafetyLock',
+        'accessToken' => 'AccessToken',
+        'appConfig' => 'AppConfig',
+        'appSpecName' => 'AppSpecName',
+        'appType' => 'AppType',
+        'appVersion' => 'AppVersion',
+        'callerUid' => 'CallerUid',
+        'cpu' => 'Cpu',
+        'createTime' => 'CreateTime',
+        'currentVersion' => 'CurrentVersion',
+        'extraData' => 'ExtraData',
+        'gateway' => 'Gateway',
+        'gpu' => 'Gpu',
+        'image' => 'Image',
+        'internetEndpoint' => 'InternetEndpoint',
+        'intranetEndpoint' => 'IntranetEndpoint',
+        'labels' => 'Labels',
+        'latestVersion' => 'LatestVersion',
+        'memory' => 'Memory',
+        'message' => 'Message',
+        'namespace' => 'Namespace',
+        'parentUid' => 'ParentUid',
+        'pendingInstance' => 'PendingInstance',
+        'quotaId' => 'QuotaId',
+        'reason' => 'Reason',
+        'region' => 'Region',
+        'requestId' => 'RequestId',
+        'resource' => 'Resource',
+        'resourceAlias' => 'ResourceAlias',
+        'role' => 'Role',
+        'roleAttrs' => 'RoleAttrs',
+        'runningInstance' => 'RunningInstance',
+        'safetyLock' => 'SafetyLock',
         'secondaryInternetEndpoint' => 'SecondaryInternetEndpoint',
         'secondaryIntranetEndpoint' => 'SecondaryIntranetEndpoint',
-        'serviceConfig'             => 'ServiceConfig',
-        'serviceGroup'              => 'ServiceGroup',
-        'serviceId'                 => 'ServiceId',
-        'serviceName'               => 'ServiceName',
-        'serviceUid'                => 'ServiceUid',
-        'source'                    => 'Source',
-        'status'                    => 'Status',
-        'totalInstance'             => 'TotalInstance',
-        'trafficState'              => 'TrafficState',
-        'updateTime'                => 'UpdateTime',
-        'weight'                    => 'Weight',
-        'workspaceId'               => 'WorkspaceId',
+        'serviceConfig' => 'ServiceConfig',
+        'serviceGroup' => 'ServiceGroup',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
+        'serviceUid' => 'ServiceUid',
+        'source' => 'Source',
+        'status' => 'Status',
+        'totalInstance' => 'TotalInstance',
+        'trafficState' => 'TrafficState',
+        'updateTime' => 'UpdateTime',
+        'weight' => 'Weight',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -283,6 +338,10 @@ class Service extends Model
             $res['ExtraData'] = $this->extraData;
         }
 
+        if (null !== $this->gateway) {
+            $res['Gateway'] = $this->gateway;
+        }
+
         if (null !== $this->gpu) {
             $res['Gpu'] = $this->gpu;
         }
@@ -302,7 +361,7 @@ class Service extends Model
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->labels as $item1) {
                     $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -331,6 +390,10 @@ class Service extends Model
 
         if (null !== $this->pendingInstance) {
             $res['PendingInstance'] = $this->pendingInstance;
+        }
+
+        if (null !== $this->quotaId) {
+            $res['QuotaId'] = $this->quotaId;
         }
 
         if (null !== $this->reason) {
@@ -476,6 +539,10 @@ class Service extends Model
             $model->extraData = $map['ExtraData'];
         }
 
+        if (isset($map['Gateway'])) {
+            $model->gateway = $map['Gateway'];
+        }
+
         if (isset($map['Gpu'])) {
             $model->gpu = $map['Gpu'];
         }
@@ -495,7 +562,7 @@ class Service extends Model
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
                     $model->labels[$n1++] = labels::fromMap($item1);
                 }
@@ -524,6 +591,10 @@ class Service extends Model
 
         if (isset($map['PendingInstance'])) {
             $model->pendingInstance = $map['PendingInstance'];
+        }
+
+        if (isset($map['QuotaId'])) {
+            $model->quotaId = $map['QuotaId'];
         }
 
         if (isset($map['Reason'])) {

@@ -13,12 +13,13 @@ class DescribeSpotDiscountHistoryResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var spotDiscounts[]
      */
     public $spotDiscounts;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'spotDiscounts' => 'SpotDiscounts',
     ];
 
@@ -40,7 +41,7 @@ class DescribeSpotDiscountHistoryResponseBody extends Model
         if (null !== $this->spotDiscounts) {
             if (\is_array($this->spotDiscounts)) {
                 $res['SpotDiscounts'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->spotDiscounts as $item1) {
                     $res['SpotDiscounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeSpotDiscountHistoryResponseBody extends Model
         if (isset($map['SpotDiscounts'])) {
             if (!empty($map['SpotDiscounts'])) {
                 $model->spotDiscounts = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['SpotDiscounts'] as $item1) {
                     $model->spotDiscounts[$n1++] = spotDiscounts::fromMap($item1);
                 }

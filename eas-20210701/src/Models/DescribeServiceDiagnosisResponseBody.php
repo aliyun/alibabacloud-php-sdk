@@ -13,13 +13,14 @@ class DescribeServiceDiagnosisResponseBody extends Model
      * @var diagnosisList[]
      */
     public $diagnosisList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'diagnosisList' => 'DiagnosisList',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeServiceDiagnosisResponseBody extends Model
         if (null !== $this->diagnosisList) {
             if (\is_array($this->diagnosisList)) {
                 $res['DiagnosisList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->diagnosisList as $item1) {
                     $res['DiagnosisList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeServiceDiagnosisResponseBody extends Model
         if (isset($map['DiagnosisList'])) {
             if (!empty($map['DiagnosisList'])) {
                 $model->diagnosisList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['DiagnosisList'] as $item1) {
                     $model->diagnosisList[$n1++] = diagnosisList::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class customDomains extends Model
      * @var string
      */
     public $certificateId;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'certificateId' => 'CertificateId',
-        'domain'        => 'Domain',
-        'type'          => 'Type',
+        'domain' => 'Domain',
+        'type' => 'Type',
     ];
 
     public function validate()

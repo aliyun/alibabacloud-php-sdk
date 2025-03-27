@@ -12,22 +12,27 @@ class CloneServiceResponseBody extends Model
      * @var string
      */
     public $internetEndpoint;
+
     /**
      * @var string
      */
     public $intranetEndpoint;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
@@ -35,10 +40,10 @@ class CloneServiceResponseBody extends Model
     protected $_name = [
         'internetEndpoint' => 'InternetEndpoint',
         'intranetEndpoint' => 'IntranetEndpoint',
-        'requestId'        => 'RequestId',
-        'serviceId'        => 'ServiceId',
-        'serviceName'      => 'ServiceName',
-        'status'           => 'Status',
+        'requestId' => 'RequestId',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
+        'status' => 'Status',
     ];
 
     public function validate()

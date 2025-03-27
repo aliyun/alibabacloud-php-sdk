@@ -12,12 +12,13 @@ class DeleteResourceInstancesRequest extends Model
      * @var bool
      */
     public $allFailed;
+
     /**
      * @var string
      */
     public $instanceList;
     protected $_name = [
-        'allFailed'    => 'AllFailed',
+        'allFailed' => 'AllFailed',
         'instanceList' => 'InstanceList',
     ];
 

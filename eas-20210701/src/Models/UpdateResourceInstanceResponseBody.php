@@ -12,17 +12,19 @@ class UpdateResourceInstanceResponseBody extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceId' => 'ResourceId',
     ];
 

@@ -12,32 +12,37 @@ class resources extends Model
      * @var string
      */
     public $instanceType;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $quotaId;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var float
      */
     public $spotPriceLimit;
     protected $_name = [
-        'instanceType'   => 'InstanceType',
-        'priority'       => 'Priority',
-        'quotaId'        => 'QuotaId',
-        'region'         => 'Region',
-        'resourceId'     => 'ResourceId',
+        'instanceType' => 'InstanceType',
+        'priority' => 'Priority',
+        'quotaId' => 'QuotaId',
+        'region' => 'Region',
+        'resourceId' => 'ResourceId',
         'spotPriceLimit' => 'SpotPriceLimit',
     ];
 

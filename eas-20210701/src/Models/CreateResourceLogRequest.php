@@ -12,12 +12,13 @@ class CreateResourceLogRequest extends Model
      * @var string
      */
     public $logStore;
+
     /**
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'logStore'    => 'LogStore',
+        'logStore' => 'LogStore',
         'projectName' => 'ProjectName',
     ];
 

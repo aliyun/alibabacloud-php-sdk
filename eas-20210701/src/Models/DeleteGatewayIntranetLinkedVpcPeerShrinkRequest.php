@@ -12,13 +12,14 @@ class DeleteGatewayIntranetLinkedVpcPeerShrinkRequest extends Model
      * @var string
      */
     public $peerVpcsShrink;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'peerVpcsShrink' => 'PeerVpcs',
-        'vpcId'          => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

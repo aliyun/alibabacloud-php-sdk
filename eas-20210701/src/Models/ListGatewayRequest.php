@@ -12,27 +12,31 @@ class ListGatewayRequest extends Model
      * @var string
      */
     public $gatewayId;
+
     /**
      * @var string
      */
     public $gatewayName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceName;
     protected $_name = [
-        'gatewayId'    => 'GatewayId',
-        'gatewayName'  => 'GatewayName',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'gatewayId' => 'GatewayId',
+        'gatewayName' => 'GatewayName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceName' => 'ResourceName',
     ];
 

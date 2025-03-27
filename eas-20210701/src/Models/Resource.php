@@ -12,78 +12,92 @@ class Resource extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $cpuCount;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var mixed[]
      */
     public $extraData;
+
     /**
      * @var int
      */
     public $gpuCount;
+
     /**
      * @var int
      */
     public $instanceCount;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var int
      */
     public $postPaidInstanceCount;
+
     /**
      * @var int
      */
     public $prePaidInstanceCount;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var string
      */
     public $vendor;
     protected $_name = [
-        'clusterId'             => 'ClusterId',
-        'cpuCount'              => 'CpuCount',
-        'createTime'            => 'CreateTime',
-        'extraData'             => 'ExtraData',
-        'gpuCount'              => 'GpuCount',
-        'instanceCount'         => 'InstanceCount',
-        'message'               => 'Message',
+        'clusterId' => 'ClusterId',
+        'cpuCount' => 'CpuCount',
+        'createTime' => 'CreateTime',
+        'extraData' => 'ExtraData',
+        'gpuCount' => 'GpuCount',
+        'instanceCount' => 'InstanceCount',
+        'message' => 'Message',
         'postPaidInstanceCount' => 'PostPaidInstanceCount',
-        'prePaidInstanceCount'  => 'PrePaidInstanceCount',
-        'resourceId'            => 'ResourceId',
-        'resourceName'          => 'ResourceName',
-        'resourceType'          => 'ResourceType',
-        'status'                => 'Status',
-        'updateTime'            => 'UpdateTime',
-        'vendor'                => 'Vendor',
+        'prePaidInstanceCount' => 'PrePaidInstanceCount',
+        'resourceId' => 'ResourceId',
+        'resourceName' => 'ResourceName',
+        'resourceType' => 'ResourceType',
+        'status' => 'Status',
+        'updateTime' => 'UpdateTime',
+        'vendor' => 'Vendor',
     ];
 
     public function validate()

@@ -12,78 +12,92 @@ class DescribeGatewayResponseBody extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $externalClusterId;
+
     /**
      * @var string
      */
     public $gatewayId;
+
     /**
      * @var string
      */
     public $gatewayName;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $internetDomain;
+
     /**
      * @var bool
      */
     public $internetEnabled;
+
     /**
      * @var string
      */
     public $internetStatus;
+
     /**
      * @var string
      */
     public $intranetDomain;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var int
      */
     public $replicas;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $SSLRedirectionEnabled;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'            => 'CreateTime',
-        'externalClusterId'     => 'ExternalClusterId',
-        'gatewayId'             => 'GatewayId',
-        'gatewayName'           => 'GatewayName',
-        'instanceType'          => 'InstanceType',
-        'internetDomain'        => 'InternetDomain',
-        'internetEnabled'       => 'InternetEnabled',
-        'internetStatus'        => 'InternetStatus',
-        'intranetDomain'        => 'IntranetDomain',
-        'isDefault'             => 'IsDefault',
-        'replicas'              => 'Replicas',
-        'requestId'             => 'RequestId',
+        'createTime' => 'CreateTime',
+        'externalClusterId' => 'ExternalClusterId',
+        'gatewayId' => 'GatewayId',
+        'gatewayName' => 'GatewayName',
+        'instanceType' => 'InstanceType',
+        'internetDomain' => 'InternetDomain',
+        'internetEnabled' => 'InternetEnabled',
+        'internetStatus' => 'InternetStatus',
+        'intranetDomain' => 'IntranetDomain',
+        'isDefault' => 'IsDefault',
+        'replicas' => 'Replicas',
+        'requestId' => 'RequestId',
         'SSLRedirectionEnabled' => 'SSLRedirectionEnabled',
-        'status'                => 'Status',
-        'updateTime'            => 'UpdateTime',
+        'status' => 'Status',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

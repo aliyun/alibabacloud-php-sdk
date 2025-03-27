@@ -12,13 +12,14 @@ class addons extends Model
      * @var string[]
      */
     public $attributes;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
         'attributes' => 'Attributes',
-        'name'       => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()

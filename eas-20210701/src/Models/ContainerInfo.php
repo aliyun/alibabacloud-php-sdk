@@ -12,58 +12,68 @@ class ContainerInfo extends Model
      * @var string
      */
     public $currentReaon;
+
     /**
      * @var string
      */
     public $currentStatus;
+
     /**
      * @var string
      */
     public $currentTimestamp;
+
     /**
      * @var string
      */
     public $image;
+
     /**
      * @var string
      */
     public $lastReason;
+
     /**
      * @var string
      */
     public $lastStatus;
+
     /**
      * @var string
      */
     public $lastTimestamp;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var bool
      */
     public $ready;
+
     /**
      * @var int
      */
     public $restartCount;
     protected $_name = [
-        'currentReaon'     => 'CurrentReaon',
-        'currentStatus'    => 'CurrentStatus',
+        'currentReaon' => 'CurrentReaon',
+        'currentStatus' => 'CurrentStatus',
         'currentTimestamp' => 'CurrentTimestamp',
-        'image'            => 'Image',
-        'lastReason'       => 'LastReason',
-        'lastStatus'       => 'LastStatus',
-        'lastTimestamp'    => 'LastTimestamp',
-        'name'             => 'Name',
-        'port'             => 'Port',
-        'ready'            => 'Ready',
-        'restartCount'     => 'RestartCount',
+        'image' => 'Image',
+        'lastReason' => 'LastReason',
+        'lastStatus' => 'LastStatus',
+        'lastTimestamp' => 'LastTimestamp',
+        'name' => 'Name',
+        'port' => 'Port',
+        'ready' => 'Ready',
+        'restartCount' => 'RestartCount',
     ];
 
     public function validate()

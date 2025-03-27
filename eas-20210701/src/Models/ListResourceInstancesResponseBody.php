@@ -12,27 +12,31 @@ class ListResourceInstancesResponseBody extends Model
      * @var ResourceInstance[]
      */
     public $instances;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'instances'  => 'Instances',
+        'instances' => 'Instances',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -50,7 +54,7 @@ class ListResourceInstancesResponseBody extends Model
         if (null !== $this->instances) {
             if (\is_array($this->instances)) {
                 $res['Instances'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->instances as $item1) {
                     $res['Instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +91,7 @@ class ListResourceInstancesResponseBody extends Model
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Instances'] as $item1) {
                     $model->instances[$n1++] = ResourceInstance::fromMap($item1);
                 }

@@ -12,13 +12,14 @@ class onZero extends Model
      * @var int
      */
     public $scaleDownGracePeriodSeconds;
+
     /**
      * @var int
      */
     public $scaleUpActivationReplicas;
     protected $_name = [
         'scaleDownGracePeriodSeconds' => 'scaleDownGracePeriodSeconds',
-        'scaleUpActivationReplicas'   => 'scaleUpActivationReplicas',
+        'scaleUpActivationReplicas' => 'scaleUpActivationReplicas',
     ];
 
     public function validate()

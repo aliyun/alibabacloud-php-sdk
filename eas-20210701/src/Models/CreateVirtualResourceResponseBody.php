@@ -12,17 +12,19 @@ class CreateVirtualResourceResponseBody extends Model
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $virtualResourceId;
     protected $_name = [
-        'message'           => 'Message',
-        'requestId'         => 'RequestId',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
         'virtualResourceId' => 'VirtualResourceId',
     ];
 

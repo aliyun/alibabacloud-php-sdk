@@ -12,38 +12,44 @@ class scaleJobs extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $lastProbeTime;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $schedule;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $targetSize;
     protected $_name = [
-        'createTime'    => 'CreateTime',
+        'createTime' => 'CreateTime',
         'lastProbeTime' => 'LastProbeTime',
-        'message'       => 'Message',
-        'name'          => 'Name',
-        'schedule'      => 'Schedule',
-        'state'         => 'State',
-        'targetSize'    => 'TargetSize',
+        'message' => 'Message',
+        'name' => 'Name',
+        'schedule' => 'Schedule',
+        'state' => 'State',
+        'targetSize' => 'TargetSize',
     ];
 
     public function validate()

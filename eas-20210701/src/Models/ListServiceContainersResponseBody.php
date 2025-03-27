@@ -12,17 +12,19 @@ class ListServiceContainersResponseBody extends Model
      * @var ContainerInfo[]
      */
     public $containers;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $serviceName;
     protected $_name = [
-        'containers'  => 'Containers',
-        'requestId'   => 'RequestId',
+        'containers' => 'Containers',
+        'requestId' => 'RequestId',
         'serviceName' => 'ServiceName',
     ];
 
@@ -40,7 +42,7 @@ class ListServiceContainersResponseBody extends Model
         if (null !== $this->containers) {
             if (\is_array($this->containers)) {
                 $res['Containers'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->containers as $item1) {
                     $res['Containers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -69,7 +71,7 @@ class ListServiceContainersResponseBody extends Model
         if (isset($map['Containers'])) {
             if (!empty($map['Containers'])) {
                 $model->containers = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Containers'] as $item1) {
                     $model->containers[$n1++] = ContainerInfo::fromMap($item1);
                 }

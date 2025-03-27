@@ -12,48 +12,56 @@ class tasks extends Model
      * @var int
      */
     public $availableAgent;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskName;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
         'availableAgent' => 'AvailableAgent',
-        'createTime'     => 'CreateTime',
-        'message'        => 'Message',
-        'region'         => 'Region',
-        'serviceName'    => 'ServiceName',
-        'status'         => 'Status',
-        'taskId'         => 'TaskId',
-        'taskName'       => 'TaskName',
-        'updateTime'     => 'UpdateTime',
+        'createTime' => 'CreateTime',
+        'message' => 'Message',
+        'region' => 'Region',
+        'serviceName' => 'ServiceName',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

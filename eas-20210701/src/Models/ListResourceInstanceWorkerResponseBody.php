@@ -12,27 +12,31 @@ class ListResourceInstanceWorkerResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var ResourceInstanceWorker[]
      */
     public $pods;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'pods'       => 'Pods',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'pods' => 'Pods',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -58,7 +62,7 @@ class ListResourceInstanceWorkerResponseBody extends Model
         if (null !== $this->pods) {
             if (\is_array($this->pods)) {
                 $res['Pods'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->pods as $item1) {
                     $res['Pods'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -95,7 +99,7 @@ class ListResourceInstanceWorkerResponseBody extends Model
         if (isset($map['Pods'])) {
             if (!empty($map['Pods'])) {
                 $model->pods = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Pods'] as $item1) {
                     $model->pods[$n1++] = ResourceInstanceWorker::fromMap($item1);
                 }

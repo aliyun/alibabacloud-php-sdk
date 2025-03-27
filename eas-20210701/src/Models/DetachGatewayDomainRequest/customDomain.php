@@ -12,13 +12,14 @@ class customDomain extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'domain' => 'Domain',
-        'type'   => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

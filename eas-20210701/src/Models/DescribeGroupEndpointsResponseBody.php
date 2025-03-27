@@ -13,23 +13,26 @@ class DescribeGroupEndpointsResponseBody extends Model
      * @var string
      */
     public $accessToken;
+
     /**
      * @var endpoints
      */
     public $endpoints;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accessToken' => 'AccessToken',
-        'endpoints'   => 'Endpoints',
-        'message'     => 'Message',
-        'requestId'   => 'RequestId',
+        'endpoints' => 'Endpoints',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

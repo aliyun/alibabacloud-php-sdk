@@ -12,37 +12,43 @@ class UpdateAppServiceRequest extends Model
      * @var string
      */
     public $quotaId;
+
     /**
      * @var string
      */
     public $workspaceId;
+
     /**
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $appVersion;
+
     /**
      * @var mixed[]
      */
     public $config;
+
     /**
      * @var int
      */
     public $replicas;
+
     /**
      * @var string
      */
     public $serviceSpec;
     protected $_name = [
-        'quotaId'     => 'QuotaId',
+        'quotaId' => 'QuotaId',
         'workspaceId' => 'WorkspaceId',
-        'appType'     => 'AppType',
-        'appVersion'  => 'AppVersion',
-        'config'      => 'Config',
-        'replicas'    => 'Replicas',
+        'appType' => 'AppType',
+        'appVersion' => 'AppVersion',
+        'config' => 'Config',
+        'replicas' => 'Replicas',
         'serviceSpec' => 'ServiceSpec',
     ];
 

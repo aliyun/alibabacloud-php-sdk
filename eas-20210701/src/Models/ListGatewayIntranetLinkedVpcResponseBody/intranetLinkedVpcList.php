@@ -9,31 +9,41 @@ use AlibabaCloud\Dara\Model;
 class intranetLinkedVpcList extends Model
 {
     /**
+     * @var bool
+     */
+    public $authoritativeDnsEnabled;
+
+    /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'ip'              => 'Ip',
+        'authoritativeDnsEnabled' => 'AuthoritativeDnsEnabled',
+        'ip' => 'Ip',
         'securityGroupId' => 'SecurityGroupId',
-        'status'          => 'Status',
-        'vSwitchId'       => 'VSwitchId',
-        'vpcId'           => 'VpcId',
+        'status' => 'Status',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -44,6 +54,10 @@ class intranetLinkedVpcList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->authoritativeDnsEnabled) {
+            $res['AuthoritativeDnsEnabled'] = $this->authoritativeDnsEnabled;
+        }
+
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
@@ -75,6 +89,10 @@ class intranetLinkedVpcList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthoritativeDnsEnabled'])) {
+            $model->authoritativeDnsEnabled = $map['AuthoritativeDnsEnabled'];
+        }
+
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }

@@ -12,43 +12,50 @@ class CreateGatewayRequest extends Model
      * @var string
      */
     public $resourceName;
+
     /**
      * @var bool
      */
     public $autoRenewal;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var bool
      */
     public $enableInternet;
+
     /**
      * @var bool
      */
     public $enableIntranet;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $replicas;
     protected $_name = [
-        'resourceName'   => 'ResourceName',
-        'autoRenewal'    => 'AutoRenewal',
-        'chargeType'     => 'ChargeType',
+        'resourceName' => 'ResourceName',
+        'autoRenewal' => 'AutoRenewal',
+        'chargeType' => 'ChargeType',
         'enableInternet' => 'EnableInternet',
         'enableIntranet' => 'EnableIntranet',
-        'instanceType'   => 'InstanceType',
-        'name'           => 'Name',
-        'replicas'       => 'Replicas',
+        'instanceType' => 'InstanceType',
+        'name' => 'Name',
+        'replicas' => 'Replicas',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class currentMetrics extends Model
      * @var string
      */
     public $metricName;
+
     /**
      * @var string
      */
     public $service;
+
     /**
      * @var float
      */
     public $value;
     protected $_name = [
         'metricName' => 'metricName',
-        'service'    => 'service',
-        'value'      => 'value',
+        'service' => 'service',
+        'value' => 'value',
     ];
 
     public function validate()

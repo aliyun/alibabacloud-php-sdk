@@ -12,14 +12,17 @@ class CreateGatewayResponseBody extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $gatewayId;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
@@ -27,7 +30,7 @@ class CreateGatewayResponseBody extends Model
     protected $_name = [
         'clusterId' => 'ClusterId',
         'gatewayId' => 'GatewayId',
-        'message'   => 'Message',
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 

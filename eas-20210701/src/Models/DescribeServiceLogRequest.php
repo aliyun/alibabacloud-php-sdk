@@ -12,48 +12,56 @@ class DescribeServiceLogRequest extends Model
      * @var string
      */
     public $containerName;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var bool
      */
     public $previous;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
         'containerName' => 'ContainerName',
-        'endTime'       => 'EndTime',
-        'instanceName'  => 'InstanceName',
-        'ip'            => 'Ip',
-        'keyword'       => 'Keyword',
-        'pageNum'       => 'PageNum',
-        'pageSize'      => 'PageSize',
-        'previous'      => 'Previous',
-        'startTime'     => 'StartTime',
+        'endTime' => 'EndTime',
+        'instanceName' => 'InstanceName',
+        'ip' => 'Ip',
+        'keyword' => 'Keyword',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'previous' => 'Previous',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

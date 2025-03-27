@@ -13,12 +13,13 @@ class UpdateResourceRequest extends Model
      * @var string
      */
     public $resourceName;
+
     /**
      * @var selfManagedResourceOptions
      */
     public $selfManagedResourceOptions;
     protected $_name = [
-        'resourceName'               => 'ResourceName',
+        'resourceName' => 'ResourceName',
         'selfManagedResourceOptions' => 'SelfManagedResourceOptions',
     ];
 

@@ -13,18 +13,20 @@ class ListGatewayIntranetLinkedVpcPeerResponseBody extends Model
      * @var string
      */
     public $gatewayId;
+
     /**
      * @var peerVpcList[]
      */
     public $peerVpcList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'gatewayId'   => 'GatewayId',
+        'gatewayId' => 'GatewayId',
         'peerVpcList' => 'PeerVpcList',
-        'requestId'   => 'requestId',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class ListGatewayIntranetLinkedVpcPeerResponseBody extends Model
         if (null !== $this->peerVpcList) {
             if (\is_array($this->peerVpcList)) {
                 $res['PeerVpcList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->peerVpcList as $item1) {
                     $res['PeerVpcList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class ListGatewayIntranetLinkedVpcPeerResponseBody extends Model
         if (isset($map['PeerVpcList'])) {
             if (!empty($map['PeerVpcList'])) {
                 $model->peerVpcList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['PeerVpcList'] as $item1) {
                     $model->peerVpcList[$n1++] = peerVpcList::fromMap($item1);
                 }

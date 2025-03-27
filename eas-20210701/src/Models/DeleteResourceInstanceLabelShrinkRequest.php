@@ -12,18 +12,20 @@ class DeleteResourceInstanceLabelShrinkRequest extends Model
      * @var bool
      */
     public $allInstances;
+
     /**
      * @var string
      */
     public $instanceIdsShrink;
+
     /**
      * @var string
      */
     public $keysShrink;
     protected $_name = [
-        'allInstances'      => 'AllInstances',
+        'allInstances' => 'AllInstances',
         'instanceIdsShrink' => 'InstanceIds',
-        'keysShrink'        => 'Keys',
+        'keysShrink' => 'Keys',
     ];
 
     public function validate()

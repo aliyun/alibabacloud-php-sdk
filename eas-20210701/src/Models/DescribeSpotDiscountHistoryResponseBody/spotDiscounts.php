@@ -12,14 +12,17 @@ class spotDiscounts extends Model
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $spotDiscount;
+
     /**
      * @var string
      */
     public $timestamp;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class spotDiscounts extends Model
     protected $_name = [
         'instanceType' => 'InstanceType',
         'spotDiscount' => 'SpotDiscount',
-        'timestamp'    => 'Timestamp',
-        'zoneId'       => 'ZoneId',
+        'timestamp' => 'Timestamp',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

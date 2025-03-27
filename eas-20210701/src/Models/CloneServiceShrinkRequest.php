@@ -12,13 +12,14 @@ class CloneServiceShrinkRequest extends Model
      * @var string
      */
     public $labelsShrink;
+
     /**
      * @var string
      */
     public $body;
     protected $_name = [
         'labelsShrink' => 'Labels',
-        'body'         => 'body',
+        'body' => 'body',
     ];
 
     public function validate()

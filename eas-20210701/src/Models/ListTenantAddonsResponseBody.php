@@ -13,12 +13,13 @@ class ListTenantAddonsResponseBody extends Model
      * @var addons[]
      */
     public $addons;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'addons'    => 'Addons',
+        'addons' => 'Addons',
         'requestId' => 'RequestId',
     ];
 
@@ -36,7 +37,7 @@ class ListTenantAddonsResponseBody extends Model
         if (null !== $this->addons) {
             if (\is_array($this->addons)) {
                 $res['Addons'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->addons as $item1) {
                     $res['Addons'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class ListTenantAddonsResponseBody extends Model
         if (isset($map['Addons'])) {
             if (!empty($map['Addons'])) {
                 $model->addons = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Addons'] as $item1) {
                     $model->addons[$n1++] = addons::fromMap($item1);
                 }

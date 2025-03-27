@@ -12,63 +12,74 @@ class ResourceInstanceWorker extends Model
      * @var int
      */
     public $cpuLimit;
+
     /**
      * @var int
      */
     public $cpuRequest;
+
     /**
      * @var int
      */
     public $gpuLimit;
+
     /**
      * @var int
      */
     public $gpuRequest;
+
     /**
      * @var int
      */
     public $memoryLimit;
+
     /**
      * @var int
      */
     public $memoryRquest;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var bool
      */
     public $ready;
+
     /**
      * @var int
      */
     public $restartCount;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'cpuLimit'     => 'CpuLimit',
-        'cpuRequest'   => 'CpuRequest',
-        'gpuLimit'     => 'GpuLimit',
-        'gpuRequest'   => 'GpuRequest',
-        'memoryLimit'  => 'MemoryLimit',
+        'cpuLimit' => 'CpuLimit',
+        'cpuRequest' => 'CpuRequest',
+        'gpuLimit' => 'GpuLimit',
+        'gpuRequest' => 'GpuRequest',
+        'memoryLimit' => 'MemoryLimit',
         'memoryRquest' => 'MemoryRquest',
-        'name'         => 'Name',
-        'ready'        => 'Ready',
+        'name' => 'Name',
+        'ready' => 'Ready',
         'restartCount' => 'RestartCount',
-        'serviceName'  => 'ServiceName',
-        'startTime'    => 'StartTime',
-        'status'       => 'Status',
+        'serviceName' => 'ServiceName',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
     public function validate()

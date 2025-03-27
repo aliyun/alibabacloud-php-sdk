@@ -13,6 +13,7 @@ class selfManagedResourceOptions extends Model
      * @var string[]
      */
     public $nodeMatchLabels;
+
     /**
      * @var nodeTolerations[]
      */
@@ -48,7 +49,7 @@ class selfManagedResourceOptions extends Model
         if (null !== $this->nodeTolerations) {
             if (\is_array($this->nodeTolerations)) {
                 $res['NodeTolerations'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->nodeTolerations as $item1) {
                     $res['NodeTolerations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +79,7 @@ class selfManagedResourceOptions extends Model
         if (isset($map['NodeTolerations'])) {
             if (!empty($map['NodeTolerations'])) {
                 $model->nodeTolerations = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['NodeTolerations'] as $item1) {
                     $model->nodeTolerations[$n1++] = nodeTolerations::fromMap($item1);
                 }

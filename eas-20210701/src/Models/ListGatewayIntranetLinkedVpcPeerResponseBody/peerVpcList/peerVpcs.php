@@ -12,13 +12,14 @@ class peerVpcs extends Model
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'region' => 'Region',
-        'vpcId'  => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

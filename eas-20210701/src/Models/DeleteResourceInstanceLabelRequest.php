@@ -12,18 +12,20 @@ class DeleteResourceInstanceLabelRequest extends Model
      * @var bool
      */
     public $allInstances;
+
     /**
      * @var string[]
      */
     public $instanceIds;
+
     /**
      * @var string[]
      */
     public $keys;
     protected $_name = [
         'allInstances' => 'AllInstances',
-        'instanceIds'  => 'InstanceIds',
-        'keys'         => 'Keys',
+        'instanceIds' => 'InstanceIds',
+        'keys' => 'Keys',
     ];
 
     public function validate()
@@ -47,7 +49,7 @@ class DeleteResourceInstanceLabelRequest extends Model
         if (null !== $this->instanceIds) {
             if (\is_array($this->instanceIds)) {
                 $res['InstanceIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->instanceIds as $item1) {
                     $res['InstanceIds'][$n1++] = $item1;
                 }
@@ -57,7 +59,7 @@ class DeleteResourceInstanceLabelRequest extends Model
         if (null !== $this->keys) {
             if (\is_array($this->keys)) {
                 $res['Keys'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->keys as $item1) {
                     $res['Keys'][$n1++] = $item1;
                 }
@@ -82,7 +84,7 @@ class DeleteResourceInstanceLabelRequest extends Model
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {
                 $model->instanceIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['InstanceIds'] as $item1) {
                     $model->instanceIds[$n1++] = $item1;
                 }
@@ -92,7 +94,7 @@ class DeleteResourceInstanceLabelRequest extends Model
         if (isset($map['Keys'])) {
             if (!empty($map['Keys'])) {
                 $model->keys = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Keys'] as $item1) {
                     $model->keys[$n1++] = $item1;
                 }

@@ -12,13 +12,14 @@ class CloneServiceRequest extends Model
      * @var string[]
      */
     public $labels;
+
     /**
      * @var string
      */
     public $body;
     protected $_name = [
         'labels' => 'Labels',
-        'body'   => 'body',
+        'body' => 'body',
     ];
 
     public function validate()

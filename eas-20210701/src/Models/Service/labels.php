@@ -12,12 +12,13 @@ class labels extends Model
      * @var string
      */
     public $labelKey;
+
     /**
      * @var string
      */
     public $labelValue;
     protected $_name = [
-        'labelKey'   => 'LabelKey',
+        'labelKey' => 'LabelKey',
         'labelValue' => 'LabelValue',
     ];
 

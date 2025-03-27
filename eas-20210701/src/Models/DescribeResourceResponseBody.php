@@ -12,103 +12,122 @@ class DescribeResourceResponseBody extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $cpuCount;
+
     /**
      * @var int
      */
     public $cpuUsed;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $extraData;
+
     /**
      * @var int
      */
     public $gpuCount;
+
     /**
      * @var float
      */
     public $gpuUsed;
+
     /**
      * @var int
      */
     public $instanceCount;
+
     /**
      * @var int
      */
     public $memory;
+
     /**
      * @var int
      */
     public $memoryUsed;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $ownerUid;
+
     /**
      * @var int
      */
     public $postPaidInstanceCount;
+
     /**
      * @var int
      */
     public $prePaidInstanceCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'clusterId'             => 'ClusterId',
-        'cpuCount'              => 'CpuCount',
-        'cpuUsed'               => 'CpuUsed',
-        'createTime'            => 'CreateTime',
-        'extraData'             => 'ExtraData',
-        'gpuCount'              => 'GpuCount',
-        'gpuUsed'               => 'GpuUsed',
-        'instanceCount'         => 'InstanceCount',
-        'memory'                => 'Memory',
-        'memoryUsed'            => 'MemoryUsed',
-        'message'               => 'Message',
-        'ownerUid'              => 'OwnerUid',
+        'clusterId' => 'ClusterId',
+        'cpuCount' => 'CpuCount',
+        'cpuUsed' => 'CpuUsed',
+        'createTime' => 'CreateTime',
+        'extraData' => 'ExtraData',
+        'gpuCount' => 'GpuCount',
+        'gpuUsed' => 'GpuUsed',
+        'instanceCount' => 'InstanceCount',
+        'memory' => 'Memory',
+        'memoryUsed' => 'MemoryUsed',
+        'message' => 'Message',
+        'ownerUid' => 'OwnerUid',
         'postPaidInstanceCount' => 'PostPaidInstanceCount',
-        'prePaidInstanceCount'  => 'PrePaidInstanceCount',
-        'requestId'             => 'RequestId',
-        'resourceId'            => 'ResourceId',
-        'resourceName'          => 'ResourceName',
-        'resourceType'          => 'ResourceType',
-        'status'                => 'Status',
-        'updateTime'            => 'UpdateTime',
+        'prePaidInstanceCount' => 'PrePaidInstanceCount',
+        'requestId' => 'RequestId',
+        'resourceId' => 'ResourceId',
+        'resourceName' => 'ResourceName',
+        'resourceType' => 'ResourceType',
+        'status' => 'Status',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

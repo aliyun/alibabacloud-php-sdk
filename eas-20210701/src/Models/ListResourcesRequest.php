@@ -12,43 +12,50 @@ class ListResourcesRequest extends Model
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceStatus;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $sort;
     protected $_name = [
-        'order'          => 'Order',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'resourceId'     => 'ResourceId',
-        'resourceName'   => 'ResourceName',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resourceId' => 'ResourceId',
+        'resourceName' => 'ResourceName',
         'resourceStatus' => 'ResourceStatus',
-        'resourceType'   => 'ResourceType',
-        'sort'           => 'Sort',
+        'resourceType' => 'ResourceType',
+        'sort' => 'Sort',
     ];
 
     public function validate()

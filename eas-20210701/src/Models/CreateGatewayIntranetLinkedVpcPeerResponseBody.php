@@ -12,17 +12,19 @@ class CreateGatewayIntranetLinkedVpcPeerResponseBody extends Model
      * @var string
      */
     public $gatewayId;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'gatewayId' => 'GatewayId',
-        'message'   => 'Message',
+        'message' => 'Message',
         'requestId' => 'requestId',
     ];
 

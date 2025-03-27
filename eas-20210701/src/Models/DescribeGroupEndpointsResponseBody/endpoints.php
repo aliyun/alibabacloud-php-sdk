@@ -12,33 +12,38 @@ class endpoints extends Model
      * @var string
      */
     public $backendId;
+
     /**
      * @var string
      */
     public $endpointType;
+
     /**
      * @var string[]
      */
     public $internetEndpoints;
+
     /**
      * @var string[]
      */
     public $intranetEndpoints;
+
     /**
      * @var string
      */
     public $pathType;
+
     /**
      * @var int
      */
     public $port;
     protected $_name = [
-        'backendId'         => 'BackendId',
-        'endpointType'      => 'EndpointType',
+        'backendId' => 'BackendId',
+        'endpointType' => 'EndpointType',
         'internetEndpoints' => 'InternetEndpoints',
         'intranetEndpoints' => 'IntranetEndpoints',
-        'pathType'          => 'PathType',
-        'port'              => 'Port',
+        'pathType' => 'PathType',
+        'port' => 'Port',
     ];
 
     public function validate()
@@ -66,7 +71,7 @@ class endpoints extends Model
         if (null !== $this->internetEndpoints) {
             if (\is_array($this->internetEndpoints)) {
                 $res['InternetEndpoints'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->internetEndpoints as $item1) {
                     $res['InternetEndpoints'][$n1++] = $item1;
                 }
@@ -76,7 +81,7 @@ class endpoints extends Model
         if (null !== $this->intranetEndpoints) {
             if (\is_array($this->intranetEndpoints)) {
                 $res['IntranetEndpoints'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->intranetEndpoints as $item1) {
                     $res['IntranetEndpoints'][$n1++] = $item1;
                 }
@@ -113,7 +118,7 @@ class endpoints extends Model
         if (isset($map['InternetEndpoints'])) {
             if (!empty($map['InternetEndpoints'])) {
                 $model->internetEndpoints = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['InternetEndpoints'] as $item1) {
                     $model->internetEndpoints[$n1++] = $item1;
                 }
@@ -123,7 +128,7 @@ class endpoints extends Model
         if (isset($map['IntranetEndpoints'])) {
             if (!empty($map['IntranetEndpoints'])) {
                 $model->intranetEndpoints = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['IntranetEndpoints'] as $item1) {
                     $model->intranetEndpoints[$n1++] = $item1;
                 }

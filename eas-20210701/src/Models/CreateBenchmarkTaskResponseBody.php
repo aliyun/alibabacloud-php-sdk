@@ -12,23 +12,26 @@ class CreateBenchmarkTaskResponseBody extends Model
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $taskName;
     protected $_name = [
-        'message'   => 'Message',
-        'region'    => 'Region',
+        'message' => 'Message',
+        'region' => 'Region',
         'requestId' => 'RequestId',
-        'taskName'  => 'TaskName',
+        'taskName' => 'TaskName',
     ];
 
     public function validate()

@@ -14,22 +14,25 @@ class CreateServiceAutoScalerRequest extends Model
      * @var behavior
      */
     public $behavior;
+
     /**
      * @var int
      */
     public $max;
+
     /**
      * @var int
      */
     public $min;
+
     /**
      * @var scaleStrategies[]
      */
     public $scaleStrategies;
     protected $_name = [
-        'behavior'        => 'behavior',
-        'max'             => 'max',
-        'min'             => 'min',
+        'behavior' => 'behavior',
+        'max' => 'max',
+        'min' => 'min',
         'scaleStrategies' => 'scaleStrategies',
     ];
 
@@ -62,7 +65,7 @@ class CreateServiceAutoScalerRequest extends Model
         if (null !== $this->scaleStrategies) {
             if (\is_array($this->scaleStrategies)) {
                 $res['scaleStrategies'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->scaleStrategies as $item1) {
                     $res['scaleStrategies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -95,7 +98,7 @@ class CreateServiceAutoScalerRequest extends Model
         if (isset($map['scaleStrategies'])) {
             if (!empty($map['scaleStrategies'])) {
                 $model->scaleStrategies = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['scaleStrategies'] as $item1) {
                     $model->scaleStrategies[$n1++] = scaleStrategies::fromMap($item1);
                 }

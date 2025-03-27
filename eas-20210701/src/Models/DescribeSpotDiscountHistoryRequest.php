@@ -12,13 +12,14 @@ class DescribeSpotDiscountHistoryRequest extends Model
      * @var string
      */
     public $instanceType;
+
     /**
      * @var bool
      */
     public $isProtect;
     protected $_name = [
         'instanceType' => 'InstanceType',
-        'isProtect'    => 'IsProtect',
+        'isProtect' => 'IsProtect',
     ];
 
     public function validate()

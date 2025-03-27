@@ -13,27 +13,31 @@ class ListGatewayResponseBody extends Model
      * @var gateways[]
      */
     public $gateways;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'gateways'   => 'Gateways',
+        'gateways' => 'Gateways',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -51,7 +55,7 @@ class ListGatewayResponseBody extends Model
         if (null !== $this->gateways) {
             if (\is_array($this->gateways)) {
                 $res['Gateways'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->gateways as $item1) {
                     $res['Gateways'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class ListGatewayResponseBody extends Model
         if (isset($map['Gateways'])) {
             if (!empty($map['Gateways'])) {
                 $model->gateways = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Gateways'] as $item1) {
                     $model->gateways[$n1++] = gateways::fromMap($item1);
                 }

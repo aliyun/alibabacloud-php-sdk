@@ -13,13 +13,14 @@ class DeleteGatewayIntranetLinkedVpcPeerRequest extends Model
      * @var peerVpcs[]
      */
     public $peerVpcs;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'peerVpcs' => 'PeerVpcs',
-        'vpcId'    => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DeleteGatewayIntranetLinkedVpcPeerRequest extends Model
         if (null !== $this->peerVpcs) {
             if (\is_array($this->peerVpcs)) {
                 $res['PeerVpcs'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->peerVpcs as $item1) {
                     $res['PeerVpcs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DeleteGatewayIntranetLinkedVpcPeerRequest extends Model
         if (isset($map['PeerVpcs'])) {
             if (!empty($map['PeerVpcs'])) {
                 $model->peerVpcs = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['PeerVpcs'] as $item1) {
                     $model->peerVpcs[$n1++] = peerVpcs::fromMap($item1);
                 }

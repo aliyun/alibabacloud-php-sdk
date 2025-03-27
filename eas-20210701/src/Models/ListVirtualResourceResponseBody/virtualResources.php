@@ -12,27 +12,31 @@ class virtualResources extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $serviceCount;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var string
      */
     public $virtualResourceId;
+
     /**
      * @var string
      */
     public $virtualResourceName;
     protected $_name = [
-        'createTime'          => 'CreateTime',
-        'serviceCount'        => 'ServiceCount',
-        'updateTime'          => 'UpdateTime',
-        'virtualResourceId'   => 'VirtualResourceId',
+        'createTime' => 'CreateTime',
+        'serviceCount' => 'ServiceCount',
+        'updateTime' => 'UpdateTime',
+        'virtualResourceId' => 'VirtualResourceId',
         'virtualResourceName' => 'VirtualResourceName',
     ];
 

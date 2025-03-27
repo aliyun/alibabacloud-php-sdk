@@ -12,43 +12,50 @@ class CreateResourceInstancesRequest extends Model
      * @var bool
      */
     public $autoRenewal;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var int
      */
     public $ecsInstanceCount;
+
     /**
      * @var string
      */
     public $ecsInstanceType;
+
     /**
      * @var string[]
      */
     public $labels;
+
     /**
      * @var int
      */
     public $systemDiskSize;
+
     /**
      * @var string
      */
     public $userData;
+
     /**
      * @var string
      */
     public $zone;
     protected $_name = [
-        'autoRenewal'      => 'AutoRenewal',
-        'chargeType'       => 'ChargeType',
+        'autoRenewal' => 'AutoRenewal',
+        'chargeType' => 'ChargeType',
         'ecsInstanceCount' => 'EcsInstanceCount',
-        'ecsInstanceType'  => 'EcsInstanceType',
-        'labels'           => 'Labels',
-        'systemDiskSize'   => 'SystemDiskSize',
-        'userData'         => 'UserData',
-        'zone'             => 'Zone',
+        'ecsInstanceType' => 'EcsInstanceType',
+        'labels' => 'Labels',
+        'systemDiskSize' => 'SystemDiskSize',
+        'userData' => 'UserData',
+        'zone' => 'Zone',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class CreateServiceMirrorRequest extends Model
      * @var int
      */
     public $ratio;
+
     /**
      * @var string[]
      */
     public $target;
     protected $_name = [
-        'ratio'  => 'Ratio',
+        'ratio' => 'Ratio',
         'target' => 'Target',
     ];
 
@@ -39,7 +40,7 @@ class CreateServiceMirrorRequest extends Model
         if (null !== $this->target) {
             if (\is_array($this->target)) {
                 $res['Target'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->target as $item1) {
                     $res['Target'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class CreateServiceMirrorRequest extends Model
         if (isset($map['Target'])) {
             if (!empty($map['Target'])) {
                 $model->target = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Target'] as $item1) {
                     $model->target[$n1++] = $item1;
                 }

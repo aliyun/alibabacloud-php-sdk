@@ -12,28 +12,32 @@ class DescribeResourceLogResponseBody extends Model
      * @var string
      */
     public $logStore;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'logStore'    => 'LogStore',
-        'message'     => 'Message',
+        'logStore' => 'LogStore',
+        'message' => 'Message',
         'projectName' => 'ProjectName',
-        'requestId'   => 'RequestId',
-        'status'      => 'Status',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
     public function validate()

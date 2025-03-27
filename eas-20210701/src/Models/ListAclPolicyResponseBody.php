@@ -14,23 +14,26 @@ class ListAclPolicyResponseBody extends Model
      * @var string
      */
     public $gatewayId;
+
     /**
      * @var internetAclPolicyList[]
      */
     public $internetAclPolicyList;
+
     /**
      * @var intranetVpcAclPolicyList[]
      */
     public $intranetVpcAclPolicyList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'gatewayId'                => 'GatewayId',
-        'internetAclPolicyList'    => 'InternetAclPolicyList',
+        'gatewayId' => 'GatewayId',
+        'internetAclPolicyList' => 'InternetAclPolicyList',
         'intranetVpcAclPolicyList' => 'IntranetVpcAclPolicyList',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -54,7 +57,7 @@ class ListAclPolicyResponseBody extends Model
         if (null !== $this->internetAclPolicyList) {
             if (\is_array($this->internetAclPolicyList)) {
                 $res['InternetAclPolicyList'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->internetAclPolicyList as $item1) {
                     $res['InternetAclPolicyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -64,7 +67,7 @@ class ListAclPolicyResponseBody extends Model
         if (null !== $this->intranetVpcAclPolicyList) {
             if (\is_array($this->intranetVpcAclPolicyList)) {
                 $res['IntranetVpcAclPolicyList'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->intranetVpcAclPolicyList as $item1) {
                     $res['IntranetVpcAclPolicyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -93,7 +96,7 @@ class ListAclPolicyResponseBody extends Model
         if (isset($map['InternetAclPolicyList'])) {
             if (!empty($map['InternetAclPolicyList'])) {
                 $model->internetAclPolicyList = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['InternetAclPolicyList'] as $item1) {
                     $model->internetAclPolicyList[$n1++] = internetAclPolicyList::fromMap($item1);
                 }
@@ -103,7 +106,7 @@ class ListAclPolicyResponseBody extends Model
         if (isset($map['IntranetVpcAclPolicyList'])) {
             if (!empty($map['IntranetVpcAclPolicyList'])) {
                 $model->intranetVpcAclPolicyList = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['IntranetVpcAclPolicyList'] as $item1) {
                     $model->intranetVpcAclPolicyList[$n1++] = intranetVpcAclPolicyList::fromMap($item1);
                 }

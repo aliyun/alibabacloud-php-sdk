@@ -12,23 +12,26 @@ class events extends Model
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $time;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'message' => 'Message',
-        'reason'  => 'Reason',
-        'time'    => 'Time',
-        'type'    => 'Type',
+        'reason' => 'Reason',
+        'time' => 'Time',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -12,22 +12,25 @@ class ListBenchmarkTaskRequest extends Model
      * @var string
      */
     public $filter;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $serviceName;
     protected $_name = [
-        'filter'      => 'Filter',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'filter' => 'Filter',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'serviceName' => 'ServiceName',
     ];
 

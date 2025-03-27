@@ -12,38 +12,44 @@ class UpdateGatewayRequest extends Model
      * @var bool
      */
     public $enableInternet;
+
     /**
      * @var bool
      */
     public $enableIntranet;
+
     /**
      * @var bool
      */
     public $enableSSLRedirection;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $replicas;
     protected $_name = [
-        'enableInternet'       => 'EnableInternet',
-        'enableIntranet'       => 'EnableIntranet',
+        'enableInternet' => 'EnableInternet',
+        'enableIntranet' => 'EnableIntranet',
         'enableSSLRedirection' => 'EnableSSLRedirection',
-        'instanceType'         => 'InstanceType',
-        'isDefault'            => 'IsDefault',
-        'name'                 => 'Name',
-        'replicas'             => 'Replicas',
+        'instanceType' => 'InstanceType',
+        'isDefault' => 'IsDefault',
+        'name' => 'Name',
+        'replicas' => 'Replicas',
     ];
 
     public function validate()

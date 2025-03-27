@@ -12,68 +12,80 @@ class ListServiceInstancesRequest extends Model
      * @var string
      */
     public $filter;
+
     /**
      * @var string
      */
     public $hostIP;
+
     /**
      * @var string
      */
     public $instanceIP;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $instanceStatus;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var bool
      */
     public $isSpot;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $sort;
     protected $_name = [
-        'filter'         => 'Filter',
-        'hostIP'         => 'HostIP',
-        'instanceIP'     => 'InstanceIP',
-        'instanceName'   => 'InstanceName',
+        'filter' => 'Filter',
+        'hostIP' => 'HostIP',
+        'instanceIP' => 'InstanceIP',
+        'instanceName' => 'InstanceName',
         'instanceStatus' => 'InstanceStatus',
-        'instanceType'   => 'InstanceType',
-        'isSpot'         => 'IsSpot',
-        'order'          => 'Order',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'resourceType'   => 'ResourceType',
-        'role'           => 'Role',
-        'sort'           => 'Sort',
+        'instanceType' => 'InstanceType',
+        'isSpot' => 'IsSpot',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resourceType' => 'ResourceType',
+        'role' => 'Role',
+        'sort' => 'Sort',
     ];
 
     public function validate()

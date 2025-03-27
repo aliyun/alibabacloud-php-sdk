@@ -13,23 +13,26 @@ class DescribeServiceCronScalerResponseBody extends Model
      * @var string[]
      */
     public $excludeDates;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var scaleJobs[]
      */
     public $scaleJobs;
+
     /**
      * @var string
      */
     public $serviceName;
     protected $_name = [
         'excludeDates' => 'ExcludeDates',
-        'requestId'    => 'RequestId',
-        'scaleJobs'    => 'ScaleJobs',
-        'serviceName'  => 'ServiceName',
+        'requestId' => 'RequestId',
+        'scaleJobs' => 'ScaleJobs',
+        'serviceName' => 'ServiceName',
     ];
 
     public function validate()
@@ -49,7 +52,7 @@ class DescribeServiceCronScalerResponseBody extends Model
         if (null !== $this->excludeDates) {
             if (\is_array($this->excludeDates)) {
                 $res['ExcludeDates'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->excludeDates as $item1) {
                     $res['ExcludeDates'][$n1++] = $item1;
                 }
@@ -63,7 +66,7 @@ class DescribeServiceCronScalerResponseBody extends Model
         if (null !== $this->scaleJobs) {
             if (\is_array($this->scaleJobs)) {
                 $res['ScaleJobs'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->scaleJobs as $item1) {
                     $res['ScaleJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +91,7 @@ class DescribeServiceCronScalerResponseBody extends Model
         if (isset($map['ExcludeDates'])) {
             if (!empty($map['ExcludeDates'])) {
                 $model->excludeDates = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ExcludeDates'] as $item1) {
                     $model->excludeDates[$n1++] = $item1;
                 }
@@ -102,7 +105,7 @@ class DescribeServiceCronScalerResponseBody extends Model
         if (isset($map['ScaleJobs'])) {
             if (!empty($map['ScaleJobs'])) {
                 $model->scaleJobs = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ScaleJobs'] as $item1) {
                     $model->scaleJobs[$n1++] = scaleJobs::fromMap($item1);
                 }

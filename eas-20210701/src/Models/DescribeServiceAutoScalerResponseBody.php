@@ -14,38 +14,44 @@ class DescribeServiceAutoScalerResponseBody extends Model
      * @var mixed[]
      */
     public $behavior;
+
     /**
      * @var currentMetrics[]
      */
     public $currentMetrics;
+
     /**
      * @var int
      */
     public $maxReplica;
+
     /**
      * @var int
      */
     public $minReplica;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var scaleStrategies[]
      */
     public $scaleStrategies;
+
     /**
      * @var string
      */
     public $serviceName;
     protected $_name = [
-        'behavior'        => 'Behavior',
-        'currentMetrics'  => 'CurrentMetrics',
-        'maxReplica'      => 'MaxReplica',
-        'minReplica'      => 'MinReplica',
-        'requestId'       => 'RequestId',
+        'behavior' => 'Behavior',
+        'currentMetrics' => 'CurrentMetrics',
+        'maxReplica' => 'MaxReplica',
+        'minReplica' => 'MinReplica',
+        'requestId' => 'RequestId',
         'scaleStrategies' => 'ScaleStrategies',
-        'serviceName'     => 'ServiceName',
+        'serviceName' => 'ServiceName',
     ];
 
     public function validate()
@@ -77,7 +83,7 @@ class DescribeServiceAutoScalerResponseBody extends Model
         if (null !== $this->currentMetrics) {
             if (\is_array($this->currentMetrics)) {
                 $res['CurrentMetrics'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->currentMetrics as $item1) {
                     $res['CurrentMetrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -99,7 +105,7 @@ class DescribeServiceAutoScalerResponseBody extends Model
         if (null !== $this->scaleStrategies) {
             if (\is_array($this->scaleStrategies)) {
                 $res['ScaleStrategies'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->scaleStrategies as $item1) {
                     $res['ScaleStrategies'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -133,7 +139,7 @@ class DescribeServiceAutoScalerResponseBody extends Model
         if (isset($map['CurrentMetrics'])) {
             if (!empty($map['CurrentMetrics'])) {
                 $model->currentMetrics = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['CurrentMetrics'] as $item1) {
                     $model->currentMetrics[$n1++] = currentMetrics::fromMap($item1);
                 }
@@ -155,7 +161,7 @@ class DescribeServiceAutoScalerResponseBody extends Model
         if (isset($map['ScaleStrategies'])) {
             if (!empty($map['ScaleStrategies'])) {
                 $model->scaleStrategies = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ScaleStrategies'] as $item1) {
                     $model->scaleStrategies[$n1++] = scaleStrategies::fromMap($item1);
                 }

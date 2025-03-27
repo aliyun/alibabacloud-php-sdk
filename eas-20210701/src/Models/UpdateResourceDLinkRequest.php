@@ -12,23 +12,26 @@ class UpdateResourceDLinkRequest extends Model
      * @var string
      */
     public $destinationCIDRs;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string[]
      */
     public $vSwitchIdList;
     protected $_name = [
         'destinationCIDRs' => 'DestinationCIDRs',
-        'securityGroupId'  => 'SecurityGroupId',
-        'vSwitchId'        => 'VSwitchId',
-        'vSwitchIdList'    => 'VSwitchIdList',
+        'securityGroupId' => 'SecurityGroupId',
+        'vSwitchId' => 'VSwitchId',
+        'vSwitchIdList' => 'VSwitchIdList',
     ];
 
     public function validate()
@@ -57,7 +60,7 @@ class UpdateResourceDLinkRequest extends Model
         if (null !== $this->vSwitchIdList) {
             if (\is_array($this->vSwitchIdList)) {
                 $res['VSwitchIdList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->vSwitchIdList as $item1) {
                     $res['VSwitchIdList'][$n1++] = $item1;
                 }
@@ -90,7 +93,7 @@ class UpdateResourceDLinkRequest extends Model
         if (isset($map['VSwitchIdList'])) {
             if (!empty($map['VSwitchIdList'])) {
                 $model->vSwitchIdList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['VSwitchIdList'] as $item1) {
                     $model->vSwitchIdList[$n1++] = $item1;
                 }

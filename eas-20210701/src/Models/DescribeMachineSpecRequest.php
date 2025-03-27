@@ -30,7 +30,7 @@ class DescribeMachineSpecRequest extends Model
         if (null !== $this->instanceTypes) {
             if (\is_array($this->instanceTypes)) {
                 $res['InstanceTypes'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->instanceTypes as $item1) {
                     $res['InstanceTypes'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class DescribeMachineSpecRequest extends Model
         if (isset($map['InstanceTypes'])) {
             if (!empty($map['InstanceTypes'])) {
                 $model->instanceTypes = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['InstanceTypes'] as $item1) {
                     $model->instanceTypes[$n1++] = $item1;
                 }

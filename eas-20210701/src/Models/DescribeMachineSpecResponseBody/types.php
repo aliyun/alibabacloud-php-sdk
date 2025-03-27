@@ -12,12 +12,13 @@ class types extends Model
      * @var int
      */
     public $CPU;
+
     /**
      * @var int[]
      */
     public $memory;
     protected $_name = [
-        'CPU'    => 'CPU',
+        'CPU' => 'CPU',
         'memory' => 'Memory',
     ];
 
@@ -39,7 +40,7 @@ class types extends Model
         if (null !== $this->memory) {
             if (\is_array($this->memory)) {
                 $res['Memory'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->memory as $item1) {
                     $res['Memory'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class types extends Model
         if (isset($map['Memory'])) {
             if (!empty($map['Memory'])) {
                 $model->memory = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Memory'] as $item1) {
                     $model->memory[$n1++] = $item1;
                 }

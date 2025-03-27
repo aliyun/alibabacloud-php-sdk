@@ -12,18 +12,20 @@ class diagnosis extends Model
      * @var string[]
      */
     public $advices;
+
     /**
      * @var string[]
      */
     public $causes;
+
     /**
      * @var string
      */
     public $error;
     protected $_name = [
         'advices' => 'Advices',
-        'causes'  => 'Causes',
-        'error'   => 'Error',
+        'causes' => 'Causes',
+        'error' => 'Error',
     ];
 
     public function validate()
@@ -43,7 +45,7 @@ class diagnosis extends Model
         if (null !== $this->advices) {
             if (\is_array($this->advices)) {
                 $res['Advices'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->advices as $item1) {
                     $res['Advices'][$n1++] = $item1;
                 }
@@ -53,7 +55,7 @@ class diagnosis extends Model
         if (null !== $this->causes) {
             if (\is_array($this->causes)) {
                 $res['Causes'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->causes as $item1) {
                     $res['Causes'][$n1++] = $item1;
                 }
@@ -78,7 +80,7 @@ class diagnosis extends Model
         if (isset($map['Advices'])) {
             if (!empty($map['Advices'])) {
                 $model->advices = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Advices'] as $item1) {
                     $model->advices[$n1++] = $item1;
                 }
@@ -88,7 +90,7 @@ class diagnosis extends Model
         if (isset($map['Causes'])) {
             if (!empty($map['Causes'])) {
                 $model->causes = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Causes'] as $item1) {
                     $model->causes[$n1++] = $item1;
                 }

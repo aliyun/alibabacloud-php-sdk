@@ -12,13 +12,14 @@ class ReleaseServiceRequest extends Model
      * @var string
      */
     public $trafficState;
+
     /**
      * @var int
      */
     public $weight;
     protected $_name = [
         'trafficState' => 'TrafficState',
-        'weight'       => 'Weight',
+        'weight' => 'Weight',
     ];
 
     public function validate()

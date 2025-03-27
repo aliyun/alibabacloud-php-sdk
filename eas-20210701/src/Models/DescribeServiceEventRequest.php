@@ -12,33 +12,38 @@ class DescribeServiceEventRequest extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $eventType;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $pageNum;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'eventType'    => 'EventType',
+        'endTime' => 'EndTime',
+        'eventType' => 'EventType',
         'instanceName' => 'InstanceName',
-        'pageNum'      => 'PageNum',
-        'pageSize'     => 'PageSize',
-        'startTime'    => 'StartTime',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

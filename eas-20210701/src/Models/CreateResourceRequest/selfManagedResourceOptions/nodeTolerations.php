@@ -12,23 +12,26 @@ class nodeTolerations extends Model
      * @var string
      */
     public $effect;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'effect'   => 'effect',
-        'key'      => 'key',
+        'effect' => 'effect',
+        'key' => 'key',
         'operator' => 'operator',
-        'value'    => 'value',
+        'value' => 'value',
     ];
 
     public function validate()

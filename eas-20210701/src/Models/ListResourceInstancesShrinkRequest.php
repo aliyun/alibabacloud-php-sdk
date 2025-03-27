@@ -12,58 +12,68 @@ class ListResourceInstancesShrinkRequest extends Model
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $filter;
+
     /**
      * @var string
      */
     public $instanceIP;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $instanceStatus;
+
     /**
      * @var string
      */
     public $labelShrink;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sort;
     protected $_name = [
-        'chargeType'     => 'ChargeType',
-        'filter'         => 'Filter',
-        'instanceIP'     => 'InstanceIP',
-        'instanceId'     => 'InstanceId',
-        'instanceName'   => 'InstanceName',
+        'chargeType' => 'ChargeType',
+        'filter' => 'Filter',
+        'instanceIP' => 'InstanceIP',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
         'instanceStatus' => 'InstanceStatus',
-        'labelShrink'    => 'Label',
-        'order'          => 'Order',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'sort'           => 'Sort',
+        'labelShrink' => 'Label',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'sort' => 'Sort',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class scaleStrategies extends Model
      * @var string
      */
     public $metricName;
+
     /**
      * @var string
      */
     public $service;
+
     /**
      * @var float
      */
     public $threshold;
     protected $_name = [
         'metricName' => 'metricName',
-        'service'    => 'service',
-        'threshold'  => 'threshold',
+        'service' => 'service',
+        'threshold' => 'threshold',
     ];
 
     public function validate()

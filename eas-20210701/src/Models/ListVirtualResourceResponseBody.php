@@ -13,27 +13,31 @@ class ListVirtualResourceResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var virtualResources[]
      */
     public $virtualResources;
     protected $_name = [
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'requestId'        => 'RequestId',
-        'totalCount'       => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
         'virtualResources' => 'VirtualResources',
     ];
 
@@ -67,7 +71,7 @@ class ListVirtualResourceResponseBody extends Model
         if (null !== $this->virtualResources) {
             if (\is_array($this->virtualResources)) {
                 $res['VirtualResources'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->virtualResources as $item1) {
                     $res['VirtualResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class ListVirtualResourceResponseBody extends Model
         if (isset($map['VirtualResources'])) {
             if (!empty($map['VirtualResources'])) {
                 $model->virtualResources = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['VirtualResources'] as $item1) {
                     $model->virtualResources[$n1++] = virtualResources::fromMap($item1);
                 }

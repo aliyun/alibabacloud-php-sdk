@@ -12,23 +12,26 @@ class CreateServiceRequest extends Model
      * @var string
      */
     public $develop;
+
     /**
      * @var string[]
      */
     public $labels;
+
     /**
      * @var string
      */
     public $workspaceId;
+
     /**
      * @var string
      */
     public $body;
     protected $_name = [
-        'develop'     => 'Develop',
-        'labels'      => 'Labels',
+        'develop' => 'Develop',
+        'labels' => 'Labels',
         'workspaceId' => 'WorkspaceId',
-        'body'        => 'body',
+        'body' => 'body',
     ];
 
     public function validate()

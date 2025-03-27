@@ -12,18 +12,20 @@ class DeleteServiceInstancesRequest extends Model
      * @var string
      */
     public $container;
+
     /**
      * @var string
      */
     public $instanceList;
+
     /**
      * @var bool
      */
     public $softRestart;
     protected $_name = [
-        'container'    => 'Container',
+        'container' => 'Container',
         'instanceList' => 'InstanceList',
-        'softRestart'  => 'SoftRestart',
+        'softRestart' => 'SoftRestart',
     ];
 
     public function validate()

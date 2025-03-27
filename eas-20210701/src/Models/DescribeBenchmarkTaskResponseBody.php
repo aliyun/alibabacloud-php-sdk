@@ -12,68 +12,80 @@ class DescribeBenchmarkTaskResponseBody extends Model
      * @var int
      */
     public $availableAgent;
+
     /**
      * @var string
      */
     public $callerUid;
+
     /**
      * @var int
      */
     public $desiredAgent;
+
     /**
      * @var string
      */
     public $endpoint;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $parentUid;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskName;
+
     /**
      * @var string
      */
     public $token;
     protected $_name = [
         'availableAgent' => 'AvailableAgent',
-        'callerUid'      => 'CallerUid',
-        'desiredAgent'   => 'DesiredAgent',
-        'endpoint'       => 'Endpoint',
-        'message'        => 'Message',
-        'parentUid'      => 'ParentUid',
-        'reason'         => 'Reason',
-        'requestId'      => 'RequestId',
-        'serviceName'    => 'ServiceName',
-        'status'         => 'Status',
-        'taskId'         => 'TaskId',
-        'taskName'       => 'TaskName',
-        'token'          => 'Token',
+        'callerUid' => 'CallerUid',
+        'desiredAgent' => 'DesiredAgent',
+        'endpoint' => 'Endpoint',
+        'message' => 'Message',
+        'parentUid' => 'ParentUid',
+        'reason' => 'Reason',
+        'requestId' => 'RequestId',
+        'serviceName' => 'ServiceName',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
+        'taskName' => 'TaskName',
+        'token' => 'Token',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class DeleteServiceAutoScalerResponseBody extends Model
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'message'   => 'Message',
+        'message' => 'Message',
         'requestId' => 'RequestId',
     ];
 

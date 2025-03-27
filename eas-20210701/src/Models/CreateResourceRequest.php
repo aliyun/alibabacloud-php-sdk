@@ -13,48 +13,56 @@ class CreateResourceRequest extends Model
      * @var bool
      */
     public $autoRenewal;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var int
      */
     public $ecsInstanceCount;
+
     /**
      * @var string
      */
     public $ecsInstanceType;
+
     /**
      * @var string[]
      */
     public $labels;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var selfManagedResourceOptions
      */
     public $selfManagedResourceOptions;
+
     /**
      * @var int
      */
     public $systemDiskSize;
+
     /**
      * @var string
      */
     public $zone;
     protected $_name = [
-        'autoRenewal'                => 'AutoRenewal',
-        'chargeType'                 => 'ChargeType',
-        'ecsInstanceCount'           => 'EcsInstanceCount',
-        'ecsInstanceType'            => 'EcsInstanceType',
-        'labels'                     => 'Labels',
-        'resourceType'               => 'ResourceType',
+        'autoRenewal' => 'AutoRenewal',
+        'chargeType' => 'ChargeType',
+        'ecsInstanceCount' => 'EcsInstanceCount',
+        'ecsInstanceType' => 'EcsInstanceType',
+        'labels' => 'Labels',
+        'resourceType' => 'ResourceType',
         'selfManagedResourceOptions' => 'SelfManagedResourceOptions',
-        'systemDiskSize'             => 'SystemDiskSize',
-        'zone'                       => 'Zone',
+        'systemDiskSize' => 'SystemDiskSize',
+        'zone' => 'Zone',
     ];
 
     public function validate()

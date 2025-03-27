@@ -13,13 +13,14 @@ class CreateServiceCronScalerRequest extends Model
      * @var string[]
      */
     public $excludeDates;
+
     /**
      * @var scaleJobs[]
      */
     public $scaleJobs;
     protected $_name = [
         'excludeDates' => 'ExcludeDates',
-        'scaleJobs'    => 'ScaleJobs',
+        'scaleJobs' => 'ScaleJobs',
     ];
 
     public function validate()
@@ -39,7 +40,7 @@ class CreateServiceCronScalerRequest extends Model
         if (null !== $this->excludeDates) {
             if (\is_array($this->excludeDates)) {
                 $res['ExcludeDates'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->excludeDates as $item1) {
                     $res['ExcludeDates'][$n1++] = $item1;
                 }
@@ -49,7 +50,7 @@ class CreateServiceCronScalerRequest extends Model
         if (null !== $this->scaleJobs) {
             if (\is_array($this->scaleJobs)) {
                 $res['ScaleJobs'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->scaleJobs as $item1) {
                     $res['ScaleJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +71,7 @@ class CreateServiceCronScalerRequest extends Model
         if (isset($map['ExcludeDates'])) {
             if (!empty($map['ExcludeDates'])) {
                 $model->excludeDates = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ExcludeDates'] as $item1) {
                     $model->excludeDates[$n1++] = $item1;
                 }
@@ -80,7 +81,7 @@ class CreateServiceCronScalerRequest extends Model
         if (isset($map['ScaleJobs'])) {
             if (!empty($map['ScaleJobs'])) {
                 $model->scaleJobs = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ScaleJobs'] as $item1) {
                     $model->scaleJobs[$n1++] = scaleJobs::fromMap($item1);
                 }

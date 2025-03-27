@@ -12,23 +12,26 @@ class CreateServiceShrinkRequest extends Model
      * @var string
      */
     public $develop;
+
     /**
      * @var string
      */
     public $labelsShrink;
+
     /**
      * @var string
      */
     public $workspaceId;
+
     /**
      * @var string
      */
     public $body;
     protected $_name = [
-        'develop'      => 'Develop',
+        'develop' => 'Develop',
         'labelsShrink' => 'Labels',
-        'workspaceId'  => 'WorkspaceId',
-        'body'         => 'body',
+        'workspaceId' => 'WorkspaceId',
+        'body' => 'body',
     ];
 
     public function validate()

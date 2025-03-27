@@ -12,32 +12,37 @@ class versions extends Model
      * @var string
      */
     public $buildTime;
+
     /**
      * @var string
      */
     public $imageAvailable;
+
     /**
      * @var int
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $serviceConfig;
+
     /**
      * @var string
      */
     public $serviceRunnable;
     protected $_name = [
-        'buildTime'       => 'BuildTime',
-        'imageAvailable'  => 'ImageAvailable',
-        'imageId'         => 'ImageId',
-        'message'         => 'Message',
-        'serviceConfig'   => 'ServiceConfig',
+        'buildTime' => 'BuildTime',
+        'imageAvailable' => 'ImageAvailable',
+        'imageId' => 'ImageId',
+        'message' => 'Message',
+        'serviceConfig' => 'ServiceConfig',
         'serviceRunnable' => 'ServiceRunnable',
     ];
 

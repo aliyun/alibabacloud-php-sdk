@@ -12,88 +12,110 @@ class ListServicesRequest extends Model
      * @var string
      */
     public $filter;
+
     /**
      * @var string
      */
     public $gateway;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string[]
      */
     public $label;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $parentServiceUid;
+
     /**
      * @var string
      */
     public $quotaId;
+
     /**
      * @var string
      */
     public $resourceName;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $serviceStatus;
+
     /**
      * @var string
      */
     public $serviceType;
+
     /**
      * @var string
      */
     public $serviceUid;
+
     /**
      * @var string
      */
     public $sort;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'filter'           => 'Filter',
-        'gateway'          => 'Gateway',
-        'groupName'        => 'GroupName',
-        'label'            => 'Label',
-        'order'            => 'Order',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
+        'filter' => 'Filter',
+        'gateway' => 'Gateway',
+        'groupName' => 'GroupName',
+        'label' => 'Label',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'parentServiceUid' => 'ParentServiceUid',
-        'quotaId'          => 'QuotaId',
-        'resourceName'     => 'ResourceName',
-        'role'             => 'Role',
-        'serviceName'      => 'ServiceName',
-        'serviceStatus'    => 'ServiceStatus',
-        'serviceType'      => 'ServiceType',
-        'serviceUid'       => 'ServiceUid',
-        'sort'             => 'Sort',
-        'workspaceId'      => 'WorkspaceId',
+        'quotaId' => 'QuotaId',
+        'resourceName' => 'ResourceName',
+        'resourceType' => 'ResourceType',
+        'role' => 'Role',
+        'serviceName' => 'ServiceName',
+        'serviceStatus' => 'ServiceStatus',
+        'serviceType' => 'ServiceType',
+        'serviceUid' => 'ServiceUid',
+        'sort' => 'Sort',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -150,6 +172,10 @@ class ListServicesRequest extends Model
 
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
+        }
+
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
 
         if (null !== $this->role) {
@@ -234,6 +260,10 @@ class ListServicesRequest extends Model
 
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
+        }
+
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
 
         if (isset($map['Role'])) {

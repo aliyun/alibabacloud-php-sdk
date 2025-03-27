@@ -12,16 +12,18 @@ class DescribeBenchmarkTaskReportResponseBody extends Model
      * @var mixed
      */
     public $data;
+
     /**
      * @var string
      */
     public $reportUrl;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'reportUrl' => 'ReportUrl',
         'requestId' => 'RequestId',
     ];

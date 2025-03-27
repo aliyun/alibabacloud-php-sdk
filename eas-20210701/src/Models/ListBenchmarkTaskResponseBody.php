@@ -13,27 +13,31 @@ class ListBenchmarkTaskResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var tasks[]
      */
     public $tasks;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'tasks'      => 'Tasks',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'tasks' => 'Tasks',
         'totalCount' => 'TotalCount',
     ];
 
@@ -63,7 +67,7 @@ class ListBenchmarkTaskResponseBody extends Model
         if (null !== $this->tasks) {
             if (\is_array($this->tasks)) {
                 $res['Tasks'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->tasks as $item1) {
                     $res['Tasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class ListBenchmarkTaskResponseBody extends Model
         if (isset($map['Tasks'])) {
             if (!empty($map['Tasks'])) {
                 $model->tasks = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Tasks'] as $item1) {
                     $model->tasks[$n1++] = tasks::fromMap($item1);
                 }

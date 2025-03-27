@@ -15,18 +15,20 @@ class behavior extends Model
      * @var onZero
      */
     public $onZero;
+
     /**
      * @var scaleDown
      */
     public $scaleDown;
+
     /**
      * @var scaleUp
      */
     public $scaleUp;
     protected $_name = [
-        'onZero'    => 'onZero',
+        'onZero' => 'onZero',
         'scaleDown' => 'scaleDown',
-        'scaleUp'   => 'scaleUp',
+        'scaleUp' => 'scaleUp',
     ];
 
     public function validate()

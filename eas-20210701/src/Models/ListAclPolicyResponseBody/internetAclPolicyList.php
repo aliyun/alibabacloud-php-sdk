@@ -31,7 +31,7 @@ class internetAclPolicyList extends Model
         if (null !== $this->aclPolicyList) {
             if (\is_array($this->aclPolicyList)) {
                 $res['AclPolicyList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->aclPolicyList as $item1) {
                     $res['AclPolicyList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class internetAclPolicyList extends Model
         if (isset($map['AclPolicyList'])) {
             if (!empty($map['AclPolicyList'])) {
                 $model->aclPolicyList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['AclPolicyList'] as $item1) {
                     $model->aclPolicyList[$n1++] = aclPolicyList::fromMap($item1);
                 }

@@ -12,13 +12,14 @@ class UpdateServiceRequest extends Model
      * @var string
      */
     public $updateType;
+
     /**
      * @var string
      */
     public $body;
     protected $_name = [
         'updateType' => 'UpdateType',
-        'body'       => 'body',
+        'body' => 'body',
     ];
 
     public function validate()

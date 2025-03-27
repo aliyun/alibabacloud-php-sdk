@@ -12,58 +12,68 @@ class instanceMetas extends Model
      * @var int
      */
     public $CPU;
+
     /**
      * @var string
      */
     public $GPU;
+
     /**
      * @var int
      */
     public $GPUAmount;
+
     /**
      * @var float
      */
     public $GPUMemory;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var bool
      */
     public $isAvailable;
+
     /**
      * @var float
      */
     public $memory;
+
     /**
      * @var float
      */
     public $nonProtectSpotDiscount;
+
     /**
      * @var float
      */
     public $spotDiscount;
+
     /**
      * @var string
      */
     public $stockStatus;
+
     /**
      * @var string
      */
     public $vendor;
     protected $_name = [
-        'CPU'                    => 'CPU',
-        'GPU'                    => 'GPU',
-        'GPUAmount'              => 'GPUAmount',
-        'GPUMemory'              => 'GPUMemory',
-        'instanceType'           => 'InstanceType',
-        'isAvailable'            => 'IsAvailable',
-        'memory'                 => 'Memory',
+        'CPU' => 'CPU',
+        'GPU' => 'GPU',
+        'GPUAmount' => 'GPUAmount',
+        'GPUMemory' => 'GPUMemory',
+        'instanceType' => 'InstanceType',
+        'isAvailable' => 'IsAvailable',
+        'memory' => 'Memory',
         'nonProtectSpotDiscount' => 'NonProtectSpotDiscount',
-        'spotDiscount'           => 'SpotDiscount',
-        'stockStatus'            => 'StockStatus',
-        'vendor'                 => 'Vendor',
+        'spotDiscount' => 'SpotDiscount',
+        'stockStatus' => 'StockStatus',
+        'vendor' => 'Vendor',
     ];
 
     public function validate()

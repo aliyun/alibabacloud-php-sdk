@@ -13,6 +13,7 @@ class DescribeServiceInstanceDiagnosisResponseBody extends Model
      * @var diagnosis
      */
     public $diagnosis;
+
     /**
      * @var string
      */

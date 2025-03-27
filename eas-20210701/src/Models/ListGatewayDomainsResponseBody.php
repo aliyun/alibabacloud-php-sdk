@@ -13,18 +13,20 @@ class ListGatewayDomainsResponseBody extends Model
      * @var customDomains[]
      */
     public $customDomains;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'customDomains' => 'CustomDomains',
-        'message'       => 'Message',
-        'requestId'     => 'RequestId',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class ListGatewayDomainsResponseBody extends Model
         if (null !== $this->customDomains) {
             if (\is_array($this->customDomains)) {
                 $res['CustomDomains'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->customDomains as $item1) {
                     $res['CustomDomains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListGatewayDomainsResponseBody extends Model
         if (isset($map['CustomDomains'])) {
             if (!empty($map['CustomDomains'])) {
                 $model->customDomains = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['CustomDomains'] as $item1) {
                     $model->customDomains[$n1++] = customDomains::fromMap($item1);
                 }

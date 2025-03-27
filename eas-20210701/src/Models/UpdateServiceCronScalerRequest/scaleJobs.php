@@ -12,17 +12,19 @@ class scaleJobs extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $schedule;
+
     /**
      * @var int
      */
     public $targetSize;
     protected $_name = [
-        'name'       => 'Name',
-        'schedule'   => 'Schedule',
+        'name' => 'Name',
+        'schedule' => 'Schedule',
         'targetSize' => 'TargetSize',
     ];
 

@@ -12,26 +12,32 @@ class CreateServiceResponseBody extends Model
      * @var string
      */
     public $internetEndpoint;
+
     /**
      * @var string
      */
     public $intranetEndpoint;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $serviceId;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
@@ -39,11 +45,11 @@ class CreateServiceResponseBody extends Model
     protected $_name = [
         'internetEndpoint' => 'InternetEndpoint',
         'intranetEndpoint' => 'IntranetEndpoint',
-        'region'           => 'Region',
-        'requestId'        => 'RequestId',
-        'serviceId'        => 'ServiceId',
-        'serviceName'      => 'ServiceName',
-        'status'           => 'Status',
+        'region' => 'Region',
+        'requestId' => 'RequestId',
+        'serviceId' => 'ServiceId',
+        'serviceName' => 'ServiceName',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class DescribeResourceDLinkResponseBody extends Model
      * @var string[]
      */
     public $auxVSwitchList;
+
     /**
      * @var string
      */
     public $destinationCIDRs;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $securityGroupId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
-        'auxVSwitchList'   => 'AuxVSwitchList',
+        'auxVSwitchList' => 'AuxVSwitchList',
         'destinationCIDRs' => 'DestinationCIDRs',
-        'requestId'        => 'RequestId',
-        'securityGroupId'  => 'SecurityGroupId',
-        'vSwitchId'        => 'VSwitchId',
-        'vpcId'            => 'VpcId',
+        'requestId' => 'RequestId',
+        'securityGroupId' => 'SecurityGroupId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -55,7 +60,7 @@ class DescribeResourceDLinkResponseBody extends Model
         if (null !== $this->auxVSwitchList) {
             if (\is_array($this->auxVSwitchList)) {
                 $res['AuxVSwitchList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->auxVSwitchList as $item1) {
                     $res['AuxVSwitchList'][$n1++] = $item1;
                 }
@@ -96,7 +101,7 @@ class DescribeResourceDLinkResponseBody extends Model
         if (isset($map['AuxVSwitchList'])) {
             if (!empty($map['AuxVSwitchList'])) {
                 $model->auxVSwitchList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['AuxVSwitchList'] as $item1) {
                     $model->auxVSwitchList[$n1++] = $item1;
                 }

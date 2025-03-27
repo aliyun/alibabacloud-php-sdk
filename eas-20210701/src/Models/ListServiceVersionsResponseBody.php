@@ -13,28 +13,32 @@ class ListServiceVersionsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var versions[]
      */
     public $versions;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
-        'versions'   => 'Versions',
+        'versions' => 'Versions',
     ];
 
     public function validate()
@@ -67,7 +71,7 @@ class ListServiceVersionsResponseBody extends Model
         if (null !== $this->versions) {
             if (\is_array($this->versions)) {
                 $res['Versions'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->versions as $item1) {
                     $res['Versions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class ListServiceVersionsResponseBody extends Model
         if (isset($map['Versions'])) {
             if (!empty($map['Versions'])) {
                 $model->versions = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Versions'] as $item1) {
                     $model->versions[$n1++] = versions::fromMap($item1);
                 }

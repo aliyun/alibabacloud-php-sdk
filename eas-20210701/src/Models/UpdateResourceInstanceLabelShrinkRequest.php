@@ -12,18 +12,20 @@ class UpdateResourceInstanceLabelShrinkRequest extends Model
      * @var bool
      */
     public $allInstances;
+
     /**
      * @var string
      */
     public $instanceIdsShrink;
+
     /**
      * @var string[]
      */
     public $labels;
     protected $_name = [
-        'allInstances'      => 'AllInstances',
+        'allInstances' => 'AllInstances',
         'instanceIdsShrink' => 'InstanceIds',
-        'labels'            => 'Labels',
+        'labels' => 'Labels',
     ];
 
     public function validate()

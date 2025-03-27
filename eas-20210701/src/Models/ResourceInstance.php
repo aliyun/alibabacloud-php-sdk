@@ -13,123 +13,146 @@ class ResourceInstance extends Model
      * @var string
      */
     public $arch;
+
     /**
      * @var bool
      */
     public $autoRenewal;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var int
      */
     public $instanceCpuCount;
+
     /**
      * @var int
      */
     public $instanceGpuCount;
+
     /**
      * @var string
      */
     public $instanceGpuMemory;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceIp;
+
     /**
      * @var string
      */
     public $instanceMemory;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $instanceStatus;
+
     /**
      * @var int
      */
     public $instanceSystemDiskSize;
+
     /**
      * @var string
      */
     public $instanceTenantIp;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var float
      */
     public $instanceUsedCpu;
+
     /**
      * @var float
      */
     public $instanceUsedGpu;
+
     /**
      * @var string
      */
     public $instanceUsedGpuMemory;
+
     /**
      * @var string
      */
     public $instanceUsedMemory;
+
     /**
      * @var labels[]
      */
     public $labels;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $zone;
     protected $_name = [
-        'arch'                   => 'Arch',
-        'autoRenewal'            => 'AutoRenewal',
-        'chargeType'             => 'ChargeType',
-        'createTime'             => 'CreateTime',
-        'expiredTime'            => 'ExpiredTime',
-        'instanceCpuCount'       => 'InstanceCpuCount',
-        'instanceGpuCount'       => 'InstanceGpuCount',
-        'instanceGpuMemory'      => 'InstanceGpuMemory',
-        'instanceId'             => 'InstanceId',
-        'instanceIp'             => 'InstanceIp',
-        'instanceMemory'         => 'InstanceMemory',
-        'instanceName'           => 'InstanceName',
-        'instanceStatus'         => 'InstanceStatus',
+        'arch' => 'Arch',
+        'autoRenewal' => 'AutoRenewal',
+        'chargeType' => 'ChargeType',
+        'createTime' => 'CreateTime',
+        'expiredTime' => 'ExpiredTime',
+        'instanceCpuCount' => 'InstanceCpuCount',
+        'instanceGpuCount' => 'InstanceGpuCount',
+        'instanceGpuMemory' => 'InstanceGpuMemory',
+        'instanceId' => 'InstanceId',
+        'instanceIp' => 'InstanceIp',
+        'instanceMemory' => 'InstanceMemory',
+        'instanceName' => 'InstanceName',
+        'instanceStatus' => 'InstanceStatus',
         'instanceSystemDiskSize' => 'InstanceSystemDiskSize',
-        'instanceTenantIp'       => 'InstanceTenantIp',
-        'instanceType'           => 'InstanceType',
-        'instanceUsedCpu'        => 'InstanceUsedCpu',
-        'instanceUsedGpu'        => 'InstanceUsedGpu',
-        'instanceUsedGpuMemory'  => 'InstanceUsedGpuMemory',
-        'instanceUsedMemory'     => 'InstanceUsedMemory',
-        'labels'                 => 'Labels',
-        'region'                 => 'Region',
-        'resourceId'             => 'ResourceId',
-        'zone'                   => 'Zone',
+        'instanceTenantIp' => 'InstanceTenantIp',
+        'instanceType' => 'InstanceType',
+        'instanceUsedCpu' => 'InstanceUsedCpu',
+        'instanceUsedGpu' => 'InstanceUsedGpu',
+        'instanceUsedGpuMemory' => 'InstanceUsedGpuMemory',
+        'instanceUsedMemory' => 'InstanceUsedMemory',
+        'labels' => 'Labels',
+        'region' => 'Region',
+        'resourceId' => 'ResourceId',
+        'zone' => 'Zone',
     ];
 
     public function validate()
@@ -226,7 +249,7 @@ class ResourceInstance extends Model
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->labels as $item1) {
                     $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -339,7 +362,7 @@ class ResourceInstance extends Model
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
                     $model->labels[$n1++] = labels::fromMap($item1);
                 }

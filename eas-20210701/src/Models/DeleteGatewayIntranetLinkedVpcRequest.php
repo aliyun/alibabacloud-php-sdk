@@ -12,13 +12,14 @@ class DeleteGatewayIntranetLinkedVpcRequest extends Model
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'vSwitchId' => 'VSwitchId',
-        'vpcId'     => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()

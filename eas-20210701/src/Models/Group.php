@@ -12,48 +12,56 @@ class Group extends Model
      * @var string
      */
     public $accessToken;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $internetEndpoint;
+
     /**
      * @var string
      */
     public $intranetEndpoint;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $queueService;
+
     /**
      * @var string
      */
     public $trafficMode;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'accessToken'      => 'AccessToken',
-        'clusterId'        => 'ClusterId',
-        'createTime'       => 'CreateTime',
+        'accessToken' => 'AccessToken',
+        'clusterId' => 'ClusterId',
+        'createTime' => 'CreateTime',
         'internetEndpoint' => 'InternetEndpoint',
         'intranetEndpoint' => 'IntranetEndpoint',
-        'name'             => 'Name',
-        'queueService'     => 'QueueService',
-        'trafficMode'      => 'TrafficMode',
-        'updateTime'       => 'UpdateTime',
+        'name' => 'Name',
+        'queueService' => 'QueueService',
+        'trafficMode' => 'TrafficMode',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

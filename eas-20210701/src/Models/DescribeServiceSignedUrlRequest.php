@@ -12,18 +12,20 @@ class DescribeServiceSignedUrlRequest extends Model
      * @var int
      */
     public $expire;
+
     /**
      * @var bool
      */
     public $internal;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'expire'   => 'Expire',
+        'expire' => 'Expire',
         'internal' => 'Internal',
-        'type'     => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

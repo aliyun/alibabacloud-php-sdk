@@ -12,133 +12,158 @@ class Instance extends Model
      * @var float
      */
     public $currentAmount;
+
     /**
      * @var string
      */
     public $externalIP;
+
     /**
      * @var int
      */
     public $externalInstancePort;
+
     /**
      * @var string
      */
     public $hostIP;
+
     /**
      * @var string
      */
     public $hostName;
+
     /**
      * @var string
      */
     public $innerIP;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var int
      */
     public $instancePort;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var bool
      */
     public $isSpot;
+
     /**
      * @var bool
      */
     public $isolated;
+
     /**
      * @var mixed[][]
      */
     public $lastState;
+
     /**
      * @var string
      */
     public $namespace;
+
     /**
      * @var float
      */
     public $originalAmount;
+
     /**
      * @var int
      */
     public $readyProcesses;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var int
      */
     public $restartCount;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $startAt;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tenantHostIP;
+
     /**
      * @var string
      */
     public $tenantInstanceIP;
+
     /**
      * @var int
      */
     public $totalProcesses;
+
     /**
      * @var string
      */
     public $zone;
     protected $_name = [
-        'currentAmount'        => 'CurrentAmount',
-        'externalIP'           => 'ExternalIP',
+        'currentAmount' => 'CurrentAmount',
+        'externalIP' => 'ExternalIP',
         'externalInstancePort' => 'ExternalInstancePort',
-        'hostIP'               => 'HostIP',
-        'hostName'             => 'HostName',
-        'innerIP'              => 'InnerIP',
-        'instanceName'         => 'InstanceName',
-        'instancePort'         => 'InstancePort',
-        'instanceType'         => 'InstanceType',
-        'isSpot'               => 'IsSpot',
-        'isolated'             => 'Isolated',
-        'lastState'            => 'LastState',
-        'namespace'            => 'Namespace',
-        'originalAmount'       => 'OriginalAmount',
-        'readyProcesses'       => 'ReadyProcesses',
-        'reason'               => 'Reason',
-        'resourceType'         => 'ResourceType',
-        'restartCount'         => 'RestartCount',
-        'role'                 => 'Role',
-        'startAt'              => 'StartAt',
-        'startTime'            => 'StartTime',
-        'status'               => 'Status',
-        'tenantHostIP'         => 'TenantHostIP',
-        'tenantInstanceIP'     => 'TenantInstanceIP',
-        'totalProcesses'       => 'TotalProcesses',
-        'zone'                 => 'Zone',
+        'hostIP' => 'HostIP',
+        'hostName' => 'HostName',
+        'innerIP' => 'InnerIP',
+        'instanceName' => 'InstanceName',
+        'instancePort' => 'InstancePort',
+        'instanceType' => 'InstanceType',
+        'isSpot' => 'IsSpot',
+        'isolated' => 'Isolated',
+        'lastState' => 'LastState',
+        'namespace' => 'Namespace',
+        'originalAmount' => 'OriginalAmount',
+        'readyProcesses' => 'ReadyProcesses',
+        'reason' => 'Reason',
+        'resourceType' => 'ResourceType',
+        'restartCount' => 'RestartCount',
+        'role' => 'Role',
+        'startAt' => 'StartAt',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'tenantHostIP' => 'TenantHostIP',
+        'tenantInstanceIP' => 'TenantInstanceIP',
+        'totalProcesses' => 'TotalProcesses',
+        'zone' => 'Zone',
     ];
 
     public function validate()
@@ -199,7 +224,7 @@ class Instance extends Model
         if (null !== $this->lastState) {
             if (\is_array($this->lastState)) {
                 $res['LastState'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->lastState as $item1) {
                     if (\is_array($item1)) {
                         $res['LastState'][$n1++] = [];
@@ -325,7 +350,7 @@ class Instance extends Model
         if (isset($map['LastState'])) {
             if (!empty($map['LastState'])) {
                 $model->lastState = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['LastState'] as $item1) {
                     if (!empty($item1)) {
                         $model->lastState[$n1++] = [];

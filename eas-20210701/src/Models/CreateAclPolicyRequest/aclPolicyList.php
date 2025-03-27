@@ -12,13 +12,14 @@ class aclPolicyList extends Model
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $entry;
     protected $_name = [
         'comment' => 'Comment',
-        'entry'   => 'Entry',
+        'entry' => 'Entry',
     ];
 
     public function validate()

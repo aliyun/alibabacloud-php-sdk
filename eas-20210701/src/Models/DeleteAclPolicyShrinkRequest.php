@@ -12,13 +12,14 @@ class DeleteAclPolicyShrinkRequest extends Model
      * @var string
      */
     public $aclPolicyListShrink;
+
     /**
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'aclPolicyListShrink' => 'AclPolicyList',
-        'vpcId'               => 'VpcId',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
