@@ -13,48 +13,56 @@ class data extends Model
      * @var int
      */
     public $abnormalCount;
+
     /**
      * @var string
      */
     public $apiFormat;
+
     /**
      * @var string
      */
     public $apiId;
+
     /**
      * @var string
      */
     public $clientIP;
+
     /**
      * @var string
      */
     public $detectionResult;
+
     /**
      * @var int
      */
     public $eventCount;
+
     /**
      * @var infoCount[]
      */
     public $infoCount;
+
     /**
      * @var string
      */
     public $matchedHost;
+
     /**
      * @var string[]
      */
     public $sensitiveList;
     protected $_name = [
-        'abnormalCount'   => 'AbnormalCount',
-        'apiFormat'       => 'ApiFormat',
-        'apiId'           => 'ApiId',
-        'clientIP'        => 'ClientIP',
+        'abnormalCount' => 'AbnormalCount',
+        'apiFormat' => 'ApiFormat',
+        'apiId' => 'ApiId',
+        'clientIP' => 'ClientIP',
         'detectionResult' => 'DetectionResult',
-        'eventCount'      => 'EventCount',
-        'infoCount'       => 'InfoCount',
-        'matchedHost'     => 'MatchedHost',
-        'sensitiveList'   => 'SensitiveList',
+        'eventCount' => 'EventCount',
+        'infoCount' => 'InfoCount',
+        'matchedHost' => 'MatchedHost',
+        'sensitiveList' => 'SensitiveList',
     ];
 
     public function validate()
@@ -98,7 +106,7 @@ class data extends Model
         if (null !== $this->infoCount) {
             if (\is_array($this->infoCount)) {
                 $res['InfoCount'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->infoCount as $item1) {
                     $res['InfoCount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -112,7 +120,7 @@ class data extends Model
         if (null !== $this->sensitiveList) {
             if (\is_array($this->sensitiveList)) {
                 $res['SensitiveList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->sensitiveList as $item1) {
                     $res['SensitiveList'][$n1++] = $item1;
                 }
@@ -157,7 +165,7 @@ class data extends Model
         if (isset($map['InfoCount'])) {
             if (!empty($map['InfoCount'])) {
                 $model->infoCount = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['InfoCount'] as $item1) {
                     $model->infoCount[$n1++] = infoCount::fromMap($item1);
                 }
@@ -171,7 +179,7 @@ class data extends Model
         if (isset($map['SensitiveList'])) {
             if (!empty($map['SensitiveList'])) {
                 $model->sensitiveList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['SensitiveList'] as $item1) {
                     $model->sensitiveList[$n1++] = $item1;
                 }

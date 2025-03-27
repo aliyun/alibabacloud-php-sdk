@@ -12,13 +12,14 @@ class result extends Model
      * @var string
      */
     public $resource;
+
     /**
      * @var bool
      */
     public $status;
     protected $_name = [
         'resource' => 'Resource',
-        'status'   => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

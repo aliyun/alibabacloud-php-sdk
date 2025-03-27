@@ -12,123 +12,146 @@ class flowChart extends Model
      * @var int
      */
     public $aclCustomBlockSum;
+
     /**
      * @var int
      */
     public $aclCustomReportsSum;
+
     /**
      * @var int
      */
     public $antiScanBlockSum;
+
     /**
      * @var int
      */
     public $antibotBlockSum;
+
     /**
      * @var string
      */
     public $antibotReportSum;
+
     /**
      * @var int
      */
     public $antiscanReportsSum;
+
     /**
      * @var string
      */
     public $blacklistBlockSum;
+
     /**
      * @var int
      */
     public $blacklistReportsSum;
+
     /**
      * @var int
      */
     public $ccCustomBlockSum;
+
     /**
      * @var int
      */
     public $ccCustomReportsSum;
+
     /**
      * @var int
      */
     public $ccSystemBlocksSum;
+
     /**
      * @var int
      */
     public $ccSystemReportsSum;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $inBytes;
+
     /**
      * @var int
      */
     public $index;
+
     /**
      * @var int
      */
     public $maxPv;
+
     /**
      * @var int
      */
     public $outBytes;
+
     /**
      * @var int
      */
     public $ratelimitBlockSum;
+
     /**
      * @var int
      */
     public $ratelimitReportSum;
+
     /**
      * @var int
      */
     public $regionBlockBlocksSum;
+
     /**
      * @var int
      */
     public $regionBlockReportsSum;
+
     /**
      * @var int
      */
     public $robotCount;
+
     /**
      * @var int
      */
     public $wafBlockSum;
+
     /**
      * @var string
      */
     public $wafReportSum;
     protected $_name = [
-        'aclCustomBlockSum'     => 'AclCustomBlockSum',
-        'aclCustomReportsSum'   => 'AclCustomReportsSum',
-        'antiScanBlockSum'      => 'AntiScanBlockSum',
-        'antibotBlockSum'       => 'AntibotBlockSum',
-        'antibotReportSum'      => 'AntibotReportSum',
-        'antiscanReportsSum'    => 'AntiscanReportsSum',
-        'blacklistBlockSum'     => 'BlacklistBlockSum',
-        'blacklistReportsSum'   => 'BlacklistReportsSum',
-        'ccCustomBlockSum'      => 'CcCustomBlockSum',
-        'ccCustomReportsSum'    => 'CcCustomReportsSum',
-        'ccSystemBlocksSum'     => 'CcSystemBlocksSum',
-        'ccSystemReportsSum'    => 'CcSystemReportsSum',
-        'count'                 => 'Count',
-        'inBytes'               => 'InBytes',
-        'index'                 => 'Index',
-        'maxPv'                 => 'MaxPv',
-        'outBytes'              => 'OutBytes',
-        'ratelimitBlockSum'     => 'RatelimitBlockSum',
-        'ratelimitReportSum'    => 'RatelimitReportSum',
-        'regionBlockBlocksSum'  => 'RegionBlockBlocksSum',
+        'aclCustomBlockSum' => 'AclCustomBlockSum',
+        'aclCustomReportsSum' => 'AclCustomReportsSum',
+        'antiScanBlockSum' => 'AntiScanBlockSum',
+        'antibotBlockSum' => 'AntibotBlockSum',
+        'antibotReportSum' => 'AntibotReportSum',
+        'antiscanReportsSum' => 'AntiscanReportsSum',
+        'blacklistBlockSum' => 'BlacklistBlockSum',
+        'blacklistReportsSum' => 'BlacklistReportsSum',
+        'ccCustomBlockSum' => 'CcCustomBlockSum',
+        'ccCustomReportsSum' => 'CcCustomReportsSum',
+        'ccSystemBlocksSum' => 'CcSystemBlocksSum',
+        'ccSystemReportsSum' => 'CcSystemReportsSum',
+        'count' => 'Count',
+        'inBytes' => 'InBytes',
+        'index' => 'Index',
+        'maxPv' => 'MaxPv',
+        'outBytes' => 'OutBytes',
+        'ratelimitBlockSum' => 'RatelimitBlockSum',
+        'ratelimitReportSum' => 'RatelimitReportSum',
+        'regionBlockBlocksSum' => 'RegionBlockBlocksSum',
         'regionBlockReportsSum' => 'RegionBlockReportsSum',
-        'robotCount'            => 'RobotCount',
-        'wafBlockSum'           => 'WafBlockSum',
-        'wafReportSum'          => 'WafReportSum',
+        'robotCount' => 'RobotCount',
+        'wafBlockSum' => 'WafBlockSum',
+        'wafReportSum' => 'WafReportSum',
     ];
 
     public function validate()

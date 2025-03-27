@@ -12,103 +12,122 @@ class data extends Model
      * @var int
      */
     public $abnormalEventNumber;
+
     /**
      * @var string
      */
     public $abnormalId;
+
     /**
      * @var string
      */
     public $abnormalInfo;
+
     /**
      * @var string
      */
     public $abnormalLevel;
+
     /**
      * @var string
      */
     public $abnormalTag;
+
     /**
      * @var string
      */
     public $abnromalStatus;
+
     /**
      * @var string
      */
     public $apiFormat;
+
     /**
      * @var string
      */
     public $apiId;
+
     /**
      * @var string
      */
     public $apiTag;
+
     /**
      * @var int
      */
     public $discoverTime;
+
     /**
      * @var string[]
      */
     public $examples;
+
     /**
      * @var int
      */
     public $firstTime;
+
     /**
      * @var int
      */
     public $follow;
+
     /**
      * @var int
      */
     public $ignoreTime;
+
     /**
      * @var int
      */
     public $lastestTime;
+
     /**
      * @var int
      */
     public $latestDiscoverTime;
+
     /**
      * @var string
      */
     public $matchedHost;
+
     /**
      * @var string
      */
     public $note;
+
     /**
      * @var string
      */
     public $origin;
+
     /**
      * @var string
      */
     public $userStatus;
     protected $_name = [
         'abnormalEventNumber' => 'AbnormalEventNumber',
-        'abnormalId'          => 'AbnormalId',
-        'abnormalInfo'        => 'AbnormalInfo',
-        'abnormalLevel'       => 'AbnormalLevel',
-        'abnormalTag'         => 'AbnormalTag',
-        'abnromalStatus'      => 'AbnromalStatus',
-        'apiFormat'           => 'ApiFormat',
-        'apiId'               => 'ApiId',
-        'apiTag'              => 'ApiTag',
-        'discoverTime'        => 'DiscoverTime',
-        'examples'            => 'Examples',
-        'firstTime'           => 'FirstTime',
-        'follow'              => 'Follow',
-        'ignoreTime'          => 'IgnoreTime',
-        'lastestTime'         => 'LastestTime',
-        'latestDiscoverTime'  => 'LatestDiscoverTime',
-        'matchedHost'         => 'MatchedHost',
-        'note'                => 'Note',
-        'origin'              => 'Origin',
-        'userStatus'          => 'UserStatus',
+        'abnormalId' => 'AbnormalId',
+        'abnormalInfo' => 'AbnormalInfo',
+        'abnormalLevel' => 'AbnormalLevel',
+        'abnormalTag' => 'AbnormalTag',
+        'abnromalStatus' => 'AbnromalStatus',
+        'apiFormat' => 'ApiFormat',
+        'apiId' => 'ApiId',
+        'apiTag' => 'ApiTag',
+        'discoverTime' => 'DiscoverTime',
+        'examples' => 'Examples',
+        'firstTime' => 'FirstTime',
+        'follow' => 'Follow',
+        'ignoreTime' => 'IgnoreTime',
+        'lastestTime' => 'LastestTime',
+        'latestDiscoverTime' => 'LatestDiscoverTime',
+        'matchedHost' => 'MatchedHost',
+        'note' => 'Note',
+        'origin' => 'Origin',
+        'userStatus' => 'UserStatus',
     ];
 
     public function validate()
@@ -165,7 +184,7 @@ class data extends Model
         if (null !== $this->examples) {
             if (\is_array($this->examples)) {
                 $res['Examples'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->examples as $item1) {
                     $res['Examples'][$n1++] = $item1;
                 }
@@ -262,7 +281,7 @@ class data extends Model
         if (isset($map['Examples'])) {
             if (!empty($map['Examples'])) {
                 $model->examples = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Examples'] as $item1) {
                     $model->examples[$n1++] = $item1;
                 }

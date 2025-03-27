@@ -13,12 +13,13 @@ class DescribeWafSourceIpSegmentResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var wafSourceIp
      */
     public $wafSourceIp;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'wafSourceIp' => 'WafSourceIp',
     ];
 

@@ -12,16 +12,18 @@ class list_ extends Model
      * @var int
      */
     public $infoCount;
+
     /**
      * @var int
      */
     public $outboundCount;
+
     /**
      * @var int
      */
     public $sensitiveCode;
     protected $_name = [
-        'infoCount'     => 'InfoCount',
+        'infoCount' => 'InfoCount',
         'outboundCount' => 'OutboundCount',
         'sensitiveCode' => 'SensitiveCode',
     ];

@@ -12,17 +12,19 @@ class DescribeDefenseTemplateValidGroupsResponseBody extends Model
      * @var string[]
      */
     public $groups;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'groups'     => 'Groups',
-        'requestId'  => 'RequestId',
+        'groups' => 'Groups',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -40,7 +42,7 @@ class DescribeDefenseTemplateValidGroupsResponseBody extends Model
         if (null !== $this->groups) {
             if (\is_array($this->groups)) {
                 $res['Groups'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->groups as $item1) {
                     $res['Groups'][$n1++] = $item1;
                 }
@@ -69,7 +71,7 @@ class DescribeDefenseTemplateValidGroupsResponseBody extends Model
         if (isset($map['Groups'])) {
             if (!empty($map['Groups'])) {
                 $model->groups = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Groups'] as $item1) {
                     $model->groups[$n1++] = $item1;
                 }

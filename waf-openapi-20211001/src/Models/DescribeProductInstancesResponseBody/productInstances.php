@@ -13,48 +13,56 @@ class productInstances extends Model
      * @var string
      */
     public $ownerUserId;
+
     /**
      * @var string
      */
     public $resourceInstanceId;
+
     /**
      * @var string
      */
     public $resourceInstanceIp;
+
     /**
      * @var string
      */
     public $resourceInstanceName;
+
     /**
      * @var string
      */
     public $resourceIp;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var resourcePorts[]
      */
     public $resourcePorts;
+
     /**
      * @var string
      */
     public $resourceProduct;
+
     /**
      * @var string
      */
     public $resourceRegionId;
     protected $_name = [
-        'ownerUserId'          => 'OwnerUserId',
-        'resourceInstanceId'   => 'ResourceInstanceId',
-        'resourceInstanceIp'   => 'ResourceInstanceIp',
+        'ownerUserId' => 'OwnerUserId',
+        'resourceInstanceId' => 'ResourceInstanceId',
+        'resourceInstanceIp' => 'ResourceInstanceIp',
         'resourceInstanceName' => 'ResourceInstanceName',
-        'resourceIp'           => 'ResourceIp',
-        'resourceName'         => 'ResourceName',
-        'resourcePorts'        => 'ResourcePorts',
-        'resourceProduct'      => 'ResourceProduct',
-        'resourceRegionId'     => 'ResourceRegionId',
+        'resourceIp' => 'ResourceIp',
+        'resourceName' => 'ResourceName',
+        'resourcePorts' => 'ResourcePorts',
+        'resourceProduct' => 'ResourceProduct',
+        'resourceRegionId' => 'ResourceRegionId',
     ];
 
     public function validate()
@@ -95,7 +103,7 @@ class productInstances extends Model
         if (null !== $this->resourcePorts) {
             if (\is_array($this->resourcePorts)) {
                 $res['ResourcePorts'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->resourcePorts as $item1) {
                     $res['ResourcePorts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -148,7 +156,7 @@ class productInstances extends Model
         if (isset($map['ResourcePorts'])) {
             if (!empty($map['ResourcePorts'])) {
                 $model->resourcePorts = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ResourcePorts'] as $item1) {
                     $model->resourcePorts[$n1++] = resourcePorts::fromMap($item1);
                 }

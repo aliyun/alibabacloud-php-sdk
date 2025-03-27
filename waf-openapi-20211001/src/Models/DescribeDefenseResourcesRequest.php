@@ -13,38 +13,44 @@ class DescribeDefenseResourcesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $query;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'query'                          => 'Query',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'query' => 'Query',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'tag'                            => 'Tag',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -85,7 +91,7 @@ class DescribeDefenseResourcesRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -130,7 +136,7 @@ class DescribeDefenseResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

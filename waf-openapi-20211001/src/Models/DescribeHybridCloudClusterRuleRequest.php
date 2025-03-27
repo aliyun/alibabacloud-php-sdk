@@ -12,28 +12,32 @@ class DescribeHybridCloudClusterRuleRequest extends Model
      * @var int
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $ruleType;
     protected $_name = [
-        'clusterId'                      => 'ClusterId',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'ruleType'                       => 'RuleType',
+        'ruleType' => 'RuleType',
     ];
 
     public function validate()

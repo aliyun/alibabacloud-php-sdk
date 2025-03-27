@@ -13,13 +13,14 @@ class DescribeDefenseTemplateResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var template
      */
     public $template;
     protected $_name = [
         'requestId' => 'RequestId',
-        'template'  => 'Template',
+        'template' => 'Template',
     ];
 
     public function validate()

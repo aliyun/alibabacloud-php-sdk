@@ -12,28 +12,32 @@ class ModifyHybridCloudClusterBypassStatusRequest extends Model
      * @var string
      */
     public $clusterResourceId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $ruleStatus;
     protected $_name = [
-        'clusterResourceId'              => 'ClusterResourceId',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'clusterResourceId' => 'ClusterResourceId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'ruleStatus'                     => 'RuleStatus',
+        'ruleStatus' => 'RuleStatus',
     ];
 
     public function validate()

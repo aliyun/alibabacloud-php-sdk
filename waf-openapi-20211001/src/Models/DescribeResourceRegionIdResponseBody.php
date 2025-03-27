@@ -12,12 +12,13 @@ class DescribeResourceRegionIdResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
     public $resourceRegionIds;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceRegionIds' => 'ResourceRegionIds',
     ];
 
@@ -39,7 +40,7 @@ class DescribeResourceRegionIdResponseBody extends Model
         if (null !== $this->resourceRegionIds) {
             if (\is_array($this->resourceRegionIds)) {
                 $res['ResourceRegionIds'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->resourceRegionIds as $item1) {
                     $res['ResourceRegionIds'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class DescribeResourceRegionIdResponseBody extends Model
         if (isset($map['ResourceRegionIds'])) {
             if (!empty($map['ResourceRegionIds'])) {
                 $model->resourceRegionIds = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ResourceRegionIds'] as $item1) {
                     $model->resourceRegionIds[$n1++] = $item1;
                 }

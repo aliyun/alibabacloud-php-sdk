@@ -12,48 +12,56 @@ class DescribeMajorProtectionBlackIpsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ipLike;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'ipLike'                         => 'IpLike',
-        'orderBy'                        => 'OrderBy',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'ipLike' => 'IpLike',
+        'orderBy' => 'OrderBy',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'ruleId'                         => 'RuleId',
-        'templateId'                     => 'TemplateId',
+        'ruleId' => 'RuleId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

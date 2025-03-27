@@ -12,12 +12,13 @@ class infoCount extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $count;
     protected $_name = [
-        'code'  => 'Code',
+        'code' => 'Code',
         'count' => 'Count',
     ];
 

@@ -13,13 +13,14 @@ class DescribeApisecLogDeliveriesResponseBody extends Model
      * @var deliveryConfigs[]
      */
     public $deliveryConfigs;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'deliveryConfigs' => 'DeliveryConfigs',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeApisecLogDeliveriesResponseBody extends Model
         if (null !== $this->deliveryConfigs) {
             if (\is_array($this->deliveryConfigs)) {
                 $res['DeliveryConfigs'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->deliveryConfigs as $item1) {
                     $res['DeliveryConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeApisecLogDeliveriesResponseBody extends Model
         if (isset($map['DeliveryConfigs'])) {
             if (!empty($map['DeliveryConfigs'])) {
                 $model->deliveryConfigs = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['DeliveryConfigs'] as $item1) {
                     $model->deliveryConfigs[$n1++] = deliveryConfigs::fromMap($item1);
                 }

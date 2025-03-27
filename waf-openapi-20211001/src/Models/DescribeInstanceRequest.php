@@ -12,12 +12,13 @@ class DescribeInstanceRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'regionId'                       => 'RegionId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

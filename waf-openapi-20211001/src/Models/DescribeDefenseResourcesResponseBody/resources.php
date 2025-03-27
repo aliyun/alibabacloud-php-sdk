@@ -13,88 +13,104 @@ class resources extends Model
      * @var int
      */
     public $acwCookieStatus;
+
     /**
      * @var int
      */
     public $acwSecureStatus;
+
     /**
      * @var int
      */
     public $acwV3SecureStatus;
+
     /**
      * @var string[]
      */
     public $customHeaders;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var mixed[]
      */
     public $detail;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $ownerUserId;
+
     /**
      * @var string
      */
     public $pattern;
+
     /**
      * @var string
      */
     public $product;
+
     /**
      * @var string
      */
     public $resource;
+
     /**
      * @var string
      */
     public $resourceGroup;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $resourceOrigin;
+
     /**
      * @var responseHeaders[]
      */
     public $responseHeaders;
+
     /**
      * @var int
      */
     public $xffStatus;
     protected $_name = [
-        'acwCookieStatus'                => 'AcwCookieStatus',
-        'acwSecureStatus'                => 'AcwSecureStatus',
-        'acwV3SecureStatus'              => 'AcwV3SecureStatus',
-        'customHeaders'                  => 'CustomHeaders',
-        'description'                    => 'Description',
-        'detail'                         => 'Detail',
-        'gmtCreate'                      => 'GmtCreate',
-        'gmtModified'                    => 'GmtModified',
-        'ownerUserId'                    => 'OwnerUserId',
-        'pattern'                        => 'Pattern',
-        'product'                        => 'Product',
-        'resource'                       => 'Resource',
-        'resourceGroup'                  => 'ResourceGroup',
+        'acwCookieStatus' => 'AcwCookieStatus',
+        'acwSecureStatus' => 'AcwSecureStatus',
+        'acwV3SecureStatus' => 'AcwV3SecureStatus',
+        'customHeaders' => 'CustomHeaders',
+        'description' => 'Description',
+        'detail' => 'Detail',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'ownerUserId' => 'OwnerUserId',
+        'pattern' => 'Pattern',
+        'product' => 'Product',
+        'resource' => 'Resource',
+        'resourceGroup' => 'ResourceGroup',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'resourceOrigin'                 => 'ResourceOrigin',
-        'responseHeaders'                => 'ResponseHeaders',
-        'xffStatus'                      => 'XffStatus',
+        'resourceOrigin' => 'ResourceOrigin',
+        'responseHeaders' => 'ResponseHeaders',
+        'xffStatus' => 'XffStatus',
     ];
 
     public function validate()
@@ -129,7 +145,7 @@ class resources extends Model
         if (null !== $this->customHeaders) {
             if (\is_array($this->customHeaders)) {
                 $res['CustomHeaders'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->customHeaders as $item1) {
                     $res['CustomHeaders'][$n1++] = $item1;
                 }
@@ -188,7 +204,7 @@ class resources extends Model
         if (null !== $this->responseHeaders) {
             if (\is_array($this->responseHeaders)) {
                 $res['ResponseHeaders'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->responseHeaders as $item1) {
                     $res['ResponseHeaders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -225,7 +241,7 @@ class resources extends Model
         if (isset($map['CustomHeaders'])) {
             if (!empty($map['CustomHeaders'])) {
                 $model->customHeaders = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['CustomHeaders'] as $item1) {
                     $model->customHeaders[$n1++] = $item1;
                 }
@@ -284,7 +300,7 @@ class resources extends Model
         if (isset($map['ResponseHeaders'])) {
             if (!empty($map['ResponseHeaders'])) {
                 $model->responseHeaders = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ResponseHeaders'] as $item1) {
                     $model->responseHeaders[$n1++] = responseHeaders::fromMap($item1);
                 }

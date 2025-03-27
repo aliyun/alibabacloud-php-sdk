@@ -12,18 +12,20 @@ class cnameCount extends Model
      * @var int
      */
     public $cname;
+
     /**
      * @var int
      */
     public $hybridCloudCname;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'cname'            => 'Cname',
+        'cname' => 'Cname',
         'hybridCloudCname' => 'HybridCloudCname',
-        'total'            => 'Total',
+        'total' => 'Total',
     ];
 
     public function validate()

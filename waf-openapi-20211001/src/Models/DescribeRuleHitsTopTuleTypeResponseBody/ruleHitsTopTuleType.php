@@ -12,12 +12,13 @@ class ruleHitsTopTuleType extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $ruleType;
     protected $_name = [
-        'count'    => 'Count',
+        'count' => 'Count',
         'ruleType' => 'RuleType',
     ];
 

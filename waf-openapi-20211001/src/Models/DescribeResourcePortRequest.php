@@ -12,22 +12,25 @@ class DescribeResourcePortRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceInstanceId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
-        'resourceInstanceId'             => 'ResourceInstanceId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'resourceInstanceId' => 'ResourceInstanceId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

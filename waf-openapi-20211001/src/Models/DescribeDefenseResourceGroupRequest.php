@@ -12,22 +12,25 @@ class DescribeDefenseResourceGroupRequest extends Model
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'groupName'                      => 'GroupName',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'groupName' => 'GroupName',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

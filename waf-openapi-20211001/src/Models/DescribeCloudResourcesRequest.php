@@ -12,73 +12,86 @@ class DescribeCloudResourcesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ownerUserId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceDomain;
+
     /**
      * @var string
      */
     public $resourceFunction;
+
     /**
      * @var string
      */
     public $resourceInstanceId;
+
     /**
      * @var string
      */
     public $resourceInstanceName;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceProduct;
+
     /**
      * @var string
      */
     public $resourceRegionId;
+
     /**
      * @var string
      */
     public $resourceRouteName;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'ownerUserId'                    => 'OwnerUserId',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
-        'resourceDomain'                 => 'ResourceDomain',
-        'resourceFunction'               => 'ResourceFunction',
-        'resourceInstanceId'             => 'ResourceInstanceId',
-        'resourceInstanceName'           => 'ResourceInstanceName',
+        'instanceId' => 'InstanceId',
+        'ownerUserId' => 'OwnerUserId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceDomain' => 'ResourceDomain',
+        'resourceFunction' => 'ResourceFunction',
+        'resourceInstanceId' => 'ResourceInstanceId',
+        'resourceInstanceName' => 'ResourceInstanceName',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'resourceName'                   => 'ResourceName',
-        'resourceProduct'                => 'ResourceProduct',
-        'resourceRegionId'               => 'ResourceRegionId',
-        'resourceRouteName'              => 'ResourceRouteName',
+        'resourceName' => 'ResourceName',
+        'resourceProduct' => 'ResourceProduct',
+        'resourceRegionId' => 'ResourceRegionId',
+        'resourceRouteName' => 'ResourceRouteName',
     ];
 
     public function validate()

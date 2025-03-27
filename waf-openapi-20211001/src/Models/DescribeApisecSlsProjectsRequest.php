@@ -12,22 +12,25 @@ class DescribeApisecSlsProjectsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $logRegionId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'logRegionId'                    => 'LogRegionId',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'logRegionId' => 'LogRegionId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

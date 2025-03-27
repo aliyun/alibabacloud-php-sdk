@@ -13,13 +13,14 @@ class DescribeDefenseResourceResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var resource
      */
     public $resource;
     protected $_name = [
         'requestId' => 'RequestId',
-        'resource'  => 'Resource',
+        'resource' => 'Resource',
     ];
 
     public function validate()

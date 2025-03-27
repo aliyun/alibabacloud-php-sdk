@@ -13,18 +13,20 @@ class DescribeCloudResourceAccessPortDetailsResponseBody extends Model
      * @var accessPortDetails[]
      */
     public $accessPortDetails;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'accessPortDetails' => 'AccessPortDetails',
-        'requestId'         => 'RequestId',
-        'totalCount'        => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class DescribeCloudResourceAccessPortDetailsResponseBody extends Model
         if (null !== $this->accessPortDetails) {
             if (\is_array($this->accessPortDetails)) {
                 $res['AccessPortDetails'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->accessPortDetails as $item1) {
                     $res['AccessPortDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeCloudResourceAccessPortDetailsResponseBody extends Model
         if (isset($map['AccessPortDetails'])) {
             if (!empty($map['AccessPortDetails'])) {
                 $model->accessPortDetails = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['AccessPortDetails'] as $item1) {
                     $model->accessPortDetails[$n1++] = accessPortDetails::fromMap($item1);
                 }

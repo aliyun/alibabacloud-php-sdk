@@ -12,33 +12,38 @@ class data extends Model
      * @var string
      */
     public $detectionResult;
+
     /**
      * @var int
      */
     public $infoCount;
+
     /**
      * @var int
      */
     public $outboundCount;
+
     /**
      * @var int
      */
     public $sensitiveCode;
+
     /**
      * @var string
      */
     public $sensitiveLevel;
+
     /**
      * @var string
      */
     public $sensitiveType;
     protected $_name = [
         'detectionResult' => 'DetectionResult',
-        'infoCount'       => 'InfoCount',
-        'outboundCount'   => 'OutboundCount',
-        'sensitiveCode'   => 'SensitiveCode',
-        'sensitiveLevel'  => 'SensitiveLevel',
-        'sensitiveType'   => 'SensitiveType',
+        'infoCount' => 'InfoCount',
+        'outboundCount' => 'OutboundCount',
+        'sensitiveCode' => 'SensitiveCode',
+        'sensitiveLevel' => 'SensitiveLevel',
+        'sensitiveType' => 'SensitiveType',
     ];
 
     public function validate()

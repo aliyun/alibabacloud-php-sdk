@@ -12,22 +12,25 @@ class DescribeUserAbnormalTrendRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'clusterId'                      => 'ClusterId',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

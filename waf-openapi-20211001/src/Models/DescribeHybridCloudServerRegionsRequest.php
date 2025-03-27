@@ -12,27 +12,31 @@ class DescribeHybridCloudServerRegionsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionCode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $regionType;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'regionCode'                     => 'RegionCode',
-        'regionId'                       => 'RegionId',
-        'regionType'                     => 'RegionType',
+        'instanceId' => 'InstanceId',
+        'regionCode' => 'RegionCode',
+        'regionId' => 'RegionId',
+        'regionType' => 'RegionType',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

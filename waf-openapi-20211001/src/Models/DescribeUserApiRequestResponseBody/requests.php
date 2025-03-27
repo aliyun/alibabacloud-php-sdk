@@ -12,6 +12,7 @@ class requests extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */

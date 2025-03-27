@@ -13,53 +13,62 @@ class DescribeInstanceResponseBody extends Model
      * @var details
      */
     public $details;
+
     /**
      * @var string
      */
     public $edition;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $inDebt;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'details'    => 'Details',
-        'edition'    => 'Edition',
-        'endTime'    => 'EndTime',
-        'inDebt'     => 'InDebt',
+        'details' => 'Details',
+        'edition' => 'Edition',
+        'endTime' => 'EndTime',
+        'inDebt' => 'InDebt',
         'instanceId' => 'InstanceId',
-        'payType'    => 'PayType',
-        'regionId'   => 'RegionId',
-        'requestId'  => 'RequestId',
-        'startTime'  => 'StartTime',
-        'status'     => 'Status',
+        'payType' => 'PayType',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
     public function validate()

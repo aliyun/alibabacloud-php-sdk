@@ -12,13 +12,14 @@ class DescribePauseProtectionStatusResponseBody extends Model
      * @var int
      */
     public $pauseStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'pauseStatus' => 'PauseStatus',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

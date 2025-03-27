@@ -13,13 +13,14 @@ class DescribeUserAbnormalTrendResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var trend[]
      */
     public $trend;
     protected $_name = [
         'requestId' => 'RequestId',
-        'trend'     => 'Trend',
+        'trend' => 'Trend',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class DescribeUserAbnormalTrendResponseBody extends Model
         if (null !== $this->trend) {
             if (\is_array($this->trend)) {
                 $res['Trend'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->trend as $item1) {
                     $res['Trend'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeUserAbnormalTrendResponseBody extends Model
         if (isset($map['Trend'])) {
             if (!empty($map['Trend'])) {
                 $model->trend = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Trend'] as $item1) {
                     $model->trend[$n1++] = trend::fromMap($item1);
                 }

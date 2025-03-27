@@ -13,43 +13,50 @@ class CreateDomainShrinkRequest extends Model
      * @var string
      */
     public $accessType;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $listenShrink;
+
     /**
      * @var string
      */
     public $redirectShrink;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'accessType'                     => 'AccessType',
-        'domain'                         => 'Domain',
-        'instanceId'                     => 'InstanceId',
-        'listenShrink'                   => 'Listen',
-        'redirectShrink'                 => 'Redirect',
-        'regionId'                       => 'RegionId',
+        'accessType' => 'AccessType',
+        'domain' => 'Domain',
+        'instanceId' => 'InstanceId',
+        'listenShrink' => 'Listen',
+        'redirectShrink' => 'Redirect',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'tag'                            => 'Tag',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -94,7 +101,7 @@ class CreateDomainShrinkRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -143,7 +150,7 @@ class CreateDomainShrinkRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

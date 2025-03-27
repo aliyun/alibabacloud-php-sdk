@@ -12,23 +12,26 @@ class data extends Model
      * @var int
      */
     public $assetActive;
+
     /**
      * @var int
      */
     public $assetCount;
+
     /**
      * @var int
      */
     public $assetOffline;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'assetActive'  => 'AssetActive',
-        'assetCount'   => 'AssetCount',
+        'assetActive' => 'AssetActive',
+        'assetCount' => 'AssetCount',
         'assetOffline' => 'AssetOffline',
-        'timestamp'    => 'Timestamp',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()

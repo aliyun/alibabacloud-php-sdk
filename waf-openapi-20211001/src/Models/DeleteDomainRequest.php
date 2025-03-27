@@ -12,28 +12,32 @@ class DeleteDomainRequest extends Model
      * @var string
      */
     public $accessType;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $domainId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'accessType' => 'AccessType',
-        'domain'     => 'Domain',
-        'domainId'   => 'DomainId',
+        'domain' => 'Domain',
+        'domainId' => 'DomainId',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

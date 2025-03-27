@@ -12,43 +12,50 @@ class CreateSM2CertRequest extends Model
      * @var string
      */
     public $certName;
+
     /**
      * @var string
      */
     public $encryptCertificate;
+
     /**
      * @var string
      */
     public $encryptPrivateKey;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $signCertificate;
+
     /**
      * @var string
      */
     public $signPrivateKey;
     protected $_name = [
-        'certName'                       => 'CertName',
-        'encryptCertificate'             => 'EncryptCertificate',
-        'encryptPrivateKey'              => 'EncryptPrivateKey',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'certName' => 'CertName',
+        'encryptCertificate' => 'EncryptCertificate',
+        'encryptPrivateKey' => 'EncryptPrivateKey',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'signCertificate'                => 'SignCertificate',
-        'signPrivateKey'                 => 'SignPrivateKey',
+        'signCertificate' => 'SignCertificate',
+        'signPrivateKey' => 'SignPrivateKey',
     ];
 
     public function validate()

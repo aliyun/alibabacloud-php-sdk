@@ -12,23 +12,26 @@ class DescribeAccountDelegatedStatusResponseBody extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var bool
      */
     public $delegatedStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'accountId'       => 'AccountId',
-        'accountName'     => 'AccountName',
+        'accountId' => 'AccountId',
+        'accountName' => 'AccountName',
         'delegatedStatus' => 'DelegatedStatus',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

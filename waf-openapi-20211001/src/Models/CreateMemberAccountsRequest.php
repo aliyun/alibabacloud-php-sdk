@@ -12,28 +12,32 @@ class CreateMemberAccountsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string[]
      */
     public $memberAccountIds;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $sourceIp;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'memberAccountIds'               => 'MemberAccountIds',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'memberAccountIds' => 'MemberAccountIds',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'sourceIp'                       => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
     public function validate()
@@ -54,7 +58,7 @@ class CreateMemberAccountsRequest extends Model
         if (null !== $this->memberAccountIds) {
             if (\is_array($this->memberAccountIds)) {
                 $res['MemberAccountIds'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->memberAccountIds as $item1) {
                     $res['MemberAccountIds'][$n1++] = $item1;
                 }
@@ -91,7 +95,7 @@ class CreateMemberAccountsRequest extends Model
         if (isset($map['MemberAccountIds'])) {
             if (!empty($map['MemberAccountIds'])) {
                 $model->memberAccountIds = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['MemberAccountIds'] as $item1) {
                     $model->memberAccountIds[$n1++] = $item1;
                 }

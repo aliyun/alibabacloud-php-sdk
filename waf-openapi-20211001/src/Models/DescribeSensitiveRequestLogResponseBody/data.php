@@ -12,48 +12,56 @@ class data extends Model
      * @var string
      */
     public $apiFormat;
+
     /**
      * @var string
      */
     public $apiId;
+
     /**
      * @var string
      */
     public $clientIP;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $matchedHost;
+
     /**
      * @var string
      */
     public $remoteCountryId;
+
     /**
      * @var int
      */
     public $requestTime;
+
     /**
      * @var string
      */
     public $sensitiveList;
+
     /**
      * @var string
      */
     public $traceId;
     protected $_name = [
-        'apiFormat'       => 'ApiFormat',
-        'apiId'           => 'ApiId',
-        'clientIP'        => 'ClientIP',
-        'count'           => 'Count',
-        'matchedHost'     => 'MatchedHost',
+        'apiFormat' => 'ApiFormat',
+        'apiId' => 'ApiId',
+        'clientIP' => 'ClientIP',
+        'count' => 'Count',
+        'matchedHost' => 'MatchedHost',
         'remoteCountryId' => 'RemoteCountryId',
-        'requestTime'     => 'RequestTime',
-        'sensitiveList'   => 'SensitiveList',
-        'traceId'         => 'TraceId',
+        'requestTime' => 'RequestTime',
+        'sensitiveList' => 'SensitiveList',
+        'traceId' => 'TraceId',
     ];
 
     public function validate()

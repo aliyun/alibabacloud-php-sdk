@@ -12,33 +12,38 @@ class CreateDefenseRuleRequest extends Model
      * @var string
      */
     public $defenseScene;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $rules;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'defenseScene'                   => 'DefenseScene',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'defenseScene' => 'DefenseScene',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'rules'                          => 'Rules',
-        'templateId'                     => 'TemplateId',
+        'rules' => 'Rules',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

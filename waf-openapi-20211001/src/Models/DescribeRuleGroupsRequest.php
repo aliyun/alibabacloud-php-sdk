@@ -12,38 +12,44 @@ class DescribeRuleGroupsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $searchType;
+
     /**
      * @var string
      */
     public $searchValue;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'searchType'                     => 'SearchType',
-        'searchValue'                    => 'SearchValue',
+        'searchType' => 'SearchType',
+        'searchValue' => 'SearchValue',
     ];
 
     public function validate()

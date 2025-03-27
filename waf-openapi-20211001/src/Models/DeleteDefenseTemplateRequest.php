@@ -12,23 +12,26 @@ class DeleteDefenseTemplateRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'templateId'                     => 'TemplateId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

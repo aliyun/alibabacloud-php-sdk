@@ -12,17 +12,19 @@ class domainInfo extends Model
      * @var string
      */
     public $cname;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $domainId;
     protected $_name = [
-        'cname'    => 'Cname',
-        'domain'   => 'Domain',
+        'cname' => 'Cname',
+        'domain' => 'Domain',
         'domainId' => 'DomainId',
     ];
 

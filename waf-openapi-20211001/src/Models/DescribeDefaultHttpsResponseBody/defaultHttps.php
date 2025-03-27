@@ -12,28 +12,32 @@ class defaultHttps extends Model
      * @var string
      */
     public $certId;
+
     /**
      * @var string
      */
     public $cipherSuite;
+
     /**
      * @var string
      */
     public $customCiphers;
+
     /**
      * @var bool
      */
     public $enableTLSv3;
+
     /**
      * @var string
      */
     public $TLSVersion;
     protected $_name = [
-        'certId'        => 'CertId',
-        'cipherSuite'   => 'CipherSuite',
+        'certId' => 'CertId',
+        'cipherSuite' => 'CipherSuite',
         'customCiphers' => 'CustomCiphers',
-        'enableTLSv3'   => 'EnableTLSv3',
-        'TLSVersion'    => 'TLSVersion',
+        'enableTLSv3' => 'EnableTLSv3',
+        'TLSVersion' => 'TLSVersion',
     ];
 
     public function validate()

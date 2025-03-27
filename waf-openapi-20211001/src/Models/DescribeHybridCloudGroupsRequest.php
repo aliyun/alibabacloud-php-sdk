@@ -12,47 +12,55 @@ class DescribeHybridCloudGroupsRequest extends Model
      * @var int
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $clusterProxyType;
+
     /**
      * @var int
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $groupType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'clusterId'                      => 'ClusterId',
-        'clusterProxyType'               => 'ClusterProxyType',
-        'groupName'                      => 'GroupName',
-        'groupType'                      => 'GroupType',
-        'instanceId'                     => 'InstanceId',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'clusterProxyType' => 'ClusterProxyType',
+        'groupName' => 'GroupName',
+        'groupType' => 'GroupType',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

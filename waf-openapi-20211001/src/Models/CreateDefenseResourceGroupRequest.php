@@ -12,32 +12,37 @@ class CreateDefenseResourceGroupRequest extends Model
      * @var string
      */
     public $addList;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'addList'                        => 'AddList',
-        'description'                    => 'Description',
-        'groupName'                      => 'GroupName',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'addList' => 'AddList',
+        'description' => 'Description',
+        'groupName' => 'GroupName',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

@@ -12,28 +12,32 @@ class DescribeTemplateResourcesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'resourceType'                   => 'ResourceType',
-        'templateId'                     => 'TemplateId',
+        'resourceType' => 'ResourceType',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

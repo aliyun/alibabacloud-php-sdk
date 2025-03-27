@@ -12,23 +12,26 @@ class abnormal extends Model
      * @var string
      */
     public $abnormalCode;
+
     /**
      * @var int
      */
     public $abnormalCount;
+
     /**
      * @var string
      */
     public $abnormalParentType;
+
     /**
      * @var string
      */
     public $abnormalType;
     protected $_name = [
-        'abnormalCode'       => 'AbnormalCode',
-        'abnormalCount'      => 'AbnormalCount',
+        'abnormalCode' => 'AbnormalCode',
+        'abnormalCount' => 'AbnormalCount',
         'abnormalParentType' => 'AbnormalParentType',
-        'abnormalType'       => 'AbnormalType',
+        'abnormalType' => 'AbnormalType',
     ];
 
     public function validate()

@@ -12,6 +12,7 @@ class DescribeApisecSlsLogStoresResponseBody extends Model
      * @var string[]
      */
     public $logStores;
+
     /**
      * @var string
      */
@@ -35,7 +36,7 @@ class DescribeApisecSlsLogStoresResponseBody extends Model
         if (null !== $this->logStores) {
             if (\is_array($this->logStores)) {
                 $res['LogStores'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->logStores as $item1) {
                     $res['LogStores'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class DescribeApisecSlsLogStoresResponseBody extends Model
         if (isset($map['LogStores'])) {
             if (!empty($map['LogStores'])) {
                 $model->logStores = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['LogStores'] as $item1) {
                     $model->logStores[$n1++] = $item1;
                 }

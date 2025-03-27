@@ -12,38 +12,44 @@ class certDetail extends Model
      * @var int
      */
     public $afterDate;
+
     /**
      * @var int
      */
     public $beforeDate;
+
     /**
      * @var string
      */
     public $certIdentifier;
+
     /**
      * @var string
      */
     public $certName;
+
     /**
      * @var string
      */
     public $commonName;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string[]
      */
     public $sans;
     protected $_name = [
-        'afterDate'      => 'AfterDate',
-        'beforeDate'     => 'BeforeDate',
+        'afterDate' => 'AfterDate',
+        'beforeDate' => 'BeforeDate',
         'certIdentifier' => 'CertIdentifier',
-        'certName'       => 'CertName',
-        'commonName'     => 'CommonName',
-        'domain'         => 'Domain',
-        'sans'           => 'Sans',
+        'certName' => 'CertName',
+        'commonName' => 'CommonName',
+        'domain' => 'Domain',
+        'sans' => 'Sans',
     ];
 
     public function validate()
@@ -84,7 +90,7 @@ class certDetail extends Model
         if (null !== $this->sans) {
             if (\is_array($this->sans)) {
                 $res['Sans'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->sans as $item1) {
                     $res['Sans'][$n1++] = $item1;
                 }
@@ -129,7 +135,7 @@ class certDetail extends Model
         if (isset($map['Sans'])) {
             if (!empty($map['Sans'])) {
                 $model->sans = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Sans'] as $item1) {
                     $model->sans[$n1++] = $item1;
                 }

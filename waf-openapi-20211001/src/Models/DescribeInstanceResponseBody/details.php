@@ -12,258 +12,308 @@ class details extends Model
      * @var int
      */
     public $aclRuleMaxIpCount;
+
     /**
      * @var bool
      */
     public $antiScan;
+
     /**
      * @var int
      */
     public $antiScanTemplateMaxCount;
+
     /**
      * @var int
      */
     public $backendMaxCount;
+
     /**
      * @var bool
      */
     public $baseWafGroup;
+
     /**
      * @var int
      */
     public $baseWafGroupRuleInTemplateMaxCount;
+
     /**
      * @var int
      */
     public $baseWafGroupRuleTemplateMaxCount;
+
     /**
      * @var bool
      */
     public $bot;
+
     /**
      * @var string
      */
     public $botApp;
+
     /**
      * @var int
      */
     public $botTemplateMaxCount;
+
     /**
      * @var string
      */
     public $botWeb;
+
     /**
      * @var int
      */
     public $cnameResourceMaxCount;
+
     /**
      * @var bool
      */
     public $customResponse;
+
     /**
      * @var int
      */
     public $customResponseRuleInTemplateMaxCount;
+
     /**
      * @var int
      */
     public $customResponseTemplateMaxCount;
+
     /**
      * @var bool
      */
     public $customRule;
+
     /**
      * @var string
      */
     public $customRuleAction;
+
     /**
      * @var string
      */
     public $customRuleCondition;
+
     /**
      * @var int
      */
     public $customRuleInTemplateMaxCount;
+
     /**
      * @var string
      */
     public $customRuleRatelimitor;
+
     /**
      * @var int
      */
     public $customRuleTemplateMaxCount;
+
     /**
      * @var int
      */
     public $defenseGroupMaxCount;
+
     /**
      * @var int
      */
     public $defenseObjectInGroupMaxCount;
+
     /**
      * @var int
      */
     public $defenseObjectInTemplateMaxCount;
+
     /**
      * @var int
      */
     public $defenseObjectMaxCount;
+
     /**
      * @var bool
      */
     public $dlp;
+
     /**
      * @var int
      */
     public $dlpRuleInTemplateMaxCount;
+
     /**
      * @var int
      */
     public $dlpTemplateMaxCount;
+
     /**
      * @var bool
      */
     public $exclusiveIp;
+
     /**
      * @var bool
      */
     public $gslb;
+
     /**
      * @var string
      */
     public $httpPorts;
+
     /**
      * @var string
      */
     public $httpsPorts;
+
     /**
      * @var bool
      */
     public $ipBlacklist;
+
     /**
      * @var int
      */
     public $ipBlacklistIpInRuleMaxCount;
+
     /**
      * @var int
      */
     public $ipBlacklistRuleInTemplateMaxCount;
+
     /**
      * @var int
      */
     public $ipBlacklistTemplateMaxCount;
+
     /**
      * @var bool
      */
     public $ipv6;
+
     /**
      * @var bool
      */
     public $logService;
+
     /**
      * @var bool
      */
     public $majorProtection;
+
     /**
      * @var int
      */
     public $majorProtectionTemplateMaxCount;
+
     /**
      * @var bool
      */
     public $tamperproof;
+
     /**
      * @var int
      */
     public $tamperproofRuleInTemplateMaxCount;
+
     /**
      * @var int
      */
     public $tamperproofTemplateMaxCount;
+
     /**
      * @var int
      */
     public $vastIpBlacklistInFileMaxCount;
+
     /**
      * @var int
      */
     public $vastIpBlacklistInOperationMaxCount;
+
     /**
      * @var int
      */
     public $vastIpBlacklistMaxCount;
+
     /**
      * @var bool
      */
     public $whitelist;
+
     /**
      * @var string
      */
     public $whitelistLogical;
+
     /**
      * @var string
      */
     public $whitelistRuleCondition;
+
     /**
      * @var int
      */
     public $whitelistRuleInTemplateMaxCount;
+
     /**
      * @var int
      */
     public $whitelistTemplateMaxCount;
     protected $_name = [
-        'aclRuleMaxIpCount'                    => 'AclRuleMaxIpCount',
-        'antiScan'                             => 'AntiScan',
-        'antiScanTemplateMaxCount'             => 'AntiScanTemplateMaxCount',
-        'backendMaxCount'                      => 'BackendMaxCount',
-        'baseWafGroup'                         => 'BaseWafGroup',
-        'baseWafGroupRuleInTemplateMaxCount'   => 'BaseWafGroupRuleInTemplateMaxCount',
-        'baseWafGroupRuleTemplateMaxCount'     => 'BaseWafGroupRuleTemplateMaxCount',
-        'bot'                                  => 'Bot',
-        'botApp'                               => 'BotApp',
-        'botTemplateMaxCount'                  => 'BotTemplateMaxCount',
-        'botWeb'                               => 'BotWeb',
-        'cnameResourceMaxCount'                => 'CnameResourceMaxCount',
-        'customResponse'                       => 'CustomResponse',
+        'aclRuleMaxIpCount' => 'AclRuleMaxIpCount',
+        'antiScan' => 'AntiScan',
+        'antiScanTemplateMaxCount' => 'AntiScanTemplateMaxCount',
+        'backendMaxCount' => 'BackendMaxCount',
+        'baseWafGroup' => 'BaseWafGroup',
+        'baseWafGroupRuleInTemplateMaxCount' => 'BaseWafGroupRuleInTemplateMaxCount',
+        'baseWafGroupRuleTemplateMaxCount' => 'BaseWafGroupRuleTemplateMaxCount',
+        'bot' => 'Bot',
+        'botApp' => 'BotApp',
+        'botTemplateMaxCount' => 'BotTemplateMaxCount',
+        'botWeb' => 'BotWeb',
+        'cnameResourceMaxCount' => 'CnameResourceMaxCount',
+        'customResponse' => 'CustomResponse',
         'customResponseRuleInTemplateMaxCount' => 'CustomResponseRuleInTemplateMaxCount',
-        'customResponseTemplateMaxCount'       => 'CustomResponseTemplateMaxCount',
-        'customRule'                           => 'CustomRule',
-        'customRuleAction'                     => 'CustomRuleAction',
-        'customRuleCondition'                  => 'CustomRuleCondition',
-        'customRuleInTemplateMaxCount'         => 'CustomRuleInTemplateMaxCount',
-        'customRuleRatelimitor'                => 'CustomRuleRatelimitor',
-        'customRuleTemplateMaxCount'           => 'CustomRuleTemplateMaxCount',
-        'defenseGroupMaxCount'                 => 'DefenseGroupMaxCount',
-        'defenseObjectInGroupMaxCount'         => 'DefenseObjectInGroupMaxCount',
-        'defenseObjectInTemplateMaxCount'      => 'DefenseObjectInTemplateMaxCount',
-        'defenseObjectMaxCount'                => 'DefenseObjectMaxCount',
-        'dlp'                                  => 'Dlp',
-        'dlpRuleInTemplateMaxCount'            => 'DlpRuleInTemplateMaxCount',
-        'dlpTemplateMaxCount'                  => 'DlpTemplateMaxCount',
-        'exclusiveIp'                          => 'ExclusiveIp',
-        'gslb'                                 => 'Gslb',
-        'httpPorts'                            => 'HttpPorts',
-        'httpsPorts'                           => 'HttpsPorts',
-        'ipBlacklist'                          => 'IpBlacklist',
-        'ipBlacklistIpInRuleMaxCount'          => 'IpBlacklistIpInRuleMaxCount',
-        'ipBlacklistRuleInTemplateMaxCount'    => 'IpBlacklistRuleInTemplateMaxCount',
-        'ipBlacklistTemplateMaxCount'          => 'IpBlacklistTemplateMaxCount',
-        'ipv6'                                 => 'Ipv6',
-        'logService'                           => 'LogService',
-        'majorProtection'                      => 'MajorProtection',
-        'majorProtectionTemplateMaxCount'      => 'MajorProtectionTemplateMaxCount',
-        'tamperproof'                          => 'Tamperproof',
-        'tamperproofRuleInTemplateMaxCount'    => 'TamperproofRuleInTemplateMaxCount',
-        'tamperproofTemplateMaxCount'          => 'TamperproofTemplateMaxCount',
-        'vastIpBlacklistInFileMaxCount'        => 'VastIpBlacklistInFileMaxCount',
-        'vastIpBlacklistInOperationMaxCount'   => 'VastIpBlacklistInOperationMaxCount',
-        'vastIpBlacklistMaxCount'              => 'VastIpBlacklistMaxCount',
-        'whitelist'                            => 'Whitelist',
-        'whitelistLogical'                     => 'WhitelistLogical',
-        'whitelistRuleCondition'               => 'WhitelistRuleCondition',
-        'whitelistRuleInTemplateMaxCount'      => 'WhitelistRuleInTemplateMaxCount',
-        'whitelistTemplateMaxCount'            => 'WhitelistTemplateMaxCount',
+        'customResponseTemplateMaxCount' => 'CustomResponseTemplateMaxCount',
+        'customRule' => 'CustomRule',
+        'customRuleAction' => 'CustomRuleAction',
+        'customRuleCondition' => 'CustomRuleCondition',
+        'customRuleInTemplateMaxCount' => 'CustomRuleInTemplateMaxCount',
+        'customRuleRatelimitor' => 'CustomRuleRatelimitor',
+        'customRuleTemplateMaxCount' => 'CustomRuleTemplateMaxCount',
+        'defenseGroupMaxCount' => 'DefenseGroupMaxCount',
+        'defenseObjectInGroupMaxCount' => 'DefenseObjectInGroupMaxCount',
+        'defenseObjectInTemplateMaxCount' => 'DefenseObjectInTemplateMaxCount',
+        'defenseObjectMaxCount' => 'DefenseObjectMaxCount',
+        'dlp' => 'Dlp',
+        'dlpRuleInTemplateMaxCount' => 'DlpRuleInTemplateMaxCount',
+        'dlpTemplateMaxCount' => 'DlpTemplateMaxCount',
+        'exclusiveIp' => 'ExclusiveIp',
+        'gslb' => 'Gslb',
+        'httpPorts' => 'HttpPorts',
+        'httpsPorts' => 'HttpsPorts',
+        'ipBlacklist' => 'IpBlacklist',
+        'ipBlacklistIpInRuleMaxCount' => 'IpBlacklistIpInRuleMaxCount',
+        'ipBlacklistRuleInTemplateMaxCount' => 'IpBlacklistRuleInTemplateMaxCount',
+        'ipBlacklistTemplateMaxCount' => 'IpBlacklistTemplateMaxCount',
+        'ipv6' => 'Ipv6',
+        'logService' => 'LogService',
+        'majorProtection' => 'MajorProtection',
+        'majorProtectionTemplateMaxCount' => 'MajorProtectionTemplateMaxCount',
+        'tamperproof' => 'Tamperproof',
+        'tamperproofRuleInTemplateMaxCount' => 'TamperproofRuleInTemplateMaxCount',
+        'tamperproofTemplateMaxCount' => 'TamperproofTemplateMaxCount',
+        'vastIpBlacklistInFileMaxCount' => 'VastIpBlacklistInFileMaxCount',
+        'vastIpBlacklistInOperationMaxCount' => 'VastIpBlacklistInOperationMaxCount',
+        'vastIpBlacklistMaxCount' => 'VastIpBlacklistMaxCount',
+        'whitelist' => 'Whitelist',
+        'whitelistLogical' => 'WhitelistLogical',
+        'whitelistRuleCondition' => 'WhitelistRuleCondition',
+        'whitelistRuleInTemplateMaxCount' => 'WhitelistRuleInTemplateMaxCount',
+        'whitelistTemplateMaxCount' => 'WhitelistTemplateMaxCount',
     ];
 
     public function validate()

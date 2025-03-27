@@ -12,37 +12,43 @@ class DescribeApisecProtectionResourcesRequest extends Model
      * @var int
      */
     public $apisecStatus;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resource;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'apisecStatus'                   => 'ApisecStatus',
-        'instanceId'                     => 'InstanceId',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
-        'resource'                       => 'Resource',
+        'apisecStatus' => 'ApisecStatus',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resource' => 'Resource',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

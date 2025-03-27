@@ -12,32 +12,37 @@ class DescribeResourceInstanceCertsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceInstanceId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
-        'resourceInstanceId'             => 'ResourceInstanceId',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceInstanceId' => 'ResourceInstanceId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

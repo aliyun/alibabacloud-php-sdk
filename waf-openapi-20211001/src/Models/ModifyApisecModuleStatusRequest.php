@@ -12,38 +12,44 @@ class ModifyApisecModuleStatusRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $reportStatus;
+
     /**
      * @var string
      */
     public $resourceGroups;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $resources;
+
     /**
      * @var int
      */
     public $traceStatus;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
-        'reportStatus'                   => 'ReportStatus',
-        'resourceGroups'                 => 'ResourceGroups',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'reportStatus' => 'ReportStatus',
+        'resourceGroups' => 'ResourceGroups',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'resources'                      => 'Resources',
-        'traceStatus'                    => 'TraceStatus',
+        'resources' => 'Resources',
+        'traceStatus' => 'TraceStatus',
     ];
 
     public function validate()

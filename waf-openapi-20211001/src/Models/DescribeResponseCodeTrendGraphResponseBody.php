@@ -13,12 +13,13 @@ class DescribeResponseCodeTrendGraphResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var responseCodes[]
      */
     public $responseCodes;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'responseCodes' => 'ResponseCodes',
     ];
 
@@ -40,7 +41,7 @@ class DescribeResponseCodeTrendGraphResponseBody extends Model
         if (null !== $this->responseCodes) {
             if (\is_array($this->responseCodes)) {
                 $res['ResponseCodes'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->responseCodes as $item1) {
                     $res['ResponseCodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeResponseCodeTrendGraphResponseBody extends Model
         if (isset($map['ResponseCodes'])) {
             if (!empty($map['ResponseCodes'])) {
                 $model->responseCodes = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ResponseCodes'] as $item1) {
                     $model->responseCodes[$n1++] = responseCodes::fromMap($item1);
                 }

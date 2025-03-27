@@ -12,38 +12,44 @@ class ModifyApisecEventsRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string[]
      */
     public $eventIds;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $note;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $userStatus;
     protected $_name = [
-        'clusterId'                      => 'ClusterId',
-        'eventIds'                       => 'EventIds',
-        'instanceId'                     => 'InstanceId',
-        'note'                           => 'Note',
-        'regionId'                       => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'eventIds' => 'EventIds',
+        'instanceId' => 'InstanceId',
+        'note' => 'Note',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'userStatus'                     => 'UserStatus',
+        'userStatus' => 'UserStatus',
     ];
 
     public function validate()
@@ -64,7 +70,7 @@ class ModifyApisecEventsRequest extends Model
         if (null !== $this->eventIds) {
             if (\is_array($this->eventIds)) {
                 $res['EventIds'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->eventIds as $item1) {
                     $res['EventIds'][$n1++] = $item1;
                 }
@@ -109,7 +115,7 @@ class ModifyApisecEventsRequest extends Model
         if (isset($map['EventIds'])) {
             if (!empty($map['EventIds'])) {
                 $model->eventIds = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['EventIds'] as $item1) {
                     $model->eventIds[$n1++] = $item1;
                 }

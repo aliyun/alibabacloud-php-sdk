@@ -12,17 +12,19 @@ class certificates extends Model
      * @var string
      */
     public $appliedType;
+
     /**
      * @var string
      */
     public $certificateId;
+
     /**
      * @var string
      */
     public $certificateName;
     protected $_name = [
-        'appliedType'     => 'AppliedType',
-        'certificateId'   => 'CertificateId',
+        'appliedType' => 'AppliedType',
+        'certificateId' => 'CertificateId',
         'certificateName' => 'CertificateName',
     ];
 

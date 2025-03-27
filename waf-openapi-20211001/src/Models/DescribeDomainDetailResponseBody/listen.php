@@ -12,88 +12,104 @@ class listen extends Model
      * @var int
      */
     public $certId;
+
     /**
      * @var int
      */
     public $cipherSuite;
+
     /**
      * @var string[]
      */
     public $customCiphers;
+
     /**
      * @var bool
      */
     public $enableTLSv3;
+
     /**
      * @var bool
      */
     public $exclusiveIp;
+
     /**
      * @var bool
      */
     public $focusHttps;
+
     /**
      * @var bool
      */
     public $http2Enabled;
+
     /**
      * @var int[]
      */
     public $httpPorts;
+
     /**
      * @var int[]
      */
     public $httpsPorts;
+
     /**
      * @var bool
      */
     public $IPv6Enabled;
+
     /**
      * @var string
      */
     public $protectionResource;
+
     /**
      * @var bool
      */
     public $SM2AccessOnly;
+
     /**
      * @var string
      */
     public $SM2CertId;
+
     /**
      * @var bool
      */
     public $SM2Enabled;
+
     /**
      * @var string
      */
     public $TLSVersion;
+
     /**
      * @var int
      */
     public $xffHeaderMode;
+
     /**
      * @var string[]
      */
     public $xffHeaders;
     protected $_name = [
-        'certId'             => 'CertId',
-        'cipherSuite'        => 'CipherSuite',
-        'customCiphers'      => 'CustomCiphers',
-        'enableTLSv3'        => 'EnableTLSv3',
-        'exclusiveIp'        => 'ExclusiveIp',
-        'focusHttps'         => 'FocusHttps',
-        'http2Enabled'       => 'Http2Enabled',
-        'httpPorts'          => 'HttpPorts',
-        'httpsPorts'         => 'HttpsPorts',
-        'IPv6Enabled'        => 'IPv6Enabled',
+        'certId' => 'CertId',
+        'cipherSuite' => 'CipherSuite',
+        'customCiphers' => 'CustomCiphers',
+        'enableTLSv3' => 'EnableTLSv3',
+        'exclusiveIp' => 'ExclusiveIp',
+        'focusHttps' => 'FocusHttps',
+        'http2Enabled' => 'Http2Enabled',
+        'httpPorts' => 'HttpPorts',
+        'httpsPorts' => 'HttpsPorts',
+        'IPv6Enabled' => 'IPv6Enabled',
         'protectionResource' => 'ProtectionResource',
-        'SM2AccessOnly'      => 'SM2AccessOnly',
-        'SM2CertId'          => 'SM2CertId',
-        'SM2Enabled'         => 'SM2Enabled',
-        'TLSVersion'         => 'TLSVersion',
-        'xffHeaderMode'      => 'XffHeaderMode',
-        'xffHeaders'         => 'XffHeaders',
+        'SM2AccessOnly' => 'SM2AccessOnly',
+        'SM2CertId' => 'SM2CertId',
+        'SM2Enabled' => 'SM2Enabled',
+        'TLSVersion' => 'TLSVersion',
+        'xffHeaderMode' => 'XffHeaderMode',
+        'xffHeaders' => 'XffHeaders',
     ];
 
     public function validate()
@@ -127,7 +143,7 @@ class listen extends Model
         if (null !== $this->customCiphers) {
             if (\is_array($this->customCiphers)) {
                 $res['CustomCiphers'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->customCiphers as $item1) {
                     $res['CustomCiphers'][$n1++] = $item1;
                 }
@@ -153,7 +169,7 @@ class listen extends Model
         if (null !== $this->httpPorts) {
             if (\is_array($this->httpPorts)) {
                 $res['HttpPorts'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->httpPorts as $item1) {
                     $res['HttpPorts'][$n1++] = $item1;
                 }
@@ -163,7 +179,7 @@ class listen extends Model
         if (null !== $this->httpsPorts) {
             if (\is_array($this->httpsPorts)) {
                 $res['HttpsPorts'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->httpsPorts as $item1) {
                     $res['HttpsPorts'][$n1++] = $item1;
                 }
@@ -201,7 +217,7 @@ class listen extends Model
         if (null !== $this->xffHeaders) {
             if (\is_array($this->xffHeaders)) {
                 $res['XffHeaders'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->xffHeaders as $item1) {
                     $res['XffHeaders'][$n1++] = $item1;
                 }
@@ -230,7 +246,7 @@ class listen extends Model
         if (isset($map['CustomCiphers'])) {
             if (!empty($map['CustomCiphers'])) {
                 $model->customCiphers = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['CustomCiphers'] as $item1) {
                     $model->customCiphers[$n1++] = $item1;
                 }
@@ -256,7 +272,7 @@ class listen extends Model
         if (isset($map['HttpPorts'])) {
             if (!empty($map['HttpPorts'])) {
                 $model->httpPorts = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['HttpPorts'] as $item1) {
                     $model->httpPorts[$n1++] = $item1;
                 }
@@ -266,7 +282,7 @@ class listen extends Model
         if (isset($map['HttpsPorts'])) {
             if (!empty($map['HttpsPorts'])) {
                 $model->httpsPorts = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['HttpsPorts'] as $item1) {
                     $model->httpsPorts[$n1++] = $item1;
                 }
@@ -304,7 +320,7 @@ class listen extends Model
         if (isset($map['XffHeaders'])) {
             if (!empty($map['XffHeaders'])) {
                 $model->xffHeaders = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['XffHeaders'] as $item1) {
                     $model->xffHeaders[$n1++] = $item1;
                 }

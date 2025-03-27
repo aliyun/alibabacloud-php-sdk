@@ -12,13 +12,14 @@ class ModifyCloudResourceResponseBody extends Model
      * @var string
      */
     public $cloudResource;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'cloudResource' => 'CloudResource',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

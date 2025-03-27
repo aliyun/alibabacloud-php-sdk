@@ -13,13 +13,14 @@ class DescribeUserApiRequestResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var requests[]
      */
     public $requests;
     protected $_name = [
         'requestId' => 'RequestId',
-        'requests'  => 'Requests',
+        'requests' => 'Requests',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class DescribeUserApiRequestResponseBody extends Model
         if (null !== $this->requests) {
             if (\is_array($this->requests)) {
                 $res['Requests'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->requests as $item1) {
                     $res['Requests'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeUserApiRequestResponseBody extends Model
         if (isset($map['Requests'])) {
             if (!empty($map['Requests'])) {
                 $model->requests = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Requests'] as $item1) {
                     $model->requests[$n1++] = requests::fromMap($item1);
                 }

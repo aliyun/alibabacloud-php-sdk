@@ -12,27 +12,31 @@ class DescribeApisecSlsLogStoresRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $logRegionId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'logRegionId'                    => 'LogRegionId',
-        'projectName'                    => 'ProjectName',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'logRegionId' => 'LogRegionId',
+        'projectName' => 'ProjectName',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

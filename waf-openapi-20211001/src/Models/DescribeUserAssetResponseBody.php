@@ -13,12 +13,13 @@ class DescribeUserAssetResponseBody extends Model
      * @var assets[]
      */
     public $assets;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'assets'    => 'Assets',
+        'assets' => 'Assets',
         'requestId' => 'RequestId',
     ];
 
@@ -36,7 +37,7 @@ class DescribeUserAssetResponseBody extends Model
         if (null !== $this->assets) {
             if (\is_array($this->assets)) {
                 $res['Assets'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->assets as $item1) {
                     $res['Assets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeUserAssetResponseBody extends Model
         if (isset($map['Assets'])) {
             if (!empty($map['Assets'])) {
                 $model->assets = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Assets'] as $item1) {
                     $model->assets[$n1++] = assets::fromMap($item1);
                 }

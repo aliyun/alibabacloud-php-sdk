@@ -13,12 +13,13 @@ class DescribeRuleHitsTopRuleIdResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var ruleHitsTopRuleId[]
      */
     public $ruleHitsTopRuleId;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'ruleHitsTopRuleId' => 'RuleHitsTopRuleId',
     ];
 
@@ -40,7 +41,7 @@ class DescribeRuleHitsTopRuleIdResponseBody extends Model
         if (null !== $this->ruleHitsTopRuleId) {
             if (\is_array($this->ruleHitsTopRuleId)) {
                 $res['RuleHitsTopRuleId'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->ruleHitsTopRuleId as $item1) {
                     $res['RuleHitsTopRuleId'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeRuleHitsTopRuleIdResponseBody extends Model
         if (isset($map['RuleHitsTopRuleId'])) {
             if (!empty($map['RuleHitsTopRuleId'])) {
                 $model->ruleHitsTopRuleId = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['RuleHitsTopRuleId'] as $item1) {
                     $model->ruleHitsTopRuleId[$n1++] = ruleHitsTopRuleId::fromMap($item1);
                 }

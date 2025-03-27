@@ -12,43 +12,50 @@ class DescribeApisecMatchedHostsRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $matchedHost;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'clusterId'                      => 'ClusterId',
-        'instanceId'                     => 'InstanceId',
-        'matchedHost'                    => 'MatchedHost',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'instanceId' => 'InstanceId',
+        'matchedHost' => 'MatchedHost',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'type'                           => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

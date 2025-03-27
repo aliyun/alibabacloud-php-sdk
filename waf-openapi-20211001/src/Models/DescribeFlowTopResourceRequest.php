@@ -12,28 +12,32 @@ class DescribeFlowTopResourceRequest extends Model
      * @var string
      */
     public $endTimestamp;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $startTimestamp;
     protected $_name = [
-        'endTimestamp'                   => 'EndTimestamp',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'endTimestamp' => 'EndTimestamp',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'startTimestamp'                 => 'StartTimestamp',
+        'startTimestamp' => 'StartTimestamp',
     ];
 
     public function validate()

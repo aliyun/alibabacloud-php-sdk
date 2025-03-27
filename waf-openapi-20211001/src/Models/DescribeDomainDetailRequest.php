@@ -12,18 +12,20 @@ class DescribeDomainDetailRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'domain'     => 'Domain',
+        'domain' => 'Domain',
         'instanceId' => 'InstanceId',
-        'regionId'   => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

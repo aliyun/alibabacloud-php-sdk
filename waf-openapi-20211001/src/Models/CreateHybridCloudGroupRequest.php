@@ -12,52 +12,61 @@ class CreateHybridCloudGroupRequest extends Model
      * @var string
      */
     public $backSourceMark;
+
     /**
      * @var int
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $groupType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $loadBalanceIp;
+
     /**
      * @var string
      */
     public $locationCode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'backSourceMark'                 => 'BackSourceMark',
-        'clusterId'                      => 'ClusterId',
-        'groupName'                      => 'GroupName',
-        'groupType'                      => 'GroupType',
-        'instanceId'                     => 'InstanceId',
-        'loadBalanceIp'                  => 'LoadBalanceIp',
-        'locationCode'                   => 'LocationCode',
-        'regionId'                       => 'RegionId',
-        'remark'                         => 'Remark',
+        'backSourceMark' => 'BackSourceMark',
+        'clusterId' => 'ClusterId',
+        'groupName' => 'GroupName',
+        'groupType' => 'GroupType',
+        'instanceId' => 'InstanceId',
+        'loadBalanceIp' => 'LoadBalanceIp',
+        'locationCode' => 'LocationCode',
+        'regionId' => 'RegionId',
+        'remark' => 'Remark',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

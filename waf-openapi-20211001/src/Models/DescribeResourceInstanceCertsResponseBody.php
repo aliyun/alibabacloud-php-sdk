@@ -13,17 +13,19 @@ class DescribeResourceInstanceCertsResponseBody extends Model
      * @var certs[]
      */
     public $certs;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'certs'      => 'Certs',
-        'requestId'  => 'RequestId',
+        'certs' => 'Certs',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -41,7 +43,7 @@ class DescribeResourceInstanceCertsResponseBody extends Model
         if (null !== $this->certs) {
             if (\is_array($this->certs)) {
                 $res['Certs'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->certs as $item1) {
                     $res['Certs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeResourceInstanceCertsResponseBody extends Model
         if (isset($map['Certs'])) {
             if (!empty($map['Certs'])) {
                 $model->certs = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Certs'] as $item1) {
                     $model->certs[$n1++] = certs::fromMap($item1);
                 }

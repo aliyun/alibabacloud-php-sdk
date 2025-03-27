@@ -12,27 +12,31 @@ class DeleteApisecEventsRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string[]
      */
     public $eventIds;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'clusterId'                      => 'ClusterId',
-        'eventIds'                       => 'EventIds',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'eventIds' => 'EventIds',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 
@@ -54,7 +58,7 @@ class DeleteApisecEventsRequest extends Model
         if (null !== $this->eventIds) {
             if (\is_array($this->eventIds)) {
                 $res['EventIds'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->eventIds as $item1) {
                     $res['EventIds'][$n1++] = $item1;
                 }
@@ -91,7 +95,7 @@ class DeleteApisecEventsRequest extends Model
         if (isset($map['EventIds'])) {
             if (!empty($map['EventIds'])) {
                 $model->eventIds = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['EventIds'] as $item1) {
                     $model->eventIds[$n1++] = $item1;
                 }

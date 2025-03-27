@@ -13,12 +13,13 @@ class DescribeRuleHitsTopUaResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var ruleHitsTopUa[]
      */
     public $ruleHitsTopUa;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'ruleHitsTopUa' => 'RuleHitsTopUa',
     ];
 
@@ -40,7 +41,7 @@ class DescribeRuleHitsTopUaResponseBody extends Model
         if (null !== $this->ruleHitsTopUa) {
             if (\is_array($this->ruleHitsTopUa)) {
                 $res['RuleHitsTopUa'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->ruleHitsTopUa as $item1) {
                     $res['RuleHitsTopUa'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeRuleHitsTopUaResponseBody extends Model
         if (isset($map['RuleHitsTopUa'])) {
             if (!empty($map['RuleHitsTopUa'])) {
                 $model->ruleHitsTopUa = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['RuleHitsTopUa'] as $item1) {
                     $model->ruleHitsTopUa[$n1++] = ruleHitsTopUa::fromMap($item1);
                 }

@@ -12,123 +12,146 @@ class data extends Model
      * @var int
      */
     public $allCnt;
+
     /**
      * @var string
      */
     public $apiFormat;
+
     /**
      * @var string
      */
     public $apiId;
+
     /**
      * @var string
      */
     public $apiTag;
+
     /**
      * @var string
      */
     public $attackClient;
+
     /**
      * @var string
      */
     public $attackCntInfo;
+
     /**
      * @var string
      */
     public $attackIp;
+
     /**
      * @var string
      */
     public $attackIpInfo;
+
     /**
      * @var string[]
      */
     public $attackIps;
+
     /**
      * @var int
      */
     public $endTs;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $eventInfo;
+
     /**
      * @var string
      */
     public $eventLevel;
+
     /**
      * @var string
      */
     public $eventTag;
+
     /**
      * @var int
      */
     public $follow;
+
     /**
      * @var string
      */
     public $matchedHost;
+
     /**
      * @var string
      */
     public $note;
+
     /**
      * @var string
      */
     public $origin;
+
     /**
      * @var string
      */
     public $remoteCountry;
+
     /**
      * @var string
      */
     public $remoteRegion;
+
     /**
      * @var string
      */
     public $requestData;
+
     /**
      * @var string
      */
     public $responseData;
+
     /**
      * @var int
      */
     public $startTs;
+
     /**
      * @var string
      */
     public $userStatus;
     protected $_name = [
-        'allCnt'        => 'AllCnt',
-        'apiFormat'     => 'ApiFormat',
-        'apiId'         => 'ApiId',
-        'apiTag'        => 'ApiTag',
-        'attackClient'  => 'AttackClient',
+        'allCnt' => 'AllCnt',
+        'apiFormat' => 'ApiFormat',
+        'apiId' => 'ApiId',
+        'apiTag' => 'ApiTag',
+        'attackClient' => 'AttackClient',
         'attackCntInfo' => 'AttackCntInfo',
-        'attackIp'      => 'AttackIp',
-        'attackIpInfo'  => 'AttackIpInfo',
-        'attackIps'     => 'AttackIps',
-        'endTs'         => 'EndTs',
-        'eventId'       => 'EventId',
-        'eventInfo'     => 'EventInfo',
-        'eventLevel'    => 'EventLevel',
-        'eventTag'      => 'EventTag',
-        'follow'        => 'Follow',
-        'matchedHost'   => 'MatchedHost',
-        'note'          => 'Note',
-        'origin'        => 'Origin',
+        'attackIp' => 'AttackIp',
+        'attackIpInfo' => 'AttackIpInfo',
+        'attackIps' => 'AttackIps',
+        'endTs' => 'EndTs',
+        'eventId' => 'EventId',
+        'eventInfo' => 'EventInfo',
+        'eventLevel' => 'EventLevel',
+        'eventTag' => 'EventTag',
+        'follow' => 'Follow',
+        'matchedHost' => 'MatchedHost',
+        'note' => 'Note',
+        'origin' => 'Origin',
         'remoteCountry' => 'RemoteCountry',
-        'remoteRegion'  => 'RemoteRegion',
-        'requestData'   => 'RequestData',
-        'responseData'  => 'ResponseData',
-        'startTs'       => 'StartTs',
-        'userStatus'    => 'UserStatus',
+        'remoteRegion' => 'RemoteRegion',
+        'requestData' => 'RequestData',
+        'responseData' => 'ResponseData',
+        'startTs' => 'StartTs',
+        'userStatus' => 'UserStatus',
     ];
 
     public function validate()
@@ -177,7 +200,7 @@ class data extends Model
         if (null !== $this->attackIps) {
             if (\is_array($this->attackIps)) {
                 $res['AttackIps'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->attackIps as $item1) {
                     $res['AttackIps'][$n1++] = $item1;
                 }
@@ -290,7 +313,7 @@ class data extends Model
         if (isset($map['AttackIps'])) {
             if (!empty($map['AttackIps'])) {
                 $model->attackIps = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['AttackIps'] as $item1) {
                     $model->attackIps[$n1++] = $item1;
                 }

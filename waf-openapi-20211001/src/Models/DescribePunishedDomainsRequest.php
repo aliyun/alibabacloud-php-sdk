@@ -12,27 +12,31 @@ class DescribePunishedDomainsRequest extends Model
      * @var string[]
      */
     public $domains;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $punishType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'domains'                        => 'Domains',
-        'instanceId'                     => 'InstanceId',
-        'punishType'                     => 'PunishType',
-        'regionId'                       => 'RegionId',
+        'domains' => 'Domains',
+        'instanceId' => 'InstanceId',
+        'punishType' => 'PunishType',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 
@@ -50,7 +54,7 @@ class DescribePunishedDomainsRequest extends Model
         if (null !== $this->domains) {
             if (\is_array($this->domains)) {
                 $res['Domains'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->domains as $item1) {
                     $res['Domains'][$n1++] = $item1;
                 }
@@ -87,7 +91,7 @@ class DescribePunishedDomainsRequest extends Model
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
                 $model->domains = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Domains'] as $item1) {
                     $model->domains[$n1++] = $item1;
                 }

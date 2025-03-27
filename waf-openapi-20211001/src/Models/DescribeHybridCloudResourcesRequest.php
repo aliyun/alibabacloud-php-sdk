@@ -12,42 +12,49 @@ class DescribeHybridCloudResourcesRequest extends Model
      * @var string
      */
     public $backend;
+
     /**
      * @var bool
      */
     public $cnameEnabled;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'backend'                        => 'Backend',
-        'cnameEnabled'                   => 'CnameEnabled',
-        'domain'                         => 'Domain',
-        'instanceId'                     => 'InstanceId',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
+        'backend' => 'Backend',
+        'cnameEnabled' => 'CnameEnabled',
+        'domain' => 'Domain',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

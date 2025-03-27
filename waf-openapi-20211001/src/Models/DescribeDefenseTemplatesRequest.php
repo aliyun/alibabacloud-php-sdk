@@ -12,68 +12,80 @@ class DescribeDefenseTemplatesRequest extends Model
      * @var string
      */
     public $defenseScene;
+
     /**
      * @var string
      */
     public $defenseSubScene;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resource;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var int
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateIds;
+
     /**
      * @var string
      */
     public $templateName;
+
     /**
      * @var string
      */
     public $templateType;
     protected $_name = [
-        'defenseScene'                   => 'DefenseScene',
-        'defenseSubScene'                => 'DefenseSubScene',
-        'instanceId'                     => 'InstanceId',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
-        'resource'                       => 'Resource',
+        'defenseScene' => 'DefenseScene',
+        'defenseSubScene' => 'DefenseSubScene',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resource' => 'Resource',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'resourceType'                   => 'ResourceType',
-        'templateId'                     => 'TemplateId',
-        'templateIds'                    => 'TemplateIds',
-        'templateName'                   => 'TemplateName',
-        'templateType'                   => 'TemplateType',
+        'resourceType' => 'ResourceType',
+        'templateId' => 'TemplateId',
+        'templateIds' => 'TemplateIds',
+        'templateName' => 'TemplateName',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()

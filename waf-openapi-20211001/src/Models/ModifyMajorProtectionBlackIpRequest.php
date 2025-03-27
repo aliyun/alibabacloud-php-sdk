@@ -12,43 +12,50 @@ class ModifyMajorProtectionBlackIpRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ipList;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'description'                    => 'Description',
-        'expiredTime'                    => 'ExpiredTime',
-        'instanceId'                     => 'InstanceId',
-        'ipList'                         => 'IpList',
-        'regionId'                       => 'RegionId',
+        'description' => 'Description',
+        'expiredTime' => 'ExpiredTime',
+        'instanceId' => 'InstanceId',
+        'ipList' => 'IpList',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'ruleId'                         => 'RuleId',
-        'templateId'                     => 'TemplateId',
+        'ruleId' => 'RuleId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

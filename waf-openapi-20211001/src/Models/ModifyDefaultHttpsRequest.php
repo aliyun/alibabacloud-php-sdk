@@ -12,43 +12,50 @@ class ModifyDefaultHttpsRequest extends Model
      * @var string
      */
     public $certId;
+
     /**
      * @var int
      */
     public $cipherSuite;
+
     /**
      * @var string[]
      */
     public $customCiphers;
+
     /**
      * @var bool
      */
     public $enableTLSv3;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $TLSVersion;
     protected $_name = [
-        'certId'                         => 'CertId',
-        'cipherSuite'                    => 'CipherSuite',
-        'customCiphers'                  => 'CustomCiphers',
-        'enableTLSv3'                    => 'EnableTLSv3',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'certId' => 'CertId',
+        'cipherSuite' => 'CipherSuite',
+        'customCiphers' => 'CustomCiphers',
+        'enableTLSv3' => 'EnableTLSv3',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'TLSVersion'                     => 'TLSVersion',
+        'TLSVersion' => 'TLSVersion',
     ];
 
     public function validate()
@@ -73,7 +80,7 @@ class ModifyDefaultHttpsRequest extends Model
         if (null !== $this->customCiphers) {
             if (\is_array($this->customCiphers)) {
                 $res['CustomCiphers'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->customCiphers as $item1) {
                     $res['CustomCiphers'][$n1++] = $item1;
                 }
@@ -122,7 +129,7 @@ class ModifyDefaultHttpsRequest extends Model
         if (isset($map['CustomCiphers'])) {
             if (!empty($map['CustomCiphers'])) {
                 $model->customCiphers = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['CustomCiphers'] as $item1) {
                     $model->customCiphers[$n1++] = $item1;
                 }

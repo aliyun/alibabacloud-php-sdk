@@ -12,23 +12,26 @@ class event extends Model
      * @var string
      */
     public $eventCode;
+
     /**
      * @var int
      */
     public $eventCount;
+
     /**
      * @var string
      */
     public $eventParentType;
+
     /**
      * @var string
      */
     public $eventType;
     protected $_name = [
-        'eventCode'       => 'EventCode',
-        'eventCount'      => 'EventCount',
+        'eventCode' => 'EventCode',
+        'eventCount' => 'EventCount',
         'eventParentType' => 'EventParentType',
-        'eventType'       => 'EventType',
+        'eventType' => 'EventType',
     ];
 
     public function validate()

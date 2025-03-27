@@ -12,68 +12,80 @@ class DescribeSensitiveRequestLogRequest extends Model
      * @var string
      */
     public $apiFormat;
+
     /**
      * @var string
      */
     public $clientIP;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $matchedHost;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $sensitiveCode;
+
     /**
      * @var string
      */
     public $sensitiveData;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'apiFormat'                      => 'ApiFormat',
-        'clientIP'                       => 'ClientIP',
-        'clusterId'                      => 'ClusterId',
-        'endTime'                        => 'EndTime',
-        'instanceId'                     => 'InstanceId',
-        'matchedHost'                    => 'MatchedHost',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
+        'apiFormat' => 'ApiFormat',
+        'clientIP' => 'ClientIP',
+        'clusterId' => 'ClusterId',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'matchedHost' => 'MatchedHost',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'sensitiveCode'                  => 'SensitiveCode',
-        'sensitiveData'                  => 'SensitiveData',
-        'startTime'                      => 'StartTime',
+        'sensitiveCode' => 'SensitiveCode',
+        'sensitiveData' => 'SensitiveData',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

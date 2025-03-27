@@ -12,48 +12,56 @@ class DescribeDefenseResourceTemplatesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resource;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $ruleType;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
-        'resource'                       => 'Resource',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'resource' => 'Resource',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'resourceType'                   => 'ResourceType',
-        'ruleId'                         => 'RuleId',
-        'ruleName'                       => 'RuleName',
-        'ruleType'                       => 'RuleType',
-        'templateName'                   => 'TemplateName',
+        'resourceType' => 'ResourceType',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'ruleType' => 'RuleType',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()

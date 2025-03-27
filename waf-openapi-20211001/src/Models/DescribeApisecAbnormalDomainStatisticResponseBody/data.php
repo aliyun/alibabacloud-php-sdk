@@ -12,28 +12,32 @@ class data extends Model
      * @var int
      */
     public $apiCount;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $high;
+
     /**
      * @var int
      */
     public $low;
+
     /**
      * @var int
      */
     public $medium;
     protected $_name = [
         'apiCount' => 'ApiCount',
-        'domain'   => 'Domain',
-        'high'     => 'High',
-        'low'      => 'Low',
-        'medium'   => 'Medium',
+        'domain' => 'Domain',
+        'high' => 'High',
+        'low' => 'Low',
+        'medium' => 'Medium',
     ];
 
     public function validate()

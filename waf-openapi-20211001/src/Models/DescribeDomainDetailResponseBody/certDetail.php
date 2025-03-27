@@ -12,33 +12,38 @@ class certDetail extends Model
      * @var string
      */
     public $commonName;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string[]
      */
     public $sans;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
         'commonName' => 'CommonName',
-        'endTime'    => 'EndTime',
-        'id'         => 'Id',
-        'name'       => 'Name',
-        'sans'       => 'Sans',
-        'startTime'  => 'StartTime',
+        'endTime' => 'EndTime',
+        'id' => 'Id',
+        'name' => 'Name',
+        'sans' => 'Sans',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -71,7 +76,7 @@ class certDetail extends Model
         if (null !== $this->sans) {
             if (\is_array($this->sans)) {
                 $res['Sans'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->sans as $item1) {
                     $res['Sans'][$n1++] = $item1;
                 }
@@ -112,7 +117,7 @@ class certDetail extends Model
         if (isset($map['Sans'])) {
             if (!empty($map['Sans'])) {
                 $model->sans = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Sans'] as $item1) {
                     $model->sans[$n1++] = $item1;
                 }

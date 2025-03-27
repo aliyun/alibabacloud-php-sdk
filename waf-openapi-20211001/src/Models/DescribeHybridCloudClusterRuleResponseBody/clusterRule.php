@@ -12,10 +12,12 @@ class clusterRule extends Model
      * @var string
      */
     public $ruleConfig;
+
     /**
      * @var string
      */
     public $ruleStatus;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class clusterRule extends Model
     protected $_name = [
         'ruleConfig' => 'RuleConfig',
         'ruleStatus' => 'RuleStatus',
-        'ruleType'   => 'RuleType',
+        'ruleType' => 'RuleType',
     ];
 
     public function validate()

@@ -12,27 +12,31 @@ class DeleteApisecAbnormalsRequest extends Model
      * @var string[]
      */
     public $abnormalIds;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'abnormalIds'                    => 'AbnormalIds',
-        'clusterId'                      => 'ClusterId',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'abnormalIds' => 'AbnormalIds',
+        'clusterId' => 'ClusterId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 
@@ -50,7 +54,7 @@ class DeleteApisecAbnormalsRequest extends Model
         if (null !== $this->abnormalIds) {
             if (\is_array($this->abnormalIds)) {
                 $res['AbnormalIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->abnormalIds as $item1) {
                     $res['AbnormalIds'][$n1++] = $item1;
                 }
@@ -87,7 +91,7 @@ class DeleteApisecAbnormalsRequest extends Model
         if (isset($map['AbnormalIds'])) {
             if (!empty($map['AbnormalIds'])) {
                 $model->abnormalIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['AbnormalIds'] as $item1) {
                     $model->abnormalIds[$n1++] = $item1;
                 }

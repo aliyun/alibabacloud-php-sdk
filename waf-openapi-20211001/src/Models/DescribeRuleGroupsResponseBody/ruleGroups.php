@@ -12,33 +12,38 @@ class ruleGroups extends Model
      * @var int
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $isSubscribe;
+
     /**
      * @var int
      */
     public $parentRuleGroupId;
+
     /**
      * @var int
      */
     public $ruleGroupId;
+
     /**
      * @var string
      */
     public $ruleGroupName;
+
     /**
      * @var int
      */
     public $ruleTotalCount;
     protected $_name = [
-        'gmtModified'       => 'GmtModified',
-        'isSubscribe'       => 'IsSubscribe',
+        'gmtModified' => 'GmtModified',
+        'isSubscribe' => 'IsSubscribe',
         'parentRuleGroupId' => 'ParentRuleGroupId',
-        'ruleGroupId'       => 'RuleGroupId',
-        'ruleGroupName'     => 'RuleGroupName',
-        'ruleTotalCount'    => 'RuleTotalCount',
+        'ruleGroupId' => 'RuleGroupId',
+        'ruleGroupName' => 'RuleGroupName',
+        'ruleTotalCount' => 'RuleTotalCount',
     ];
 
     public function validate()

@@ -13,13 +13,14 @@ class DescribeVisitTopIpResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var topIp[]
      */
     public $topIp;
     protected $_name = [
         'requestId' => 'RequestId',
-        'topIp'     => 'TopIp',
+        'topIp' => 'TopIp',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class DescribeVisitTopIpResponseBody extends Model
         if (null !== $this->topIp) {
             if (\is_array($this->topIp)) {
                 $res['TopIp'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->topIp as $item1) {
                     $res['TopIp'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeVisitTopIpResponseBody extends Model
         if (isset($map['TopIp'])) {
             if (!empty($map['TopIp'])) {
                 $model->topIp = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['TopIp'] as $item1) {
                     $model->topIp[$n1++] = topIp::fromMap($item1);
                 }

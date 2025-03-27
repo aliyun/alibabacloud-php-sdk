@@ -12,27 +12,31 @@ class data extends Model
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $rule;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var int
      */
     public $updateTime;
     protected $_name = [
-        'id'         => 'Id',
-        'rule'       => 'Rule',
-        'status'     => 'Status',
-        'type'       => 'Type',
+        'id' => 'Id',
+        'rule' => 'Rule',
+        'status' => 'Status',
+        'type' => 'Type',
         'updateTime' => 'UpdateTime',
     ];
 

@@ -13,12 +13,13 @@ class DescribeFlowTopUrlResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var ruleHitsTopUrl[]
      */
     public $ruleHitsTopUrl;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'ruleHitsTopUrl' => 'RuleHitsTopUrl',
     ];
 
@@ -40,7 +41,7 @@ class DescribeFlowTopUrlResponseBody extends Model
         if (null !== $this->ruleHitsTopUrl) {
             if (\is_array($this->ruleHitsTopUrl)) {
                 $res['RuleHitsTopUrl'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->ruleHitsTopUrl as $item1) {
                     $res['RuleHitsTopUrl'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeFlowTopUrlResponseBody extends Model
         if (isset($map['RuleHitsTopUrl'])) {
             if (!empty($map['RuleHitsTopUrl'])) {
                 $model->ruleHitsTopUrl = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['RuleHitsTopUrl'] as $item1) {
                     $model->ruleHitsTopUrl[$n1++] = ruleHitsTopUrl::fromMap($item1);
                 }

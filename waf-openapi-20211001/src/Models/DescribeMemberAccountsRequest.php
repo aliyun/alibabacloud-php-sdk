@@ -12,28 +12,32 @@ class DescribeMemberAccountsRequest extends Model
      * @var string
      */
     public $accountStatus;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $sourceIp;
     protected $_name = [
-        'accountStatus'                  => 'AccountStatus',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'accountStatus' => 'AccountStatus',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'sourceIp'                       => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
     public function validate()

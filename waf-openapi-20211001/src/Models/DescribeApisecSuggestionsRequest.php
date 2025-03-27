@@ -12,27 +12,31 @@ class DescribeApisecSuggestionsRequest extends Model
      * @var string
      */
     public $apiId;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'apiId'                          => 'ApiId',
-        'clusterId'                      => 'ClusterId',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'apiId' => 'ApiId',
+        'clusterId' => 'ClusterId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

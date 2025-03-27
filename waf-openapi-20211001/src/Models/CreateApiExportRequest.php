@@ -12,43 +12,50 @@ class CreateApiExportRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $param;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'clusterId'                      => 'ClusterId',
-        'instanceId'                     => 'InstanceId',
-        'param'                          => 'Param',
-        'region'                         => 'Region',
-        'regionId'                       => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'instanceId' => 'InstanceId',
+        'param' => 'Param',
+        'region' => 'Region',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'type'                           => 'Type',
-        'zoneId'                         => 'ZoneId',
+        'type' => 'Type',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

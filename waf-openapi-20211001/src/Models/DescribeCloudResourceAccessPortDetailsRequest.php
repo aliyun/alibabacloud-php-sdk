@@ -12,48 +12,56 @@ class DescribeCloudResourceAccessPortDetailsRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceInstanceId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $resourceProduct;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'port'                           => 'Port',
-        'protocol'                       => 'Protocol',
-        'regionId'                       => 'RegionId',
-        'resourceInstanceId'             => 'ResourceInstanceId',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'port' => 'Port',
+        'protocol' => 'Protocol',
+        'regionId' => 'RegionId',
+        'resourceInstanceId' => 'ResourceInstanceId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'resourceProduct'                => 'ResourceProduct',
+        'resourceProduct' => 'ResourceProduct',
     ];
 
     public function validate()

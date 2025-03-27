@@ -13,13 +13,14 @@ class DescribeHybridCloudClusterRuleResponseBody extends Model
      * @var clusterRule
      */
     public $clusterRule;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'clusterRule' => 'ClusterRule',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

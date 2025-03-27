@@ -12,13 +12,14 @@ class ruleHitsTopUa extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $ua;
     protected $_name = [
         'count' => 'Count',
-        'ua'    => 'Ua',
+        'ua' => 'Ua',
     ];
 
     public function validate()

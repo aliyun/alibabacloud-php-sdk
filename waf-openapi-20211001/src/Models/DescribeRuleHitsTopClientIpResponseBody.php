@@ -13,12 +13,13 @@ class DescribeRuleHitsTopClientIpResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var ruleHitsTopClientIp[]
      */
     public $ruleHitsTopClientIp;
     protected $_name = [
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
         'ruleHitsTopClientIp' => 'RuleHitsTopClientIp',
     ];
 
@@ -40,7 +41,7 @@ class DescribeRuleHitsTopClientIpResponseBody extends Model
         if (null !== $this->ruleHitsTopClientIp) {
             if (\is_array($this->ruleHitsTopClientIp)) {
                 $res['RuleHitsTopClientIp'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->ruleHitsTopClientIp as $item1) {
                     $res['RuleHitsTopClientIp'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeRuleHitsTopClientIpResponseBody extends Model
         if (isset($map['RuleHitsTopClientIp'])) {
             if (!empty($map['RuleHitsTopClientIp'])) {
                 $model->ruleHitsTopClientIp = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['RuleHitsTopClientIp'] as $item1) {
                     $model->ruleHitsTopClientIp[$n1++] = ruleHitsTopClientIp::fromMap($item1);
                 }

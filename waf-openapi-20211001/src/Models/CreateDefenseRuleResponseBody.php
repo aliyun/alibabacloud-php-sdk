@@ -12,13 +12,14 @@ class CreateDefenseRuleResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $ruleIds;
     protected $_name = [
         'requestId' => 'RequestId',
-        'ruleIds'   => 'RuleIds',
+        'ruleIds' => 'RuleIds',
     ];
 
     public function validate()

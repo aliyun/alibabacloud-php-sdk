@@ -12,12 +12,13 @@ class userInfo extends Model
      * @var string
      */
     public $httpPorts;
+
     /**
      * @var string
      */
     public $httpsPorts;
     protected $_name = [
-        'httpPorts'  => 'HttpPorts',
+        'httpPorts' => 'HttpPorts',
         'httpsPorts' => 'HttpsPorts',
     ];
 

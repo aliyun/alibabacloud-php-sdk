@@ -12,27 +12,31 @@ class groups extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $resourceList;
     protected $_name = [
-        'description'  => 'Description',
-        'gmtCreate'    => 'GmtCreate',
-        'gmtModified'  => 'GmtModified',
-        'groupName'    => 'GroupName',
+        'description' => 'Description',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'groupName' => 'GroupName',
         'resourceList' => 'ResourceList',
     ];
 

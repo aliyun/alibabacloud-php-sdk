@@ -12,28 +12,32 @@ class ClearMajorProtectionBlackIpRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'ruleId'                         => 'RuleId',
-        'templateId'                     => 'TemplateId',
+        'ruleId' => 'RuleId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

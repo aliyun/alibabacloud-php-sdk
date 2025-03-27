@@ -12,73 +12,86 @@ class clusterInfos extends Model
      * @var string
      */
     public $accessMode;
+
     /**
      * @var string
      */
     public $accessRegion;
+
     /**
      * @var string
      */
     public $clusterName;
+
     /**
      * @var string
      */
     public $clusterResourceId;
+
     /**
      * @var string
      */
     public $httpPorts;
+
     /**
      * @var string
      */
     public $httpsPorts;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $protectionServerCount;
+
     /**
      * @var string
      */
     public $proxyStatus;
+
     /**
      * @var string
      */
     public $proxyType;
+
     /**
      * @var string
      */
     public $remark;
+
     /**
      * @var string
      */
     public $ruleConfig;
+
     /**
      * @var string
      */
     public $ruleStatus;
+
     /**
      * @var string
      */
     public $ruleType;
     protected $_name = [
-        'accessMode'            => 'AccessMode',
-        'accessRegion'          => 'AccessRegion',
-        'clusterName'           => 'ClusterName',
-        'clusterResourceId'     => 'ClusterResourceId',
-        'httpPorts'             => 'HttpPorts',
-        'httpsPorts'            => 'HttpsPorts',
-        'id'                    => 'Id',
+        'accessMode' => 'AccessMode',
+        'accessRegion' => 'AccessRegion',
+        'clusterName' => 'ClusterName',
+        'clusterResourceId' => 'ClusterResourceId',
+        'httpPorts' => 'HttpPorts',
+        'httpsPorts' => 'HttpsPorts',
+        'id' => 'Id',
         'protectionServerCount' => 'ProtectionServerCount',
-        'proxyStatus'           => 'ProxyStatus',
-        'proxyType'             => 'ProxyType',
-        'remark'                => 'Remark',
-        'ruleConfig'            => 'RuleConfig',
-        'ruleStatus'            => 'RuleStatus',
-        'ruleType'              => 'RuleType',
+        'proxyStatus' => 'ProxyStatus',
+        'proxyType' => 'ProxyType',
+        'remark' => 'Remark',
+        'ruleConfig' => 'RuleConfig',
+        'ruleStatus' => 'RuleStatus',
+        'ruleType' => 'RuleType',
     ];
 
     public function validate()

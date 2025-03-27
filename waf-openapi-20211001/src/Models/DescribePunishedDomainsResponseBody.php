@@ -12,13 +12,14 @@ class DescribePunishedDomainsResponseBody extends Model
      * @var string[]
      */
     public $punishedDomains;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'punishedDomains' => 'PunishedDomains',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class DescribePunishedDomainsResponseBody extends Model
         if (null !== $this->punishedDomains) {
             if (\is_array($this->punishedDomains)) {
                 $res['PunishedDomains'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->punishedDomains as $item1) {
                     $res['PunishedDomains'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class DescribePunishedDomainsResponseBody extends Model
         if (isset($map['PunishedDomains'])) {
             if (!empty($map['PunishedDomains'])) {
                 $model->punishedDomains = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['PunishedDomains'] as $item1) {
                     $model->punishedDomains[$n1++] = $item1;
                 }

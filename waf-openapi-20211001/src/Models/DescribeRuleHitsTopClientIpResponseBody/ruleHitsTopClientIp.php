@@ -12,13 +12,14 @@ class ruleHitsTopClientIp extends Model
      * @var string
      */
     public $clientIp;
+
     /**
      * @var int
      */
     public $count;
     protected $_name = [
         'clientIp' => 'ClientIp',
-        'count'    => 'Count',
+        'count' => 'Count',
     ];
 
     public function validate()

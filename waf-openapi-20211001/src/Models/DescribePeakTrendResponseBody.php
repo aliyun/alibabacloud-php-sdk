@@ -13,6 +13,7 @@ class DescribePeakTrendResponseBody extends Model
      * @var flowChart[]
      */
     public $flowChart;
+
     /**
      * @var string
      */
@@ -36,7 +37,7 @@ class DescribePeakTrendResponseBody extends Model
         if (null !== $this->flowChart) {
             if (\is_array($this->flowChart)) {
                 $res['FlowChart'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->flowChart as $item1) {
                     $res['FlowChart'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribePeakTrendResponseBody extends Model
         if (isset($map['FlowChart'])) {
             if (!empty($map['FlowChart'])) {
                 $model->flowChart = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['FlowChart'] as $item1) {
                     $model->flowChart[$n1++] = flowChart::fromMap($item1);
                 }

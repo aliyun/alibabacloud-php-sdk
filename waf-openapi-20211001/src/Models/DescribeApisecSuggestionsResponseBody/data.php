@@ -12,26 +12,30 @@ class data extends Model
      * @var string
      */
     public $apiFormat;
+
     /**
      * @var string
      */
     public $matchedHost;
+
     /**
      * @var string
      */
     public $suggestId;
+
     /**
      * @var string
      */
     public $suggestRule;
+
     /**
      * @var string
      */
     public $suggestType;
     protected $_name = [
-        'apiFormat'   => 'ApiFormat',
+        'apiFormat' => 'ApiFormat',
         'matchedHost' => 'MatchedHost',
-        'suggestId'   => 'SuggestId',
+        'suggestId' => 'SuggestId',
         'suggestRule' => 'SuggestRule',
         'suggestType' => 'SuggestType',
     ];

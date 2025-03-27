@@ -12,23 +12,26 @@ class event extends Model
      * @var int
      */
     public $eventHigh;
+
     /**
      * @var int
      */
     public $eventLow;
+
     /**
      * @var int
      */
     public $eventMedium;
+
     /**
      * @var int
      */
     public $eventTotal;
     protected $_name = [
-        'eventHigh'   => 'EventHigh',
-        'eventLow'    => 'EventLow',
+        'eventHigh' => 'EventHigh',
+        'eventLow' => 'EventLow',
         'eventMedium' => 'EventMedium',
-        'eventTotal'  => 'EventTotal',
+        'eventTotal' => 'EventTotal',
     ];
 
     public function validate()

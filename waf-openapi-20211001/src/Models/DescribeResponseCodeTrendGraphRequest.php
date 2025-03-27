@@ -12,43 +12,50 @@ class DescribeResponseCodeTrendGraphRequest extends Model
      * @var string
      */
     public $endTimestamp;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $interval;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resource;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $startTimestamp;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'endTimestamp'                   => 'EndTimestamp',
-        'instanceId'                     => 'InstanceId',
-        'interval'                       => 'Interval',
-        'regionId'                       => 'RegionId',
-        'resource'                       => 'Resource',
+        'endTimestamp' => 'EndTimestamp',
+        'instanceId' => 'InstanceId',
+        'interval' => 'Interval',
+        'regionId' => 'RegionId',
+        'resource' => 'Resource',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'startTimestamp'                 => 'StartTimestamp',
-        'type'                           => 'Type',
+        'startTimestamp' => 'StartTimestamp',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -15,78 +15,92 @@ class redirect extends Model
      * @var backends[]
      */
     public $backends;
+
     /**
      * @var backupBackends[]
      */
     public $backupBackends;
+
     /**
      * @var int
      */
     public $connectTimeout;
+
     /**
      * @var bool
      */
     public $focusHttpBackend;
+
     /**
      * @var bool
      */
     public $keepalive;
+
     /**
      * @var int
      */
     public $keepaliveRequests;
+
     /**
      * @var int
      */
     public $keepaliveTimeout;
+
     /**
      * @var string
      */
     public $loadbalance;
+
     /**
      * @var int
      */
     public $readTimeout;
+
     /**
      * @var requestHeaders[]
      */
     public $requestHeaders;
+
     /**
      * @var bool
      */
     public $retry;
+
     /**
      * @var bool
      */
     public $sniEnabled;
+
     /**
      * @var string
      */
     public $sniHost;
+
     /**
      * @var int
      */
     public $writeTimeout;
+
     /**
      * @var bool
      */
     public $xffProto;
     protected $_name = [
-        'backends'          => 'Backends',
-        'backupBackends'    => 'BackupBackends',
-        'connectTimeout'    => 'ConnectTimeout',
-        'focusHttpBackend'  => 'FocusHttpBackend',
-        'keepalive'         => 'Keepalive',
+        'backends' => 'Backends',
+        'backupBackends' => 'BackupBackends',
+        'connectTimeout' => 'ConnectTimeout',
+        'focusHttpBackend' => 'FocusHttpBackend',
+        'keepalive' => 'Keepalive',
         'keepaliveRequests' => 'KeepaliveRequests',
-        'keepaliveTimeout'  => 'KeepaliveTimeout',
-        'loadbalance'       => 'Loadbalance',
-        'readTimeout'       => 'ReadTimeout',
-        'requestHeaders'    => 'RequestHeaders',
-        'retry'             => 'Retry',
-        'sniEnabled'        => 'SniEnabled',
-        'sniHost'           => 'SniHost',
-        'writeTimeout'      => 'WriteTimeout',
-        'xffProto'          => 'XffProto',
+        'keepaliveTimeout' => 'KeepaliveTimeout',
+        'loadbalance' => 'Loadbalance',
+        'readTimeout' => 'ReadTimeout',
+        'requestHeaders' => 'RequestHeaders',
+        'retry' => 'Retry',
+        'sniEnabled' => 'SniEnabled',
+        'sniHost' => 'SniHost',
+        'writeTimeout' => 'WriteTimeout',
+        'xffProto' => 'XffProto',
     ];
 
     public function validate()
@@ -109,7 +123,7 @@ class redirect extends Model
         if (null !== $this->backends) {
             if (\is_array($this->backends)) {
                 $res['Backends'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->backends as $item1) {
                     $res['Backends'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -119,7 +133,7 @@ class redirect extends Model
         if (null !== $this->backupBackends) {
             if (\is_array($this->backupBackends)) {
                 $res['BackupBackends'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->backupBackends as $item1) {
                     $res['BackupBackends'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -157,7 +171,7 @@ class redirect extends Model
         if (null !== $this->requestHeaders) {
             if (\is_array($this->requestHeaders)) {
                 $res['RequestHeaders'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->requestHeaders as $item1) {
                     $res['RequestHeaders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -198,7 +212,7 @@ class redirect extends Model
         if (isset($map['Backends'])) {
             if (!empty($map['Backends'])) {
                 $model->backends = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Backends'] as $item1) {
                     $model->backends[$n1++] = backends::fromMap($item1);
                 }
@@ -208,7 +222,7 @@ class redirect extends Model
         if (isset($map['BackupBackends'])) {
             if (!empty($map['BackupBackends'])) {
                 $model->backupBackends = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['BackupBackends'] as $item1) {
                     $model->backupBackends[$n1++] = backupBackends::fromMap($item1);
                 }
@@ -246,7 +260,7 @@ class redirect extends Model
         if (isset($map['RequestHeaders'])) {
             if (!empty($map['RequestHeaders'])) {
                 $model->requestHeaders = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['RequestHeaders'] as $item1) {
                     $model->requestHeaders[$n1++] = requestHeaders::fromMap($item1);
                 }

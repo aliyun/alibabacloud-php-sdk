@@ -12,118 +12,140 @@ class DescribeApisecApiResourcesRequest extends Model
      * @var string
      */
     public $apiFormat;
+
     /**
      * @var string
      */
     public $apiId;
+
     /**
      * @var string
      */
     public $apiMethod;
+
     /**
      * @var string
      */
     public $apiStatus;
+
     /**
      * @var string
      */
     public $apiTag;
+
     /**
      * @var string
      */
     public $apiType;
+
     /**
      * @var string
      */
     public $authFlag;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $follow;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $matchedHost;
+
     /**
      * @var string
      */
     public $note;
+
     /**
      * @var string
      */
     public $orderKey;
+
     /**
      * @var string
      */
     public $orderWay;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestSensitiveType;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $sensitiveLevel;
+
     /**
      * @var string
      */
     public $sensitiveType;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'apiFormat'                      => 'ApiFormat',
-        'apiId'                          => 'ApiId',
-        'apiMethod'                      => 'ApiMethod',
-        'apiStatus'                      => 'ApiStatus',
-        'apiTag'                         => 'ApiTag',
-        'apiType'                        => 'ApiType',
-        'authFlag'                       => 'AuthFlag',
-        'clusterId'                      => 'ClusterId',
-        'endTime'                        => 'EndTime',
-        'follow'                         => 'Follow',
-        'instanceId'                     => 'InstanceId',
-        'matchedHost'                    => 'MatchedHost',
-        'note'                           => 'Note',
-        'orderKey'                       => 'OrderKey',
-        'orderWay'                       => 'OrderWay',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
-        'requestSensitiveType'           => 'RequestSensitiveType',
+        'apiFormat' => 'ApiFormat',
+        'apiId' => 'ApiId',
+        'apiMethod' => 'ApiMethod',
+        'apiStatus' => 'ApiStatus',
+        'apiTag' => 'ApiTag',
+        'apiType' => 'ApiType',
+        'authFlag' => 'AuthFlag',
+        'clusterId' => 'ClusterId',
+        'endTime' => 'EndTime',
+        'follow' => 'Follow',
+        'instanceId' => 'InstanceId',
+        'matchedHost' => 'MatchedHost',
+        'note' => 'Note',
+        'orderKey' => 'OrderKey',
+        'orderWay' => 'OrderWay',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'requestSensitiveType' => 'RequestSensitiveType',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'sensitiveLevel'                 => 'SensitiveLevel',
-        'sensitiveType'                  => 'SensitiveType',
-        'startTime'                      => 'StartTime',
+        'sensitiveLevel' => 'SensitiveLevel',
+        'sensitiveType' => 'SensitiveType',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

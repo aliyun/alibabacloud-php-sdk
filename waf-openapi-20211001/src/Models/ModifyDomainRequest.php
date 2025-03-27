@@ -14,33 +14,38 @@ class ModifyDomainRequest extends Model
      * @var string
      */
     public $accessType;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var listen
      */
     public $listen;
+
     /**
      * @var redirect
      */
     public $redirect;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'accessType' => 'AccessType',
-        'domain'     => 'Domain',
+        'domain' => 'Domain',
         'instanceId' => 'InstanceId',
-        'listen'     => 'Listen',
-        'redirect'   => 'Redirect',
-        'regionId'   => 'RegionId',
+        'listen' => 'Listen',
+        'redirect' => 'Redirect',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

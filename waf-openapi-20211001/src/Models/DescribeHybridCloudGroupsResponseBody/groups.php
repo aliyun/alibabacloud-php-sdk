@@ -12,58 +12,68 @@ class groups extends Model
      * @var string
      */
     public $backSourceMark;
+
     /**
      * @var int
      */
     public $continentsValue;
+
     /**
      * @var int
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $groupType;
+
     /**
      * @var string
      */
     public $loadBalanceIp;
+
     /**
      * @var int
      */
     public $locationId;
+
     /**
      * @var int
      */
     public $operatorValue;
+
     /**
      * @var string
      */
     public $ports;
+
     /**
      * @var int
      */
     public $regionCodeValue;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
-        'backSourceMark'  => 'BackSourceMark',
+        'backSourceMark' => 'BackSourceMark',
         'continentsValue' => 'ContinentsValue',
-        'groupId'         => 'GroupId',
-        'groupName'       => 'GroupName',
-        'groupType'       => 'GroupType',
-        'loadBalanceIp'   => 'LoadBalanceIp',
-        'locationId'      => 'LocationId',
-        'operatorValue'   => 'OperatorValue',
-        'ports'           => 'Ports',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'groupType' => 'GroupType',
+        'loadBalanceIp' => 'LoadBalanceIp',
+        'locationId' => 'LocationId',
+        'operatorValue' => 'OperatorValue',
+        'ports' => 'Ports',
         'regionCodeValue' => 'RegionCodeValue',
-        'remark'          => 'Remark',
+        'remark' => 'Remark',
     ];
 
     public function validate()

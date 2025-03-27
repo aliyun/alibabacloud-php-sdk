@@ -12,53 +12,62 @@ class DescribeApisecRulesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $origin;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'level'                          => 'Level',
-        'name'                           => 'Name',
-        'origin'                         => 'Origin',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'level' => 'Level',
+        'name' => 'Name',
+        'origin' => 'Origin',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'status'                         => 'Status',
-        'type'                           => 'Type',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()

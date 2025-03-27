@@ -12,28 +12,32 @@ class DeleteDefenseRuleRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $ruleIds;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'ruleIds'                        => 'RuleIds',
-        'templateId'                     => 'TemplateId',
+        'ruleIds' => 'RuleIds',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

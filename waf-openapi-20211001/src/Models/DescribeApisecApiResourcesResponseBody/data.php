@@ -12,118 +12,140 @@ class data extends Model
      * @var int
      */
     public $abnormalNum;
+
     /**
      * @var int
      */
     public $allCnt;
+
     /**
      * @var string
      */
     public $apiFormat;
+
     /**
      * @var string
      */
     public $apiId;
+
     /**
      * @var string
      */
     public $apiInfo;
+
     /**
      * @var string
      */
     public $apiMethod;
+
     /**
      * @var string
      */
     public $apiSensitive;
+
     /**
      * @var string
      */
     public $apiSensitiveRequest;
+
     /**
      * @var string
      */
     public $apiSensitiveResponse;
+
     /**
      * @var string
      */
     public $apiStatus;
+
     /**
      * @var string
      */
     public $apiTag;
+
     /**
      * @var string
      */
     public $apiType;
+
     /**
      * @var string
      */
     public $authFlag;
+
     /**
      * @var int
      */
     public $botCnt;
+
     /**
      * @var int
      */
     public $crossBorderCnt;
+
     /**
      * @var int
      */
     public $eventNum;
+
     /**
      * @var string[]
      */
     public $examples;
+
     /**
      * @var int
      */
     public $farthestTs;
+
     /**
      * @var int
      */
     public $follow;
+
     /**
      * @var int
      */
     public $lastestTs;
+
     /**
      * @var string
      */
     public $matchedHost;
+
     /**
      * @var string
      */
     public $note;
+
     /**
      * @var string[]
      */
     public $resources;
     protected $_name = [
-        'abnormalNum'          => 'AbnormalNum',
-        'allCnt'               => 'AllCnt',
-        'apiFormat'            => 'ApiFormat',
-        'apiId'                => 'ApiId',
-        'apiInfo'              => 'ApiInfo',
-        'apiMethod'            => 'ApiMethod',
-        'apiSensitive'         => 'ApiSensitive',
-        'apiSensitiveRequest'  => 'ApiSensitiveRequest',
+        'abnormalNum' => 'AbnormalNum',
+        'allCnt' => 'AllCnt',
+        'apiFormat' => 'ApiFormat',
+        'apiId' => 'ApiId',
+        'apiInfo' => 'ApiInfo',
+        'apiMethod' => 'ApiMethod',
+        'apiSensitive' => 'ApiSensitive',
+        'apiSensitiveRequest' => 'ApiSensitiveRequest',
         'apiSensitiveResponse' => 'ApiSensitiveResponse',
-        'apiStatus'            => 'ApiStatus',
-        'apiTag'               => 'ApiTag',
-        'apiType'              => 'ApiType',
-        'authFlag'             => 'AuthFlag',
-        'botCnt'               => 'BotCnt',
-        'crossBorderCnt'       => 'CrossBorderCnt',
-        'eventNum'             => 'EventNum',
-        'examples'             => 'Examples',
-        'farthestTs'           => 'FarthestTs',
-        'follow'               => 'Follow',
-        'lastestTs'            => 'LastestTs',
-        'matchedHost'          => 'MatchedHost',
-        'note'                 => 'Note',
-        'resources'            => 'Resources',
+        'apiStatus' => 'ApiStatus',
+        'apiTag' => 'ApiTag',
+        'apiType' => 'ApiType',
+        'authFlag' => 'AuthFlag',
+        'botCnt' => 'BotCnt',
+        'crossBorderCnt' => 'CrossBorderCnt',
+        'eventNum' => 'EventNum',
+        'examples' => 'Examples',
+        'farthestTs' => 'FarthestTs',
+        'follow' => 'Follow',
+        'lastestTs' => 'LastestTs',
+        'matchedHost' => 'MatchedHost',
+        'note' => 'Note',
+        'resources' => 'Resources',
     ];
 
     public function validate()
@@ -207,7 +229,7 @@ class data extends Model
         if (null !== $this->examples) {
             if (\is_array($this->examples)) {
                 $res['Examples'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->examples as $item1) {
                     $res['Examples'][$n1++] = $item1;
                 }
@@ -237,7 +259,7 @@ class data extends Model
         if (null !== $this->resources) {
             if (\is_array($this->resources)) {
                 $res['Resources'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->resources as $item1) {
                     $res['Resources'][$n1++] = $item1;
                 }
@@ -322,7 +344,7 @@ class data extends Model
         if (isset($map['Examples'])) {
             if (!empty($map['Examples'])) {
                 $model->examples = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Examples'] as $item1) {
                     $model->examples[$n1++] = $item1;
                 }
@@ -352,7 +374,7 @@ class data extends Model
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Resources'] as $item1) {
                     $model->resources[$n1++] = $item1;
                 }

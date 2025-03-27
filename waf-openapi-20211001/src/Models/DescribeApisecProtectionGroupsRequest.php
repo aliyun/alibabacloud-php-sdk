@@ -12,37 +12,43 @@ class DescribeApisecProtectionGroupsRequest extends Model
      * @var int
      */
     public $apisecStatus;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroup;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'apisecStatus'                   => 'ApisecStatus',
-        'instanceId'                     => 'InstanceId',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
-        'resourceGroup'                  => 'ResourceGroup',
+        'apisecStatus' => 'ApisecStatus',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroup' => 'ResourceGroup',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

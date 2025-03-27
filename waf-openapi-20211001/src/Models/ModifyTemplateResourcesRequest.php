@@ -12,43 +12,50 @@ class ModifyTemplateResourcesRequest extends Model
      * @var string[]
      */
     public $bindResourceGroups;
+
     /**
      * @var string[]
      */
     public $bindResources;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $templateId;
+
     /**
      * @var string[]
      */
     public $unbindResourceGroups;
+
     /**
      * @var string[]
      */
     public $unbindResources;
     protected $_name = [
-        'bindResourceGroups'             => 'BindResourceGroups',
-        'bindResources'                  => 'BindResources',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'bindResourceGroups' => 'BindResourceGroups',
+        'bindResources' => 'BindResources',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'templateId'                     => 'TemplateId',
-        'unbindResourceGroups'           => 'UnbindResourceGroups',
-        'unbindResources'                => 'UnbindResources',
+        'templateId' => 'TemplateId',
+        'unbindResourceGroups' => 'UnbindResourceGroups',
+        'unbindResources' => 'UnbindResources',
     ];
 
     public function validate()
@@ -74,7 +81,7 @@ class ModifyTemplateResourcesRequest extends Model
         if (null !== $this->bindResourceGroups) {
             if (\is_array($this->bindResourceGroups)) {
                 $res['BindResourceGroups'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->bindResourceGroups as $item1) {
                     $res['BindResourceGroups'][$n1++] = $item1;
                 }
@@ -84,7 +91,7 @@ class ModifyTemplateResourcesRequest extends Model
         if (null !== $this->bindResources) {
             if (\is_array($this->bindResources)) {
                 $res['BindResources'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->bindResources as $item1) {
                     $res['BindResources'][$n1++] = $item1;
                 }
@@ -110,7 +117,7 @@ class ModifyTemplateResourcesRequest extends Model
         if (null !== $this->unbindResourceGroups) {
             if (\is_array($this->unbindResourceGroups)) {
                 $res['UnbindResourceGroups'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->unbindResourceGroups as $item1) {
                     $res['UnbindResourceGroups'][$n1++] = $item1;
                 }
@@ -120,7 +127,7 @@ class ModifyTemplateResourcesRequest extends Model
         if (null !== $this->unbindResources) {
             if (\is_array($this->unbindResources)) {
                 $res['UnbindResources'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->unbindResources as $item1) {
                     $res['UnbindResources'][$n1++] = $item1;
                 }
@@ -141,7 +148,7 @@ class ModifyTemplateResourcesRequest extends Model
         if (isset($map['BindResourceGroups'])) {
             if (!empty($map['BindResourceGroups'])) {
                 $model->bindResourceGroups = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['BindResourceGroups'] as $item1) {
                     $model->bindResourceGroups[$n1++] = $item1;
                 }
@@ -151,7 +158,7 @@ class ModifyTemplateResourcesRequest extends Model
         if (isset($map['BindResources'])) {
             if (!empty($map['BindResources'])) {
                 $model->bindResources = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['BindResources'] as $item1) {
                     $model->bindResources[$n1++] = $item1;
                 }
@@ -177,7 +184,7 @@ class ModifyTemplateResourcesRequest extends Model
         if (isset($map['UnbindResourceGroups'])) {
             if (!empty($map['UnbindResourceGroups'])) {
                 $model->unbindResourceGroups = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['UnbindResourceGroups'] as $item1) {
                     $model->unbindResourceGroups[$n1++] = $item1;
                 }
@@ -187,7 +194,7 @@ class ModifyTemplateResourcesRequest extends Model
         if (isset($map['UnbindResources'])) {
             if (!empty($map['UnbindResources'])) {
                 $model->unbindResources = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['UnbindResources'] as $item1) {
                     $model->unbindResources[$n1++] = $item1;
                 }

@@ -12,33 +12,38 @@ class ModifyDefenseRuleStatusRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var int
      */
     public $ruleStatus;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'ruleId'                         => 'RuleId',
-        'ruleStatus'                     => 'RuleStatus',
-        'templateId'                     => 'TemplateId',
+        'ruleId' => 'RuleId',
+        'ruleStatus' => 'RuleStatus',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

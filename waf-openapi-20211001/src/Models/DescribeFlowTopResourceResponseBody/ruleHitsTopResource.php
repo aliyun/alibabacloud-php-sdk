@@ -12,12 +12,13 @@ class ruleHitsTopResource extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $resource;
     protected $_name = [
-        'count'    => 'Count',
+        'count' => 'Count',
         'resource' => 'Resource',
     ];
 

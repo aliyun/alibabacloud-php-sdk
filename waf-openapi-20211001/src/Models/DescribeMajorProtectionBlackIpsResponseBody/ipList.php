@@ -12,22 +12,27 @@ class ipList extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $expiredTime;
+
     /**
      * @var int
      */
     public $gmtModified;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var int
      */
@@ -36,9 +41,9 @@ class ipList extends Model
         'description' => 'Description',
         'expiredTime' => 'ExpiredTime',
         'gmtModified' => 'GmtModified',
-        'ip'          => 'Ip',
-        'ruleId'      => 'RuleId',
-        'templateId'  => 'TemplateId',
+        'ip' => 'Ip',
+        'ruleId' => 'RuleId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

@@ -12,73 +12,86 @@ class cloudResources extends Model
      * @var int
      */
     public $httpPortCount;
+
     /**
      * @var int
      */
     public $httpsPortCount;
+
     /**
      * @var string
      */
     public $ownerUserId;
+
     /**
      * @var string
      */
     public $resourceDomain;
+
     /**
      * @var string
      */
     public $resourceFunction;
+
     /**
      * @var string
      */
     public $resourceInstance;
+
     /**
      * @var string
      */
     public $resourceInstanceId;
+
     /**
      * @var string
      */
     public $resourceInstanceIp;
+
     /**
      * @var string
      */
     public $resourceInstanceName;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceProduct;
+
     /**
      * @var string
      */
     public $resourceRegionId;
+
     /**
      * @var string
      */
     public $resourceRouteName;
+
     /**
      * @var string
      */
     public $resourceService;
     protected $_name = [
-        'httpPortCount'        => 'HttpPortCount',
-        'httpsPortCount'       => 'HttpsPortCount',
-        'ownerUserId'          => 'OwnerUserId',
-        'resourceDomain'       => 'ResourceDomain',
-        'resourceFunction'     => 'ResourceFunction',
-        'resourceInstance'     => 'ResourceInstance',
-        'resourceInstanceId'   => 'ResourceInstanceId',
-        'resourceInstanceIp'   => 'ResourceInstanceIp',
+        'httpPortCount' => 'HttpPortCount',
+        'httpsPortCount' => 'HttpsPortCount',
+        'ownerUserId' => 'OwnerUserId',
+        'resourceDomain' => 'ResourceDomain',
+        'resourceFunction' => 'ResourceFunction',
+        'resourceInstance' => 'ResourceInstance',
+        'resourceInstanceId' => 'ResourceInstanceId',
+        'resourceInstanceIp' => 'ResourceInstanceIp',
         'resourceInstanceName' => 'ResourceInstanceName',
-        'resourceName'         => 'ResourceName',
-        'resourceProduct'      => 'ResourceProduct',
-        'resourceRegionId'     => 'ResourceRegionId',
-        'resourceRouteName'    => 'ResourceRouteName',
-        'resourceService'      => 'ResourceService',
+        'resourceName' => 'ResourceName',
+        'resourceProduct' => 'ResourceProduct',
+        'resourceRegionId' => 'ResourceRegionId',
+        'resourceRouteName' => 'ResourceRouteName',
+        'resourceService' => 'ResourceService',
     ];
 
     public function validate()

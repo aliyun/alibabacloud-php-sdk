@@ -13,12 +13,13 @@ class DescribeDefenseResourceGroupResponseBody extends Model
      * @var group
      */
     public $group;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'group'     => 'Group',
+        'group' => 'Group',
         'requestId' => 'RequestId',
     ];
 

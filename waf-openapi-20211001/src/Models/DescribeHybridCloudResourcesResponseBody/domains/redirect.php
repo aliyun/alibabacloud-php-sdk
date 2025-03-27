@@ -13,78 +13,92 @@ class redirect extends Model
      * @var string[]
      */
     public $backends;
+
     /**
      * @var bool
      */
     public $cnameEnabled;
+
     /**
      * @var int
      */
     public $connectTimeout;
+
     /**
      * @var bool
      */
     public $focusHttpBackend;
+
     /**
      * @var bool
      */
     public $keepalive;
+
     /**
      * @var int
      */
     public $keepaliveRequests;
+
     /**
      * @var int
      */
     public $keepaliveTimeout;
+
     /**
      * @var string
      */
     public $loadbalance;
+
     /**
      * @var int
      */
     public $readTimeout;
+
     /**
      * @var requestHeaders[]
      */
     public $requestHeaders;
+
     /**
      * @var bool
      */
     public $retry;
+
     /**
      * @var string
      */
     public $routingRules;
+
     /**
      * @var bool
      */
     public $sniEnabled;
+
     /**
      * @var string
      */
     public $sniHost;
+
     /**
      * @var int
      */
     public $writeTimeout;
     protected $_name = [
-        'backends'          => 'Backends',
-        'cnameEnabled'      => 'CnameEnabled',
-        'connectTimeout'    => 'ConnectTimeout',
-        'focusHttpBackend'  => 'FocusHttpBackend',
-        'keepalive'         => 'Keepalive',
+        'backends' => 'Backends',
+        'cnameEnabled' => 'CnameEnabled',
+        'connectTimeout' => 'ConnectTimeout',
+        'focusHttpBackend' => 'FocusHttpBackend',
+        'keepalive' => 'Keepalive',
         'keepaliveRequests' => 'KeepaliveRequests',
-        'keepaliveTimeout'  => 'KeepaliveTimeout',
-        'loadbalance'       => 'Loadbalance',
-        'readTimeout'       => 'ReadTimeout',
-        'requestHeaders'    => 'RequestHeaders',
-        'retry'             => 'Retry',
-        'routingRules'      => 'RoutingRules',
-        'sniEnabled'        => 'SniEnabled',
-        'sniHost'           => 'SniHost',
-        'writeTimeout'      => 'WriteTimeout',
+        'keepaliveTimeout' => 'KeepaliveTimeout',
+        'loadbalance' => 'Loadbalance',
+        'readTimeout' => 'ReadTimeout',
+        'requestHeaders' => 'RequestHeaders',
+        'retry' => 'Retry',
+        'routingRules' => 'RoutingRules',
+        'sniEnabled' => 'SniEnabled',
+        'sniHost' => 'SniHost',
+        'writeTimeout' => 'WriteTimeout',
     ];
 
     public function validate()
@@ -104,7 +118,7 @@ class redirect extends Model
         if (null !== $this->backends) {
             if (\is_array($this->backends)) {
                 $res['Backends'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->backends as $item1) {
                     $res['Backends'][$n1++] = $item1;
                 }
@@ -146,7 +160,7 @@ class redirect extends Model
         if (null !== $this->requestHeaders) {
             if (\is_array($this->requestHeaders)) {
                 $res['RequestHeaders'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->requestHeaders as $item1) {
                     $res['RequestHeaders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -187,7 +201,7 @@ class redirect extends Model
         if (isset($map['Backends'])) {
             if (!empty($map['Backends'])) {
                 $model->backends = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Backends'] as $item1) {
                     $model->backends[$n1++] = $item1;
                 }
@@ -229,7 +243,7 @@ class redirect extends Model
         if (isset($map['RequestHeaders'])) {
             if (!empty($map['RequestHeaders'])) {
                 $model->requestHeaders = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['RequestHeaders'] as $item1) {
                     $model->requestHeaders[$n1++] = requestHeaders::fromMap($item1);
                 }

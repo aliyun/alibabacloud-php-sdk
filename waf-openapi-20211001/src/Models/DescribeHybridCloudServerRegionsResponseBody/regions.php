@@ -12,6 +12,7 @@ class regions extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */

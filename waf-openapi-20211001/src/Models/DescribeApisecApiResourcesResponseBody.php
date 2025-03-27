@@ -13,17 +13,19 @@ class DescribeApisecApiResourcesResponseBody extends Model
      * @var data[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'data'       => 'Data',
-        'requestId'  => 'RequestId',
+        'data' => 'Data',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -41,7 +43,7 @@ class DescribeApisecApiResourcesResponseBody extends Model
         if (null !== $this->data) {
             if (\is_array($this->data)) {
                 $res['Data'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->data as $item1) {
                     $res['Data'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeApisecApiResourcesResponseBody extends Model
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Data'] as $item1) {
                     $model->data[$n1++] = data::fromMap($item1);
                 }

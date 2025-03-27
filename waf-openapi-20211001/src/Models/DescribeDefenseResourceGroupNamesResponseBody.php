@@ -12,17 +12,19 @@ class DescribeDefenseResourceGroupNamesResponseBody extends Model
      * @var string[]
      */
     public $groupNames;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'groupNames' => 'GroupNames',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -40,7 +42,7 @@ class DescribeDefenseResourceGroupNamesResponseBody extends Model
         if (null !== $this->groupNames) {
             if (\is_array($this->groupNames)) {
                 $res['GroupNames'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->groupNames as $item1) {
                     $res['GroupNames'][$n1++] = $item1;
                 }
@@ -69,7 +71,7 @@ class DescribeDefenseResourceGroupNamesResponseBody extends Model
         if (isset($map['GroupNames'])) {
             if (!empty($map['GroupNames'])) {
                 $model->groupNames = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['GroupNames'] as $item1) {
                     $model->groupNames[$n1++] = $item1;
                 }

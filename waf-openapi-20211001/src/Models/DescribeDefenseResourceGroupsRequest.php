@@ -12,37 +12,43 @@ class DescribeDefenseResourceGroupsRequest extends Model
      * @var string
      */
     public $groupNameLike;
+
     /**
      * @var string
      */
     public $groupNames;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'groupNameLike'                  => 'GroupNameLike',
-        'groupNames'                     => 'GroupNames',
-        'instanceId'                     => 'InstanceId',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
+        'groupNameLike' => 'GroupNameLike',
+        'groupNames' => 'GroupNames',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

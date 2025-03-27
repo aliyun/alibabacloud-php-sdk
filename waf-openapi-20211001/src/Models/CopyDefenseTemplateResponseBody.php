@@ -12,12 +12,13 @@ class CopyDefenseTemplateResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'templateId' => 'TemplateId',
     ];
 

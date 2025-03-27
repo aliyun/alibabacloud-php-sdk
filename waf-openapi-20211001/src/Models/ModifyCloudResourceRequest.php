@@ -14,27 +14,31 @@ class ModifyCloudResourceRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var listen
      */
     public $listen;
+
     /**
      * @var redirect
      */
     public $redirect;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'listen'                         => 'Listen',
-        'redirect'                       => 'Redirect',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'listen' => 'Listen',
+        'redirect' => 'Redirect',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

@@ -13,53 +13,62 @@ class ModifyDefenseResourceXffRequest extends Model
      * @var int
      */
     public $acwCookieStatus;
+
     /**
      * @var int
      */
     public $acwSecureStatus;
+
     /**
      * @var int
      */
     public $acwV3SecureStatus;
+
     /**
      * @var string[]
      */
     public $customHeaders;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resource;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var responseHeaders[]
      */
     public $responseHeaders;
+
     /**
      * @var int
      */
     public $xffStatus;
     protected $_name = [
-        'acwCookieStatus'                => 'AcwCookieStatus',
-        'acwSecureStatus'                => 'AcwSecureStatus',
-        'acwV3SecureStatus'              => 'AcwV3SecureStatus',
-        'customHeaders'                  => 'CustomHeaders',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
-        'resource'                       => 'Resource',
+        'acwCookieStatus' => 'AcwCookieStatus',
+        'acwSecureStatus' => 'AcwSecureStatus',
+        'acwV3SecureStatus' => 'AcwV3SecureStatus',
+        'customHeaders' => 'CustomHeaders',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'resource' => 'Resource',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'responseHeaders'                => 'ResponseHeaders',
-        'xffStatus'                      => 'XffStatus',
+        'responseHeaders' => 'ResponseHeaders',
+        'xffStatus' => 'XffStatus',
     ];
 
     public function validate()
@@ -91,7 +100,7 @@ class ModifyDefenseResourceXffRequest extends Model
         if (null !== $this->customHeaders) {
             if (\is_array($this->customHeaders)) {
                 $res['CustomHeaders'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->customHeaders as $item1) {
                     $res['CustomHeaders'][$n1++] = $item1;
                 }
@@ -117,7 +126,7 @@ class ModifyDefenseResourceXffRequest extends Model
         if (null !== $this->responseHeaders) {
             if (\is_array($this->responseHeaders)) {
                 $res['ResponseHeaders'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->responseHeaders as $item1) {
                     $res['ResponseHeaders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -154,7 +163,7 @@ class ModifyDefenseResourceXffRequest extends Model
         if (isset($map['CustomHeaders'])) {
             if (!empty($map['CustomHeaders'])) {
                 $model->customHeaders = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['CustomHeaders'] as $item1) {
                     $model->customHeaders[$n1++] = $item1;
                 }
@@ -180,7 +189,7 @@ class ModifyDefenseResourceXffRequest extends Model
         if (isset($map['ResponseHeaders'])) {
             if (!empty($map['ResponseHeaders'])) {
                 $model->responseHeaders = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ResponseHeaders'] as $item1) {
                     $model->responseHeaders[$n1++] = responseHeaders::fromMap($item1);
                 }

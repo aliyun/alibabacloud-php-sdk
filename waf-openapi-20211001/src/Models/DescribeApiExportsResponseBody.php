@@ -13,18 +13,20 @@ class DescribeApiExportsResponseBody extends Model
      * @var apiExports[]
      */
     public $apiExports;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
         'apiExports' => 'ApiExports',
-        'requestId'  => 'RequestId',
-        'total'      => 'Total',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class DescribeApiExportsResponseBody extends Model
         if (null !== $this->apiExports) {
             if (\is_array($this->apiExports)) {
                 $res['ApiExports'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->apiExports as $item1) {
                     $res['ApiExports'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeApiExportsResponseBody extends Model
         if (isset($map['ApiExports'])) {
             if (!empty($map['ApiExports'])) {
                 $model->apiExports = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ApiExports'] as $item1) {
                     $model->apiExports[$n1++] = apiExports::fromMap($item1);
                 }

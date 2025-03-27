@@ -12,48 +12,56 @@ class templates extends Model
      * @var string
      */
     public $defenseScene;
+
     /**
      * @var string
      */
     public $defenseSubScene;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateName;
+
     /**
      * @var string
      */
     public $templateOrigin;
+
     /**
      * @var int
      */
     public $templateStatus;
+
     /**
      * @var string
      */
     public $templateType;
     protected $_name = [
-        'defenseScene'    => 'DefenseScene',
+        'defenseScene' => 'DefenseScene',
         'defenseSubScene' => 'DefenseSubScene',
-        'description'     => 'Description',
-        'gmtModified'     => 'GmtModified',
-        'templateId'      => 'TemplateId',
-        'templateName'    => 'TemplateName',
-        'templateOrigin'  => 'TemplateOrigin',
-        'templateStatus'  => 'TemplateStatus',
-        'templateType'    => 'TemplateType',
+        'description' => 'Description',
+        'gmtModified' => 'GmtModified',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'templateOrigin' => 'TemplateOrigin',
+        'templateStatus' => 'TemplateStatus',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class DescribeSlsLogStoreResponseBody extends Model
      * @var string
      */
     public $logStoreName;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var int
      */
     public $quota;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $ttl;
+
     /**
      * @var int
      */
     public $used;
     protected $_name = [
         'logStoreName' => 'LogStoreName',
-        'projectName'  => 'ProjectName',
-        'quota'        => 'Quota',
-        'requestId'    => 'RequestId',
-        'ttl'          => 'Ttl',
-        'used'         => 'Used',
+        'projectName' => 'ProjectName',
+        'quota' => 'Quota',
+        'requestId' => 'RequestId',
+        'ttl' => 'Ttl',
+        'used' => 'Used',
     ];
 
     public function validate()

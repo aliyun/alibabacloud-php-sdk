@@ -12,98 +12,116 @@ class DescribeApisecAbnormalsRequest extends Model
      * @var string
      */
     public $abnormalId;
+
     /**
      * @var string
      */
     public $abnormalLevel;
+
     /**
      * @var string
      */
     public $abnormalTag;
+
     /**
      * @var string
      */
     public $apiFormat;
+
     /**
      * @var string
      */
     public $apiId;
+
     /**
      * @var string
      */
     public $apiTag;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $matchedHost;
+
     /**
      * @var string
      */
     public $orderKey;
+
     /**
      * @var string
      */
     public $orderWay;
+
     /**
      * @var string
      */
     public $origin;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $userStatus;
     protected $_name = [
-        'abnormalId'                     => 'AbnormalId',
-        'abnormalLevel'                  => 'AbnormalLevel',
-        'abnormalTag'                    => 'AbnormalTag',
-        'apiFormat'                      => 'ApiFormat',
-        'apiId'                          => 'ApiId',
-        'apiTag'                         => 'ApiTag',
-        'clusterId'                      => 'ClusterId',
-        'endTime'                        => 'EndTime',
-        'instanceId'                     => 'InstanceId',
-        'matchedHost'                    => 'MatchedHost',
-        'orderKey'                       => 'OrderKey',
-        'orderWay'                       => 'OrderWay',
-        'origin'                         => 'Origin',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
+        'abnormalId' => 'AbnormalId',
+        'abnormalLevel' => 'AbnormalLevel',
+        'abnormalTag' => 'AbnormalTag',
+        'apiFormat' => 'ApiFormat',
+        'apiId' => 'ApiId',
+        'apiTag' => 'ApiTag',
+        'clusterId' => 'ClusterId',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'matchedHost' => 'MatchedHost',
+        'orderKey' => 'OrderKey',
+        'orderWay' => 'OrderWay',
+        'origin' => 'Origin',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'startTime'                      => 'StartTime',
-        'userStatus'                     => 'UserStatus',
+        'startTime' => 'StartTime',
+        'userStatus' => 'UserStatus',
     ];
 
     public function validate()

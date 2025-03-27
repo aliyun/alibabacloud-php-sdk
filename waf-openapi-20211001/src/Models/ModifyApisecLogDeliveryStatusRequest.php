@@ -12,28 +12,32 @@ class ModifyApisecLogDeliveryStatusRequest extends Model
      * @var string
      */
     public $assertKey;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var bool
      */
     public $status;
     protected $_name = [
-        'assertKey'                      => 'AssertKey',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'assertKey' => 'AssertKey',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'status'                         => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

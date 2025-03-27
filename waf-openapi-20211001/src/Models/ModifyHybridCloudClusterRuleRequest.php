@@ -12,38 +12,44 @@ class ModifyHybridCloudClusterRuleRequest extends Model
      * @var int
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $ruleConfig;
+
     /**
      * @var string
      */
     public $ruleStatus;
+
     /**
      * @var string
      */
     public $ruleType;
     protected $_name = [
-        'clusterId'                      => 'ClusterId',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'ruleConfig'                     => 'RuleConfig',
-        'ruleStatus'                     => 'RuleStatus',
-        'ruleType'                       => 'RuleType',
+        'ruleConfig' => 'RuleConfig',
+        'ruleStatus' => 'RuleStatus',
+        'ruleType' => 'RuleType',
     ];
 
     public function validate()

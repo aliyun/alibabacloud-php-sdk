@@ -13,13 +13,14 @@ class CreateDomainResponseBody extends Model
      * @var domainInfo
      */
     public $domainInfo;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'domainInfo' => 'DomainInfo',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

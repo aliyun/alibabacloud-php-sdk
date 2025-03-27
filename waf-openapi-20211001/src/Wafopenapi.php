@@ -171,6 +171,12 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMajorProtectionBlackIps
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMajorProtectionBlackIpsResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMemberAccountsRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeMemberAccountsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeNetworkFlowTimeSeriesMetricRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeNetworkFlowTimeSeriesMetricResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeNetworkFlowTimeSeriesMetricShrinkRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeNetworkFlowTopNMetricRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeNetworkFlowTopNMetricResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeNetworkFlowTopNMetricShrinkRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePauseProtectionStatusRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePauseProtectionStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribePeakTrendRequest;
@@ -205,6 +211,15 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopUaRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopUaResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopUrlRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeRuleHitsTopUrlResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventLogsRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventLogsResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventLogsShrinkRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventTimeSeriesMetricRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventTimeSeriesMetricResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventTimeSeriesMetricShrinkRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventTopNMetricRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventTopNMetricResponse;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSecurityEventTopNMetricShrinkRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveApiStatisticRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveApiStatisticResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\DescribeSensitiveDetectionResultRequest;
@@ -340,31 +355,31 @@ class Wafopenapi extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-qingdao'            => 'wafopenapi.cn-hangzhou.aliyuncs.com',
-            'cn-beijing'            => 'wafopenapi.cn-hangzhou.aliyuncs.com',
-            'cn-chengdu'            => 'wafopenapi.cn-hangzhou.aliyuncs.com',
-            'cn-zhangjiakou'        => 'wafopenapi.cn-hangzhou.aliyuncs.com',
-            'cn-huhehaote'          => 'wafopenapi.cn-hangzhou.aliyuncs.com',
-            'cn-hangzhou'           => 'wafopenapi.cn-hangzhou.aliyuncs.com',
-            'cn-shanghai'           => 'wafopenapi.cn-hangzhou.aliyuncs.com',
-            'cn-shenzhen'           => 'wafopenapi.cn-hangzhou.aliyuncs.com',
-            'cn-heyuan'             => 'wafopenapi.cn-hangzhou.aliyuncs.com',
-            'cn-wulanchabu'         => 'wafopenapi.cn-hangzhou.aliyuncs.com',
-            'cn-hongkong'           => 'wafopenapi.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-1'        => 'wafopenapi.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2'        => 'wafopenapi.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-3'        => 'wafopenapi.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-5'        => 'wafopenapi.ap-southeast-1.aliyuncs.com',
-            'eu-west-1'             => 'wafopenapi.ap-southeast-1.aliyuncs.com',
-            'us-west-1'             => 'wafopenapi.ap-southeast-1.aliyuncs.com',
-            'us-east-1'             => 'wafopenapi.ap-southeast-1.aliyuncs.com',
-            'eu-central-1'          => 'wafopenapi.ap-southeast-1.aliyuncs.com',
-            'me-east-1'             => 'wafopenapi.ap-southeast-1.aliyuncs.com',
-            'ap-south-1'            => 'wafopenapi.ap-southeast-1.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-qingdao' => 'wafopenapi.cn-hangzhou.aliyuncs.com',
+            'cn-beijing' => 'wafopenapi.cn-hangzhou.aliyuncs.com',
+            'cn-chengdu' => 'wafopenapi.cn-hangzhou.aliyuncs.com',
+            'cn-zhangjiakou' => 'wafopenapi.cn-hangzhou.aliyuncs.com',
+            'cn-huhehaote' => 'wafopenapi.cn-hangzhou.aliyuncs.com',
+            'cn-hangzhou' => 'wafopenapi.cn-hangzhou.aliyuncs.com',
+            'cn-shanghai' => 'wafopenapi.cn-hangzhou.aliyuncs.com',
+            'cn-shenzhen' => 'wafopenapi.cn-hangzhou.aliyuncs.com',
+            'cn-heyuan' => 'wafopenapi.cn-hangzhou.aliyuncs.com',
+            'cn-wulanchabu' => 'wafopenapi.cn-hangzhou.aliyuncs.com',
+            'cn-hongkong' => 'wafopenapi.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-1' => 'wafopenapi.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2' => 'wafopenapi.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-3' => 'wafopenapi.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-5' => 'wafopenapi.ap-southeast-1.aliyuncs.com',
+            'eu-west-1' => 'wafopenapi.ap-southeast-1.aliyuncs.com',
+            'us-west-1' => 'wafopenapi.ap-southeast-1.aliyuncs.com',
+            'us-east-1' => 'wafopenapi.ap-southeast-1.aliyuncs.com',
+            'eu-central-1' => 'wafopenapi.ap-southeast-1.aliyuncs.com',
+            'me-east-1' => 'wafopenapi.ap-southeast-1.aliyuncs.com',
+            'ap-south-1' => 'wafopenapi.ap-southeast-1.aliyuncs.com',
             'cn-shanghai-finance-1' => 'wafopenapi.cn-hangzhou.aliyuncs.com',
             'cn-shenzhen-finance-1' => 'wafopenapi.cn-hangzhou.aliyuncs.com',
-            'cn-north-2-gov-1'      => 'wafopenapi.cn-hangzhou.aliyuncs.com',
+            'cn-north-2-gov-1' => 'wafopenapi.cn-hangzhou.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('waf-openapi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -399,6 +414,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -434,15 +450,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -455,6 +471,7 @@ class Wafopenapi extends OpenApiClient
      * Changes the resource group to which a protected object belongs.
      *
      * @param request - ChangeResourceGroupRequest
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -473,6 +490,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ClearMajorProtectionBlackIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ClearMajorProtectionBlackIpResponse
      *
      * @param ClearMajorProtectionBlackIpRequest $request
@@ -508,15 +526,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ClearMajorProtectionBlackIp',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ClearMajorProtectionBlackIp',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ClearMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -529,6 +547,7 @@ class Wafopenapi extends OpenApiClient
      * Clears an IP address blacklist for major event protection.
      *
      * @param request - ClearMajorProtectionBlackIpRequest
+     *
      * @returns ClearMajorProtectionBlackIpResponse
      *
      * @param ClearMajorProtectionBlackIpRequest $request
@@ -547,6 +566,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - CopyDefenseTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CopyDefenseTemplateResponse
      *
      * @param CopyDefenseTemplateRequest $request
@@ -578,15 +598,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CopyDefenseTemplate',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CopyDefenseTemplate',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CopyDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -599,6 +619,7 @@ class Wafopenapi extends OpenApiClient
      * Creates a new protection template from the copy.
      *
      * @param request - CopyDefenseTemplateRequest
+     *
      * @returns CopyDefenseTemplateResponse
      *
      * @param CopyDefenseTemplateRequest $request
@@ -617,6 +638,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - CreateApiExportRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateApiExportResponse
      *
      * @param CreateApiExportRequest $request
@@ -664,15 +686,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateApiExport',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateApiExport',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateApiExportResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -685,6 +707,7 @@ class Wafopenapi extends OpenApiClient
      * Creates a data export task in the API security module.
      *
      * @param request - CreateApiExportRequest
+     *
      * @returns CreateApiExportResponse
      *
      * @param CreateApiExportRequest $request
@@ -703,6 +726,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param tmpReq - CreateCloudResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCloudResourceResponse
      *
      * @param CreateCloudResourceRequest $tmpReq
@@ -756,15 +780,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateCloudResource',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateCloudResource',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -777,6 +801,7 @@ class Wafopenapi extends OpenApiClient
      * Adds a service to Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
      *
      * @param request - CreateCloudResourceRequest
+     *
      * @returns CreateCloudResourceResponse
      *
      * @param CreateCloudResourceRequest $request
@@ -795,6 +820,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - CreateDefenseResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDefenseResourceGroupResponse
      *
      * @param CreateDefenseResourceGroupRequest $request
@@ -834,15 +860,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDefenseResourceGroup',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDefenseResourceGroup',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -855,6 +881,7 @@ class Wafopenapi extends OpenApiClient
      * Creates a protected object group.
      *
      * @param request - CreateDefenseResourceGroupRequest
+     *
      * @returns CreateDefenseResourceGroupResponse
      *
      * @param CreateDefenseResourceGroupRequest $request
@@ -873,6 +900,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - CreateDefenseRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDefenseRuleResponse
      *
      * @param CreateDefenseRuleRequest $request
@@ -911,18 +939,18 @@ class Wafopenapi extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDefenseRule',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDefenseRule',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -935,6 +963,7 @@ class Wafopenapi extends OpenApiClient
      * Creates a protection rule.
      *
      * @param request - CreateDefenseRuleRequest
+     *
      * @returns CreateDefenseRuleResponse
      *
      * @param CreateDefenseRuleRequest $request
@@ -953,6 +982,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - CreateDefenseTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDefenseTemplateResponse
      *
      * @param CreateDefenseTemplateRequest $request
@@ -1004,15 +1034,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDefenseTemplate',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDefenseTemplate',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1025,6 +1055,7 @@ class Wafopenapi extends OpenApiClient
      * Creates a protection rule template.
      *
      * @param request - CreateDefenseTemplateRequest
+     *
      * @returns CreateDefenseTemplateResponse
      *
      * @param CreateDefenseTemplateRequest $request
@@ -1043,6 +1074,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param tmpReq - CreateDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDomainResponse
      *
      * @param CreateDomainRequest $tmpReq
@@ -1100,15 +1132,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDomain',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDomain',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1121,6 +1153,7 @@ class Wafopenapi extends OpenApiClient
      * Adds a domain name to Web Application Firewall (WAF).
      *
      * @param request - CreateDomainRequest
+     *
      * @returns CreateDomainResponse
      *
      * @param CreateDomainRequest $request
@@ -1139,6 +1172,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - CreateHybridCloudGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateHybridCloudGroupResponse
      *
      * @param CreateHybridCloudGroupRequest $request
@@ -1194,15 +1228,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateHybridCloudGroup',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateHybridCloudGroup',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateHybridCloudGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1215,6 +1249,7 @@ class Wafopenapi extends OpenApiClient
      * Creates a node group for a hybrid cloud cluster.
      *
      * @param request - CreateHybridCloudGroupRequest
+     *
      * @returns CreateHybridCloudGroupResponse
      *
      * @param CreateHybridCloudGroupRequest $request
@@ -1236,6 +1271,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - CreateMajorProtectionBlackIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateMajorProtectionBlackIpResponse
      *
      * @param CreateMajorProtectionBlackIpRequest $request
@@ -1283,15 +1319,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMajorProtectionBlackIp',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMajorProtectionBlackIp',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1307,6 +1343,7 @@ class Wafopenapi extends OpenApiClient
      * This operation is available only on the China site (aliyun.com).
      *
      * @param request - CreateMajorProtectionBlackIpRequest
+     *
      * @returns CreateMajorProtectionBlackIpResponse
      *
      * @param CreateMajorProtectionBlackIpRequest $request
@@ -1325,6 +1362,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - CreateMemberAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateMemberAccountsResponse
      *
      * @param CreateMemberAccountsRequest $request
@@ -1360,15 +1398,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMemberAccounts',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMemberAccounts',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateMemberAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1381,6 +1419,7 @@ class Wafopenapi extends OpenApiClient
      * Adds members to use the multi-account management feature of Web Application Firewall (WAF).
      *
      * @param request - CreateMemberAccountsRequest
+     *
      * @returns CreateMemberAccountsResponse
      *
      * @param CreateMemberAccountsRequest $request
@@ -1399,6 +1438,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - CreatePostpaidInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePostpaidInstanceResponse
      *
      * @param CreatePostpaidInstanceRequest $request
@@ -1422,15 +1462,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePostpaidInstance',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePostpaidInstance',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePostpaidInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1443,6 +1483,7 @@ class Wafopenapi extends OpenApiClient
      * Creates a pay-as-you-go Web Application Firewall (WAF) 3.0 instance.
      *
      * @param request - CreatePostpaidInstanceRequest
+     *
      * @returns CreatePostpaidInstanceResponse
      *
      * @param CreatePostpaidInstanceRequest $request
@@ -1461,6 +1502,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - CreateSM2CertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSM2CertResponse
      *
      * @param CreateSM2CertRequest $request
@@ -1508,15 +1550,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSM2Cert',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSM2Cert',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSM2CertResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1529,6 +1571,7 @@ class Wafopenapi extends OpenApiClient
      * Uploads a ShangMi (SM) certificate for a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
      *
      * @param request - CreateSM2CertRequest
+     *
      * @returns CreateSM2CertResponse
      *
      * @param CreateSM2CertRequest $request
@@ -1547,6 +1590,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DeleteApisecAbnormalsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteApisecAbnormalsResponse
      *
      * @param DeleteApisecAbnormalsRequest $request
@@ -1582,15 +1626,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteApisecAbnormals',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteApisecAbnormals',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1603,6 +1647,7 @@ class Wafopenapi extends OpenApiClient
      * Deletes multiple risks detected by the API security module at a time.
      *
      * @param request - DeleteApisecAbnormalsRequest
+     *
      * @returns DeleteApisecAbnormalsResponse
      *
      * @param DeleteApisecAbnormalsRequest $request
@@ -1621,6 +1666,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DeleteApisecEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteApisecEventsResponse
      *
      * @param DeleteApisecEventsRequest $request
@@ -1656,15 +1702,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteApisecEvents',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteApisecEvents',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1677,6 +1723,7 @@ class Wafopenapi extends OpenApiClient
      * Deletes multiple security events detected by the API security module at a time.
      *
      * @param request - DeleteApisecEventsRequest
+     *
      * @returns DeleteApisecEventsResponse
      *
      * @param DeleteApisecEventsRequest $request
@@ -1695,6 +1742,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DeleteCloudResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCloudResourceResponse
      *
      * @param DeleteCloudResourceRequest $request
@@ -1734,15 +1782,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCloudResource',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCloudResource',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1755,6 +1803,7 @@ class Wafopenapi extends OpenApiClient
      * Removes a service from Web Application Firewall (WAF). This operation is supported for only the Elastic Compute Service (ECS) and Classic Load Balancer (CLB) services.
      *
      * @param request - DeleteCloudResourceRequest
+     *
      * @returns DeleteCloudResourceResponse
      *
      * @param DeleteCloudResourceRequest $request
@@ -1773,6 +1822,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DeleteDefenseResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDefenseResourceGroupResponse
      *
      * @param DeleteDefenseResourceGroupRequest $request
@@ -1804,15 +1854,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDefenseResourceGroup',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDefenseResourceGroup',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1825,6 +1875,7 @@ class Wafopenapi extends OpenApiClient
      * Deletes a protected object group.
      *
      * @param request - DeleteDefenseResourceGroupRequest
+     *
      * @returns DeleteDefenseResourceGroupResponse
      *
      * @param DeleteDefenseResourceGroupRequest $request
@@ -1843,6 +1894,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DeleteDefenseRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDefenseRuleResponse
      *
      * @param DeleteDefenseRuleRequest $request
@@ -1878,15 +1930,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDefenseRule',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDefenseRule',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1899,6 +1951,7 @@ class Wafopenapi extends OpenApiClient
      * Deletes a protection rule.
      *
      * @param request - DeleteDefenseRuleRequest
+     *
      * @returns DeleteDefenseRuleResponse
      *
      * @param DeleteDefenseRuleRequest $request
@@ -1917,6 +1970,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DeleteDefenseTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDefenseTemplateResponse
      *
      * @param DeleteDefenseTemplateRequest $request
@@ -1948,15 +2002,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDefenseTemplate',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDefenseTemplate',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1969,6 +2023,7 @@ class Wafopenapi extends OpenApiClient
      * Deletes a protection rule template.
      *
      * @param request - DeleteDefenseTemplateRequest
+     *
      * @returns DeleteDefenseTemplateResponse
      *
      * @param DeleteDefenseTemplateRequest $request
@@ -1987,6 +2042,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DeleteDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDomainResponse
      *
      * @param DeleteDomainRequest $request
@@ -2022,15 +2078,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDomain',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDomain',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2043,6 +2099,7 @@ class Wafopenapi extends OpenApiClient
      * Deletes a domain name that is added to Web Application Firewall (WAF).
      *
      * @param request - DeleteDomainRequest
+     *
      * @returns DeleteDomainResponse
      *
      * @param DeleteDomainRequest $request
@@ -2061,6 +2118,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DeleteMajorProtectionBlackIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteMajorProtectionBlackIpResponse
      *
      * @param DeleteMajorProtectionBlackIpRequest $request
@@ -2100,15 +2158,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMajorProtectionBlackIp',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMajorProtectionBlackIp',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2121,6 +2179,7 @@ class Wafopenapi extends OpenApiClient
      * Deletes an IP address blacklist for major event protection.
      *
      * @param request - DeleteMajorProtectionBlackIpRequest
+     *
      * @returns DeleteMajorProtectionBlackIpResponse
      *
      * @param DeleteMajorProtectionBlackIpRequest $request
@@ -2139,6 +2198,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DeleteMemberAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteMemberAccountResponse
      *
      * @param DeleteMemberAccountRequest $request
@@ -2174,15 +2234,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMemberAccount',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMemberAccount',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteMemberAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2195,6 +2255,7 @@ class Wafopenapi extends OpenApiClient
      * Removes the members that are added for multi-account management in Web Application Firewall (WAF).
      *
      * @param request - DeleteMemberAccountRequest
+     *
      * @returns DeleteMemberAccountResponse
      *
      * @param DeleteMemberAccountRequest $request
@@ -2213,6 +2274,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeAccountDelegatedStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAccountDelegatedStatusResponse
      *
      * @param DescribeAccountDelegatedStatusRequest $request
@@ -2240,15 +2302,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAccountDelegatedStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAccountDelegatedStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAccountDelegatedStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2261,6 +2323,7 @@ class Wafopenapi extends OpenApiClient
      * Queries whether an Alibaba Cloud account is the delegated administrator account of a Web Application Firewall (WAF) instance.
      *
      * @param request - DescribeAccountDelegatedStatusRequest
+     *
      * @returns DescribeAccountDelegatedStatusResponse
      *
      * @param DescribeAccountDelegatedStatusRequest $request
@@ -2279,6 +2342,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApiExportsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApiExportsResponse
      *
      * @param DescribeApiExportsRequest $request
@@ -2318,15 +2382,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApiExports',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApiExports',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApiExportsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2339,6 +2403,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the list of data export tasks in the API security module.
      *
      * @param request - DescribeApiExportsRequest
+     *
      * @returns DescribeApiExportsResponse
      *
      * @param DescribeApiExportsRequest $request
@@ -2357,6 +2422,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecAbnormalDomainStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecAbnormalDomainStatisticResponse
      *
      * @param DescribeApisecAbnormalDomainStatisticRequest $request
@@ -2408,15 +2474,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecAbnormalDomainStatistic',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecAbnormalDomainStatistic',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecAbnormalDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2429,6 +2495,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the statistics on domain names on which risks are detected by the API security module.
      *
      * @param request - DescribeApisecAbnormalDomainStatisticRequest
+     *
      * @returns DescribeApisecAbnormalDomainStatisticResponse
      *
      * @param DescribeApisecAbnormalDomainStatisticRequest $request
@@ -2447,6 +2514,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecAbnormalsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecAbnormalsResponse
      *
      * @param DescribeApisecAbnormalsRequest $request
@@ -2538,15 +2606,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecAbnormals',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecAbnormals',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2559,6 +2627,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the list of API security risks.
      *
      * @param request - DescribeApisecAbnormalsRequest
+     *
      * @returns DescribeApisecAbnormalsResponse
      *
      * @param DescribeApisecAbnormalsRequest $request
@@ -2577,6 +2646,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecApiResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecApiResourcesResponse
      *
      * @param DescribeApisecApiResourcesRequest $request
@@ -2684,15 +2754,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecApiResources',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecApiResources',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecApiResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2705,6 +2775,7 @@ class Wafopenapi extends OpenApiClient
      * Queries API assets in the API security module.
      *
      * @param request - DescribeApisecApiResourcesRequest
+     *
      * @returns DescribeApisecApiResourcesResponse
      *
      * @param DescribeApisecApiResourcesRequest $request
@@ -2723,6 +2794,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecAssetTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecAssetTrendResponse
      *
      * @param DescribeApisecAssetTrendRequest $request
@@ -2762,15 +2834,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecAssetTrend',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecAssetTrend',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecAssetTrendResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2783,6 +2855,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the asset trends in the API security module.
      *
      * @param request - DescribeApisecAssetTrendRequest
+     *
      * @returns DescribeApisecAssetTrendResponse
      *
      * @param DescribeApisecAssetTrendRequest $request
@@ -2801,6 +2874,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecEventDomainStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecEventDomainStatisticResponse
      *
      * @param DescribeApisecEventDomainStatisticRequest $request
@@ -2852,15 +2926,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecEventDomainStatistic',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecEventDomainStatistic',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecEventDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2873,6 +2947,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the statistics on domain names on which security events are detected by the API security module.
      *
      * @param request - DescribeApisecEventDomainStatisticRequest
+     *
      * @returns DescribeApisecEventDomainStatisticResponse
      *
      * @param DescribeApisecEventDomainStatisticRequest $request
@@ -2891,6 +2966,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecEventsResponse
      *
      * @param DescribeApisecEventsRequest $request
@@ -2986,15 +3062,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecEvents',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecEvents',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3007,6 +3083,7 @@ class Wafopenapi extends OpenApiClient
      * Queries API security events.
      *
      * @param request - DescribeApisecEventsRequest
+     *
      * @returns DescribeApisecEventsResponse
      *
      * @param DescribeApisecEventsRequest $request
@@ -3025,6 +3102,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecLogDeliveriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecLogDeliveriesResponse
      *
      * @param DescribeApisecLogDeliveriesRequest $request
@@ -3052,15 +3130,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecLogDeliveries',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecLogDeliveries',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecLogDeliveriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3073,6 +3151,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the configurations of API security log subscription.
      *
      * @param request - DescribeApisecLogDeliveriesRequest
+     *
      * @returns DescribeApisecLogDeliveriesResponse
      *
      * @param DescribeApisecLogDeliveriesRequest $request
@@ -3091,6 +3170,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecMatchedHostsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecMatchedHostsResponse
      *
      * @param DescribeApisecMatchedHostsRequest $request
@@ -3138,15 +3218,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecMatchedHosts',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecMatchedHosts',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecMatchedHostsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3159,6 +3239,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the list of domain names detected in the API security module.
      *
      * @param request - DescribeApisecMatchedHostsRequest
+     *
      * @returns DescribeApisecMatchedHostsResponse
      *
      * @param DescribeApisecMatchedHostsRequest $request
@@ -3177,6 +3258,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecProtectionGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecProtectionGroupsResponse
      *
      * @param DescribeApisecProtectionGroupsRequest $request
@@ -3220,15 +3302,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecProtectionGroups',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecProtectionGroups',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecProtectionGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3241,6 +3323,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the list of protected object groups to which API security policies are applied.
      *
      * @param request - DescribeApisecProtectionGroupsRequest
+     *
      * @returns DescribeApisecProtectionGroupsResponse
      *
      * @param DescribeApisecProtectionGroupsRequest $request
@@ -3259,6 +3342,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecProtectionResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecProtectionResourcesResponse
      *
      * @param DescribeApisecProtectionResourcesRequest $request
@@ -3302,15 +3386,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecProtectionResources',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecProtectionResources',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecProtectionResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3323,6 +3407,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the list of protected objects to which API security policies are applied.
      *
      * @param request - DescribeApisecProtectionResourcesRequest
+     *
      * @returns DescribeApisecProtectionResourcesResponse
      *
      * @param DescribeApisecProtectionResourcesRequest $request
@@ -3341,6 +3426,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecRulesResponse
      *
      * @param DescribeApisecRulesRequest $request
@@ -3396,15 +3482,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecRules',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecRules',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3417,6 +3503,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the policies configured in the API security module.
      *
      * @param request - DescribeApisecRulesRequest
+     *
      * @returns DescribeApisecRulesResponse
      *
      * @param DescribeApisecRulesRequest $request
@@ -3435,6 +3522,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecSensitiveDomainStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecSensitiveDomainStatisticResponse
      *
      * @param DescribeApisecSensitiveDomainStatisticRequest $request
@@ -3490,15 +3578,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecSensitiveDomainStatistic',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecSensitiveDomainStatistic',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecSensitiveDomainStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3511,6 +3599,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the statistics on domain names on which sensitive data is detected by the API security module.
      *
      * @param request - DescribeApisecSensitiveDomainStatisticRequest
+     *
      * @returns DescribeApisecSensitiveDomainStatisticResponse
      *
      * @param DescribeApisecSensitiveDomainStatisticRequest $request
@@ -3529,6 +3618,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecSlsLogStoresRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecSlsLogStoresResponse
      *
      * @param DescribeApisecSlsLogStoresRequest $request
@@ -3564,15 +3654,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecSlsLogStores',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecSlsLogStores',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecSlsLogStoresResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3585,6 +3675,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the Logstores whose names start with apisec- in Simple Log Service.
      *
      * @param request - DescribeApisecSlsLogStoresRequest
+     *
      * @returns DescribeApisecSlsLogStoresResponse
      *
      * @param DescribeApisecSlsLogStoresRequest $request
@@ -3603,6 +3694,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecSlsProjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecSlsProjectsResponse
      *
      * @param DescribeApisecSlsProjectsRequest $request
@@ -3634,15 +3726,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecSlsProjects',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecSlsProjects',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecSlsProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3655,6 +3747,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the projects whose names start with apisec- in Simple Log Service.
      *
      * @param request - DescribeApisecSlsProjectsRequest
+     *
      * @returns DescribeApisecSlsProjectsResponse
      *
      * @param DescribeApisecSlsProjectsRequest $request
@@ -3673,6 +3766,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecStatisticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecStatisticsResponse
      *
      * @param DescribeApisecStatisticsRequest $request
@@ -3708,15 +3802,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecStatistics',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecStatistics',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3729,6 +3823,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the statistics of API security-related risks and events.
      *
      * @param request - DescribeApisecStatisticsRequest
+     *
      * @returns DescribeApisecStatisticsResponse
      *
      * @param DescribeApisecStatisticsRequest $request
@@ -3747,6 +3842,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecSuggestionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecSuggestionsResponse
      *
      * @param DescribeApisecSuggestionsRequest $request
@@ -3782,15 +3878,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecSuggestions',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecSuggestions',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecSuggestionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3803,6 +3899,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the protection suggestions for APIs.
      *
      * @param request - DescribeApisecSuggestionsRequest
+     *
      * @returns DescribeApisecSuggestionsResponse
      *
      * @param DescribeApisecSuggestionsRequest $request
@@ -3821,6 +3918,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeApisecUserOperationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApisecUserOperationsResponse
      *
      * @param DescribeApisecUserOperationsRequest $request
@@ -3860,15 +3958,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApisecUserOperations',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApisecUserOperations',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApisecUserOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3881,6 +3979,7 @@ class Wafopenapi extends OpenApiClient
      * Queries user operation records in the API security module.
      *
      * @param request - DescribeApisecUserOperationsRequest
+     *
      * @returns DescribeApisecUserOperationsResponse
      *
      * @param DescribeApisecUserOperationsRequest $request
@@ -3899,6 +3998,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeCertDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCertDetailResponse
      *
      * @param DescribeCertDetailRequest $request
@@ -3930,15 +4030,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCertDetail',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCertDetail',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCertDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3951,6 +4051,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the details of a certificate, such as the certificate name, expiration time, issuance time, and associated domain name.
      *
      * @param request - DescribeCertDetailRequest
+     *
      * @returns DescribeCertDetailResponse
      *
      * @param DescribeCertDetailRequest $request
@@ -3969,6 +4070,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeCertsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCertsResponse
      *
      * @param DescribeCertsRequest $request
@@ -4012,15 +4114,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCerts',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCerts',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCertsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4033,6 +4135,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the certificates issued for your domain names that are added to Web Application Firewall (WAF).
      *
      * @param request - DescribeCertsRequest
+     *
      * @returns DescribeCertsResponse
      *
      * @param DescribeCertsRequest $request
@@ -4051,6 +4154,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeCloudResourceAccessPortDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudResourceAccessPortDetailsResponse
      *
      * @param DescribeCloudResourceAccessPortDetailsRequest $request
@@ -4102,15 +4206,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudResourceAccessPortDetails',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudResourceAccessPortDetails',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCloudResourceAccessPortDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4123,6 +4227,7 @@ class Wafopenapi extends OpenApiClient
      * Queries a port of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
      *
      * @param request - DescribeCloudResourceAccessPortDetailsRequest
+     *
      * @returns DescribeCloudResourceAccessPortDetailsResponse
      *
      * @param DescribeCloudResourceAccessPortDetailsRequest $request
@@ -4141,6 +4246,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeCloudResourceAccessedPortsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudResourceAccessedPortsResponse
      *
      * @param DescribeCloudResourceAccessedPortsRequest $request
@@ -4172,15 +4278,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudResourceAccessedPorts',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudResourceAccessedPorts',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCloudResourceAccessedPortsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4193,6 +4299,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the ports of the cloud service that is added to Web Application Firewall (WAF). This operation is supported for only Elastic Compute Service (ECS) and Classic Load Balancer (CLB).
      *
      * @param request - DescribeCloudResourceAccessedPortsRequest
+     *
      * @returns DescribeCloudResourceAccessedPortsResponse
      *
      * @param DescribeCloudResourceAccessedPortsRequest $request
@@ -4211,6 +4318,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeCloudResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCloudResourcesResponse
      *
      * @param DescribeCloudResourcesRequest $request
@@ -4282,15 +4390,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCloudResources',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCloudResources',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4303,6 +4411,7 @@ class Wafopenapi extends OpenApiClient
      * Queries cloud service resources that are added to Web Application Firewall (WAF).
      *
      * @param request - DescribeCloudResourcesRequest
+     *
      * @returns DescribeCloudResourcesResponse
      *
      * @param DescribeCloudResourcesRequest $request
@@ -4321,6 +4430,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeCnameCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCnameCountResponse
      *
      * @param DescribeCnameCountRequest $request
@@ -4348,15 +4458,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCnameCount',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCnameCount',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCnameCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4369,6 +4479,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the total number of domain names that are added to Web Application Firewall (WAF) in CNAME record mode and hybrid cloud reverse proxy mode.
      *
      * @param request - DescribeCnameCountRequest
+     *
      * @returns DescribeCnameCountResponse
      *
      * @param DescribeCnameCountRequest $request
@@ -4387,6 +4498,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDDoSStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDDoSStatusResponse
      *
      * @param DescribeDDoSStatusRequest $request
@@ -4414,15 +4526,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDDoSStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDDoSStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDDoSStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4435,6 +4547,7 @@ class Wafopenapi extends OpenApiClient
      * Checks whether DDoS attacks occur on specific domain names protected by a Web Application Firewall (WAF) instance.
      *
      * @param request - DescribeDDoSStatusRequest
+     *
      * @returns DescribeDDoSStatusResponse
      *
      * @param DescribeDDoSStatusRequest $request
@@ -4453,6 +4566,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDefaultHttpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDefaultHttpsResponse
      *
      * @param DescribeDefaultHttpsRequest $request
@@ -4480,15 +4594,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDefaultHttps',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDefaultHttps',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDefaultHttpsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4501,6 +4615,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the default SSL and Transport Layer Security (TLS) settings.
      *
      * @param request - DescribeDefaultHttpsRequest
+     *
      * @returns DescribeDefaultHttpsResponse
      *
      * @param DescribeDefaultHttpsRequest $request
@@ -4519,6 +4634,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDefenseResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDefenseResourceResponse
      *
      * @param DescribeDefenseResourceRequest $request
@@ -4550,15 +4666,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDefenseResource',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDefenseResource',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDefenseResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4571,6 +4687,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the information about a protected object.
      *
      * @param request - DescribeDefenseResourceRequest
+     *
      * @returns DescribeDefenseResourceResponse
      *
      * @param DescribeDefenseResourceRequest $request
@@ -4589,6 +4706,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDefenseResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDefenseResourceGroupResponse
      *
      * @param DescribeDefenseResourceGroupRequest $request
@@ -4620,15 +4738,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDefenseResourceGroup',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDefenseResourceGroup',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4641,6 +4759,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the information about a protected object group.
      *
      * @param request - DescribeDefenseResourceGroupRequest
+     *
      * @returns DescribeDefenseResourceGroupResponse
      *
      * @param DescribeDefenseResourceGroupRequest $request
@@ -4659,6 +4778,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDefenseResourceGroupNamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDefenseResourceGroupNamesResponse
      *
      * @param DescribeDefenseResourceGroupNamesRequest $request
@@ -4698,15 +4818,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDefenseResourceGroupNames',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDefenseResourceGroupNames',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDefenseResourceGroupNamesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4719,6 +4839,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the names of protected object groups.
      *
      * @param request - DescribeDefenseResourceGroupNamesRequest
+     *
      * @returns DescribeDefenseResourceGroupNamesResponse
      *
      * @param DescribeDefenseResourceGroupNamesRequest $request
@@ -4737,6 +4858,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDefenseResourceGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDefenseResourceGroupsResponse
      *
      * @param DescribeDefenseResourceGroupsRequest $request
@@ -4780,15 +4902,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDefenseResourceGroups',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDefenseResourceGroups',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDefenseResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4801,6 +4923,7 @@ class Wafopenapi extends OpenApiClient
      * Performs a pagination query to retrieve the information about protected object groups.
      *
      * @param request - DescribeDefenseResourceGroupsRequest
+     *
      * @returns DescribeDefenseResourceGroupsResponse
      *
      * @param DescribeDefenseResourceGroupsRequest $request
@@ -4819,6 +4942,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDefenseResourceNamesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDefenseResourceNamesResponse
      *
      * @param DescribeDefenseResourceNamesRequest $request
@@ -4858,15 +4982,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDefenseResourceNames',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDefenseResourceNames',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDefenseResourceNamesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4879,6 +5003,7 @@ class Wafopenapi extends OpenApiClient
      * Performs a pagination query to retrieve the names of protected objects.
      *
      * @param request - DescribeDefenseResourceNamesRequest
+     *
      * @returns DescribeDefenseResourceNamesResponse
      *
      * @param DescribeDefenseResourceNamesRequest $request
@@ -4897,6 +5022,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDefenseResourceTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDefenseResourceTemplatesResponse
      *
      * @param DescribeDefenseResourceTemplatesRequest $request
@@ -4948,15 +5074,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDefenseResourceTemplates',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDefenseResourceTemplates',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDefenseResourceTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4969,6 +5095,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the protection templates that are associated with a protected object or protected object group.
      *
      * @param request - DescribeDefenseResourceTemplatesRequest
+     *
      * @returns DescribeDefenseResourceTemplatesResponse
      *
      * @param DescribeDefenseResourceTemplatesRequest $request
@@ -4987,6 +5114,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDefenseResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDefenseResourcesResponse
      *
      * @param DescribeDefenseResourcesRequest $request
@@ -5030,15 +5158,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDefenseResources',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDefenseResources',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDefenseResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5051,6 +5179,7 @@ class Wafopenapi extends OpenApiClient
      * Queries protected objects by page.
      *
      * @param request - DescribeDefenseResourcesRequest
+     *
      * @returns DescribeDefenseResourcesResponse
      *
      * @param DescribeDefenseResourcesRequest $request
@@ -5069,6 +5198,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDefenseRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDefenseRuleResponse
      *
      * @param DescribeDefenseRuleRequest $request
@@ -5104,15 +5234,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDefenseRule',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDefenseRule',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5125,6 +5255,7 @@ class Wafopenapi extends OpenApiClient
      * Queries a protection rule.
      *
      * @param request - DescribeDefenseRuleRequest
+     *
      * @returns DescribeDefenseRuleResponse
      *
      * @param DescribeDefenseRuleRequest $request
@@ -5143,6 +5274,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDefenseRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDefenseRulesResponse
      *
      * @param DescribeDefenseRulesRequest $request
@@ -5186,15 +5318,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDefenseRules',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDefenseRules',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDefenseRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5207,6 +5339,7 @@ class Wafopenapi extends OpenApiClient
      * Queries protection rules by page.
      *
      * @param request - DescribeDefenseRulesRequest
+     *
      * @returns DescribeDefenseRulesResponse
      *
      * @param DescribeDefenseRulesRequest $request
@@ -5225,6 +5358,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDefenseTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDefenseTemplateResponse
      *
      * @param DescribeDefenseTemplateRequest $request
@@ -5256,15 +5390,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDefenseTemplate',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDefenseTemplate',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5277,6 +5411,7 @@ class Wafopenapi extends OpenApiClient
      * Queries a protection rule template.
      *
      * @param request - DescribeDefenseTemplateRequest
+     *
      * @returns DescribeDefenseTemplateResponse
      *
      * @param DescribeDefenseTemplateRequest $request
@@ -5295,6 +5430,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDefenseTemplateValidGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDefenseTemplateValidGroupsResponse
      *
      * @param DescribeDefenseTemplateValidGroupsRequest $request
@@ -5342,15 +5478,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDefenseTemplateValidGroups',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDefenseTemplateValidGroups',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDefenseTemplateValidGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5363,6 +5499,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the names of protected object groups for which a protection template can take effect.
      *
      * @param request - DescribeDefenseTemplateValidGroupsRequest
+     *
      * @returns DescribeDefenseTemplateValidGroupsResponse
      *
      * @param DescribeDefenseTemplateValidGroupsRequest $request
@@ -5381,6 +5518,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDefenseTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDefenseTemplatesResponse
      *
      * @param DescribeDefenseTemplatesRequest $request
@@ -5448,15 +5586,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDefenseTemplates',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDefenseTemplates',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDefenseTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5469,6 +5607,7 @@ class Wafopenapi extends OpenApiClient
      * Performs a paging query to retrieve protection templates.
      *
      * @param request - DescribeDefenseTemplatesRequest
+     *
      * @returns DescribeDefenseTemplatesResponse
      *
      * @param DescribeDefenseTemplatesRequest $request
@@ -5487,6 +5626,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDomainDNSRecordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainDNSRecordResponse
      *
      * @param DescribeDomainDNSRecordRequest $request
@@ -5518,15 +5658,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainDNSRecord',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainDNSRecord',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainDNSRecordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5539,6 +5679,7 @@ class Wafopenapi extends OpenApiClient
      * Checks whether the Domain Name System (DNS) settings of a domain name are properly configured.
      *
      * @param request - DescribeDomainDNSRecordRequest
+     *
      * @returns DescribeDomainDNSRecordResponse
      *
      * @param DescribeDomainDNSRecordRequest $request
@@ -5557,6 +5698,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDomainDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainDetailResponse
      *
      * @param DescribeDomainDetailRequest $request
@@ -5584,15 +5726,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomainDetail',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomainDetail',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5605,6 +5747,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the details of a domain name that is added to Web Application Firewall (WAF).
      *
      * @param request - DescribeDomainDetailRequest
+     *
      * @returns DescribeDomainDetailResponse
      *
      * @param DescribeDomainDetailRequest $request
@@ -5623,6 +5766,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDomainsResponse
      *
      * @param DescribeDomainsRequest $request
@@ -5670,15 +5814,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDomains',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDomains',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5691,6 +5835,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the domain names that are added to Web Application Firewall (WAF).
      *
      * @param request - DescribeDomainsRequest
+     *
      * @returns DescribeDomainsResponse
      *
      * @param DescribeDomainsRequest $request
@@ -5709,6 +5854,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeFlowChartRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFlowChartResponse
      *
      * @param DescribeFlowChartRequest $request
@@ -5752,15 +5898,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFlowChart',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFlowChart',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeFlowChartResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5773,6 +5919,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the traffic statistics of requests that are forwarded to Web Application Firewall (WAF).
      *
      * @param request - DescribeFlowChartRequest
+     *
      * @returns DescribeFlowChartResponse
      *
      * @param DescribeFlowChartRequest $request
@@ -5791,6 +5938,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeFlowTopResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFlowTopResourceResponse
      *
      * @param DescribeFlowTopResourceRequest $request
@@ -5826,15 +5974,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFlowTopResource',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFlowTopResource',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeFlowTopResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5847,6 +5995,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the top 10 protected objects that receive requests.
      *
      * @param request - DescribeFlowTopResourceRequest
+     *
      * @returns DescribeFlowTopResourceResponse
      *
      * @param DescribeFlowTopResourceRequest $request
@@ -5865,6 +6014,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeFlowTopUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFlowTopUrlResponse
      *
      * @param DescribeFlowTopUrlRequest $request
@@ -5904,15 +6054,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFlowTopUrl',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFlowTopUrl',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeFlowTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5925,6 +6075,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the top 10 URLs that are used to initiate requests.
      *
      * @param request - DescribeFlowTopUrlRequest
+     *
      * @returns DescribeFlowTopUrlResponse
      *
      * @param DescribeFlowTopUrlRequest $request
@@ -5943,6 +6094,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeFreeUserAssetCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFreeUserAssetCountResponse
      *
      * @param DescribeFreeUserAssetCountRequest $request
@@ -5970,15 +6122,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFreeUserAssetCount',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFreeUserAssetCount',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeFreeUserAssetCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5991,6 +6143,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the asset statistics provided by basic detection in the API security module.
      *
      * @param request - DescribeFreeUserAssetCountRequest
+     *
      * @returns DescribeFreeUserAssetCountResponse
      *
      * @param DescribeFreeUserAssetCountRequest $request
@@ -6009,6 +6162,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeFreeUserEventCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFreeUserEventCountResponse
      *
      * @param DescribeFreeUserEventCountRequest $request
@@ -6036,15 +6190,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFreeUserEventCount',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFreeUserEventCount',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeFreeUserEventCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6057,6 +6211,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the statistics of security events that are detected by using the basic detection feature of the API security module.
      *
      * @param request - DescribeFreeUserEventCountRequest
+     *
      * @returns DescribeFreeUserEventCountResponse
      *
      * @param DescribeFreeUserEventCountRequest $request
@@ -6075,6 +6230,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeFreeUserEventTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFreeUserEventTypesResponse
      *
      * @param DescribeFreeUserEventTypesRequest $request
@@ -6102,15 +6258,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFreeUserEventTypes',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFreeUserEventTypes',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeFreeUserEventTypesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6123,6 +6279,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the types of security events on which basic detection is performed in the API security module.
      *
      * @param request - DescribeFreeUserEventTypesRequest
+     *
      * @returns DescribeFreeUserEventTypesResponse
      *
      * @param DescribeFreeUserEventTypesRequest $request
@@ -6141,6 +6298,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeFreeUserEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeFreeUserEventsResponse
      *
      * @param DescribeFreeUserEventsRequest $request
@@ -6168,15 +6326,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeFreeUserEvents',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeFreeUserEvents',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeFreeUserEventsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6189,6 +6347,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the list of security events on which basic detection is performed in the API security module.
      *
      * @param request - DescribeFreeUserEventsRequest
+     *
      * @returns DescribeFreeUserEventsResponse
      *
      * @param DescribeFreeUserEventsRequest $request
@@ -6207,6 +6366,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeHybridCloudClusterRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHybridCloudClusterRuleResponse
      *
      * @param DescribeHybridCloudClusterRuleRequest $request
@@ -6218,19 +6378,19 @@ class Wafopenapi extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHybridCloudClusterRule',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHybridCloudClusterRule',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHybridCloudClusterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6243,6 +6403,7 @@ class Wafopenapi extends OpenApiClient
      * Obtains the rule information about a hybrid cloud cluster.
      *
      * @param request - DescribeHybridCloudClusterRuleRequest
+     *
      * @returns DescribeHybridCloudClusterRuleResponse
      *
      * @param DescribeHybridCloudClusterRuleRequest $request
@@ -6261,6 +6422,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeHybridCloudClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHybridCloudClustersResponse
      *
      * @param DescribeHybridCloudClustersRequest $request
@@ -6288,15 +6450,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHybridCloudClusters',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHybridCloudClusters',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHybridCloudClustersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6309,6 +6471,7 @@ class Wafopenapi extends OpenApiClient
      * Queries a list of hybrid cloud clusters.
      *
      * @param request - DescribeHybridCloudClustersRequest
+     *
      * @returns DescribeHybridCloudClustersResponse
      *
      * @param DescribeHybridCloudClustersRequest $request
@@ -6327,6 +6490,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeHybridCloudGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHybridCloudGroupsResponse
      *
      * @param DescribeHybridCloudGroupsRequest $request
@@ -6378,15 +6542,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHybridCloudGroups',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHybridCloudGroups',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHybridCloudGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6399,6 +6563,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the hybrid cloud node groups that are added to Web Application Firewall (WAF).
      *
      * @param request - DescribeHybridCloudGroupsRequest
+     *
      * @returns DescribeHybridCloudGroupsResponse
      *
      * @param DescribeHybridCloudGroupsRequest $request
@@ -6417,6 +6582,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeHybridCloudResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHybridCloudResourcesResponse
      *
      * @param DescribeHybridCloudResourcesRequest $request
@@ -6464,15 +6630,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHybridCloudResources',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHybridCloudResources',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHybridCloudResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6485,6 +6651,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the domain names that are added to a Web Application Firewall (WAF) instance in hybrid cloud mode.
      *
      * @param request - DescribeHybridCloudResourcesRequest
+     *
      * @returns DescribeHybridCloudResourcesResponse
      *
      * @param DescribeHybridCloudResourcesRequest $request
@@ -6503,6 +6670,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeHybridCloudServerRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHybridCloudServerRegionsResponse
      *
      * @param DescribeHybridCloudServerRegionsRequest $request
@@ -6538,15 +6706,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHybridCloudServerRegions',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHybridCloudServerRegions',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHybridCloudServerRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6559,6 +6727,7 @@ class Wafopenapi extends OpenApiClient
      * Queries information about the regions that the hybrid cloud mode supports, such as the Internet service providers (ISPs), continents, and cities.
      *
      * @param request - DescribeHybridCloudServerRegionsRequest
+     *
      * @returns DescribeHybridCloudServerRegionsResponse
      *
      * @param DescribeHybridCloudServerRegionsRequest $request
@@ -6577,6 +6746,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeHybridCloudUnassignedMachinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHybridCloudUnassignedMachinesResponse
      *
      * @param DescribeHybridCloudUnassignedMachinesRequest $request
@@ -6624,15 +6794,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHybridCloudUnassignedMachines',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHybridCloudUnassignedMachines',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHybridCloudUnassignedMachinesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6645,6 +6815,7 @@ class Wafopenapi extends OpenApiClient
      * Queries servers that are not assigned to a hybrid cloud cluster.
      *
      * @param request - DescribeHybridCloudUnassignedMachinesRequest
+     *
      * @returns DescribeHybridCloudUnassignedMachinesResponse
      *
      * @param DescribeHybridCloudUnassignedMachinesRequest $request
@@ -6663,6 +6834,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeHybridCloudUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeHybridCloudUserResponse
      *
      * @param DescribeHybridCloudUserRequest $request
@@ -6690,15 +6862,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeHybridCloudUser',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeHybridCloudUser',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeHybridCloudUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6711,6 +6883,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the HTTP and HTTPS ports that you can use when you add a domain name to Web Application Firewall (WAF) in hybrid cloud mode.
      *
      * @param request - DescribeHybridCloudUserRequest
+     *
      * @returns DescribeHybridCloudUserResponse
      *
      * @param DescribeHybridCloudUserRequest $request
@@ -6729,6 +6902,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInstanceResponse
      *
      * @param DescribeInstanceRequest $request
@@ -6752,15 +6926,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInstance',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInstance',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6773,6 +6947,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the details of a Web Application Firewall (WAF) instance within the current Alibaba Cloud account.
      *
      * @param request - DescribeInstanceRequest
+     *
      * @returns DescribeInstanceResponse
      *
      * @param DescribeInstanceRequest $request
@@ -6791,6 +6966,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeMajorProtectionBlackIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeMajorProtectionBlackIpsResponse
      *
      * @param DescribeMajorProtectionBlackIpsRequest $request
@@ -6842,15 +7018,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMajorProtectionBlackIps',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMajorProtectionBlackIps',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeMajorProtectionBlackIpsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6863,6 +7039,7 @@ class Wafopenapi extends OpenApiClient
      * Queries IP addresses in an IP address blacklist for major event protection by page.
      *
      * @param request - DescribeMajorProtectionBlackIpsRequest
+     *
      * @returns DescribeMajorProtectionBlackIpsResponse
      *
      * @param DescribeMajorProtectionBlackIpsRequest $request
@@ -6881,6 +7058,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeMemberAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeMemberAccountsResponse
      *
      * @param DescribeMemberAccountsRequest $request
@@ -6916,15 +7094,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMemberAccounts',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMemberAccounts',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeMemberAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6937,6 +7115,7 @@ class Wafopenapi extends OpenApiClient
      * Queries information about members.
      *
      * @param request - DescribeMemberAccountsRequest
+     *
      * @returns DescribeMemberAccountsResponse
      *
      * @param DescribeMemberAccountsRequest $request
@@ -6951,10 +7130,179 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * Retrieves time-series data for all network traffic, including both malicious and legitimate requests.
+     *
+     * @param tmpReq - DescribeNetworkFlowTimeSeriesMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNetworkFlowTimeSeriesMetricResponse
+     *
+     * @param DescribeNetworkFlowTimeSeriesMetricRequest $tmpReq
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeNetworkFlowTimeSeriesMetricResponse
+     */
+    public function describeNetworkFlowTimeSeriesMetricWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeNetworkFlowTimeSeriesMetricShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->filterShrink) {
+            @$query['Filter'] = $request->filterShrink;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->metric) {
+            @$query['Metric'] = $request->metric;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeNetworkFlowTimeSeriesMetric',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeNetworkFlowTimeSeriesMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeNetworkFlowTimeSeriesMetricResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves time-series data for all network traffic, including both malicious and legitimate requests.
+     *
+     * @param request - DescribeNetworkFlowTimeSeriesMetricRequest
+     *
+     * @returns DescribeNetworkFlowTimeSeriesMetricResponse
+     *
+     * @param DescribeNetworkFlowTimeSeriesMetricRequest $request
+     *
+     * @return DescribeNetworkFlowTimeSeriesMetricResponse
+     */
+    public function describeNetworkFlowTimeSeriesMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNetworkFlowTimeSeriesMetricWithOptions($request, $runtime);
+    }
+
+    /**
+     * Retrieves top aggregated traffic statistics, sorted by various dimensions, including malicious and legitimate requests.
+     *
+     * @param tmpReq - DescribeNetworkFlowTopNMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeNetworkFlowTopNMetricResponse
+     *
+     * @param DescribeNetworkFlowTopNMetricRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeNetworkFlowTopNMetricResponse
+     */
+    public function describeNetworkFlowTopNMetricWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeNetworkFlowTopNMetricShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->filterShrink) {
+            @$query['Filter'] = $request->filterShrink;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->metric) {
+            @$query['Metric'] = $request->metric;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeNetworkFlowTopNMetric',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeNetworkFlowTopNMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeNetworkFlowTopNMetricResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Retrieves top aggregated traffic statistics, sorted by various dimensions, including malicious and legitimate requests.
+     *
+     * @param request - DescribeNetworkFlowTopNMetricRequest
+     *
+     * @returns DescribeNetworkFlowTopNMetricResponse
+     *
+     * @param DescribeNetworkFlowTopNMetricRequest $request
+     *
+     * @return DescribeNetworkFlowTopNMetricResponse
+     */
+    public function describeNetworkFlowTopNMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNetworkFlowTopNMetricWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the protection status of Web Application Firewall (WAF).
      *
      * @param request - DescribePauseProtectionStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePauseProtectionStatusResponse
      *
      * @param DescribePauseProtectionStatusRequest $request
@@ -6982,15 +7330,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePauseProtectionStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePauseProtectionStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePauseProtectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7003,6 +7351,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the protection status of Web Application Firewall (WAF).
      *
      * @param request - DescribePauseProtectionStatusRequest
+     *
      * @returns DescribePauseProtectionStatusResponse
      *
      * @param DescribePauseProtectionStatusRequest $request
@@ -7021,6 +7370,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribePeakTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePeakTrendResponse
      *
      * @param DescribePeakTrendRequest $request
@@ -7064,15 +7414,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePeakTrend',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePeakTrend',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePeakTrendResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7085,6 +7435,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the queries per second (QPS) statistics of a WAF instance.
      *
      * @param request - DescribePeakTrendRequest
+     *
      * @returns DescribePeakTrendResponse
      *
      * @param DescribePeakTrendRequest $request
@@ -7103,6 +7454,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeProductInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeProductInstancesResponse
      *
      * @param DescribeProductInstancesRequest $request
@@ -7170,15 +7522,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeProductInstances',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeProductInstances',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeProductInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7191,6 +7543,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the cloud service instances to be added to Web Application Firewall (WAF) in transparent proxy mode.
      *
      * @param request - DescribeProductInstancesRequest
+     *
      * @returns DescribeProductInstancesResponse
      *
      * @param DescribeProductInstancesRequest $request
@@ -7209,6 +7562,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribePunishedDomainsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePunishedDomainsResponse
      *
      * @param DescribePunishedDomainsRequest $request
@@ -7244,15 +7598,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePunishedDomains',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePunishedDomains',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePunishedDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7265,6 +7619,7 @@ class Wafopenapi extends OpenApiClient
      * Queries a list of domain names that are added to Web Application Firewall (WAF) and penalized for failing to obtain an Internet Content Provider (ICP) filing.
      *
      * @param request - DescribePunishedDomainsRequest
+     *
      * @returns DescribePunishedDomainsResponse
      *
      * @param DescribePunishedDomainsRequest $request
@@ -7283,6 +7638,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeResourceInstanceCertsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeResourceInstanceCertsResponse
      *
      * @param DescribeResourceInstanceCertsRequest $request
@@ -7322,15 +7678,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResourceInstanceCerts',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResourceInstanceCerts',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeResourceInstanceCertsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7343,6 +7699,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the certificates that are used in cloud service instances. The certificates returned include the certificates within the delegated administrator account and the certificates within members to which specific instances belong. For example, the delegated administrator account has certificate 1, instance lb-xx-1 belongs to member B, and member B has certificate 2. If you specify instance lb-xx-1 in the request, certificate 1 and certificate 2 are returned.
      *
      * @param request - DescribeResourceInstanceCertsRequest
+     *
      * @returns DescribeResourceInstanceCertsResponse
      *
      * @param DescribeResourceInstanceCertsRequest $request
@@ -7361,6 +7718,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeResourceLogStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeResourceLogStatusResponse
      *
      * @param DescribeResourceLogStatusRequest $request
@@ -7392,15 +7750,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResourceLogStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResourceLogStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeResourceLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7413,6 +7771,7 @@ class Wafopenapi extends OpenApiClient
      * Queries whether the log collection feature is enabled for a protected object.
      *
      * @param request - DescribeResourceLogStatusRequest
+     *
      * @returns DescribeResourceLogStatusResponse
      *
      * @param DescribeResourceLogStatusRequest $request
@@ -7431,6 +7790,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeResourcePortRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeResourcePortResponse
      *
      * @param DescribeResourcePortRequest $request
@@ -7462,15 +7822,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResourcePort',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResourcePort',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeResourcePortResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7483,6 +7843,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the ports of a cloud service instance that are added to Web Application Firewall (WAF).
      *
      * @param request - DescribeResourcePortRequest
+     *
      * @returns DescribeResourcePortResponse
      *
      * @param DescribeResourcePortRequest $request
@@ -7497,10 +7858,11 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the region IDs of the resources that are added to Web Application Firewall (WAF) in cloud native mode. The resources include Application Load Balancer (ALB) instances, Microservices Engine (MSE) instances, and custom domain names bound to web applications in Function Compute.
+     * Queries the region IDs of the resources that are added to Web Application Firewall (WAF) by using the SDK integration mode. The resources refer to Application Load Balancer (ALB) and Microservices Engine (MSE) instances.
      *
      * @param request - DescribeResourceRegionIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeResourceRegionIdResponse
      *
      * @param DescribeResourceRegionIdRequest $request
@@ -7528,15 +7890,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResourceRegionId',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResourceRegionId',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeResourceRegionIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7546,9 +7908,10 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
-     * Queries the region IDs of the resources that are added to Web Application Firewall (WAF) in cloud native mode. The resources include Application Load Balancer (ALB) instances, Microservices Engine (MSE) instances, and custom domain names bound to web applications in Function Compute.
+     * Queries the region IDs of the resources that are added to Web Application Firewall (WAF) by using the SDK integration mode. The resources refer to Application Load Balancer (ALB) and Microservices Engine (MSE) instances.
      *
      * @param request - DescribeResourceRegionIdRequest
+     *
      * @returns DescribeResourceRegionIdResponse
      *
      * @param DescribeResourceRegionIdRequest $request
@@ -7567,6 +7930,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeResourceSupportRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeResourceSupportRegionsResponse
      *
      * @param DescribeResourceSupportRegionsRequest $request
@@ -7598,15 +7962,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResourceSupportRegions',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResourceSupportRegions',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeResourceSupportRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7619,6 +7983,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the region IDs of the Classic Load Balancer (CLB) and Elastic Compute Service (ECS) instances that are added to Web Application Firewall (WAF) in cloud native mode.
      *
      * @param request - DescribeResourceSupportRegionsRequest
+     *
      * @returns DescribeResourceSupportRegionsResponse
      *
      * @param DescribeResourceSupportRegionsRequest $request
@@ -7637,6 +8002,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeResponseCodeTrendGraphRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeResponseCodeTrendGraphResponse
      *
      * @param DescribeResponseCodeTrendGraphRequest $request
@@ -7684,15 +8050,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeResponseCodeTrendGraph',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeResponseCodeTrendGraph',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeResponseCodeTrendGraphResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7705,6 +8071,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the trend of the number of error codes that are returned to clients or Web Application Firewall (WAF). The error codes include 302, 405, 444, 499, and 5XX.
      *
      * @param request - DescribeResponseCodeTrendGraphRequest
+     *
      * @returns DescribeResponseCodeTrendGraphResponse
      *
      * @param DescribeResponseCodeTrendGraphRequest $request
@@ -7723,6 +8090,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeRuleGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRuleGroupsResponse
      *
      * @param DescribeRuleGroupsRequest $request
@@ -7766,15 +8134,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRuleGroups',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRuleGroups',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRuleGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7787,6 +8155,7 @@ class Wafopenapi extends OpenApiClient
      * Queries regular expression rule groups by page.
      *
      * @param request - DescribeRuleGroupsRequest
+     *
      * @returns DescribeRuleGroupsResponse
      *
      * @param DescribeRuleGroupsRequest $request
@@ -7805,6 +8174,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeRuleHitsTopClientIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRuleHitsTopClientIpResponse
      *
      * @param DescribeRuleHitsTopClientIpRequest $request
@@ -7848,15 +8218,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRuleHitsTopClientIp',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRuleHitsTopClientIp',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRuleHitsTopClientIpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7869,6 +8239,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the top 10 IP addresses from which attacks are initiated.
      *
      * @param request - DescribeRuleHitsTopClientIpRequest
+     *
      * @returns DescribeRuleHitsTopClientIpResponse
      *
      * @param DescribeRuleHitsTopClientIpRequest $request
@@ -7887,6 +8258,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeRuleHitsTopResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRuleHitsTopResourceResponse
      *
      * @param DescribeRuleHitsTopResourceRequest $request
@@ -7926,15 +8298,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRuleHitsTopResource',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRuleHitsTopResource',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRuleHitsTopResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7947,6 +8319,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the top 10 protected objects that trigger protection rules.
      *
      * @param request - DescribeRuleHitsTopResourceRequest
+     *
      * @returns DescribeRuleHitsTopResourceResponse
      *
      * @param DescribeRuleHitsTopResourceRequest $request
@@ -7965,6 +8338,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeRuleHitsTopRuleIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRuleHitsTopRuleIdResponse
      *
      * @param DescribeRuleHitsTopRuleIdRequest $request
@@ -8012,15 +8386,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRuleHitsTopRuleId',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRuleHitsTopRuleId',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRuleHitsTopRuleIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8033,6 +8407,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the IDs of the top 10 protection rules that are matched by requests.
      *
      * @param request - DescribeRuleHitsTopRuleIdRequest
+     *
      * @returns DescribeRuleHitsTopRuleIdResponse
      *
      * @param DescribeRuleHitsTopRuleIdRequest $request
@@ -8051,6 +8426,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeRuleHitsTopTuleTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRuleHitsTopTuleTypeResponse
      *
      * @param DescribeRuleHitsTopTuleTypeRequest $request
@@ -8090,15 +8466,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRuleHitsTopTuleType',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRuleHitsTopTuleType',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRuleHitsTopTuleTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8111,6 +8487,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the top 10 protection modules that are matched.
      *
      * @param request - DescribeRuleHitsTopTuleTypeRequest
+     *
      * @returns DescribeRuleHitsTopTuleTypeResponse
      *
      * @param DescribeRuleHitsTopTuleTypeRequest $request
@@ -8129,6 +8506,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeRuleHitsTopUaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRuleHitsTopUaResponse
      *
      * @param DescribeRuleHitsTopUaRequest $request
@@ -8168,15 +8546,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRuleHitsTopUa',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRuleHitsTopUa',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRuleHitsTopUaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8189,6 +8567,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the top 10 user agents that are used to initiate attacks.
      *
      * @param request - DescribeRuleHitsTopUaRequest
+     *
      * @returns DescribeRuleHitsTopUaResponse
      *
      * @param DescribeRuleHitsTopUaRequest $request
@@ -8207,6 +8586,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeRuleHitsTopUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRuleHitsTopUrlResponse
      *
      * @param DescribeRuleHitsTopUrlRequest $request
@@ -8250,15 +8630,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRuleHitsTopUrl',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRuleHitsTopUrl',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRuleHitsTopUrlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8271,6 +8651,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the top 10 URLs that trigger protection rules.
      *
      * @param request - DescribeRuleHitsTopUrlRequest
+     *
      * @returns DescribeRuleHitsTopUrlResponse
      *
      * @param DescribeRuleHitsTopUrlRequest $request
@@ -8285,10 +8666,301 @@ class Wafopenapi extends OpenApiClient
     }
 
     /**
+     * Queries the logs of attack traffic. Each log records the details of a request that matches protection rules.
+     *
+     * @remarks
+     * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+     * *   Requests that match the protection rules of the whitelist module.
+     * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+     * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+     *
+     * @param tmpReq - DescribeSecurityEventLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSecurityEventLogsResponse
+     *
+     * @param DescribeSecurityEventLogsRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeSecurityEventLogsResponse
+     */
+    public function describeSecurityEventLogsWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeSecurityEventLogsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->filterShrink) {
+            @$query['Filter'] = $request->filterShrink;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSecurityEventLogs',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSecurityEventLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeSecurityEventLogsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the logs of attack traffic. Each log records the details of a request that matches protection rules.
+     *
+     * @remarks
+     * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+     * *   Requests that match the protection rules of the whitelist module.
+     * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+     * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+     *
+     * @param request - DescribeSecurityEventLogsRequest
+     *
+     * @returns DescribeSecurityEventLogsResponse
+     *
+     * @param DescribeSecurityEventLogsRequest $request
+     *
+     * @return DescribeSecurityEventLogsResponse
+     */
+    public function describeSecurityEventLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSecurityEventLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the time series data of attack traffic. Attack requests refer to requests that match protection rules and are identified as risky.
+     *
+     * @remarks
+     * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+     * *   Requests that match the protection rules of the whitelist module.
+     * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+     * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+     *
+     * @param tmpReq - DescribeSecurityEventTimeSeriesMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSecurityEventTimeSeriesMetricResponse
+     *
+     * @param DescribeSecurityEventTimeSeriesMetricRequest $tmpReq
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return DescribeSecurityEventTimeSeriesMetricResponse
+     */
+    public function describeSecurityEventTimeSeriesMetricWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeSecurityEventTimeSeriesMetricShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->filterShrink) {
+            @$query['Filter'] = $request->filterShrink;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->metric) {
+            @$query['Metric'] = $request->metric;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSecurityEventTimeSeriesMetric',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSecurityEventTimeSeriesMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeSecurityEventTimeSeriesMetricResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the time series data of attack traffic. Attack requests refer to requests that match protection rules and are identified as risky.
+     *
+     * @remarks
+     * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+     * *   Requests that match the protection rules of the whitelist module.
+     * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+     * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+     *
+     * @param request - DescribeSecurityEventTimeSeriesMetricRequest
+     *
+     * @returns DescribeSecurityEventTimeSeriesMetricResponse
+     *
+     * @param DescribeSecurityEventTimeSeriesMetricRequest $request
+     *
+     * @return DescribeSecurityEventTimeSeriesMetricResponse
+     */
+    public function describeSecurityEventTimeSeriesMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSecurityEventTimeSeriesMetricWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries top N data entries of attack traffic. The system performs statistical aggregation on attack traffic from specific dimensions and returns top N data entries.
+     *
+     * @remarks
+     * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+     * *   Requests that match the protection rules of the whitelist module.
+     * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+     * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+     *
+     * @param tmpReq - DescribeSecurityEventTopNMetricRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeSecurityEventTopNMetricResponse
+     *
+     * @param DescribeSecurityEventTopNMetricRequest $tmpReq
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DescribeSecurityEventTopNMetricResponse
+     */
+    public function describeSecurityEventTopNMetricWithOptions($tmpReq, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new DescribeSecurityEventTopNMetricShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+
+        $query = [];
+        if (null !== $request->filterShrink) {
+            @$query['Filter'] = $request->filterShrink;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->limit) {
+            @$query['Limit'] = $request->limit;
+        }
+
+        if (null !== $request->metric) {
+            @$query['Metric'] = $request->metric;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceManagerResourceGroupId) {
+            @$query['ResourceManagerResourceGroupId'] = $request->resourceManagerResourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeSecurityEventTopNMetric',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeSecurityEventTopNMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeSecurityEventTopNMetricResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries top N data entries of attack traffic. The system performs statistical aggregation on attack traffic from specific dimensions and returns top N data entries.
+     *
+     * @remarks
+     * Attack traffic refers to the traffic of requests that match protection rules and are identified as risky. The following types of requests are excluded:
+     * *   Requests that match the protection rules of the whitelist module.
+     * *   Requests that match the protection rules of the bot management module. The actions of the protection rules are set to Add Tag.
+     * *   Requests that match protection rules with actions set to Dynamic Token-based Authentication, Slider CAPTCHA, Strict Slider CAPTCHA Verification, and JavaScript Validation, pass the verifications specified by the actions, and are allowed.
+     *
+     * @param request - DescribeSecurityEventTopNMetricRequest
+     *
+     * @returns DescribeSecurityEventTopNMetricResponse
+     *
+     * @param DescribeSecurityEventTopNMetricRequest $request
+     *
+     * @return DescribeSecurityEventTopNMetricResponse
+     */
+    public function describeSecurityEventTopNMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSecurityEventTopNMetricWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the personal information-related APIs and domain names.
      *
      * @param request - DescribeSensitiveApiStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSensitiveApiStatisticResponse
      *
      * @param DescribeSensitiveApiStatisticRequest $request
@@ -8340,15 +9012,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSensitiveApiStatistic',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSensitiveApiStatistic',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSensitiveApiStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8361,6 +9033,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the personal information-related APIs and domain names.
      *
      * @param request - DescribeSensitiveApiStatisticRequest
+     *
      * @returns DescribeSensitiveApiStatisticResponse
      *
      * @param DescribeSensitiveApiStatisticRequest $request
@@ -8379,6 +9052,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeSensitiveDetectionResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSensitiveDetectionResultResponse
      *
      * @param DescribeSensitiveDetectionResultRequest $request
@@ -8418,15 +9092,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSensitiveDetectionResult',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSensitiveDetectionResult',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSensitiveDetectionResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8439,6 +9113,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the compliance check results of API security.
      *
      * @param request - DescribeSensitiveDetectionResultRequest
+     *
      * @returns DescribeSensitiveDetectionResultResponse
      *
      * @param DescribeSensitiveDetectionResultRequest $request
@@ -8457,6 +9132,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeSensitiveOutboundDistributionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSensitiveOutboundDistributionResponse
      *
      * @param DescribeSensitiveOutboundDistributionRequest $request
@@ -8496,15 +9172,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSensitiveOutboundDistribution',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSensitiveOutboundDistribution',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSensitiveOutboundDistributionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8517,6 +9193,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the traffic distribution of personal information records involved in cross-border data transfer.
      *
      * @param request - DescribeSensitiveOutboundDistributionRequest
+     *
      * @returns DescribeSensitiveOutboundDistributionResponse
      *
      * @param DescribeSensitiveOutboundDistributionRequest $request
@@ -8535,6 +9212,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeSensitiveOutboundStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSensitiveOutboundStatisticResponse
      *
      * @param DescribeSensitiveOutboundStatisticRequest $request
@@ -8606,15 +9284,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSensitiveOutboundStatistic',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSensitiveOutboundStatistic',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSensitiveOutboundStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8627,6 +9305,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the data types of personal information involved in cross-border data transfer.
      *
      * @param request - DescribeSensitiveOutboundStatisticRequest
+     *
      * @returns DescribeSensitiveOutboundStatisticResponse
      *
      * @param DescribeSensitiveOutboundStatisticRequest $request
@@ -8645,6 +9324,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeSensitiveOutboundTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSensitiveOutboundTrendResponse
      *
      * @param DescribeSensitiveOutboundTrendRequest $request
@@ -8684,15 +9364,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSensitiveOutboundTrend',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSensitiveOutboundTrend',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSensitiveOutboundTrendResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8705,6 +9385,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the trends of cross-border data transfer of personal information.
      *
      * @param request - DescribeSensitiveOutboundTrendRequest
+     *
      * @returns DescribeSensitiveOutboundTrendResponse
      *
      * @param DescribeSensitiveOutboundTrendRequest $request
@@ -8723,6 +9404,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeSensitiveRequestLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSensitiveRequestLogResponse
      *
      * @param DescribeSensitiveRequestLogRequest $request
@@ -8790,15 +9472,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSensitiveRequestLog',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSensitiveRequestLog',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSensitiveRequestLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8811,6 +9493,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the access logs of sensitive data.
      *
      * @param request - DescribeSensitiveRequestLogRequest
+     *
      * @returns DescribeSensitiveRequestLogResponse
      *
      * @param DescribeSensitiveRequestLogRequest $request
@@ -8829,6 +9512,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeSensitiveRequestsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSensitiveRequestsResponse
      *
      * @param DescribeSensitiveRequestsRequest $request
@@ -8884,15 +9568,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSensitiveRequests',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSensitiveRequests',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSensitiveRequestsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8905,6 +9589,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the tracing results of sensitive data.
      *
      * @param request - DescribeSensitiveRequestsRequest
+     *
      * @returns DescribeSensitiveRequestsResponse
      *
      * @param DescribeSensitiveRequestsRequest $request
@@ -8923,6 +9608,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeSensitiveStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSensitiveStatisticResponse
      *
      * @param DescribeSensitiveStatisticRequest $request
@@ -8974,15 +9660,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSensitiveStatistic',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSensitiveStatistic',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSensitiveStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8995,6 +9681,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the sensitive data statistics of the tracing and auditing feature.
      *
      * @param request - DescribeSensitiveStatisticRequest
+     *
      * @returns DescribeSensitiveStatisticResponse
      *
      * @param DescribeSensitiveStatisticRequest $request
@@ -9013,6 +9700,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeSlsAuthStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSlsAuthStatusResponse
      *
      * @param DescribeSlsAuthStatusRequest $request
@@ -9040,15 +9728,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlsAuthStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlsAuthStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSlsAuthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9061,6 +9749,7 @@ class Wafopenapi extends OpenApiClient
      * Queries whether Web Application Firewall (WAF) is authorized to access Logstores.
      *
      * @param request - DescribeSlsAuthStatusRequest
+     *
      * @returns DescribeSlsAuthStatusResponse
      *
      * @param DescribeSlsAuthStatusRequest $request
@@ -9079,6 +9768,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeSlsLogStoreRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSlsLogStoreResponse
      *
      * @param DescribeSlsLogStoreRequest $request
@@ -9106,15 +9796,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlsLogStore',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlsLogStore',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSlsLogStoreResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9127,6 +9817,7 @@ class Wafopenapi extends OpenApiClient
      * Queries information about a Logstore, such as the total capacity, storage duration, and used capacity.
      *
      * @param request - DescribeSlsLogStoreRequest
+     *
      * @returns DescribeSlsLogStoreResponse
      *
      * @param DescribeSlsLogStoreRequest $request
@@ -9145,6 +9836,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeSlsLogStoreStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSlsLogStoreStatusResponse
      *
      * @param DescribeSlsLogStoreStatusRequest $request
@@ -9172,15 +9864,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlsLogStoreStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlsLogStoreStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSlsLogStoreStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9193,6 +9885,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the status of a Simple Log Service Logstore.
      *
      * @param request - DescribeSlsLogStoreStatusRequest
+     *
      * @returns DescribeSlsLogStoreStatusResponse
      *
      * @param DescribeSlsLogStoreStatusRequest $request
@@ -9211,6 +9904,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeTemplateResourceCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTemplateResourceCountResponse
      *
      * @param DescribeTemplateResourceCountRequest $request
@@ -9242,15 +9936,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTemplateResourceCount',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTemplateResourceCount',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTemplateResourceCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9263,6 +9957,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the number of protected resources for which a protection template takes effect.
      *
      * @param request - DescribeTemplateResourceCountRequest
+     *
      * @returns DescribeTemplateResourceCountResponse
      *
      * @param DescribeTemplateResourceCountRequest $request
@@ -9281,6 +9976,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeTemplateResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTemplateResourcesResponse
      *
      * @param DescribeTemplateResourcesRequest $request
@@ -9316,15 +10012,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTemplateResources',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTemplateResources',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTemplateResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9337,6 +10033,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the resources that are associated to a protection rule template.
      *
      * @param request - DescribeTemplateResourcesRequest
+     *
      * @returns DescribeTemplateResourcesResponse
      *
      * @param DescribeTemplateResourcesRequest $request
@@ -9355,6 +10052,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeUserAbnormalTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUserAbnormalTrendResponse
      *
      * @param DescribeUserAbnormalTrendRequest $request
@@ -9386,15 +10084,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserAbnormalTrend',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserAbnormalTrend',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeUserAbnormalTrendResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9407,6 +10105,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the trends of API security risks.
      *
      * @param request - DescribeUserAbnormalTrendRequest
+     *
      * @returns DescribeUserAbnormalTrendResponse
      *
      * @param DescribeUserAbnormalTrendRequest $request
@@ -9425,6 +10124,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeUserAbnormalTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUserAbnormalTypeResponse
      *
      * @param DescribeUserAbnormalTypeRequest $request
@@ -9464,15 +10164,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserAbnormalType',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserAbnormalType',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeUserAbnormalTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9485,6 +10185,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the types and statistics of risks in the API security module.
      *
      * @param request - DescribeUserAbnormalTypeRequest
+     *
      * @returns DescribeUserAbnormalTypeResponse
      *
      * @param DescribeUserAbnormalTypeRequest $request
@@ -9503,6 +10204,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeUserApiRequestRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUserApiRequestResponse
      *
      * @param DescribeUserApiRequestRequest $request
@@ -9550,15 +10252,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserApiRequest',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserApiRequest',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeUserApiRequestResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9571,6 +10273,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the traffic statistics of an API.
      *
      * @param request - DescribeUserApiRequestRequest
+     *
      * @returns DescribeUserApiRequestResponse
      *
      * @param DescribeUserApiRequestRequest $request
@@ -9589,6 +10292,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeUserAssetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUserAssetResponse
      *
      * @param DescribeUserAssetRequest $request
@@ -9628,15 +10332,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserAsset',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserAsset',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeUserAssetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9649,6 +10353,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the user asset statistics in the API security module.
      *
      * @param request - DescribeUserAssetRequest
+     *
      * @returns DescribeUserAssetResponse
      *
      * @param DescribeUserAssetRequest $request
@@ -9667,6 +10372,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeUserEventTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUserEventTrendResponse
      *
      * @param DescribeUserEventTrendRequest $request
@@ -9698,15 +10404,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserEventTrend',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserEventTrend',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeUserEventTrendResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9719,6 +10425,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the trends of attacks detected by the API security module.
      *
      * @param request - DescribeUserEventTrendRequest
+     *
      * @returns DescribeUserEventTrendResponse
      *
      * @param DescribeUserEventTrendRequest $request
@@ -9737,6 +10444,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeUserEventTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUserEventTypeResponse
      *
      * @param DescribeUserEventTypeRequest $request
@@ -9776,15 +10484,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserEventType',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserEventType',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeUserEventTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9797,6 +10505,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the types and statistics of security events in the API security module.
      *
      * @param request - DescribeUserEventTypeRequest
+     *
      * @returns DescribeUserEventTypeResponse
      *
      * @param DescribeUserEventTypeRequest $request
@@ -9815,6 +10524,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeUserSlsLogRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUserSlsLogRegionsResponse
      *
      * @param DescribeUserSlsLogRegionsRequest $request
@@ -9842,15 +10552,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserSlsLogRegions',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserSlsLogRegions',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeUserSlsLogRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9863,6 +10573,7 @@ class Wafopenapi extends OpenApiClient
      * Queries available regions for log storage.
      *
      * @param request - DescribeUserSlsLogRegionsRequest
+     *
      * @returns DescribeUserSlsLogRegionsResponse
      *
      * @param DescribeUserSlsLogRegionsRequest $request
@@ -9881,6 +10592,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeUserWafLogStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUserWafLogStatusResponse
      *
      * @param DescribeUserWafLogStatusRequest $request
@@ -9908,15 +10620,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserWafLogStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserWafLogStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeUserWafLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9929,6 +10641,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the status, region ID, and status modification time of Web Application Firewall (WAF) logs.
      *
      * @param request - DescribeUserWafLogStatusRequest
+     *
      * @returns DescribeUserWafLogStatusResponse
      *
      * @param DescribeUserWafLogStatusRequest $request
@@ -9947,6 +10660,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeVisitTopIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVisitTopIpResponse
      *
      * @param DescribeVisitTopIpRequest $request
@@ -9986,15 +10700,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVisitTopIp',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVisitTopIp',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVisitTopIpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10007,6 +10721,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the top 10 IP addresses from which requests are sent.
      *
      * @param request - DescribeVisitTopIpRequest
+     *
      * @returns DescribeVisitTopIpResponse
      *
      * @param DescribeVisitTopIpRequest $request
@@ -10025,6 +10740,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeVisitUasRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeVisitUasResponse
      *
      * @param DescribeVisitUasRequest $request
@@ -10064,15 +10780,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeVisitUas',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeVisitUas',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeVisitUasResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10085,6 +10801,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the top 10 user agents that are used to initiate requests.
      *
      * @param request - DescribeVisitUasRequest
+     *
      * @returns DescribeVisitUasResponse
      *
      * @param DescribeVisitUasRequest $request
@@ -10103,6 +10820,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - DescribeWafSourceIpSegmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeWafSourceIpSegmentResponse
      *
      * @param DescribeWafSourceIpSegmentRequest $request
@@ -10130,15 +10848,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWafSourceIpSegment',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWafSourceIpSegment',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeWafSourceIpSegmentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10151,6 +10869,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the back-to-origin CIDR blocks of a Web Application Firewall (WAF) instance.
      *
      * @param request - DescribeWafSourceIpSegmentRequest
+     *
      * @returns DescribeWafSourceIpSegmentResponse
      *
      * @param DescribeWafSourceIpSegmentRequest $request
@@ -10169,6 +10888,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ListTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagKeysResponse
      *
      * @param ListTagKeysRequest $request
@@ -10200,15 +10920,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagKeys',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagKeys',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10221,6 +10941,7 @@ class Wafopenapi extends OpenApiClient
      * Queries tag keys.
      *
      * @param request - ListTagKeysRequest
+     *
      * @returns ListTagKeysResponse
      *
      * @param ListTagKeysRequest $request
@@ -10239,6 +10960,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -10274,15 +10996,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10295,6 +11017,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the tags that are added to a resource.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -10313,6 +11036,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ListTagValuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagValuesResponse
      *
      * @param ListTagValuesRequest $request
@@ -10352,15 +11076,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagValues',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagValues',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10373,6 +11097,7 @@ class Wafopenapi extends OpenApiClient
      * Queries the tag values of a tag key.
      *
      * @param request - ListTagValuesRequest
+     *
      * @returns ListTagValuesResponse
      *
      * @param ListTagValuesRequest $request
@@ -10391,6 +11116,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyApisecAbnormalsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyApisecAbnormalsResponse
      *
      * @param ModifyApisecAbnormalsRequest $request
@@ -10434,15 +11160,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyApisecAbnormals',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyApisecAbnormals',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyApisecAbnormalsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10455,6 +11181,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the status of multiple risks detected by the API security module at a time.
      *
      * @param request - ModifyApisecAbnormalsRequest
+     *
      * @returns ModifyApisecAbnormalsResponse
      *
      * @param ModifyApisecAbnormalsRequest $request
@@ -10473,6 +11200,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyApisecApiResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyApisecApiResourceResponse
      *
      * @param ModifyApisecApiResourceRequest $request
@@ -10516,15 +11244,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyApisecApiResource',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyApisecApiResource',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyApisecApiResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10537,6 +11265,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the annotations of APIs in the API security module.
      *
      * @param request - ModifyApisecApiResourceRequest
+     *
      * @returns ModifyApisecApiResourceResponse
      *
      * @param ModifyApisecApiResourceRequest $request
@@ -10555,6 +11284,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyApisecEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyApisecEventsResponse
      *
      * @param ModifyApisecEventsRequest $request
@@ -10598,15 +11328,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyApisecEvents',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyApisecEvents',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyApisecEventsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10619,6 +11349,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the status of multiple security events detected by the API security module at a time.
      *
      * @param request - ModifyApisecEventsRequest
+     *
      * @returns ModifyApisecEventsResponse
      *
      * @param ModifyApisecEventsRequest $request
@@ -10637,6 +11368,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyApisecLogDeliveryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyApisecLogDeliveryResponse
      *
      * @param ModifyApisecLogDeliveryRequest $request
@@ -10680,15 +11412,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyApisecLogDelivery',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyApisecLogDelivery',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyApisecLogDeliveryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10701,6 +11433,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the configurations of API security log subscription.
      *
      * @param request - ModifyApisecLogDeliveryRequest
+     *
      * @returns ModifyApisecLogDeliveryResponse
      *
      * @param ModifyApisecLogDeliveryRequest $request
@@ -10719,6 +11452,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyApisecLogDeliveryStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyApisecLogDeliveryStatusResponse
      *
      * @param ModifyApisecLogDeliveryStatusRequest $request
@@ -10754,15 +11488,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyApisecLogDeliveryStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyApisecLogDeliveryStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyApisecLogDeliveryStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10775,6 +11509,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the status of API security log subscription.
      *
      * @param request - ModifyApisecLogDeliveryStatusRequest
+     *
      * @returns ModifyApisecLogDeliveryStatusResponse
      *
      * @param ModifyApisecLogDeliveryStatusRequest $request
@@ -10793,6 +11528,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyApisecModuleStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyApisecModuleStatusResponse
      *
      * @param ModifyApisecModuleStatusRequest $request
@@ -10836,15 +11572,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyApisecModuleStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyApisecModuleStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyApisecModuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10857,6 +11593,7 @@ class Wafopenapi extends OpenApiClient
      * Changes the status of features in the API security module for protected objects or protected object groups.
      *
      * @param request - ModifyApisecModuleStatusRequest
+     *
      * @returns ModifyApisecModuleStatusResponse
      *
      * @param ModifyApisecModuleStatusRequest $request
@@ -10875,6 +11612,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyApisecStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyApisecStatusResponse
      *
      * @param ModifyApisecStatusRequest $request
@@ -10914,15 +11652,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyApisecStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyApisecStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyApisecStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10935,6 +11673,7 @@ class Wafopenapi extends OpenApiClient
      * Changes the status of the API security module for protected objects or protected object groups.
      *
      * @param request - ModifyApisecStatusRequest
+     *
      * @returns ModifyApisecStatusResponse
      *
      * @param ModifyApisecStatusRequest $request
@@ -10953,6 +11692,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param tmpReq - ModifyCloudResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyCloudResourceResponse
      *
      * @param ModifyCloudResourceRequest $tmpReq
@@ -10998,15 +11738,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCloudResource',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCloudResource',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyCloudResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11019,6 +11759,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the configurations of a service that is added to Web Application Firewall (WAF).
      *
      * @param request - ModifyCloudResourceRequest
+     *
      * @returns ModifyCloudResourceResponse
      *
      * @param ModifyCloudResourceRequest $request
@@ -11037,6 +11778,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyDefaultHttpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDefaultHttpsResponse
      *
      * @param ModifyDefaultHttpsRequest $request
@@ -11084,15 +11826,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDefaultHttps',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDefaultHttps',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDefaultHttpsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11105,6 +11847,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the default Secure Sockets Layer (SSL) and Transport Layer Security (TLS) settings.
      *
      * @param request - ModifyDefaultHttpsRequest
+     *
      * @returns ModifyDefaultHttpsResponse
      *
      * @param ModifyDefaultHttpsRequest $request
@@ -11123,6 +11866,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyDefenseResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDefenseResourceGroupResponse
      *
      * @param ModifyDefenseResourceGroupRequest $request
@@ -11166,15 +11910,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDefenseResourceGroup',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDefenseResourceGroup',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDefenseResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11187,6 +11931,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the configurations of a protected object group.
      *
      * @param request - ModifyDefenseResourceGroupRequest
+     *
      * @returns ModifyDefenseResourceGroupResponse
      *
      * @param ModifyDefenseResourceGroupRequest $request
@@ -11205,6 +11950,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyDefenseResourceXffRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDefenseResourceXffResponse
      *
      * @param ModifyDefenseResourceXffRequest $request
@@ -11260,15 +12006,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDefenseResourceXff',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDefenseResourceXff',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDefenseResourceXffResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11281,6 +12027,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the cookie settings of a protected object and the method to identify the originating IP addresses of clients.
      *
      * @param request - ModifyDefenseResourceXffRequest
+     *
      * @returns ModifyDefenseResourceXffResponse
      *
      * @param ModifyDefenseResourceXffRequest $request
@@ -11299,6 +12046,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyDefenseRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDefenseRuleResponse
      *
      * @param ModifyDefenseRuleRequest $request
@@ -11337,18 +12085,18 @@ class Wafopenapi extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDefenseRule',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDefenseRule',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDefenseRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11361,6 +12109,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the configurations of a protection rule.
      *
      * @param request - ModifyDefenseRuleRequest
+     *
      * @returns ModifyDefenseRuleResponse
      *
      * @param ModifyDefenseRuleRequest $request
@@ -11379,6 +12128,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyDefenseRuleCacheRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDefenseRuleCacheResponse
      *
      * @param ModifyDefenseRuleCacheRequest $request
@@ -11414,15 +12164,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDefenseRuleCache',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDefenseRuleCache',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDefenseRuleCacheResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11435,6 +12185,7 @@ class Wafopenapi extends OpenApiClient
      * Updates the cached page of a website that is protected based on a website tamper-proofing rule.
      *
      * @param request - ModifyDefenseRuleCacheRequest
+     *
      * @returns ModifyDefenseRuleCacheResponse
      *
      * @param ModifyDefenseRuleCacheRequest $request
@@ -11453,6 +12204,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyDefenseRuleStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDefenseRuleStatusResponse
      *
      * @param ModifyDefenseRuleStatusRequest $request
@@ -11492,15 +12244,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDefenseRuleStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDefenseRuleStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDefenseRuleStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11513,6 +12265,7 @@ class Wafopenapi extends OpenApiClient
      * Changes the status of a protection rule.
      *
      * @param request - ModifyDefenseRuleStatusRequest
+     *
      * @returns ModifyDefenseRuleStatusResponse
      *
      * @param ModifyDefenseRuleStatusRequest $request
@@ -11531,6 +12284,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyDefenseTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDefenseTemplateResponse
      *
      * @param ModifyDefenseTemplateRequest $request
@@ -11570,15 +12324,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDefenseTemplate',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDefenseTemplate',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDefenseTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11591,6 +12345,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the configurations of a protection rule template.
      *
      * @param request - ModifyDefenseTemplateRequest
+     *
      * @returns ModifyDefenseTemplateResponse
      *
      * @param ModifyDefenseTemplateRequest $request
@@ -11609,6 +12364,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyDefenseTemplateStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDefenseTemplateStatusResponse
      *
      * @param ModifyDefenseTemplateStatusRequest $request
@@ -11644,15 +12400,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDefenseTemplateStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDefenseTemplateStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDefenseTemplateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11665,6 +12421,7 @@ class Wafopenapi extends OpenApiClient
      * Changes the status of a protection rule template.
      *
      * @param request - ModifyDefenseTemplateStatusRequest
+     *
      * @returns ModifyDefenseTemplateStatusResponse
      *
      * @param ModifyDefenseTemplateStatusRequest $request
@@ -11683,6 +12440,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param tmpReq - ModifyDomainRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDomainResponse
      *
      * @param ModifyDomainRequest $tmpReq
@@ -11732,15 +12490,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDomain',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDomain',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDomainResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11753,6 +12511,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the configurations of a domain name that is added to Web Application Firewall (WAF) in CNAME record mode.
      *
      * @param request - ModifyDomainRequest
+     *
      * @returns ModifyDomainResponse
      *
      * @param ModifyDomainRequest $request
@@ -11771,6 +12530,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyDomainPunishStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDomainPunishStatusResponse
      *
      * @param ModifyDomainPunishStatusRequest $request
@@ -11802,15 +12562,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDomainPunishStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDomainPunishStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDomainPunishStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11823,6 +12583,7 @@ class Wafopenapi extends OpenApiClient
      * Re-adds a domain name that is penalized for failing to obtain an Internet Content Provider (ICP) filing to Web Application Firewall (WAF).
      *
      * @param request - ModifyDomainPunishStatusRequest
+     *
      * @returns ModifyDomainPunishStatusResponse
      *
      * @param ModifyDomainPunishStatusRequest $request
@@ -11841,6 +12602,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyHybridCloudClusterBypassStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyHybridCloudClusterBypassStatusResponse
      *
      * @param ModifyHybridCloudClusterBypassStatusRequest $request
@@ -11876,15 +12638,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHybridCloudClusterBypassStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHybridCloudClusterBypassStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyHybridCloudClusterBypassStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11897,6 +12659,7 @@ class Wafopenapi extends OpenApiClient
      * Enables or disables manual bypass for a hybrid cloud cluster whose type is set to SDK Integration Mode.
      *
      * @param request - ModifyHybridCloudClusterBypassStatusRequest
+     *
      * @returns ModifyHybridCloudClusterBypassStatusResponse
      *
      * @param ModifyHybridCloudClusterBypassStatusRequest $request
@@ -11915,6 +12678,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyHybridCloudClusterRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyHybridCloudClusterRuleResponse
      *
      * @param ModifyHybridCloudClusterRuleRequest $request
@@ -11958,15 +12722,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHybridCloudClusterRule',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHybridCloudClusterRule',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyHybridCloudClusterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11979,6 +12743,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the rule of a hybrid cloud cluster.
      *
      * @param request - ModifyHybridCloudClusterRuleRequest
+     *
      * @returns ModifyHybridCloudClusterRuleResponse
      *
      * @param ModifyHybridCloudClusterRuleRequest $request
@@ -11997,6 +12762,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyHybridCloudGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyHybridCloudGroupResponse
      *
      * @param ModifyHybridCloudGroupRequest $request
@@ -12040,15 +12806,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHybridCloudGroup',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHybridCloudGroup',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyHybridCloudGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12061,6 +12827,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies a node group in a hybrid cloud cluster.
      *
      * @param request - ModifyHybridCloudGroupRequest
+     *
      * @returns ModifyHybridCloudGroupResponse
      *
      * @param ModifyHybridCloudGroupRequest $request
@@ -12079,6 +12846,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyHybridCloudGroupExpansionServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyHybridCloudGroupExpansionServerResponse
      *
      * @param ModifyHybridCloudGroupExpansionServerRequest $request
@@ -12118,15 +12886,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHybridCloudGroupExpansionServer',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHybridCloudGroupExpansionServer',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyHybridCloudGroupExpansionServerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12139,6 +12907,7 @@ class Wafopenapi extends OpenApiClient
      * Adds a node to a node group of a hybrid cloud cluster.
      *
      * @param request - ModifyHybridCloudGroupExpansionServerRequest
+     *
      * @returns ModifyHybridCloudGroupExpansionServerResponse
      *
      * @param ModifyHybridCloudGroupExpansionServerRequest $request
@@ -12157,6 +12926,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyHybridCloudGroupShrinkServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyHybridCloudGroupShrinkServerResponse
      *
      * @param ModifyHybridCloudGroupShrinkServerRequest $request
@@ -12196,15 +12966,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHybridCloudGroupShrinkServer',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHybridCloudGroupShrinkServer',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyHybridCloudGroupShrinkServerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12217,6 +12987,7 @@ class Wafopenapi extends OpenApiClient
      * Deletes a node from a node group of a hybrid cloud cluster.
      *
      * @param request - ModifyHybridCloudGroupShrinkServerRequest
+     *
      * @returns ModifyHybridCloudGroupShrinkServerResponse
      *
      * @param ModifyHybridCloudGroupShrinkServerRequest $request
@@ -12235,6 +13006,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyHybridCloudSdkPullinStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyHybridCloudSdkPullinStatusResponse
      *
      * @param ModifyHybridCloudSdkPullinStatusRequest $request
@@ -12262,15 +13034,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHybridCloudSdkPullinStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHybridCloudSdkPullinStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyHybridCloudSdkPullinStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12283,6 +13055,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the traffic redirection status of a hybrid cloud cluster by using an SDK.
      *
      * @param request - ModifyHybridCloudSdkPullinStatusRequest
+     *
      * @returns ModifyHybridCloudSdkPullinStatusResponse
      *
      * @param ModifyHybridCloudSdkPullinStatusRequest $request
@@ -12301,6 +13074,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyHybridCloudServerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyHybridCloudServerResponse
      *
      * @param ModifyHybridCloudServerRequest $request
@@ -12348,15 +13122,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyHybridCloudServer',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyHybridCloudServer',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyHybridCloudServerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12369,6 +13143,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the information about a hybrid cloud node.
      *
      * @param request - ModifyHybridCloudServerRequest
+     *
      * @returns ModifyHybridCloudServerResponse
      *
      * @param ModifyHybridCloudServerRequest $request
@@ -12387,6 +13162,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyMajorProtectionBlackIpRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyMajorProtectionBlackIpResponse
      *
      * @param ModifyMajorProtectionBlackIpRequest $request
@@ -12434,15 +13210,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyMajorProtectionBlackIp',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyMajorProtectionBlackIp',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyMajorProtectionBlackIpResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12455,6 +13231,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies an IP address blacklist for major event protection.
      *
      * @param request - ModifyMajorProtectionBlackIpRequest
+     *
      * @returns ModifyMajorProtectionBlackIpResponse
      *
      * @param ModifyMajorProtectionBlackIpRequest $request
@@ -12473,6 +13250,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyMemberAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyMemberAccountResponse
      *
      * @param ModifyMemberAccountRequest $request
@@ -12512,15 +13290,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyMemberAccount',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyMemberAccount',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyMemberAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12533,6 +13311,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the information about members that are added for multi-account management.
      *
      * @param request - ModifyMemberAccountRequest
+     *
      * @returns ModifyMemberAccountResponse
      *
      * @param ModifyMemberAccountRequest $request
@@ -12551,6 +13330,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyPauseProtectionStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyPauseProtectionStatusResponse
      *
      * @param ModifyPauseProtectionStatusRequest $request
@@ -12582,15 +13362,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPauseProtectionStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPauseProtectionStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyPauseProtectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12603,6 +13383,7 @@ class Wafopenapi extends OpenApiClient
      * Modifies the protection status of Web Application Firewall (WAF).
      *
      * @param request - ModifyPauseProtectionStatusRequest
+     *
      * @returns ModifyPauseProtectionStatusResponse
      *
      * @param ModifyPauseProtectionStatusRequest $request
@@ -12621,6 +13402,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyResourceLogStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyResourceLogStatusResponse
      *
      * @param ModifyResourceLogStatusRequest $request
@@ -12656,15 +13438,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyResourceLogStatus',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyResourceLogStatus',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyResourceLogStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12677,6 +13459,7 @@ class Wafopenapi extends OpenApiClient
      * Enables or disables the log collection feature for a protected object.
      *
      * @param request - ModifyResourceLogStatusRequest
+     *
      * @returns ModifyResourceLogStatusResponse
      *
      * @param ModifyResourceLogStatusRequest $request
@@ -12695,6 +13478,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ModifyTemplateResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyTemplateResourcesResponse
      *
      * @param ModifyTemplateResourcesRequest $request
@@ -12742,15 +13526,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyTemplateResources',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyTemplateResources',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyTemplateResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12763,6 +13547,7 @@ class Wafopenapi extends OpenApiClient
      * Associates or disassociates a protected object or protected object group with or from a protection rule template.
      *
      * @param request - ModifyTemplateResourcesRequest
+     *
      * @returns ModifyTemplateResourcesResponse
      *
      * @param ModifyTemplateResourcesRequest $request
@@ -12781,6 +13566,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - ReleaseInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleaseInstanceResponse
      *
      * @param ReleaseInstanceRequest $request
@@ -12808,15 +13594,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseInstance',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseInstance',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleaseInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12829,6 +13615,7 @@ class Wafopenapi extends OpenApiClient
      * Releases a Web Application Firewall (WAF) 3.0 instance.
      *
      * @param request - ReleaseInstanceRequest
+     *
      * @returns ReleaseInstanceResponse
      *
      * @param ReleaseInstanceRequest $request
@@ -12850,6 +13637,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - SyncProductInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SyncProductInstanceResponse
      *
      * @param SyncProductInstanceRequest $request
@@ -12877,15 +13665,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SyncProductInstance',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SyncProductInstance',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SyncProductInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12901,6 +13689,7 @@ class Wafopenapi extends OpenApiClient
      * SyncProductInstance is an asynchronous operation. You can call the [DescribeProductInstances](https://help.aliyun.com/document_detail/2743168.html) operation to query the status of the task.
      *
      * @param request - SyncProductInstanceRequest
+     *
      * @returns SyncProductInstanceResponse
      *
      * @param SyncProductInstanceRequest $request
@@ -12919,6 +13708,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -12950,15 +13740,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12971,6 +13761,7 @@ class Wafopenapi extends OpenApiClient
      * Adds tags to resources.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -12989,6 +13780,7 @@ class Wafopenapi extends OpenApiClient
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -13024,15 +13816,15 @@ class Wafopenapi extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2021-10-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2021-10-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13045,6 +13837,7 @@ class Wafopenapi extends OpenApiClient
      * Removes tags from resources and then deletes the tags.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request

@@ -12,32 +12,37 @@ class ModifyHybridCloudGroupExpansionServerRequest extends Model
      * @var int
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mids;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'clusterId'                      => 'ClusterId',
-        'groupId'                        => 'GroupId',
-        'instanceId'                     => 'InstanceId',
-        'mids'                           => 'Mids',
-        'regionId'                       => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'groupId' => 'GroupId',
+        'instanceId' => 'InstanceId',
+        'mids' => 'Mids',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

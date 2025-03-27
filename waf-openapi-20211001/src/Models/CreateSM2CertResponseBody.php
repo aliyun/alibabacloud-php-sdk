@@ -12,13 +12,14 @@ class CreateSM2CertResponseBody extends Model
      * @var string
      */
     public $certIdentifier;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'certIdentifier' => 'CertIdentifier',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

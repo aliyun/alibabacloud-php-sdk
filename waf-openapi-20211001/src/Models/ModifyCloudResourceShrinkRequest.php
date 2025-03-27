@@ -12,27 +12,31 @@ class ModifyCloudResourceShrinkRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $listenShrink;
+
     /**
      * @var string
      */
     public $redirectShrink;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'listenShrink'                   => 'Listen',
-        'redirectShrink'                 => 'Redirect',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'listenShrink' => 'Listen',
+        'redirectShrink' => 'Redirect',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

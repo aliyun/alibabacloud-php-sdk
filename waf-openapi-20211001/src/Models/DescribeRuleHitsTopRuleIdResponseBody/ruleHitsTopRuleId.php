@@ -12,18 +12,20 @@ class ruleHitsTopRuleId extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $resource;
+
     /**
      * @var string
      */
     public $ruleId;
     protected $_name = [
-        'count'    => 'Count',
+        'count' => 'Count',
         'resource' => 'Resource',
-        'ruleId'   => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()

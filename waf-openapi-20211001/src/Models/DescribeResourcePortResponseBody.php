@@ -12,12 +12,13 @@ class DescribeResourcePortResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
     public $resourcePorts;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'resourcePorts' => 'ResourcePorts',
     ];
 
@@ -39,7 +40,7 @@ class DescribeResourcePortResponseBody extends Model
         if (null !== $this->resourcePorts) {
             if (\is_array($this->resourcePorts)) {
                 $res['ResourcePorts'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->resourcePorts as $item1) {
                     $res['ResourcePorts'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class DescribeResourcePortResponseBody extends Model
         if (isset($map['ResourcePorts'])) {
             if (!empty($map['ResourcePorts'])) {
                 $model->resourcePorts = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ResourcePorts'] as $item1) {
                     $model->resourcePorts[$n1++] = $item1;
                 }

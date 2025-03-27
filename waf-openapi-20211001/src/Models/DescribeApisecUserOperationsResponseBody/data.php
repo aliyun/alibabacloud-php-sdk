@@ -12,38 +12,44 @@ class data extends Model
      * @var string
      */
     public $fromStatus;
+
     /**
      * @var string
      */
     public $note;
+
     /**
      * @var string
      */
     public $objectId;
+
     /**
      * @var int
      */
     public $time;
+
     /**
      * @var string
      */
     public $toStatus;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'fromStatus' => 'FromStatus',
-        'note'       => 'Note',
-        'objectId'   => 'ObjectId',
-        'time'       => 'Time',
-        'toStatus'   => 'ToStatus',
-        'type'       => 'Type',
-        'userId'     => 'UserId',
+        'note' => 'Note',
+        'objectId' => 'ObjectId',
+        'time' => 'Time',
+        'toStatus' => 'ToStatus',
+        'type' => 'Type',
+        'userId' => 'UserId',
     ];
 
     public function validate()

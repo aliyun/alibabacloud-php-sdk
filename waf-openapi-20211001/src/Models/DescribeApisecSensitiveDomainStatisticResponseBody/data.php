@@ -12,28 +12,32 @@ class data extends Model
      * @var int
      */
     public $apiCount;
+
     /**
      * @var int
      */
     public $domainCount;
+
     /**
      * @var string
      */
     public $sensitiveCode;
+
     /**
      * @var string
      */
     public $sensitiveLevel;
+
     /**
      * @var string
      */
     public $sensitiveName;
     protected $_name = [
-        'apiCount'       => 'ApiCount',
-        'domainCount'    => 'DomainCount',
-        'sensitiveCode'  => 'SensitiveCode',
+        'apiCount' => 'ApiCount',
+        'domainCount' => 'DomainCount',
+        'sensitiveCode' => 'SensitiveCode',
         'sensitiveLevel' => 'SensitiveLevel',
-        'sensitiveName'  => 'SensitiveName',
+        'sensitiveName' => 'SensitiveName',
     ];
 
     public function validate()

@@ -12,37 +12,43 @@ class ModifyDefenseResourceGroupRequest extends Model
      * @var string
      */
     public $addList;
+
     /**
      * @var string
      */
     public $deleteList;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'addList'                        => 'AddList',
-        'deleteList'                     => 'DeleteList',
-        'description'                    => 'Description',
-        'groupName'                      => 'GroupName',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'addList' => 'AddList',
+        'deleteList' => 'DeleteList',
+        'description' => 'Description',
+        'groupName' => 'GroupName',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

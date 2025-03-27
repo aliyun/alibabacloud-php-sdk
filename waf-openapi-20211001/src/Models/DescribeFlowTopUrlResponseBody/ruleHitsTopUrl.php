@@ -12,13 +12,14 @@ class ruleHitsTopUrl extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
         'count' => 'Count',
-        'url'   => 'Url',
+        'url' => 'Url',
     ];
 
     public function validate()

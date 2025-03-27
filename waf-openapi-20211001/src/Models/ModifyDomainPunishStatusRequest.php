@@ -12,22 +12,25 @@ class ModifyDomainPunishStatusRequest extends Model
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'domain'                         => 'Domain',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'domain' => 'Domain',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

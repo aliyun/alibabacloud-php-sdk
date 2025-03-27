@@ -12,53 +12,62 @@ class DescribeSensitiveRequestsRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $sensitiveCode;
+
     /**
      * @var string
      */
     public $sensitiveData;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'clusterId'                      => 'ClusterId',
-        'endTime'                        => 'EndTime',
-        'instanceId'                     => 'InstanceId',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'sensitiveCode'                  => 'SensitiveCode',
-        'sensitiveData'                  => 'SensitiveData',
-        'startTime'                      => 'StartTime',
+        'sensitiveCode' => 'SensitiveCode',
+        'sensitiveData' => 'SensitiveData',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

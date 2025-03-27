@@ -12,12 +12,13 @@ class data extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $matchedHost;
     protected $_name = [
-        'count'       => 'Count',
+        'count' => 'Count',
         'matchedHost' => 'MatchedHost',
     ];
 

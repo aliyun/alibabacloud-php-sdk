@@ -12,37 +12,43 @@ class ModifyApisecApiResourceRequest extends Model
      * @var string
      */
     public $apiId;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $follow;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $note;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'apiId'                          => 'ApiId',
-        'clusterId'                      => 'ClusterId',
-        'follow'                         => 'Follow',
-        'instanceId'                     => 'InstanceId',
-        'note'                           => 'Note',
-        'regionId'                       => 'RegionId',
+        'apiId' => 'ApiId',
+        'clusterId' => 'ClusterId',
+        'follow' => 'Follow',
+        'instanceId' => 'InstanceId',
+        'note' => 'Note',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

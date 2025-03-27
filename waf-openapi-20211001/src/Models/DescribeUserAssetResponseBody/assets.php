@@ -12,12 +12,13 @@ class assets extends Model
      * @var int
      */
     public $assetNum;
+
     /**
      * @var int
      */
     public $timeStamp;
     protected $_name = [
-        'assetNum'  => 'AssetNum',
+        'assetNum' => 'AssetNum',
         'timeStamp' => 'TimeStamp',
     ];
 

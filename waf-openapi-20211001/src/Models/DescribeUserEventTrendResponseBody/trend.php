@@ -12,28 +12,32 @@ class trend extends Model
      * @var int
      */
     public $eventHigh;
+
     /**
      * @var int
      */
     public $eventLow;
+
     /**
      * @var int
      */
     public $eventMedium;
+
     /**
      * @var int
      */
     public $timeStamp;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'eventHigh'   => 'EventHigh',
-        'eventLow'    => 'EventLow',
+        'eventHigh' => 'EventHigh',
+        'eventLow' => 'EventLow',
         'eventMedium' => 'EventMedium',
-        'timeStamp'   => 'TimeStamp',
-        'timestamp'   => 'Timestamp',
+        'timeStamp' => 'TimeStamp',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()

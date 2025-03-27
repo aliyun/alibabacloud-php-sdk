@@ -13,16 +13,18 @@ class ListTagKeysResponseBody extends Model
      * @var keys[]
      */
     public $keys;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'keys'      => 'Keys',
+        'keys' => 'Keys',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
     ];
@@ -41,7 +43,7 @@ class ListTagKeysResponseBody extends Model
         if (null !== $this->keys) {
             if (\is_array($this->keys)) {
                 $res['Keys'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->keys as $item1) {
                     $res['Keys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListTagKeysResponseBody extends Model
         if (isset($map['Keys'])) {
             if (!empty($map['Keys'])) {
                 $model->keys = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Keys'] as $item1) {
                     $model->keys[$n1++] = keys::fromMap($item1);
                 }

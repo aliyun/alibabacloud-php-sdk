@@ -12,33 +12,38 @@ class ModifyDomainShrinkRequest extends Model
      * @var string
      */
     public $accessType;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $listenShrink;
+
     /**
      * @var string
      */
     public $redirectShrink;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'accessType'     => 'AccessType',
-        'domain'         => 'Domain',
-        'instanceId'     => 'InstanceId',
-        'listenShrink'   => 'Listen',
+        'accessType' => 'AccessType',
+        'domain' => 'Domain',
+        'instanceId' => 'InstanceId',
+        'listenShrink' => 'Listen',
         'redirectShrink' => 'Redirect',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

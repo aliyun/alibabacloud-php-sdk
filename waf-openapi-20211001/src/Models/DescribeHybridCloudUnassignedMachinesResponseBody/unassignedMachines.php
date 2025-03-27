@@ -12,38 +12,44 @@ class unassignedMachines extends Model
      * @var int
      */
     public $cpu;
+
     /**
      * @var string
      */
     public $customName;
+
     /**
      * @var string
      */
     public $hostName;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $mac;
+
     /**
      * @var int
      */
     public $memory;
+
     /**
      * @var string
      */
     public $mid;
     protected $_name = [
-        'cpu'        => 'Cpu',
+        'cpu' => 'Cpu',
         'customName' => 'CustomName',
-        'hostName'   => 'HostName',
-        'ip'         => 'Ip',
-        'mac'        => 'Mac',
-        'memory'     => 'Memory',
-        'mid'        => 'Mid',
+        'hostName' => 'HostName',
+        'ip' => 'Ip',
+        'mac' => 'Mac',
+        'memory' => 'Memory',
+        'mid' => 'Mid',
     ];
 
     public function validate()

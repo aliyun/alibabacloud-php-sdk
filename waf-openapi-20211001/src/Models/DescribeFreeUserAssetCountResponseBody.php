@@ -13,12 +13,13 @@ class DescribeFreeUserAssetCountResponseBody extends Model
      * @var asset
      */
     public $asset;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'asset'     => 'Asset',
+        'asset' => 'Asset',
         'requestId' => 'RequestId',
     ];
 

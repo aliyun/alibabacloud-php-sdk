@@ -12,42 +12,49 @@ class DescribeHybridCloudUnassignedMachinesRequest extends Model
      * @var int
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $hostName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'clusterId'                      => 'ClusterId',
-        'hostName'                       => 'HostName',
-        'instanceId'                     => 'InstanceId',
-        'ip'                             => 'Ip',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'hostName' => 'HostName',
+        'instanceId' => 'InstanceId',
+        'ip' => 'Ip',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

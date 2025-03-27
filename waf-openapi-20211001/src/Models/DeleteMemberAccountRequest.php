@@ -12,28 +12,32 @@ class DeleteMemberAccountRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $memberAccountId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $sourceIp;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'memberAccountId'                => 'MemberAccountId',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'memberAccountId' => 'MemberAccountId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'sourceIp'                       => 'SourceIp',
+        'sourceIp' => 'SourceIp',
     ];
 
     public function validate()

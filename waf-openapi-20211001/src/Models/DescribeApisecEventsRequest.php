@@ -12,103 +12,122 @@ class DescribeApisecEventsRequest extends Model
      * @var string
      */
     public $apiFormat;
+
     /**
      * @var string
      */
     public $apiId;
+
     /**
      * @var string
      */
     public $apiTag;
+
     /**
      * @var string
      */
     public $attackIp;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $endTs;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $eventLevel;
+
     /**
      * @var string
      */
     public $eventTag;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $matchedHost;
+
     /**
      * @var string
      */
     public $orderKey;
+
     /**
      * @var string
      */
     public $orderWay;
+
     /**
      * @var string
      */
     public $origin;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $startTs;
+
     /**
      * @var string
      */
     public $userStatus;
     protected $_name = [
-        'apiFormat'                      => 'ApiFormat',
-        'apiId'                          => 'ApiId',
-        'apiTag'                         => 'ApiTag',
-        'attackIp'                       => 'AttackIp',
-        'clusterId'                      => 'ClusterId',
-        'endTs'                          => 'EndTs',
-        'eventId'                        => 'EventId',
-        'eventLevel'                     => 'EventLevel',
-        'eventTag'                       => 'EventTag',
-        'instanceId'                     => 'InstanceId',
-        'matchedHost'                    => 'MatchedHost',
-        'orderKey'                       => 'OrderKey',
-        'orderWay'                       => 'OrderWay',
-        'origin'                         => 'Origin',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
+        'apiFormat' => 'ApiFormat',
+        'apiId' => 'ApiId',
+        'apiTag' => 'ApiTag',
+        'attackIp' => 'AttackIp',
+        'clusterId' => 'ClusterId',
+        'endTs' => 'EndTs',
+        'eventId' => 'EventId',
+        'eventLevel' => 'EventLevel',
+        'eventTag' => 'EventTag',
+        'instanceId' => 'InstanceId',
+        'matchedHost' => 'MatchedHost',
+        'orderKey' => 'OrderKey',
+        'orderWay' => 'OrderWay',
+        'origin' => 'Origin',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'startTs'                        => 'StartTs',
-        'userStatus'                     => 'UserStatus',
+        'startTs' => 'StartTs',
+        'userStatus' => 'UserStatus',
     ];
 
     public function validate()

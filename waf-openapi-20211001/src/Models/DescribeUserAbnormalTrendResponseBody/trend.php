@@ -12,28 +12,32 @@ class trend extends Model
      * @var int
      */
     public $abnormalHigh;
+
     /**
      * @var int
      */
     public $abnormalLow;
+
     /**
      * @var int
      */
     public $abnormalMedium;
+
     /**
      * @var int
      */
     public $timeStamp;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'abnormalHigh'   => 'AbnormalHigh',
-        'abnormalLow'    => 'AbnormalLow',
+        'abnormalHigh' => 'AbnormalHigh',
+        'abnormalLow' => 'AbnormalLow',
         'abnormalMedium' => 'AbnormalMedium',
-        'timeStamp'      => 'TimeStamp',
-        'timestamp'      => 'Timestamp',
+        'timeStamp' => 'TimeStamp',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()

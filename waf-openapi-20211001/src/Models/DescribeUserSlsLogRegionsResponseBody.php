@@ -12,13 +12,14 @@ class DescribeUserSlsLogRegionsResponseBody extends Model
      * @var string[]
      */
     public $logRegions;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'logRegions' => 'LogRegions',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class DescribeUserSlsLogRegionsResponseBody extends Model
         if (null !== $this->logRegions) {
             if (\is_array($this->logRegions)) {
                 $res['LogRegions'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->logRegions as $item1) {
                     $res['LogRegions'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class DescribeUserSlsLogRegionsResponseBody extends Model
         if (isset($map['LogRegions'])) {
             if (!empty($map['LogRegions'])) {
                 $model->logRegions = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['LogRegions'] as $item1) {
                     $model->logRegions[$n1++] = $item1;
                 }

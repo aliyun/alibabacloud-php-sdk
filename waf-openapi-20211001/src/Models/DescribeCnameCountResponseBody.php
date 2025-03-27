@@ -13,13 +13,14 @@ class DescribeCnameCountResponseBody extends Model
      * @var cnameCount
      */
     public $cnameCount;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'cnameCount' => 'CnameCount',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

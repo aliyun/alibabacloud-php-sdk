@@ -12,53 +12,62 @@ class DescribeApisecSensitiveDomainStatisticRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $orderWay;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'clusterId'                      => 'ClusterId',
-        'endTime'                        => 'EndTime',
-        'instanceId'                     => 'InstanceId',
-        'orderWay'                       => 'OrderWay',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'orderWay' => 'OrderWay',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'startTime'                      => 'StartTime',
-        'type'                           => 'Type',
+        'startTime' => 'StartTime',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -13,13 +13,14 @@ class DescribeDefaultHttpsResponseBody extends Model
      * @var defaultHttps
      */
     public $defaultHttps;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'defaultHttps' => 'DefaultHttps',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

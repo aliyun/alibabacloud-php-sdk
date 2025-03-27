@@ -12,83 +12,98 @@ class data extends Model
      * @var int
      */
     public $actioned;
+
     /**
      * @var int
      */
     public $api;
+
     /**
      * @var int
      */
     public $confirmed;
+
     /**
      * @var int
      */
     public $domain;
+
     /**
      * @var int
      */
     public $fixed;
+
     /**
      * @var int
      */
     public $high;
+
     /**
      * @var int
      */
     public $ignore;
+
     /**
      * @var int
      */
     public $low;
+
     /**
      * @var int
      */
     public $medium;
+
     /**
      * @var int
      */
     public $toBeConfirmed;
+
     /**
      * @var int
      */
     public $toBeFixed;
+
     /**
      * @var string
      */
     public $todayHigh;
+
     /**
      * @var int
      */
     public $todayLow;
+
     /**
      * @var string
      */
     public $todayMedium;
+
     /**
      * @var string
      */
     public $todayTotal;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'actioned'      => 'Actioned',
-        'api'           => 'Api',
-        'confirmed'     => 'Confirmed',
-        'domain'        => 'Domain',
-        'fixed'         => 'Fixed',
-        'high'          => 'High',
-        'ignore'        => 'Ignore',
-        'low'           => 'Low',
-        'medium'        => 'Medium',
+        'actioned' => 'Actioned',
+        'api' => 'Api',
+        'confirmed' => 'Confirmed',
+        'domain' => 'Domain',
+        'fixed' => 'Fixed',
+        'high' => 'High',
+        'ignore' => 'Ignore',
+        'low' => 'Low',
+        'medium' => 'Medium',
         'toBeConfirmed' => 'ToBeConfirmed',
-        'toBeFixed'     => 'ToBeFixed',
-        'todayHigh'     => 'TodayHigh',
-        'todayLow'      => 'TodayLow',
-        'todayMedium'   => 'TodayMedium',
-        'todayTotal'    => 'TodayTotal',
-        'total'         => 'Total',
+        'toBeFixed' => 'ToBeFixed',
+        'todayHigh' => 'TodayHigh',
+        'todayLow' => 'TodayLow',
+        'todayMedium' => 'TodayMedium',
+        'todayTotal' => 'TodayTotal',
+        'total' => 'Total',
     ];
 
     public function validate()

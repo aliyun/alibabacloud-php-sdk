@@ -12,43 +12,50 @@ class DescribeUserApiRequestRequest extends Model
      * @var string
      */
     public $apiFormat;
+
     /**
      * @var string
      */
     public $apiId;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'apiFormat'                      => 'ApiFormat',
-        'apiId'                          => 'ApiId',
-        'clusterId'                      => 'ClusterId',
-        'domain'                         => 'Domain',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'apiFormat' => 'ApiFormat',
+        'apiId' => 'ApiId',
+        'clusterId' => 'ClusterId',
+        'domain' => 'Domain',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'type'                           => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -12,22 +12,25 @@ class ListTagKeysRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'nextToken'    => 'NextToken',
-        'regionId'     => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
     ];
 

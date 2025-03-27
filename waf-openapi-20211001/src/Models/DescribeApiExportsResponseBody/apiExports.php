@@ -12,33 +12,38 @@ class apiExports extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $fileUrl;
+
     /**
      * @var string
      */
     public $format;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'createTime' => 'CreateTime',
-        'fileName'   => 'FileName',
-        'fileUrl'    => 'FileUrl',
-        'format'     => 'Format',
-        'status'     => 'Status',
-        'type'       => 'Type',
+        'fileName' => 'FileName',
+        'fileUrl' => 'FileUrl',
+        'format' => 'Format',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()

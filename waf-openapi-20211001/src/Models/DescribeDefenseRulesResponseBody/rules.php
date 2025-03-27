@@ -12,43 +12,50 @@ class rules extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $defenseOrigin;
+
     /**
      * @var string
      */
     public $defenseScene;
+
     /**
      * @var int
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'config'        => 'Config',
+        'config' => 'Config',
         'defenseOrigin' => 'DefenseOrigin',
-        'defenseScene'  => 'DefenseScene',
-        'gmtModified'   => 'GmtModified',
-        'ruleId'        => 'RuleId',
-        'ruleName'      => 'RuleName',
-        'status'        => 'Status',
-        'templateId'    => 'TemplateId',
+        'defenseScene' => 'DefenseScene',
+        'gmtModified' => 'GmtModified',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'status' => 'Status',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

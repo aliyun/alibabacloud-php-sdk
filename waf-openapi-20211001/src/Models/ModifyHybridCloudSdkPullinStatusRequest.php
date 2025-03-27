@@ -12,17 +12,19 @@ class ModifyHybridCloudSdkPullinStatusRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mid;
+
     /**
      * @var string
      */
     public $pullinStatus;
     protected $_name = [
-        'instanceId'   => 'InstanceId',
-        'mid'          => 'Mid',
+        'instanceId' => 'InstanceId',
+        'mid' => 'Mid',
         'pullinStatus' => 'PullinStatus',
     ];
 

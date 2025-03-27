@@ -13,13 +13,14 @@ class DescribeCertDetailResponseBody extends Model
      * @var certDetail
      */
     public $certDetail;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'certDetail' => 'CertDetail',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

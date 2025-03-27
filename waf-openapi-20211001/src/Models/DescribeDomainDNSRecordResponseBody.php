@@ -12,6 +12,7 @@ class DescribeDomainDNSRecordResponseBody extends Model
      * @var string
      */
     public $DNSStatus;
+
     /**
      * @var string
      */

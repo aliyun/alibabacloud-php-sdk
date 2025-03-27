@@ -12,12 +12,13 @@ class data extends Model
      * @var string
      */
     public $eventNum;
+
     /**
      * @var string
      */
     public $eventType;
     protected $_name = [
-        'eventNum'  => 'EventNum',
+        'eventNum' => 'EventNum',
         'eventType' => 'EventType',
     ];
 

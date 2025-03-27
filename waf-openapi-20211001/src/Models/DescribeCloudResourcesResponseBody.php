@@ -13,18 +13,20 @@ class DescribeCloudResourcesResponseBody extends Model
      * @var cloudResources[]
      */
     public $cloudResources;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'cloudResources' => 'CloudResources',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class DescribeCloudResourcesResponseBody extends Model
         if (null !== $this->cloudResources) {
             if (\is_array($this->cloudResources)) {
                 $res['CloudResources'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->cloudResources as $item1) {
                     $res['CloudResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class DescribeCloudResourcesResponseBody extends Model
         if (isset($map['CloudResources'])) {
             if (!empty($map['CloudResources'])) {
                 $model->cloudResources = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['CloudResources'] as $item1) {
                     $model->cloudResources[$n1++] = cloudResources::fromMap($item1);
                 }

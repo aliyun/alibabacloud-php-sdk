@@ -14,18 +14,20 @@ class result extends Model
      * @var string
      */
     public $detectionResult;
+
     /**
      * @var list_[]
      */
     public $list;
+
     /**
      * @var max
      */
     public $max;
     protected $_name = [
         'detectionResult' => 'DetectionResult',
-        'list'            => 'List',
-        'max'             => 'Max',
+        'list' => 'List',
+        'max' => 'Max',
     ];
 
     public function validate()
@@ -49,7 +51,7 @@ class result extends Model
         if (null !== $this->list) {
             if (\is_array($this->list)) {
                 $res['List'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->list as $item1) {
                     $res['List'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class result extends Model
         if (isset($map['List'])) {
             if (!empty($map['List'])) {
                 $model->list = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['List'] as $item1) {
                     $model->list[$n1++] = list_::fromMap($item1);
                 }

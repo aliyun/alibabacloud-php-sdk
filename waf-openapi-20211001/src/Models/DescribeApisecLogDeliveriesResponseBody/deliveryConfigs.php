@@ -12,28 +12,32 @@ class deliveryConfigs extends Model
      * @var string
      */
     public $assertKey;
+
     /**
      * @var string
      */
     public $logRegionId;
+
     /**
      * @var string
      */
     public $logStoreName;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var bool
      */
     public $status;
     protected $_name = [
-        'assertKey'    => 'AssertKey',
-        'logRegionId'  => 'LogRegionId',
+        'assertKey' => 'AssertKey',
+        'logRegionId' => 'LogRegionId',
         'logStoreName' => 'LogStoreName',
-        'projectName'  => 'ProjectName',
-        'status'       => 'Status',
+        'projectName' => 'ProjectName',
+        'status' => 'Status',
     ];
 
     public function validate()

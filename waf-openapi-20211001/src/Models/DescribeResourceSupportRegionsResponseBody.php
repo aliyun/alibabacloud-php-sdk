@@ -12,12 +12,13 @@ class DescribeResourceSupportRegionsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
     public $supportRegions;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'supportRegions' => 'SupportRegions',
     ];
 
@@ -39,7 +40,7 @@ class DescribeResourceSupportRegionsResponseBody extends Model
         if (null !== $this->supportRegions) {
             if (\is_array($this->supportRegions)) {
                 $res['SupportRegions'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->supportRegions as $item1) {
                     $res['SupportRegions'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class DescribeResourceSupportRegionsResponseBody extends Model
         if (isset($map['SupportRegions'])) {
             if (!empty($map['SupportRegions'])) {
                 $model->supportRegions = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['SupportRegions'] as $item1) {
                     $model->supportRegions[$n1++] = $item1;
                 }

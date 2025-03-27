@@ -12,27 +12,31 @@ class data extends Model
      * @var string
      */
     public $apiFormat;
+
     /**
      * @var string
      */
     public $clientIP;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $matchedHost;
+
     /**
      * @var string
      */
     public $sensitiveCode;
     protected $_name = [
-        'apiFormat'     => 'ApiFormat',
-        'clientIP'      => 'ClientIP',
-        'count'         => 'Count',
-        'matchedHost'   => 'MatchedHost',
+        'apiFormat' => 'ApiFormat',
+        'clientIP' => 'ClientIP',
+        'count' => 'Count',
+        'matchedHost' => 'MatchedHost',
         'sensitiveCode' => 'SensitiveCode',
     ];
 

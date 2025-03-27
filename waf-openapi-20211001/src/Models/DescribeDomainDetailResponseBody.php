@@ -16,48 +16,56 @@ class DescribeDomainDetailResponseBody extends Model
      * @var certDetail
      */
     public $certDetail;
+
     /**
      * @var string
      */
     public $cname;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var listen
      */
     public $listen;
+
     /**
      * @var redirect
      */
     public $redirect;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var SM2CertDetail
      */
     public $SM2CertDetail;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'certDetail'                     => 'CertDetail',
-        'cname'                          => 'Cname',
-        'domain'                         => 'Domain',
-        'listen'                         => 'Listen',
-        'redirect'                       => 'Redirect',
-        'requestId'                      => 'RequestId',
+        'certDetail' => 'CertDetail',
+        'cname' => 'Cname',
+        'domain' => 'Domain',
+        'listen' => 'Listen',
+        'redirect' => 'Redirect',
+        'requestId' => 'RequestId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'SM2CertDetail'                  => 'SM2CertDetail',
-        'status'                         => 'Status',
+        'SM2CertDetail' => 'SM2CertDetail',
+        'status' => 'Status',
     ];
 
     public function validate()

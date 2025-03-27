@@ -12,43 +12,50 @@ class DescribeRuleHitsTopRuleIdRequest extends Model
      * @var string
      */
     public $endTimestamp;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $isGroupResource;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resource;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $ruleType;
+
     /**
      * @var string
      */
     public $startTimestamp;
     protected $_name = [
-        'endTimestamp'                   => 'EndTimestamp',
-        'instanceId'                     => 'InstanceId',
-        'isGroupResource'                => 'IsGroupResource',
-        'regionId'                       => 'RegionId',
-        'resource'                       => 'Resource',
+        'endTimestamp' => 'EndTimestamp',
+        'instanceId' => 'InstanceId',
+        'isGroupResource' => 'IsGroupResource',
+        'regionId' => 'RegionId',
+        'resource' => 'Resource',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'ruleType'                       => 'RuleType',
-        'startTimestamp'                 => 'StartTimestamp',
+        'ruleType' => 'RuleType',
+        'startTimestamp' => 'StartTimestamp',
     ];
 
     public function validate()

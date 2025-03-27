@@ -12,33 +12,38 @@ class ListTagValuesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'key'                            => 'Key',
-        'nextToken'                      => 'NextToken',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'key' => 'Key',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'resourceType'                   => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

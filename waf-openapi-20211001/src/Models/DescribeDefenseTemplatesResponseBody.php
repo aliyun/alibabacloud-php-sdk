@@ -13,17 +13,19 @@ class DescribeDefenseTemplatesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var templates[]
      */
     public $templates;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'templates'  => 'Templates',
+        'requestId' => 'RequestId',
+        'templates' => 'Templates',
         'totalCount' => 'TotalCount',
     ];
 
@@ -45,7 +47,7 @@ class DescribeDefenseTemplatesResponseBody extends Model
         if (null !== $this->templates) {
             if (\is_array($this->templates)) {
                 $res['Templates'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->templates as $item1) {
                     $res['Templates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class DescribeDefenseTemplatesResponseBody extends Model
         if (isset($map['Templates'])) {
             if (!empty($map['Templates'])) {
                 $model->templates = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Templates'] as $item1) {
                     $model->templates[$n1++] = templates::fromMap($item1);
                 }

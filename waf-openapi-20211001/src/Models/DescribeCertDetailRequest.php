@@ -12,22 +12,25 @@ class DescribeCertDetailRequest extends Model
      * @var string
      */
     public $certIdentifier;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'certIdentifier'                 => 'CertIdentifier',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'certIdentifier' => 'CertIdentifier',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

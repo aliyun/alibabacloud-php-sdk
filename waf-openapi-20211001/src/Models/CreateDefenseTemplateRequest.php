@@ -12,48 +12,56 @@ class CreateDefenseTemplateRequest extends Model
      * @var string
      */
     public $defenseScene;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $templateName;
+
     /**
      * @var string
      */
     public $templateOrigin;
+
     /**
      * @var int
      */
     public $templateStatus;
+
     /**
      * @var string
      */
     public $templateType;
     protected $_name = [
-        'defenseScene'                   => 'DefenseScene',
-        'description'                    => 'Description',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'defenseScene' => 'DefenseScene',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'templateName'                   => 'TemplateName',
-        'templateOrigin'                 => 'TemplateOrigin',
-        'templateStatus'                 => 'TemplateStatus',
-        'templateType'                   => 'TemplateType',
+        'templateName' => 'TemplateName',
+        'templateOrigin' => 'TemplateOrigin',
+        'templateStatus' => 'TemplateStatus',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()

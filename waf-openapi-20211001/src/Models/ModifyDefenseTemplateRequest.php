@@ -12,33 +12,38 @@ class ModifyDefenseTemplateRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'description'                    => 'Description',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'description' => 'Description',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'templateId'                     => 'TemplateId',
-        'templateName'                   => 'TemplateName',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()

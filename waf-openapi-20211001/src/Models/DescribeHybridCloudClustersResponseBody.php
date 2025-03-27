@@ -13,13 +13,14 @@ class DescribeHybridCloudClustersResponseBody extends Model
      * @var clusterInfos[]
      */
     public $clusterInfos;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'clusterInfos' => 'ClusterInfos',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeHybridCloudClustersResponseBody extends Model
         if (null !== $this->clusterInfos) {
             if (\is_array($this->clusterInfos)) {
                 $res['ClusterInfos'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->clusterInfos as $item1) {
                     $res['ClusterInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeHybridCloudClustersResponseBody extends Model
         if (isset($map['ClusterInfos'])) {
             if (!empty($map['ClusterInfos'])) {
                 $model->clusterInfos = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ClusterInfos'] as $item1) {
                     $model->clusterInfos[$n1++] = clusterInfos::fromMap($item1);
                 }

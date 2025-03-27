@@ -13,13 +13,14 @@ class DescribeDDoSStatusResponseBody extends Model
      * @var DDoSStatus[]
      */
     public $DDoSStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DDoSStatus' => 'DDoSStatus',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeDDoSStatusResponseBody extends Model
         if (null !== $this->DDoSStatus) {
             if (\is_array($this->DDoSStatus)) {
                 $res['DDoSStatus'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->DDoSStatus as $item1) {
                     $res['DDoSStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeDDoSStatusResponseBody extends Model
         if (isset($map['DDoSStatus'])) {
             if (!empty($map['DDoSStatus'])) {
                 $model->DDoSStatus = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['DDoSStatus'] as $item1) {
                     $model->DDoSStatus[$n1++] = DDoSStatus::fromMap($item1);
                 }

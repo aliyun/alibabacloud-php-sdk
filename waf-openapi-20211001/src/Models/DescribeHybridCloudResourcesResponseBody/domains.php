@@ -14,43 +14,50 @@ class domains extends Model
      * @var string
      */
     public $cname;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var listen
      */
     public $listen;
+
     /**
      * @var redirect
      */
     public $redirect;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $uid;
     protected $_name = [
-        'cname'                          => 'Cname',
-        'domain'                         => 'Domain',
-        'id'                             => 'Id',
-        'listen'                         => 'Listen',
-        'redirect'                       => 'Redirect',
+        'cname' => 'Cname',
+        'domain' => 'Domain',
+        'id' => 'Id',
+        'listen' => 'Listen',
+        'redirect' => 'Redirect',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'status'                         => 'Status',
-        'uid'                            => 'Uid',
+        'status' => 'Status',
+        'uid' => 'Uid',
     ];
 
     public function validate()

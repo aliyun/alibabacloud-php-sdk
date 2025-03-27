@@ -12,18 +12,20 @@ class resourceCount extends Model
      * @var int
      */
     public $groupCount;
+
     /**
      * @var int
      */
     public $singleCount;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'groupCount'  => 'GroupCount',
+        'groupCount' => 'GroupCount',
         'singleCount' => 'SingleCount',
-        'templateId'  => 'TemplateId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

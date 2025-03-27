@@ -12,27 +12,31 @@ class list_ extends Model
      * @var string
      */
     public $apiFormat;
+
     /**
      * @var string
      */
     public $apiId;
+
     /**
      * @var int
      */
     public $infoCount;
+
     /**
      * @var string[]
      */
     public $sensitiveCode;
+
     /**
      * @var int
      */
     public $sensitiveCount;
     protected $_name = [
-        'apiFormat'      => 'ApiFormat',
-        'apiId'          => 'ApiId',
-        'infoCount'      => 'InfoCount',
-        'sensitiveCode'  => 'SensitiveCode',
+        'apiFormat' => 'ApiFormat',
+        'apiId' => 'ApiId',
+        'infoCount' => 'InfoCount',
+        'sensitiveCode' => 'SensitiveCode',
         'sensitiveCount' => 'SensitiveCount',
     ];
 
@@ -62,7 +66,7 @@ class list_ extends Model
         if (null !== $this->sensitiveCode) {
             if (\is_array($this->sensitiveCode)) {
                 $res['SensitiveCode'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->sensitiveCode as $item1) {
                     $res['SensitiveCode'][$n1++] = $item1;
                 }
@@ -99,7 +103,7 @@ class list_ extends Model
         if (isset($map['SensitiveCode'])) {
             if (!empty($map['SensitiveCode'])) {
                 $model->sensitiveCode = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['SensitiveCode'] as $item1) {
                     $model->sensitiveCode[$n1++] = $item1;
                 }

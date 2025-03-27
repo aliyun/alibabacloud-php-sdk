@@ -12,33 +12,38 @@ class flowChart extends Model
      * @var int
      */
     public $aclSum;
+
     /**
      * @var int
      */
     public $antiScanSum;
+
     /**
      * @var int
      */
     public $ccSum;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $index;
+
     /**
      * @var int
      */
     public $wafSum;
     protected $_name = [
-        'aclSum'      => 'AclSum',
+        'aclSum' => 'AclSum',
         'antiScanSum' => 'AntiScanSum',
-        'ccSum'       => 'CcSum',
-        'count'       => 'Count',
-        'index'       => 'Index',
-        'wafSum'      => 'WafSum',
+        'ccSum' => 'CcSum',
+        'count' => 'Count',
+        'index' => 'Index',
+        'wafSum' => 'WafSum',
     ];
 
     public function validate()

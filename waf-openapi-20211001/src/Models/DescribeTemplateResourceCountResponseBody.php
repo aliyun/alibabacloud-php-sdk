@@ -13,12 +13,13 @@ class DescribeTemplateResourceCountResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceCount[]
      */
     public $resourceCount;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceCount' => 'ResourceCount',
     ];
 
@@ -40,7 +41,7 @@ class DescribeTemplateResourceCountResponseBody extends Model
         if (null !== $this->resourceCount) {
             if (\is_array($this->resourceCount)) {
                 $res['ResourceCount'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->resourceCount as $item1) {
                     $res['ResourceCount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeTemplateResourceCountResponseBody extends Model
         if (isset($map['ResourceCount'])) {
             if (!empty($map['ResourceCount'])) {
                 $model->resourceCount = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ResourceCount'] as $item1) {
                     $model->resourceCount[$n1++] = resourceCount::fromMap($item1);
                 }

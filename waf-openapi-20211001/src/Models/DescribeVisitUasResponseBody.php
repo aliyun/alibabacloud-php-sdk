@@ -13,13 +13,14 @@ class DescribeVisitUasResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var uas[]
      */
     public $uas;
     protected $_name = [
         'requestId' => 'RequestId',
-        'uas'       => 'Uas',
+        'uas' => 'Uas',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class DescribeVisitUasResponseBody extends Model
         if (null !== $this->uas) {
             if (\is_array($this->uas)) {
                 $res['Uas'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->uas as $item1) {
                     $res['Uas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeVisitUasResponseBody extends Model
         if (isset($map['Uas'])) {
             if (!empty($map['Uas'])) {
                 $model->uas = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Uas'] as $item1) {
                     $model->uas[$n1++] = uas::fromMap($item1);
                 }

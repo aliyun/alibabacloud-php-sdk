@@ -12,22 +12,27 @@ class responseCodes extends Model
      * @var int
      */
     public $code302Pv;
+
     /**
      * @var int
      */
     public $code405Pv;
+
     /**
      * @var int
      */
     public $code444Pv;
+
     /**
      * @var int
      */
     public $code499Pv;
+
     /**
      * @var int
      */
     public $code5xxPv;
+
     /**
      * @var int
      */
@@ -38,7 +43,7 @@ class responseCodes extends Model
         'code444Pv' => '444Pv',
         'code499Pv' => '499Pv',
         'code5xxPv' => '5xxPv',
-        'index'     => 'Index',
+        'index' => 'Index',
     ];
 
     public function validate()

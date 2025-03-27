@@ -12,33 +12,38 @@ class DescribeSensitiveOutboundTrendRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'clusterId'                      => 'ClusterId',
-        'endTime'                        => 'EndTime',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'startTime'                      => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

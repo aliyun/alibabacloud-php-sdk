@@ -12,17 +12,19 @@ class data extends Model
      * @var string
      */
     public $country;
+
     /**
      * @var int
      */
     public $infoOutboundCount;
+
     /**
      * @var int
      */
     public $sensitiveOutboundCount;
     protected $_name = [
-        'country'                => 'Country',
-        'infoOutboundCount'      => 'InfoOutboundCount',
+        'country' => 'Country',
+        'infoOutboundCount' => 'InfoOutboundCount',
         'sensitiveOutboundCount' => 'SensitiveOutboundCount',
     ];
 

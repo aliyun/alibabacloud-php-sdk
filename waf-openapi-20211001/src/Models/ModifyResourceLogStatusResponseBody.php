@@ -12,13 +12,14 @@ class ModifyResourceLogStatusResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $status;
     protected $_name = [
         'requestId' => 'RequestId',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

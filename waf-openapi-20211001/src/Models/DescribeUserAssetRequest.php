@@ -12,32 +12,37 @@ class DescribeUserAssetRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dataType;
+
     /**
      * @var string
      */
     public $days;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'clusterId'                      => 'ClusterId',
-        'dataType'                       => 'DataType',
-        'days'                           => 'Days',
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'dataType' => 'DataType',
+        'days' => 'Days',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

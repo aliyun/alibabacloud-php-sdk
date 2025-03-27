@@ -14,98 +14,116 @@ class accessPortDetails extends Model
      * @var certificates[]
      */
     public $certificates;
+
     /**
      * @var int
      */
     public $cipherSuite;
+
     /**
      * @var string[]
      */
     public $customCiphers;
+
     /**
      * @var bool
      */
     public $enableTLSv3;
+
     /**
      * @var bool
      */
     public $http2Enabled;
+
     /**
      * @var bool
      */
     public $keepalive;
+
     /**
      * @var int
      */
     public $keepaliveRequests;
+
     /**
      * @var int
      */
     public $keepaliveTimeout;
+
     /**
      * @var logHeaders[]
      */
     public $logHeaders;
+
     /**
      * @var string
      */
     public $ownerUserId;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var int
      */
     public $readTimeout;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $TLSVersion;
+
     /**
      * @var int
      */
     public $writeTimeout;
+
     /**
      * @var int
      */
     public $xffHeaderMode;
+
     /**
      * @var string[]
      */
     public $xffHeaders;
+
     /**
      * @var bool
      */
     public $xffProto;
     protected $_name = [
-        'certificates'      => 'Certificates',
-        'cipherSuite'       => 'CipherSuite',
-        'customCiphers'     => 'CustomCiphers',
-        'enableTLSv3'       => 'EnableTLSv3',
-        'http2Enabled'      => 'Http2Enabled',
-        'keepalive'         => 'Keepalive',
+        'certificates' => 'Certificates',
+        'cipherSuite' => 'CipherSuite',
+        'customCiphers' => 'CustomCiphers',
+        'enableTLSv3' => 'EnableTLSv3',
+        'http2Enabled' => 'Http2Enabled',
+        'keepalive' => 'Keepalive',
         'keepaliveRequests' => 'KeepaliveRequests',
-        'keepaliveTimeout'  => 'KeepaliveTimeout',
-        'logHeaders'        => 'LogHeaders',
-        'ownerUserId'       => 'OwnerUserId',
-        'port'              => 'Port',
-        'protocol'          => 'Protocol',
-        'readTimeout'       => 'ReadTimeout',
-        'status'            => 'Status',
-        'TLSVersion'        => 'TLSVersion',
-        'writeTimeout'      => 'WriteTimeout',
-        'xffHeaderMode'     => 'XffHeaderMode',
-        'xffHeaders'        => 'XffHeaders',
-        'xffProto'          => 'XffProto',
+        'keepaliveTimeout' => 'KeepaliveTimeout',
+        'logHeaders' => 'LogHeaders',
+        'ownerUserId' => 'OwnerUserId',
+        'port' => 'Port',
+        'protocol' => 'Protocol',
+        'readTimeout' => 'ReadTimeout',
+        'status' => 'Status',
+        'TLSVersion' => 'TLSVersion',
+        'writeTimeout' => 'WriteTimeout',
+        'xffHeaderMode' => 'XffHeaderMode',
+        'xffHeaders' => 'XffHeaders',
+        'xffProto' => 'XffProto',
     ];
 
     public function validate()
@@ -131,7 +149,7 @@ class accessPortDetails extends Model
         if (null !== $this->certificates) {
             if (\is_array($this->certificates)) {
                 $res['Certificates'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->certificates as $item1) {
                     $res['Certificates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -145,7 +163,7 @@ class accessPortDetails extends Model
         if (null !== $this->customCiphers) {
             if (\is_array($this->customCiphers)) {
                 $res['CustomCiphers'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->customCiphers as $item1) {
                     $res['CustomCiphers'][$n1++] = $item1;
                 }
@@ -175,7 +193,7 @@ class accessPortDetails extends Model
         if (null !== $this->logHeaders) {
             if (\is_array($this->logHeaders)) {
                 $res['LogHeaders'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->logHeaders as $item1) {
                     $res['LogHeaders'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -217,7 +235,7 @@ class accessPortDetails extends Model
         if (null !== $this->xffHeaders) {
             if (\is_array($this->xffHeaders)) {
                 $res['XffHeaders'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->xffHeaders as $item1) {
                     $res['XffHeaders'][$n1++] = $item1;
                 }
@@ -242,7 +260,7 @@ class accessPortDetails extends Model
         if (isset($map['Certificates'])) {
             if (!empty($map['Certificates'])) {
                 $model->certificates = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['Certificates'] as $item1) {
                     $model->certificates[$n1++] = certificates::fromMap($item1);
                 }
@@ -256,7 +274,7 @@ class accessPortDetails extends Model
         if (isset($map['CustomCiphers'])) {
             if (!empty($map['CustomCiphers'])) {
                 $model->customCiphers = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['CustomCiphers'] as $item1) {
                     $model->customCiphers[$n1++] = $item1;
                 }
@@ -286,7 +304,7 @@ class accessPortDetails extends Model
         if (isset($map['LogHeaders'])) {
             if (!empty($map['LogHeaders'])) {
                 $model->logHeaders = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['LogHeaders'] as $item1) {
                     $model->logHeaders[$n1++] = logHeaders::fromMap($item1);
                 }
@@ -328,7 +346,7 @@ class accessPortDetails extends Model
         if (isset($map['XffHeaders'])) {
             if (!empty($map['XffHeaders'])) {
                 $model->xffHeaders = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['XffHeaders'] as $item1) {
                     $model->xffHeaders[$n1++] = $item1;
                 }

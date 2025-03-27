@@ -12,6 +12,7 @@ class wafSourceIp extends Model
      * @var string[]
      */
     public $IPv4;
+
     /**
      * @var string[]
      */
@@ -38,7 +39,7 @@ class wafSourceIp extends Model
         if (null !== $this->IPv4) {
             if (\is_array($this->IPv4)) {
                 $res['IPv4'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->IPv4 as $item1) {
                     $res['IPv4'][$n1++] = $item1;
                 }
@@ -48,7 +49,7 @@ class wafSourceIp extends Model
         if (null !== $this->IPv6) {
             if (\is_array($this->IPv6)) {
                 $res['IPv6'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->IPv6 as $item1) {
                     $res['IPv6'][$n1++] = $item1;
                 }
@@ -69,7 +70,7 @@ class wafSourceIp extends Model
         if (isset($map['IPv4'])) {
             if (!empty($map['IPv4'])) {
                 $model->IPv4 = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['IPv4'] as $item1) {
                     $model->IPv4[$n1++] = $item1;
                 }
@@ -79,7 +80,7 @@ class wafSourceIp extends Model
         if (isset($map['IPv6'])) {
             if (!empty($map['IPv6'])) {
                 $model->IPv6 = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['IPv6'] as $item1) {
                     $model->IPv6[$n1++] = $item1;
                 }

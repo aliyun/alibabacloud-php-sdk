@@ -13,13 +13,14 @@ class DescribeMemberAccountsResponseBody extends Model
      * @var accountInfos[]
      */
     public $accountInfos;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accountInfos' => 'AccountInfos',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeMemberAccountsResponseBody extends Model
         if (null !== $this->accountInfos) {
             if (\is_array($this->accountInfos)) {
                 $res['AccountInfos'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->accountInfos as $item1) {
                     $res['AccountInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeMemberAccountsResponseBody extends Model
         if (isset($map['AccountInfos'])) {
             if (!empty($map['AccountInfos'])) {
                 $model->accountInfos = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['AccountInfos'] as $item1) {
                     $model->accountInfos[$n1++] = accountInfos::fromMap($item1);
                 }

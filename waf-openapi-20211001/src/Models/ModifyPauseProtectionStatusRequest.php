@@ -12,22 +12,25 @@ class ModifyPauseProtectionStatusRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pauseStatus;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'pauseStatus'                    => 'PauseStatus',
-        'regionId'                       => 'RegionId',
+        'instanceId' => 'InstanceId',
+        'pauseStatus' => 'PauseStatus',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

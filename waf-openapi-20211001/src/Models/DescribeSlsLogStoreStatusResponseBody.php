@@ -12,13 +12,14 @@ class DescribeSlsLogStoreStatusResponseBody extends Model
      * @var bool
      */
     public $existStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'existStatus' => 'ExistStatus',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

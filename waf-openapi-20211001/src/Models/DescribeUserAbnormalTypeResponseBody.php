@@ -13,12 +13,13 @@ class DescribeUserAbnormalTypeResponseBody extends Model
      * @var abnormal[]
      */
     public $abnormal;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'abnormal'  => 'Abnormal',
+        'abnormal' => 'Abnormal',
         'requestId' => 'RequestId',
     ];
 
@@ -36,7 +37,7 @@ class DescribeUserAbnormalTypeResponseBody extends Model
         if (null !== $this->abnormal) {
             if (\is_array($this->abnormal)) {
                 $res['Abnormal'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->abnormal as $item1) {
                     $res['Abnormal'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeUserAbnormalTypeResponseBody extends Model
         if (isset($map['Abnormal'])) {
             if (!empty($map['Abnormal'])) {
                 $model->abnormal = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Abnormal'] as $item1) {
                     $model->abnormal[$n1++] = abnormal::fromMap($item1);
                 }

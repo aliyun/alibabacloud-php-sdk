@@ -12,23 +12,26 @@ class data extends Model
      * @var int
      */
     public $infoCount;
+
     /**
      * @var int
      */
     public $infoOutboundCount;
+
     /**
      * @var int
      */
     public $sensitiveOutboundCount;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
-        'infoCount'              => 'InfoCount',
-        'infoOutboundCount'      => 'InfoOutboundCount',
+        'infoCount' => 'InfoCount',
+        'infoOutboundCount' => 'InfoOutboundCount',
         'sensitiveOutboundCount' => 'SensitiveOutboundCount',
-        'timestamp'              => 'Timestamp',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()

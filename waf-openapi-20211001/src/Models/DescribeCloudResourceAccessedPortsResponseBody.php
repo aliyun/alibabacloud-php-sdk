@@ -12,17 +12,19 @@ class DescribeCloudResourceAccessedPortsResponseBody extends Model
      * @var int[]
      */
     public $http;
+
     /**
      * @var int[]
      */
     public $https;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'http'      => 'Http',
-        'https'     => 'Https',
+        'http' => 'Http',
+        'https' => 'Https',
         'requestId' => 'RequestId',
     ];
 
@@ -43,7 +45,7 @@ class DescribeCloudResourceAccessedPortsResponseBody extends Model
         if (null !== $this->http) {
             if (\is_array($this->http)) {
                 $res['Http'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->http as $item1) {
                     $res['Http'][$n1++] = $item1;
                 }
@@ -53,7 +55,7 @@ class DescribeCloudResourceAccessedPortsResponseBody extends Model
         if (null !== $this->https) {
             if (\is_array($this->https)) {
                 $res['Https'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->https as $item1) {
                     $res['Https'][$n1++] = $item1;
                 }
@@ -78,7 +80,7 @@ class DescribeCloudResourceAccessedPortsResponseBody extends Model
         if (isset($map['Http'])) {
             if (!empty($map['Http'])) {
                 $model->http = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Http'] as $item1) {
                     $model->http[$n1++] = $item1;
                 }
@@ -88,7 +90,7 @@ class DescribeCloudResourceAccessedPortsResponseBody extends Model
         if (isset($map['Https'])) {
             if (!empty($map['Https'])) {
                 $model->https = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Https'] as $item1) {
                     $model->https[$n1++] = $item1;
                 }

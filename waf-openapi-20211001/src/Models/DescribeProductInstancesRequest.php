@@ -12,68 +12,80 @@ class DescribeProductInstancesRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ownerUserId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceInstanceId;
+
     /**
      * @var string
      */
     public $resourceInstanceIp;
+
     /**
      * @var string
      */
     public $resourceInstanceName;
+
     /**
      * @var string
      */
     public $resourceIp;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceProduct;
+
     /**
      * @var string
      */
     public $resourceRegionId;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'ownerUserId'                    => 'OwnerUserId',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
-        'resourceInstanceId'             => 'ResourceInstanceId',
-        'resourceInstanceIp'             => 'ResourceInstanceIp',
-        'resourceInstanceName'           => 'ResourceInstanceName',
-        'resourceIp'                     => 'ResourceIp',
+        'instanceId' => 'InstanceId',
+        'ownerUserId' => 'OwnerUserId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceInstanceId' => 'ResourceInstanceId',
+        'resourceInstanceIp' => 'ResourceInstanceIp',
+        'resourceInstanceName' => 'ResourceInstanceName',
+        'resourceIp' => 'ResourceIp',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'resourceName'                   => 'ResourceName',
-        'resourceProduct'                => 'ResourceProduct',
-        'resourceRegionId'               => 'ResourceRegionId',
+        'resourceName' => 'ResourceName',
+        'resourceProduct' => 'ResourceProduct',
+        'resourceRegionId' => 'ResourceRegionId',
     ];
 
     public function validate()

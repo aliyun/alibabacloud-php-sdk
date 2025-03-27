@@ -12,28 +12,32 @@ class ModifyResourceLogStatusRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resource;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var bool
      */
     public $status;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'regionId'                       => 'RegionId',
-        'resource'                       => 'Resource',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'resource' => 'Resource',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'status'                         => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

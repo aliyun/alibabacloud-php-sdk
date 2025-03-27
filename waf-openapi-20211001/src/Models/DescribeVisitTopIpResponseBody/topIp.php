@@ -12,23 +12,26 @@ class topIp extends Model
      * @var string
      */
     public $area;
+
     /**
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $isp;
     protected $_name = [
-        'area'  => 'Area',
+        'area' => 'Area',
         'count' => 'Count',
-        'ip'    => 'Ip',
-        'isp'   => 'Isp',
+        'ip' => 'Ip',
+        'isp' => 'Isp',
     ];
 
     public function validate()

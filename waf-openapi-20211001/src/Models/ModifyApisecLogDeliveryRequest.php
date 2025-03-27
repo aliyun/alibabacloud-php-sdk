@@ -12,37 +12,43 @@ class ModifyApisecLogDeliveryRequest extends Model
      * @var string
      */
     public $assertKey;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $logRegionId;
+
     /**
      * @var string
      */
     public $logStoreName;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'assertKey'                      => 'AssertKey',
-        'instanceId'                     => 'InstanceId',
-        'logRegionId'                    => 'LogRegionId',
-        'logStoreName'                   => 'LogStoreName',
-        'projectName'                    => 'ProjectName',
-        'regionId'                       => 'RegionId',
+        'assertKey' => 'AssertKey',
+        'instanceId' => 'InstanceId',
+        'logRegionId' => 'LogRegionId',
+        'logStoreName' => 'LogStoreName',
+        'projectName' => 'ProjectName',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

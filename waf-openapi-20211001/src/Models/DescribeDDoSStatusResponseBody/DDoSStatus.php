@@ -12,13 +12,14 @@ class DDoSStatus extends Model
      * @var string
      */
     public $eventType;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'eventType' => 'EventType',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -12,22 +12,25 @@ class DescribeUserWafLogStatusResponseBody extends Model
      * @var string
      */
     public $logRegionId;
+
     /**
      * @var string
      */
     public $logStatus;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $statusUpdateTime;
     protected $_name = [
-        'logRegionId'      => 'LogRegionId',
-        'logStatus'        => 'LogStatus',
-        'requestId'        => 'RequestId',
+        'logRegionId' => 'LogRegionId',
+        'logStatus' => 'LogStatus',
+        'requestId' => 'RequestId',
         'statusUpdateTime' => 'StatusUpdateTime',
     ];
 

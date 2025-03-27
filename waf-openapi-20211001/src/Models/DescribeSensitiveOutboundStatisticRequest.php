@@ -12,73 +12,86 @@ class DescribeSensitiveOutboundStatisticRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $detectionResult;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $orderKey;
+
     /**
      * @var string
      */
     public $orderWay;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $sensitiveCode;
+
     /**
      * @var string
      */
     public $sensitiveLevel;
+
     /**
      * @var string
      */
     public $sensitiveType;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'clusterId'                      => 'ClusterId',
-        'detectionResult'                => 'DetectionResult',
-        'endTime'                        => 'EndTime',
-        'instanceId'                     => 'InstanceId',
-        'orderKey'                       => 'OrderKey',
-        'orderWay'                       => 'OrderWay',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
+        'clusterId' => 'ClusterId',
+        'detectionResult' => 'DetectionResult',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'orderKey' => 'OrderKey',
+        'orderWay' => 'OrderWay',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'sensitiveCode'                  => 'SensitiveCode',
-        'sensitiveLevel'                 => 'SensitiveLevel',
-        'sensitiveType'                  => 'SensitiveType',
-        'startTime'                      => 'StartTime',
+        'sensitiveCode' => 'SensitiveCode',
+        'sensitiveLevel' => 'SensitiveLevel',
+        'sensitiveType' => 'SensitiveType',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

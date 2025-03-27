@@ -13,53 +13,62 @@ class listen extends Model
      * @var certificates[]
      */
     public $certificates;
+
     /**
      * @var int
      */
     public $cipherSuite;
+
     /**
      * @var string[]
      */
     public $customCiphers;
+
     /**
      * @var bool
      */
     public $enableTLSv3;
+
     /**
      * @var bool
      */
     public $http2Enabled;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $protocol;
+
     /**
      * @var string
      */
     public $resourceInstanceId;
+
     /**
      * @var string
      */
     public $resourceProduct;
+
     /**
      * @var string
      */
     public $TLSVersion;
     protected $_name = [
-        'certificates'       => 'Certificates',
-        'cipherSuite'        => 'CipherSuite',
-        'customCiphers'      => 'CustomCiphers',
-        'enableTLSv3'        => 'EnableTLSv3',
-        'http2Enabled'       => 'Http2Enabled',
-        'port'               => 'Port',
-        'protocol'           => 'Protocol',
+        'certificates' => 'Certificates',
+        'cipherSuite' => 'CipherSuite',
+        'customCiphers' => 'CustomCiphers',
+        'enableTLSv3' => 'EnableTLSv3',
+        'http2Enabled' => 'Http2Enabled',
+        'port' => 'Port',
+        'protocol' => 'Protocol',
         'resourceInstanceId' => 'ResourceInstanceId',
-        'resourceProduct'    => 'ResourceProduct',
-        'TLSVersion'         => 'TLSVersion',
+        'resourceProduct' => 'ResourceProduct',
+        'TLSVersion' => 'TLSVersion',
     ];
 
     public function validate()
@@ -79,7 +88,7 @@ class listen extends Model
         if (null !== $this->certificates) {
             if (\is_array($this->certificates)) {
                 $res['Certificates'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->certificates as $item1) {
                     $res['Certificates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -93,7 +102,7 @@ class listen extends Model
         if (null !== $this->customCiphers) {
             if (\is_array($this->customCiphers)) {
                 $res['CustomCiphers'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->customCiphers as $item1) {
                     $res['CustomCiphers'][$n1++] = $item1;
                 }
@@ -142,7 +151,7 @@ class listen extends Model
         if (isset($map['Certificates'])) {
             if (!empty($map['Certificates'])) {
                 $model->certificates = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['Certificates'] as $item1) {
                     $model->certificates[$n1++] = certificates::fromMap($item1);
                 }
@@ -156,7 +165,7 @@ class listen extends Model
         if (isset($map['CustomCiphers'])) {
             if (!empty($map['CustomCiphers'])) {
                 $model->customCiphers = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['CustomCiphers'] as $item1) {
                     $model->customCiphers[$n1++] = $item1;
                 }

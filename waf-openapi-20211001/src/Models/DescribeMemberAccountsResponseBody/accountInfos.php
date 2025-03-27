@@ -12,28 +12,32 @@ class accountInfos extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountStatus;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $gmtCreate;
     protected $_name = [
-        'accountId'     => 'AccountId',
-        'accountName'   => 'AccountName',
+        'accountId' => 'AccountId',
+        'accountName' => 'AccountName',
         'accountStatus' => 'AccountStatus',
-        'description'   => 'Description',
-        'gmtCreate'     => 'GmtCreate',
+        'description' => 'Description',
+        'gmtCreate' => 'GmtCreate',
     ];
 
     public function validate()

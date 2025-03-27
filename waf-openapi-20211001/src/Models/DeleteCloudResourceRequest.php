@@ -12,33 +12,38 @@ class DeleteCloudResourceRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceInstanceId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $resourceProduct;
     protected $_name = [
-        'instanceId'                     => 'InstanceId',
-        'port'                           => 'Port',
-        'regionId'                       => 'RegionId',
-        'resourceInstanceId'             => 'ResourceInstanceId',
+        'instanceId' => 'InstanceId',
+        'port' => 'Port',
+        'regionId' => 'RegionId',
+        'resourceInstanceId' => 'ResourceInstanceId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'resourceProduct'                => 'ResourceProduct',
+        'resourceProduct' => 'ResourceProduct',
     ];
 
     public function validate()

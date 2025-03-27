@@ -12,42 +12,49 @@ class ModifyHybridCloudServerRequest extends Model
      * @var string
      */
     public $continents;
+
     /**
      * @var string
      */
     public $customName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mid;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var string
      */
     public $regionCode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
     protected $_name = [
-        'continents'                     => 'Continents',
-        'customName'                     => 'CustomName',
-        'instanceId'                     => 'InstanceId',
-        'mid'                            => 'Mid',
-        'operator'                       => 'Operator',
-        'regionCode'                     => 'RegionCode',
-        'regionId'                       => 'RegionId',
+        'continents' => 'Continents',
+        'customName' => 'CustomName',
+        'instanceId' => 'InstanceId',
+        'mid' => 'Mid',
+        'operator' => 'Operator',
+        'regionCode' => 'RegionCode',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
     ];
 

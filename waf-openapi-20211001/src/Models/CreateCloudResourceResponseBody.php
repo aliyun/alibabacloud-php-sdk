@@ -12,13 +12,14 @@ class CreateCloudResourceResponseBody extends Model
      * @var string
      */
     public $cloudResourceId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'cloudResourceId' => 'CloudResourceId',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

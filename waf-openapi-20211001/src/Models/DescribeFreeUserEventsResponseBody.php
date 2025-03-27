@@ -13,12 +13,13 @@ class DescribeFreeUserEventsResponseBody extends Model
      * @var event[]
      */
     public $event;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'event'     => 'Event',
+        'event' => 'Event',
         'requestId' => 'RequestId',
     ];
 
@@ -36,7 +37,7 @@ class DescribeFreeUserEventsResponseBody extends Model
         if (null !== $this->event) {
             if (\is_array($this->event)) {
                 $res['Event'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->event as $item1) {
                     $res['Event'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeFreeUserEventsResponseBody extends Model
         if (isset($map['Event'])) {
             if (!empty($map['Event'])) {
                 $model->event = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Event'] as $item1) {
                     $model->event[$n1++] = event::fromMap($item1);
                 }

@@ -12,14 +12,17 @@ class data extends Model
      * @var int
      */
     public $apisecStatus;
+
     /**
      * @var int
      */
     public $reportStatus;
+
     /**
      * @var string
      */
     public $resource;
+
     /**
      * @var int
      */
@@ -27,8 +30,8 @@ class data extends Model
     protected $_name = [
         'apisecStatus' => 'ApisecStatus',
         'reportStatus' => 'ReportStatus',
-        'resource'     => 'Resource',
-        'traceStatus'  => 'TraceStatus',
+        'resource' => 'Resource',
+        'traceStatus' => 'TraceStatus',
     ];
 
     public function validate()

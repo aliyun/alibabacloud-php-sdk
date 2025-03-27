@@ -1,3 +1,11 @@
+2025-03-27 Version: 5.1.0
+- Support API DescribeNetworkFlowTimeSeriesMetric.
+- Support API DescribeNetworkFlowTopNMetric.
+- Support API DescribeSecurityEventLogs.
+- Support API DescribeSecurityEventTimeSeriesMetric.
+- Support API DescribeSecurityEventTopNMetric.
+
+
 2025-02-26 Version: 5.0.5
 - Update API DescribeApisecApiResources: update response param.
 - Update API DescribeApisecEvents: update response param.

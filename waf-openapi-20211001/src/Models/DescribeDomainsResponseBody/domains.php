@@ -14,33 +14,38 @@ class domains extends Model
      * @var backeds
      */
     public $backeds;
+
     /**
      * @var string
      */
     public $cname;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var listenPorts
      */
     public $listenPorts;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'backeds'                        => 'Backeds',
-        'cname'                          => 'Cname',
-        'domain'                         => 'Domain',
-        'listenPorts'                    => 'ListenPorts',
+        'backeds' => 'Backeds',
+        'cname' => 'Cname',
+        'domain' => 'Domain',
+        'listenPorts' => 'ListenPorts',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'status'                         => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class asset extends Model
      * @var int
      */
     public $assetActive;
+
     /**
      * @var int
      */
     public $assetCount;
+
     /**
      * @var int
      */
     public $assetOffline;
     protected $_name = [
-        'assetActive'  => 'AssetActive',
-        'assetCount'   => 'AssetCount',
+        'assetActive' => 'AssetActive',
+        'assetCount' => 'AssetCount',
         'assetOffline' => 'AssetOffline',
     ];
 

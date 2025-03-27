@@ -13,18 +13,20 @@ class resourcePorts extends Model
      * @var certificates[]
      */
     public $certificates;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $protocol;
     protected $_name = [
         'certificates' => 'Certificates',
-        'port'         => 'Port',
-        'protocol'     => 'Protocol',
+        'port' => 'Port',
+        'protocol' => 'Protocol',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class resourcePorts extends Model
         if (null !== $this->certificates) {
             if (\is_array($this->certificates)) {
                 $res['Certificates'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->certificates as $item1) {
                     $res['Certificates'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class resourcePorts extends Model
         if (isset($map['Certificates'])) {
             if (!empty($map['Certificates'])) {
                 $model->certificates = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['Certificates'] as $item1) {
                     $model->certificates[$n1++] = certificates::fromMap($item1);
                 }

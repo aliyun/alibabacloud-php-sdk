@@ -12,12 +12,13 @@ class DescribeApisecSlsProjectsResponseBody extends Model
      * @var string[]
      */
     public $projects;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'projects'  => 'Projects',
+        'projects' => 'Projects',
         'requestId' => 'RequestId',
     ];
 
@@ -35,7 +36,7 @@ class DescribeApisecSlsProjectsResponseBody extends Model
         if (null !== $this->projects) {
             if (\is_array($this->projects)) {
                 $res['Projects'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->projects as $item1) {
                     $res['Projects'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class DescribeApisecSlsProjectsResponseBody extends Model
         if (isset($map['Projects'])) {
             if (!empty($map['Projects'])) {
                 $model->projects = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Projects'] as $item1) {
                     $model->projects[$n1++] = $item1;
                 }

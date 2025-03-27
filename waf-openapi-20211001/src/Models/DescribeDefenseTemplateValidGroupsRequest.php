@@ -12,43 +12,50 @@ class DescribeDefenseTemplateValidGroupsRequest extends Model
      * @var string
      */
     public $defenseScene;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $templateId;
     protected $_name = [
-        'defenseScene'                   => 'DefenseScene',
-        'groupName'                      => 'GroupName',
-        'instanceId'                     => 'InstanceId',
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
-        'regionId'                       => 'RegionId',
+        'defenseScene' => 'DefenseScene',
+        'groupName' => 'GroupName',
+        'instanceId' => 'InstanceId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'templateId'                     => 'TemplateId',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()

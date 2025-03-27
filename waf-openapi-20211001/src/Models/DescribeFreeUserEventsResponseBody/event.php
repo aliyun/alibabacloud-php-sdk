@@ -12,33 +12,38 @@ class event extends Model
      * @var string
      */
     public $apiFormat;
+
     /**
      * @var string
      */
     public $attackIP;
+
     /**
      * @var int
      */
     public $attackTime;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $eventLevel;
+
     /**
      * @var string
      */
     public $eventTag;
     protected $_name = [
-        'apiFormat'  => 'ApiFormat',
-        'attackIP'   => 'AttackIP',
+        'apiFormat' => 'ApiFormat',
+        'attackIP' => 'AttackIP',
         'attackTime' => 'AttackTime',
-        'domain'     => 'Domain',
+        'domain' => 'Domain',
         'eventLevel' => 'EventLevel',
-        'eventTag'   => 'EventTag',
+        'eventTag' => 'EventTag',
     ];
 
     public function validate()

@@ -13,16 +13,18 @@ class DescribeRuleGroupsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var ruleGroups[]
      */
     public $ruleGroups;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'ruleGroups' => 'RuleGroups',
         'totalCount' => 'TotalCount',
     ];
@@ -45,7 +47,7 @@ class DescribeRuleGroupsResponseBody extends Model
         if (null !== $this->ruleGroups) {
             if (\is_array($this->ruleGroups)) {
                 $res['RuleGroups'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->ruleGroups as $item1) {
                     $res['RuleGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class DescribeRuleGroupsResponseBody extends Model
         if (isset($map['RuleGroups'])) {
             if (!empty($map['RuleGroups'])) {
                 $model->ruleGroups = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['RuleGroups'] as $item1) {
                     $model->ruleGroups[$n1++] = ruleGroups::fromMap($item1);
                 }
