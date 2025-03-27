@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteProgramRequest extends Model
 {
     /**
-     * @description The name of the channel.
-     *
-     * This parameter is required.
-     *
-     * @example MyChannel
-     *
      * @var string
      */
     public $channelName;
 
     /**
-     * @description The name of the program.
-     *
-     * This parameter is required.
-     *
-     * @example program_name
-     *
      * @var string
      */
     public $programName;
@@ -34,14 +22,18 @@ class DeleteProgramRequest extends Model
         'programName' => 'ProgramName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelName) {
             $res['ChannelName'] = $this->channelName;
         }
+
         if (null !== $this->programName) {
             $res['ProgramName'] = $this->programName;
         }
@@ -49,17 +41,18 @@ class DeleteProgramRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteProgramRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelName'])) {
             $model->channelName = $map['ChannelName'];
         }
+
         if (isset($map['ProgramName'])) {
             $model->programName = $map['ProgramName'];
         }

@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetLiveEditingIndexFileResponseBody extends Model
 {
     /**
-     * @description The URL of the index file.
-     *
      * @var string
      */
     public $indexFile;
 
     /**
-     * @description The request ID.
-     *
-     * @example 4E84BE44-58A7-****-****-FBEBEA16EF94
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +22,18 @@ class GetLiveEditingIndexFileResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->indexFile) {
             $res['IndexFile'] = $this->indexFile;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class GetLiveEditingIndexFileResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetLiveEditingIndexFileResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IndexFile'])) {
             $model->indexFile = $map['IndexFile'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

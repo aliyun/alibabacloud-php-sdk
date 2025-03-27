@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaLiveChannelRequest\inputAttachments\audioSelectors;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class audioTrackSelection extends Model
 {
     /**
-     * @description Specify one or more audio tracks from within a source using Track ID.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $trackId;
@@ -22,9 +16,12 @@ class audioTrackSelection extends Model
         'trackId' => 'TrackId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->trackId) {
@@ -34,11 +31,11 @@ class audioTrackSelection extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return audioTrackSelection
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,50 +4,32 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateVodPackagingAssetRequest\input;
-use AlibabaCloud\Tea\Model;
 
 class CreateVodPackagingAssetRequest extends Model
 {
     /**
-     * @description The name of the asset. The name must be unique and can be up to 128 characters in length. Letters, digits, underscores (_), and hyphens (-) are supported.
-     *
-     * @example hls_3s
-     *
      * @var string
      */
     public $assetName;
 
     /**
-     * @description The content ID in the digital rights management (DRM) system. The maximum length is 256 characters. Letters, digits, underscores (_), and hyphens (-) are supported.
-     *
-     * @example movie
-     *
      * @var string
      */
     public $contentId;
 
     /**
-     * @description The asset description.
-     *
-     * @example HLS 3 second packaging
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the packaging group.
-     *
-     * @example vod_hls
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description The asset input configurations.
-     *
      * @var input
      */
     public $input;
@@ -59,50 +41,64 @@ class CreateVodPackagingAssetRequest extends Model
         'input' => 'Input',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->input) {
+            $this->input->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetName) {
             $res['AssetName'] = $this->assetName;
         }
+
         if (null !== $this->contentId) {
             $res['ContentId'] = $this->contentId;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
+
         if (null !== $this->input) {
-            $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
+            $res['Input'] = null !== $this->input ? $this->input->toArray($noStream) : $this->input;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateVodPackagingAssetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AssetName'])) {
             $model->assetName = $map['AssetName'];
         }
+
         if (isset($map['ContentId'])) {
             $model->contentId = $map['ContentId'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
+
         if (isset($map['Input'])) {
             $model->input = input::fromMap($map['Input']);
         }

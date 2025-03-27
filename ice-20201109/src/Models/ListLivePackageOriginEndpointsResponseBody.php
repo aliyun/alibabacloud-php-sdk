@@ -4,59 +4,37 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListLivePackageOriginEndpointsResponseBody\livePackageOriginEndpoints;
-use AlibabaCloud\Tea\Model;
 
 class ListLivePackageOriginEndpointsResponseBody extends Model
 {
     /**
-     * @description The origin endpoints returned.
-     *
      * @var livePackageOriginEndpoints[]
      */
     public $livePackageOriginEndpoints;
 
     /**
-     * @description The page number.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description The number of entries per page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The request ID.
-     *
-     * @example b9f90a7ac8904db28dc18e0c2a72c75d
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The sort order. Valid values: `asc` and `desc` (default).
-     *
-     * @example desc
-     *
      * @var string
      */
     public $sortBy;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalCount;
@@ -69,32 +47,43 @@ class ListLivePackageOriginEndpointsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->livePackageOriginEndpoints)) {
+            Model::validateArray($this->livePackageOriginEndpoints);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->livePackageOriginEndpoints) {
-            $res['LivePackageOriginEndpoints'] = [];
-            if (null !== $this->livePackageOriginEndpoints && \is_array($this->livePackageOriginEndpoints)) {
-                $n = 0;
-                foreach ($this->livePackageOriginEndpoints as $item) {
-                    $res['LivePackageOriginEndpoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->livePackageOriginEndpoints)) {
+                $res['LivePackageOriginEndpoints'] = [];
+                $n1 = 0;
+                foreach ($this->livePackageOriginEndpoints as $item1) {
+                    $res['LivePackageOriginEndpoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -102,35 +91,40 @@ class ListLivePackageOriginEndpointsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListLivePackageOriginEndpointsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LivePackageOriginEndpoints'])) {
             if (!empty($map['LivePackageOriginEndpoints'])) {
                 $model->livePackageOriginEndpoints = [];
-                $n = 0;
-                foreach ($map['LivePackageOriginEndpoints'] as $item) {
-                    $model->livePackageOriginEndpoints[$n++] = null !== $item ? livePackageOriginEndpoints::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LivePackageOriginEndpoints'] as $item1) {
+                    $model->livePackageOriginEndpoints[$n1++] = livePackageOriginEndpoints::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

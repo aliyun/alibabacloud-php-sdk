@@ -4,31 +4,21 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateAIAgentInstanceShrinkRequest extends Model
 {
     /**
-     * @description The ID of the AI agent that you want to update.
-     *
-     * This parameter is required.
-     *
-     * @example 39f8e0bc005e4f309379701645f4****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The template configurations of the AI agent. The configurations are merged with the template configurations that are used to start the AI agent. For more information, see the definition of TemplateConfig.
-     *
      * @var string
      */
     public $templateConfigShrink;
 
     /**
-     * @example {"VoiceId":"xiaoxia"}
-     *
      * @var string
      */
     public $userData;
@@ -38,17 +28,22 @@ class UpdateAIAgentInstanceShrinkRequest extends Model
         'userData' => 'UserData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->templateConfigShrink) {
             $res['TemplateConfig'] = $this->templateConfigShrink;
         }
+
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -56,20 +51,22 @@ class UpdateAIAgentInstanceShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateAIAgentInstanceShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['TemplateConfig'])) {
             $model->templateConfigShrink = $map['TemplateConfig'];
         }
+
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }

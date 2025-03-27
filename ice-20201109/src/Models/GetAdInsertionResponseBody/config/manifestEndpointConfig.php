@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetAdInsertionResponseBody\config;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class manifestEndpointConfig extends Model
 {
     /**
-     * @description The playback endpoint prefix for accessing HLS manifests.
-     *
      * @var string
      */
     public $hlsPrefix;
@@ -18,9 +16,12 @@ class manifestEndpointConfig extends Model
         'hlsPrefix' => 'HlsPrefix',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hlsPrefix) {
@@ -30,11 +31,11 @@ class manifestEndpointConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return manifestEndpointConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

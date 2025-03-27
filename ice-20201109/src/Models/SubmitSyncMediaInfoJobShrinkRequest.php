@@ -4,40 +4,26 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SubmitSyncMediaInfoJobShrinkRequest extends Model
 {
     /**
-     * @description The input of the job.
-     *
-     * This parameter is required.
-     *
      * @var string
      */
     public $inputShrink;
 
     /**
-     * @description The job name.
-     *
-     * @example job-name
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The scheduling parameters. This parameter is optional.
-     *
      * @var string
      */
     public $scheduleConfigShrink;
 
     /**
-     * @description The user data.
-     *
-     * @example user-data
-     *
      * @var string
      */
     public $userData;
@@ -48,20 +34,26 @@ class SubmitSyncMediaInfoJobShrinkRequest extends Model
         'userData' => 'UserData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputShrink) {
             $res['Input'] = $this->inputShrink;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->scheduleConfigShrink) {
             $res['ScheduleConfig'] = $this->scheduleConfigShrink;
         }
+
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -69,23 +61,26 @@ class SubmitSyncMediaInfoJobShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SubmitSyncMediaInfoJobShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Input'])) {
             $model->inputShrink = $map['Input'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ScheduleConfig'])) {
             $model->scheduleConfigShrink = $map['ScheduleConfig'];
         }
+
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteLiveRecordFilesRequest extends Model
 {
     /**
-     * @description The collection of IDs of recording files.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $recordIds;
 
     /**
-     * @description Specifies whether to delete the original files in OSS.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $removeFile;
@@ -30,14 +22,27 @@ class DeleteLiveRecordFilesRequest extends Model
         'removeFile' => 'RemoveFile',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->recordIds)) {
+            Model::validateArray($this->recordIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->recordIds) {
-            $res['RecordIds'] = $this->recordIds;
+            if (\is_array($this->recordIds)) {
+                $res['RecordIds'] = [];
+                $n1 = 0;
+                foreach ($this->recordIds as $item1) {
+                    $res['RecordIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->removeFile) {
             $res['RemoveFile'] = $this->removeFile;
         }
@@ -45,19 +50,24 @@ class DeleteLiveRecordFilesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteLiveRecordFilesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RecordIds'])) {
             if (!empty($map['RecordIds'])) {
-                $model->recordIds = $map['RecordIds'];
+                $model->recordIds = [];
+                $n1 = 0;
+                foreach ($map['RecordIds'] as $item1) {
+                    $model->recordIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RemoveFile'])) {
             $model->removeFile = $map['RemoveFile'];
         }

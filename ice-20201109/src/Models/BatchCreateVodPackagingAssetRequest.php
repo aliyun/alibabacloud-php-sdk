@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\BatchCreateVodPackagingAssetRequest\assets;
-use AlibabaCloud\Tea\Model;
 
 class BatchCreateVodPackagingAssetRequest extends Model
 {
     /**
-     * @description The assets that you want to ingest.
-     *
      * @var assets[]
      */
     public $assets;
 
     /**
-     * @description The name of the packaging group.
-     *
-     * @example vod_hls
-     *
      * @var string
      */
     public $groupName;
@@ -29,20 +23,27 @@ class BatchCreateVodPackagingAssetRequest extends Model
         'groupName' => 'GroupName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->assets)) {
+            Model::validateArray($this->assets);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assets) {
-            $res['Assets'] = [];
-            if (null !== $this->assets && \is_array($this->assets)) {
-                $n = 0;
-                foreach ($this->assets as $item) {
-                    $res['Assets'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->assets)) {
+                $res['Assets'] = [];
+                $n1 = 0;
+                foreach ($this->assets as $item1) {
+                    $res['Assets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
@@ -50,23 +51,24 @@ class BatchCreateVodPackagingAssetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchCreateVodPackagingAssetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Assets'])) {
             if (!empty($map['Assets'])) {
                 $model->assets = [];
-                $n = 0;
-                foreach ($map['Assets'] as $item) {
-                    $model->assets[$n++] = null !== $item ? assets::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Assets'] as $item1) {
+                    $model->assets[$n1++] = assets::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }

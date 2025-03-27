@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSourceLocationRequest extends Model
 {
     /**
-     * @description Specifies whether to use delete markers.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $softDelete;
 
     /**
-     * @description The name of the source location.
-     *
-     * This parameter is required.
-     *
-     * @example MySourceLocation
-     *
      * @var string
      */
     public $sourceLocationName;
@@ -32,14 +22,18 @@ class DeleteSourceLocationRequest extends Model
         'sourceLocationName' => 'SourceLocationName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->softDelete) {
             $res['SoftDelete'] = $this->softDelete;
         }
+
         if (null !== $this->sourceLocationName) {
             $res['SourceLocationName'] = $this->sourceLocationName;
         }
@@ -47,17 +41,18 @@ class DeleteSourceLocationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSourceLocationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SoftDelete'])) {
             $model->softDelete = $map['SoftDelete'];
         }
+
         if (isset($map['SourceLocationName'])) {
             $model->sourceLocationName = $map['SourceLocationName'];
         }

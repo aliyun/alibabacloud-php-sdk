@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCustomizedVoiceJobRequest extends Model
 {
     /**
-     * @description The ID of the human voice cloning job.
-     *
-     * This parameter is required.
-     *
-     * @example ****20b48fb04483915d4f2cd8ac****
-     *
      * @var string
      */
     public $jobId;
@@ -22,9 +16,12 @@ class GetCustomizedVoiceJobRequest extends Model
         'jobId' => 'JobId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->jobId) {
@@ -34,11 +31,11 @@ class GetCustomizedVoiceJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCustomizedVoiceJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

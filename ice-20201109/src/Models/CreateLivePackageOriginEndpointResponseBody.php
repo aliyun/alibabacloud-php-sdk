@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateLivePackageOriginEndpointResponseBody\livePackageOriginEndpoint;
-use AlibabaCloud\Tea\Model;
 
 class CreateLivePackageOriginEndpointResponseBody extends Model
 {
     /**
-     * @description The information about the origin endpoint.
-     *
      * @var livePackageOriginEndpoint
      */
     public $livePackageOriginEndpoint;
 
     /**
-     * @description The request ID.
-     *
-     * @example ******11-DB8D-4A9A-875B-275798******
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class CreateLivePackageOriginEndpointResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->livePackageOriginEndpoint) {
+            $this->livePackageOriginEndpoint->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->livePackageOriginEndpoint) {
-            $res['LivePackageOriginEndpoint'] = null !== $this->livePackageOriginEndpoint ? $this->livePackageOriginEndpoint->toMap() : null;
+            $res['LivePackageOriginEndpoint'] = null !== $this->livePackageOriginEndpoint ? $this->livePackageOriginEndpoint->toArray($noStream) : $this->livePackageOriginEndpoint;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class CreateLivePackageOriginEndpointResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateLivePackageOriginEndpointResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LivePackageOriginEndpoint'])) {
             $model->livePackageOriginEndpoint = livePackageOriginEndpoint::fromMap($map['LivePackageOriginEndpoint']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

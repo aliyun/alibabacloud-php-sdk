@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetDefaultStorageLocationRequest extends Model
 {
     /**
-     * @example oss-test-bucket
-     *
      * @var string
      */
     public $bucket;
 
     /**
-     * @example ims/dir
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @example user_oss_bucket
-     *
      * @var string
      */
     public $storageType;
@@ -34,17 +28,22 @@ class SetDefaultStorageLocationRequest extends Model
         'storageType' => 'StorageType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->bucket) {
             $res['Bucket'] = $this->bucket;
         }
+
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
+
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
         }
@@ -52,20 +51,22 @@ class SetDefaultStorageLocationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetDefaultStorageLocationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Bucket'])) {
             $model->bucket = $map['Bucket'];
         }
+
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
+
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
         }

@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DecryptKMSDataKeyResponseBody\dataKey;
-use AlibabaCloud\Tea\Model;
 
 class DecryptKMSDataKeyResponseBody extends Model
 {
     /**
-     * @description The information about the decryption result.
-     *
      * @var dataKey
      */
     public $dataKey;
 
     /**
-     * @description The request ID.
-     *
-     * @example ******11-DB8D-4A9A-875B-275798******
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class DecryptKMSDataKeyResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->dataKey) {
+            $this->dataKey->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataKey) {
-            $res['DataKey'] = null !== $this->dataKey ? $this->dataKey->toMap() : null;
+            $res['DataKey'] = null !== $this->dataKey ? $this->dataKey->toArray($noStream) : $this->dataKey;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class DecryptKMSDataKeyResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DecryptKMSDataKeyResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataKey'])) {
             $model->dataKey = dataKey::fromMap($map['DataKey']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

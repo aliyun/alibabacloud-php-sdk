@@ -4,47 +4,31 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListMediaLiveInputSecurityGroupsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class securityGroups extends Model
 {
     /**
-     * @description The time when the security group was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-     *
-     * @example 2024-12-03T06:56:42Z
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description The IDs of the inputs associated with the security group.
-     *
      * @var string[]
      */
     public $inputIds;
 
     /**
-     * @description The security group name.
-     *
-     * @example mysg
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The ID of the security group.
-     *
-     * @example SEGK5KA6KYKAWQQH
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @description The security group rules.
-     *
      * @var string[]
      */
     public $whitelistRules;
@@ -56,55 +40,92 @@ class securityGroups extends Model
         'whitelistRules' => 'WhitelistRules',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->inputIds)) {
+            Model::validateArray($this->inputIds);
+        }
+        if (\is_array($this->whitelistRules)) {
+            Model::validateArray($this->whitelistRules);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->inputIds) {
-            $res['InputIds'] = $this->inputIds;
+            if (\is_array($this->inputIds)) {
+                $res['InputIds'] = [];
+                $n1 = 0;
+                foreach ($this->inputIds as $item1) {
+                    $res['InputIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
         }
+
         if (null !== $this->whitelistRules) {
-            $res['WhitelistRules'] = $this->whitelistRules;
+            if (\is_array($this->whitelistRules)) {
+                $res['WhitelistRules'] = [];
+                $n1 = 0;
+                foreach ($this->whitelistRules as $item1) {
+                    $res['WhitelistRules'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return securityGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['InputIds'])) {
             if (!empty($map['InputIds'])) {
-                $model->inputIds = $map['InputIds'];
+                $model->inputIds = [];
+                $n1 = 0;
+                foreach ($map['InputIds'] as $item1) {
+                    $model->inputIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
         }
+
         if (isset($map['WhitelistRules'])) {
             if (!empty($map['WhitelistRules'])) {
-                $model->whitelistRules = $map['WhitelistRules'];
+                $model->whitelistRules = [];
+                $n1 = 0;
+                foreach ($map['WhitelistRules'] as $item1) {
+                    $model->whitelistRules[$n1++] = $item1;
+                }
             }
         }
 

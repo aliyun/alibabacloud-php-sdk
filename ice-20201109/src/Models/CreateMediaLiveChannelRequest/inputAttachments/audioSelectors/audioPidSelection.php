@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\CreateMediaLiveChannelRequest\inputAttachments\audioSelectors;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class audioPidSelection extends Model
 {
     /**
-     * @description Enter a specific PID from within a source.
-     *
-     * This parameter is required.
-     *
-     * @example 123
-     *
      * @var int
      */
     public $pid;
@@ -22,9 +16,12 @@ class audioPidSelection extends Model
         'pid' => 'Pid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pid) {
@@ -34,11 +31,11 @@ class audioPidSelection extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return audioPidSelection
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

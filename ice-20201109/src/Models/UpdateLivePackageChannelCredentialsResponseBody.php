@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageChannelCredentialsResponseBody\ingestEndpoints;
-use AlibabaCloud\Tea\Model;
 
 class UpdateLivePackageChannelCredentialsResponseBody extends Model
 {
     /**
-     * @description The information about the ingest endpoint.
-     *
      * @var ingestEndpoints[]
      */
     public $ingestEndpoints;
 
     /**
-     * @description The request ID.
-     *
-     * @example 771A1414-27BF-53E6-AB73-EFCB*****ACF
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,27 @@ class UpdateLivePackageChannelCredentialsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->ingestEndpoints)) {
+            Model::validateArray($this->ingestEndpoints);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ingestEndpoints) {
-            $res['IngestEndpoints'] = [];
-            if (null !== $this->ingestEndpoints && \is_array($this->ingestEndpoints)) {
-                $n = 0;
-                foreach ($this->ingestEndpoints as $item) {
-                    $res['IngestEndpoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ingestEndpoints)) {
+                $res['IngestEndpoints'] = [];
+                $n1 = 0;
+                foreach ($this->ingestEndpoints as $item1) {
+                    $res['IngestEndpoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +51,24 @@ class UpdateLivePackageChannelCredentialsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateLivePackageChannelCredentialsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IngestEndpoints'])) {
             if (!empty($map['IngestEndpoints'])) {
                 $model->ingestEndpoints = [];
-                $n = 0;
-                foreach ($map['IngestEndpoints'] as $item) {
-                    $model->ingestEndpoints[$n++] = null !== $item ? ingestEndpoints::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IngestEndpoints'] as $item1) {
+                    $model->ingestEndpoints[$n1++] = ingestEndpoints::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

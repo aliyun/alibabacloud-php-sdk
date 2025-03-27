@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateProgramResponseBody extends Model
 {
     /**
-     * @description The information about the program.
-     *
      * @var ChannelAssemblyProgram
      */
     public $program;
 
     /**
-     * @description **Request ID**
-     *
-     * @example xxx-xxxx-xxxxx-xxxx
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +22,21 @@ class UpdateProgramResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->program) {
+            $this->program->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->program) {
-            $res['Program'] = null !== $this->program ? $this->program->toMap() : null;
+            $res['Program'] = null !== $this->program ? $this->program->toArray($noStream) : $this->program;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +44,18 @@ class UpdateProgramResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateProgramResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Program'])) {
             $model->program = ChannelAssemblyProgram::fromMap($map['Program']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

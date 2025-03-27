@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MediaConvertVolume extends Model
 {
@@ -40,23 +40,30 @@ class MediaConvertVolume extends Model
         'truePeak' => 'TruePeak',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->integratedLoudnessTarget) {
             $res['IntegratedLoudnessTarget'] = $this->integratedLoudnessTarget;
         }
+
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
+
         if (null !== $this->loudnessRangeTarget) {
             $res['LoudnessRangeTarget'] = $this->loudnessRangeTarget;
         }
+
         if (null !== $this->method) {
             $res['Method'] = $this->method;
         }
+
         if (null !== $this->truePeak) {
             $res['TruePeak'] = $this->truePeak;
         }
@@ -64,26 +71,30 @@ class MediaConvertVolume extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MediaConvertVolume
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IntegratedLoudnessTarget'])) {
             $model->integratedLoudnessTarget = $map['IntegratedLoudnessTarget'];
         }
+
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
+
         if (isset($map['LoudnessRangeTarget'])) {
             $model->loudnessRangeTarget = $map['LoudnessRangeTarget'];
         }
+
         if (isset($map['Method'])) {
             $model->method = $map['Method'];
         }
+
         if (isset($map['TruePeak'])) {
             $model->truePeak = $map['TruePeak'];
         }

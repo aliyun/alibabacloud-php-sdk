@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateLivePackageChannelGroupResponseBody\livePackageChannelGroup;
-use AlibabaCloud\Tea\Model;
 
 class UpdateLivePackageChannelGroupResponseBody extends Model
 {
     /**
-     * @description The information about the channel group.
-     *
      * @var livePackageChannelGroup
      */
     public $livePackageChannelGroup;
 
     /**
-     * @description The request ID.
-     *
-     * @example request-1234567890
-     *
      * @var string
      */
     public $requestId;
@@ -29,14 +23,21 @@ class UpdateLivePackageChannelGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->livePackageChannelGroup) {
+            $this->livePackageChannelGroup->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->livePackageChannelGroup) {
-            $res['LivePackageChannelGroup'] = null !== $this->livePackageChannelGroup ? $this->livePackageChannelGroup->toMap() : null;
+            $res['LivePackageChannelGroup'] = null !== $this->livePackageChannelGroup ? $this->livePackageChannelGroup->toArray($noStream) : $this->livePackageChannelGroup;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -44,17 +45,18 @@ class UpdateLivePackageChannelGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateLivePackageChannelGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LivePackageChannelGroup'])) {
             $model->livePackageChannelGroup = livePackageChannelGroup::fromMap($map['LivePackageChannelGroup']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

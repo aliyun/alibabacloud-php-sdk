@@ -4,30 +4,24 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\SubmitMediaConvertJobResponseBody\job;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\MediaConvertInput;
 use AlibabaCloud\SDK\ICE\V20201109\Models\MediaConvertOutput;
 use AlibabaCloud\SDK\ICE\V20201109\Models\MediaConvertOutputGroup;
-use AlibabaCloud\Tea\Model;
 
 class config extends Model
 {
     /**
-     * @description The inputs of the transcoding task.
-     *
      * @var MediaConvertInput[]
      */
     public $inputs;
 
     /**
-     * @description The output group configurations.
-     *
      * @var MediaConvertOutputGroup[]
      */
     public $outputGroups;
 
     /**
-     * @description The output configurations.
-     *
      * @var MediaConvertOutput[]
      */
     public $outputs;
@@ -37,35 +31,49 @@ class config extends Model
         'outputs' => 'Outputs',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->inputs)) {
+            Model::validateArray($this->inputs);
+        }
+        if (\is_array($this->outputGroups)) {
+            Model::validateArray($this->outputGroups);
+        }
+        if (\is_array($this->outputs)) {
+            Model::validateArray($this->outputs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputs) {
-            $res['Inputs'] = [];
-            if (null !== $this->inputs && \is_array($this->inputs)) {
-                $n = 0;
-                foreach ($this->inputs as $item) {
-                    $res['Inputs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->inputs)) {
+                $res['Inputs'] = [];
+                $n1 = 0;
+                foreach ($this->inputs as $item1) {
+                    $res['Inputs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->outputGroups) {
-            $res['OutputGroups'] = [];
-            if (null !== $this->outputGroups && \is_array($this->outputGroups)) {
-                $n = 0;
-                foreach ($this->outputGroups as $item) {
-                    $res['OutputGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->outputGroups)) {
+                $res['OutputGroups'] = [];
+                $n1 = 0;
+                foreach ($this->outputGroups as $item1) {
+                    $res['OutputGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->outputs) {
-            $res['Outputs'] = [];
-            if (null !== $this->outputs && \is_array($this->outputs)) {
-                $n = 0;
-                foreach ($this->outputs as $item) {
-                    $res['Outputs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->outputs)) {
+                $res['Outputs'] = [];
+                $n1 = 0;
+                foreach ($this->outputs as $item1) {
+                    $res['Outputs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -73,38 +81,40 @@ class config extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return config
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Inputs'])) {
             if (!empty($map['Inputs'])) {
                 $model->inputs = [];
-                $n = 0;
-                foreach ($map['Inputs'] as $item) {
-                    $model->inputs[$n++] = null !== $item ? MediaConvertInput::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Inputs'] as $item1) {
+                    $model->inputs[$n1++] = MediaConvertInput::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['OutputGroups'])) {
             if (!empty($map['OutputGroups'])) {
                 $model->outputGroups = [];
-                $n = 0;
-                foreach ($map['OutputGroups'] as $item) {
-                    $model->outputGroups[$n++] = null !== $item ? MediaConvertOutputGroup::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['OutputGroups'] as $item1) {
+                    $model->outputGroups[$n1++] = MediaConvertOutputGroup::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Outputs'])) {
             if (!empty($map['Outputs'])) {
                 $model->outputs = [];
-                $n = 0;
-                foreach ($map['Outputs'] as $item) {
-                    $model->outputs[$n++] = null !== $item ? MediaConvertOutput::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Outputs'] as $item1) {
+                    $model->outputs[$n1++] = MediaConvertOutput::fromMap($item1);
                 }
             }
         }

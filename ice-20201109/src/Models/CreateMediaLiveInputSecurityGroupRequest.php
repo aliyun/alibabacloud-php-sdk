@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateMediaLiveInputSecurityGroupRequest extends Model
 {
     /**
-     * @description The name of the security group. Letters, digits, hyphens (-), and underscores (_) are supported. The maximum length is 64 characters.
-     *
-     * This parameter is required.
-     *
-     * @example mysg
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The security group rules.
-     *
-     * This parameter is required.
-     *
-     * @example ["10.1.1.0/24", "11.11.11.11/0"]
-     *
      * @var string[]
      */
     public $whitelistRules;
@@ -34,35 +22,53 @@ class CreateMediaLiveInputSecurityGroupRequest extends Model
         'whitelistRules' => 'WhitelistRules',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->whitelistRules)) {
+            Model::validateArray($this->whitelistRules);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->whitelistRules) {
-            $res['WhitelistRules'] = $this->whitelistRules;
+            if (\is_array($this->whitelistRules)) {
+                $res['WhitelistRules'] = [];
+                $n1 = 0;
+                foreach ($this->whitelistRules as $item1) {
+                    $res['WhitelistRules'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateMediaLiveInputSecurityGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['WhitelistRules'])) {
             if (!empty($map['WhitelistRules'])) {
-                $model->whitelistRules = $map['WhitelistRules'];
+                $model->whitelistRules = [];
+                $n1 = 0;
+                foreach ($map['WhitelistRules'] as $item1) {
+                    $model->whitelistRules[$n1++] = $item1;
+                }
             }
         }
 

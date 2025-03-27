@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSourceRequest extends Model
 {
     /**
-     * @description The source location.
-     *
-     * This parameter is required.
-     *
-     * @example MySourceLocation
-     *
      * @var string
      */
     public $sourceLocationName;
 
     /**
-     * @description The name of the source.
-     *
-     * This parameter is required.
-     *
-     * @example MyVodSource
-     *
      * @var string
      */
     public $sourceName;
 
     /**
-     * @description The source type. Valid values: vodSource and liveSource.
-     *
-     * This parameter is required.
-     *
-     * @example vodSource
-     *
      * @var string
      */
     public $sourceType;
@@ -46,17 +28,22 @@ class GetSourceRequest extends Model
         'sourceType' => 'SourceType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sourceLocationName) {
             $res['SourceLocationName'] = $this->sourceLocationName;
         }
+
         if (null !== $this->sourceName) {
             $res['SourceName'] = $this->sourceName;
         }
+
         if (null !== $this->sourceType) {
             $res['SourceType'] = $this->sourceType;
         }
@@ -64,20 +51,22 @@ class GetSourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SourceLocationName'])) {
             $model->sourceLocationName = $map['SourceLocationName'];
         }
+
         if (isset($map['SourceName'])) {
             $model->sourceName = $map['SourceName'];
         }
+
         if (isset($map['SourceType'])) {
             $model->sourceType = $map['SourceType'];
         }

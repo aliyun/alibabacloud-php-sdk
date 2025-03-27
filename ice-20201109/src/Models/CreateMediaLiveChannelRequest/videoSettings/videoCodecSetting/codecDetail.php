@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\CreateMediaLiveChannelRequest\videoSettings\videoCodecSetting;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class codecDetail extends Model
 {
     /**
-     * @description The video encoding level. It is not supported yet.
-     *
-     * @example H264_LEVEL_AUTO
-     *
      * @var string
      */
     public $level;
 
     /**
-     * @description The H.264 profile. Valid values: BASELINE, HIGH, and MAIN. Default value: MAIN. The parameter takes effect only when the codec is H.264.
-     *
-     * @example MAIN
-     *
      * @var string
      */
     public $profile;
@@ -30,14 +22,18 @@ class codecDetail extends Model
         'profile' => 'Profile',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
+
         if (null !== $this->profile) {
             $res['Profile'] = $this->profile;
         }
@@ -45,17 +41,18 @@ class codecDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return codecDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
+
         if (isset($map['Profile'])) {
             $model->profile = $map['Profile'];
         }

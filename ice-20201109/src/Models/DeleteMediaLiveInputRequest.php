@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteMediaLiveInputRequest extends Model
 {
     /**
-     * @description The ID of the input.
-     *
-     * This parameter is required.
-     *
-     * @example SEGK5KA6KYKAWQQH
-     *
      * @var string
      */
     public $inputId;
@@ -22,9 +16,12 @@ class DeleteMediaLiveInputRequest extends Model
         'inputId' => 'InputId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputId) {
@@ -34,11 +31,11 @@ class DeleteMediaLiveInputRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteMediaLiveInputRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

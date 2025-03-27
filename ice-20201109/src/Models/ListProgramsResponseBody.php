@@ -4,49 +4,31 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListProgramsResponseBody extends Model
 {
     /**
-     * @description The page number. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description The number of entries per page. Default value: 20. Valid values: 1 to 100.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The programs.
-     *
      * @var ChannelAssemblyProgram[]
      */
     public $programs;
 
     /**
-     * @description **Request ID**
-     *
-     * @example xxx-xxxx-xxxxx-xxxx
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of programs returned.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $totalCount;
@@ -58,29 +40,39 @@ class ListProgramsResponseBody extends Model
         'totalCount' => 'TotalCount',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->programs)) {
+            Model::validateArray($this->programs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->programs) {
-            $res['Programs'] = [];
-            if (null !== $this->programs && \is_array($this->programs)) {
-                $n = 0;
-                foreach ($this->programs as $item) {
-                    $res['Programs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->programs)) {
+                $res['Programs'] = [];
+                $n1 = 0;
+                foreach ($this->programs as $item1) {
+                    $res['Programs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -88,32 +80,36 @@ class ListProgramsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListProgramsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Programs'])) {
             if (!empty($map['Programs'])) {
                 $model->programs = [];
-                $n = 0;
-                foreach ($map['Programs'] as $item) {
-                    $model->programs[$n++] = null !== $item ? ChannelAssemblyProgram::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Programs'] as $item1) {
+                    $model->programs[$n1++] = ChannelAssemblyProgram::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

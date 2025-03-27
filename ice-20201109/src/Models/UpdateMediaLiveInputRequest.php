@@ -4,47 +4,27 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateMediaLiveInputRequest\inputSettings;
-use AlibabaCloud\Tea\Model;
 
 class UpdateMediaLiveInputRequest extends Model
 {
     /**
-     * @description The ID of the input.
-     *
-     * This parameter is required.
-     *
-     * @example SEGK5KA6KYKAWQQH
-     *
      * @var string
      */
     public $inputId;
 
     /**
-     * @description The input settings. An input can have up to two sources: primary and backup sources.
-     *
-     * This parameter is required.
-     *
      * @var inputSettings[]
      */
     public $inputSettings;
 
     /**
-     * @description The name of the input. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
-     *
-     * This parameter is required.
-     *
-     * @example myinput
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The IDs of the security groups to be associated with the input. This parameter is required for PUSH inputs.
-     *
-     * @example ["G6G4X5T4SZYPSTT5"]
-     *
      * @var string[]
      */
     public $securityGroupIds;
@@ -55,59 +35,84 @@ class UpdateMediaLiveInputRequest extends Model
         'securityGroupIds' => 'SecurityGroupIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->inputSettings)) {
+            Model::validateArray($this->inputSettings);
+        }
+        if (\is_array($this->securityGroupIds)) {
+            Model::validateArray($this->securityGroupIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputId) {
             $res['InputId'] = $this->inputId;
         }
+
         if (null !== $this->inputSettings) {
-            $res['InputSettings'] = [];
-            if (null !== $this->inputSettings && \is_array($this->inputSettings)) {
-                $n = 0;
-                foreach ($this->inputSettings as $item) {
-                    $res['InputSettings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->inputSettings)) {
+                $res['InputSettings'] = [];
+                $n1 = 0;
+                foreach ($this->inputSettings as $item1) {
+                    $res['InputSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->securityGroupIds) {
-            $res['SecurityGroupIds'] = $this->securityGroupIds;
+            if (\is_array($this->securityGroupIds)) {
+                $res['SecurityGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->securityGroupIds as $item1) {
+                    $res['SecurityGroupIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateMediaLiveInputRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InputId'])) {
             $model->inputId = $map['InputId'];
         }
+
         if (isset($map['InputSettings'])) {
             if (!empty($map['InputSettings'])) {
                 $model->inputSettings = [];
-                $n = 0;
-                foreach ($map['InputSettings'] as $item) {
-                    $model->inputSettings[$n++] = null !== $item ? inputSettings::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InputSettings'] as $item1) {
+                    $model->inputSettings[$n1++] = inputSettings::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
-                $model->securityGroupIds = $map['SecurityGroupIds'];
+                $model->securityGroupIds = [];
+                $n1 = 0;
+                foreach ($map['SecurityGroupIds'] as $item1) {
+                    $model->securityGroupIds[$n1++] = $item1;
+                }
             }
         }
 

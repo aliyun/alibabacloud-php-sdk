@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetVodPackagingGroupResponseBody extends Model
 {
     /**
-     * @description The information about the packaging group.
-     *
      * @var VodPackagingGroup
      */
     public $packagingGroup;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example ****36-3C1E-4417-BDB2-1E034F****
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +22,21 @@ class GetVodPackagingGroupResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->packagingGroup) {
+            $this->packagingGroup->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->packagingGroup) {
-            $res['PackagingGroup'] = null !== $this->packagingGroup ? $this->packagingGroup->toMap() : null;
+            $res['PackagingGroup'] = null !== $this->packagingGroup ? $this->packagingGroup->toArray($noStream) : $this->packagingGroup;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +44,18 @@ class GetVodPackagingGroupResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetVodPackagingGroupResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PackagingGroup'])) {
             $model->packagingGroup = VodPackagingGroup::fromMap($map['PackagingGroup']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

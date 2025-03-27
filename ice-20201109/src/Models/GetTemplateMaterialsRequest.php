@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTemplateMaterialsRequest extends Model
 {
     /**
-     * @description The materials that you want to query.
-     *
-     * @example ["music.mp3","config.json","assets/1.jpg"]
-     *
      * @var string
      */
     public $fileList;
 
     /**
-     * @description The template ID.
-     *
-     * This parameter is required.
-     *
-     * @example ****20b48fb04483915d4f2cd8ac****
-     *
      * @var string
      */
     public $templateId;
@@ -32,14 +22,18 @@ class GetTemplateMaterialsRequest extends Model
         'templateId' => 'TemplateId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fileList) {
             $res['FileList'] = $this->fileList;
         }
+
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
         }
@@ -47,17 +41,18 @@ class GetTemplateMaterialsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTemplateMaterialsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FileList'])) {
             $model->fileList = $map['FileList'];
         }
+
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];
         }

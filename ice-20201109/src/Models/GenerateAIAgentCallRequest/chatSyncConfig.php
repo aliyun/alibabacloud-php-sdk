@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GenerateAIAgentCallRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class chatSyncConfig extends Model
 {
     /**
-     * @example ******005e4f309379701645f4****
-     *
      * @var string
      */
     public $IMAIAgentId;
 
     /**
-     * @example 4167626d312034b2b1c3b7f2f3e41884
-     *
      * @var string
      */
     public $receiverId;
@@ -26,14 +22,18 @@ class chatSyncConfig extends Model
         'receiverId' => 'ReceiverId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->IMAIAgentId) {
             $res['IMAIAgentId'] = $this->IMAIAgentId;
         }
+
         if (null !== $this->receiverId) {
             $res['ReceiverId'] = $this->receiverId;
         }
@@ -41,17 +41,18 @@ class chatSyncConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return chatSyncConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IMAIAgentId'])) {
             $model->IMAIAgentId = $map['IMAIAgentId'];
         }
+
         if (isset($map['ReceiverId'])) {
             $model->receiverId = $map['ReceiverId'];
         }

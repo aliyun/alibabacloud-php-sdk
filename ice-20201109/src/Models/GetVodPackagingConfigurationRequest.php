@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetVodPackagingConfigurationRequest extends Model
 {
     /**
-     * @description The name of the packaging configuration.
-     *
-     * @example hls_3s
-     *
      * @var string
      */
     public $configurationName;
@@ -20,9 +16,12 @@ class GetVodPackagingConfigurationRequest extends Model
         'configurationName' => 'ConfigurationName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configurationName) {
@@ -32,11 +31,11 @@ class GetVodPackagingConfigurationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetVodPackagingConfigurationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchCreateVodPackagingAssetShrinkRequest extends Model
 {
     /**
-     * @description The assets that you want to ingest.
-     *
      * @var string
      */
     public $assetsShrink;
 
     /**
-     * @description The name of the packaging group.
-     *
-     * @example vod_hls
-     *
      * @var string
      */
     public $groupName;
@@ -28,14 +22,18 @@ class BatchCreateVodPackagingAssetShrinkRequest extends Model
         'groupName' => 'GroupName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->assetsShrink) {
             $res['Assets'] = $this->assetsShrink;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
@@ -43,17 +41,18 @@ class BatchCreateVodPackagingAssetShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchCreateVodPackagingAssetShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Assets'])) {
             $model->assetsShrink = $map['Assets'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }

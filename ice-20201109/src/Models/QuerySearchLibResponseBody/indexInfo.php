@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\QuerySearchLibResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class indexInfo extends Model
 {
@@ -28,17 +28,22 @@ class indexInfo extends Model
         'indexType' => 'IndexType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->indexReadiness) {
             $res['IndexReadiness'] = $this->indexReadiness;
         }
+
         if (null !== $this->indexStatus) {
             $res['IndexStatus'] = $this->indexStatus;
         }
+
         if (null !== $this->indexType) {
             $res['IndexType'] = $this->indexType;
         }
@@ -46,20 +51,22 @@ class indexInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return indexInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IndexReadiness'])) {
             $model->indexReadiness = $map['IndexReadiness'];
         }
+
         if (isset($map['IndexStatus'])) {
             $model->indexStatus = $map['IndexStatus'];
         }
+
         if (isset($map['IndexType'])) {
             $model->indexType = $map['IndexType'];
         }

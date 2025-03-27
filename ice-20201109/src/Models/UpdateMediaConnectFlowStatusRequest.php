@@ -4,31 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateMediaConnectFlowStatusRequest extends Model
 {
     /**
-     * @description The flow ID.
-     *
-     * This parameter is required.
-     *
-     * @example 34900dc6-90ec-4968-af3c-fcd87f231a5f
-     *
      * @var string
      */
     public $flowId;
 
     /**
-     * @description The flow state. Valid values:
-     *
-     *   online: starts the flow.
-     *   offline: stops the flow.
-     *
-     * This parameter is required.
-     *
-     * @example online
-     *
      * @var string
      */
     public $status;
@@ -37,14 +22,18 @@ class UpdateMediaConnectFlowStatusRequest extends Model
         'status' => 'Status',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flowId) {
             $res['FlowId'] = $this->flowId;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -52,17 +41,18 @@ class UpdateMediaConnectFlowStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateMediaConnectFlowStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FlowId'])) {
             $model->flowId = $map['FlowId'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

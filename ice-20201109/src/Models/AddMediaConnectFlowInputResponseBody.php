@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\AddMediaConnectFlowInputResponseBody\content;
-use AlibabaCloud\Tea\Model;
 
 class AddMediaConnectFlowInputResponseBody extends Model
 {
     /**
-     * @description The response body.
-     *
      * @var content
      */
     public $content;
 
     /**
-     * @description The call description.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 11357BE8-4C54-58EA-890A-5AB646EDE4B2
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The returned error code. A value of 0 indicates the call is successful.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $retCode;
@@ -49,20 +35,29 @@ class AddMediaConnectFlowInputResponseBody extends Model
         'retCode' => 'RetCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->content) {
+            $this->content->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
-            $res['Content'] = null !== $this->content ? $this->content->toMap() : null;
+            $res['Content'] = null !== $this->content ? $this->content->toArray($noStream) : $this->content;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->retCode) {
             $res['RetCode'] = $this->retCode;
         }
@@ -70,23 +65,26 @@ class AddMediaConnectFlowInputResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddMediaConnectFlowInputResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = content::fromMap($map['Content']);
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RetCode'])) {
             $model->retCode = $map['RetCode'];
         }

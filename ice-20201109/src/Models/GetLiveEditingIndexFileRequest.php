@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetLiveEditingIndexFileRequest extends Model
 {
     /**
-     * @description The application name of the live stream.
-     *
-     * @example testrecord
-     *
      * @var string
      */
     public $appName;
 
     /**
-     * @description The domain name of the live stream.
-     *
-     * @example test.alivecdn.com
-     *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description The ID of the live stream editing project.
-     *
-     * @example *****cb6307a4edea614d8b3f3c*****
-     *
      * @var string
      */
     public $projectId;
 
     /**
-     * @description The name of the live stream.
-     *
-     * @example teststream
-     *
      * @var string
      */
     public $streamName;
@@ -50,20 +34,26 @@ class GetLiveEditingIndexFileRequest extends Model
         'streamName' => 'StreamName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->streamName) {
             $res['StreamName'] = $this->streamName;
         }
@@ -71,23 +61,26 @@ class GetLiveEditingIndexFileRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetLiveEditingIndexFileRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['StreamName'])) {
             $model->streamName = $map['StreamName'];
         }

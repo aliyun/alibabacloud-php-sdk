@@ -4,40 +4,22 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\CreateMediaLiveChannelRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateMediaLiveChannelRequest\inputAttachments\audioSelectors;
-use AlibabaCloud\Tea\Model;
 
 class inputAttachments extends Model
 {
     /**
-     * @description The audio selectors.
-     *
      * @var audioSelectors[]
      */
     public $audioSelectors;
 
     /**
-     * @description The ID of the associated input.
-     *
-     * This parameter is required.
-     *
-     * @example myinput
-     *
      * @var string
      */
     public $inputId;
 
     /**
-     * @description The tag that identifies the language of the RTMP input. It can be referenced by the output. The maximum length is 32 characters. Supported characters:
-     *
-     *   Unicode letters
-     *   Digits (0-9)
-     *   Underscore (_)
-     *   Hyphen (-)
-     *   Space (a space cannot be at the beginning or end)
-     *
-     * @example English
-     *
      * @var string
      */
     public $languageName;
@@ -47,23 +29,31 @@ class inputAttachments extends Model
         'languageName' => 'LanguageName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->audioSelectors)) {
+            Model::validateArray($this->audioSelectors);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioSelectors) {
-            $res['AudioSelectors'] = [];
-            if (null !== $this->audioSelectors && \is_array($this->audioSelectors)) {
-                $n = 0;
-                foreach ($this->audioSelectors as $item) {
-                    $res['AudioSelectors'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->audioSelectors)) {
+                $res['AudioSelectors'] = [];
+                $n1 = 0;
+                foreach ($this->audioSelectors as $item1) {
+                    $res['AudioSelectors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->inputId) {
             $res['InputId'] = $this->inputId;
         }
+
         if (null !== $this->languageName) {
             $res['LanguageName'] = $this->languageName;
         }
@@ -71,26 +61,28 @@ class inputAttachments extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return inputAttachments
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioSelectors'])) {
             if (!empty($map['AudioSelectors'])) {
                 $model->audioSelectors = [];
-                $n = 0;
-                foreach ($map['AudioSelectors'] as $item) {
-                    $model->audioSelectors[$n++] = null !== $item ? audioSelectors::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AudioSelectors'] as $item1) {
+                    $model->audioSelectors[$n1++] = audioSelectors::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['InputId'])) {
             $model->inputId = $map['InputId'];
         }
+
         if (isset($map['LanguageName'])) {
             $model->languageName = $map['LanguageName'];
         }

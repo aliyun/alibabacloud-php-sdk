@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaLiveChannelResponseBody\channel\inputAttachments\audioSelectors;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class audioLanguageSelection extends Model
 {
     /**
-     * @description A three-letter ISO 639-2 language code from within an audio source.
-     *
-     * This parameter is required.
-     *
-     * @example eng
-     *
      * @var string
      */
     public $languageCode;
@@ -22,9 +16,12 @@ class audioLanguageSelection extends Model
         'languageCode' => 'LanguageCode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->languageCode) {
@@ -34,11 +31,11 @@ class audioLanguageSelection extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return audioLanguageSelection
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

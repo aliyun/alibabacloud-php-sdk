@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\VodPackagingConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class streamSelection extends Model
 {
@@ -28,17 +28,22 @@ class streamSelection extends Model
         'streamOrder' => 'StreamOrder',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxVideoBitsPerSecond) {
             $res['MaxVideoBitsPerSecond'] = $this->maxVideoBitsPerSecond;
         }
+
         if (null !== $this->minVideoBitsPerSecond) {
             $res['MinVideoBitsPerSecond'] = $this->minVideoBitsPerSecond;
         }
+
         if (null !== $this->streamOrder) {
             $res['StreamOrder'] = $this->streamOrder;
         }
@@ -46,20 +51,22 @@ class streamSelection extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return streamSelection
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxVideoBitsPerSecond'])) {
             $model->maxVideoBitsPerSecond = $map['MaxVideoBitsPerSecond'];
         }
+
         if (isset($map['MinVideoBitsPerSecond'])) {
             $model->minVideoBitsPerSecond = $map['MinVideoBitsPerSecond'];
         }
+
         if (isset($map['StreamOrder'])) {
             $model->streamOrder = $map['StreamOrder'];
         }

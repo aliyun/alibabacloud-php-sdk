@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MediaConvertMuxConfig extends Model
 {
@@ -16,23 +16,29 @@ class MediaConvertMuxConfig extends Model
         'segment' => 'Segment',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->segment) {
+            $this->segment->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->segment) {
-            $res['Segment'] = null !== $this->segment ? $this->segment->toMap() : null;
+            $res['Segment'] = null !== $this->segment ? $this->segment->toArray($noStream) : $this->segment;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MediaConvertMuxConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,46 +4,28 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\CreateMediaLiveChannelRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateMediaLiveChannelRequest\outputGroups\mediaPackageGroupSetting;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateMediaLiveChannelRequest\outputGroups\outputs;
-use AlibabaCloud\Tea\Model;
 
 class outputGroups extends Model
 {
     /**
-     * @description The MediaPackage destination.
-     *
      * @var mediaPackageGroupSetting
      */
     public $mediaPackageGroupSetting;
 
     /**
-     * @description The name of the output group. Letters, digits, hyphens (-), and underscores (_) are supported. It can be up to 64 characters in length.
-     *
-     * This parameter is required.
-     *
-     * @example group1
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The outputs in the output group.
-     *
-     * This parameter is required.
-     *
      * @var outputs[]
      */
     public $outputs;
 
     /**
-     * @description The output group type. Only MediaPackage is supported.
-     *
-     * This parameter is required.
-     *
-     * @example MediaPackage
-     *
      * @var string
      */
     public $type;
@@ -54,26 +36,38 @@ class outputGroups extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->mediaPackageGroupSetting) {
+            $this->mediaPackageGroupSetting->validate();
+        }
+        if (\is_array($this->outputs)) {
+            Model::validateArray($this->outputs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mediaPackageGroupSetting) {
-            $res['MediaPackageGroupSetting'] = null !== $this->mediaPackageGroupSetting ? $this->mediaPackageGroupSetting->toMap() : null;
+            $res['MediaPackageGroupSetting'] = null !== $this->mediaPackageGroupSetting ? $this->mediaPackageGroupSetting->toArray($noStream) : $this->mediaPackageGroupSetting;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->outputs) {
-            $res['Outputs'] = [];
-            if (null !== $this->outputs && \is_array($this->outputs)) {
-                $n = 0;
-                foreach ($this->outputs as $item) {
-                    $res['Outputs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->outputs)) {
+                $res['Outputs'] = [];
+                $n1 = 0;
+                foreach ($this->outputs as $item1) {
+                    $res['Outputs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -81,29 +75,32 @@ class outputGroups extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return outputGroups
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MediaPackageGroupSetting'])) {
             $model->mediaPackageGroupSetting = mediaPackageGroupSetting::fromMap($map['MediaPackageGroupSetting']);
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Outputs'])) {
             if (!empty($map['Outputs'])) {
                 $model->outputs = [];
-                $n = 0;
-                foreach ($map['Outputs'] as $item) {
-                    $model->outputs[$n++] = null !== $item ? outputs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Outputs'] as $item1) {
+                    $model->outputs[$n1++] = outputs::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

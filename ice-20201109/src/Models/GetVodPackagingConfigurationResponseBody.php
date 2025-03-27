@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetVodPackagingConfigurationResponseBody extends Model
 {
     /**
-     * @description The information about the packaging configuration.
-     *
      * @var VodPackagingConfiguration
      */
     public $packagingConfiguration;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example ******11-DB8D-4A9A-875B-275798******
-     *
      * @var string
      */
     public $requestId;
@@ -28,14 +22,21 @@ class GetVodPackagingConfigurationResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->packagingConfiguration) {
+            $this->packagingConfiguration->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->packagingConfiguration) {
-            $res['PackagingConfiguration'] = null !== $this->packagingConfiguration ? $this->packagingConfiguration->toMap() : null;
+            $res['PackagingConfiguration'] = null !== $this->packagingConfiguration ? $this->packagingConfiguration->toArray($noStream) : $this->packagingConfiguration;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +44,18 @@ class GetVodPackagingConfigurationResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetVodPackagingConfigurationResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PackagingConfiguration'])) {
             $model->packagingConfiguration = VodPackagingConfiguration::fromMap($map['PackagingConfiguration']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

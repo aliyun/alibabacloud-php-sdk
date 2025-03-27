@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetLivePackageChannelRequest extends Model
 {
     /**
-     * @description The channel name.
-     *
-     * This parameter is required.
-     *
-     * @example channel-1
-     *
      * @var string
      */
     public $channelName;
 
     /**
-     * @description The channel group name.
-     *
-     * This parameter is required.
-     *
-     * @example channel-group-1
-     *
      * @var string
      */
     public $groupName;
@@ -34,14 +22,18 @@ class GetLivePackageChannelRequest extends Model
         'groupName' => 'GroupName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelName) {
             $res['ChannelName'] = $this->channelName;
         }
+
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
@@ -49,17 +41,18 @@ class GetLivePackageChannelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetLivePackageChannelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelName'])) {
             $model->channelName = $map['ChannelName'];
         }
+
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }

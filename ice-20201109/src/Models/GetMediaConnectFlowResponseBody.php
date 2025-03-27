@@ -4,41 +4,27 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaConnectFlowResponseBody\content;
-use AlibabaCloud\Tea\Model;
 
 class GetMediaConnectFlowResponseBody extends Model
 {
     /**
-     * @description The response body.
-     *
      * @var content
      */
     public $content;
 
     /**
-     * @description The call description.
-     *
-     * @example OK
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example FB503AEF-118E-1516-89E2-7B227EA1AC20
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The returned code. A value of 0 indicates the call is successful.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $retcode;
@@ -49,20 +35,29 @@ class GetMediaConnectFlowResponseBody extends Model
         'retcode' => 'Retcode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->content) {
+            $this->content->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
-            $res['Content'] = null !== $this->content ? $this->content->toMap() : null;
+            $res['Content'] = null !== $this->content ? $this->content->toArray($noStream) : $this->content;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->retcode) {
             $res['Retcode'] = $this->retcode;
         }
@@ -70,23 +65,26 @@ class GetMediaConnectFlowResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMediaConnectFlowResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Content'])) {
             $model->content = content::fromMap($map['Content']);
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Retcode'])) {
             $model->retcode = $map['Retcode'];
         }

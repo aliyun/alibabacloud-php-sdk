@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAIAgentDialogueRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example f27f9b9be28642a88e18*******
-     *
      * @var string
      */
     public $dialogueId;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 6d594e7f55624c47a48789******
-     *
      * @var string
      */
     public $sessionId;
@@ -30,14 +22,18 @@ class DeleteAIAgentDialogueRequest extends Model
         'sessionId' => 'SessionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dialogueId) {
             $res['DialogueId'] = $this->dialogueId;
         }
+
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
@@ -45,17 +41,18 @@ class DeleteAIAgentDialogueRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAIAgentDialogueRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DialogueId'])) {
             $model->dialogueId = $map['DialogueId'];
         }
+
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }

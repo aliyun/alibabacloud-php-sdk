@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetChannelRequest extends Model
 {
     /**
-     * @description The name of the channel.
-     *
-     * This parameter is required.
-     *
-     * @example MyChannel
-     *
      * @var string
      */
     public $channelName;
@@ -22,9 +16,12 @@ class GetChannelRequest extends Model
         'channelName' => 'ChannelName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelName) {
@@ -34,11 +31,11 @@ class GetChannelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetChannelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

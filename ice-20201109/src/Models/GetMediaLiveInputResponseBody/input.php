@@ -4,64 +4,42 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaLiveInputResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaLiveInputResponseBody\input\inputInfos;
-use AlibabaCloud\Tea\Model;
 
 class input extends Model
 {
     /**
-     * @description The IDs of the channels associated with the input.
-     *
      * @var string[]
      */
     public $channelIds;
 
     /**
-     * @description The time when the input was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
-     *
-     * @example 2024-12-03T06:56:42Z
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description The ID of the input.
-     *
-     * @example SEGK5KA6KYKAWQQH
-     *
      * @var string
      */
     public $inputId;
 
     /**
-     * @description The input configurations.
-     *
      * @var inputInfos[]
      */
     public $inputInfos;
 
     /**
-     * @description The name of the input.
-     *
-     * @example myinput
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The IDs of the security groups associated with the input.
-     *
      * @var string[]
      */
     public $securityGroupIds;
 
     /**
-     * @description The input type.
-     *
-     * @example RTMP_PUSH
-     *
      * @var string
      */
     public $type;
@@ -75,35 +53,65 @@ class input extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->channelIds)) {
+            Model::validateArray($this->channelIds);
+        }
+        if (\is_array($this->inputInfos)) {
+            Model::validateArray($this->inputInfos);
+        }
+        if (\is_array($this->securityGroupIds)) {
+            Model::validateArray($this->securityGroupIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelIds) {
-            $res['ChannelIds'] = $this->channelIds;
-        }
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
-        }
-        if (null !== $this->inputId) {
-            $res['InputId'] = $this->inputId;
-        }
-        if (null !== $this->inputInfos) {
-            $res['InputInfos'] = [];
-            if (null !== $this->inputInfos && \is_array($this->inputInfos)) {
-                $n = 0;
-                foreach ($this->inputInfos as $item) {
-                    $res['InputInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->channelIds)) {
+                $res['ChannelIds'] = [];
+                $n1 = 0;
+                foreach ($this->channelIds as $item1) {
+                    $res['ChannelIds'][$n1++] = $item1;
                 }
             }
         }
+
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
+        }
+
+        if (null !== $this->inputId) {
+            $res['InputId'] = $this->inputId;
+        }
+
+        if (null !== $this->inputInfos) {
+            if (\is_array($this->inputInfos)) {
+                $res['InputInfos'] = [];
+                $n1 = 0;
+                foreach ($this->inputInfos as $item1) {
+                    $res['InputInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->securityGroupIds) {
-            $res['SecurityGroupIds'] = $this->securityGroupIds;
+            if (\is_array($this->securityGroupIds)) {
+                $res['SecurityGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->securityGroupIds as $item1) {
+                    $res['SecurityGroupIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -111,42 +119,56 @@ class input extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return input
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelIds'])) {
             if (!empty($map['ChannelIds'])) {
-                $model->channelIds = $map['ChannelIds'];
-            }
-        }
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
-        }
-        if (isset($map['InputId'])) {
-            $model->inputId = $map['InputId'];
-        }
-        if (isset($map['InputInfos'])) {
-            if (!empty($map['InputInfos'])) {
-                $model->inputInfos = [];
-                $n = 0;
-                foreach ($map['InputInfos'] as $item) {
-                    $model->inputInfos[$n++] = null !== $item ? inputInfos::fromMap($item) : $item;
+                $model->channelIds = [];
+                $n1 = 0;
+                foreach ($map['ChannelIds'] as $item1) {
+                    $model->channelIds[$n1++] = $item1;
                 }
             }
         }
+
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
+
+        if (isset($map['InputId'])) {
+            $model->inputId = $map['InputId'];
+        }
+
+        if (isset($map['InputInfos'])) {
+            if (!empty($map['InputInfos'])) {
+                $model->inputInfos = [];
+                $n1 = 0;
+                foreach ($map['InputInfos'] as $item1) {
+                    $model->inputInfos[$n1++] = inputInfos::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
-                $model->securityGroupIds = $map['SecurityGroupIds'];
+                $model->securityGroupIds = [];
+                $n1 = 0;
+                foreach ($map['SecurityGroupIds'] as $item1) {
+                    $model->securityGroupIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

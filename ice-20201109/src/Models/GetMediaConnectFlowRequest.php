@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetMediaConnectFlowRequest extends Model
 {
     /**
-     * @description The flow ID.
-     *
-     * This parameter is required.
-     *
-     * @example 34900dc6-90ec-4968-af3c-fcd87f231a5f
-     *
      * @var string
      */
     public $flowId;
@@ -22,9 +16,12 @@ class GetMediaConnectFlowRequest extends Model
         'flowId' => 'FlowId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flowId) {
@@ -34,11 +31,11 @@ class GetMediaConnectFlowRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetMediaConnectFlowRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

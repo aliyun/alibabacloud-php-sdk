@@ -4,39 +4,27 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\StartAIAgentInstanceRequest\chatSyncConfig;
-use AlibabaCloud\Tea\Model;
 
 class StartAIAgentInstanceRequest extends Model
 {
     /**
-     * @description The ID of the AI agent created in the [IMS](https://ims.console.aliyun.com/ai/robot/list) console.
-     *
-     * This parameter is required.
-     *
-     * @example 39f8e0bc005e4f309379701645f4****
-     *
      * @var string
      */
     public $AIAgentId;
 
     /**
-     * @description 同步聊天记录配置。
-     *
      * @var chatSyncConfig
      */
     public $chatSyncConfig;
 
     /**
-     * @description This parameter is required.
-     *
      * @var AIAgentRuntimeConfig
      */
     public $runtimeConfig;
 
     /**
-     * @example f213fbc005e4f309379701645f4****
-     *
      * @var string
      */
     public $sessionId;
@@ -47,8 +35,6 @@ class StartAIAgentInstanceRequest extends Model
     public $templateConfig;
 
     /**
-     * @example {"Email":"johndoe@example.com","Preferences":{"Language":"en"}}
-     *
      * @var string
      */
     public $userData;
@@ -61,26 +47,43 @@ class StartAIAgentInstanceRequest extends Model
         'userData' => 'UserData',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->chatSyncConfig) {
+            $this->chatSyncConfig->validate();
+        }
+        if (null !== $this->runtimeConfig) {
+            $this->runtimeConfig->validate();
+        }
+        if (null !== $this->templateConfig) {
+            $this->templateConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->AIAgentId) {
             $res['AIAgentId'] = $this->AIAgentId;
         }
+
         if (null !== $this->chatSyncConfig) {
-            $res['ChatSyncConfig'] = null !== $this->chatSyncConfig ? $this->chatSyncConfig->toMap() : null;
+            $res['ChatSyncConfig'] = null !== $this->chatSyncConfig ? $this->chatSyncConfig->toArray($noStream) : $this->chatSyncConfig;
         }
+
         if (null !== $this->runtimeConfig) {
-            $res['RuntimeConfig'] = null !== $this->runtimeConfig ? $this->runtimeConfig->toMap() : null;
+            $res['RuntimeConfig'] = null !== $this->runtimeConfig ? $this->runtimeConfig->toArray($noStream) : $this->runtimeConfig;
         }
+
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
         }
+
         if (null !== $this->templateConfig) {
-            $res['TemplateConfig'] = null !== $this->templateConfig ? $this->templateConfig->toMap() : null;
+            $res['TemplateConfig'] = null !== $this->templateConfig ? $this->templateConfig->toArray($noStream) : $this->templateConfig;
         }
+
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
         }
@@ -88,29 +91,34 @@ class StartAIAgentInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartAIAgentInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AIAgentId'])) {
             $model->AIAgentId = $map['AIAgentId'];
         }
+
         if (isset($map['ChatSyncConfig'])) {
             $model->chatSyncConfig = chatSyncConfig::fromMap($map['ChatSyncConfig']);
         }
+
         if (isset($map['RuntimeConfig'])) {
             $model->runtimeConfig = AIAgentRuntimeConfig::fromMap($map['RuntimeConfig']);
         }
+
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
         }
+
         if (isset($map['TemplateConfig'])) {
             $model->templateConfig = AIAgentTemplateConfig::fromMap($map['TemplateConfig']);
         }
+
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
         }

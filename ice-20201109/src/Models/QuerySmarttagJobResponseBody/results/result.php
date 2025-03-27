@@ -4,42 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\QuerySmarttagJobResponseBody\results;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class result extends Model
 {
     /**
-     * @description The details of the analysis result. The value is a JSON string. For more information about the parameters of different result types, see the "Parameters of different result types" section of this topic.
-     *
-     * @example {"title":"example-title-****"}
-     *
      * @var string
      */
     public $data;
 
     /**
-     * @description The type of the analysis result.
-     *
-     *   The type of the analysis result based on Smart tagging V1.0. Valid values:
-     *
-     * 1.  TextLabel: the text tag.
-     * 2.  VideoLabel: the video tag.
-     * 3.  ASR: the original result of automatic speech recognition (ASR). By default, this type of result is not returned.
-     * 4.  OCR: the original result of optical character recognition (OCR). By default, this type of result is not returned.
-     * 5.  NLP: the natural language processing (NLP)-based result. By default, this type of result is not returned.
-     *
-     *   The type of the analysis result based on Smart tagging V2.0. Valid values:
-     *
-     * 1.  CPVLabel
-     * 2.  Meta: the information about the video file, such as the title of the video. By default, this type of information is not returned.
-     *
-     *   The type of the analysis result based on Smart tagging V2.0-custom. Valid values:
-     *
-     * 1.  CPVLabel
-     * 2.  Meta: the information about the video file, such as the title of the video. By default, this type of information is not returned.
-     *
-     * @example Meta
-     *
      * @var string
      */
     public $type;
@@ -48,14 +22,18 @@ class result extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -63,17 +41,18 @@ class result extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return result
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

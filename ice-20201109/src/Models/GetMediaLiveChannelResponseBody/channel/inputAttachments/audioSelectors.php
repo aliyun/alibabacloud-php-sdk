@@ -4,41 +4,29 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaLiveChannelResponseBody\channel\inputAttachments;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaLiveChannelResponseBody\channel\inputAttachments\audioSelectors\audioLanguageSelection;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaLiveChannelResponseBody\channel\inputAttachments\audioSelectors\audioPidSelection;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetMediaLiveChannelResponseBody\channel\inputAttachments\audioSelectors\audioTrackSelection;
-use AlibabaCloud\Tea\Model;
 
 class audioSelectors extends Model
 {
     /**
-     * @description The audio language selection.
-     *
      * @var audioLanguageSelection
      */
     public $audioLanguageSelection;
 
     /**
-     * @description The audio PID selection.
-     *
      * @var audioPidSelection
      */
     public $audioPidSelection;
 
     /**
-     * @description The audio track selection.
-     *
      * @var audioTrackSelection[]
      */
     public $audioTrackSelection;
 
     /**
-     * @description The name of the audio selector.
-     *
-     * This parameter is required.
-     *
-     * @example myselector
-     *
      * @var string
      */
     public $name;
@@ -49,26 +37,41 @@ class audioSelectors extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->audioLanguageSelection) {
+            $this->audioLanguageSelection->validate();
+        }
+        if (null !== $this->audioPidSelection) {
+            $this->audioPidSelection->validate();
+        }
+        if (\is_array($this->audioTrackSelection)) {
+            Model::validateArray($this->audioTrackSelection);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->audioLanguageSelection) {
-            $res['AudioLanguageSelection'] = null !== $this->audioLanguageSelection ? $this->audioLanguageSelection->toMap() : null;
+            $res['AudioLanguageSelection'] = null !== $this->audioLanguageSelection ? $this->audioLanguageSelection->toArray($noStream) : $this->audioLanguageSelection;
         }
+
         if (null !== $this->audioPidSelection) {
-            $res['AudioPidSelection'] = null !== $this->audioPidSelection ? $this->audioPidSelection->toMap() : null;
+            $res['AudioPidSelection'] = null !== $this->audioPidSelection ? $this->audioPidSelection->toArray($noStream) : $this->audioPidSelection;
         }
+
         if (null !== $this->audioTrackSelection) {
-            $res['AudioTrackSelection'] = [];
-            if (null !== $this->audioTrackSelection && \is_array($this->audioTrackSelection)) {
-                $n = 0;
-                foreach ($this->audioTrackSelection as $item) {
-                    $res['AudioTrackSelection'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->audioTrackSelection)) {
+                $res['AudioTrackSelection'] = [];
+                $n1 = 0;
+                foreach ($this->audioTrackSelection as $item1) {
+                    $res['AudioTrackSelection'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -76,29 +79,32 @@ class audioSelectors extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return audioSelectors
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AudioLanguageSelection'])) {
             $model->audioLanguageSelection = audioLanguageSelection::fromMap($map['AudioLanguageSelection']);
         }
+
         if (isset($map['AudioPidSelection'])) {
             $model->audioPidSelection = audioPidSelection::fromMap($map['AudioPidSelection']);
         }
+
         if (isset($map['AudioTrackSelection'])) {
             if (!empty($map['AudioTrackSelection'])) {
                 $model->audioTrackSelection = [];
-                $n = 0;
-                foreach ($map['AudioTrackSelection'] as $item) {
-                    $model->audioTrackSelection[$n++] = null !== $item ? audioTrackSelection::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AudioTrackSelection'] as $item1) {
+                    $model->audioTrackSelection[$n1++] = audioTrackSelection::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ICE\V20201109\Models\ListAdInsertionsResponseBody\configs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cdnConfig extends Model
 {
     /**
-     * @description The CDN prefix for ad segments.
-     *
-     * @example http://cdn.com/
-     *
      * @var string
      */
     public $adSegmentUrlPrefix;
 
     /**
-     * @description The CDN prefix for content segments.
-     *
-     * @example http://cdn.com/
-     *
      * @var string
      */
     public $contentSegmentUrlPrefix;
@@ -30,14 +22,18 @@ class cdnConfig extends Model
         'contentSegmentUrlPrefix' => 'ContentSegmentUrlPrefix',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->adSegmentUrlPrefix) {
             $res['AdSegmentUrlPrefix'] = $this->adSegmentUrlPrefix;
         }
+
         if (null !== $this->contentSegmentUrlPrefix) {
             $res['ContentSegmentUrlPrefix'] = $this->contentSegmentUrlPrefix;
         }
@@ -45,17 +41,18 @@ class cdnConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cdnConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdSegmentUrlPrefix'])) {
             $model->adSegmentUrlPrefix = $map['AdSegmentUrlPrefix'];
         }
+
         if (isset($map['ContentSegmentUrlPrefix'])) {
             $model->contentSegmentUrlPrefix = $map['ContentSegmentUrlPrefix'];
         }
