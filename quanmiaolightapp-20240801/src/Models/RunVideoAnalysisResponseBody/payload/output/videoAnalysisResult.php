@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoAnalysisResult\usage;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunVideoAnalysisResponseBody\payload\output\videoAnalysisResult\videoShotAnalysisResults;
-use AlibabaCloud\Tea\Model;
 
 class videoAnalysisResult extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $generateFinished;
 
     /**
-     * @example qwen-vl-max
-     *
      * @var string
      */
     public $modelId;
@@ -46,29 +42,42 @@ class videoAnalysisResult extends Model
         'videoShotAnalysisResults' => 'videoShotAnalysisResults',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->usage) {
+            $this->usage->validate();
+        }
+        if (\is_array($this->videoShotAnalysisResults)) {
+            Model::validateArray($this->videoShotAnalysisResults);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->generateFinished) {
             $res['generateFinished'] = $this->generateFinished;
         }
+
         if (null !== $this->modelId) {
             $res['modelId'] = $this->modelId;
         }
+
         if (null !== $this->text) {
             $res['text'] = $this->text;
         }
+
         if (null !== $this->usage) {
-            $res['usage'] = null !== $this->usage ? $this->usage->toMap() : null;
+            $res['usage'] = null !== $this->usage ? $this->usage->toArray($noStream) : $this->usage;
         }
+
         if (null !== $this->videoShotAnalysisResults) {
-            $res['videoShotAnalysisResults'] = [];
-            if (null !== $this->videoShotAnalysisResults && \is_array($this->videoShotAnalysisResults)) {
-                $n = 0;
-                foreach ($this->videoShotAnalysisResults as $item) {
-                    $res['videoShotAnalysisResults'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->videoShotAnalysisResults)) {
+                $res['videoShotAnalysisResults'] = [];
+                $n1 = 0;
+                foreach ($this->videoShotAnalysisResults as $item1) {
+                    $res['videoShotAnalysisResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -76,32 +85,36 @@ class videoAnalysisResult extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoAnalysisResult
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['generateFinished'])) {
             $model->generateFinished = $map['generateFinished'];
         }
+
         if (isset($map['modelId'])) {
             $model->modelId = $map['modelId'];
         }
+
         if (isset($map['text'])) {
             $model->text = $map['text'];
         }
+
         if (isset($map['usage'])) {
             $model->usage = usage::fromMap($map['usage']);
         }
+
         if (isset($map['videoShotAnalysisResults'])) {
             if (!empty($map['videoShotAnalysisResults'])) {
                 $model->videoShotAnalysisResults = [];
-                $n = 0;
-                foreach ($map['videoShotAnalysisResults'] as $item) {
-                    $model->videoShotAnalysisResults[$n++] = null !== $item ? videoShotAnalysisResults::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['videoShotAnalysisResults'] as $item1) {
+                    $model->videoShotAnalysisResults[$n1++] = videoShotAnalysisResults::fromMap($item1);
                 }
             }
         }

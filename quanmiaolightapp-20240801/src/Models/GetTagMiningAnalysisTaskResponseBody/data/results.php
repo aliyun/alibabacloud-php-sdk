@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetTagMiningAnalysisTaskResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetTagMiningAnalysisTaskResponseBody\data\results\header;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetTagMiningAnalysisTaskResponseBody\data\results\payload;
-use AlibabaCloud\Tea\Model;
 
 class results extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $customId;
@@ -32,38 +30,51 @@ class results extends Model
         'payload' => 'payload',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->header) {
+            $this->header->validate();
+        }
+        if (null !== $this->payload) {
+            $this->payload->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customId) {
             $res['customId'] = $this->customId;
         }
+
         if (null !== $this->header) {
-            $res['header'] = null !== $this->header ? $this->header->toMap() : null;
+            $res['header'] = null !== $this->header ? $this->header->toArray($noStream) : $this->header;
         }
+
         if (null !== $this->payload) {
-            $res['payload'] = null !== $this->payload ? $this->payload->toMap() : null;
+            $res['payload'] = null !== $this->payload ? $this->payload->toArray($noStream) : $this->payload;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['customId'])) {
             $model->customId = $map['customId'];
         }
+
         if (isset($map['header'])) {
             $model->header = header::fromMap($map['header']);
         }
+
         if (isset($map['payload'])) {
             $model->payload = payload::fromMap($map['payload']);
         }

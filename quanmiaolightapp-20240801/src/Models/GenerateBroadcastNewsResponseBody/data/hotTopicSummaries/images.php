@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GenerateBroadcastNewsResponseBody\data\hotTopicSummaries;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class images extends Model
 {
     /**
-     * @example http://xxx.com/xxx.jpeg
-     *
      * @var string
      */
     public $url;
@@ -18,9 +16,12 @@ class images extends Model
         'url' => 'url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->url) {
@@ -30,11 +31,11 @@ class images extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return images
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

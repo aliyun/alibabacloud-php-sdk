@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class videoRoles extends Model
 {
@@ -28,41 +28,61 @@ class videoRoles extends Model
         'urls' => 'urls',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->urls)) {
+            Model::validateArray($this->urls);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->roleInfo) {
             $res['roleInfo'] = $this->roleInfo;
         }
+
         if (null !== $this->roleName) {
             $res['roleName'] = $this->roleName;
         }
+
         if (null !== $this->urls) {
-            $res['urls'] = $this->urls;
+            if (\is_array($this->urls)) {
+                $res['urls'] = [];
+                $n1 = 0;
+                foreach ($this->urls as $item1) {
+                    $res['urls'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return videoRoles
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['roleInfo'])) {
             $model->roleInfo = $map['roleInfo'];
         }
+
         if (isset($map['roleName'])) {
             $model->roleName = $map['roleName'];
         }
+
         if (isset($map['urls'])) {
             if (!empty($map['urls'])) {
-                $model->urls = $map['urls'];
+                $model->urls = [];
+                $n1 = 0;
+                foreach ($map['urls'] as $item1) {
+                    $model->urls[$n1++] = $item1;
+                }
             }
         }
 

@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\GetTagMiningAnalysisTaskResponseBody\data\results\payload;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class usage extends Model
 {
     /**
-     * @example 100
-     *
      * @var int
      */
     public $inputToken;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $outputToken;
 
     /**
-     * @example 300
-     *
      * @var int
      */
     public $totalToken;
@@ -34,17 +28,22 @@ class usage extends Model
         'totalToken' => 'totalToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inputToken) {
             $res['inputToken'] = $this->inputToken;
         }
+
         if (null !== $this->outputToken) {
             $res['outputToken'] = $this->outputToken;
         }
+
         if (null !== $this->totalToken) {
             $res['totalToken'] = $this->totalToken;
         }
@@ -52,20 +51,22 @@ class usage extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return usage
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['inputToken'])) {
             $model->inputToken = $map['inputToken'];
         }
+
         if (isset($map['outputToken'])) {
             $model->outputToken = $map['outputToken'];
         }
+
         if (isset($map['totalToken'])) {
             $model->totalToken = $map['totalToken'];
         }

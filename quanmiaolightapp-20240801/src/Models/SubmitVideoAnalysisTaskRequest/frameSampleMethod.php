@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\SubmitVideoAnalysisTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class frameSampleMethod extends Model
 {
     /**
-     * @example 2
-     *
      * @var float
      */
     public $interval;
 
     /**
-     * @example standard
-     *
      * @var string
      */
     public $methodName;
 
     /**
-     * @example 768
-     *
      * @var int
      */
     public $pixel;
@@ -34,17 +28,22 @@ class frameSampleMethod extends Model
         'pixel' => 'pixel',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->interval) {
             $res['interval'] = $this->interval;
         }
+
         if (null !== $this->methodName) {
             $res['methodName'] = $this->methodName;
         }
+
         if (null !== $this->pixel) {
             $res['pixel'] = $this->pixel;
         }
@@ -52,20 +51,22 @@ class frameSampleMethod extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return frameSampleMethod
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['interval'])) {
             $model->interval = $map['interval'];
         }
+
         if (isset($map['methodName'])) {
             $model->methodName = $map['methodName'];
         }
+
         if (isset($map['pixel'])) {
             $model->pixel = $map['pixel'];
         }

@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\QuanMiaoLightApp\V20240801\Models\RunHotTopicSummaryRequest\stepForCustomSummaryStyleConfig;
-use AlibabaCloud\Tea\Model;
 
 class RunHotTopicSummaryRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 2024-10-16_8
-     *
      * @var string
      */
     public $hotTopicVersion;
 
     /**
-     * @description This parameter is required.
-     *
      * @var stepForCustomSummaryStyleConfig
      */
     public $stepForCustomSummaryStyleConfig;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example xxxxx
-     *
      * @var string[]
      */
     public $topicIds;
@@ -39,41 +29,64 @@ class RunHotTopicSummaryRequest extends Model
         'topicIds' => 'topicIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->stepForCustomSummaryStyleConfig) {
+            $this->stepForCustomSummaryStyleConfig->validate();
+        }
+        if (\is_array($this->topicIds)) {
+            Model::validateArray($this->topicIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hotTopicVersion) {
             $res['hotTopicVersion'] = $this->hotTopicVersion;
         }
+
         if (null !== $this->stepForCustomSummaryStyleConfig) {
-            $res['stepForCustomSummaryStyleConfig'] = null !== $this->stepForCustomSummaryStyleConfig ? $this->stepForCustomSummaryStyleConfig->toMap() : null;
+            $res['stepForCustomSummaryStyleConfig'] = null !== $this->stepForCustomSummaryStyleConfig ? $this->stepForCustomSummaryStyleConfig->toArray($noStream) : $this->stepForCustomSummaryStyleConfig;
         }
+
         if (null !== $this->topicIds) {
-            $res['topicIds'] = $this->topicIds;
+            if (\is_array($this->topicIds)) {
+                $res['topicIds'] = [];
+                $n1 = 0;
+                foreach ($this->topicIds as $item1) {
+                    $res['topicIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RunHotTopicSummaryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['hotTopicVersion'])) {
             $model->hotTopicVersion = $map['hotTopicVersion'];
         }
+
         if (isset($map['stepForCustomSummaryStyleConfig'])) {
             $model->stepForCustomSummaryStyleConfig = stepForCustomSummaryStyleConfig::fromMap($map['stepForCustomSummaryStyleConfig']);
         }
+
         if (isset($map['topicIds'])) {
             if (!empty($map['topicIds'])) {
-                $model->topicIds = $map['topicIds'];
+                $model->topicIds = [];
+                $n1 = 0;
+                foreach ($map['topicIds'] as $item1) {
+                    $model->topicIds[$n1++] = $item1;
+                }
             }
         }
 
