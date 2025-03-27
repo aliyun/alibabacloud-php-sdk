@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Antiddospublic\V20170518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeIpLocationServiceRequest extends Model
 {
     /**
-     * @description The IP address of the asset to query.
-     *
-     * This parameter is required.
-     * @example 121.199.XX.XX
-     *
      * @var string
      */
     public $internetIp;
@@ -23,9 +18,10 @@ class DescribeIpLocationServiceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->internetIp) {
@@ -35,11 +31,11 @@ class DescribeIpLocationServiceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeIpLocationServiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

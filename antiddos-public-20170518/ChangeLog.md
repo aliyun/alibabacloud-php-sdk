@@ -1,3 +1,6 @@
+2025-03-27 Version: 1.0.9
+- Generated php 2017-05-18 for antiddos-public.
+
 2024-05-13 Version: 1.0.8
 - Generated php 2017-05-18 for antiddos-public.
 

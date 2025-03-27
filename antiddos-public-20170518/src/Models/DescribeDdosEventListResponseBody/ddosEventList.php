@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosEventListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeDdosEventListResponseBody\ddosEventList\ddosEvent;
-use AlibabaCloud\Tea\Model;
 
 class ddosEventList extends Model
 {
@@ -19,17 +19,21 @@ class ddosEventList extends Model
 
     public function validate()
     {
+        if (\is_array($this->ddosEvent)) {
+            Model::validateArray($this->ddosEvent);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ddosEvent) {
-            $res['DdosEvent'] = [];
-            if (null !== $this->ddosEvent && \is_array($this->ddosEvent)) {
-                $n = 0;
-                foreach ($this->ddosEvent as $item) {
-                    $res['DdosEvent'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ddosEvent)) {
+                $res['DdosEvent'] = [];
+                $n1 = 0;
+                foreach ($this->ddosEvent as $item1) {
+                    $res['DdosEvent'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class ddosEventList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ddosEventList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DdosEvent'])) {
             if (!empty($map['DdosEvent'])) {
                 $model->ddosEvent = [];
-                $n                = 0;
-                foreach ($map['DdosEvent'] as $item) {
-                    $model->ddosEvent[$n++] = null !== $item ? ddosEvent::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DdosEvent'] as $item1) {
+                    $model->ddosEvent[$n1++] = ddosEvent::fromMap($item1);
                 }
             }
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Antiddospublic\V20170518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyIpDefenseThresholdResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example BC0607F8-A9F3-5E11-977B-D59CD58C64ED
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class ModifyIpDefenseThresholdResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class ModifyIpDefenseThresholdResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyIpDefenseThresholdResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

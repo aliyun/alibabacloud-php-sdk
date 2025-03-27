@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\Antiddospublic\V20170518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeIpDdosThresholdResponseBody\threshold;
-use AlibabaCloud\Tea\Model;
 
 class DescribeIpDdosThresholdResponseBody extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 025F1688-680B-551A-9A8E-1A0D796315CF
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description An array that consists of the details of the threshold.
-     *
      * @var threshold
      */
     public $threshold;
@@ -31,32 +25,38 @@ class DescribeIpDdosThresholdResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->threshold) {
+            $this->threshold->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->threshold) {
-            $res['Threshold'] = null !== $this->threshold ? $this->threshold->toMap() : null;
+            $res['Threshold'] = null !== $this->threshold ? $this->threshold->toArray($noStream) : $this->threshold;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeIpDdosThresholdResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Threshold'])) {
             $model->threshold = threshold::fromMap($map['Threshold']);
         }

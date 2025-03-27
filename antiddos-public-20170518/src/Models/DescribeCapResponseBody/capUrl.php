@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Antiddospublic\V20170518\Models\DescribeCapResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class capUrl extends Model
 {
     /**
-     * @description The download link to the traffic data.
-     *
-     * @example http://beaver-pack****.oss-cn-hangzhou.aliyuncs.com/ddos-2021112511-121.89.XX.XX.cap?Expires=1637824408&OSSAccessKeyId=LTAIXu2lJhw3****&Signature=KKSzOMSUajtwcqfqxkU1nK69d4****
-     *
      * @var string
      */
     public $url;
@@ -22,9 +18,10 @@ class capUrl extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->url) {
@@ -34,11 +31,11 @@ class capUrl extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return capUrl
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
