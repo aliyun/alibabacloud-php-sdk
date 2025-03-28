@@ -12,23 +12,26 @@ class GetSubPartnerListRequest extends Model
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $subPartnerCompanyName;
+
     /**
      * @var string
      */
     public $subPartnerPid;
     protected $_name = [
-        'pageNo'                => 'PageNo',
-        'pageSize'              => 'PageSize',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'subPartnerCompanyName' => 'SubPartnerCompanyName',
-        'subPartnerPid'         => 'SubPartnerPid',
+        'subPartnerPid' => 'SubPartnerPid',
     ];
 
     public function validate()

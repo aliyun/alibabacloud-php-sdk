@@ -12,92 +12,109 @@ class GetCustomerOrderListShrinkRequest extends Model
      * @var string
      */
     public $customerAccount;
+
     /**
      * @var int
      */
     public $customerUid;
+
     /**
      * @var int
      */
     public $orderCreateAfter;
+
     /**
      * @var int
      */
     public $orderCreateBefore;
+
     /**
      * @var int
      */
     public $orderId;
+
     /**
      * @var int
      */
     public $orderPayAfter;
+
     /**
      * @var int
      */
     public $orderPayBefore;
+
     /**
      * @var int
      */
     public $orderStatus;
+
     /**
      * @var string
      */
     public $orderTypeListShrink;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var float
      */
     public $payAmountAfter;
+
     /**
      * @var float
      */
     public $payAmountBefore;
+
     /**
      * @var int
      */
     public $payType;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $productName;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $ramAccountForCustomerManager;
     protected $_name = [
-        'customerAccount'              => 'CustomerAccount',
-        'customerUid'                  => 'CustomerUid',
-        'orderCreateAfter'             => 'OrderCreateAfter',
-        'orderCreateBefore'            => 'OrderCreateBefore',
-        'orderId'                      => 'OrderId',
-        'orderPayAfter'                => 'OrderPayAfter',
-        'orderPayBefore'               => 'OrderPayBefore',
-        'orderStatus'                  => 'OrderStatus',
-        'orderTypeListShrink'          => 'OrderTypeList',
-        'pageNo'                       => 'PageNo',
-        'pageSize'                     => 'PageSize',
-        'payAmountAfter'               => 'PayAmountAfter',
-        'payAmountBefore'              => 'PayAmountBefore',
-        'payType'                      => 'PayType',
-        'productCode'                  => 'ProductCode',
-        'productName'                  => 'ProductName',
-        'projectId'                    => 'ProjectId',
+        'customerAccount' => 'CustomerAccount',
+        'customerUid' => 'CustomerUid',
+        'orderCreateAfter' => 'OrderCreateAfter',
+        'orderCreateBefore' => 'OrderCreateBefore',
+        'orderId' => 'OrderId',
+        'orderPayAfter' => 'OrderPayAfter',
+        'orderPayBefore' => 'OrderPayBefore',
+        'orderStatus' => 'OrderStatus',
+        'orderTypeListShrink' => 'OrderTypeList',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'payAmountAfter' => 'PayAmountAfter',
+        'payAmountBefore' => 'PayAmountBefore',
+        'payType' => 'PayType',
+        'productCode' => 'ProductCode',
+        'productName' => 'ProductName',
+        'projectId' => 'ProjectId',
         'ramAccountForCustomerManager' => 'RamAccountForCustomerManager',
     ];
 

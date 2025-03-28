@@ -12,23 +12,26 @@ class data extends Model
      * @var string
      */
     public $billMonth;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $fileUrl;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'billMonth' => 'BillMonth',
-        'fileName'  => 'FileName',
-        'fileUrl'   => 'FileUrl',
-        'type'      => 'Type',
+        'fileName' => 'FileName',
+        'fileUrl' => 'FileUrl',
+        'type' => 'Type',
     ];
 
     public function validate()

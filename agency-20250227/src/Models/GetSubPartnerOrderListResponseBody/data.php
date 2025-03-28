@@ -12,83 +12,98 @@ class data extends Model
      * @var float
      */
     public $amountDiscount;
+
     /**
      * @var float
      */
     public $amountDue;
+
     /**
      * @var string
      */
     public $createdAt;
+
     /**
      * @var float
      */
     public $deductedAmountByCoupons;
+
     /**
      * @var float
      */
     public $discountedPrice;
+
     /**
      * @var int
      */
     public $orderId;
+
     /**
      * @var int
      */
     public $orderStatus;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $paidAt;
+
     /**
      * @var int
      */
     public $payType;
+
     /**
      * @var float
      */
     public $price;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $productName;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $subPartnerName;
+
     /**
      * @var int
      */
     public $subPartnerUid;
     protected $_name = [
-        'amountDiscount'          => 'AmountDiscount',
-        'amountDue'               => 'AmountDue',
-        'createdAt'               => 'CreatedAt',
+        'amountDiscount' => 'AmountDiscount',
+        'amountDue' => 'AmountDue',
+        'createdAt' => 'CreatedAt',
         'deductedAmountByCoupons' => 'DeductedAmountByCoupons',
-        'discountedPrice'         => 'DiscountedPrice',
-        'orderId'                 => 'OrderId',
-        'orderStatus'             => 'OrderStatus',
-        'orderType'               => 'OrderType',
-        'paidAt'                  => 'PaidAt',
-        'payType'                 => 'PayType',
-        'price'                   => 'Price',
-        'productCode'             => 'ProductCode',
-        'productName'             => 'ProductName',
-        'projectId'               => 'ProjectId',
-        'subPartnerName'          => 'SubPartnerName',
-        'subPartnerUid'           => 'SubPartnerUid',
+        'discountedPrice' => 'DiscountedPrice',
+        'orderId' => 'OrderId',
+        'orderStatus' => 'OrderStatus',
+        'orderType' => 'OrderType',
+        'paidAt' => 'PaidAt',
+        'payType' => 'PayType',
+        'price' => 'Price',
+        'productCode' => 'ProductCode',
+        'productName' => 'ProductName',
+        'projectId' => 'ProjectId',
+        'subPartnerName' => 'SubPartnerName',
+        'subPartnerUid' => 'SubPartnerUid',
     ];
 
     public function validate()

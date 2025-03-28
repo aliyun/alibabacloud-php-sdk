@@ -30,63 +30,63 @@ class Agency extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-1'              => 'agency.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'agency.aliyuncs.com',
-            'ap-south-1'                  => 'agency.aliyuncs.com',
-            'ap-southeast-2'              => 'agency.aliyuncs.com',
-            'ap-southeast-3'              => 'agency.aliyuncs.com',
-            'ap-southeast-5'              => 'agency.aliyuncs.com',
-            'cn-beijing'                  => 'agency.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'agency.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'agency.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'agency.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'agency.aliyuncs.com',
-            'cn-chengdu'                  => 'agency.aliyuncs.com',
-            'cn-edge-1'                   => 'agency.aliyuncs.com',
-            'cn-fujian'                   => 'agency.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'agency.aliyuncs.com',
-            'cn-hangzhou'                 => 'agency.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'agency.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'agency.aliyuncs.com',
+        $this->_endpointMap = [
+            'ap-northeast-1' => 'agency.aliyuncs.com',
+            'ap-northeast-2-pop' => 'agency.aliyuncs.com',
+            'ap-south-1' => 'agency.aliyuncs.com',
+            'ap-southeast-2' => 'agency.aliyuncs.com',
+            'ap-southeast-3' => 'agency.aliyuncs.com',
+            'ap-southeast-5' => 'agency.aliyuncs.com',
+            'cn-beijing' => 'agency.aliyuncs.com',
+            'cn-beijing-finance-1' => 'agency.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'agency.aliyuncs.com',
+            'cn-beijing-gov-1' => 'agency.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'agency.aliyuncs.com',
+            'cn-chengdu' => 'agency.aliyuncs.com',
+            'cn-edge-1' => 'agency.aliyuncs.com',
+            'cn-fujian' => 'agency.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'agency.aliyuncs.com',
+            'cn-hangzhou' => 'agency.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'agency.aliyuncs.com',
+            'cn-hangzhou-finance' => 'agency.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'agency.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'agency.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'agency.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'agency.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'agency.aliyuncs.com',
-            'cn-hongkong'                 => 'agency.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'agency.aliyuncs.com',
-            'cn-huhehaote'                => 'agency.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'agency.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'agency.aliyuncs.com',
-            'cn-qingdao'                  => 'agency.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'agency.aliyuncs.com',
-            'cn-shanghai'                 => 'agency.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'agency.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'agency.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'agency.aliyuncs.com',
-            'cn-shanghai-inner'           => 'agency.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'agency.aliyuncs.com',
+            'cn-hongkong' => 'agency.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'agency.aliyuncs.com',
+            'cn-huhehaote' => 'agency.aliyuncs.com',
+            'cn-huhehaote-nebula-1' => 'agency.aliyuncs.com',
+            'cn-north-2-gov-1' => 'agency.aliyuncs.com',
+            'cn-qingdao' => 'agency.aliyuncs.com',
+            'cn-qingdao-nebula' => 'agency.aliyuncs.com',
+            'cn-shanghai' => 'agency.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'agency.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'agency.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'agency.aliyuncs.com',
+            'cn-shanghai-inner' => 'agency.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'agency.aliyuncs.com',
-            'cn-shenzhen'                 => 'agency.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'agency.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'agency.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'agency.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'agency.aliyuncs.com',
-            'cn-wuhan'                    => 'agency.aliyuncs.com',
-            'cn-wulanchabu'               => 'agency.aliyuncs.com',
-            'cn-yushanfang'               => 'agency.aliyuncs.com',
-            'cn-zhangbei'                 => 'agency.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'agency.aliyuncs.com',
-            'cn-zhangjiakou'              => 'agency.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'agency.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'agency.aliyuncs.com',
-            'eu-central-1'                => 'agency.aliyuncs.com',
-            'eu-west-1'                   => 'agency.aliyuncs.com',
-            'eu-west-1-oxs'               => 'agency.aliyuncs.com',
-            'me-east-1'                   => 'agency.aliyuncs.com',
-            'rus-west-1-pop'              => 'agency.aliyuncs.com',
-            'us-east-1'                   => 'agency.aliyuncs.com',
-            'us-west-1'                   => 'agency.aliyuncs.com',
+            'cn-shenzhen' => 'agency.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'agency.aliyuncs.com',
+            'cn-shenzhen-inner' => 'agency.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'agency.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'agency.aliyuncs.com',
+            'cn-wuhan' => 'agency.aliyuncs.com',
+            'cn-wulanchabu' => 'agency.aliyuncs.com',
+            'cn-yushanfang' => 'agency.aliyuncs.com',
+            'cn-zhangbei' => 'agency.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'agency.aliyuncs.com',
+            'cn-zhangjiakou' => 'agency.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'agency.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'agency.aliyuncs.com',
+            'eu-central-1' => 'agency.aliyuncs.com',
+            'eu-west-1' => 'agency.aliyuncs.com',
+            'eu-west-1-oxs' => 'agency.aliyuncs.com',
+            'me-east-1' => 'agency.aliyuncs.com',
+            'rus-west-1-pop' => 'agency.aliyuncs.com',
+            'us-east-1' => 'agency.aliyuncs.com',
+            'us-west-1' => 'agency.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('agency', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -121,6 +121,7 @@ class Agency extends OpenApiClient
      *
      * @param request - GetBillDetailFileListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetBillDetailFileListResponse
      *
      * @param GetBillDetailFileListRequest $request
@@ -140,15 +141,15 @@ class Agency extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetBillDetailFileList',
-            'version'     => '2025-02-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBillDetailFileList',
+            'version' => '2025-02-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetBillDetailFileListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -161,6 +162,7 @@ class Agency extends OpenApiClient
      * 查询账单导出文件.
      *
      * @param request - GetBillDetailFileListRequest
+     *
      * @returns GetBillDetailFileListResponse
      *
      * @param GetBillDetailFileListRequest $request
@@ -179,6 +181,7 @@ class Agency extends OpenApiClient
      *
      * @param request - GetCommissionDetailFileListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCommissionDetailFileListResponse
      *
      * @param GetCommissionDetailFileListRequest $request
@@ -198,15 +201,15 @@ class Agency extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCommissionDetailFileList',
-            'version'     => '2025-02-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCommissionDetailFileList',
+            'version' => '2025-02-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetCommissionDetailFileListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -219,6 +222,7 @@ class Agency extends OpenApiClient
      * 查询伙伴佣金明细.
      *
      * @param request - GetCommissionDetailFileListRequest
+     *
      * @returns GetCommissionDetailFileListResponse
      *
      * @param GetCommissionDetailFileListRequest $request
@@ -237,6 +241,7 @@ class Agency extends OpenApiClient
      *
      * @param tmpReq - GetCustomerOrderListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCustomerOrderListResponse
      *
      * @param GetCustomerOrderListRequest $tmpReq
@@ -330,15 +335,15 @@ class Agency extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCustomerOrderList',
-            'version'     => '2025-02-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCustomerOrderList',
+            'version' => '2025-02-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetCustomerOrderListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -351,6 +356,7 @@ class Agency extends OpenApiClient
      * 查询伙伴拓客订单.
      *
      * @param request - GetCustomerOrderListRequest
+     *
      * @returns GetCustomerOrderListResponse
      *
      * @param GetCustomerOrderListRequest $request
@@ -369,6 +375,7 @@ class Agency extends OpenApiClient
      *
      * @param request - GetRenewalRateListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRenewalRateListResponse
      *
      * @param GetRenewalRateListRequest $request
@@ -388,15 +395,15 @@ class Agency extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRenewalRateList',
-            'version'     => '2025-02-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRenewalRateList',
+            'version' => '2025-02-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetRenewalRateListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -409,6 +416,7 @@ class Agency extends OpenApiClient
      * 查询伙伴续费率.
      *
      * @param request - GetRenewalRateListRequest
+     *
      * @returns GetRenewalRateListResponse
      *
      * @param GetRenewalRateListRequest $request
@@ -427,6 +435,7 @@ class Agency extends OpenApiClient
      *
      * @param request - GetSubPartnerListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSubPartnerListResponse
      *
      * @param GetSubPartnerListRequest $request
@@ -458,15 +467,15 @@ class Agency extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSubPartnerList',
-            'version'     => '2025-02-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSubPartnerList',
+            'version' => '2025-02-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSubPartnerListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -479,6 +488,7 @@ class Agency extends OpenApiClient
      * 查询二级分销商列表.
      *
      * @param request - GetSubPartnerListRequest
+     *
      * @returns GetSubPartnerListResponse
      *
      * @param GetSubPartnerListRequest $request
@@ -497,6 +507,7 @@ class Agency extends OpenApiClient
      *
      * @param tmpReq - GetSubPartnerOrderListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSubPartnerOrderListResponse
      *
      * @param GetSubPartnerOrderListRequest $tmpReq
@@ -586,15 +597,15 @@ class Agency extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSubPartnerOrderList',
-            'version'     => '2025-02-27',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSubPartnerOrderList',
+            'version' => '2025-02-27',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSubPartnerOrderListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -607,6 +618,7 @@ class Agency extends OpenApiClient
      * 查询拓渠订单.
      *
      * @param request - GetSubPartnerOrderListRequest
+     *
      * @returns GetSubPartnerOrderListResponse
      *
      * @param GetSubPartnerOrderListRequest $request

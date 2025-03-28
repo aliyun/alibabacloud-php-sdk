@@ -12,92 +12,109 @@ class data extends Model
      * @var float
      */
     public $amountDiscount;
+
     /**
      * @var float
      */
     public $amountDue;
+
     /**
      * @var string
      */
     public $createdAt;
+
     /**
      * @var string
      */
     public $customerAccount;
+
     /**
      * @var string
      */
     public $customerClassification;
+
     /**
      * @var int
      */
     public $customerUid;
+
     /**
      * @var float
      */
     public $deductedAmountByCoupons;
+
     /**
      * @var float
      */
     public $discountedPrice;
+
     /**
      * @var int
      */
     public $orderId;
+
     /**
      * @var int
      */
     public $orderStatus;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $paidAt;
+
     /**
      * @var int
      */
     public $payType;
+
     /**
      * @var float
      */
     public $price;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $productName;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string[]
      */
     public $ramAccountForCustomerManagers;
     protected $_name = [
-        'amountDiscount'                => 'AmountDiscount',
-        'amountDue'                     => 'AmountDue',
-        'createdAt'                     => 'CreatedAt',
-        'customerAccount'               => 'CustomerAccount',
-        'customerClassification'        => 'CustomerClassification',
-        'customerUid'                   => 'CustomerUid',
-        'deductedAmountByCoupons'       => 'DeductedAmountByCoupons',
-        'discountedPrice'               => 'DiscountedPrice',
-        'orderId'                       => 'OrderId',
-        'orderStatus'                   => 'OrderStatus',
-        'orderType'                     => 'OrderType',
-        'paidAt'                        => 'PaidAt',
-        'payType'                       => 'PayType',
-        'price'                         => 'Price',
-        'productCode'                   => 'ProductCode',
-        'productName'                   => 'ProductName',
-        'projectId'                     => 'ProjectId',
+        'amountDiscount' => 'AmountDiscount',
+        'amountDue' => 'AmountDue',
+        'createdAt' => 'CreatedAt',
+        'customerAccount' => 'CustomerAccount',
+        'customerClassification' => 'CustomerClassification',
+        'customerUid' => 'CustomerUid',
+        'deductedAmountByCoupons' => 'DeductedAmountByCoupons',
+        'discountedPrice' => 'DiscountedPrice',
+        'orderId' => 'OrderId',
+        'orderStatus' => 'OrderStatus',
+        'orderType' => 'OrderType',
+        'paidAt' => 'PaidAt',
+        'payType' => 'PayType',
+        'price' => 'Price',
+        'productCode' => 'ProductCode',
+        'productName' => 'ProductName',
+        'projectId' => 'ProjectId',
         'ramAccountForCustomerManagers' => 'RamAccountForCustomerManagers',
     ];
 
@@ -183,7 +200,7 @@ class data extends Model
         if (null !== $this->ramAccountForCustomerManagers) {
             if (\is_array($this->ramAccountForCustomerManagers)) {
                 $res['RamAccountForCustomerManagers'] = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($this->ramAccountForCustomerManagers as $item1) {
                     $res['RamAccountForCustomerManagers'][$n1++] = $item1;
                 }
@@ -272,7 +289,7 @@ class data extends Model
         if (isset($map['RamAccountForCustomerManagers'])) {
             if (!empty($map['RamAccountForCustomerManagers'])) {
                 $model->ramAccountForCustomerManagers = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($map['RamAccountForCustomerManagers'] as $item1) {
                     $model->ramAccountForCustomerManagers[$n1++] = $item1;
                 }

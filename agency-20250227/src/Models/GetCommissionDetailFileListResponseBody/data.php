@@ -13,17 +13,19 @@ class data extends Model
      * @var string
      */
     public $billMonth;
+
     /**
      * @var fileList[]
      */
     public $fileList;
+
     /**
      * @var string
      */
     public $partnerUid;
     protected $_name = [
-        'billMonth'  => 'BillMonth',
-        'fileList'   => 'FileList',
+        'billMonth' => 'BillMonth',
+        'fileList' => 'FileList',
         'partnerUid' => 'PartnerUid',
     ];
 
@@ -45,7 +47,7 @@ class data extends Model
         if (null !== $this->fileList) {
             if (\is_array($this->fileList)) {
                 $res['FileList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->fileList as $item1) {
                     $res['FileList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class data extends Model
         if (isset($map['FileList'])) {
             if (!empty($map['FileList'])) {
                 $model->fileList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['FileList'] as $item1) {
                     $model->fileList[$n1++] = fileList::fromMap($item1);
                 }

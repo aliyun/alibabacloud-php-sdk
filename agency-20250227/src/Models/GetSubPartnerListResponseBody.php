@@ -5,52 +5,58 @@
 namespace AlibabaCloud\SDK\Agency\V20250227\Models;
 
 use AlibabaCloud\Dara\Model;
-use AlibabaCloud\SDK\Agency\V20250227\Models\GetSubPartnerListResponseBody\data;
+use AlibabaCloud\SDK\Agency\V20250227\Models\GetSubPartnerListResponseBody\subPartnerList;
 
 class GetSubPartnerListResponseBody extends Model
 {
     /**
-     * @var data
-     */
-    public $data;
-    /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $pageNo;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var subPartnerList[]
+     */
+    public $subPartnerList;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'data'      => 'Data',
-        'message'   => 'Message',
-        'pageNo'    => 'PageNo',
-        'pageSize'  => 'PageSize',
+        'message' => 'Message',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'total'     => 'Total',
+        'subPartnerList' => 'SubPartnerList',
+        'success' => 'Success',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
-        if (null !== $this->data) {
-            $this->data->validate();
+        if (\is_array($this->subPartnerList)) {
+            Model::validateArray($this->subPartnerList);
         }
         parent::validate();
     }
@@ -58,10 +64,6 @@ class GetSubPartnerListResponseBody extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
-        }
-
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -76,6 +78,16 @@ class GetSubPartnerListResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->subPartnerList) {
+            if (\is_array($this->subPartnerList)) {
+                $res['SubPartnerList'] = [];
+                $n1 = 0;
+                foreach ($this->subPartnerList as $item1) {
+                    $res['SubPartnerList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->success) {
@@ -97,10 +109,6 @@ class GetSubPartnerListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
-
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
@@ -115,6 +123,16 @@ class GetSubPartnerListResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['SubPartnerList'])) {
+            if (!empty($map['SubPartnerList'])) {
+                $model->subPartnerList = [];
+                $n1 = 0;
+                foreach ($map['SubPartnerList'] as $item1) {
+                    $model->subPartnerList[$n1++] = subPartnerList::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['Success'])) {

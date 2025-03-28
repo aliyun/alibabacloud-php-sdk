@@ -12,133 +12,158 @@ class data extends Model
      * @var float
      */
     public $customerAdjustedRenewalAmountDue;
+
     /**
      * @var float
      */
     public $customerOtherBillAmount;
+
     /**
      * @var float
      */
     public $finalCustomerRenewalAmountDue;
+
     /**
      * @var float
      */
     public $finalCustomerRenewalRate;
+
     /**
      * @var float
      */
     public $finalCustomerRenewedAmount;
+
     /**
      * @var float
      */
     public $finalOtherBillAmount;
+
     /**
      * @var float
      */
     public $finalRenewalAmountDue;
+
     /**
      * @var float
      */
     public $finalRenewalRate;
+
     /**
      * @var float
      */
     public $finalRenewedAmount;
+
     /**
      * @var float
      */
     public $finalSubPartnerRenewalAmountDue;
+
     /**
      * @var float
      */
     public $finalSubPartnerRenewalRate;
+
     /**
      * @var float
      */
     public $finalSubPartnerRenewedAmount;
+
     /**
      * @var string
      */
     public $fiscalYearAndQuarter;
+
     /**
      * @var string
      */
     public $masterPid;
+
     /**
      * @var string
      */
     public $masterPidName;
+
     /**
      * @var float
      */
     public $specialCustomerRenewRatio;
+
     /**
      * @var float
      */
     public $specialCustomerRenewalAmountDue;
+
     /**
      * @var float
      */
     public $specialCustomerRenewedAmount;
+
     /**
      * @var float
      */
     public $specialFinalRenewRatio;
+
     /**
      * @var float
      */
     public $specialFinalRenewalAmountDue;
+
     /**
      * @var float
      */
     public $specialFinalRenewedAmount;
+
     /**
      * @var float
      */
     public $specialSubPartnerRenewRatio;
+
     /**
      * @var float
      */
     public $specialSubPartnerRenewalAmountDue;
+
     /**
      * @var float
      */
     public $specialSubPartnerRenewedAmount;
+
     /**
      * @var float
      */
     public $subPartnerAdjustedRenewalAmountDue;
+
     /**
      * @var float
      */
     public $subPartnerOtherBillAmount;
     protected $_name = [
-        'customerAdjustedRenewalAmountDue'   => 'CustomerAdjustedRenewalAmountDue',
-        'customerOtherBillAmount'            => 'CustomerOtherBillAmount',
-        'finalCustomerRenewalAmountDue'      => 'FinalCustomerRenewalAmountDue',
-        'finalCustomerRenewalRate'           => 'FinalCustomerRenewalRate',
-        'finalCustomerRenewedAmount'         => 'FinalCustomerRenewedAmount',
-        'finalOtherBillAmount'               => 'FinalOtherBillAmount',
-        'finalRenewalAmountDue'              => 'FinalRenewalAmountDue',
-        'finalRenewalRate'                   => 'FinalRenewalRate',
-        'finalRenewedAmount'                 => 'FinalRenewedAmount',
-        'finalSubPartnerRenewalAmountDue'    => 'FinalSubPartnerRenewalAmountDue',
-        'finalSubPartnerRenewalRate'         => 'FinalSubPartnerRenewalRate',
-        'finalSubPartnerRenewedAmount'       => 'FinalSubPartnerRenewedAmount',
-        'fiscalYearAndQuarter'               => 'FiscalYearAndQuarter',
-        'masterPid'                          => 'MasterPid',
-        'masterPidName'                      => 'MasterPidName',
-        'specialCustomerRenewRatio'          => 'SpecialCustomerRenewRatio',
-        'specialCustomerRenewalAmountDue'    => 'SpecialCustomerRenewalAmountDue',
-        'specialCustomerRenewedAmount'       => 'SpecialCustomerRenewedAmount',
-        'specialFinalRenewRatio'             => 'SpecialFinalRenewRatio',
-        'specialFinalRenewalAmountDue'       => 'SpecialFinalRenewalAmountDue',
-        'specialFinalRenewedAmount'          => 'SpecialFinalRenewedAmount',
-        'specialSubPartnerRenewRatio'        => 'SpecialSubPartnerRenewRatio',
-        'specialSubPartnerRenewalAmountDue'  => 'SpecialSubPartnerRenewalAmountDue',
-        'specialSubPartnerRenewedAmount'     => 'SpecialSubPartnerRenewedAmount',
+        'customerAdjustedRenewalAmountDue' => 'CustomerAdjustedRenewalAmountDue',
+        'customerOtherBillAmount' => 'CustomerOtherBillAmount',
+        'finalCustomerRenewalAmountDue' => 'FinalCustomerRenewalAmountDue',
+        'finalCustomerRenewalRate' => 'FinalCustomerRenewalRate',
+        'finalCustomerRenewedAmount' => 'FinalCustomerRenewedAmount',
+        'finalOtherBillAmount' => 'FinalOtherBillAmount',
+        'finalRenewalAmountDue' => 'FinalRenewalAmountDue',
+        'finalRenewalRate' => 'FinalRenewalRate',
+        'finalRenewedAmount' => 'FinalRenewedAmount',
+        'finalSubPartnerRenewalAmountDue' => 'FinalSubPartnerRenewalAmountDue',
+        'finalSubPartnerRenewalRate' => 'FinalSubPartnerRenewalRate',
+        'finalSubPartnerRenewedAmount' => 'FinalSubPartnerRenewedAmount',
+        'fiscalYearAndQuarter' => 'FiscalYearAndQuarter',
+        'masterPid' => 'MasterPid',
+        'masterPidName' => 'MasterPidName',
+        'specialCustomerRenewRatio' => 'SpecialCustomerRenewRatio',
+        'specialCustomerRenewalAmountDue' => 'SpecialCustomerRenewalAmountDue',
+        'specialCustomerRenewedAmount' => 'SpecialCustomerRenewedAmount',
+        'specialFinalRenewRatio' => 'SpecialFinalRenewRatio',
+        'specialFinalRenewalAmountDue' => 'SpecialFinalRenewalAmountDue',
+        'specialFinalRenewedAmount' => 'SpecialFinalRenewedAmount',
+        'specialSubPartnerRenewRatio' => 'SpecialSubPartnerRenewRatio',
+        'specialSubPartnerRenewalAmountDue' => 'SpecialSubPartnerRenewalAmountDue',
+        'specialSubPartnerRenewedAmount' => 'SpecialSubPartnerRenewedAmount',
         'subPartnerAdjustedRenewalAmountDue' => 'SubPartnerAdjustedRenewalAmountDue',
-        'subPartnerOtherBillAmount'          => 'SubPartnerOtherBillAmount',
+        'subPartnerOtherBillAmount' => 'SubPartnerOtherBillAmount',
     ];
 
     public function validate()

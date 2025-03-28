@@ -12,18 +12,20 @@ class fileList extends Model
      * @var string
      */
     public $commissionPolicyName;
+
     /**
      * @var string
      */
     public $fileType;
+
     /**
      * @var string
      */
     public $fileUrl;
     protected $_name = [
         'commissionPolicyName' => 'CommissionPolicyName',
-        'fileType'             => 'FileType',
-        'fileUrl'              => 'FileUrl',
+        'fileType' => 'FileType',
+        'fileUrl' => 'FileUrl',
     ];
 
     public function validate()

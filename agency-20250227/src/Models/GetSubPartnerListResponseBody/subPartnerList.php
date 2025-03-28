@@ -6,69 +6,80 @@ namespace AlibabaCloud\SDK\Agency\V20250227\Models\GetSubPartnerListResponseBody
 
 use AlibabaCloud\Dara\Model;
 
-class data extends Model
+class subPartnerList extends Model
 {
     /**
      * @var string
      */
     public $address;
+
     /**
      * @var string
      */
     public $agreementStatus;
+
     /**
      * @var string
      */
     public $agreementStatusDesc;
+
     /**
      * @var string
      */
     public $city;
+
     /**
      * @var string
      */
     public $companyName;
+
     /**
      * @var string
      */
     public $contact;
+
     /**
      * @var string
      */
     public $district;
+
     /**
      * @var string
      */
     public $joinTime;
+
     /**
      * @var string
      */
     public $masterAccount;
+
     /**
      * @var string
      */
     public $masterUid;
+
     /**
      * @var string
      */
     public $pid;
+
     /**
      * @var string
      */
     public $province;
     protected $_name = [
-        'address'             => 'Address',
-        'agreementStatus'     => 'AgreementStatus',
+        'address' => 'Address',
+        'agreementStatus' => 'AgreementStatus',
         'agreementStatusDesc' => 'AgreementStatusDesc',
-        'city'                => 'City',
-        'companyName'         => 'CompanyName',
-        'contact'             => 'Contact',
-        'district'            => 'District',
-        'joinTime'            => 'JoinTime',
-        'masterAccount'       => 'MasterAccount',
-        'masterUid'           => 'MasterUid',
-        'pid'                 => 'Pid',
-        'province'            => 'Province',
+        'city' => 'City',
+        'companyName' => 'CompanyName',
+        'contact' => 'Contact',
+        'district' => 'District',
+        'joinTime' => 'JoinTime',
+        'masterAccount' => 'MasterAccount',
+        'masterUid' => 'MasterUid',
+        'pid' => 'Pid',
+        'province' => 'Province',
     ];
 
     public function validate()

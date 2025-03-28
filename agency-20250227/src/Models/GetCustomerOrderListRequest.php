@@ -12,92 +12,109 @@ class GetCustomerOrderListRequest extends Model
      * @var string
      */
     public $customerAccount;
+
     /**
      * @var int
      */
     public $customerUid;
+
     /**
      * @var int
      */
     public $orderCreateAfter;
+
     /**
      * @var int
      */
     public $orderCreateBefore;
+
     /**
      * @var int
      */
     public $orderId;
+
     /**
      * @var int
      */
     public $orderPayAfter;
+
     /**
      * @var int
      */
     public $orderPayBefore;
+
     /**
      * @var int
      */
     public $orderStatus;
+
     /**
      * @var string[]
      */
     public $orderTypeList;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var float
      */
     public $payAmountAfter;
+
     /**
      * @var float
      */
     public $payAmountBefore;
+
     /**
      * @var int
      */
     public $payType;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $productName;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $ramAccountForCustomerManager;
     protected $_name = [
-        'customerAccount'              => 'CustomerAccount',
-        'customerUid'                  => 'CustomerUid',
-        'orderCreateAfter'             => 'OrderCreateAfter',
-        'orderCreateBefore'            => 'OrderCreateBefore',
-        'orderId'                      => 'OrderId',
-        'orderPayAfter'                => 'OrderPayAfter',
-        'orderPayBefore'               => 'OrderPayBefore',
-        'orderStatus'                  => 'OrderStatus',
-        'orderTypeList'                => 'OrderTypeList',
-        'pageNo'                       => 'PageNo',
-        'pageSize'                     => 'PageSize',
-        'payAmountAfter'               => 'PayAmountAfter',
-        'payAmountBefore'              => 'PayAmountBefore',
-        'payType'                      => 'PayType',
-        'productCode'                  => 'ProductCode',
-        'productName'                  => 'ProductName',
-        'projectId'                    => 'ProjectId',
+        'customerAccount' => 'CustomerAccount',
+        'customerUid' => 'CustomerUid',
+        'orderCreateAfter' => 'OrderCreateAfter',
+        'orderCreateBefore' => 'OrderCreateBefore',
+        'orderId' => 'OrderId',
+        'orderPayAfter' => 'OrderPayAfter',
+        'orderPayBefore' => 'OrderPayBefore',
+        'orderStatus' => 'OrderStatus',
+        'orderTypeList' => 'OrderTypeList',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'payAmountAfter' => 'PayAmountAfter',
+        'payAmountBefore' => 'PayAmountBefore',
+        'payType' => 'PayType',
+        'productCode' => 'ProductCode',
+        'productName' => 'ProductName',
+        'projectId' => 'ProjectId',
         'ramAccountForCustomerManager' => 'RamAccountForCustomerManager',
     ];
 
@@ -147,7 +164,7 @@ class GetCustomerOrderListRequest extends Model
         if (null !== $this->orderTypeList) {
             if (\is_array($this->orderTypeList)) {
                 $res['OrderTypeList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->orderTypeList as $item1) {
                     $res['OrderTypeList'][$n1++] = $item1;
                 }
@@ -236,7 +253,7 @@ class GetCustomerOrderListRequest extends Model
         if (isset($map['OrderTypeList'])) {
             if (!empty($map['OrderTypeList'])) {
                 $model->orderTypeList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['OrderTypeList'] as $item1) {
                     $model->orderTypeList[$n1++] = $item1;
                 }
