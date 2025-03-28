@@ -4,38 +4,46 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Variable extends Model
 {
     /**
-     * @example object_key
-     *
-     * @var string
+     * @var bool
      */
-    public $name;
+    public $encrypted;
 
     /**
-     * @example object_value
-     *
-     * @var string
+     * @var bool
+     */
+    public $sensitive;
+
+    /**
+     * @var mixed
      */
     public $value;
     protected $_name = [
-        'name'  => 'name',
+        'encrypted' => 'encrypted',
+        'sensitive' => 'sensitive',
         'value' => 'value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
+        if (null !== $this->encrypted) {
+            $res['encrypted'] = $this->encrypted;
         }
+
+        if (null !== $this->sensitive) {
+            $res['sensitive'] = $this->sensitive;
+        }
+
         if (null !== $this->value) {
             $res['value'] = $this->value;
         }
@@ -43,17 +51,22 @@ class Variable extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Variable
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
+        if (isset($map['encrypted'])) {
+            $model->encrypted = $map['encrypted'];
         }
+
+        if (isset($map['sensitive'])) {
+            $model->sensitive = $map['sensitive'];
+        }
+
         if (isset($map['value'])) {
             $model->value = $map['value'];
         }

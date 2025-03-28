@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GitLabConfig extends Model
 {
     /**
-     * @example your-token
-     *
      * @var string
      */
     public $token;
 
     /**
-     * @example http://gitlab.c16194660f14898a0810408171302ac.cn-shanghai.alicontainer.com/
-     *
      * @var string
      */
     public $uri;
     protected $_name = [
         'token' => 'token',
-        'uri'   => 'uri',
+        'uri' => 'uri',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->token) {
             $res['token'] = $this->token;
         }
+
         if (null !== $this->uri) {
             $res['uri'] = $this->uri;
         }
@@ -43,17 +41,18 @@ class GitLabConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GitLabConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['token'])) {
             $model->token = $map['token'];
         }
+
         if (isset($map['uri'])) {
             $model->uri = $map['uri'];
         }

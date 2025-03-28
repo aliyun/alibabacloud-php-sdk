@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConnectionSpec extends Model
 {
@@ -19,32 +19,37 @@ class ConnectionSpec extends Model
     public $gitlabConfig;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example github
-     *
      * @var string
      */
     public $platform;
     protected $_name = [
-        'account'      => 'account',
+        'account' => 'account',
         'gitlabConfig' => 'gitlabConfig',
-        'platform'     => 'platform',
+        'platform' => 'platform',
     ];
 
     public function validate()
     {
+        if (null !== $this->account) {
+            $this->account->validate();
+        }
+        if (null !== $this->gitlabConfig) {
+            $this->gitlabConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->account) {
-            $res['account'] = null !== $this->account ? $this->account->toMap() : null;
+            $res['account'] = null !== $this->account ? $this->account->toArray($noStream) : $this->account;
         }
+
         if (null !== $this->gitlabConfig) {
-            $res['gitlabConfig'] = null !== $this->gitlabConfig ? $this->gitlabConfig->toMap() : null;
+            $res['gitlabConfig'] = null !== $this->gitlabConfig ? $this->gitlabConfig->toArray($noStream) : $this->gitlabConfig;
         }
+
         if (null !== $this->platform) {
             $res['platform'] = $this->platform;
         }
@@ -52,20 +57,22 @@ class ConnectionSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConnectionSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['account'])) {
             $model->account = GitAccount::fromMap($map['account']);
         }
+
         if (isset($map['gitlabConfig'])) {
             $model->gitlabConfig = GitLabConfig::fromMap($map['gitlabConfig']);
         }
+
         if (isset($map['platform'])) {
             $model->platform = $map['platform'];
         }

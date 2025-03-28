@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class Checkout extends Model
 {
     /**
-     * @example +001691d0768ca49e9550beeb59fbc163f33b7e88:refs/remotes/origin/master
-     *
      * @var string
      */
     public $ref;
 
     /**
-     * @example https:/your_token/@github.com/buptwzj/test-initRepo4.git
-     *
      * @var string
      */
     public $remote;
     protected $_name = [
-        'ref'    => 'ref',
+        'ref' => 'ref',
         'remote' => 'remote',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ref) {
             $res['ref'] = $this->ref;
         }
+
         if (null !== $this->remote) {
             $res['remote'] = $this->remote;
         }
@@ -43,17 +41,18 @@ class Checkout extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return Checkout
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ref'])) {
             $model->ref = $map['ref'];
         }
+
         if (isset($map['remote'])) {
             $model->remote = $map['remote'];
         }

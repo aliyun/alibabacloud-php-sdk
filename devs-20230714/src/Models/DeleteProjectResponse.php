@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteProjectResponse extends Model
 {
@@ -17,53 +17,57 @@ class DeleteProjectResponse extends Model
      * @var int
      */
     public $statusCode;
-
-    /**
-     * @var DeleteProjectResponseBody
-     */
-    public $body;
     protected $_name = [
-        'headers'    => 'headers',
+        'headers' => 'headers',
         'statusCode' => 'statusCode',
-        'body'       => 'body',
     ];
 
     public function validate()
     {
+        if (\is_array($this->headers)) {
+            Model::validateArray($this->headers);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+            if (\is_array($this->headers)) {
+                $res['headers'] = [];
+                foreach ($this->headers as $key1 => $value1) {
+                    $res['headers'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
-        }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteProjectResponse
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+            if (!empty($map['headers'])) {
+                $model->headers = [];
+                foreach ($map['headers'] as $key1 => $value1) {
+                    $model->headers[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
-        }
-        if (isset($map['body'])) {
-            $model->body = DeleteProjectResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateProjectRequest extends Model
 {
@@ -12,48 +12,38 @@ class UpdateProjectRequest extends Model
      * @var Project
      */
     public $body;
-
-    /**
-     * @example true
-     *
-     * @var bool
-     */
-    public $force;
     protected $_name = [
-        'body'  => 'body',
-        'force' => 'force',
+        'body' => 'body',
     ];
 
     public function validate()
     {
+        if (null !== $this->body) {
+            $this->body->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
-        }
-        if (null !== $this->force) {
-            $res['force'] = $this->force;
+            $res['body'] = null !== $this->body ? $this->body->toArray($noStream) : $this->body;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateProjectRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
             $model->body = Project::fromMap($map['body']);
-        }
-        if (isset($map['force'])) {
-            $model->force = $map['force'];
         }
 
         return $model;

@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TaskWorker extends Model
 {
     /**
-     * @example serverless-runner
-     *
      * @var string
      */
     public $presetWorker;
@@ -20,9 +18,10 @@ class TaskWorker extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->presetWorker) {
@@ -32,11 +31,11 @@ class TaskWorker extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TaskWorker
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

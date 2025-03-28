@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PipelineSpec extends Model
 {
@@ -14,8 +14,6 @@ class PipelineSpec extends Model
     public $context;
 
     /**
-     * @example my-pipeline-template
-     *
      * @var string
      */
     public $templateName;
@@ -25,45 +23,56 @@ class PipelineSpec extends Model
      */
     public $templateSpec;
     protected $_name = [
-        'context'      => 'context',
+        'context' => 'context',
         'templateName' => 'templateName',
         'templateSpec' => 'templateSpec',
     ];
 
     public function validate()
     {
+        if (null !== $this->context) {
+            $this->context->validate();
+        }
+        if (null !== $this->templateSpec) {
+            $this->templateSpec->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->context) {
-            $res['context'] = null !== $this->context ? $this->context->toMap() : null;
+            $res['context'] = null !== $this->context ? $this->context->toArray($noStream) : $this->context;
         }
+
         if (null !== $this->templateName) {
             $res['templateName'] = $this->templateName;
         }
+
         if (null !== $this->templateSpec) {
-            $res['templateSpec'] = null !== $this->templateSpec ? $this->templateSpec->toMap() : null;
+            $res['templateSpec'] = null !== $this->templateSpec ? $this->templateSpec->toArray($noStream) : $this->templateSpec;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PipelineSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['context'])) {
             $model->context = Context::fromMap($map['context']);
         }
+
         if (isset($map['templateName'])) {
             $model->templateName = $map['templateName'];
         }
+
         if (isset($map['templateSpec'])) {
             $model->templateSpec = PipelineTemplateSpec::fromMap($map['templateSpec']);
         }

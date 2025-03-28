@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GitEventSnapshot extends Model
 {
     /**
-     * @example main
-     *
      * @var string
      */
     public $branch;
 
     /**
-     * @example 12721ec262d03a93809ba2bbc717963cb298ceca
-     *
      * @var string
      */
     public $commitID;
 
     /**
-     * @example 1.0
-     *
      * @var string
      */
     public $tag;
     protected $_name = [
-        'branch'   => 'branch',
+        'branch' => 'branch',
         'commitID' => 'commitID',
-        'tag'      => 'tag',
+        'tag' => 'tag',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->branch) {
             $res['branch'] = $this->branch;
         }
+
         if (null !== $this->commitID) {
             $res['commitID'] = $this->commitID;
         }
+
         if (null !== $this->tag) {
             $res['tag'] = $this->tag;
         }
@@ -54,20 +51,22 @@ class GitEventSnapshot extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GitEventSnapshot
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['branch'])) {
             $model->branch = $map['branch'];
         }
+
         if (isset($map['commitID'])) {
             $model->commitID = $map['commitID'];
         }
+
         if (isset($map['tag'])) {
             $model->tag = $map['tag'];
         }

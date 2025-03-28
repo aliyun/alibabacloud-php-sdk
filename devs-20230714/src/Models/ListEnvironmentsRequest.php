@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListEnvironmentsRequest extends Model
 {
     /**
-     * @example dev
-     *
      * @var string
      */
     public $keyword;
@@ -21,41 +19,50 @@ class ListEnvironmentsRequest extends Model
     public $labelSelector;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'keyword'       => 'keyword',
+        'keyword' => 'keyword',
         'labelSelector' => 'labelSelector',
-        'pageNumber'    => 'pageNumber',
-        'pageSize'      => 'pageSize',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
     ];
 
     public function validate()
     {
+        if (\is_array($this->labelSelector)) {
+            Model::validateArray($this->labelSelector);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyword) {
             $res['keyword'] = $this->keyword;
         }
+
         if (null !== $this->labelSelector) {
-            $res['labelSelector'] = $this->labelSelector;
+            if (\is_array($this->labelSelector)) {
+                $res['labelSelector'] = [];
+                $n1 = 0;
+                foreach ($this->labelSelector as $item1) {
+                    $res['labelSelector'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
@@ -63,25 +70,32 @@ class ListEnvironmentsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEnvironmentsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['keyword'])) {
             $model->keyword = $map['keyword'];
         }
+
         if (isset($map['labelSelector'])) {
             if (!empty($map['labelSelector'])) {
-                $model->labelSelector = $map['labelSelector'];
+                $model->labelSelector = [];
+                $n1 = 0;
+                foreach ($map['labelSelector'] as $item1) {
+                    $model->labelSelector[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }

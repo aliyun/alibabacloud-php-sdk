@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListEnvironmentsShrinkRequest extends Model
 {
     /**
-     * @example dev
-     *
      * @var string
      */
     public $keyword;
@@ -21,41 +19,41 @@ class ListEnvironmentsShrinkRequest extends Model
     public $labelSelectorShrink;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'keyword'             => 'keyword',
+        'keyword' => 'keyword',
         'labelSelectorShrink' => 'labelSelector',
-        'pageNumber'          => 'pageNumber',
-        'pageSize'            => 'pageSize',
+        'pageNumber' => 'pageNumber',
+        'pageSize' => 'pageSize',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->keyword) {
             $res['keyword'] = $this->keyword;
         }
+
         if (null !== $this->labelSelectorShrink) {
             $res['labelSelector'] = $this->labelSelectorShrink;
         }
+
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['pageSize'] = $this->pageSize;
         }
@@ -63,23 +61,26 @@ class ListEnvironmentsShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEnvironmentsShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['keyword'])) {
             $model->keyword = $map['keyword'];
         }
+
         if (isset($map['labelSelector'])) {
             $model->labelSelectorShrink = $map['labelSelector'];
         }
+
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }
+
         if (isset($map['pageSize'])) {
             $model->pageSize = $map['pageSize'];
         }

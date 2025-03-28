@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PipelineTemplateSpec extends Model
 {
@@ -19,25 +19,33 @@ class PipelineTemplateSpec extends Model
     public $tasks;
     protected $_name = [
         'context' => 'context',
-        'tasks'   => 'tasks',
+        'tasks' => 'tasks',
     ];
 
     public function validate()
     {
+        if (null !== $this->context) {
+            $this->context->validate();
+        }
+        if (\is_array($this->tasks)) {
+            Model::validateArray($this->tasks);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->context) {
-            $res['context'] = null !== $this->context ? $this->context->toMap() : null;
+            $res['context'] = null !== $this->context ? $this->context->toArray($noStream) : $this->context;
         }
+
         if (null !== $this->tasks) {
-            $res['tasks'] = [];
-            if (null !== $this->tasks && \is_array($this->tasks)) {
-                $n = 0;
-                foreach ($this->tasks as $item) {
-                    $res['tasks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tasks)) {
+                $res['tasks'] = [];
+                $n1 = 0;
+                foreach ($this->tasks as $item1) {
+                    $res['tasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -45,23 +53,24 @@ class PipelineTemplateSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PipelineTemplateSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['context'])) {
             $model->context = Context::fromMap($map['context']);
         }
+
         if (isset($map['tasks'])) {
             if (!empty($map['tasks'])) {
                 $model->tasks = [];
-                $n            = 0;
-                foreach ($map['tasks'] as $item) {
-                    $model->tasks[$n++] = null !== $item ? TaskExec::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['tasks'] as $item1) {
+                    $model->tasks[$n1++] = TaskExec::fromMap($item1);
                 }
             }
         }

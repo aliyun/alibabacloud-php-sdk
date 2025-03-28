@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PipelineStatus extends Model
 {
@@ -14,26 +14,29 @@ class PipelineStatus extends Model
     public $latestExecError;
 
     /**
-     * @example Success
-     *
      * @var string
      */
     public $phase;
     protected $_name = [
         'latestExecError' => 'latestExecError',
-        'phase'           => 'phase',
+        'phase' => 'phase',
     ];
 
     public function validate()
     {
+        if (null !== $this->latestExecError) {
+            $this->latestExecError->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->latestExecError) {
-            $res['latestExecError'] = null !== $this->latestExecError ? $this->latestExecError->toMap() : null;
+            $res['latestExecError'] = null !== $this->latestExecError ? $this->latestExecError->toArray($noStream) : $this->latestExecError;
         }
+
         if (null !== $this->phase) {
             $res['phase'] = $this->phase;
         }
@@ -41,17 +44,18 @@ class PipelineStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PipelineStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['latestExecError'])) {
             $model->latestExecError = TaskExecError::fromMap($map['latestExecError']);
         }
+
         if (isset($map['phase'])) {
             $model->phase = $map['phase'];
         }

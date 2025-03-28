@@ -4,70 +4,58 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ProjectStatus extends Model
 {
     /**
-     * @var ReleaseDetail
+     * @var ServiceMeta[]
      */
-    public $latestReleaseDetail;
-
-    /**
-     * @example 1
-     *
-     * @var int
-     */
-    public $observedGeneration;
-
-    /**
-     * @example 2021-11-19T09:34:38Z
-     *
-     * @var string
-     */
-    public $observedTime;
+    public $services;
     protected $_name = [
-        'latestReleaseDetail' => 'latestReleaseDetail',
-        'observedGeneration'  => 'observedGeneration',
-        'observedTime'        => 'observedTime',
+        'services' => 'services',
     ];
 
     public function validate()
     {
+        if (\is_array($this->services)) {
+            Model::validateArray($this->services);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->latestReleaseDetail) {
-            $res['latestReleaseDetail'] = null !== $this->latestReleaseDetail ? $this->latestReleaseDetail->toMap() : null;
-        }
-        if (null !== $this->observedGeneration) {
-            $res['observedGeneration'] = $this->observedGeneration;
-        }
-        if (null !== $this->observedTime) {
-            $res['observedTime'] = $this->observedTime;
+        if (null !== $this->services) {
+            if (\is_array($this->services)) {
+                $res['services'] = [];
+                $n1 = 0;
+                foreach ($this->services as $item1) {
+                    $res['services'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ProjectStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['latestReleaseDetail'])) {
-            $model->latestReleaseDetail = ReleaseDetail::fromMap($map['latestReleaseDetail']);
-        }
-        if (isset($map['observedGeneration'])) {
-            $model->observedGeneration = $map['observedGeneration'];
-        }
-        if (isset($map['observedTime'])) {
-            $model->observedTime = $map['observedTime'];
+        if (isset($map['services'])) {
+            if (!empty($map['services'])) {
+                $model->services = [];
+                $n1 = 0;
+                foreach ($map['services'] as $item1) {
+                    $model->services[$n1++] = ServiceMeta::fromMap($item1);
+                }
+            }
         }
 
         return $model;

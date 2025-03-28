@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TaskExec extends Model
 {
@@ -14,8 +14,6 @@ class TaskExec extends Model
     public $context;
 
     /**
-     * @example task-1
-     *
      * @var string
      */
     public $name;
@@ -26,40 +24,48 @@ class TaskExec extends Model
     public $runAfters;
 
     /**
-     * @example serverless-runner
-     *
      * @var string
      */
     public $taskTemplate;
     protected $_name = [
-        'context'      => 'context',
-        'name'         => 'name',
-        'runAfters'    => 'runAfters',
+        'context' => 'context',
+        'name' => 'name',
+        'runAfters' => 'runAfters',
         'taskTemplate' => 'taskTemplate',
     ];
 
     public function validate()
     {
+        if (null !== $this->context) {
+            $this->context->validate();
+        }
+        if (\is_array($this->runAfters)) {
+            Model::validateArray($this->runAfters);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->context) {
-            $res['context'] = null !== $this->context ? $this->context->toMap() : null;
+            $res['context'] = null !== $this->context ? $this->context->toArray($noStream) : $this->context;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->runAfters) {
-            $res['runAfters'] = [];
-            if (null !== $this->runAfters && \is_array($this->runAfters)) {
-                $n = 0;
-                foreach ($this->runAfters as $item) {
-                    $res['runAfters'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->runAfters)) {
+                $res['runAfters'] = [];
+                $n1 = 0;
+                foreach ($this->runAfters as $item1) {
+                    $res['runAfters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->taskTemplate) {
             $res['taskTemplate'] = $this->taskTemplate;
         }
@@ -67,29 +73,32 @@ class TaskExec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TaskExec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['context'])) {
             $model->context = Context::fromMap($map['context']);
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['runAfters'])) {
             if (!empty($map['runAfters'])) {
                 $model->runAfters = [];
-                $n                = 0;
-                foreach ($map['runAfters'] as $item) {
-                    $model->runAfters[$n++] = null !== $item ? RunAfter::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['runAfters'] as $item1) {
+                    $model->runAfters[$n1++] = RunAfter::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['taskTemplate'])) {
             $model->taskTemplate = $map['taskTemplate'];
         }

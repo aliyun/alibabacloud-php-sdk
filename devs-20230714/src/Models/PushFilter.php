@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PushFilter extends Model
 {
     /**
-     * @example master
-     *
      * @var string
      */
     public $branch;
 
     /**
-     * @example prod-.*
-     *
      * @var string
      */
     public $tag;
     protected $_name = [
         'branch' => 'branch',
-        'tag'    => 'tag',
+        'tag' => 'tag',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->branch) {
             $res['branch'] = $this->branch;
         }
+
         if (null !== $this->tag) {
             $res['tag'] = $this->tag;
         }
@@ -43,17 +41,18 @@ class PushFilter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PushFilter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['branch'])) {
             $model->branch = $map['branch'];
         }
+
         if (isset($map['tag'])) {
             $model->tag = $map['tag'];
         }

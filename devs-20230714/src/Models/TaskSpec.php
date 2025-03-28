@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class TaskSpec extends Model
 {
@@ -14,26 +14,29 @@ class TaskSpec extends Model
     public $context;
 
     /**
-     * @example my-task-template
-     *
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'context'      => 'context',
+        'context' => 'context',
         'templateName' => 'templateName',
     ];
 
     public function validate()
     {
+        if (null !== $this->context) {
+            $this->context->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->context) {
-            $res['context'] = null !== $this->context ? $this->context->toMap() : null;
+            $res['context'] = null !== $this->context ? $this->context->toArray($noStream) : $this->context;
         }
+
         if (null !== $this->templateName) {
             $res['templateName'] = $this->templateName;
         }
@@ -41,17 +44,18 @@ class TaskSpec extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return TaskSpec
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['context'])) {
             $model->context = Context::fromMap($map['context']);
         }
+
         if (isset($map['templateName'])) {
             $model->templateName = $map['templateName'];
         }

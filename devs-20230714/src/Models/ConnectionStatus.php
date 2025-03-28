@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ConnectionStatus extends Model
 {
@@ -18,23 +18,27 @@ class ConnectionStatus extends Model
 
     public function validate()
     {
+        if (null !== $this->installation) {
+            $this->installation->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->installation) {
-            $res['installation'] = null !== $this->installation ? $this->installation->toMap() : null;
+            $res['installation'] = null !== $this->installation ? $this->installation->toArray($noStream) : $this->installation;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ConnectionStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

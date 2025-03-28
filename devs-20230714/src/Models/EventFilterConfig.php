@@ -4,54 +4,46 @@
 
 namespace AlibabaCloud\SDK\Devs\V20230714\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EventFilterConfig extends Model
 {
     /**
-     * @var PullRequestFilter
+     * @var BranchFilter
      */
-    public $pullRequest;
-
-    /**
-     * @var PushFilter
-     */
-    public $push;
+    public $branch;
     protected $_name = [
-        'pullRequest' => 'pullRequest',
-        'push'        => 'push',
+        'branch' => 'branch',
     ];
 
     public function validate()
     {
+        if (null !== $this->branch) {
+            $this->branch->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->pullRequest) {
-            $res['pullRequest'] = null !== $this->pullRequest ? $this->pullRequest->toMap() : null;
-        }
-        if (null !== $this->push) {
-            $res['push'] = null !== $this->push ? $this->push->toMap() : null;
+        if (null !== $this->branch) {
+            $res['branch'] = null !== $this->branch ? $this->branch->toArray($noStream) : $this->branch;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EventFilterConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['pullRequest'])) {
-            $model->pullRequest = PullRequestFilter::fromMap($map['pullRequest']);
-        }
-        if (isset($map['push'])) {
-            $model->push = PushFilter::fromMap($map['push']);
+        if (isset($map['branch'])) {
+            $model->branch = BranchFilter::fromMap($map['branch']);
         }
 
         return $model;
