@@ -1,21 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreatePredefinedDocumentRequest\chunks;
-use AlibabaCloud\Tea\Model;
 
 class CreatePredefinedDocumentRequest extends Model
 {
@@ -25,22 +15,16 @@ class CreatePredefinedDocumentRequest extends Model
     public $chunks;
 
     /**
-     * @example a1b2c3
-     *
      * @var string
      */
     public $libraryId;
 
     /**
-     * @example {"a": "1"}
-     *
      * @var mixed[]
      */
     public $metadata;
 
     /**
-     * @example 测试文档
-     *
      * @var string
      */
     public $title;
@@ -51,26 +35,43 @@ class CreatePredefinedDocumentRequest extends Model
         'title' => 'title',
     ];
 
-    public function validate(): void {}
+    public function validate()
+    {
+        if (\is_array($this->chunks)) {
+            Model::validateArray($this->chunks);
+        }
+        if (\is_array($this->metadata)) {
+            Model::validateArray($this->metadata);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chunks) {
-            $res['chunks'] = [];
-            if (null !== $this->chunks && \is_array($this->chunks)) {
-                $n = 0;
-                foreach ($this->chunks as $item) {
-                    $res['chunks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->chunks)) {
+                $res['chunks'] = [];
+                $n1 = 0;
+                foreach ($this->chunks as $item1) {
+                    $res['chunks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->libraryId) {
             $res['libraryId'] = $this->libraryId;
         }
+
         if (null !== $this->metadata) {
-            $res['metadata'] = $this->metadata;
+            if (\is_array($this->metadata)) {
+                $res['metadata'] = [];
+                foreach ($this->metadata as $key1 => $value1) {
+                    $res['metadata'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
@@ -78,29 +79,37 @@ class CreatePredefinedDocumentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePredefinedDocumentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['chunks'])) {
             if (!empty($map['chunks'])) {
                 $model->chunks = [];
-                $n = 0;
-                foreach ($map['chunks'] as $item) {
-                    $model->chunks[$n++] = null !== $item ? chunks::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['chunks'] as $item1) {
+                    $model->chunks[$n1++] = chunks::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['libraryId'])) {
             $model->libraryId = $map['libraryId'];
         }
+
         if (isset($map['metadata'])) {
-            $model->metadata = $map['metadata'];
+            if (!empty($map['metadata'])) {
+                $model->metadata = [];
+                foreach ($map['metadata'] as $key1 => $value1) {
+                    $model->metadata[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['title'])) {
             $model->title = $map['title'];
         }

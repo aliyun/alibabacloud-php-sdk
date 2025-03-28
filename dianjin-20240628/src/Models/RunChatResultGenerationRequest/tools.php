@@ -1,21 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\RunChatResultGenerationRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunChatResultGenerationRequest\tools\function_;
-use AlibabaCloud\Tea\Model;
 
 class tools extends Model
 {
@@ -25,8 +15,6 @@ class tools extends Model
     public $function;
 
     /**
-     * @example function
-     *
      * @var string
      */
     public $type;
@@ -35,14 +23,21 @@ class tools extends Model
         'type' => 'type',
     ];
 
-    public function validate(): void {}
+    public function validate()
+    {
+        if (null !== $this->function) {
+            $this->function->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->function) {
-            $res['function'] = null !== $this->function ? $this->function->toMap() : null;
+            $res['function'] = null !== $this->function ? $this->function->toArray($noStream) : $this->function;
         }
+
         if (null !== $this->type) {
             $res['type'] = $this->type;
         }
@@ -50,17 +45,18 @@ class tools extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tools
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['function'])) {
             $model->function = function_::fromMap($map['function']);
         }
+
         if (isset($map['type'])) {
             $model->type = $map['type'];
         }

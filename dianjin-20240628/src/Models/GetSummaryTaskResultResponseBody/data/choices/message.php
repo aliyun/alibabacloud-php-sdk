@@ -1,20 +1,10 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\GetSummaryTaskResultResponseBody\data\choices;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class message extends Model
 {
@@ -24,8 +14,6 @@ class message extends Model
     public $content;
 
     /**
-     * @example assistant
-     *
      * @var string
      */
     public $role;
@@ -40,41 +28,71 @@ class message extends Model
         'toolCalls' => 'toolCalls',
     ];
 
-    public function validate(): void {}
+    public function validate()
+    {
+        if (\is_array($this->toolCalls)) {
+            Model::validateArray($this->toolCalls);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->role) {
             $res['role'] = $this->role;
         }
+
         if (null !== $this->toolCalls) {
-            $res['toolCalls'] = $this->toolCalls;
+            if (\is_array($this->toolCalls)) {
+                $res['toolCalls'] = [];
+                $n1 = 0;
+                foreach ($this->toolCalls as $item1) {
+                    if (\is_array($item1)) {
+                        $res['toolCalls'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['toolCalls'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return message
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['role'])) {
             $model->role = $map['role'];
         }
+
         if (isset($map['toolCalls'])) {
             if (!empty($map['toolCalls'])) {
-                $model->toolCalls = $map['toolCalls'];
+                $model->toolCalls = [];
+                $n1 = 0;
+                foreach ($map['toolCalls'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->toolCalls[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->toolCalls[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
 

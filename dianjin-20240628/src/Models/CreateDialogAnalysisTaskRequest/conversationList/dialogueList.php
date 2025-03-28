@@ -1,35 +1,19 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDialogAnalysisTaskRequest\conversationList;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dialogueList extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $content;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $role;
@@ -38,14 +22,18 @@ class dialogueList extends Model
         'role' => 'role',
     ];
 
-    public function validate(): void {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->content) {
             $res['content'] = $this->content;
         }
+
         if (null !== $this->role) {
             $res['role'] = $this->role;
         }
@@ -53,17 +41,18 @@ class dialogueList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dialogueList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['content'])) {
             $model->content = $map['content'];
         }
+
         if (isset($map['role'])) {
             $model->role = $map['role'];
         }

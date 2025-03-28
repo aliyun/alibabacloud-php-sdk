@@ -1,34 +1,20 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDocsSummaryTaskRequest\docInfos;
-use AlibabaCloud\Tea\Model;
 
 class CreateDocsSummaryTaskRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var docInfos[]
      */
     public $docInfos;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enableTable;
@@ -39,10 +25,6 @@ class CreateDocsSummaryTaskRequest extends Model
     public $instruction;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example qwen-plus
-     *
      * @var string
      */
     public $modelId;
@@ -53,26 +35,35 @@ class CreateDocsSummaryTaskRequest extends Model
         'modelId' => 'modelId',
     ];
 
-    public function validate(): void {}
+    public function validate()
+    {
+        if (\is_array($this->docInfos)) {
+            Model::validateArray($this->docInfos);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->docInfos) {
-            $res['docInfos'] = [];
-            if (null !== $this->docInfos && \is_array($this->docInfos)) {
-                $n = 0;
-                foreach ($this->docInfos as $item) {
-                    $res['docInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->docInfos)) {
+                $res['docInfos'] = [];
+                $n1 = 0;
+                foreach ($this->docInfos as $item1) {
+                    $res['docInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->enableTable) {
             $res['enableTable'] = $this->enableTable;
         }
+
         if (null !== $this->instruction) {
             $res['instruction'] = $this->instruction;
         }
+
         if (null !== $this->modelId) {
             $res['modelId'] = $this->modelId;
         }
@@ -80,29 +71,32 @@ class CreateDocsSummaryTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDocsSummaryTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['docInfos'])) {
             if (!empty($map['docInfos'])) {
                 $model->docInfos = [];
-                $n = 0;
-                foreach ($map['docInfos'] as $item) {
-                    $model->docInfos[$n++] = null !== $item ? docInfos::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['docInfos'] as $item1) {
+                    $model->docInfos[$n1++] = docInfos::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['enableTable'])) {
             $model->enableTable = $map['enableTable'];
         }
+
         if (isset($map['instruction'])) {
             $model->instruction = $map['instruction'];
         }
+
         if (isset($map['modelId'])) {
             $model->modelId = $map['modelId'];
         }

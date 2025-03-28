@@ -1,55 +1,66 @@
 <?php
 
-declare(strict_types=1);
-
 /*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
+ * This document has been generated with
+ * https://mlocati.github.io/php-cs-fixer-configurator/#version:2.15|configurator
+ * you can change this configuration by importing this file.
  */
 
 use PhpCsFixer\Config;
 use PhpCsFixer\Finder;
-use PhpCsFixer\Fixer\Internal\ConfigurableFixerTemplateFixer;
-use PhpCsFixer\Runner\Parallel\ParallelConfigFactory;
 
 return (new Config())
-    ->setParallelConfig(ParallelConfigFactory::detect()) // @TODO 4.0 no need to call this manually
     ->setRiskyAllowed(true)
-    ->registerCustomFixers([
-        new ConfigurableFixerTemplateFixer(),
-    ])
+    ->setIndent('    ')
     ->setRules([
-        '@PHP74Migration' => true,
-        '@PHP74Migration:risky' => true,
-        '@PHPUnit100Migration:risky' => true,
-        '@PhpCsFixer' => true,
-        '@PhpCsFixer:risky' => true,
-        'PhpCsFixerInternal/configurable_fixer_template' => true, // internal rules, shall not be used outside of main repo
-        'general_phpdoc_annotation_remove' => ['annotations' => ['expectedDeprecation']], // one should use PHPUnit built-in method instead
-        'header_comment' => ['header' => <<<'EOF'
-            This file is part of PHP CS Fixer.
-
-            (c) Fabien Potencier <fabien@symfony.com>
-                Dariusz Rumiński <dariusz.ruminski@gmail.com>
-
-            This source file is subject to the MIT license that is bundled
-            with this source code in the file LICENSE.
-            EOF],
-        'modernize_strpos' => true, // needs PHP 8+ or polyfill
-        'no_useless_concat_operator' => false, // TODO switch back on when the `src/Console/Application.php` no longer needs the concat
-        'numeric_literal_separator' => true,
+        '@PSR2'                                       => true,
+        '@PhpCsFixer'                                 => true,
+        '@Symfony:risky'                              => true,
+        'concat_space'                                => ['spacing' => 'one'],
+        'array_syntax'                                => ['syntax' => 'short'],
+        'array_indentation'                           => true,
+        'combine_consecutive_unsets'                  => true,
+        'phpdoc_separation'                           => true,
+        'single_quote'                                => true,
+        'declare_equal_normalize'                     => true,
+        'function_typehint_space'                     => true,
+        'include'                                     => true,
+        'lowercase_cast'                              => true,
+        'no_leading_import_slash'                     => true,
+        'no_multiline_whitespace_around_double_arrow' => true,
+        'no_spaces_around_offset'                     => true,
+        'no_unneeded_control_parentheses'             => true,
+        'no_unused_imports'                           => true,
+        'no_whitespace_before_comma_in_array'         => true,
+        'no_whitespace_in_blank_line'                 => true,
+        'object_operator_without_whitespace'          => true,
+        'blank_lines_before_namespace'          => true,
+        'single_class_element_per_statement'          => true,
+        'space_after_semicolon'                       => true,
+        'standardize_not_equals'                      => true,
+        'ternary_operator_spaces'                     => true,
+        'trailing_comma_in_multiline'           => true,
+        'trim_array_spaces'                           => true,
+        'unary_operator_spaces'                       => true,
+        'whitespace_after_comma_in_array'             => true,
+        'no_extra_blank_lines'            => [
+            'tokens' => [
+                'curly_brace_block',
+                'extra',
+                'parenthesis_brace_block',
+                'square_brace_block',
+                'throw',
+                'use',
+            ]
+        ],
+        'braces'                                    => [
+            'allow_single_line_closure' => true,
+        ],
     ])
     ->setFinder(
         (new Finder())
-            ->ignoreDotFiles(false)
-            ->ignoreVCSIgnored(true)
-            ->exclude(['dev-tools/phpstan', 'tests/Fixtures'])
+            ->exclude('vendor')
+            ->exclude('tests')
             ->in(__DIR__)
-            ->append([__DIR__.'/php-cs-fixer'])
     )
 ;

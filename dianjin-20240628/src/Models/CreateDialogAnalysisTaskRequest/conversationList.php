@@ -1,27 +1,15 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDialogAnalysisTaskRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\CreateDialogAnalysisTaskRequest\conversationList\dialogueList;
-use AlibabaCloud\Tea\Model;
 
 class conversationList extends Model
 {
     /**
-     * @description This parameter is required.
-     *
      * @var dialogueList[]
      */
     public $dialogueList;
@@ -29,17 +17,23 @@ class conversationList extends Model
         'dialogueList' => 'dialogueList',
     ];
 
-    public function validate(): void {}
+    public function validate()
+    {
+        if (\is_array($this->dialogueList)) {
+            Model::validateArray($this->dialogueList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dialogueList) {
-            $res['dialogueList'] = [];
-            if (null !== $this->dialogueList && \is_array($this->dialogueList)) {
-                $n = 0;
-                foreach ($this->dialogueList as $item) {
-                    $res['dialogueList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dialogueList)) {
+                $res['dialogueList'] = [];
+                $n1 = 0;
+                foreach ($this->dialogueList as $item1) {
+                    $res['dialogueList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -47,20 +41,20 @@ class conversationList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return conversationList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['dialogueList'])) {
             if (!empty($map['dialogueList'])) {
                 $model->dialogueList = [];
-                $n = 0;
-                foreach ($map['dialogueList'] as $item) {
-                    $model->dialogueList[$n++] = null !== $item ? dialogueList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['dialogueList'] as $item1) {
+                    $model->dialogueList[$n1++] = dialogueList::fromMap($item1);
                 }
             }
         }

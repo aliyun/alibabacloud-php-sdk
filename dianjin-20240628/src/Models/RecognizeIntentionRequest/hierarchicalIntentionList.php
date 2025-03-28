@@ -1,20 +1,10 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\RecognizeIntentionRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class hierarchicalIntentionList extends Model
 {
@@ -29,8 +19,6 @@ class hierarchicalIntentionList extends Model
     public $intention;
 
     /**
-     * @example 1810929291010150400
-     *
      * @var string
      */
     public $intentionCode;
@@ -46,20 +34,26 @@ class hierarchicalIntentionList extends Model
         'intentionScript' => 'intentionScript',
     ];
 
-    public function validate(): void {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->intention) {
             $res['intention'] = $this->intention;
         }
+
         if (null !== $this->intentionCode) {
             $res['intentionCode'] = $this->intentionCode;
         }
+
         if (null !== $this->intentionScript) {
             $res['intentionScript'] = $this->intentionScript;
         }
@@ -67,23 +61,26 @@ class hierarchicalIntentionList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return hierarchicalIntentionList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['intention'])) {
             $model->intention = $map['intention'];
         }
+
         if (isset($map['intentionCode'])) {
             $model->intentionCode = $map['intentionCode'];
         }
+
         if (isset($map['intentionScript'])) {
             $model->intentionScript = $map['intentionScript'];
         }

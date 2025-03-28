@@ -1,47 +1,29 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\CreatePredefinedDocumentRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class chunks extends Model
 {
     /**
-     * @example {"a": "1"}
-     *
      * @var mixed[]
      */
     public $chunkMeta;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $chunkOrder;
 
     /**
-     * @example 这是一段测试文本
-     *
      * @var string
      */
     public $chunkText;
 
     /**
-     * @example text
-     *
      * @var string
      */
     public $chunkType;
@@ -52,20 +34,34 @@ class chunks extends Model
         'chunkType' => 'chunkType',
     ];
 
-    public function validate(): void {}
+    public function validate()
+    {
+        if (\is_array($this->chunkMeta)) {
+            Model::validateArray($this->chunkMeta);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chunkMeta) {
-            $res['chunkMeta'] = $this->chunkMeta;
+            if (\is_array($this->chunkMeta)) {
+                $res['chunkMeta'] = [];
+                foreach ($this->chunkMeta as $key1 => $value1) {
+                    $res['chunkMeta'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->chunkOrder) {
             $res['chunkOrder'] = $this->chunkOrder;
         }
+
         if (null !== $this->chunkText) {
             $res['chunkText'] = $this->chunkText;
         }
+
         if (null !== $this->chunkType) {
             $res['chunkType'] = $this->chunkType;
         }
@@ -73,23 +69,31 @@ class chunks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return chunks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['chunkMeta'])) {
-            $model->chunkMeta = $map['chunkMeta'];
+            if (!empty($map['chunkMeta'])) {
+                $model->chunkMeta = [];
+                foreach ($map['chunkMeta'] as $key1 => $value1) {
+                    $model->chunkMeta[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['chunkOrder'])) {
             $model->chunkOrder = $map['chunkOrder'];
         }
+
         if (isset($map['chunkText'])) {
             $model->chunkText = $map['chunkText'];
         }
+
         if (isset($map['chunkType'])) {
             $model->chunkType = $map['chunkType'];
         }

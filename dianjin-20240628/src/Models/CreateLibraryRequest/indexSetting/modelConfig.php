@@ -1,33 +1,19 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\CreateLibraryRequest\indexSetting;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class modelConfig extends Model
 {
     /**
-     * @example 0.8
-     *
      * @var float
      */
     public $temperature;
 
     /**
-     * @example 0.8
-     *
      * @var float
      */
     public $topP;
@@ -36,14 +22,18 @@ class modelConfig extends Model
         'topP' => 'topP',
     ];
 
-    public function validate(): void {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->temperature) {
             $res['temperature'] = $this->temperature;
         }
+
         if (null !== $this->topP) {
             $res['topP'] = $this->topP;
         }
@@ -51,17 +41,18 @@ class modelConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return modelConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['temperature'])) {
             $model->temperature = $map['temperature'];
         }
+
         if (isset($map['topP'])) {
             $model->topP = $map['topP'];
         }

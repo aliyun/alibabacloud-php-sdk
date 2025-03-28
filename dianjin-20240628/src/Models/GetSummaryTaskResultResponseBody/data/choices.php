@@ -1,34 +1,20 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\GetSummaryTaskResultResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\GetSummaryTaskResultResponseBody\data\choices\message;
-use AlibabaCloud\Tea\Model;
 
 class choices extends Model
 {
     /**
-     * @example stop
-     *
      * @var string
      */
     public $finishReason;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $index;
@@ -43,38 +29,48 @@ class choices extends Model
         'message' => 'message',
     ];
 
-    public function validate(): void {}
+    public function validate()
+    {
+        if (null !== $this->message) {
+            $this->message->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->finishReason) {
             $res['finishReason'] = $this->finishReason;
         }
+
         if (null !== $this->index) {
             $res['index'] = $this->index;
         }
+
         if (null !== $this->message) {
-            $res['message'] = null !== $this->message ? $this->message->toMap() : null;
+            $res['message'] = null !== $this->message ? $this->message->toArray($noStream) : $this->message;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return choices
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['finishReason'])) {
             $model->finishReason = $map['finishReason'];
         }
+
         if (isset($map['index'])) {
             $model->index = $map['index'];
         }
+
         if (isset($map['message'])) {
             $model->message = message::fromMap($map['message']);
         }

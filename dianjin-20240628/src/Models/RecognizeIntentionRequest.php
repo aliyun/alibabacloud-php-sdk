@@ -1,45 +1,27 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RecognizeIntentionRequest\globalIntentionList;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RecognizeIntentionRequest\hierarchicalIntentionList;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RecognizeIntentionRequest\intentionList;
-use AlibabaCloud\Tea\Model;
 
 class RecognizeIntentionRequest extends Model
 {
     /**
-     * @example false
-     *
      * @var bool
      */
     public $analysis;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example common
-     *
      * @var string
      */
     public $bizType;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $conversation;
@@ -65,15 +47,11 @@ class RecognizeIntentionRequest extends Model
     public $intentionList;
 
     /**
-     * @example common
-     *
      * @var string
      */
     public $opType;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $recommend;
@@ -89,53 +67,73 @@ class RecognizeIntentionRequest extends Model
         'recommend' => 'recommend',
     ];
 
-    public function validate(): void {}
+    public function validate()
+    {
+        if (\is_array($this->globalIntentionList)) {
+            Model::validateArray($this->globalIntentionList);
+        }
+        if (\is_array($this->hierarchicalIntentionList)) {
+            Model::validateArray($this->hierarchicalIntentionList);
+        }
+        if (\is_array($this->intentionList)) {
+            Model::validateArray($this->intentionList);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->analysis) {
             $res['analysis'] = $this->analysis;
         }
+
         if (null !== $this->bizType) {
             $res['bizType'] = $this->bizType;
         }
+
         if (null !== $this->conversation) {
             $res['conversation'] = $this->conversation;
         }
+
         if (null !== $this->globalIntentionList) {
-            $res['globalIntentionList'] = [];
-            if (null !== $this->globalIntentionList && \is_array($this->globalIntentionList)) {
-                $n = 0;
-                foreach ($this->globalIntentionList as $item) {
-                    $res['globalIntentionList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->globalIntentionList)) {
+                $res['globalIntentionList'] = [];
+                $n1 = 0;
+                foreach ($this->globalIntentionList as $item1) {
+                    $res['globalIntentionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->hierarchicalIntentionList) {
-            $res['hierarchicalIntentionList'] = [];
-            if (null !== $this->hierarchicalIntentionList && \is_array($this->hierarchicalIntentionList)) {
-                $n = 0;
-                foreach ($this->hierarchicalIntentionList as $item) {
-                    $res['hierarchicalIntentionList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->hierarchicalIntentionList)) {
+                $res['hierarchicalIntentionList'] = [];
+                $n1 = 0;
+                foreach ($this->hierarchicalIntentionList as $item1) {
+                    $res['hierarchicalIntentionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->intentionDomainCode) {
             $res['intentionDomainCode'] = $this->intentionDomainCode;
         }
+
         if (null !== $this->intentionList) {
-            $res['intentionList'] = [];
-            if (null !== $this->intentionList && \is_array($this->intentionList)) {
-                $n = 0;
-                foreach ($this->intentionList as $item) {
-                    $res['intentionList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->intentionList)) {
+                $res['intentionList'] = [];
+                $n1 = 0;
+                foreach ($this->intentionList as $item1) {
+                    $res['intentionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->opType) {
             $res['opType'] = $this->opType;
         }
+
         if (null !== $this->recommend) {
             $res['recommend'] = $this->recommend;
         }
@@ -143,56 +141,64 @@ class RecognizeIntentionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RecognizeIntentionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['analysis'])) {
             $model->analysis = $map['analysis'];
         }
+
         if (isset($map['bizType'])) {
             $model->bizType = $map['bizType'];
         }
+
         if (isset($map['conversation'])) {
             $model->conversation = $map['conversation'];
         }
+
         if (isset($map['globalIntentionList'])) {
             if (!empty($map['globalIntentionList'])) {
                 $model->globalIntentionList = [];
-                $n = 0;
-                foreach ($map['globalIntentionList'] as $item) {
-                    $model->globalIntentionList[$n++] = null !== $item ? globalIntentionList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['globalIntentionList'] as $item1) {
+                    $model->globalIntentionList[$n1++] = globalIntentionList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['hierarchicalIntentionList'])) {
             if (!empty($map['hierarchicalIntentionList'])) {
                 $model->hierarchicalIntentionList = [];
-                $n = 0;
-                foreach ($map['hierarchicalIntentionList'] as $item) {
-                    $model->hierarchicalIntentionList[$n++] = null !== $item ? hierarchicalIntentionList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['hierarchicalIntentionList'] as $item1) {
+                    $model->hierarchicalIntentionList[$n1++] = hierarchicalIntentionList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['intentionDomainCode'])) {
             $model->intentionDomainCode = $map['intentionDomainCode'];
         }
+
         if (isset($map['intentionList'])) {
             if (!empty($map['intentionList'])) {
                 $model->intentionList = [];
-                $n = 0;
-                foreach ($map['intentionList'] as $item) {
-                    $model->intentionList[$n++] = null !== $item ? intentionList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['intentionList'] as $item1) {
+                    $model->intentionList[$n1++] = intentionList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['opType'])) {
             $model->opType = $map['opType'];
         }
+
         if (isset($map['recommend'])) {
             $model->recommend = $map['recommend'];
         }

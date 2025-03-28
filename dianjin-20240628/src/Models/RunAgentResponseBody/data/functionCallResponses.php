@@ -1,20 +1,10 @@
 <?php
 
-declare(strict_types=1);
-
-/*
- * This file is part of PHP CS Fixer.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *     Dariusz Rumiński <dariusz.ruminski@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
+// This file is auto-generated, don't edit it. Thanks.
 
 namespace AlibabaCloud\SDK\DianJin\V20240628\Models\RunAgentResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class functionCallResponses extends Model
 {
@@ -24,8 +14,6 @@ class functionCallResponses extends Model
     public $displayName;
 
     /**
-     * @example 2025-01-21 16:37:14
-     *
      * @var string
      */
     public $endTime;
@@ -36,8 +24,6 @@ class functionCallResponses extends Model
     public $functionArgs;
 
     /**
-     * @example web_search
-     *
      * @var string
      */
     public $functionName;
@@ -48,8 +34,6 @@ class functionCallResponses extends Model
     public $result;
 
     /**
-     * @example 2025-01-21 16:37:14
-     *
      * @var string
      */
     public $startTime;
@@ -62,26 +46,34 @@ class functionCallResponses extends Model
         'startTime' => 'startTime',
     ];
 
-    public function validate(): void {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->displayName) {
             $res['displayName'] = $this->displayName;
         }
+
         if (null !== $this->endTime) {
             $res['endTime'] = $this->endTime;
         }
+
         if (null !== $this->functionArgs) {
             $res['functionArgs'] = $this->functionArgs;
         }
+
         if (null !== $this->functionName) {
             $res['functionName'] = $this->functionName;
         }
+
         if (null !== $this->result) {
             $res['result'] = $this->result;
         }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
@@ -89,29 +81,34 @@ class functionCallResponses extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return functionCallResponses
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['displayName'])) {
             $model->displayName = $map['displayName'];
         }
+
         if (isset($map['endTime'])) {
             $model->endTime = $map['endTime'];
         }
+
         if (isset($map['functionArgs'])) {
             $model->functionArgs = $map['functionArgs'];
         }
+
         if (isset($map['functionName'])) {
             $model->functionName = $map['functionName'];
         }
+
         if (isset($map['result'])) {
             $model->result = $map['result'];
         }
+
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }
