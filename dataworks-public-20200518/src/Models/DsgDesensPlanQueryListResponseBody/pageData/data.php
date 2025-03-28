@@ -13,73 +13,86 @@ class data extends Model
      * @var bool
      */
     public $checkWatermark;
+
     /**
      * @var string
      */
     public $dataType;
+
     /**
      * @var string
      */
     public $desenMode;
+
     /**
      * @var desensPlan
      */
     public $desensPlan;
+
     /**
      * @var string
      */
     public $desensRule;
+
     /**
      * @var string
      */
     public $desensWay;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $sceneCode;
+
     /**
      * @var string
      */
     public $sceneName;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
         'checkWatermark' => 'CheckWatermark',
-        'dataType'       => 'DataType',
-        'desenMode'      => 'DesenMode',
-        'desensPlan'     => 'DesensPlan',
-        'desensRule'     => 'DesensRule',
-        'desensWay'      => 'DesensWay',
-        'gmtCreate'      => 'GmtCreate',
-        'gmtModified'    => 'GmtModified',
-        'id'             => 'Id',
-        'owner'          => 'Owner',
-        'ruleName'       => 'RuleName',
-        'sceneCode'      => 'SceneCode',
-        'sceneName'      => 'SceneName',
-        'status'         => 'Status',
+        'dataType' => 'DataType',
+        'desenMode' => 'DesenMode',
+        'desensPlan' => 'DesensPlan',
+        'desensRule' => 'DesensRule',
+        'desensWay' => 'DesensWay',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'owner' => 'Owner',
+        'ruleName' => 'RuleName',
+        'sceneCode' => 'SceneCode',
+        'sceneName' => 'SceneName',
+        'status' => 'Status',
     ];
 
     public function validate()

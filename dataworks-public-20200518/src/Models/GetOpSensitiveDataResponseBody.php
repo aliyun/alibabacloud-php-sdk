@@ -12,13 +12,14 @@ class GetOpSensitiveDataResponseBody extends Model
      * @var string
      */
     public $opSensitiveData;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'opSensitiveData' => 'OpSensitiveData',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

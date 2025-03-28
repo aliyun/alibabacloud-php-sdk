@@ -12,33 +12,38 @@ class DsgDesensPlanQueryListRequest extends Model
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var int
      */
     public $sceneId;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'owner'      => 'Owner',
+        'owner' => 'Owner',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'ruleName'   => 'RuleName',
-        'sceneId'    => 'SceneId',
-        'status'     => 'Status',
+        'pageSize' => 'PageSize',
+        'ruleName' => 'RuleName',
+        'sceneId' => 'SceneId',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -12,22 +12,25 @@ class GetFolderRequest extends Model
      * @var string
      */
     public $folderId;
+
     /**
      * @var string
      */
     public $folderPath;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
     protected $_name = [
-        'folderId'          => 'FolderId',
-        'folderPath'        => 'FolderPath',
-        'projectId'         => 'ProjectId',
+        'folderId' => 'FolderId',
+        'folderPath' => 'FolderPath',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 

@@ -12,23 +12,26 @@ class UpdateClusterConfigsRequest extends Model
      * @var int
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $configType;
+
     /**
      * @var ClusterConfig[]
      */
     public $configValues;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
-        'configType'   => 'ConfigType',
+        'clusterId' => 'ClusterId',
+        'configType' => 'ConfigType',
         'configValues' => 'ConfigValues',
-        'projectId'    => 'ProjectId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()
@@ -53,7 +56,7 @@ class UpdateClusterConfigsRequest extends Model
         if (null !== $this->configValues) {
             if (\is_array($this->configValues)) {
                 $res['ConfigValues'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->configValues as $item1) {
                     $res['ConfigValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -86,7 +89,7 @@ class UpdateClusterConfigsRequest extends Model
         if (isset($map['ConfigValues'])) {
             if (!empty($map['ConfigValues'])) {
                 $model->configValues = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ConfigValues'] as $item1) {
                     $model->configValues[$n1++] = ClusterConfig::fromMap($item1);
                 }

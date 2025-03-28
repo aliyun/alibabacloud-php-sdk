@@ -12,33 +12,38 @@ class CreateQualityEntityRequest extends Model
      * @var int
      */
     public $entityLevel;
+
     /**
      * @var string
      */
     public $envType;
+
     /**
      * @var string
      */
     public $matchExpression;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'entityLevel'     => 'EntityLevel',
-        'envType'         => 'EnvType',
+        'entityLevel' => 'EntityLevel',
+        'envType' => 'EnvType',
         'matchExpression' => 'MatchExpression',
-        'projectId'       => 'ProjectId',
-        'projectName'     => 'ProjectName',
-        'tableName'       => 'TableName',
+        'projectId' => 'ProjectId',
+        'projectName' => 'ProjectName',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

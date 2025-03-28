@@ -12,28 +12,32 @@ class GetDataSourceMetaRequest extends Model
      * @var string
      */
     public $datasourceName;
+
     /**
      * @var string
      */
     public $envType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
         'datasourceName' => 'DatasourceName',
-        'envType'        => 'EnvType',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'projectId'      => 'ProjectId',
+        'envType' => 'EnvType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

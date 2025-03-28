@@ -12,48 +12,56 @@ class CreateProjectShrinkRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $disableDevelopment;
+
     /**
      * @var int
      */
     public $isAllowDownload;
+
     /**
      * @var string
      */
     public $projectDescription;
+
     /**
      * @var string
      */
     public $projectIdentifier;
+
     /**
      * @var int
      */
     public $projectMode;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $tagsShrink;
     protected $_name = [
-        'clientToken'                    => 'ClientToken',
-        'disableDevelopment'             => 'DisableDevelopment',
-        'isAllowDownload'                => 'IsAllowDownload',
-        'projectDescription'             => 'ProjectDescription',
-        'projectIdentifier'              => 'ProjectIdentifier',
-        'projectMode'                    => 'ProjectMode',
-        'projectName'                    => 'ProjectName',
+        'clientToken' => 'ClientToken',
+        'disableDevelopment' => 'DisableDevelopment',
+        'isAllowDownload' => 'IsAllowDownload',
+        'projectDescription' => 'ProjectDescription',
+        'projectIdentifier' => 'ProjectIdentifier',
+        'projectMode' => 'ProjectMode',
+        'projectName' => 'ProjectName',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'tagsShrink'                     => 'Tags',
+        'tagsShrink' => 'Tags',
     ];
 
     public function validate()

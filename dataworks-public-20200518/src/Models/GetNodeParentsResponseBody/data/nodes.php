@@ -12,58 +12,68 @@ class nodes extends Model
      * @var int
      */
     public $baselineId;
+
     /**
      * @var string
      */
     public $cronExpress;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $programType;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var bool
      */
     public $repeatability;
+
     /**
      * @var string
      */
     public $schedulerType;
+
     /**
      * @var string
      */
     public $stepType;
     protected $_name = [
-        'baselineId'    => 'BaselineId',
-        'cronExpress'   => 'CronExpress',
-        'nodeId'        => 'NodeId',
-        'nodeName'      => 'NodeName',
-        'ownerId'       => 'OwnerId',
-        'priority'      => 'Priority',
-        'programType'   => 'ProgramType',
-        'projectId'     => 'ProjectId',
+        'baselineId' => 'BaselineId',
+        'cronExpress' => 'CronExpress',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'ownerId' => 'OwnerId',
+        'priority' => 'Priority',
+        'programType' => 'ProgramType',
+        'projectId' => 'ProjectId',
         'repeatability' => 'Repeatability',
         'schedulerType' => 'SchedulerType',
-        'stepType'      => 'StepType',
+        'stepType' => 'StepType',
     ];
 
     public function validate()

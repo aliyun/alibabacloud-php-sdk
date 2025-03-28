@@ -12,33 +12,38 @@ class CreateMetaCollectionResponseBody extends Model
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $qualifiedName;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'errorCode'      => 'ErrorCode',
-        'errorMessage'   => 'ErrorMessage',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'qualifiedName'  => 'QualifiedName',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'qualifiedName' => 'QualifiedName',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

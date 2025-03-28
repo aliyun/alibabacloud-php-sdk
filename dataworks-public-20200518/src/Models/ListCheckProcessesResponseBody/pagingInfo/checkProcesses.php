@@ -12,48 +12,56 @@ class checkProcesses extends Model
      * @var string
      */
     public $eventCode;
+
     /**
      * @var string
      */
     public $eventName;
+
     /**
      * @var string
      */
     public $eventNameEn;
+
     /**
      * @var string
      */
     public $messageId;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var string
      */
     public $processId;
+
     /**
      * @var string
      */
     public $processName;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'eventCode'   => 'EventCode',
-        'eventName'   => 'EventName',
+        'eventCode' => 'EventCode',
+        'eventName' => 'EventName',
         'eventNameEn' => 'EventNameEn',
-        'messageId'   => 'MessageId',
-        'operator'    => 'Operator',
-        'processId'   => 'ProcessId',
+        'messageId' => 'MessageId',
+        'operator' => 'Operator',
+        'processId' => 'ProcessId',
         'processName' => 'ProcessName',
-        'projectId'   => 'ProjectId',
-        'status'      => 'Status',
+        'projectId' => 'ProjectId',
+        'status' => 'Status',
     ];
 
     public function validate()

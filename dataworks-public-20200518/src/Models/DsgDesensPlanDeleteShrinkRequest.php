@@ -12,6 +12,7 @@ class DsgDesensPlanDeleteShrinkRequest extends Model
      * @var string
      */
     public $idsShrink;
+
     /**
      * @var string
      */

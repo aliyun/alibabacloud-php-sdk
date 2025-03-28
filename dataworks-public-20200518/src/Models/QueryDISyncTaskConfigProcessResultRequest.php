@@ -12,18 +12,20 @@ class QueryDISyncTaskConfigProcessResultRequest extends Model
      * @var int
      */
     public $asyncProcessId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
         'asyncProcessId' => 'AsyncProcessId',
-        'projectId'      => 'ProjectId',
-        'taskType'       => 'TaskType',
+        'projectId' => 'ProjectId',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

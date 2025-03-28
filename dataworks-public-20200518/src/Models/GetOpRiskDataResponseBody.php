@@ -12,13 +12,14 @@ class GetOpRiskDataResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $riskData;
     protected $_name = [
         'requestId' => 'RequestId',
-        'riskData'  => 'RiskData',
+        'riskData' => 'RiskData',
     ];
 
     public function validate()

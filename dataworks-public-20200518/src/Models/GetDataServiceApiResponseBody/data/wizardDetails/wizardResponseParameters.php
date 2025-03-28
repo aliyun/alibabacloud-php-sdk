@@ -12,28 +12,32 @@ class wizardResponseParameters extends Model
      * @var string
      */
     public $columnName;
+
     /**
      * @var string
      */
     public $exampleValue;
+
     /**
      * @var int
      */
     public $parameterDataType;
+
     /**
      * @var string
      */
     public $parameterDescription;
+
     /**
      * @var string
      */
     public $parameterName;
     protected $_name = [
-        'columnName'           => 'ColumnName',
-        'exampleValue'         => 'ExampleValue',
-        'parameterDataType'    => 'ParameterDataType',
+        'columnName' => 'ColumnName',
+        'exampleValue' => 'ExampleValue',
+        'parameterDataType' => 'ParameterDataType',
         'parameterDescription' => 'ParameterDescription',
-        'parameterName'        => 'ParameterName',
+        'parameterName' => 'ParameterName',
     ];
 
     public function validate()

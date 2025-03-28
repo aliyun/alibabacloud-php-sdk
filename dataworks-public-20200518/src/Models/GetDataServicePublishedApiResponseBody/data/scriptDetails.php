@@ -16,43 +16,50 @@ class scriptDetails extends Model
      * @var string
      */
     public $failedResultSample;
+
     /**
      * @var bool
      */
     public $isPagedResponse;
+
     /**
      * @var string
      */
     public $script;
+
     /**
      * @var scriptConnection
      */
     public $scriptConnection;
+
     /**
      * @var scriptErrorCodes[]
      */
     public $scriptErrorCodes;
+
     /**
      * @var scriptRequestParameters[]
      */
     public $scriptRequestParameters;
+
     /**
      * @var scriptResponseParameters[]
      */
     public $scriptResponseParameters;
+
     /**
      * @var string
      */
     public $successfulResultSample;
     protected $_name = [
-        'failedResultSample'       => 'FailedResultSample',
-        'isPagedResponse'          => 'IsPagedResponse',
-        'script'                   => 'Script',
-        'scriptConnection'         => 'ScriptConnection',
-        'scriptErrorCodes'         => 'ScriptErrorCodes',
-        'scriptRequestParameters'  => 'ScriptRequestParameters',
+        'failedResultSample' => 'FailedResultSample',
+        'isPagedResponse' => 'IsPagedResponse',
+        'script' => 'Script',
+        'scriptConnection' => 'ScriptConnection',
+        'scriptErrorCodes' => 'ScriptErrorCodes',
+        'scriptRequestParameters' => 'ScriptRequestParameters',
         'scriptResponseParameters' => 'ScriptResponseParameters',
-        'successfulResultSample'   => 'SuccessfulResultSample',
+        'successfulResultSample' => 'SuccessfulResultSample',
     ];
 
     public function validate()
@@ -94,7 +101,7 @@ class scriptDetails extends Model
         if (null !== $this->scriptErrorCodes) {
             if (\is_array($this->scriptErrorCodes)) {
                 $res['ScriptErrorCodes'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->scriptErrorCodes as $item1) {
                     $res['ScriptErrorCodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +111,7 @@ class scriptDetails extends Model
         if (null !== $this->scriptRequestParameters) {
             if (\is_array($this->scriptRequestParameters)) {
                 $res['ScriptRequestParameters'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->scriptRequestParameters as $item1) {
                     $res['ScriptRequestParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -114,7 +121,7 @@ class scriptDetails extends Model
         if (null !== $this->scriptResponseParameters) {
             if (\is_array($this->scriptResponseParameters)) {
                 $res['ScriptResponseParameters'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->scriptResponseParameters as $item1) {
                     $res['ScriptResponseParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -155,7 +162,7 @@ class scriptDetails extends Model
         if (isset($map['ScriptErrorCodes'])) {
             if (!empty($map['ScriptErrorCodes'])) {
                 $model->scriptErrorCodes = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ScriptErrorCodes'] as $item1) {
                     $model->scriptErrorCodes[$n1++] = scriptErrorCodes::fromMap($item1);
                 }
@@ -165,7 +172,7 @@ class scriptDetails extends Model
         if (isset($map['ScriptRequestParameters'])) {
             if (!empty($map['ScriptRequestParameters'])) {
                 $model->scriptRequestParameters = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['ScriptRequestParameters'] as $item1) {
                     $model->scriptRequestParameters[$n1++] = scriptRequestParameters::fromMap($item1);
                 }
@@ -175,7 +182,7 @@ class scriptDetails extends Model
         if (isset($map['ScriptResponseParameters'])) {
             if (!empty($map['ScriptResponseParameters'])) {
                 $model->scriptResponseParameters = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['ScriptResponseParameters'] as $item1) {
                     $model->scriptResponseParameters[$n1++] = scriptResponseParameters::fromMap($item1);
                 }

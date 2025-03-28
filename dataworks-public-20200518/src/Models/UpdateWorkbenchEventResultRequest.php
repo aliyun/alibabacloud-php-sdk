@@ -12,23 +12,26 @@ class UpdateWorkbenchEventResultRequest extends Model
      * @var string
      */
     public $checkResult;
+
     /**
      * @var string
      */
     public $checkResultTip;
+
     /**
      * @var string
      */
     public $extensionCode;
+
     /**
      * @var string
      */
     public $messageId;
     protected $_name = [
-        'checkResult'    => 'CheckResult',
+        'checkResult' => 'CheckResult',
         'checkResultTip' => 'CheckResultTip',
-        'extensionCode'  => 'ExtensionCode',
-        'messageId'      => 'MessageId',
+        'extensionCode' => 'ExtensionCode',
+        'messageId' => 'MessageId',
     ];
 
     public function validate()

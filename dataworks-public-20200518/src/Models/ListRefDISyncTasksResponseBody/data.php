@@ -31,7 +31,7 @@ class data extends Model
         if (null !== $this->DISyncTasks) {
             if (\is_array($this->DISyncTasks)) {
                 $res['DISyncTasks'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->DISyncTasks as $item1) {
                     $res['DISyncTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class data extends Model
         if (isset($map['DISyncTasks'])) {
             if (!empty($map['DISyncTasks'])) {
                 $model->DISyncTasks = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DISyncTasks'] as $item1) {
                     $model->DISyncTasks[$n1++] = DISyncTasks::fromMap($item1);
                 }

@@ -12,43 +12,50 @@ class data extends Model
      * @var int
      */
     public $apiId;
+
     /**
      * @var int
      */
     public $costTime;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $paramMap;
+
     /**
      * @var int
      */
     public $retCode;
+
     /**
      * @var string
      */
     public $retResult;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $testId;
     protected $_name = [
-        'apiId'      => 'ApiId',
-        'costTime'   => 'CostTime',
+        'apiId' => 'ApiId',
+        'costTime' => 'CostTime',
         'createTime' => 'CreateTime',
-        'paramMap'   => 'ParamMap',
-        'retCode'    => 'RetCode',
-        'retResult'  => 'RetResult',
-        'status'     => 'Status',
-        'testId'     => 'TestId',
+        'paramMap' => 'ParamMap',
+        'retCode' => 'RetCode',
+        'retResult' => 'RetResult',
+        'status' => 'Status',
+        'testId' => 'TestId',
     ];
 
     public function validate()

@@ -13,13 +13,14 @@ class ListExtensionsResponseBody extends Model
      * @var pagingInfo
      */
     public $pagingInfo;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'pagingInfo' => 'PagingInfo',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

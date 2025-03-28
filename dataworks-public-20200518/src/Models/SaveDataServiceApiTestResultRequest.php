@@ -12,28 +12,32 @@ class SaveDataServiceApiTestResultRequest extends Model
      * @var int
      */
     public $apiId;
+
     /**
      * @var bool
      */
     public $autoGenerate;
+
     /**
      * @var string
      */
     public $failResultSample;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $resultSample;
     protected $_name = [
-        'apiId'            => 'ApiId',
-        'autoGenerate'     => 'AutoGenerate',
+        'apiId' => 'ApiId',
+        'autoGenerate' => 'AutoGenerate',
         'failResultSample' => 'FailResultSample',
-        'projectId'        => 'ProjectId',
-        'resultSample'     => 'ResultSample',
+        'projectId' => 'ProjectId',
+        'resultSample' => 'ResultSample',
     ];
 
     public function validate()

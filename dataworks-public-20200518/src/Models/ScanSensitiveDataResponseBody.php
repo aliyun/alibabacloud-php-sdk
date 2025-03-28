@@ -12,12 +12,13 @@ class ScanSensitiveDataResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var mixed[]
      */
     public $sensitives;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'sensitives' => 'Sensitives',
     ];
 

@@ -12,13 +12,14 @@ class DsgRunSensIdentifyShrinkRequest extends Model
      * @var string
      */
     public $esMetaParamsShrink;
+
     /**
      * @var string
      */
     public $tenantId;
     protected $_name = [
         'esMetaParamsShrink' => 'EsMetaParams',
-        'tenantId'           => 'TenantId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

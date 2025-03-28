@@ -12,43 +12,50 @@ class SearchMetaTablesRequest extends Model
      * @var string
      */
     public $appGuid;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var int
      */
     public $entityType;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $schema;
     protected $_name = [
-        'appGuid'        => 'AppGuid',
-        'clusterId'      => 'ClusterId',
+        'appGuid' => 'AppGuid',
+        'clusterId' => 'ClusterId',
         'dataSourceType' => 'DataSourceType',
-        'entityType'     => 'EntityType',
-        'keyword'        => 'Keyword',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'schema'         => 'Schema',
+        'entityType' => 'EntityType',
+        'keyword' => 'Keyword',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'schema' => 'Schema',
     ];
 
     public function validate()

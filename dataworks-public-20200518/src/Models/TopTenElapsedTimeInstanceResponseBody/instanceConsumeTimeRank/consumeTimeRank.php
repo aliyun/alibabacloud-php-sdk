@@ -12,38 +12,44 @@ class consumeTimeRank extends Model
      * @var int
      */
     public $businessDate;
+
     /**
      * @var int
      */
     public $consumed;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $programType;
     protected $_name = [
         'businessDate' => 'BusinessDate',
-        'consumed'     => 'Consumed',
-        'instanceId'   => 'InstanceId',
-        'nodeId'       => 'NodeId',
-        'nodeName'     => 'NodeName',
-        'owner'        => 'Owner',
-        'programType'  => 'ProgramType',
+        'consumed' => 'Consumed',
+        'instanceId' => 'InstanceId',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'owner' => 'Owner',
+        'programType' => 'ProgramType',
     ];
 
     public function validate()

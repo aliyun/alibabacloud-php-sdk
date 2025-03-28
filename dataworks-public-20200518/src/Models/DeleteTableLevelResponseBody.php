@@ -12,13 +12,14 @@ class DeleteTableLevelResponseBody extends Model
      * @var bool
      */
     public $deleteResult;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'deleteResult' => 'DeleteResult',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,22 +12,25 @@ class GetFileVersionRequest extends Model
      * @var int
      */
     public $fileId;
+
     /**
      * @var int
      */
     public $fileVersion;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
     protected $_name = [
-        'fileId'            => 'FileId',
-        'fileVersion'       => 'FileVersion',
-        'projectId'         => 'ProjectId',
+        'fileId' => 'FileId',
+        'fileVersion' => 'FileVersion',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 

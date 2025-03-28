@@ -12,22 +12,25 @@ class ListShiftSchedulesRequest extends Model
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $shiftScheduleName;
     protected $_name = [
-        'owner'             => 'Owner',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
+        'owner' => 'Owner',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'shiftScheduleName' => 'ShiftScheduleName',
     ];
 

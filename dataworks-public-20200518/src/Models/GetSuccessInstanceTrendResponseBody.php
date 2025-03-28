@@ -13,13 +13,14 @@ class GetSuccessInstanceTrendResponseBody extends Model
      * @var instanceStatusTrend
      */
     public $instanceStatusTrend;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceStatusTrend' => 'InstanceStatusTrend',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

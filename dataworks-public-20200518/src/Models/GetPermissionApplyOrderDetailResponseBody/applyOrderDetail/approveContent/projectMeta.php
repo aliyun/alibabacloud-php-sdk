@@ -13,18 +13,20 @@ class projectMeta extends Model
      * @var string
      */
     public $maxComputeProjectName;
+
     /**
      * @var objectMetaList[]
      */
     public $objectMetaList;
+
     /**
      * @var int
      */
     public $workspaceId;
     protected $_name = [
         'maxComputeProjectName' => 'MaxComputeProjectName',
-        'objectMetaList'        => 'ObjectMetaList',
-        'workspaceId'           => 'WorkspaceId',
+        'objectMetaList' => 'ObjectMetaList',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class projectMeta extends Model
         if (null !== $this->objectMetaList) {
             if (\is_array($this->objectMetaList)) {
                 $res['ObjectMetaList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->objectMetaList as $item1) {
                     $res['ObjectMetaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class projectMeta extends Model
         if (isset($map['ObjectMetaList'])) {
             if (!empty($map['ObjectMetaList'])) {
                 $model->objectMetaList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ObjectMetaList'] as $item1) {
                     $model->objectMetaList[$n1++] = objectMetaList::fromMap($item1);
                 }

@@ -14,53 +14,62 @@ class data extends Model
      * @var int
      */
     public $bizdate;
+
     /**
      * @var int
      */
     public $inGroupId;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $prgType;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var runs[]
      */
     public $runs;
+
     /**
      * @var topics[]
      */
     public $topics;
     protected $_name = [
-        'bizdate'    => 'Bizdate',
-        'inGroupId'  => 'InGroupId',
+        'bizdate' => 'Bizdate',
+        'inGroupId' => 'InGroupId',
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'nodeName'   => 'NodeName',
-        'owner'      => 'Owner',
-        'prgType'    => 'PrgType',
-        'projectId'  => 'ProjectId',
-        'runs'       => 'Runs',
-        'topics'     => 'Topics',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'owner' => 'Owner',
+        'prgType' => 'PrgType',
+        'projectId' => 'ProjectId',
+        'runs' => 'Runs',
+        'topics' => 'Topics',
     ];
 
     public function validate()
@@ -112,7 +121,7 @@ class data extends Model
         if (null !== $this->runs) {
             if (\is_array($this->runs)) {
                 $res['Runs'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->runs as $item1) {
                     $res['Runs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -122,7 +131,7 @@ class data extends Model
         if (null !== $this->topics) {
             if (\is_array($this->topics)) {
                 $res['Topics'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->topics as $item1) {
                     $res['Topics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -175,7 +184,7 @@ class data extends Model
         if (isset($map['Runs'])) {
             if (!empty($map['Runs'])) {
                 $model->runs = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Runs'] as $item1) {
                     $model->runs[$n1++] = runs::fromMap($item1);
                 }
@@ -185,7 +194,7 @@ class data extends Model
         if (isset($map['Topics'])) {
             if (!empty($map['Topics'])) {
                 $model->topics = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Topics'] as $item1) {
                     $model->topics[$n1++] = topics::fromMap($item1);
                 }

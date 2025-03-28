@@ -12,32 +12,37 @@ class UpdateBusinessRequest extends Model
      * @var int
      */
     public $businessId;
+
     /**
      * @var string
      */
     public $businessName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
     protected $_name = [
-        'businessId'        => 'BusinessId',
-        'businessName'      => 'BusinessName',
-        'description'       => 'Description',
-        'owner'             => 'Owner',
-        'projectId'         => 'ProjectId',
+        'businessId' => 'BusinessId',
+        'businessName' => 'BusinessName',
+        'description' => 'Description',
+        'owner' => 'Owner',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 

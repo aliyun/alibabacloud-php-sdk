@@ -12,43 +12,50 @@ class esMetaParams extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dbType;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string[]
      */
     public $tableNameList;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'clusterId'     => 'ClusterId',
-        'dbType'        => 'DbType',
-        'instanceId'    => 'InstanceId',
-        'projectName'   => 'ProjectName',
-        'schemaName'    => 'SchemaName',
-        'tableName'     => 'TableName',
+        'clusterId' => 'ClusterId',
+        'dbType' => 'DbType',
+        'instanceId' => 'InstanceId',
+        'projectName' => 'ProjectName',
+        'schemaName' => 'SchemaName',
+        'tableName' => 'TableName',
         'tableNameList' => 'TableNameList',
-        'user'          => 'User',
+        'user' => 'User',
     ];
 
     public function validate()
@@ -89,7 +96,7 @@ class esMetaParams extends Model
         if (null !== $this->tableNameList) {
             if (\is_array($this->tableNameList)) {
                 $res['TableNameList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->tableNameList as $item1) {
                     $res['TableNameList'][$n1++] = $item1;
                 }
@@ -138,7 +145,7 @@ class esMetaParams extends Model
         if (isset($map['TableNameList'])) {
             if (!empty($map['TableNameList'])) {
                 $model->tableNameList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['TableNameList'] as $item1) {
                     $model->tableNameList[$n1++] = $item1;
                 }

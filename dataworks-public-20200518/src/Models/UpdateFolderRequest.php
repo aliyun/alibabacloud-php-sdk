@@ -12,22 +12,25 @@ class UpdateFolderRequest extends Model
      * @var string
      */
     public $folderId;
+
     /**
      * @var string
      */
     public $folderName;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
     protected $_name = [
-        'folderId'          => 'FolderId',
-        'folderName'        => 'FolderName',
-        'projectId'         => 'ProjectId',
+        'folderId' => 'FolderId',
+        'folderName' => 'FolderName',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 

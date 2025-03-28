@@ -12,18 +12,20 @@ class GetInstanceStatusCountRequest extends Model
      * @var string
      */
     public $bizDate;
+
     /**
      * @var string
      */
     public $projectEnv;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'bizDate'    => 'BizDate',
+        'bizDate' => 'BizDate',
         'projectEnv' => 'ProjectEnv',
-        'projectId'  => 'ProjectId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

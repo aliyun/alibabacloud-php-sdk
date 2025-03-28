@@ -16,32 +16,37 @@ class UpdateDIJobRequest extends Model
      * @var int
      */
     public $DIJobId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var jobSettings
      */
     public $jobSettings;
+
     /**
      * @var resourceSettings
      */
     public $resourceSettings;
+
     /**
      * @var tableMappings[]
      */
     public $tableMappings;
+
     /**
      * @var transformationRules[]
      */
     public $transformationRules;
     protected $_name = [
-        'DIJobId'             => 'DIJobId',
-        'description'         => 'Description',
-        'jobSettings'         => 'JobSettings',
-        'resourceSettings'    => 'ResourceSettings',
-        'tableMappings'       => 'TableMappings',
+        'DIJobId' => 'DIJobId',
+        'description' => 'Description',
+        'jobSettings' => 'JobSettings',
+        'resourceSettings' => 'ResourceSettings',
+        'tableMappings' => 'TableMappings',
         'transformationRules' => 'TransformationRules',
     ];
 
@@ -84,7 +89,7 @@ class UpdateDIJobRequest extends Model
         if (null !== $this->tableMappings) {
             if (\is_array($this->tableMappings)) {
                 $res['TableMappings'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->tableMappings as $item1) {
                     $res['TableMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -94,7 +99,7 @@ class UpdateDIJobRequest extends Model
         if (null !== $this->transformationRules) {
             if (\is_array($this->transformationRules)) {
                 $res['TransformationRules'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->transformationRules as $item1) {
                     $res['TransformationRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -131,7 +136,7 @@ class UpdateDIJobRequest extends Model
         if (isset($map['TableMappings'])) {
             if (!empty($map['TableMappings'])) {
                 $model->tableMappings = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['TableMappings'] as $item1) {
                     $model->tableMappings[$n1++] = tableMappings::fromMap($item1);
                 }
@@ -141,7 +146,7 @@ class UpdateDIJobRequest extends Model
         if (isset($map['TransformationRules'])) {
             if (!empty($map['TransformationRules'])) {
                 $model->transformationRules = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['TransformationRules'] as $item1) {
                     $model->transformationRules[$n1++] = transformationRules::fromMap($item1);
                 }

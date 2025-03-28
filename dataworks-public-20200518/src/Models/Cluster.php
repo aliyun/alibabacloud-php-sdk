@@ -12,13 +12,14 @@ class Cluster extends Model
      * @var string
      */
     public $clusterBizId;
+
     /**
      * @var int
      */
     public $clusterId;
     protected $_name = [
         'clusterBizId' => 'ClusterBizId',
-        'clusterId'    => 'ClusterId',
+        'clusterId' => 'ClusterId',
     ];
 
     public function validate()

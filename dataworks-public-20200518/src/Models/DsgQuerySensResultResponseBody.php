@@ -12,43 +12,50 @@ class DsgQuerySensResultResponseBody extends Model
      * @var mixed
      */
     public $data;
+
     /**
      * @var string
      */
     public $dynamicErrorCode;
+
     /**
      * @var string
      */
     public $dynamicErrorMessage;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'data'                => 'Data',
-        'dynamicErrorCode'    => 'DynamicErrorCode',
+        'data' => 'Data',
+        'dynamicErrorCode' => 'DynamicErrorCode',
         'dynamicErrorMessage' => 'DynamicErrorMessage',
-        'errorCode'           => 'ErrorCode',
-        'errorMessage'        => 'ErrorMessage',
-        'httpStatusCode'      => 'HttpStatusCode',
-        'requestId'           => 'RequestId',
-        'success'             => 'Success',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

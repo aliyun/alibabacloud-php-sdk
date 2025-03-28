@@ -13,32 +13,37 @@ class scenes extends Model
      * @var string
      */
     public $desc;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var projects[]
      */
     public $projects;
+
     /**
      * @var string
      */
     public $sceneCode;
+
     /**
      * @var string
      */
     public $sceneName;
+
     /**
      * @var int[]
      */
     public $userGroupIds;
     protected $_name = [
-        'desc'         => 'desc',
-        'id'           => 'id',
-        'projects'     => 'projects',
-        'sceneCode'    => 'sceneCode',
-        'sceneName'    => 'sceneName',
+        'desc' => 'desc',
+        'id' => 'id',
+        'projects' => 'projects',
+        'sceneCode' => 'sceneCode',
+        'sceneName' => 'sceneName',
         'userGroupIds' => 'userGroupIds',
     ];
 
@@ -67,7 +72,7 @@ class scenes extends Model
         if (null !== $this->projects) {
             if (\is_array($this->projects)) {
                 $res['projects'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->projects as $item1) {
                     $res['projects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -85,7 +90,7 @@ class scenes extends Model
         if (null !== $this->userGroupIds) {
             if (\is_array($this->userGroupIds)) {
                 $res['userGroupIds'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->userGroupIds as $item1) {
                     $res['userGroupIds'][$n1++] = $item1;
                 }
@@ -114,7 +119,7 @@ class scenes extends Model
         if (isset($map['projects'])) {
             if (!empty($map['projects'])) {
                 $model->projects = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['projects'] as $item1) {
                     $model->projects[$n1++] = projects::fromMap($item1);
                 }
@@ -132,7 +137,7 @@ class scenes extends Model
         if (isset($map['userGroupIds'])) {
             if (!empty($map['userGroupIds'])) {
                 $model->userGroupIds = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['userGroupIds'] as $item1) {
                     $model->userGroupIds[$n1++] = $item1;
                 }

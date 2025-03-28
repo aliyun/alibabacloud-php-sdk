@@ -13,12 +13,13 @@ class databaseInfo extends Model
      * @var dbList[]
      */
     public $dbList;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'dbList'     => 'DbList',
+        'dbList' => 'DbList',
         'totalCount' => 'TotalCount',
     ];
 
@@ -36,7 +37,7 @@ class databaseInfo extends Model
         if (null !== $this->dbList) {
             if (\is_array($this->dbList)) {
                 $res['DbList'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->dbList as $item1) {
                     $res['DbList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class databaseInfo extends Model
         if (isset($map['DbList'])) {
             if (!empty($map['DbList'])) {
                 $model->dbList = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['DbList'] as $item1) {
                     $model->dbList[$n1++] = dbList::fromMap($item1);
                 }

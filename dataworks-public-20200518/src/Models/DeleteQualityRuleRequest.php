@@ -12,18 +12,20 @@ class DeleteQualityRuleRequest extends Model
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var int
      */
     public $ruleId;
     protected $_name = [
-        'projectId'   => 'ProjectId',
+        'projectId' => 'ProjectId',
         'projectName' => 'ProjectName',
-        'ruleId'      => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()

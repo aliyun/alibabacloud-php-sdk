@@ -12,128 +12,152 @@ class data extends Model
      * @var int
      */
     public $blockType;
+
     /**
      * @var int
      */
     public $checker;
+
     /**
      * @var string
      */
     public $checkerName;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $criticalThreshold;
+
     /**
      * @var int
      */
     public $entityId;
+
     /**
      * @var string
      */
     public $expectValue;
+
     /**
      * @var bool
      */
     public $fixCheck;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $methodId;
+
     /**
      * @var string
      */
     public $methodName;
+
     /**
      * @var string
      */
     public $onDuty;
+
     /**
      * @var string
      */
     public $onDutyAccountName;
+
     /**
      * @var bool
      */
     public $openSwitch;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var int
      */
     public $predictType;
+
     /**
      * @var string
      */
     public $property;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var int
      */
     public $ruleType;
+
     /**
      * @var string
      */
     public $taskSetting;
+
     /**
      * @var int
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateName;
+
     /**
      * @var string
      */
     public $trend;
+
     /**
      * @var string
      */
     public $warningThreshold;
+
     /**
      * @var string
      */
     public $whereCondition;
     protected $_name = [
-        'blockType'         => 'BlockType',
-        'checker'           => 'Checker',
-        'checkerName'       => 'CheckerName',
-        'comment'           => 'Comment',
+        'blockType' => 'BlockType',
+        'checker' => 'Checker',
+        'checkerName' => 'CheckerName',
+        'comment' => 'Comment',
         'criticalThreshold' => 'CriticalThreshold',
-        'entityId'          => 'EntityId',
-        'expectValue'       => 'ExpectValue',
-        'fixCheck'          => 'FixCheck',
-        'id'                => 'Id',
-        'methodId'          => 'MethodId',
-        'methodName'        => 'MethodName',
-        'onDuty'            => 'OnDuty',
+        'entityId' => 'EntityId',
+        'expectValue' => 'ExpectValue',
+        'fixCheck' => 'FixCheck',
+        'id' => 'Id',
+        'methodId' => 'MethodId',
+        'methodName' => 'MethodName',
+        'onDuty' => 'OnDuty',
         'onDutyAccountName' => 'OnDutyAccountName',
-        'openSwitch'        => 'OpenSwitch',
-        'operator'          => 'Operator',
-        'predictType'       => 'PredictType',
-        'property'          => 'Property',
-        'ruleName'          => 'RuleName',
-        'ruleType'          => 'RuleType',
-        'taskSetting'       => 'TaskSetting',
-        'templateId'        => 'TemplateId',
-        'templateName'      => 'TemplateName',
-        'trend'             => 'Trend',
-        'warningThreshold'  => 'WarningThreshold',
-        'whereCondition'    => 'WhereCondition',
+        'openSwitch' => 'OpenSwitch',
+        'operator' => 'Operator',
+        'predictType' => 'PredictType',
+        'property' => 'Property',
+        'ruleName' => 'RuleName',
+        'ruleType' => 'RuleType',
+        'taskSetting' => 'TaskSetting',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'trend' => 'Trend',
+        'warningThreshold' => 'WarningThreshold',
+        'whereCondition' => 'WhereCondition',
     ];
 
     public function validate()

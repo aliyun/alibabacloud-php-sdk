@@ -12,21 +12,24 @@ class projectRoleList extends Model
      * @var string
      */
     public $projectRoleCode;
+
     /**
      * @var int
      */
     public $projectRoleId;
+
     /**
      * @var string
      */
     public $projectRoleName;
+
     /**
      * @var string
      */
     public $projectRoleType;
     protected $_name = [
         'projectRoleCode' => 'ProjectRoleCode',
-        'projectRoleId'   => 'ProjectRoleId',
+        'projectRoleId' => 'ProjectRoleId',
         'projectRoleName' => 'ProjectRoleName',
         'projectRoleType' => 'ProjectRoleType',
     ];

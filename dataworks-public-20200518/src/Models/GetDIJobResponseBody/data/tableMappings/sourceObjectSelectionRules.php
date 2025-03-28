@@ -12,6 +12,7 @@ class sourceObjectSelectionRules extends Model
      * @var string
      */
     public $expression;
+
     /**
      * @var string
      */

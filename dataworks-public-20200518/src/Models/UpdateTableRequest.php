@@ -14,103 +14,122 @@ class UpdateTableRequest extends Model
      * @var string
      */
     public $appGuid;
+
     /**
      * @var int
      */
     public $categoryId;
+
     /**
      * @var columns[]
      */
     public $columns;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var bool
      */
     public $createIfNotExists;
+
     /**
      * @var string
      */
     public $endpoint;
+
     /**
      * @var int
      */
     public $envType;
+
     /**
      * @var string
      */
     public $externalTableType;
+
     /**
      * @var int
      */
     public $hasPart;
+
     /**
      * @var int
      */
     public $isView;
+
     /**
      * @var int
      */
     public $lifeCycle;
+
     /**
      * @var string
      */
     public $location;
+
     /**
      * @var int
      */
     public $logicalLevelId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $physicsLevelId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $schema;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var themes[]
      */
     public $themes;
+
     /**
      * @var int
      */
     public $visibility;
     protected $_name = [
-        'appGuid'           => 'AppGuid',
-        'categoryId'        => 'CategoryId',
-        'columns'           => 'Columns',
-        'comment'           => 'Comment',
+        'appGuid' => 'AppGuid',
+        'categoryId' => 'CategoryId',
+        'columns' => 'Columns',
+        'comment' => 'Comment',
         'createIfNotExists' => 'CreateIfNotExists',
-        'endpoint'          => 'Endpoint',
-        'envType'           => 'EnvType',
+        'endpoint' => 'Endpoint',
+        'envType' => 'EnvType',
         'externalTableType' => 'ExternalTableType',
-        'hasPart'           => 'HasPart',
-        'isView'            => 'IsView',
-        'lifeCycle'         => 'LifeCycle',
-        'location'          => 'Location',
-        'logicalLevelId'    => 'LogicalLevelId',
-        'ownerId'           => 'OwnerId',
-        'physicsLevelId'    => 'PhysicsLevelId',
-        'projectId'         => 'ProjectId',
-        'schema'            => 'Schema',
-        'tableName'         => 'TableName',
-        'themes'            => 'Themes',
-        'visibility'        => 'Visibility',
+        'hasPart' => 'HasPart',
+        'isView' => 'IsView',
+        'lifeCycle' => 'LifeCycle',
+        'location' => 'Location',
+        'logicalLevelId' => 'LogicalLevelId',
+        'ownerId' => 'OwnerId',
+        'physicsLevelId' => 'PhysicsLevelId',
+        'projectId' => 'ProjectId',
+        'schema' => 'Schema',
+        'tableName' => 'TableName',
+        'themes' => 'Themes',
+        'visibility' => 'Visibility',
     ];
 
     public function validate()
@@ -138,7 +157,7 @@ class UpdateTableRequest extends Model
         if (null !== $this->columns) {
             if (\is_array($this->columns)) {
                 $res['Columns'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->columns as $item1) {
                     $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -208,7 +227,7 @@ class UpdateTableRequest extends Model
         if (null !== $this->themes) {
             if (\is_array($this->themes)) {
                 $res['Themes'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->themes as $item1) {
                     $res['Themes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -241,7 +260,7 @@ class UpdateTableRequest extends Model
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
                     $model->columns[$n1++] = columns::fromMap($item1);
                 }
@@ -311,7 +330,7 @@ class UpdateTableRequest extends Model
         if (isset($map['Themes'])) {
             if (!empty($map['Themes'])) {
                 $model->themes = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Themes'] as $item1) {
                     $model->themes[$n1++] = themes::fromMap($item1);
                 }

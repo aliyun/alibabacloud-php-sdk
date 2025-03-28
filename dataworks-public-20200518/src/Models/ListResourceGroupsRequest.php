@@ -13,28 +13,32 @@ class ListResourceGroupsRequest extends Model
      * @var string
      */
     public $bizExtKey;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var int
      */
     public $resourceGroupType;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'bizExtKey'                      => 'BizExtKey',
-        'keyword'                        => 'Keyword',
-        'resourceGroupType'              => 'ResourceGroupType',
+        'bizExtKey' => 'BizExtKey',
+        'keyword' => 'Keyword',
+        'resourceGroupType' => 'ResourceGroupType',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'tags'                           => 'Tags',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -67,7 +71,7 @@ class ListResourceGroupsRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +108,7 @@ class ListResourceGroupsRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

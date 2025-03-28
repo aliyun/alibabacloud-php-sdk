@@ -12,53 +12,62 @@ class deployment extends Model
      * @var int
      */
     public $checkingStatus;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var int
      */
     public $executeTime;
+
     /**
      * @var int
      */
     public $fromEnvironment;
+
     /**
      * @var string
      */
     public $handlerId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $toEnvironment;
     protected $_name = [
-        'checkingStatus'  => 'CheckingStatus',
-        'createTime'      => 'CreateTime',
-        'creatorId'       => 'CreatorId',
-        'errorMessage'    => 'ErrorMessage',
-        'executeTime'     => 'ExecuteTime',
+        'checkingStatus' => 'CheckingStatus',
+        'createTime' => 'CreateTime',
+        'creatorId' => 'CreatorId',
+        'errorMessage' => 'ErrorMessage',
+        'executeTime' => 'ExecuteTime',
         'fromEnvironment' => 'FromEnvironment',
-        'handlerId'       => 'HandlerId',
-        'name'            => 'Name',
-        'status'          => 'Status',
-        'toEnvironment'   => 'ToEnvironment',
+        'handlerId' => 'HandlerId',
+        'name' => 'Name',
+        'status' => 'Status',
+        'toEnvironment' => 'ToEnvironment',
     ];
 
     public function validate()

@@ -13,13 +13,14 @@ class GetNodeTypeListInfoResponseBody extends Model
      * @var nodeTypeInfoList
      */
     public $nodeTypeInfoList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'nodeTypeInfoList' => 'NodeTypeInfoList',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

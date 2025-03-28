@@ -13,13 +13,14 @@ class ListDataServiceFoldersResponseBody extends Model
      * @var folderPagingResult
      */
     public $folderPagingResult;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'folderPagingResult' => 'FolderPagingResult',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

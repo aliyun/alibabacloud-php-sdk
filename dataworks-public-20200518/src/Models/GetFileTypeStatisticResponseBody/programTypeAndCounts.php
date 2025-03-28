@@ -12,12 +12,13 @@ class programTypeAndCounts extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $programType;
     protected $_name = [
-        'count'       => 'Count',
+        'count' => 'Count',
         'programType' => 'ProgramType',
     ];
 

@@ -12,33 +12,38 @@ class ListCalcEnginesRequest extends Model
      * @var string
      */
     public $calcEngineType;
+
     /**
      * @var string
      */
     public $envType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
         'calcEngineType' => 'CalcEngineType',
-        'envType'        => 'EnvType',
-        'name'           => 'Name',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'projectId'      => 'ProjectId',
+        'envType' => 'EnvType',
+        'name' => 'Name',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

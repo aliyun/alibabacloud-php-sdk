@@ -13,13 +13,14 @@ class data extends Model
      * @var Entity[]
      */
     public $entityList;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
         'entityList' => 'EntityList',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class data extends Model
         if (null !== $this->entityList) {
             if (\is_array($this->entityList)) {
                 $res['EntityList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->entityList as $item1) {
                     $res['EntityList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class data extends Model
         if (isset($map['EntityList'])) {
             if (!empty($map['EntityList'])) {
                 $model->entityList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['EntityList'] as $item1) {
                     $model->entityList[$n1++] = Entity::fromMap($item1);
                 }

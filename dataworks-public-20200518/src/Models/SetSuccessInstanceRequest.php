@@ -12,6 +12,7 @@ class SetSuccessInstanceRequest extends Model
      * @var int
      */
     public $instanceId;
+
     /**
      * @var string
      */

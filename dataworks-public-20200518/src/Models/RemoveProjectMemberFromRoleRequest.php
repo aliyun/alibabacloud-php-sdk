@@ -12,18 +12,20 @@ class RemoveProjectMemberFromRoleRequest extends Model
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $roleCode;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'projectId' => 'ProjectId',
-        'roleCode'  => 'RoleCode',
-        'userId'    => 'UserId',
+        'roleCode' => 'RoleCode',
+        'userId' => 'UserId',
     ];
 
     public function validate()

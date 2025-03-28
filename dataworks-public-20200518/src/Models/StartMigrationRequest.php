@@ -12,13 +12,14 @@ class StartMigrationRequest extends Model
      * @var int
      */
     public $migrationId;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
         'migrationId' => 'MigrationId',
-        'projectId'   => 'ProjectId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

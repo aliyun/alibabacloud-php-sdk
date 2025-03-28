@@ -13,12 +13,13 @@ class tableEntityList extends Model
      * @var entityContent
      */
     public $entityContent;
+
     /**
      * @var string
      */
     public $entityQualifiedName;
     protected $_name = [
-        'entityContent'       => 'EntityContent',
+        'entityContent' => 'EntityContent',
         'entityQualifiedName' => 'EntityQualifiedName',
     ];
 

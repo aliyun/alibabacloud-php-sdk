@@ -12,17 +12,19 @@ class ListNodeIORequest extends Model
      * @var string
      */
     public $ioType;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $projectEnv;
     protected $_name = [
-        'ioType'     => 'IoType',
-        'nodeId'     => 'NodeId',
+        'ioType' => 'IoType',
+        'nodeId' => 'NodeId',
         'projectEnv' => 'ProjectEnv',
     ];
 

@@ -13,17 +13,19 @@ class StartDIJobRequest extends Model
      * @var int
      */
     public $DIJobId;
+
     /**
      * @var bool
      */
     public $forceToRerun;
+
     /**
      * @var realtimeStartSettings
      */
     public $realtimeStartSettings;
     protected $_name = [
-        'DIJobId'               => 'DIJobId',
-        'forceToRerun'          => 'ForceToRerun',
+        'DIJobId' => 'DIJobId',
+        'forceToRerun' => 'ForceToRerun',
         'realtimeStartSettings' => 'RealtimeStartSettings',
     ];
 

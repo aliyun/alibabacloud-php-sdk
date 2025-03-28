@@ -16,68 +16,80 @@ class alertMessages extends Model
      * @var int
      */
     public $alertId;
+
     /**
      * @var string
      */
     public $alertMessageStatus;
+
     /**
      * @var string
      */
     public $alertMethod;
+
     /**
      * @var int
      */
     public $alertTime;
+
     /**
      * @var string
      */
     public $alertUser;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var instances[]
      */
     public $instances;
+
     /**
      * @var nodes[]
      */
     public $nodes;
+
     /**
      * @var int
      */
     public $remindId;
+
     /**
      * @var string
      */
     public $remindName;
+
     /**
      * @var slaAlert
      */
     public $slaAlert;
+
     /**
      * @var string
      */
     public $source;
+
     /**
      * @var topics[]
      */
     public $topics;
     protected $_name = [
-        'alertId'            => 'AlertId',
+        'alertId' => 'AlertId',
         'alertMessageStatus' => 'AlertMessageStatus',
-        'alertMethod'        => 'AlertMethod',
-        'alertTime'          => 'AlertTime',
-        'alertUser'          => 'AlertUser',
-        'content'            => 'Content',
-        'instances'          => 'Instances',
-        'nodes'              => 'Nodes',
-        'remindId'           => 'RemindId',
-        'remindName'         => 'RemindName',
-        'slaAlert'           => 'SlaAlert',
-        'source'             => 'Source',
-        'topics'             => 'Topics',
+        'alertMethod' => 'AlertMethod',
+        'alertTime' => 'AlertTime',
+        'alertUser' => 'AlertUser',
+        'content' => 'Content',
+        'instances' => 'Instances',
+        'nodes' => 'Nodes',
+        'remindId' => 'RemindId',
+        'remindName' => 'RemindName',
+        'slaAlert' => 'SlaAlert',
+        'source' => 'Source',
+        'topics' => 'Topics',
     ];
 
     public function validate()
@@ -127,7 +139,7 @@ class alertMessages extends Model
         if (null !== $this->instances) {
             if (\is_array($this->instances)) {
                 $res['Instances'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->instances as $item1) {
                     $res['Instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -137,7 +149,7 @@ class alertMessages extends Model
         if (null !== $this->nodes) {
             if (\is_array($this->nodes)) {
                 $res['Nodes'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->nodes as $item1) {
                     $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -163,7 +175,7 @@ class alertMessages extends Model
         if (null !== $this->topics) {
             if (\is_array($this->topics)) {
                 $res['Topics'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->topics as $item1) {
                     $res['Topics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -208,7 +220,7 @@ class alertMessages extends Model
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Instances'] as $item1) {
                     $model->instances[$n1++] = instances::fromMap($item1);
                 }
@@ -218,7 +230,7 @@ class alertMessages extends Model
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Nodes'] as $item1) {
                     $model->nodes[$n1++] = nodes::fromMap($item1);
                 }
@@ -244,7 +256,7 @@ class alertMessages extends Model
         if (isset($map['Topics'])) {
             if (!empty($map['Topics'])) {
                 $model->topics = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Topics'] as $item1) {
                     $model->topics[$n1++] = topics::fromMap($item1);
                 }

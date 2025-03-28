@@ -13,13 +13,14 @@ class data extends Model
      * @var influences[]
      */
     public $influences;
+
     /**
      * @var int
      */
     public $topicId;
     protected $_name = [
         'influences' => 'Influences',
-        'topicId'    => 'TopicId',
+        'topicId' => 'TopicId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class data extends Model
         if (null !== $this->influences) {
             if (\is_array($this->influences)) {
                 $res['Influences'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->influences as $item1) {
                     $res['Influences'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class data extends Model
         if (isset($map['Influences'])) {
             if (!empty($map['Influences'])) {
                 $model->influences = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Influences'] as $item1) {
                     $model->influences[$n1++] = influences::fromMap($item1);
                 }

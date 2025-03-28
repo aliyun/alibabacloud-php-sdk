@@ -13,23 +13,26 @@ class pageResult extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var projectList[]
      */
     public $projectList;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'projectList' => 'ProjectList',
-        'totalCount'  => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -54,7 +57,7 @@ class pageResult extends Model
         if (null !== $this->projectList) {
             if (\is_array($this->projectList)) {
                 $res['ProjectList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->projectList as $item1) {
                     $res['ProjectList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class pageResult extends Model
         if (isset($map['ProjectList'])) {
             if (!empty($map['ProjectList'])) {
                 $model->projectList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ProjectList'] as $item1) {
                     $model->projectList[$n1++] = projectList::fromMap($item1);
                 }

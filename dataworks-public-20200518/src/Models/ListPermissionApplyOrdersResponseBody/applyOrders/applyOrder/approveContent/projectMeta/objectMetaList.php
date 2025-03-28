@@ -12,12 +12,13 @@ class objectMetaList extends Model
      * @var string[]
      */
     public $actions;
+
     /**
      * @var string
      */
     public $objectName;
     protected $_name = [
-        'actions'    => 'Actions',
+        'actions' => 'Actions',
         'objectName' => 'ObjectName',
     ];
 
@@ -35,7 +36,7 @@ class objectMetaList extends Model
         if (null !== $this->actions) {
             if (\is_array($this->actions)) {
                 $res['Actions'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->actions as $item1) {
                     $res['Actions'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class objectMetaList extends Model
         if (isset($map['Actions'])) {
             if (!empty($map['Actions'])) {
                 $model->actions = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Actions'] as $item1) {
                     $model->actions[$n1++] = $item1;
                 }

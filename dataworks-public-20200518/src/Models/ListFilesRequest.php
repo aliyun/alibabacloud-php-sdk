@@ -12,73 +12,92 @@ class ListFilesRequest extends Model
      * @var string
      */
     public $exactFileName;
+
     /**
      * @var string
      */
     public $fileFolderPath;
+
     /**
      * @var string
      */
     public $fileIdIn;
+
     /**
      * @var string
      */
     public $fileTypes;
+
     /**
      * @var string
      */
     public $keyword;
+
+    /**
+     * @var string
+     */
+    public $lastEditUser;
+
     /**
      * @var bool
      */
     public $needAbsoluteFolderPath;
+
     /**
      * @var bool
      */
     public $needContent;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
+
     /**
      * @var string
      */
     public $useType;
     protected $_name = [
-        'exactFileName'          => 'ExactFileName',
-        'fileFolderPath'         => 'FileFolderPath',
-        'fileIdIn'               => 'FileIdIn',
-        'fileTypes'              => 'FileTypes',
-        'keyword'                => 'Keyword',
+        'exactFileName' => 'ExactFileName',
+        'fileFolderPath' => 'FileFolderPath',
+        'fileIdIn' => 'FileIdIn',
+        'fileTypes' => 'FileTypes',
+        'keyword' => 'Keyword',
+        'lastEditUser' => 'LastEditUser',
         'needAbsoluteFolderPath' => 'NeedAbsoluteFolderPath',
-        'needContent'            => 'NeedContent',
-        'nodeId'                 => 'NodeId',
-        'owner'                  => 'Owner',
-        'pageNumber'             => 'PageNumber',
-        'pageSize'               => 'PageSize',
-        'projectId'              => 'ProjectId',
-        'projectIdentifier'      => 'ProjectIdentifier',
-        'useType'                => 'UseType',
+        'needContent' => 'NeedContent',
+        'nodeId' => 'NodeId',
+        'owner' => 'Owner',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
+        'projectIdentifier' => 'ProjectIdentifier',
+        'useType' => 'UseType',
     ];
 
     public function validate()
@@ -107,6 +126,10 @@ class ListFilesRequest extends Model
 
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
+        }
+
+        if (null !== $this->lastEditUser) {
+            $res['LastEditUser'] = $this->lastEditUser;
         }
 
         if (null !== $this->needAbsoluteFolderPath) {
@@ -174,6 +197,10 @@ class ListFilesRequest extends Model
 
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
+        }
+
+        if (isset($map['LastEditUser'])) {
+            $model->lastEditUser = $map['LastEditUser'];
         }
 
         if (isset($map['NeedAbsoluteFolderPath'])) {

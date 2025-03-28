@@ -13,21 +13,24 @@ class data extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var ruleChecks[]
      */
     public $ruleChecks;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'ruleChecks' => 'RuleChecks',
         'totalCount' => 'TotalCount',
     ];
@@ -54,7 +57,7 @@ class data extends Model
         if (null !== $this->ruleChecks) {
             if (\is_array($this->ruleChecks)) {
                 $res['RuleChecks'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->ruleChecks as $item1) {
                     $res['RuleChecks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class data extends Model
         if (isset($map['RuleChecks'])) {
             if (!empty($map['RuleChecks'])) {
                 $model->ruleChecks = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['RuleChecks'] as $item1) {
                     $model->ruleChecks[$n1++] = ruleChecks::fromMap($item1);
                 }

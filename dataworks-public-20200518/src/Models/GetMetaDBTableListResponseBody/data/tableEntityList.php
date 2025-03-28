@@ -12,18 +12,20 @@ class tableEntityList extends Model
      * @var string
      */
     public $databaseName;
+
     /**
      * @var string
      */
     public $tableGuid;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
         'databaseName' => 'DatabaseName',
-        'tableGuid'    => 'TableGuid',
-        'tableName'    => 'TableName',
+        'tableGuid' => 'TableGuid',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

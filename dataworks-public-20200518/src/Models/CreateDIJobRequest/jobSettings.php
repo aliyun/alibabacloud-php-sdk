@@ -17,33 +17,38 @@ class jobSettings extends Model
      * @var string
      */
     public $channelSettings;
+
     /**
      * @var columnDataTypeSettings[]
      */
     public $columnDataTypeSettings;
+
     /**
      * @var cycleScheduleSettings
      */
     public $cycleScheduleSettings;
+
     /**
      * @var ddlHandlingSettings[]
      */
     public $ddlHandlingSettings;
+
     /**
      * @var importRuleSettings
      */
     public $importRuleSettings;
+
     /**
      * @var runtimeSettings[]
      */
     public $runtimeSettings;
     protected $_name = [
-        'channelSettings'        => 'ChannelSettings',
+        'channelSettings' => 'ChannelSettings',
         'columnDataTypeSettings' => 'ColumnDataTypeSettings',
-        'cycleScheduleSettings'  => 'CycleScheduleSettings',
-        'ddlHandlingSettings'    => 'DdlHandlingSettings',
-        'importRuleSettings'     => 'ImportRuleSettings',
-        'runtimeSettings'        => 'RuntimeSettings',
+        'cycleScheduleSettings' => 'CycleScheduleSettings',
+        'ddlHandlingSettings' => 'DdlHandlingSettings',
+        'importRuleSettings' => 'ImportRuleSettings',
+        'runtimeSettings' => 'RuntimeSettings',
     ];
 
     public function validate()
@@ -76,7 +81,7 @@ class jobSettings extends Model
         if (null !== $this->columnDataTypeSettings) {
             if (\is_array($this->columnDataTypeSettings)) {
                 $res['ColumnDataTypeSettings'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->columnDataTypeSettings as $item1) {
                     $res['ColumnDataTypeSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -90,7 +95,7 @@ class jobSettings extends Model
         if (null !== $this->ddlHandlingSettings) {
             if (\is_array($this->ddlHandlingSettings)) {
                 $res['DdlHandlingSettings'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->ddlHandlingSettings as $item1) {
                     $res['DdlHandlingSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +109,7 @@ class jobSettings extends Model
         if (null !== $this->runtimeSettings) {
             if (\is_array($this->runtimeSettings)) {
                 $res['RuntimeSettings'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->runtimeSettings as $item1) {
                     $res['RuntimeSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -129,7 +134,7 @@ class jobSettings extends Model
         if (isset($map['ColumnDataTypeSettings'])) {
             if (!empty($map['ColumnDataTypeSettings'])) {
                 $model->columnDataTypeSettings = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['ColumnDataTypeSettings'] as $item1) {
                     $model->columnDataTypeSettings[$n1++] = columnDataTypeSettings::fromMap($item1);
                 }
@@ -143,7 +148,7 @@ class jobSettings extends Model
         if (isset($map['DdlHandlingSettings'])) {
             if (!empty($map['DdlHandlingSettings'])) {
                 $model->ddlHandlingSettings = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['DdlHandlingSettings'] as $item1) {
                     $model->ddlHandlingSettings[$n1++] = ddlHandlingSettings::fromMap($item1);
                 }
@@ -157,7 +162,7 @@ class jobSettings extends Model
         if (isset($map['RuntimeSettings'])) {
             if (!empty($map['RuntimeSettings'])) {
                 $model->runtimeSettings = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['RuntimeSettings'] as $item1) {
                     $model->runtimeSettings[$n1++] = runtimeSettings::fromMap($item1);
                 }

@@ -13,12 +13,13 @@ class data extends Model
      * @var string
      */
     public $dataType;
+
     /**
      * @var DataDesensPlanTemplateValue[][]
      */
     public $desensPlanTemplate;
     protected $_name = [
-        'dataType'           => 'DataType',
+        'dataType' => 'DataType',
         'desensPlanTemplate' => 'DesensPlanTemplate',
     ];
 
@@ -43,7 +44,7 @@ class data extends Model
                 foreach ($this->desensPlanTemplate as $key1 => $value1) {
                     if (\is_array($value1)) {
                         $res['DesensPlanTemplate'][$key1] = [];
-                        $n2                               = 0;
+                        $n2 = 0;
                         foreach ($value1 as $item2) {
                             $res['DesensPlanTemplate'][$key1][$n2++] = null !== $item2 ? $item2->toArray($noStream) : $item2;
                         }
@@ -73,7 +74,7 @@ class data extends Model
                 foreach ($map['DesensPlanTemplate'] as $key1 => $value1) {
                     if (!empty($value1)) {
                         $model->desensPlanTemplate[$key1] = [];
-                        $n2                               = 0;
+                        $n2 = 0;
                         foreach ($value1 as $item2) {
                             $model->desensPlanTemplate[$key1][$n2++] = DataDesensPlanTemplateValue::fromMap($item2);
                         }

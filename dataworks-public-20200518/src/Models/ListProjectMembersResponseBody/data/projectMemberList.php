@@ -13,33 +13,38 @@ class projectMemberList extends Model
      * @var string
      */
     public $nick;
+
     /**
      * @var string
      */
     public $projectMemberId;
+
     /**
      * @var string
      */
     public $projectMemberName;
+
     /**
      * @var string
      */
     public $projectMemberType;
+
     /**
      * @var projectRoleList[]
      */
     public $projectRoleList;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'nick'              => 'Nick',
-        'projectMemberId'   => 'ProjectMemberId',
+        'nick' => 'Nick',
+        'projectMemberId' => 'ProjectMemberId',
         'projectMemberName' => 'ProjectMemberName',
         'projectMemberType' => 'ProjectMemberType',
-        'projectRoleList'   => 'ProjectRoleList',
-        'status'            => 'Status',
+        'projectRoleList' => 'ProjectRoleList',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -72,7 +77,7 @@ class projectMemberList extends Model
         if (null !== $this->projectRoleList) {
             if (\is_array($this->projectRoleList)) {
                 $res['ProjectRoleList'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->projectRoleList as $item1) {
                     $res['ProjectRoleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -113,7 +118,7 @@ class projectMemberList extends Model
         if (isset($map['ProjectRoleList'])) {
             if (!empty($map['ProjectRoleList'])) {
                 $model->projectRoleList = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ProjectRoleList'] as $item1) {
                     $model->projectRoleList[$n1++] = projectRoleList::fromMap($item1);
                 }

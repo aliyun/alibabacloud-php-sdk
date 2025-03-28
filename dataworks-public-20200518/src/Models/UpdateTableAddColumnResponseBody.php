@@ -13,13 +13,14 @@ class UpdateTableAddColumnResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var taskInfo
      */
     public $taskInfo;
     protected $_name = [
         'requestId' => 'RequestId',
-        'taskInfo'  => 'TaskInfo',
+        'taskInfo' => 'TaskInfo',
     ];
 
     public function validate()

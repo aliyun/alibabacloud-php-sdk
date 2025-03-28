@@ -12,13 +12,14 @@ class columnDataTypeSettings extends Model
      * @var string
      */
     public $destinationDataType;
+
     /**
      * @var string
      */
     public $sourceDataType;
     protected $_name = [
         'destinationDataType' => 'DestinationDataType',
-        'sourceDataType'      => 'SourceDataType',
+        'sourceDataType' => 'SourceDataType',
     ];
 
     public function validate()

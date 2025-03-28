@@ -12,17 +12,19 @@ class DeleteFileRequest extends Model
      * @var int
      */
     public $fileId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
     protected $_name = [
-        'fileId'            => 'FileId',
-        'projectId'         => 'ProjectId',
+        'fileId' => 'FileId',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 

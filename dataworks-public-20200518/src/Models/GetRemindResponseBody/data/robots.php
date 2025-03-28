@@ -12,12 +12,13 @@ class robots extends Model
      * @var bool
      */
     public $atAll;
+
     /**
      * @var string
      */
     public $webUrl;
     protected $_name = [
-        'atAll'  => 'AtAll',
+        'atAll' => 'AtAll',
         'webUrl' => 'WebUrl',
     ];
 

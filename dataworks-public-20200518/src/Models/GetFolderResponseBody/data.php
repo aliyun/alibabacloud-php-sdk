@@ -12,12 +12,13 @@ class data extends Model
      * @var string
      */
     public $folderId;
+
     /**
      * @var string
      */
     public $folderPath;
     protected $_name = [
-        'folderId'   => 'FolderId',
+        'folderId' => 'FolderId',
         'folderPath' => 'FolderPath',
     ];
 

@@ -12,12 +12,13 @@ class UpdateTableModelInfoResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $updateResult;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'updateResult' => 'UpdateResult',
     ];
 

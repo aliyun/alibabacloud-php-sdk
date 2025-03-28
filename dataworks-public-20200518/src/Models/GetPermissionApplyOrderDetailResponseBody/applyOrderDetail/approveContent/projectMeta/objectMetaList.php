@@ -10,20 +10,30 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\GetPermissionApplyOrderDet
 class objectMetaList extends Model
 {
     /**
+     * @var string[]
+     */
+    public $actions;
+
+    /**
      * @var columnMetaList[]
      */
     public $columnMetaList;
+
     /**
      * @var string
      */
     public $objectName;
     protected $_name = [
+        'actions' => 'Actions',
         'columnMetaList' => 'ColumnMetaList',
-        'objectName'     => 'ObjectName',
+        'objectName' => 'ObjectName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->actions)) {
+            Model::validateArray($this->actions);
+        }
         if (\is_array($this->columnMetaList)) {
             Model::validateArray($this->columnMetaList);
         }
@@ -33,10 +43,20 @@ class objectMetaList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->actions) {
+            if (\is_array($this->actions)) {
+                $res['Actions'] = [];
+                $n1 = 0;
+                foreach ($this->actions as $item1) {
+                    $res['Actions'][$n1++] = $item1;
+                }
+            }
+        }
+
         if (null !== $this->columnMetaList) {
             if (\is_array($this->columnMetaList)) {
                 $res['ColumnMetaList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->columnMetaList as $item1) {
                     $res['ColumnMetaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -58,10 +78,20 @@ class objectMetaList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Actions'])) {
+            if (!empty($map['Actions'])) {
+                $model->actions = [];
+                $n1 = 0;
+                foreach ($map['Actions'] as $item1) {
+                    $model->actions[$n1++] = $item1;
+                }
+            }
+        }
+
         if (isset($map['ColumnMetaList'])) {
             if (!empty($map['ColumnMetaList'])) {
                 $model->columnMetaList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ColumnMetaList'] as $item1) {
                     $model->columnMetaList[$n1++] = columnMetaList::fromMap($item1);
                 }

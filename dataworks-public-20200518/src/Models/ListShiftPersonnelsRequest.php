@@ -12,28 +12,32 @@ class ListShiftPersonnelsRequest extends Model
      * @var int
      */
     public $beginTime;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $shiftPersonUID;
+
     /**
      * @var string
      */
     public $shiftScheduleIdentifier;
+
     /**
      * @var string
      */
     public $userType;
     protected $_name = [
-        'beginTime'               => 'BeginTime',
-        'endTime'                 => 'EndTime',
-        'shiftPersonUID'          => 'ShiftPersonUID',
+        'beginTime' => 'BeginTime',
+        'endTime' => 'EndTime',
+        'shiftPersonUID' => 'ShiftPersonUID',
         'shiftScheduleIdentifier' => 'ShiftScheduleIdentifier',
-        'userType'                => 'UserType',
+        'userType' => 'UserType',
     ];
 
     public function validate()

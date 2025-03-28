@@ -12,6 +12,7 @@ class SuspendInstanceRequest extends Model
      * @var int
      */
     public $instanceId;
+
     /**
      * @var string
      */

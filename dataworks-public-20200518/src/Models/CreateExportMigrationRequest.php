@@ -12,33 +12,38 @@ class CreateExportMigrationRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $exportMode;
+
     /**
      * @var string
      */
     public $exportObjectStatus;
+
     /**
      * @var int
      */
     public $incrementalSince;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'description'        => 'Description',
-        'exportMode'         => 'ExportMode',
+        'description' => 'Description',
+        'exportMode' => 'ExportMode',
         'exportObjectStatus' => 'ExportObjectStatus',
-        'incrementalSince'   => 'IncrementalSince',
-        'name'               => 'Name',
-        'projectId'          => 'ProjectId',
+        'incrementalSince' => 'IncrementalSince',
+        'name' => 'Name',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

@@ -12,10 +12,12 @@ class Entity extends Model
      * @var mixed[]
      */
     public $entityContent;
+
     /**
      * @var string
      */
     public $qualifiedName;
+
     /**
      * @var int
      */
@@ -23,7 +25,7 @@ class Entity extends Model
     protected $_name = [
         'entityContent' => 'EntityContent',
         'qualifiedName' => 'QualifiedName',
-        'tenantId'      => 'TenantId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

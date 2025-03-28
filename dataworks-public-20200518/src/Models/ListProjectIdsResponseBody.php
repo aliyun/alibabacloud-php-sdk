@@ -12,13 +12,14 @@ class ListProjectIdsResponseBody extends Model
      * @var int[]
      */
     public $projectIds;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'projectIds' => 'ProjectIds',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class ListProjectIdsResponseBody extends Model
         if (null !== $this->projectIds) {
             if (\is_array($this->projectIds)) {
                 $res['ProjectIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->projectIds as $item1) {
                     $res['ProjectIds'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class ListProjectIdsResponseBody extends Model
         if (isset($map['ProjectIds'])) {
             if (!empty($map['ProjectIds'])) {
                 $model->projectIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ProjectIds'] as $item1) {
                     $model->projectIds[$n1++] = $item1;
                 }

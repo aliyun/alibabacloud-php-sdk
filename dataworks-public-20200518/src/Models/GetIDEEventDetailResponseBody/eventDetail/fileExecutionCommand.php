@@ -12,23 +12,26 @@ class fileExecutionCommand extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $dataSourceName;
+
     /**
      * @var int
      */
     public $fileId;
+
     /**
      * @var int
      */
     public $fileType;
     protected $_name = [
-        'content'        => 'Content',
+        'content' => 'Content',
         'dataSourceName' => 'DataSourceName',
-        'fileId'         => 'FileId',
-        'fileType'       => 'FileType',
+        'fileId' => 'FileId',
+        'fileType' => 'FileType',
     ];
 
     public function validate()

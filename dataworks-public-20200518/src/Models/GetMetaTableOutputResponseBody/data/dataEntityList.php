@@ -12,38 +12,44 @@ class dataEntityList extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $tableGuid;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var int
      */
     public $taskInstanceId;
+
     /**
      * @var string
      */
     public $waitTime;
     protected $_name = [
-        'endTime'        => 'EndTime',
-        'projectId'      => 'ProjectId',
-        'startTime'      => 'StartTime',
-        'tableGuid'      => 'TableGuid',
-        'taskId'         => 'TaskId',
+        'endTime' => 'EndTime',
+        'projectId' => 'ProjectId',
+        'startTime' => 'StartTime',
+        'tableGuid' => 'TableGuid',
+        'taskId' => 'TaskId',
         'taskInstanceId' => 'TaskInstanceId',
-        'waitTime'       => 'WaitTime',
+        'waitTime' => 'WaitTime',
     ];
 
     public function validate()

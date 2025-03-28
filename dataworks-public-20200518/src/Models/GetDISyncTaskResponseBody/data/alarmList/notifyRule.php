@@ -12,10 +12,12 @@ class notifyRule extends Model
      * @var string[]
      */
     public $critical;
+
     /**
      * @var int
      */
     public $interval;
+
     /**
      * @var string[]
      */
@@ -23,7 +25,7 @@ class notifyRule extends Model
     protected $_name = [
         'critical' => 'Critical',
         'interval' => 'Interval',
-        'warning'  => 'Warning',
+        'warning' => 'Warning',
     ];
 
     public function validate()
@@ -43,7 +45,7 @@ class notifyRule extends Model
         if (null !== $this->critical) {
             if (\is_array($this->critical)) {
                 $res['Critical'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->critical as $item1) {
                     $res['Critical'][$n1++] = $item1;
                 }
@@ -57,7 +59,7 @@ class notifyRule extends Model
         if (null !== $this->warning) {
             if (\is_array($this->warning)) {
                 $res['Warning'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->warning as $item1) {
                     $res['Warning'][$n1++] = $item1;
                 }
@@ -78,7 +80,7 @@ class notifyRule extends Model
         if (isset($map['Critical'])) {
             if (!empty($map['Critical'])) {
                 $model->critical = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Critical'] as $item1) {
                     $model->critical[$n1++] = $item1;
                 }
@@ -92,7 +94,7 @@ class notifyRule extends Model
         if (isset($map['Warning'])) {
             if (!empty($map['Warning'])) {
                 $model->warning = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Warning'] as $item1) {
                     $model->warning[$n1++] = $item1;
                 }

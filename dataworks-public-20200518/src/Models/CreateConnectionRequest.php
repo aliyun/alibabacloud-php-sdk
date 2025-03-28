@@ -12,38 +12,44 @@ class CreateConnectionRequest extends Model
      * @var string
      */
     public $connectionType;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $envType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $subType;
     protected $_name = [
         'connectionType' => 'ConnectionType',
-        'content'        => 'Content',
-        'description'    => 'Description',
-        'envType'        => 'EnvType',
-        'name'           => 'Name',
-        'projectId'      => 'ProjectId',
-        'subType'        => 'SubType',
+        'content' => 'Content',
+        'description' => 'Description',
+        'envType' => 'EnvType',
+        'name' => 'Name',
+        'projectId' => 'ProjectId',
+        'subType' => 'SubType',
     ];
 
     public function validate()

@@ -12,27 +12,31 @@ class SubmitFileRequest extends Model
      * @var string
      */
     public $comment;
+
     /**
      * @var int
      */
     public $fileId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
+
     /**
      * @var bool
      */
     public $skipAllDeployFileExtensions;
     protected $_name = [
-        'comment'                     => 'Comment',
-        'fileId'                      => 'FileId',
-        'projectId'                   => 'ProjectId',
-        'projectIdentifier'           => 'ProjectIdentifier',
+        'comment' => 'Comment',
+        'fileId' => 'FileId',
+        'projectId' => 'ProjectId',
+        'projectIdentifier' => 'ProjectIdentifier',
         'skipAllDeployFileExtensions' => 'SkipAllDeployFileExtensions',
     ];
 

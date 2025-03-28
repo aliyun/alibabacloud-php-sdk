@@ -12,23 +12,26 @@ class level extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $levelId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $type;
     protected $_name = [
         'description' => 'Description',
-        'levelId'     => 'LevelId',
-        'name'        => 'Name',
-        'type'        => 'Type',
+        'levelId' => 'LevelId',
+        'name' => 'Name',
+        'type' => 'Type',
     ];
 
     public function validate()

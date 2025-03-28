@@ -12,43 +12,50 @@ class blockInstance extends Model
      * @var int
      */
     public $endCast;
+
     /**
      * @var int
      */
     public $finishTime;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'endCast'    => 'EndCast',
+        'endCast' => 'EndCast',
         'finishTime' => 'FinishTime',
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'nodeName'   => 'NodeName',
-        'owner'      => 'Owner',
-        'projectId'  => 'ProjectId',
-        'status'     => 'Status',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'owner' => 'Owner',
+        'projectId' => 'ProjectId',
+        'status' => 'Status',
     ];
 
     public function validate()

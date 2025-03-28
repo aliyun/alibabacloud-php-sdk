@@ -18,113 +18,134 @@ class data extends Model
      * @var int
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $createdUid;
+
     /**
      * @var int
      */
     public $DIJobId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var destinationDataSourceSettings[]
      */
     public $destinationDataSourceSettings;
+
     /**
      * @var string
      */
     public $destinationDataSourceType;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var jobSettings
      */
     public $jobSettings;
+
     /**
      * @var string
      */
     public $jobStatus;
+
     /**
      * @var string
      */
     public $migrationType;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var resourceSettings
      */
     public $resourceSettings;
+
     /**
      * @var string[]
      */
     public $runStats;
+
     /**
      * @var sourceDataSourceSettings[]
      */
     public $sourceDataSourceSettings;
+
     /**
      * @var string
      */
     public $sourceDataSourceType;
+
     /**
      * @var int
      */
     public $startedTime;
+
     /**
      * @var string
      */
     public $startedUid;
+
     /**
      * @var tableMappings[]
      */
     public $tableMappings;
+
     /**
      * @var transformationRules[]
      */
     public $transformationRules;
+
     /**
      * @var int
      */
     public $updatedTime;
+
     /**
      * @var string
      */
     public $updatedUid;
     protected $_name = [
-        'createdTime'                   => 'CreatedTime',
-        'createdUid'                    => 'CreatedUid',
-        'DIJobId'                       => 'DIJobId',
-        'description'                   => 'Description',
+        'createdTime' => 'CreatedTime',
+        'createdUid' => 'CreatedUid',
+        'DIJobId' => 'DIJobId',
+        'description' => 'Description',
         'destinationDataSourceSettings' => 'DestinationDataSourceSettings',
-        'destinationDataSourceType'     => 'DestinationDataSourceType',
-        'errorMessage'                  => 'ErrorMessage',
-        'jobName'                       => 'JobName',
-        'jobSettings'                   => 'JobSettings',
-        'jobStatus'                     => 'JobStatus',
-        'migrationType'                 => 'MigrationType',
-        'projectId'                     => 'ProjectId',
-        'resourceSettings'              => 'ResourceSettings',
-        'runStats'                      => 'RunStats',
-        'sourceDataSourceSettings'      => 'SourceDataSourceSettings',
-        'sourceDataSourceType'          => 'SourceDataSourceType',
-        'startedTime'                   => 'StartedTime',
-        'startedUid'                    => 'StartedUid',
-        'tableMappings'                 => 'TableMappings',
-        'transformationRules'           => 'TransformationRules',
-        'updatedTime'                   => 'UpdatedTime',
-        'updatedUid'                    => 'UpdatedUid',
+        'destinationDataSourceType' => 'DestinationDataSourceType',
+        'errorMessage' => 'ErrorMessage',
+        'jobName' => 'JobName',
+        'jobSettings' => 'JobSettings',
+        'jobStatus' => 'JobStatus',
+        'migrationType' => 'MigrationType',
+        'projectId' => 'ProjectId',
+        'resourceSettings' => 'ResourceSettings',
+        'runStats' => 'RunStats',
+        'sourceDataSourceSettings' => 'SourceDataSourceSettings',
+        'sourceDataSourceType' => 'SourceDataSourceType',
+        'startedTime' => 'StartedTime',
+        'startedUid' => 'StartedUid',
+        'tableMappings' => 'TableMappings',
+        'transformationRules' => 'TransformationRules',
+        'updatedTime' => 'UpdatedTime',
+        'updatedUid' => 'UpdatedUid',
     ];
 
     public function validate()
@@ -175,7 +196,7 @@ class data extends Model
         if (null !== $this->destinationDataSourceSettings) {
             if (\is_array($this->destinationDataSourceSettings)) {
                 $res['DestinationDataSourceSettings'] = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($this->destinationDataSourceSettings as $item1) {
                     $res['DestinationDataSourceSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -226,7 +247,7 @@ class data extends Model
         if (null !== $this->sourceDataSourceSettings) {
             if (\is_array($this->sourceDataSourceSettings)) {
                 $res['SourceDataSourceSettings'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->sourceDataSourceSettings as $item1) {
                     $res['SourceDataSourceSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -248,7 +269,7 @@ class data extends Model
         if (null !== $this->tableMappings) {
             if (\is_array($this->tableMappings)) {
                 $res['TableMappings'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->tableMappings as $item1) {
                     $res['TableMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -258,7 +279,7 @@ class data extends Model
         if (null !== $this->transformationRules) {
             if (\is_array($this->transformationRules)) {
                 $res['TransformationRules'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->transformationRules as $item1) {
                     $res['TransformationRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -303,7 +324,7 @@ class data extends Model
         if (isset($map['DestinationDataSourceSettings'])) {
             if (!empty($map['DestinationDataSourceSettings'])) {
                 $model->destinationDataSourceSettings = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($map['DestinationDataSourceSettings'] as $item1) {
                     $model->destinationDataSourceSettings[$n1++] = destinationDataSourceSettings::fromMap($item1);
                 }
@@ -354,7 +375,7 @@ class data extends Model
         if (isset($map['SourceDataSourceSettings'])) {
             if (!empty($map['SourceDataSourceSettings'])) {
                 $model->sourceDataSourceSettings = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['SourceDataSourceSettings'] as $item1) {
                     $model->sourceDataSourceSettings[$n1++] = sourceDataSourceSettings::fromMap($item1);
                 }
@@ -376,7 +397,7 @@ class data extends Model
         if (isset($map['TableMappings'])) {
             if (!empty($map['TableMappings'])) {
                 $model->tableMappings = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['TableMappings'] as $item1) {
                     $model->tableMappings[$n1++] = tableMappings::fromMap($item1);
                 }
@@ -386,7 +407,7 @@ class data extends Model
         if (isset($map['TransformationRules'])) {
             if (!empty($map['TransformationRules'])) {
                 $model->transformationRules = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['TransformationRules'] as $item1) {
                     $model->transformationRules[$n1++] = transformationRules::fromMap($item1);
                 }

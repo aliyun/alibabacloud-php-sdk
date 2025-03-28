@@ -12,48 +12,56 @@ class GetMetaColumnLineageRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $columnGuid;
+
     /**
      * @var string
      */
     public $columnName;
+
     /**
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var string
      */
     public $direction;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
-        'columnGuid'     => 'ColumnGuid',
-        'columnName'     => 'ColumnName',
+        'clusterId' => 'ClusterId',
+        'columnGuid' => 'ColumnGuid',
+        'columnName' => 'ColumnName',
         'dataSourceType' => 'DataSourceType',
-        'databaseName'   => 'DatabaseName',
-        'direction'      => 'Direction',
-        'pageNum'        => 'PageNum',
-        'pageSize'       => 'PageSize',
-        'tableName'      => 'TableName',
+        'databaseName' => 'DatabaseName',
+        'direction' => 'Direction',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

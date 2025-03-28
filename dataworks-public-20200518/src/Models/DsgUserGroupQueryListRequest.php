@@ -12,27 +12,31 @@ class DsgUserGroupQueryListRequest extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'name'        => 'Name',
-        'owner'       => 'Owner',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'name' => 'Name',
+        'owner' => 'Owner',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'projectName' => 'ProjectName',
     ];
 

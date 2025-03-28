@@ -12,13 +12,14 @@ class GetOptionValueForProjectRequest extends Model
      * @var string
      */
     public $extensionCode;
+
     /**
      * @var string
      */
     public $projectId;
     protected $_name = [
         'extensionCode' => 'ExtensionCode',
-        'projectId'     => 'ProjectId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

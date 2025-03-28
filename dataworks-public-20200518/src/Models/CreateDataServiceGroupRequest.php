@@ -12,28 +12,32 @@ class CreateDataServiceGroupRequest extends Model
      * @var string
      */
     public $apiGatewayGroupId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
         'apiGatewayGroupId' => 'ApiGatewayGroupId',
-        'description'       => 'Description',
-        'groupName'         => 'GroupName',
-        'projectId'         => 'ProjectId',
-        'tenantId'          => 'TenantId',
+        'description' => 'Description',
+        'groupName' => 'GroupName',
+        'projectId' => 'ProjectId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

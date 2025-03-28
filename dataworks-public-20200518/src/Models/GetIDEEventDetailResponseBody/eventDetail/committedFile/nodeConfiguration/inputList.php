@@ -12,12 +12,13 @@ class inputList extends Model
      * @var string
      */
     public $input;
+
     /**
      * @var string
      */
     public $parseType;
     protected $_name = [
-        'input'     => 'Input',
+        'input' => 'Input',
         'parseType' => 'ParseType',
     ];
 

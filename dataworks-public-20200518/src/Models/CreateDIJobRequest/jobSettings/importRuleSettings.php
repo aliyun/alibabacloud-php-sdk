@@ -12,6 +12,7 @@ class importRuleSettings extends Model
      * @var string
      */
     public $fileId;
+
     /**
      * @var string
      */

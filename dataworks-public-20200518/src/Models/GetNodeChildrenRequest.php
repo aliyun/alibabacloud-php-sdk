@@ -12,12 +12,13 @@ class GetNodeChildrenRequest extends Model
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $projectEnv;
     protected $_name = [
-        'nodeId'     => 'NodeId',
+        'nodeId' => 'NodeId',
         'projectEnv' => 'ProjectEnv',
     ];
 

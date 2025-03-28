@@ -12,6 +12,7 @@ class GetInstanceRequest extends Model
      * @var int
      */
     public $instanceId;
+
     /**
      * @var string
      */

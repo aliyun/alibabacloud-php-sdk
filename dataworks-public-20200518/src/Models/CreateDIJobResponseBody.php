@@ -12,12 +12,13 @@ class CreateDIJobResponseBody extends Model
      * @var int
      */
     public $DIJobId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'DIJobId'   => 'DIJobId',
+        'DIJobId' => 'DIJobId',
         'requestId' => 'RequestId',
     ];
 

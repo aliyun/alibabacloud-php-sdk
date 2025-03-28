@@ -12,12 +12,13 @@ class DsgStopSensIdentifyRequest extends Model
      * @var int
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $tenantId;
     protected $_name = [
-        'jobId'    => 'JobId',
+        'jobId' => 'JobId',
         'tenantId' => 'TenantId',
     ];
 

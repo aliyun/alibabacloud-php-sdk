@@ -12,13 +12,14 @@ class QueryRecognizeDataByRuleTypeRequest extends Model
      * @var string
      */
     public $recognizeRulesType;
+
     /**
      * @var string
      */
     public $tenantId;
     protected $_name = [
         'recognizeRulesType' => 'RecognizeRulesType',
-        'tenantId'           => 'TenantId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

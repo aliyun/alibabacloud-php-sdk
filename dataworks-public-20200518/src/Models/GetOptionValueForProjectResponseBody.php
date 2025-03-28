@@ -12,13 +12,14 @@ class GetOptionValueForProjectResponseBody extends Model
      * @var string
      */
     public $optionValue;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'optionValue' => 'OptionValue',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

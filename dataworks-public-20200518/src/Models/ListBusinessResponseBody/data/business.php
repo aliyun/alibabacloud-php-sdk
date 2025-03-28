@@ -12,33 +12,38 @@ class business extends Model
      * @var int
      */
     public $businessId;
+
     /**
      * @var string
      */
     public $businessName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $useType;
     protected $_name = [
-        'businessId'   => 'BusinessId',
+        'businessId' => 'BusinessId',
         'businessName' => 'BusinessName',
-        'description'  => 'Description',
-        'owner'        => 'Owner',
-        'projectId'    => 'ProjectId',
-        'useType'      => 'UseType',
+        'description' => 'Description',
+        'owner' => 'Owner',
+        'projectId' => 'ProjectId',
+        'useType' => 'UseType',
     ];
 
     public function validate()

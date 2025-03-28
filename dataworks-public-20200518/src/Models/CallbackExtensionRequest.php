@@ -12,23 +12,26 @@ class CallbackExtensionRequest extends Model
      * @var string
      */
     public $checkMessage;
+
     /**
      * @var string
      */
     public $checkResult;
+
     /**
      * @var string
      */
     public $extensionCode;
+
     /**
      * @var string
      */
     public $messageId;
     protected $_name = [
-        'checkMessage'  => 'CheckMessage',
-        'checkResult'   => 'CheckResult',
+        'checkMessage' => 'CheckMessage',
+        'checkResult' => 'CheckResult',
         'extensionCode' => 'ExtensionCode',
-        'messageId'     => 'MessageId',
+        'messageId' => 'MessageId',
     ];
 
     public function validate()

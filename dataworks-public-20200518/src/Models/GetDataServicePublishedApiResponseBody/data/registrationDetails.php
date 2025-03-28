@@ -14,43 +14,50 @@ class registrationDetails extends Model
      * @var string
      */
     public $failedResultSample;
+
     /**
      * @var registrationErrorCodes[]
      */
     public $registrationErrorCodes;
+
     /**
      * @var registrationRequestParameters[]
      */
     public $registrationRequestParameters;
+
     /**
      * @var int
      */
     public $serviceContentType;
+
     /**
      * @var string
      */
     public $serviceHost;
+
     /**
      * @var string
      */
     public $servicePath;
+
     /**
      * @var string
      */
     public $serviceRequestBodyDescription;
+
     /**
      * @var string
      */
     public $successfulResultSample;
     protected $_name = [
-        'failedResultSample'            => 'FailedResultSample',
-        'registrationErrorCodes'        => 'RegistrationErrorCodes',
+        'failedResultSample' => 'FailedResultSample',
+        'registrationErrorCodes' => 'RegistrationErrorCodes',
         'registrationRequestParameters' => 'RegistrationRequestParameters',
-        'serviceContentType'            => 'ServiceContentType',
-        'serviceHost'                   => 'ServiceHost',
-        'servicePath'                   => 'ServicePath',
+        'serviceContentType' => 'ServiceContentType',
+        'serviceHost' => 'ServiceHost',
+        'servicePath' => 'ServicePath',
         'serviceRequestBodyDescription' => 'ServiceRequestBodyDescription',
-        'successfulResultSample'        => 'SuccessfulResultSample',
+        'successfulResultSample' => 'SuccessfulResultSample',
     ];
 
     public function validate()
@@ -74,7 +81,7 @@ class registrationDetails extends Model
         if (null !== $this->registrationErrorCodes) {
             if (\is_array($this->registrationErrorCodes)) {
                 $res['RegistrationErrorCodes'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->registrationErrorCodes as $item1) {
                     $res['RegistrationErrorCodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -84,7 +91,7 @@ class registrationDetails extends Model
         if (null !== $this->registrationRequestParameters) {
             if (\is_array($this->registrationRequestParameters)) {
                 $res['RegistrationRequestParameters'] = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($this->registrationRequestParameters as $item1) {
                     $res['RegistrationRequestParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -129,7 +136,7 @@ class registrationDetails extends Model
         if (isset($map['RegistrationErrorCodes'])) {
             if (!empty($map['RegistrationErrorCodes'])) {
                 $model->registrationErrorCodes = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['RegistrationErrorCodes'] as $item1) {
                     $model->registrationErrorCodes[$n1++] = registrationErrorCodes::fromMap($item1);
                 }
@@ -139,7 +146,7 @@ class registrationDetails extends Model
         if (isset($map['RegistrationRequestParameters'])) {
             if (!empty($map['RegistrationRequestParameters'])) {
                 $model->registrationRequestParameters = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($map['RegistrationRequestParameters'] as $item1) {
                     $model->registrationRequestParameters[$n1++] = registrationRequestParameters::fromMap($item1);
                 }

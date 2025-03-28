@@ -13,13 +13,14 @@ class realtimeStartSettings extends Model
      * @var failoverSettings
      */
     public $failoverSettings;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
         'failoverSettings' => 'FailoverSettings',
-        'startTime'        => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

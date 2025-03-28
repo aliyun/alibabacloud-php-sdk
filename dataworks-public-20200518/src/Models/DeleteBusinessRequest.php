@@ -12,17 +12,19 @@ class DeleteBusinessRequest extends Model
      * @var int
      */
     public $businessId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
     protected $_name = [
-        'businessId'        => 'BusinessId',
-        'projectId'         => 'ProjectId',
+        'businessId' => 'BusinessId',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 

@@ -12,18 +12,20 @@ class ListDIAlarmRulesRequest extends Model
      * @var int
      */
     public $DIJobId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'DIJobId'    => 'DIJobId',
+        'DIJobId' => 'DIJobId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

@@ -31,7 +31,7 @@ class DsgSceneAddOrUpdateSceneRequest extends Model
         if (null !== $this->scenes) {
             if (\is_array($this->scenes)) {
                 $res['scenes'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->scenes as $item1) {
                     $res['scenes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class DsgSceneAddOrUpdateSceneRequest extends Model
         if (isset($map['scenes'])) {
             if (!empty($map['scenes'])) {
                 $model->scenes = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['scenes'] as $item1) {
                     $model->scenes[$n1++] = scenes::fromMap($item1);
                 }

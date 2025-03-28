@@ -12,6 +12,7 @@ class GetIDEEventDetailRequest extends Model
      * @var string
      */
     public $messageId;
+
     /**
      * @var int
      */

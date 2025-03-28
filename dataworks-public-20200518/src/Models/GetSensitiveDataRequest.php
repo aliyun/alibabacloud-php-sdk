@@ -12,17 +12,19 @@ class GetSensitiveDataRequest extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'name'     => 'Name',
-        'pageNo'   => 'PageNo',
+        'name' => 'Name',
+        'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
     ];
 

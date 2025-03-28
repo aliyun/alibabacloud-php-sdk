@@ -12,13 +12,14 @@ class instanceCounts extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $date;
     protected $_name = [
         'count' => 'Count',
-        'date'  => 'Date',
+        'date' => 'Date',
     ];
 
     public function validate()

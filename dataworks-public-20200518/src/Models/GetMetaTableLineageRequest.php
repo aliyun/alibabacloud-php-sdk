@@ -12,43 +12,50 @@ class GetMetaTableLineageRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $nextPrimaryKey;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $tableGuid;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'dataSourceType' => 'DataSourceType',
-        'databaseName'   => 'DatabaseName',
-        'direction'      => 'Direction',
+        'databaseName' => 'DatabaseName',
+        'direction' => 'Direction',
         'nextPrimaryKey' => 'NextPrimaryKey',
-        'pageSize'       => 'PageSize',
-        'tableGuid'      => 'TableGuid',
-        'tableName'      => 'TableName',
+        'pageSize' => 'PageSize',
+        'tableGuid' => 'TableGuid',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

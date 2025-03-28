@@ -12,26 +12,32 @@ class ListDataServicePublishedApisRequest extends Model
      * @var string
      */
     public $apiNameKeyword;
+
     /**
      * @var string
      */
     public $apiPathKeyword;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
@@ -39,11 +45,11 @@ class ListDataServicePublishedApisRequest extends Model
     protected $_name = [
         'apiNameKeyword' => 'ApiNameKeyword',
         'apiPathKeyword' => 'ApiPathKeyword',
-        'creatorId'      => 'CreatorId',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'projectId'      => 'ProjectId',
-        'tenantId'       => 'TenantId',
+        'creatorId' => 'CreatorId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

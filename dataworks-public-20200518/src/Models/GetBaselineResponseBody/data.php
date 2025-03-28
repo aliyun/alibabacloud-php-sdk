@@ -14,63 +14,74 @@ class data extends Model
      * @var bool
      */
     public $alertEnabled;
+
     /**
      * @var int
      */
     public $alertMarginThreshold;
+
     /**
      * @var alertSettings[]
      */
     public $alertSettings;
+
     /**
      * @var int
      */
     public $baselineId;
+
     /**
      * @var string
      */
     public $baselineName;
+
     /**
      * @var string
      */
     public $baselineType;
+
     /**
      * @var bool
      */
     public $enabled;
+
     /**
      * @var int[]
      */
     public $nodeIds;
+
     /**
      * @var overTimeSettings[]
      */
     public $overTimeSettings;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'alertEnabled'         => 'AlertEnabled',
+        'alertEnabled' => 'AlertEnabled',
         'alertMarginThreshold' => 'AlertMarginThreshold',
-        'alertSettings'        => 'AlertSettings',
-        'baselineId'           => 'BaselineId',
-        'baselineName'         => 'BaselineName',
-        'baselineType'         => 'BaselineType',
-        'enabled'              => 'Enabled',
-        'nodeIds'              => 'NodeIds',
-        'overTimeSettings'     => 'OverTimeSettings',
-        'owner'                => 'Owner',
-        'priority'             => 'Priority',
-        'projectId'            => 'ProjectId',
+        'alertSettings' => 'AlertSettings',
+        'baselineId' => 'BaselineId',
+        'baselineName' => 'BaselineName',
+        'baselineType' => 'BaselineType',
+        'enabled' => 'Enabled',
+        'nodeIds' => 'NodeIds',
+        'overTimeSettings' => 'OverTimeSettings',
+        'owner' => 'Owner',
+        'priority' => 'Priority',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()
@@ -101,7 +112,7 @@ class data extends Model
         if (null !== $this->alertSettings) {
             if (\is_array($this->alertSettings)) {
                 $res['AlertSettings'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->alertSettings as $item1) {
                     $res['AlertSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -127,7 +138,7 @@ class data extends Model
         if (null !== $this->nodeIds) {
             if (\is_array($this->nodeIds)) {
                 $res['NodeIds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->nodeIds as $item1) {
                     $res['NodeIds'][$n1++] = $item1;
                 }
@@ -137,7 +148,7 @@ class data extends Model
         if (null !== $this->overTimeSettings) {
             if (\is_array($this->overTimeSettings)) {
                 $res['OverTimeSettings'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->overTimeSettings as $item1) {
                     $res['OverTimeSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -178,7 +189,7 @@ class data extends Model
         if (isset($map['AlertSettings'])) {
             if (!empty($map['AlertSettings'])) {
                 $model->alertSettings = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['AlertSettings'] as $item1) {
                     $model->alertSettings[$n1++] = alertSettings::fromMap($item1);
                 }
@@ -204,7 +215,7 @@ class data extends Model
         if (isset($map['NodeIds'])) {
             if (!empty($map['NodeIds'])) {
                 $model->nodeIds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['NodeIds'] as $item1) {
                     $model->nodeIds[$n1++] = $item1;
                 }
@@ -214,7 +225,7 @@ class data extends Model
         if (isset($map['OverTimeSettings'])) {
             if (!empty($map['OverTimeSettings'])) {
                 $model->overTimeSettings = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['OverTimeSettings'] as $item1) {
                     $model->overTimeSettings[$n1++] = overTimeSettings::fromMap($item1);
                 }

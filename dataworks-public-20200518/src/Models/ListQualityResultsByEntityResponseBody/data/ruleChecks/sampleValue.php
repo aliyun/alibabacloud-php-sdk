@@ -12,18 +12,20 @@ class sampleValue extends Model
      * @var string
      */
     public $bizDate;
+
     /**
      * @var string
      */
     public $discreteProperty;
+
     /**
      * @var float
      */
     public $value;
     protected $_name = [
-        'bizDate'          => 'BizDate',
+        'bizDate' => 'BizDate',
         'discreteProperty' => 'DiscreteProperty',
-        'value'            => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

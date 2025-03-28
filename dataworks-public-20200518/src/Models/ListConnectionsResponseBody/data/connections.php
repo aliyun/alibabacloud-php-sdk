@@ -12,93 +12,110 @@ class connections extends Model
      * @var int
      */
     public $bindingCalcEngineId;
+
     /**
      * @var int
      */
     public $connectStatus;
+
     /**
      * @var string
      */
     public $connectionType;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var bool
      */
     public $defaultEngine;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $envType;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $sequence;
+
     /**
      * @var bool
      */
     public $shared;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $subType;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
         'bindingCalcEngineId' => 'BindingCalcEngineId',
-        'connectStatus'       => 'ConnectStatus',
-        'connectionType'      => 'ConnectionType',
-        'content'             => 'Content',
-        'defaultEngine'       => 'DefaultEngine',
-        'description'         => 'Description',
-        'envType'             => 'EnvType',
-        'gmtCreate'           => 'GmtCreate',
-        'gmtModified'         => 'GmtModified',
-        'id'                  => 'Id',
-        'name'                => 'Name',
-        'operator'            => 'Operator',
-        'projectId'           => 'ProjectId',
-        'sequence'            => 'Sequence',
-        'shared'              => 'Shared',
-        'status'              => 'Status',
-        'subType'             => 'SubType',
-        'tenantId'            => 'TenantId',
+        'connectStatus' => 'ConnectStatus',
+        'connectionType' => 'ConnectionType',
+        'content' => 'Content',
+        'defaultEngine' => 'DefaultEngine',
+        'description' => 'Description',
+        'envType' => 'EnvType',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'name' => 'Name',
+        'operator' => 'Operator',
+        'projectId' => 'ProjectId',
+        'sequence' => 'Sequence',
+        'shared' => 'Shared',
+        'status' => 'Status',
+        'subType' => 'SubType',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

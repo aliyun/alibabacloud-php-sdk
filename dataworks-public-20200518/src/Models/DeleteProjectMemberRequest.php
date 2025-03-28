@@ -12,13 +12,14 @@ class DeleteProjectMemberRequest extends Model
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'projectId' => 'ProjectId',
-        'userId'    => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

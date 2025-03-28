@@ -12,12 +12,13 @@ class CreateManualDagResponseBody extends Model
      * @var int
      */
     public $dagId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'dagId'     => 'DagId',
+        'dagId' => 'DagId',
         'requestId' => 'RequestId',
     ];
 

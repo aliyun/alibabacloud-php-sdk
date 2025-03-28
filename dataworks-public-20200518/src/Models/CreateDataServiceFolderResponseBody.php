@@ -12,12 +12,13 @@ class CreateDataServiceFolderResponseBody extends Model
      * @var int
      */
     public $folderId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'folderId'  => 'FolderId',
+        'folderId' => 'FolderId',
         'requestId' => 'RequestId',
     ];
 

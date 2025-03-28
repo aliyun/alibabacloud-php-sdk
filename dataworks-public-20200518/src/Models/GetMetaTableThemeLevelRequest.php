@@ -12,13 +12,14 @@ class GetMetaTableThemeLevelRequest extends Model
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var string
      */
     public $tableGuid;
     protected $_name = [
         'dataSourceType' => 'DataSourceType',
-        'tableGuid'      => 'TableGuid',
+        'tableGuid' => 'TableGuid',
     ];
 
     public function validate()

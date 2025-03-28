@@ -12,33 +12,38 @@ class data extends Model
      * @var string
      */
     public $applicationCode;
+
     /**
      * @var int
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $applicationKey;
+
     /**
      * @var string
      */
     public $applicationName;
+
     /**
      * @var string
      */
     public $applicationSecret;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'applicationCode'   => 'ApplicationCode',
-        'applicationId'     => 'ApplicationId',
-        'applicationKey'    => 'ApplicationKey',
-        'applicationName'   => 'ApplicationName',
+        'applicationCode' => 'ApplicationCode',
+        'applicationId' => 'ApplicationId',
+        'applicationKey' => 'ApplicationKey',
+        'applicationName' => 'ApplicationName',
         'applicationSecret' => 'ApplicationSecret',
-        'projectId'         => 'ProjectId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

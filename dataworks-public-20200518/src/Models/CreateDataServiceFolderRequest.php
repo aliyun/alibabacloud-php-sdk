@@ -12,28 +12,32 @@ class CreateDataServiceFolderRequest extends Model
      * @var string
      */
     public $folderName;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var int
      */
     public $parentId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
         'folderName' => 'FolderName',
-        'groupId'    => 'GroupId',
-        'parentId'   => 'ParentId',
-        'projectId'  => 'ProjectId',
-        'tenantId'   => 'TenantId',
+        'groupId' => 'GroupId',
+        'parentId' => 'ParentId',
+        'projectId' => 'ProjectId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

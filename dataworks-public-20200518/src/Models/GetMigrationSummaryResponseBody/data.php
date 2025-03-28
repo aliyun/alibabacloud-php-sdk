@@ -12,48 +12,56 @@ class data extends Model
      * @var string
      */
     public $createUser;
+
     /**
      * @var string
      */
     public $downloadUrl;
+
     /**
      * @var int
      */
     public $gmtCreate;
+
     /**
      * @var int
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $migrationId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $opUser;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'createUser'  => 'CreateUser',
+        'createUser' => 'CreateUser',
         'downloadUrl' => 'DownloadUrl',
-        'gmtCreate'   => 'GmtCreate',
+        'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
         'migrationId' => 'MigrationId',
-        'name'        => 'Name',
-        'opUser'      => 'OpUser',
-        'projectId'   => 'ProjectId',
-        'status'      => 'Status',
+        'name' => 'Name',
+        'opUser' => 'OpUser',
+        'projectId' => 'ProjectId',
+        'status' => 'Status',
     ];
 
     public function validate()

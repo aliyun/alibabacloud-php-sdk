@@ -12,22 +12,25 @@ class ListTableThemeRequest extends Model
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $parentId;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'pageNum'   => 'PageNum',
-        'pageSize'  => 'PageSize',
-        'parentId'  => 'ParentId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'parentId' => 'ParentId',
         'projectId' => 'ProjectId',
     ];
 

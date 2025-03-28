@@ -12,13 +12,14 @@ class RemoveEntityTagsRequest extends Model
      * @var string
      */
     public $qualifiedName;
+
     /**
      * @var string[]
      */
     public $tagKeys;
     protected $_name = [
         'qualifiedName' => 'QualifiedName',
-        'tagKeys'       => 'TagKeys',
+        'tagKeys' => 'TagKeys',
     ];
 
     public function validate()
@@ -39,7 +40,7 @@ class RemoveEntityTagsRequest extends Model
         if (null !== $this->tagKeys) {
             if (\is_array($this->tagKeys)) {
                 $res['TagKeys'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->tagKeys as $item1) {
                     $res['TagKeys'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class RemoveEntityTagsRequest extends Model
         if (isset($map['TagKeys'])) {
             if (!empty($map['TagKeys'])) {
                 $model->tagKeys = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['TagKeys'] as $item1) {
                     $model->tagKeys[$n1++] = $item1;
                 }

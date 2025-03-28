@@ -12,77 +12,91 @@ class RunCycleDagNodesRequest extends Model
      * @var string
      */
     public $alertNoticeType;
+
     /**
      * @var string
      */
     public $alertType;
+
     /**
      * @var string
      */
     public $bizBeginTime;
+
     /**
      * @var string
      */
     public $bizEndTime;
+
     /**
      * @var int
      */
     public $concurrentRuns;
+
     /**
      * @var string
      */
     public $endBizDate;
+
     /**
      * @var string
      */
     public $excludeNodeIds;
+
     /**
      * @var string
      */
     public $includeNodeIds;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nodeParams;
+
     /**
      * @var bool
      */
     public $parallelism;
+
     /**
      * @var string
      */
     public $projectEnv;
+
     /**
      * @var int
      */
     public $rootNodeId;
+
     /**
      * @var string
      */
     public $startBizDate;
+
     /**
      * @var bool
      */
     public $startFutureInstanceImmediately;
     protected $_name = [
-        'alertNoticeType'                => 'AlertNoticeType',
-        'alertType'                      => 'AlertType',
-        'bizBeginTime'                   => 'BizBeginTime',
-        'bizEndTime'                     => 'BizEndTime',
-        'concurrentRuns'                 => 'ConcurrentRuns',
-        'endBizDate'                     => 'EndBizDate',
-        'excludeNodeIds'                 => 'ExcludeNodeIds',
-        'includeNodeIds'                 => 'IncludeNodeIds',
-        'name'                           => 'Name',
-        'nodeParams'                     => 'NodeParams',
-        'parallelism'                    => 'Parallelism',
-        'projectEnv'                     => 'ProjectEnv',
-        'rootNodeId'                     => 'RootNodeId',
-        'startBizDate'                   => 'StartBizDate',
+        'alertNoticeType' => 'AlertNoticeType',
+        'alertType' => 'AlertType',
+        'bizBeginTime' => 'BizBeginTime',
+        'bizEndTime' => 'BizEndTime',
+        'concurrentRuns' => 'ConcurrentRuns',
+        'endBizDate' => 'EndBizDate',
+        'excludeNodeIds' => 'ExcludeNodeIds',
+        'includeNodeIds' => 'IncludeNodeIds',
+        'name' => 'Name',
+        'nodeParams' => 'NodeParams',
+        'parallelism' => 'Parallelism',
+        'projectEnv' => 'ProjectEnv',
+        'rootNodeId' => 'RootNodeId',
+        'startBizDate' => 'StartBizDate',
         'startFutureInstanceImmediately' => 'StartFutureInstanceImmediately',
     ];
 

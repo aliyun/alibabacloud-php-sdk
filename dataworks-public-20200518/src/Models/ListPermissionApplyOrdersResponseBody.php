@@ -13,13 +13,14 @@ class ListPermissionApplyOrdersResponseBody extends Model
      * @var applyOrders
      */
     public $applyOrders;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'applyOrders' => 'ApplyOrders',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

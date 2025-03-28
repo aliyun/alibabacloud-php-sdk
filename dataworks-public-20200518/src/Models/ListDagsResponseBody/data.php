@@ -31,7 +31,7 @@ class data extends Model
         if (null !== $this->dags) {
             if (\is_array($this->dags)) {
                 $res['Dags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->dags as $item1) {
                     $res['Dags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class data extends Model
         if (isset($map['Dags'])) {
             if (!empty($map['Dags'])) {
                 $model->dags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Dags'] as $item1) {
                     $model->dags[$n1++] = dags::fromMap($item1);
                 }

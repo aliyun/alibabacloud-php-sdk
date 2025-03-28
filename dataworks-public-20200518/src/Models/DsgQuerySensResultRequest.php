@@ -12,78 +12,92 @@ class DsgQuerySensResultRequest extends Model
      * @var string
      */
     public $col;
+
     /**
      * @var string
      */
     public $dbType;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var string
      */
     public $orderField;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $sensStatus;
+
     /**
      * @var string
      */
     public $sensitiveId;
+
     /**
      * @var string
      */
     public $sensitiveName;
+
     /**
      * @var string
      */
     public $table;
+
     /**
      * @var string
      */
     public $tenantId;
     protected $_name = [
-        'col'           => 'Col',
-        'dbType'        => 'DbType',
-        'level'         => 'Level',
-        'nodeName'      => 'NodeName',
-        'order'         => 'Order',
-        'orderField'    => 'OrderField',
-        'pageNo'        => 'PageNo',
-        'pageSize'      => 'PageSize',
-        'projectName'   => 'ProjectName',
-        'schemaName'    => 'SchemaName',
-        'sensStatus'    => 'SensStatus',
-        'sensitiveId'   => 'SensitiveId',
+        'col' => 'Col',
+        'dbType' => 'DbType',
+        'level' => 'Level',
+        'nodeName' => 'NodeName',
+        'order' => 'Order',
+        'orderField' => 'OrderField',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'projectName' => 'ProjectName',
+        'schemaName' => 'SchemaName',
+        'sensStatus' => 'SensStatus',
+        'sensitiveId' => 'SensitiveId',
         'sensitiveName' => 'SensitiveName',
-        'table'         => 'Table',
-        'tenantId'      => 'TenantId',
+        'table' => 'Table',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

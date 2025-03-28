@@ -13,13 +13,14 @@ class ListDataServiceGroupsResponseBody extends Model
      * @var groupPagingResult
      */
     public $groupPagingResult;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'groupPagingResult' => 'GroupPagingResult',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

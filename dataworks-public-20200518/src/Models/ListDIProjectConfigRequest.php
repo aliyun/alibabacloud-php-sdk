@@ -12,18 +12,20 @@ class ListDIProjectConfigRequest extends Model
      * @var string
      */
     public $destinationType;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $sourceType;
     protected $_name = [
         'destinationType' => 'DestinationType',
-        'projectId'       => 'ProjectId',
-        'sourceType'      => 'SourceType',
+        'projectId' => 'ProjectId',
+        'sourceType' => 'SourceType',
     ];
 
     public function validate()

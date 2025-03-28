@@ -12,6 +12,7 @@ class eventCategoryList extends Model
      * @var string
      */
     public $categoryCode;
+
     /**
      * @var string
      */

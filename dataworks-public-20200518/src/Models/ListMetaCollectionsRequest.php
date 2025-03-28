@@ -12,47 +12,55 @@ class ListMetaCollectionsRequest extends Model
      * @var string
      */
     public $administrator;
+
     /**
      * @var string
      */
     public $collectionType;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $follower;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $parentQualifiedName;
     protected $_name = [
-        'administrator'       => 'Administrator',
-        'collectionType'      => 'CollectionType',
-        'creator'             => 'Creator',
-        'follower'            => 'Follower',
-        'keyword'             => 'Keyword',
-        'nextToken'           => 'NextToken',
-        'orderBy'             => 'OrderBy',
-        'pageSize'            => 'PageSize',
+        'administrator' => 'Administrator',
+        'collectionType' => 'CollectionType',
+        'creator' => 'Creator',
+        'follower' => 'Follower',
+        'keyword' => 'Keyword',
+        'nextToken' => 'NextToken',
+        'orderBy' => 'OrderBy',
+        'pageSize' => 'PageSize',
         'parentQualifiedName' => 'ParentQualifiedName',
     ];
 

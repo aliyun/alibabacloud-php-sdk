@@ -12,103 +12,122 @@ class CreateQualityRuleRequest extends Model
      * @var int
      */
     public $blockType;
+
     /**
      * @var int
      */
     public $checker;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $criticalThreshold;
+
     /**
      * @var int
      */
     public $entityId;
+
     /**
      * @var string
      */
     public $expectValue;
+
     /**
      * @var string
      */
     public $methodName;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var int
      */
     public $predictType;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $property;
+
     /**
      * @var string
      */
     public $propertyType;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var int
      */
     public $ruleType;
+
     /**
      * @var string
      */
     public $taskSetting;
+
     /**
      * @var int
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $trend;
+
     /**
      * @var string
      */
     public $warningThreshold;
+
     /**
      * @var string
      */
     public $whereCondition;
     protected $_name = [
-        'blockType'         => 'BlockType',
-        'checker'           => 'Checker',
-        'comment'           => 'Comment',
+        'blockType' => 'BlockType',
+        'checker' => 'Checker',
+        'comment' => 'Comment',
         'criticalThreshold' => 'CriticalThreshold',
-        'entityId'          => 'EntityId',
-        'expectValue'       => 'ExpectValue',
-        'methodName'        => 'MethodName',
-        'operator'          => 'Operator',
-        'predictType'       => 'PredictType',
-        'projectId'         => 'ProjectId',
-        'projectName'       => 'ProjectName',
-        'property'          => 'Property',
-        'propertyType'      => 'PropertyType',
-        'ruleName'          => 'RuleName',
-        'ruleType'          => 'RuleType',
-        'taskSetting'       => 'TaskSetting',
-        'templateId'        => 'TemplateId',
-        'trend'             => 'Trend',
-        'warningThreshold'  => 'WarningThreshold',
-        'whereCondition'    => 'WhereCondition',
+        'entityId' => 'EntityId',
+        'expectValue' => 'ExpectValue',
+        'methodName' => 'MethodName',
+        'operator' => 'Operator',
+        'predictType' => 'PredictType',
+        'projectId' => 'ProjectId',
+        'projectName' => 'ProjectName',
+        'property' => 'Property',
+        'propertyType' => 'PropertyType',
+        'ruleName' => 'RuleName',
+        'ruleType' => 'RuleType',
+        'taskSetting' => 'TaskSetting',
+        'templateId' => 'TemplateId',
+        'trend' => 'Trend',
+        'warningThreshold' => 'WarningThreshold',
+        'whereCondition' => 'WhereCondition',
     ];
 
     public function validate()

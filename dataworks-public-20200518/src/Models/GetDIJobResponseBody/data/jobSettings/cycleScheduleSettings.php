@@ -12,6 +12,7 @@ class cycleScheduleSettings extends Model
      * @var string
      */
     public $cycleMigrationType;
+
     /**
      * @var string
      */

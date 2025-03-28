@@ -12,18 +12,20 @@ class ChangeResourceManagerResourceGroupRequest extends Model
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'resourceId'                     => 'ResourceId',
+        'resourceId' => 'ResourceId',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'resourceType'                   => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

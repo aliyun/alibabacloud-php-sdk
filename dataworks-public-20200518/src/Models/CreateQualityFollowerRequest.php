@@ -12,27 +12,31 @@ class CreateQualityFollowerRequest extends Model
      * @var int
      */
     public $alarmMode;
+
     /**
      * @var int
      */
     public $entityId;
+
     /**
      * @var string
      */
     public $follower;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'alarmMode'   => 'AlarmMode',
-        'entityId'    => 'EntityId',
-        'follower'    => 'Follower',
-        'projectId'   => 'ProjectId',
+        'alarmMode' => 'AlarmMode',
+        'entityId' => 'EntityId',
+        'follower' => 'Follower',
+        'projectId' => 'ProjectId',
         'projectName' => 'ProjectName',
     ];
 

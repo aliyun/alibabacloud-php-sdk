@@ -12,13 +12,14 @@ class inputParameters extends Model
      * @var string
      */
     public $parameterName;
+
     /**
      * @var string
      */
     public $valueSource;
     protected $_name = [
         'parameterName' => 'ParameterName',
-        'valueSource'   => 'ValueSource',
+        'valueSource' => 'ValueSource',
     ];
 
     public function validate()

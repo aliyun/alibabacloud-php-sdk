@@ -12,18 +12,20 @@ class TerminateDISyncInstanceRequest extends Model
      * @var int
      */
     public $fileId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'fileId'    => 'FileId',
+        'fileId' => 'FileId',
         'projectId' => 'ProjectId',
-        'taskType'  => 'TaskType',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

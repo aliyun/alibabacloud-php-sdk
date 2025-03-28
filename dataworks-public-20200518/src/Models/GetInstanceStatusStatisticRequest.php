@@ -12,33 +12,38 @@ class GetInstanceStatusStatisticRequest extends Model
      * @var string
      */
     public $bizDate;
+
     /**
      * @var string
      */
     public $dagType;
+
     /**
      * @var string
      */
     public $projectEnv;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $schedulerPeriod;
+
     /**
      * @var string
      */
     public $schedulerType;
     protected $_name = [
-        'bizDate'         => 'BizDate',
-        'dagType'         => 'DagType',
-        'projectEnv'      => 'ProjectEnv',
-        'projectId'       => 'ProjectId',
+        'bizDate' => 'BizDate',
+        'dagType' => 'DagType',
+        'projectEnv' => 'ProjectEnv',
+        'projectId' => 'ProjectId',
         'schedulerPeriod' => 'SchedulerPeriod',
-        'schedulerType'   => 'SchedulerType',
+        'schedulerType' => 'SchedulerType',
     ];
 
     public function validate()

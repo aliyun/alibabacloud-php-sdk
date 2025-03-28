@@ -12,23 +12,26 @@ class authorizationRecords extends Model
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
         'createdTime' => 'CreatedTime',
-        'creatorId'   => 'CreatorId',
-        'endTime'     => 'EndTime',
-        'projectId'   => 'ProjectId',
+        'creatorId' => 'CreatorId',
+        'endTime' => 'EndTime',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

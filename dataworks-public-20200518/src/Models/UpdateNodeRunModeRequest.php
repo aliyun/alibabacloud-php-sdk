@@ -12,17 +12,19 @@ class UpdateNodeRunModeRequest extends Model
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $projectEnv;
+
     /**
      * @var int
      */
     public $schedulerType;
     protected $_name = [
-        'nodeId'        => 'NodeId',
-        'projectEnv'    => 'ProjectEnv',
+        'nodeId' => 'NodeId',
+        'projectEnv' => 'ProjectEnv',
         'schedulerType' => 'SchedulerType',
     ];
 

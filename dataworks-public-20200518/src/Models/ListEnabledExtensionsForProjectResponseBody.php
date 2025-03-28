@@ -13,13 +13,14 @@ class ListEnabledExtensionsForProjectResponseBody extends Model
      * @var extensions[]
      */
     public $extensions;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'extensions' => 'Extensions',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class ListEnabledExtensionsForProjectResponseBody extends Model
         if (null !== $this->extensions) {
             if (\is_array($this->extensions)) {
                 $res['Extensions'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->extensions as $item1) {
                     $res['Extensions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class ListEnabledExtensionsForProjectResponseBody extends Model
         if (isset($map['Extensions'])) {
             if (!empty($map['Extensions'])) {
                 $model->extensions = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Extensions'] as $item1) {
                     $model->extensions[$n1++] = extensions::fromMap($item1);
                 }

@@ -12,33 +12,38 @@ class GetMetaTableOutputRequest extends Model
      * @var string
      */
     public $endDate;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $tableGuid;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'endDate'    => 'EndDate',
+        'endDate' => 'EndDate',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startDate'  => 'StartDate',
-        'tableGuid'  => 'TableGuid',
-        'taskId'     => 'TaskId',
+        'pageSize' => 'PageSize',
+        'startDate' => 'StartDate',
+        'tableGuid' => 'TableGuid',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

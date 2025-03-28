@@ -12,12 +12,13 @@ class ListDataServiceApiTestRequest extends Model
      * @var int
      */
     public $apiId;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'apiId'    => 'ApiId',
+        'apiId' => 'ApiId',
         'pageSize' => 'PageSize',
     ];
 

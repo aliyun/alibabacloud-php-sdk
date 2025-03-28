@@ -12,33 +12,38 @@ class CheckMetaPartitionRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var string
      */
     public $partition;
+
     /**
      * @var string
      */
     public $tableGuid;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'dataSourceType' => 'DataSourceType',
-        'databaseName'   => 'DatabaseName',
-        'partition'      => 'Partition',
-        'tableGuid'      => 'TableGuid',
-        'tableName'      => 'TableName',
+        'databaseName' => 'DatabaseName',
+        'partition' => 'Partition',
+        'tableGuid' => 'TableGuid',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

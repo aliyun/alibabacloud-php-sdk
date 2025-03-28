@@ -12,23 +12,26 @@ class ListDataServiceApplicationsRequest extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $projectIdList;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'projectIdList' => 'ProjectIdList',
-        'tenantId'      => 'TenantId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

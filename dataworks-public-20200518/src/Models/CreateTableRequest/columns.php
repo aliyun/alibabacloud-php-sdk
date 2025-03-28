@@ -12,38 +12,44 @@ class columns extends Model
      * @var string
      */
     public $columnName;
+
     /**
      * @var string
      */
     public $columnNameCn;
+
     /**
      * @var string
      */
     public $columnType;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var bool
      */
     public $isPartitionCol;
+
     /**
      * @var int
      */
     public $length;
+
     /**
      * @var int
      */
     public $seqNumber;
     protected $_name = [
-        'columnName'     => 'ColumnName',
-        'columnNameCn'   => 'ColumnNameCn',
-        'columnType'     => 'ColumnType',
-        'comment'        => 'Comment',
+        'columnName' => 'ColumnName',
+        'columnNameCn' => 'ColumnNameCn',
+        'columnType' => 'ColumnType',
+        'comment' => 'Comment',
         'isPartitionCol' => 'IsPartitionCol',
-        'length'         => 'Length',
-        'seqNumber'      => 'SeqNumber',
+        'length' => 'Length',
+        'seqNumber' => 'SeqNumber',
     ];
 
     public function validate()

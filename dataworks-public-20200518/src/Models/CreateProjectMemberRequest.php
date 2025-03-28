@@ -12,23 +12,26 @@ class CreateProjectMemberRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $roleCode;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'projectId'   => 'ProjectId',
-        'roleCode'    => 'RoleCode',
-        'userId'      => 'UserId',
+        'projectId' => 'ProjectId',
+        'roleCode' => 'RoleCode',
+        'userId' => 'UserId',
     ];
 
     public function validate()

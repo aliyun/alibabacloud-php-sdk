@@ -12,18 +12,20 @@ class ApprovePermissionApplyOrderRequest extends Model
      * @var int
      */
     public $approveAction;
+
     /**
      * @var string
      */
     public $approveComment;
+
     /**
      * @var string
      */
     public $flowId;
     protected $_name = [
-        'approveAction'  => 'ApproveAction',
+        'approveAction' => 'ApproveAction',
         'approveComment' => 'ApproveComment',
-        'flowId'         => 'FlowId',
+        'flowId' => 'FlowId',
     ];
 
     public function validate()

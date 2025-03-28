@@ -12,43 +12,50 @@ class runs extends Model
      * @var int
      */
     public $absTime;
+
     /**
      * @var int
      */
     public $beginCast;
+
     /**
      * @var int
      */
     public $beginRunningTime;
+
     /**
      * @var int
      */
     public $beginWaitResTime;
+
     /**
      * @var int
      */
     public $beginWaitTimeTime;
+
     /**
      * @var int
      */
     public $endCast;
+
     /**
      * @var int
      */
     public $finishTime;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'absTime'           => 'AbsTime',
-        'beginCast'         => 'BeginCast',
-        'beginRunningTime'  => 'BeginRunningTime',
-        'beginWaitResTime'  => 'BeginWaitResTime',
+        'absTime' => 'AbsTime',
+        'beginCast' => 'BeginCast',
+        'beginRunningTime' => 'BeginRunningTime',
+        'beginWaitResTime' => 'BeginWaitResTime',
         'beginWaitTimeTime' => 'BeginWaitTimeTime',
-        'endCast'           => 'EndCast',
-        'finishTime'        => 'FinishTime',
-        'status'            => 'Status',
+        'endCast' => 'EndCast',
+        'finishTime' => 'FinishTime',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class ListDataServiceAuthorizedApisRequest extends Model
      * @var string
      */
     public $apiNameKeyword;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
         'apiNameKeyword' => 'ApiNameKeyword',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'projectId'      => 'ProjectId',
-        'tenantId'       => 'TenantId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

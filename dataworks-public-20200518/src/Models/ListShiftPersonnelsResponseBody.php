@@ -13,12 +13,13 @@ class ListShiftPersonnelsResponseBody extends Model
      * @var paging
      */
     public $paging;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'paging'    => 'Paging',
+        'paging' => 'Paging',
         'requestId' => 'RequestId',
     ];
 

@@ -12,33 +12,38 @@ class ListDataServiceFoldersRequest extends Model
      * @var string
      */
     public $folderNameKeyword;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
         'folderNameKeyword' => 'FolderNameKeyword',
-        'groupId'           => 'GroupId',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'projectId'         => 'ProjectId',
-        'tenantId'          => 'TenantId',
+        'groupId' => 'GroupId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

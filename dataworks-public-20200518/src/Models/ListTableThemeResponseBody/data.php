@@ -13,12 +13,13 @@ class data extends Model
      * @var themeList[]
      */
     public $themeList;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'themeList'  => 'ThemeList',
+        'themeList' => 'ThemeList',
         'totalCount' => 'TotalCount',
     ];
 
@@ -36,7 +37,7 @@ class data extends Model
         if (null !== $this->themeList) {
             if (\is_array($this->themeList)) {
                 $res['ThemeList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->themeList as $item1) {
                     $res['ThemeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class data extends Model
         if (isset($map['ThemeList'])) {
             if (!empty($map['ThemeList'])) {
                 $model->themeList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ThemeList'] as $item1) {
                     $model->themeList[$n1++] = themeList::fromMap($item1);
                 }

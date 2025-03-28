@@ -14,18 +14,20 @@ class dataEntityList extends Model
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var Entity
      */
     public $entity;
+
     /**
      * @var relationList[]
      */
     public $relationList;
     protected $_name = [
         'createTimestamp' => 'CreateTimestamp',
-        'entity'          => 'Entity',
-        'relationList'    => 'RelationList',
+        'entity' => 'Entity',
+        'relationList' => 'RelationList',
     ];
 
     public function validate()
@@ -53,7 +55,7 @@ class dataEntityList extends Model
         if (null !== $this->relationList) {
             if (\is_array($this->relationList)) {
                 $res['RelationList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->relationList as $item1) {
                     $res['RelationList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -82,7 +84,7 @@ class dataEntityList extends Model
         if (isset($map['RelationList'])) {
             if (!empty($map['RelationList'])) {
                 $model->relationList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['RelationList'] as $item1) {
                     $model->relationList[$n1++] = relationList::fromMap($item1);
                 }

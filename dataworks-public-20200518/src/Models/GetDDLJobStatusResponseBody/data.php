@@ -12,23 +12,26 @@ class data extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $nextTaskId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'content'    => 'Content',
+        'content' => 'Content',
         'nextTaskId' => 'NextTaskId',
-        'status'     => 'Status',
-        'taskId'     => 'TaskId',
+        'status' => 'Status',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

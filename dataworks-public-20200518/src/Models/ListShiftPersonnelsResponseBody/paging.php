@@ -13,23 +13,26 @@ class paging extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var shiftPersons[]
      */
     public $shiftPersons;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'shiftPersons' => 'ShiftPersons',
-        'totalCount'   => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -54,7 +57,7 @@ class paging extends Model
         if (null !== $this->shiftPersons) {
             if (\is_array($this->shiftPersons)) {
                 $res['ShiftPersons'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->shiftPersons as $item1) {
                     $res['ShiftPersons'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class paging extends Model
         if (isset($map['ShiftPersons'])) {
             if (!empty($map['ShiftPersons'])) {
                 $model->shiftPersons = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ShiftPersons'] as $item1) {
                     $model->shiftPersons[$n1++] = shiftPersons::fromMap($item1);
                 }

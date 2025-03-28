@@ -12,63 +12,74 @@ class topics extends Model
      * @var int
      */
     public $addTime;
+
     /**
      * @var int
      */
     public $fixTime;
+
     /**
      * @var int
      */
     public $happenTime;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $nodeOwner;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $topicId;
+
     /**
      * @var string
      */
     public $topicName;
+
     /**
      * @var string
      */
     public $topicStatus;
+
     /**
      * @var string
      */
     public $topicType;
     protected $_name = [
-        'addTime'     => 'AddTime',
-        'fixTime'     => 'FixTime',
-        'happenTime'  => 'HappenTime',
-        'instanceId'  => 'InstanceId',
-        'nodeId'      => 'NodeId',
-        'nodeName'    => 'NodeName',
-        'nodeOwner'   => 'NodeOwner',
-        'projectId'   => 'ProjectId',
-        'topicId'     => 'TopicId',
-        'topicName'   => 'TopicName',
+        'addTime' => 'AddTime',
+        'fixTime' => 'FixTime',
+        'happenTime' => 'HappenTime',
+        'instanceId' => 'InstanceId',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'nodeOwner' => 'NodeOwner',
+        'projectId' => 'ProjectId',
+        'topicId' => 'TopicId',
+        'topicName' => 'TopicName',
         'topicStatus' => 'TopicStatus',
-        'topicType'   => 'TopicType',
+        'topicType' => 'TopicType',
     ];
 
     public function validate()

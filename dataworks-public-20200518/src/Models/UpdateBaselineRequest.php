@@ -14,68 +14,80 @@ class UpdateBaselineRequest extends Model
      * @var bool
      */
     public $alertEnabled;
+
     /**
      * @var int
      */
     public $alertMarginThreshold;
+
     /**
      * @var alertSettings[]
      */
     public $alertSettings;
+
     /**
      * @var int
      */
     public $baselineId;
+
     /**
      * @var string
      */
     public $baselineName;
+
     /**
      * @var string
      */
     public $baselineType;
+
     /**
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $nodeIds;
+
     /**
      * @var overtimeSettings[]
      */
     public $overtimeSettings;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $removeNodeIds;
     protected $_name = [
-        'alertEnabled'         => 'AlertEnabled',
+        'alertEnabled' => 'AlertEnabled',
         'alertMarginThreshold' => 'AlertMarginThreshold',
-        'alertSettings'        => 'AlertSettings',
-        'baselineId'           => 'BaselineId',
-        'baselineName'         => 'BaselineName',
-        'baselineType'         => 'BaselineType',
-        'enabled'              => 'Enabled',
-        'nodeIds'              => 'NodeIds',
-        'overtimeSettings'     => 'OvertimeSettings',
-        'owner'                => 'Owner',
-        'priority'             => 'Priority',
-        'projectId'            => 'ProjectId',
-        'removeNodeIds'        => 'RemoveNodeIds',
+        'alertSettings' => 'AlertSettings',
+        'baselineId' => 'BaselineId',
+        'baselineName' => 'BaselineName',
+        'baselineType' => 'BaselineType',
+        'enabled' => 'Enabled',
+        'nodeIds' => 'NodeIds',
+        'overtimeSettings' => 'OvertimeSettings',
+        'owner' => 'Owner',
+        'priority' => 'Priority',
+        'projectId' => 'ProjectId',
+        'removeNodeIds' => 'RemoveNodeIds',
     ];
 
     public function validate()
@@ -103,7 +115,7 @@ class UpdateBaselineRequest extends Model
         if (null !== $this->alertSettings) {
             if (\is_array($this->alertSettings)) {
                 $res['AlertSettings'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->alertSettings as $item1) {
                     $res['AlertSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -133,7 +145,7 @@ class UpdateBaselineRequest extends Model
         if (null !== $this->overtimeSettings) {
             if (\is_array($this->overtimeSettings)) {
                 $res['OvertimeSettings'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->overtimeSettings as $item1) {
                     $res['OvertimeSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -178,7 +190,7 @@ class UpdateBaselineRequest extends Model
         if (isset($map['AlertSettings'])) {
             if (!empty($map['AlertSettings'])) {
                 $model->alertSettings = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['AlertSettings'] as $item1) {
                     $model->alertSettings[$n1++] = alertSettings::fromMap($item1);
                 }
@@ -208,7 +220,7 @@ class UpdateBaselineRequest extends Model
         if (isset($map['OvertimeSettings'])) {
             if (!empty($map['OvertimeSettings'])) {
                 $model->overtimeSettings = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['OvertimeSettings'] as $item1) {
                     $model->overtimeSettings[$n1++] = overtimeSettings::fromMap($item1);
                 }

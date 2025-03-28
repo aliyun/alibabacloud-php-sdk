@@ -12,28 +12,32 @@ class instances extends Model
      * @var int
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'nodeId'     => 'NodeId',
-        'nodeName'   => 'NodeName',
-        'projectId'  => 'ProjectId',
-        'status'     => 'Status',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'projectId' => 'ProjectId',
+        'status' => 'Status',
     ];
 
     public function validate()

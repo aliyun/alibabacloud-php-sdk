@@ -12,12 +12,13 @@ class sortCriterion extends Model
      * @var string
      */
     public $order;
+
     /**
      * @var string
      */
     public $sortField;
     protected $_name = [
-        'order'     => 'Order',
+        'order' => 'Order',
         'sortField' => 'SortField',
     ];
 

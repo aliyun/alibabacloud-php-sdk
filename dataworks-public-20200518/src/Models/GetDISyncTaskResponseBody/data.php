@@ -14,28 +14,32 @@ class data extends Model
      * @var alarmList[]
      */
     public $alarmList;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var solutionDetail
      */
     public $solutionDetail;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'alarmList'      => 'AlarmList',
-        'code'           => 'Code',
-        'message'        => 'Message',
+        'alarmList' => 'AlarmList',
+        'code' => 'Code',
+        'message' => 'Message',
         'solutionDetail' => 'SolutionDetail',
-        'status'         => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -55,7 +59,7 @@ class data extends Model
         if (null !== $this->alarmList) {
             if (\is_array($this->alarmList)) {
                 $res['AlarmList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->alarmList as $item1) {
                     $res['AlarmList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -92,7 +96,7 @@ class data extends Model
         if (isset($map['AlarmList'])) {
             if (!empty($map['AlarmList'])) {
                 $model->alarmList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['AlarmList'] as $item1) {
                     $model->alarmList[$n1++] = alarmList::fromMap($item1);
                 }

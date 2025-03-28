@@ -12,33 +12,38 @@ class CreateBusinessRequest extends Model
      * @var string
      */
     public $businessName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
+
     /**
      * @var string
      */
     public $useType;
     protected $_name = [
-        'businessName'      => 'BusinessName',
-        'description'       => 'Description',
-        'owner'             => 'Owner',
-        'projectId'         => 'ProjectId',
+        'businessName' => 'BusinessName',
+        'description' => 'Description',
+        'owner' => 'Owner',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
-        'useType'           => 'UseType',
+        'useType' => 'UseType',
     ];
 
     public function validate()

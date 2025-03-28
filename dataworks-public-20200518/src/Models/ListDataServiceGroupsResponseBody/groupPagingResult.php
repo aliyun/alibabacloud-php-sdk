@@ -13,22 +13,25 @@ class groupPagingResult extends Model
      * @var groups[]
      */
     public $groups;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'groups'     => 'Groups',
+        'groups' => 'Groups',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'totalCount' => 'TotalCount',
     ];
 
@@ -46,7 +49,7 @@ class groupPagingResult extends Model
         if (null !== $this->groups) {
             if (\is_array($this->groups)) {
                 $res['Groups'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->groups as $item1) {
                     $res['Groups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class groupPagingResult extends Model
         if (isset($map['Groups'])) {
             if (!empty($map['Groups'])) {
                 $model->groups = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Groups'] as $item1) {
                     $model->groups[$n1++] = groups::fromMap($item1);
                 }

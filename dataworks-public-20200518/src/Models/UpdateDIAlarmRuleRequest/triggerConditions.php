@@ -12,17 +12,19 @@ class triggerConditions extends Model
      * @var int
      */
     public $duration;
+
     /**
      * @var string
      */
     public $severity;
+
     /**
      * @var int
      */
     public $threshold;
     protected $_name = [
-        'duration'  => 'Duration',
-        'severity'  => 'Severity',
+        'duration' => 'Duration',
+        'severity' => 'Severity',
         'threshold' => 'Threshold',
     ];
 

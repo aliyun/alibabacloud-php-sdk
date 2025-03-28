@@ -12,12 +12,13 @@ class RevokeTablePermissionResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $revokeSuccess;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'revokeSuccess' => 'RevokeSuccess',
     ];
 

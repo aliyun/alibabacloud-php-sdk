@@ -12,38 +12,44 @@ class themeList extends Model
      * @var int
      */
     public $createTimeStamp;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var int
      */
     public $level;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $parentId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $themeId;
     protected $_name = [
         'createTimeStamp' => 'CreateTimeStamp',
-        'creator'         => 'Creator',
-        'level'           => 'Level',
-        'name'            => 'Name',
-        'parentId'        => 'ParentId',
-        'projectId'       => 'ProjectId',
-        'themeId'         => 'ThemeId',
+        'creator' => 'Creator',
+        'level' => 'Level',
+        'name' => 'Name',
+        'parentId' => 'ParentId',
+        'projectId' => 'ProjectId',
+        'themeId' => 'ThemeId',
     ];
 
     public function validate()

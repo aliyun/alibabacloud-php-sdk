@@ -12,47 +12,55 @@ class dataEntityList extends Model
      * @var int
      */
     public $categoryId;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $depth;
+
     /**
      * @var string
      */
     public $lastOperatorId;
+
     /**
      * @var int
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $parentCategoryId;
     protected $_name = [
-        'categoryId'       => 'CategoryId',
-        'comment'          => 'Comment',
-        'createTime'       => 'CreateTime',
-        'depth'            => 'Depth',
-        'lastOperatorId'   => 'LastOperatorId',
-        'modifiedTime'     => 'ModifiedTime',
-        'name'             => 'Name',
-        'ownerId'          => 'OwnerId',
+        'categoryId' => 'CategoryId',
+        'comment' => 'Comment',
+        'createTime' => 'CreateTime',
+        'depth' => 'Depth',
+        'lastOperatorId' => 'LastOperatorId',
+        'modifiedTime' => 'ModifiedTime',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
         'parentCategoryId' => 'ParentCategoryId',
     ];
 

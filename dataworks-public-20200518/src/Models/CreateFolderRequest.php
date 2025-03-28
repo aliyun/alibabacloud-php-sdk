@@ -12,17 +12,19 @@ class CreateFolderRequest extends Model
      * @var string
      */
     public $folderPath;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
     protected $_name = [
-        'folderPath'        => 'FolderPath',
-        'projectId'         => 'ProjectId',
+        'folderPath' => 'FolderPath',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 

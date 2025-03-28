@@ -12,22 +12,25 @@ class DeleteQualityEntityRequest extends Model
      * @var int
      */
     public $entityId;
+
     /**
      * @var string
      */
     public $envType;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'entityId'    => 'EntityId',
-        'envType'     => 'EnvType',
-        'projectId'   => 'ProjectId',
+        'entityId' => 'EntityId',
+        'envType' => 'EnvType',
+        'projectId' => 'ProjectId',
         'projectName' => 'ProjectName',
     ];
 

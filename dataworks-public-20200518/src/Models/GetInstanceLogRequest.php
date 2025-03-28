@@ -12,18 +12,20 @@ class GetInstanceLogRequest extends Model
      * @var int
      */
     public $instanceHistoryId;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $projectEnv;
     protected $_name = [
         'instanceHistoryId' => 'InstanceHistoryId',
-        'instanceId'        => 'InstanceId',
-        'projectEnv'        => 'ProjectEnv',
+        'instanceId' => 'InstanceId',
+        'projectEnv' => 'ProjectEnv',
     ];
 
     public function validate()

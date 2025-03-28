@@ -13,12 +13,13 @@ class GetInstanceStatusStatisticResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var statusCount
      */
     public $statusCount;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'statusCount' => 'StatusCount',
     ];
 

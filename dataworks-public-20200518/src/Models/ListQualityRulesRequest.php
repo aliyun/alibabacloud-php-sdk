@@ -12,27 +12,31 @@ class ListQualityRulesRequest extends Model
      * @var int
      */
     public $entityId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'entityId'    => 'EntityId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'projectId'   => 'ProjectId',
+        'entityId' => 'EntityId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
         'projectName' => 'ProjectName',
     ];
 

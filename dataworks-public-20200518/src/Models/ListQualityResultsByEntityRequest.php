@@ -12,38 +12,44 @@ class ListQualityResultsByEntityRequest extends Model
      * @var string
      */
     public $endDate;
+
     /**
      * @var int
      */
     public $entityId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $startDate;
     protected $_name = [
-        'endDate'     => 'EndDate',
-        'entityId'    => 'EntityId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'projectId'   => 'ProjectId',
+        'endDate' => 'EndDate',
+        'entityId' => 'EntityId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
         'projectName' => 'ProjectName',
-        'startDate'   => 'StartDate',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()

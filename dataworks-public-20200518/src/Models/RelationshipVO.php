@@ -12,16 +12,18 @@ class RelationshipVO extends Model
      * @var string[]
      */
     public $attributes;
+
     /**
      * @var string
      */
     public $relationshipGuid;
+
     /**
      * @var string
      */
     public $relationshipType;
     protected $_name = [
-        'attributes'       => 'Attributes',
+        'attributes' => 'Attributes',
         'relationshipGuid' => 'RelationshipGuid',
         'relationshipType' => 'RelationshipType',
     ];

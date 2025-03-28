@@ -14,38 +14,44 @@ class alarmList extends Model
      * @var alarmRuleList[]
      */
     public $alarmRuleList;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $enabled;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $metric;
+
     /**
      * @var notifyRule
      */
     public $notifyRule;
+
     /**
      * @var string
      */
     public $ruleName;
     protected $_name = [
         'alarmRuleList' => 'AlarmRuleList',
-        'description'   => 'Description',
-        'enabled'       => 'Enabled',
-        'id'            => 'Id',
-        'metric'        => 'Metric',
-        'notifyRule'    => 'NotifyRule',
-        'ruleName'      => 'RuleName',
+        'description' => 'Description',
+        'enabled' => 'Enabled',
+        'id' => 'Id',
+        'metric' => 'Metric',
+        'notifyRule' => 'NotifyRule',
+        'ruleName' => 'RuleName',
     ];
 
     public function validate()
@@ -65,7 +71,7 @@ class alarmList extends Model
         if (null !== $this->alarmRuleList) {
             if (\is_array($this->alarmRuleList)) {
                 $res['AlarmRuleList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->alarmRuleList as $item1) {
                     $res['AlarmRuleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -110,7 +116,7 @@ class alarmList extends Model
         if (isset($map['AlarmRuleList'])) {
             if (!empty($map['AlarmRuleList'])) {
                 $model->alarmRuleList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['AlarmRuleList'] as $item1) {
                     $model->alarmRuleList[$n1++] = alarmRuleList::fromMap($item1);
                 }

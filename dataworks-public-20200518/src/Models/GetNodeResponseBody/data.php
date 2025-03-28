@@ -12,138 +12,164 @@ class data extends Model
      * @var int
      */
     public $baselineId;
+
     /**
      * @var int
      */
     public $businessId;
+
     /**
      * @var string
      */
     public $connection;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $cronExpress;
+
     /**
      * @var int
      */
     public $deployDate;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $dqcDescription;
+
     /**
      * @var int
      */
     public $dqcType;
+
     /**
      * @var int
      */
     public $fileId;
+
     /**
      * @var int
      */
     public $fileType;
+
     /**
      * @var int
      */
     public $fileVersion;
+
     /**
      * @var int
      */
     public $modifyTime;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $paramValues;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $programType;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $relatedFlowId;
+
     /**
      * @var int
      */
     public $repeatInterval;
+
     /**
      * @var int
      */
     public $repeatMode;
+
     /**
      * @var string
      */
     public $repeatability;
+
     /**
      * @var string
      */
     public $resGroupIdentifier;
+
     /**
      * @var string
      */
     public $resGroupName;
+
     /**
      * @var string
      */
     public $schedulerType;
     protected $_name = [
-        'baselineId'         => 'BaselineId',
-        'businessId'         => 'BusinessId',
-        'connection'         => 'Connection',
-        'createTime'         => 'CreateTime',
-        'cronExpress'        => 'CronExpress',
-        'deployDate'         => 'DeployDate',
-        'description'        => 'Description',
-        'dqcDescription'     => 'DqcDescription',
-        'dqcType'            => 'DqcType',
-        'fileId'             => 'FileId',
-        'fileType'           => 'FileType',
-        'fileVersion'        => 'FileVersion',
-        'modifyTime'         => 'ModifyTime',
-        'nodeId'             => 'NodeId',
-        'nodeName'           => 'NodeName',
-        'ownerId'            => 'OwnerId',
-        'paramValues'        => 'ParamValues',
-        'priority'           => 'Priority',
-        'programType'        => 'ProgramType',
-        'projectId'          => 'ProjectId',
-        'relatedFlowId'      => 'RelatedFlowId',
-        'repeatInterval'     => 'RepeatInterval',
-        'repeatMode'         => 'RepeatMode',
-        'repeatability'      => 'Repeatability',
+        'baselineId' => 'BaselineId',
+        'businessId' => 'BusinessId',
+        'connection' => 'Connection',
+        'createTime' => 'CreateTime',
+        'cronExpress' => 'CronExpress',
+        'deployDate' => 'DeployDate',
+        'description' => 'Description',
+        'dqcDescription' => 'DqcDescription',
+        'dqcType' => 'DqcType',
+        'fileId' => 'FileId',
+        'fileType' => 'FileType',
+        'fileVersion' => 'FileVersion',
+        'modifyTime' => 'ModifyTime',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'ownerId' => 'OwnerId',
+        'paramValues' => 'ParamValues',
+        'priority' => 'Priority',
+        'programType' => 'ProgramType',
+        'projectId' => 'ProjectId',
+        'relatedFlowId' => 'RelatedFlowId',
+        'repeatInterval' => 'RepeatInterval',
+        'repeatMode' => 'RepeatMode',
+        'repeatability' => 'Repeatability',
         'resGroupIdentifier' => 'ResGroupIdentifier',
-        'resGroupName'       => 'ResGroupName',
-        'schedulerType'      => 'SchedulerType',
+        'resGroupName' => 'ResGroupName',
+        'schedulerType' => 'SchedulerType',
     ];
 
     public function validate()

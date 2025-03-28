@@ -12,28 +12,32 @@ class data extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var int
      */
     public $accountType;
+
     /**
      * @var string
      */
     public $baseId;
+
     /**
      * @var string
      */
     public $parentAccountId;
+
     /**
      * @var string
      */
     public $yunAccount;
     protected $_name = [
-        'accountName'     => 'AccountName',
-        'accountType'     => 'AccountType',
-        'baseId'          => 'BaseId',
+        'accountName' => 'AccountName',
+        'accountType' => 'AccountType',
+        'baseId' => 'BaseId',
         'parentAccountId' => 'ParentAccountId',
-        'yunAccount'      => 'YunAccount',
+        'yunAccount' => 'YunAccount',
     ];
 
     public function validate()

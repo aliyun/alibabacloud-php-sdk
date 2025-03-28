@@ -12,58 +12,68 @@ class CreateDagComplementRequest extends Model
      * @var string
      */
     public $bizBeginTime;
+
     /**
      * @var string
      */
     public $bizEndTime;
+
     /**
      * @var string
      */
     public $endBizDate;
+
     /**
      * @var string
      */
     public $excludeNodeIds;
+
     /**
      * @var string
      */
     public $includeNodeIds;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $nodeParams;
+
     /**
      * @var bool
      */
     public $parallelism;
+
     /**
      * @var string
      */
     public $projectEnv;
+
     /**
      * @var int
      */
     public $rootNodeId;
+
     /**
      * @var string
      */
     public $startBizDate;
     protected $_name = [
-        'bizBeginTime'   => 'BizBeginTime',
-        'bizEndTime'     => 'BizEndTime',
-        'endBizDate'     => 'EndBizDate',
+        'bizBeginTime' => 'BizBeginTime',
+        'bizEndTime' => 'BizEndTime',
+        'endBizDate' => 'EndBizDate',
         'excludeNodeIds' => 'ExcludeNodeIds',
         'includeNodeIds' => 'IncludeNodeIds',
-        'name'           => 'Name',
-        'nodeParams'     => 'NodeParams',
-        'parallelism'    => 'Parallelism',
-        'projectEnv'     => 'ProjectEnv',
-        'rootNodeId'     => 'RootNodeId',
-        'startBizDate'   => 'StartBizDate',
+        'name' => 'Name',
+        'nodeParams' => 'NodeParams',
+        'parallelism' => 'Parallelism',
+        'projectEnv' => 'ProjectEnv',
+        'rootNodeId' => 'RootNodeId',
+        'startBizDate' => 'StartBizDate',
     ];
 
     public function validate()

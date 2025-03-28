@@ -13,13 +13,14 @@ class data extends Model
      * @var Collection[]
      */
     public $collectionList;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
         'collectionList' => 'CollectionList',
-        'nextToken'      => 'NextToken',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class data extends Model
         if (null !== $this->collectionList) {
             if (\is_array($this->collectionList)) {
                 $res['CollectionList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->collectionList as $item1) {
                     $res['CollectionList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class data extends Model
         if (isset($map['CollectionList'])) {
             if (!empty($map['CollectionList'])) {
                 $model->collectionList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['CollectionList'] as $item1) {
                     $model->collectionList[$n1++] = Collection::fromMap($item1);
                 }

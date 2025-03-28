@@ -12,12 +12,13 @@ class pathParams extends Model
      * @var string
      */
     public $paramKey;
+
     /**
      * @var string
      */
     public $paramValue;
     protected $_name = [
-        'paramKey'   => 'ParamKey',
+        'paramKey' => 'ParamKey',
         'paramValue' => 'ParamValue',
     ];
 

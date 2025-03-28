@@ -12,18 +12,20 @@ class GetDataServiceFolderRequest extends Model
      * @var int
      */
     public $folderId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
-        'folderId'  => 'FolderId',
+        'folderId' => 'FolderId',
         'projectId' => 'ProjectId',
-        'tenantId'  => 'TenantId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

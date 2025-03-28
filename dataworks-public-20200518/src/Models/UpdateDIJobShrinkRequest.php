@@ -12,32 +12,37 @@ class UpdateDIJobShrinkRequest extends Model
      * @var int
      */
     public $DIJobId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $jobSettingsShrink;
+
     /**
      * @var string
      */
     public $resourceSettingsShrink;
+
     /**
      * @var string
      */
     public $tableMappingsShrink;
+
     /**
      * @var string
      */
     public $transformationRulesShrink;
     protected $_name = [
-        'DIJobId'                   => 'DIJobId',
-        'description'               => 'Description',
-        'jobSettingsShrink'         => 'JobSettings',
-        'resourceSettingsShrink'    => 'ResourceSettings',
-        'tableMappingsShrink'       => 'TableMappings',
+        'DIJobId' => 'DIJobId',
+        'description' => 'Description',
+        'jobSettingsShrink' => 'JobSettings',
+        'resourceSettingsShrink' => 'ResourceSettings',
+        'tableMappingsShrink' => 'TableMappings',
         'transformationRulesShrink' => 'TransformationRules',
     ];
 

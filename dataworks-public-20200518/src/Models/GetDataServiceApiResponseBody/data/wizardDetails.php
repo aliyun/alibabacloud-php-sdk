@@ -15,22 +15,25 @@ class wizardDetails extends Model
      * @var bool
      */
     public $isPagedResponse;
+
     /**
      * @var wizardConnection
      */
     public $wizardConnection;
+
     /**
      * @var wizardRequestParameters[]
      */
     public $wizardRequestParameters;
+
     /**
      * @var wizardResponseParameters[]
      */
     public $wizardResponseParameters;
     protected $_name = [
-        'isPagedResponse'          => 'IsPagedResponse',
-        'wizardConnection'         => 'WizardConnection',
-        'wizardRequestParameters'  => 'WizardRequestParameters',
+        'isPagedResponse' => 'IsPagedResponse',
+        'wizardConnection' => 'WizardConnection',
+        'wizardRequestParameters' => 'WizardRequestParameters',
         'wizardResponseParameters' => 'WizardResponseParameters',
     ];
 
@@ -62,7 +65,7 @@ class wizardDetails extends Model
         if (null !== $this->wizardRequestParameters) {
             if (\is_array($this->wizardRequestParameters)) {
                 $res['WizardRequestParameters'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->wizardRequestParameters as $item1) {
                     $res['WizardRequestParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -72,7 +75,7 @@ class wizardDetails extends Model
         if (null !== $this->wizardResponseParameters) {
             if (\is_array($this->wizardResponseParameters)) {
                 $res['WizardResponseParameters'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->wizardResponseParameters as $item1) {
                     $res['WizardResponseParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -101,7 +104,7 @@ class wizardDetails extends Model
         if (isset($map['WizardRequestParameters'])) {
             if (!empty($map['WizardRequestParameters'])) {
                 $model->wizardRequestParameters = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['WizardRequestParameters'] as $item1) {
                     $model->wizardRequestParameters[$n1++] = wizardRequestParameters::fromMap($item1);
                 }
@@ -111,7 +114,7 @@ class wizardDetails extends Model
         if (isset($map['WizardResponseParameters'])) {
             if (!empty($map['WizardResponseParameters'])) {
                 $model->wizardResponseParameters = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['WizardResponseParameters'] as $item1) {
                     $model->wizardResponseParameters[$n1++] = wizardResponseParameters::fromMap($item1);
                 }

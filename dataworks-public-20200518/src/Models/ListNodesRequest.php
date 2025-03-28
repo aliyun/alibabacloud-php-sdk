@@ -12,47 +12,55 @@ class ListNodesRequest extends Model
      * @var string
      */
     public $bizName;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $programType;
+
     /**
      * @var string
      */
     public $projectEnv;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $schedulerType;
     protected $_name = [
-        'bizName'       => 'BizName',
-        'nodeName'      => 'NodeName',
-        'owner'         => 'Owner',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'programType'   => 'ProgramType',
-        'projectEnv'    => 'ProjectEnv',
-        'projectId'     => 'ProjectId',
+        'bizName' => 'BizName',
+        'nodeName' => 'NodeName',
+        'owner' => 'Owner',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'programType' => 'ProgramType',
+        'projectEnv' => 'ProjectEnv',
+        'projectId' => 'ProjectId',
         'schedulerType' => 'SchedulerType',
     ];
 

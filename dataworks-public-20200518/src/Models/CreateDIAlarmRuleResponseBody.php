@@ -12,13 +12,14 @@ class CreateDIAlarmRuleResponseBody extends Model
      * @var int
      */
     public $DIAlarmRuleId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DIAlarmRuleId' => 'DIAlarmRuleId',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

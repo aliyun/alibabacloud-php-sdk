@@ -12,73 +12,92 @@ class baselineStatuses extends Model
      * @var int
      */
     public $baselineId;
+
     /**
      * @var string
      */
     public $baselineName;
+
+    /**
+     * @var string
+     */
+    public $baselineType;
+
     /**
      * @var int
      */
     public $bizdate;
+
     /**
      * @var int
      */
     public $buffer;
+
     /**
      * @var int
      */
     public $endCast;
+
     /**
      * @var int
      */
     public $expTime;
+
     /**
      * @var string
      */
     public $finishStatus;
+
     /**
      * @var int
      */
     public $finishTime;
+
     /**
      * @var int
      */
     public $inGroupId;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $slaTime;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'baselineId'   => 'BaselineId',
+        'baselineId' => 'BaselineId',
         'baselineName' => 'BaselineName',
-        'bizdate'      => 'Bizdate',
-        'buffer'       => 'Buffer',
-        'endCast'      => 'EndCast',
-        'expTime'      => 'ExpTime',
+        'baselineType' => 'BaselineType',
+        'bizdate' => 'Bizdate',
+        'buffer' => 'Buffer',
+        'endCast' => 'EndCast',
+        'expTime' => 'ExpTime',
         'finishStatus' => 'FinishStatus',
-        'finishTime'   => 'FinishTime',
-        'inGroupId'    => 'InGroupId',
-        'owner'        => 'Owner',
-        'priority'     => 'Priority',
-        'projectId'    => 'ProjectId',
-        'slaTime'      => 'SlaTime',
-        'status'       => 'Status',
+        'finishTime' => 'FinishTime',
+        'inGroupId' => 'InGroupId',
+        'owner' => 'Owner',
+        'priority' => 'Priority',
+        'projectId' => 'ProjectId',
+        'slaTime' => 'SlaTime',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -95,6 +114,10 @@ class baselineStatuses extends Model
 
         if (null !== $this->baselineName) {
             $res['BaselineName'] = $this->baselineName;
+        }
+
+        if (null !== $this->baselineType) {
+            $res['BaselineType'] = $this->baselineType;
         }
 
         if (null !== $this->bizdate) {
@@ -162,6 +185,10 @@ class baselineStatuses extends Model
 
         if (isset($map['BaselineName'])) {
             $model->baselineName = $map['BaselineName'];
+        }
+
+        if (isset($map['BaselineType'])) {
+            $model->baselineType = $map['BaselineType'];
         }
 
         if (isset($map['Bizdate'])) {

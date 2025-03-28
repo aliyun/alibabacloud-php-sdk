@@ -12,28 +12,32 @@ class UpdateTableModelInfoRequest extends Model
      * @var int
      */
     public $firstLevelThemeId;
+
     /**
      * @var int
      */
     public $levelId;
+
     /**
      * @var int
      */
     public $levelType;
+
     /**
      * @var int
      */
     public $secondLevelThemeId;
+
     /**
      * @var string
      */
     public $tableGuid;
     protected $_name = [
-        'firstLevelThemeId'  => 'FirstLevelThemeId',
-        'levelId'            => 'LevelId',
-        'levelType'          => 'LevelType',
+        'firstLevelThemeId' => 'FirstLevelThemeId',
+        'levelId' => 'LevelId',
+        'levelType' => 'LevelType',
         'secondLevelThemeId' => 'SecondLevelThemeId',
-        'tableGuid'          => 'TableGuid',
+        'tableGuid' => 'TableGuid',
     ];
 
     public function validate()

@@ -12,27 +12,31 @@ class ListFileVersionsRequest extends Model
      * @var int
      */
     public $fileId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
     protected $_name = [
-        'fileId'            => 'FileId',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'projectId'         => 'ProjectId',
+        'fileId' => 'FileId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 

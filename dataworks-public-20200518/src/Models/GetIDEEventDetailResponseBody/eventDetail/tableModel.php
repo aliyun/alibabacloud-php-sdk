@@ -13,38 +13,44 @@ class tableModel extends Model
      * @var columns[]
      */
     public $columns;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $dataSourceName;
+
     /**
      * @var string
      */
     public $env;
+
     /**
      * @var int
      */
     public $lifeCycle;
+
     /**
      * @var string
      */
     public $location;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'columns'        => 'Columns',
-        'comment'        => 'Comment',
+        'columns' => 'Columns',
+        'comment' => 'Comment',
         'dataSourceName' => 'DataSourceName',
-        'env'            => 'Env',
-        'lifeCycle'      => 'LifeCycle',
-        'location'       => 'Location',
-        'tableName'      => 'TableName',
+        'env' => 'Env',
+        'lifeCycle' => 'LifeCycle',
+        'location' => 'Location',
+        'tableName' => 'TableName',
     ];
 
     public function validate()
@@ -61,7 +67,7 @@ class tableModel extends Model
         if (null !== $this->columns) {
             if (\is_array($this->columns)) {
                 $res['Columns'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->columns as $item1) {
                     $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -106,7 +112,7 @@ class tableModel extends Model
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
                     $model->columns[$n1++] = columns::fromMap($item1);
                 }

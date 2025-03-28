@@ -12,38 +12,44 @@ class ListQualityResultsByRuleRequest extends Model
      * @var string
      */
     public $endDate;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $startDate;
     protected $_name = [
-        'endDate'     => 'EndDate',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'projectId'   => 'ProjectId',
+        'endDate' => 'EndDate',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
         'projectName' => 'ProjectName',
-        'ruleId'      => 'RuleId',
-        'startDate'   => 'StartDate',
+        'ruleId' => 'RuleId',
+        'startDate' => 'StartDate',
     ];
 
     public function validate()

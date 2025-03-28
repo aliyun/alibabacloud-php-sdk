@@ -12,17 +12,19 @@ class scriptErrorCodes extends Model
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $errorSolution;
     protected $_name = [
-        'errorCode'     => 'ErrorCode',
-        'errorMessage'  => 'ErrorMessage',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'errorSolution' => 'ErrorSolution',
     ];
 

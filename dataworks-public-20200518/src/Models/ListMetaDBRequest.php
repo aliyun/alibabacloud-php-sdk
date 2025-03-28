@@ -12,28 +12,32 @@ class ListMetaDBRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'dataSourceType' => 'DataSourceType',
-        'pageNum'        => 'PageNum',
-        'pageSize'       => 'PageSize',
-        'projectId'      => 'ProjectId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class nodeTypeInfo extends Model
      * @var int
      */
     public $nodeType;
+
     /**
      * @var string
      */
     public $nodeTypeName;
     protected $_name = [
-        'nodeType'     => 'NodeType',
+        'nodeType' => 'NodeType',
         'nodeTypeName' => 'NodeTypeName',
     ];
 

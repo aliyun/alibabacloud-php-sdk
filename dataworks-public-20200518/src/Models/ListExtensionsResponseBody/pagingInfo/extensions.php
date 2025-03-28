@@ -13,22 +13,27 @@ class extensions extends Model
      * @var bindEventList[]
      */
     public $bindEventList;
+
     /**
      * @var string
      */
     public $extensionCode;
+
     /**
      * @var string
      */
     public $extensionDesc;
+
     /**
      * @var string
      */
     public $extensionName;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
@@ -38,8 +43,8 @@ class extensions extends Model
         'extensionCode' => 'ExtensionCode',
         'extensionDesc' => 'ExtensionDesc',
         'extensionName' => 'ExtensionName',
-        'owner'         => 'Owner',
-        'status'        => 'Status',
+        'owner' => 'Owner',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class extensions extends Model
         if (null !== $this->bindEventList) {
             if (\is_array($this->bindEventList)) {
                 $res['BindEventList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->bindEventList as $item1) {
                     $res['BindEventList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class extensions extends Model
         if (isset($map['BindEventList'])) {
             if (!empty($map['BindEventList'])) {
                 $model->bindEventList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['BindEventList'] as $item1) {
                     $model->bindEventList[$n1++] = bindEventList::fromMap($item1);
                 }

@@ -12,17 +12,19 @@ class ListEnabledExtensionsForProjectRequest extends Model
      * @var string
      */
     public $eventCode;
+
     /**
      * @var string
      */
     public $fileType;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
         'eventCode' => 'EventCode',
-        'fileType'  => 'FileType',
+        'fileType' => 'FileType',
         'projectId' => 'ProjectId',
     ];
 

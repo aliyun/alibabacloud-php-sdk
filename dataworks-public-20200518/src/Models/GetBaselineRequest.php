@@ -12,13 +12,14 @@ class GetBaselineRequest extends Model
      * @var int
      */
     public $baselineId;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
         'baselineId' => 'BaselineId',
-        'projectId'  => 'ProjectId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

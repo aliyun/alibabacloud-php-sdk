@@ -12,28 +12,32 @@ class measureDatas extends Model
      * @var string
      */
     public $componentCode;
+
     /**
      * @var string
      */
     public $domainCode;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $usage;
     protected $_name = [
         'componentCode' => 'ComponentCode',
-        'domainCode'    => 'DomainCode',
-        'endTime'       => 'EndTime',
-        'startTime'     => 'StartTime',
-        'usage'         => 'Usage',
+        'domainCode' => 'DomainCode',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
+        'usage' => 'Usage',
     ];
 
     public function validate()

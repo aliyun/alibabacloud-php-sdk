@@ -13,18 +13,20 @@ class applyObject extends Model
      * @var string
      */
     public $actions;
+
     /**
      * @var columnMetaList[]
      */
     public $columnMetaList;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
-        'actions'        => 'Actions',
+        'actions' => 'Actions',
         'columnMetaList' => 'ColumnMetaList',
-        'name'           => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class applyObject extends Model
         if (null !== $this->columnMetaList) {
             if (\is_array($this->columnMetaList)) {
                 $res['ColumnMetaList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->columnMetaList as $item1) {
                     $res['ColumnMetaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class applyObject extends Model
         if (isset($map['ColumnMetaList'])) {
             if (!empty($map['ColumnMetaList'])) {
                 $model->columnMetaList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ColumnMetaList'] as $item1) {
                     $model->columnMetaList[$n1++] = columnMetaList::fromMap($item1);
                 }

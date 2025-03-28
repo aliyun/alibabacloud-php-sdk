@@ -12,28 +12,32 @@ class ListMigrationsRequest extends Model
      * @var string
      */
     public $migrationType;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
         'migrationType' => 'MigrationType',
-        'owner'         => 'Owner',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'projectId'     => 'ProjectId',
+        'owner' => 'Owner',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

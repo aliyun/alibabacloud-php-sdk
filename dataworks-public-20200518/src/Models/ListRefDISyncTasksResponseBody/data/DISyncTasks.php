@@ -12,28 +12,32 @@ class DISyncTasks extends Model
      * @var string
      */
     public $diDestinationDatasource;
+
     /**
      * @var string
      */
     public $diSourceDatasource;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
         'diDestinationDatasource' => 'DiDestinationDatasource',
-        'diSourceDatasource'      => 'DiSourceDatasource',
-        'nodeId'                  => 'NodeId',
-        'nodeName'                => 'NodeName',
-        'taskType'                => 'TaskType',
+        'diSourceDatasource' => 'DiSourceDatasource',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

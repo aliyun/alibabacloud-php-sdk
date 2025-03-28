@@ -12,78 +12,92 @@ class reminds extends Model
      * @var string[]
      */
     public $alertMethods;
+
     /**
      * @var string[]
      */
     public $alertTargets;
+
     /**
      * @var string
      */
     public $alertUnit;
+
     /**
      * @var int[]
      */
     public $baselineIds;
+
     /**
      * @var int[]
      */
     public $bizProcessIds;
+
     /**
      * @var string
      */
     public $dndEnd;
+
     /**
      * @var string
      */
     public $dndStart;
+
     /**
      * @var string
      */
     public $founder;
+
     /**
      * @var int[]
      */
     public $nodeIds;
+
     /**
      * @var int[]
      */
     public $projectIds;
+
     /**
      * @var int
      */
     public $remindId;
+
     /**
      * @var string
      */
     public $remindName;
+
     /**
      * @var string
      */
     public $remindType;
+
     /**
      * @var string
      */
     public $remindUnit;
+
     /**
      * @var bool
      */
     public $useflag;
     protected $_name = [
-        'alertMethods'  => 'AlertMethods',
-        'alertTargets'  => 'AlertTargets',
-        'alertUnit'     => 'AlertUnit',
-        'baselineIds'   => 'BaselineIds',
+        'alertMethods' => 'AlertMethods',
+        'alertTargets' => 'AlertTargets',
+        'alertUnit' => 'AlertUnit',
+        'baselineIds' => 'BaselineIds',
         'bizProcessIds' => 'BizProcessIds',
-        'dndEnd'        => 'DndEnd',
-        'dndStart'      => 'DndStart',
-        'founder'       => 'Founder',
-        'nodeIds'       => 'NodeIds',
-        'projectIds'    => 'ProjectIds',
-        'remindId'      => 'RemindId',
-        'remindName'    => 'RemindName',
-        'remindType'    => 'RemindType',
-        'remindUnit'    => 'RemindUnit',
-        'useflag'       => 'Useflag',
+        'dndEnd' => 'DndEnd',
+        'dndStart' => 'DndStart',
+        'founder' => 'Founder',
+        'nodeIds' => 'NodeIds',
+        'projectIds' => 'ProjectIds',
+        'remindId' => 'RemindId',
+        'remindName' => 'RemindName',
+        'remindType' => 'RemindType',
+        'remindUnit' => 'RemindUnit',
+        'useflag' => 'Useflag',
     ];
 
     public function validate()
@@ -115,7 +129,7 @@ class reminds extends Model
         if (null !== $this->alertMethods) {
             if (\is_array($this->alertMethods)) {
                 $res['AlertMethods'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->alertMethods as $item1) {
                     $res['AlertMethods'][$n1++] = $item1;
                 }
@@ -125,7 +139,7 @@ class reminds extends Model
         if (null !== $this->alertTargets) {
             if (\is_array($this->alertTargets)) {
                 $res['AlertTargets'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->alertTargets as $item1) {
                     $res['AlertTargets'][$n1++] = $item1;
                 }
@@ -139,7 +153,7 @@ class reminds extends Model
         if (null !== $this->baselineIds) {
             if (\is_array($this->baselineIds)) {
                 $res['BaselineIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->baselineIds as $item1) {
                     $res['BaselineIds'][$n1++] = $item1;
                 }
@@ -149,7 +163,7 @@ class reminds extends Model
         if (null !== $this->bizProcessIds) {
             if (\is_array($this->bizProcessIds)) {
                 $res['BizProcessIds'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->bizProcessIds as $item1) {
                     $res['BizProcessIds'][$n1++] = $item1;
                 }
@@ -171,7 +185,7 @@ class reminds extends Model
         if (null !== $this->nodeIds) {
             if (\is_array($this->nodeIds)) {
                 $res['NodeIds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->nodeIds as $item1) {
                     $res['NodeIds'][$n1++] = $item1;
                 }
@@ -181,7 +195,7 @@ class reminds extends Model
         if (null !== $this->projectIds) {
             if (\is_array($this->projectIds)) {
                 $res['ProjectIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->projectIds as $item1) {
                     $res['ProjectIds'][$n1++] = $item1;
                 }
@@ -222,7 +236,7 @@ class reminds extends Model
         if (isset($map['AlertMethods'])) {
             if (!empty($map['AlertMethods'])) {
                 $model->alertMethods = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['AlertMethods'] as $item1) {
                     $model->alertMethods[$n1++] = $item1;
                 }
@@ -232,7 +246,7 @@ class reminds extends Model
         if (isset($map['AlertTargets'])) {
             if (!empty($map['AlertTargets'])) {
                 $model->alertTargets = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['AlertTargets'] as $item1) {
                     $model->alertTargets[$n1++] = $item1;
                 }
@@ -246,7 +260,7 @@ class reminds extends Model
         if (isset($map['BaselineIds'])) {
             if (!empty($map['BaselineIds'])) {
                 $model->baselineIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['BaselineIds'] as $item1) {
                     $model->baselineIds[$n1++] = $item1;
                 }
@@ -256,7 +270,7 @@ class reminds extends Model
         if (isset($map['BizProcessIds'])) {
             if (!empty($map['BizProcessIds'])) {
                 $model->bizProcessIds = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['BizProcessIds'] as $item1) {
                     $model->bizProcessIds[$n1++] = $item1;
                 }
@@ -278,7 +292,7 @@ class reminds extends Model
         if (isset($map['NodeIds'])) {
             if (!empty($map['NodeIds'])) {
                 $model->nodeIds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['NodeIds'] as $item1) {
                     $model->nodeIds[$n1++] = $item1;
                 }
@@ -288,7 +302,7 @@ class reminds extends Model
         if (isset($map['ProjectIds'])) {
             if (!empty($map['ProjectIds'])) {
                 $model->projectIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ProjectIds'] as $item1) {
                     $model->projectIds[$n1++] = $item1;
                 }

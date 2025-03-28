@@ -13,22 +13,25 @@ class data extends Model
      * @var apis[]
      */
     public $apis;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'apis'       => 'Apis',
+        'apis' => 'Apis',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'totalCount' => 'TotalCount',
     ];
 
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->apis) {
             if (\is_array($this->apis)) {
                 $res['Apis'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->apis as $item1) {
                     $res['Apis'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['Apis'])) {
             if (!empty($map['Apis'])) {
                 $model->apis = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Apis'] as $item1) {
                     $model->apis[$n1++] = apis::fromMap($item1);
                 }

@@ -12,12 +12,13 @@ class SearchNodesByOutputRequest extends Model
      * @var string
      */
     public $outputs;
+
     /**
      * @var string
      */
     public $projectEnv;
     protected $_name = [
-        'outputs'    => 'Outputs',
+        'outputs' => 'Outputs',
         'projectEnv' => 'ProjectEnv',
     ];
 

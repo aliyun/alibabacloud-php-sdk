@@ -12,18 +12,20 @@ class PublishDataServiceApiRequest extends Model
      * @var int
      */
     public $apiId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
-        'apiId'     => 'ApiId',
+        'apiId' => 'ApiId',
         'projectId' => 'ProjectId',
-        'tenantId'  => 'TenantId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

@@ -12,93 +12,110 @@ class nodes extends Model
      * @var int
      */
     public $baselineId;
+
     /**
      * @var int
      */
     public $businessId;
+
     /**
      * @var string
      */
     public $connection;
+
     /**
      * @var string
      */
     public $cronExpress;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $dqcDescription;
+
     /**
      * @var string
      */
     public $dqcType;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $paramValues;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $programType;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $repeatInterval;
+
     /**
      * @var bool
      */
     public $repeatability;
+
     /**
      * @var string
      */
     public $resGroupName;
+
     /**
      * @var string
      */
     public $schedulerType;
     protected $_name = [
-        'baselineId'     => 'BaselineId',
-        'businessId'     => 'BusinessId',
-        'connection'     => 'Connection',
-        'cronExpress'    => 'CronExpress',
-        'description'    => 'Description',
+        'baselineId' => 'BaselineId',
+        'businessId' => 'BusinessId',
+        'connection' => 'Connection',
+        'cronExpress' => 'CronExpress',
+        'description' => 'Description',
         'dqcDescription' => 'DqcDescription',
-        'dqcType'        => 'DqcType',
-        'nodeId'         => 'NodeId',
-        'nodeName'       => 'NodeName',
-        'ownerId'        => 'OwnerId',
-        'paramValues'    => 'ParamValues',
-        'priority'       => 'Priority',
-        'programType'    => 'ProgramType',
-        'projectId'      => 'ProjectId',
+        'dqcType' => 'DqcType',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'ownerId' => 'OwnerId',
+        'paramValues' => 'ParamValues',
+        'priority' => 'Priority',
+        'programType' => 'ProgramType',
+        'projectId' => 'ProjectId',
         'repeatInterval' => 'RepeatInterval',
-        'repeatability'  => 'Repeatability',
-        'resGroupName'   => 'ResGroupName',
-        'schedulerType'  => 'SchedulerType',
+        'repeatability' => 'Repeatability',
+        'resGroupName' => 'ResGroupName',
+        'schedulerType' => 'SchedulerType',
     ];
 
     public function validate()

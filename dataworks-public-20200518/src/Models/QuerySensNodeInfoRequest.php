@@ -12,38 +12,44 @@ class QuerySensNodeInfoRequest extends Model
      * @var string
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sensitiveName;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $tenantId;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'nodeId'        => 'NodeId',
-        'pageNo'        => 'PageNo',
-        'pageSize'      => 'PageSize',
+        'nodeId' => 'NodeId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
         'sensitiveName' => 'SensitiveName',
-        'templateId'    => 'TemplateId',
-        'tenantId'      => 'TenantId',
-        'status'        => 'status',
+        'templateId' => 'TemplateId',
+        'tenantId' => 'TenantId',
+        'status' => 'status',
     ];
 
     public function validate()

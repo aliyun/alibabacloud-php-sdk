@@ -12,23 +12,26 @@ class outputParameters extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $parameterName;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'description'   => 'Description',
+        'description' => 'Description',
         'parameterName' => 'ParameterName',
-        'type'          => 'Type',
-        'value'         => 'Value',
+        'type' => 'Type',
+        'value' => 'Value',
     ];
 
     public function validate()

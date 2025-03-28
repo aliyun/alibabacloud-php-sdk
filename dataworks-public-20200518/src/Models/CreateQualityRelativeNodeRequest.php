@@ -12,42 +12,49 @@ class CreateQualityRelativeNodeRequest extends Model
      * @var string
      */
     public $envType;
+
     /**
      * @var string
      */
     public $matchExpression;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
     public $targetNodeProjectId;
+
     /**
      * @var string
      */
     public $targetNodeProjectName;
     protected $_name = [
-        'envType'               => 'EnvType',
-        'matchExpression'       => 'MatchExpression',
-        'nodeId'                => 'NodeId',
-        'projectId'             => 'ProjectId',
-        'projectName'           => 'ProjectName',
-        'tableName'             => 'TableName',
-        'targetNodeProjectId'   => 'TargetNodeProjectId',
+        'envType' => 'EnvType',
+        'matchExpression' => 'MatchExpression',
+        'nodeId' => 'NodeId',
+        'projectId' => 'ProjectId',
+        'projectName' => 'ProjectName',
+        'tableName' => 'TableName',
+        'targetNodeProjectId' => 'TargetNodeProjectId',
         'targetNodeProjectName' => 'TargetNodeProjectName',
     ];
 

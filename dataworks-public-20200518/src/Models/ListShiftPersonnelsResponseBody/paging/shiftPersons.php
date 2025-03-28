@@ -12,23 +12,26 @@ class shiftPersons extends Model
      * @var int
      */
     public $beginTime;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $shiftPersonName;
+
     /**
      * @var string
      */
     public $shiftPersonUID;
     protected $_name = [
-        'beginTime'       => 'BeginTime',
-        'endTime'         => 'EndTime',
+        'beginTime' => 'BeginTime',
+        'endTime' => 'EndTime',
         'shiftPersonName' => 'ShiftPersonName',
-        'shiftPersonUID'  => 'ShiftPersonUID',
+        'shiftPersonUID' => 'ShiftPersonUID',
     ];
 
     public function validate()

@@ -12,22 +12,25 @@ class data extends Model
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'nodeId'    => 'NodeId',
-        'nodeName'  => 'NodeName',
-        'owner'     => 'Owner',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'owner' => 'Owner',
         'projectId' => 'ProjectId',
     ];
 

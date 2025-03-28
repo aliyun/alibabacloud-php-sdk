@@ -12,13 +12,14 @@ class DesensitizeDataResponseBody extends Model
      * @var string
      */
     public $desensitizeData;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'desensitizeData' => 'DesensitizeData',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

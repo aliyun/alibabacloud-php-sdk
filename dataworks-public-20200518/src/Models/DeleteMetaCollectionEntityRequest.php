@@ -12,13 +12,14 @@ class DeleteMetaCollectionEntityRequest extends Model
      * @var string
      */
     public $collectionQualifiedName;
+
     /**
      * @var string
      */
     public $entityQualifiedName;
     protected $_name = [
         'collectionQualifiedName' => 'CollectionQualifiedName',
-        'entityQualifiedName'     => 'EntityQualifiedName',
+        'entityQualifiedName' => 'EntityQualifiedName',
     ];
 
     public function validate()

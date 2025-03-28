@@ -13,23 +13,26 @@ class data extends Model
      * @var applications[]
      */
     public $applications;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'applications' => 'Applications',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'totalCount'   => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->applications) {
             if (\is_array($this->applications)) {
                 $res['Applications'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->applications as $item1) {
                     $res['Applications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['Applications'])) {
             if (!empty($map['Applications'])) {
                 $model->applications = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['Applications'] as $item1) {
                     $model->applications[$n1++] = applications::fromMap($item1);
                 }

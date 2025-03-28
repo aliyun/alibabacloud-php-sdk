@@ -12,6 +12,7 @@ class notificationChannels extends Model
      * @var string[]
      */
     public $channels;
+
     /**
      * @var string
      */
@@ -35,7 +36,7 @@ class notificationChannels extends Model
         if (null !== $this->channels) {
             if (\is_array($this->channels)) {
                 $res['Channels'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->channels as $item1) {
                     $res['Channels'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class notificationChannels extends Model
         if (isset($map['Channels'])) {
             if (!empty($map['Channels'])) {
                 $model->channels = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Channels'] as $item1) {
                     $model->channels[$n1++] = $item1;
                 }

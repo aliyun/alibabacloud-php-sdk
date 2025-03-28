@@ -13,58 +13,68 @@ class apiAuthorizationList extends Model
      * @var int
      */
     public $apiId;
+
     /**
      * @var string
      */
     public $apiName;
+
     /**
      * @var string
      */
     public $apiPath;
+
     /**
      * @var int
      */
     public $apiStatus;
+
     /**
      * @var authorizationRecords[]
      */
     public $authorizationRecords;
+
     /**
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
-        'apiId'                => 'ApiId',
-        'apiName'              => 'ApiName',
-        'apiPath'              => 'ApiPath',
-        'apiStatus'            => 'ApiStatus',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'apiPath' => 'ApiPath',
+        'apiStatus' => 'ApiStatus',
         'authorizationRecords' => 'AuthorizationRecords',
-        'createdTime'          => 'CreatedTime',
-        'creatorId'            => 'CreatorId',
-        'groupId'              => 'GroupId',
-        'modifiedTime'         => 'ModifiedTime',
-        'projectId'            => 'ProjectId',
-        'tenantId'             => 'TenantId',
+        'createdTime' => 'CreatedTime',
+        'creatorId' => 'CreatorId',
+        'groupId' => 'GroupId',
+        'modifiedTime' => 'ModifiedTime',
+        'projectId' => 'ProjectId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()
@@ -97,7 +107,7 @@ class apiAuthorizationList extends Model
         if (null !== $this->authorizationRecords) {
             if (\is_array($this->authorizationRecords)) {
                 $res['AuthorizationRecords'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->authorizationRecords as $item1) {
                     $res['AuthorizationRecords'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -158,7 +168,7 @@ class apiAuthorizationList extends Model
         if (isset($map['AuthorizationRecords'])) {
             if (!empty($map['AuthorizationRecords'])) {
                 $model->authorizationRecords = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['AuthorizationRecords'] as $item1) {
                     $model->authorizationRecords[$n1++] = authorizationRecords::fromMap($item1);
                 }

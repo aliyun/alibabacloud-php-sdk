@@ -12,13 +12,14 @@ class taskList extends Model
      * @var string
      */
     public $connectMessage;
+
     /**
      * @var bool
      */
     public $connectStatus;
     protected $_name = [
         'connectMessage' => 'ConnectMessage',
-        'connectStatus'  => 'ConnectStatus',
+        'connectStatus' => 'ConnectStatus',
     ];
 
     public function validate()

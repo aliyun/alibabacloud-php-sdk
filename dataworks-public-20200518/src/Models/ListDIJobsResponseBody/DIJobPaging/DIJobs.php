@@ -12,38 +12,44 @@ class DIJobs extends Model
      * @var int
      */
     public $DIJobId;
+
     /**
      * @var string
      */
     public $destinationDataSourceType;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var string
      */
     public $jobStatus;
+
     /**
      * @var string
      */
     public $migrationType;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $sourceDataSourceType;
     protected $_name = [
-        'DIJobId'                   => 'DIJobId',
+        'DIJobId' => 'DIJobId',
         'destinationDataSourceType' => 'DestinationDataSourceType',
-        'jobName'                   => 'JobName',
-        'jobStatus'                 => 'JobStatus',
-        'migrationType'             => 'MigrationType',
-        'projectId'                 => 'ProjectId',
-        'sourceDataSourceType'      => 'SourceDataSourceType',
+        'jobName' => 'JobName',
+        'jobStatus' => 'JobStatus',
+        'migrationType' => 'MigrationType',
+        'projectId' => 'ProjectId',
+        'sourceDataSourceType' => 'SourceDataSourceType',
     ];
 
     public function validate()

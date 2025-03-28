@@ -12,17 +12,19 @@ class GetDeploymentRequest extends Model
      * @var int
      */
     public $deploymentId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
     protected $_name = [
-        'deploymentId'      => 'DeploymentId',
-        'projectId'         => 'ProjectId',
+        'deploymentId' => 'DeploymentId',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 

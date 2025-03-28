@@ -13,13 +13,14 @@ class GetInstanceConsumeTimeRankResponseBody extends Model
      * @var instanceConsumeTimeRank
      */
     public $instanceConsumeTimeRank;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceConsumeTimeRank' => 'InstanceConsumeTimeRank',
-        'requestId'               => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

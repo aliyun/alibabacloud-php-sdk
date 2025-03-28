@@ -12,23 +12,26 @@ class relationList extends Model
      * @var string
      */
     public $channel;
+
     /**
      * @var string
      */
     public $datasource;
+
     /**
      * @var string
      */
     public $guid;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'channel'    => 'Channel',
+        'channel' => 'Channel',
         'datasource' => 'Datasource',
-        'guid'       => 'Guid',
-        'type'       => 'Type',
+        'guid' => 'Guid',
+        'type' => 'Type',
     ];
 
     public function validate()

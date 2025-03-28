@@ -13,18 +13,20 @@ class TestNetworkConnectionResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var taskList
      */
     public $taskList;
     protected $_name = [
         'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'taskList'  => 'TaskList',
+        'success' => 'Success',
+        'taskList' => 'TaskList',
     ];
 
     public function validate()

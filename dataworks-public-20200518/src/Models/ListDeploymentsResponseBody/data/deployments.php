@@ -12,43 +12,50 @@ class deployments extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var int
      */
     public $executeTime;
+
     /**
      * @var string
      */
     public $executor;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'createTime'   => 'CreateTime',
-        'creator'      => 'Creator',
+        'createTime' => 'CreateTime',
+        'creator' => 'Creator',
         'errorMessage' => 'ErrorMessage',
-        'executeTime'  => 'ExecuteTime',
-        'executor'     => 'Executor',
-        'id'           => 'Id',
-        'name'         => 'Name',
-        'status'       => 'Status',
+        'executeTime' => 'ExecuteTime',
+        'executor' => 'Executor',
+        'id' => 'Id',
+        'name' => 'Name',
+        'status' => 'Status',
     ];
 
     public function validate()

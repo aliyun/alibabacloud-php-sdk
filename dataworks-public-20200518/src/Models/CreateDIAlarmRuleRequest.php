@@ -14,33 +14,38 @@ class CreateDIAlarmRuleRequest extends Model
      * @var int
      */
     public $DIJobId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $metricType;
+
     /**
      * @var notificationSettings
      */
     public $notificationSettings;
+
     /**
      * @var triggerConditions[]
      */
     public $triggerConditions;
     protected $_name = [
-        'DIJobId'              => 'DIJobId',
-        'description'          => 'Description',
-        'enabled'              => 'Enabled',
-        'metricType'           => 'MetricType',
+        'DIJobId' => 'DIJobId',
+        'description' => 'Description',
+        'enabled' => 'Enabled',
+        'metricType' => 'MetricType',
         'notificationSettings' => 'NotificationSettings',
-        'triggerConditions'    => 'TriggerConditions',
+        'triggerConditions' => 'TriggerConditions',
     ];
 
     public function validate()
@@ -80,7 +85,7 @@ class CreateDIAlarmRuleRequest extends Model
         if (null !== $this->triggerConditions) {
             if (\is_array($this->triggerConditions)) {
                 $res['TriggerConditions'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->triggerConditions as $item1) {
                     $res['TriggerConditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -121,7 +126,7 @@ class CreateDIAlarmRuleRequest extends Model
         if (isset($map['TriggerConditions'])) {
             if (!empty($map['TriggerConditions'])) {
                 $model->triggerConditions = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['TriggerConditions'] as $item1) {
                     $model->triggerConditions[$n1++] = triggerConditions::fromMap($item1);
                 }

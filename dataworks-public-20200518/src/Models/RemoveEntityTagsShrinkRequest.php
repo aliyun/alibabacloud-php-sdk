@@ -12,6 +12,7 @@ class RemoveEntityTagsShrinkRequest extends Model
      * @var string
      */
     public $qualifiedName;
+
     /**
      * @var string
      */

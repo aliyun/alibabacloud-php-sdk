@@ -12,16 +12,18 @@ class DataDesensPlanTemplateValue extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var bool
      */
     public $supportWaterMark;
+
     /**
      * @var mixed[]
      */
     public $extParamTemplate;
     protected $_name = [
-        'name'             => 'Name',
+        'name' => 'Name',
         'supportWaterMark' => 'SupportWaterMark',
         'extParamTemplate' => 'ExtParamTemplate',
     ];
@@ -48,7 +50,7 @@ class DataDesensPlanTemplateValue extends Model
         if (null !== $this->extParamTemplate) {
             if (\is_array($this->extParamTemplate)) {
                 $res['ExtParamTemplate'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->extParamTemplate as $item1) {
                     $res['ExtParamTemplate'][$n1++] = $item1;
                 }
@@ -77,7 +79,7 @@ class DataDesensPlanTemplateValue extends Model
         if (isset($map['ExtParamTemplate'])) {
             if (!empty($map['ExtParamTemplate'])) {
                 $model->extParamTemplate = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ExtParamTemplate'] as $item1) {
                     $model->extParamTemplate[$n1++] = $item1;
                 }

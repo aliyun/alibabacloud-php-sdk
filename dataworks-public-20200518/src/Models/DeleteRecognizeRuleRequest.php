@@ -12,13 +12,14 @@ class DeleteRecognizeRuleRequest extends Model
      * @var string
      */
     public $sensitiveId;
+
     /**
      * @var string
      */
     public $tenantId;
     protected $_name = [
         'sensitiveId' => 'SensitiveId',
-        'tenantId'    => 'TenantId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

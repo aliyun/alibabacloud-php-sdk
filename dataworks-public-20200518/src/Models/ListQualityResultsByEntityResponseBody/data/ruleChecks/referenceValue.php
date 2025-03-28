@@ -12,28 +12,32 @@ class referenceValue extends Model
      * @var string
      */
     public $bizDate;
+
     /**
      * @var string
      */
     public $discreteProperty;
+
     /**
      * @var int
      */
     public $singleCheckResult;
+
     /**
      * @var float
      */
     public $threshold;
+
     /**
      * @var float
      */
     public $value;
     protected $_name = [
-        'bizDate'           => 'BizDate',
-        'discreteProperty'  => 'DiscreteProperty',
+        'bizDate' => 'BizDate',
+        'discreteProperty' => 'DiscreteProperty',
         'singleCheckResult' => 'SingleCheckResult',
-        'threshold'         => 'Threshold',
-        'value'             => 'Value',
+        'threshold' => 'Threshold',
+        'value' => 'Value',
     ];
 
     public function validate()

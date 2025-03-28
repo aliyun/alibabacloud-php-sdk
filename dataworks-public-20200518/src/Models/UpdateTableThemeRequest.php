@@ -12,18 +12,20 @@ class UpdateTableThemeRequest extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $themeId;
     protected $_name = [
-        'name'      => 'Name',
+        'name' => 'Name',
         'projectId' => 'ProjectId',
-        'themeId'   => 'ThemeId',
+        'themeId' => 'ThemeId',
     ];
 
     public function validate()

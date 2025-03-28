@@ -12,33 +12,38 @@ class GetMetaDBTableListRequest extends Model
      * @var string
      */
     public $appGuid;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'appGuid'        => 'AppGuid',
-        'clusterId'      => 'ClusterId',
+        'appGuid' => 'AppGuid',
+        'clusterId' => 'ClusterId',
         'dataSourceType' => 'DataSourceType',
-        'databaseName'   => 'DatabaseName',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'databaseName' => 'DatabaseName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

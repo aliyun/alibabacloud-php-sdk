@@ -13,13 +13,14 @@ class instanceConsumeTimeRank extends Model
      * @var consumeTimeRank[]
      */
     public $consumeTimeRank;
+
     /**
      * @var int
      */
     public $updateTime;
     protected $_name = [
         'consumeTimeRank' => 'ConsumeTimeRank',
-        'updateTime'      => 'UpdateTime',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class instanceConsumeTimeRank extends Model
         if (null !== $this->consumeTimeRank) {
             if (\is_array($this->consumeTimeRank)) {
                 $res['ConsumeTimeRank'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->consumeTimeRank as $item1) {
                     $res['ConsumeTimeRank'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class instanceConsumeTimeRank extends Model
         if (isset($map['ConsumeTimeRank'])) {
             if (!empty($map['ConsumeTimeRank'])) {
                 $model->consumeTimeRank = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ConsumeTimeRank'] as $item1) {
                     $model->consumeTimeRank[$n1++] = consumeTimeRank::fromMap($item1);
                 }

@@ -14,58 +14,68 @@ class DIAlarmRule extends Model
      * @var int
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $createdUid;
+
     /**
      * @var int
      */
     public $DIAlarmRuleId;
+
     /**
      * @var int
      */
     public $DIJobId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $metricType;
+
     /**
      * @var notificationSettings
      */
     public $notificationSettings;
+
     /**
      * @var triggerConditions[]
      */
     public $triggerConditions;
+
     /**
      * @var int
      */
     public $updatedTime;
+
     /**
      * @var string
      */
     public $updatedUid;
     protected $_name = [
-        'createdTime'          => 'CreatedTime',
-        'createdUid'           => 'CreatedUid',
-        'DIAlarmRuleId'        => 'DIAlarmRuleId',
-        'DIJobId'              => 'DIJobId',
-        'description'          => 'Description',
-        'enabled'              => 'Enabled',
-        'metricType'           => 'MetricType',
+        'createdTime' => 'CreatedTime',
+        'createdUid' => 'CreatedUid',
+        'DIAlarmRuleId' => 'DIAlarmRuleId',
+        'DIJobId' => 'DIJobId',
+        'description' => 'Description',
+        'enabled' => 'Enabled',
+        'metricType' => 'MetricType',
         'notificationSettings' => 'NotificationSettings',
-        'triggerConditions'    => 'TriggerConditions',
-        'updatedTime'          => 'UpdatedTime',
-        'updatedUid'           => 'UpdatedUid',
+        'triggerConditions' => 'TriggerConditions',
+        'updatedTime' => 'UpdatedTime',
+        'updatedUid' => 'UpdatedUid',
     ];
 
     public function validate()
@@ -117,7 +127,7 @@ class DIAlarmRule extends Model
         if (null !== $this->triggerConditions) {
             if (\is_array($this->triggerConditions)) {
                 $res['TriggerConditions'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->triggerConditions as $item1) {
                     $res['TriggerConditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -178,7 +188,7 @@ class DIAlarmRule extends Model
         if (isset($map['TriggerConditions'])) {
             if (!empty($map['TriggerConditions'])) {
                 $model->triggerConditions = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['TriggerConditions'] as $item1) {
                     $model->triggerConditions[$n1++] = triggerConditions::fromMap($item1);
                 }

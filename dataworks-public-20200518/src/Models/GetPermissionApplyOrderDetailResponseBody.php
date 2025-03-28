@@ -13,13 +13,14 @@ class GetPermissionApplyOrderDetailResponseBody extends Model
      * @var applyOrderDetail
      */
     public $applyOrderDetail;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'applyOrderDetail' => 'ApplyOrderDetail',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

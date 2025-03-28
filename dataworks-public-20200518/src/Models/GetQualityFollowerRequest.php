@@ -12,17 +12,19 @@ class GetQualityFollowerRequest extends Model
      * @var int
      */
     public $entityId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'entityId'    => 'EntityId',
-        'projectId'   => 'ProjectId',
+        'entityId' => 'EntityId',
+        'projectId' => 'ProjectId',
         'projectName' => 'ProjectName',
     ];
 

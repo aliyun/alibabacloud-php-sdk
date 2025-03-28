@@ -12,12 +12,13 @@ class CreatePermissionApplyOrderResponseBody extends Model
      * @var string[]
      */
     public $flowId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'flowId'    => 'FlowId',
+        'flowId' => 'FlowId',
         'requestId' => 'RequestId',
     ];
 
@@ -35,7 +36,7 @@ class CreatePermissionApplyOrderResponseBody extends Model
         if (null !== $this->flowId) {
             if (\is_array($this->flowId)) {
                 $res['FlowId'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->flowId as $item1) {
                     $res['FlowId'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class CreatePermissionApplyOrderResponseBody extends Model
         if (isset($map['FlowId'])) {
             if (!empty($map['FlowId'])) {
                 $model->flowId = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['FlowId'] as $item1) {
                     $model->flowId[$n1++] = $item1;
                 }

@@ -12,27 +12,31 @@ class GetOpSensitiveDataRequest extends Model
      * @var string
      */
     public $date;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $opType;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'date'     => 'Date',
-        'name'     => 'Name',
-        'opType'   => 'OpType',
-        'pageNo'   => 'PageNo',
+        'date' => 'Date',
+        'name' => 'Name',
+        'opType' => 'OpType',
+        'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
     ];
 

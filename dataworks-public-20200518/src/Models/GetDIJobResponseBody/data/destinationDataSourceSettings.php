@@ -12,12 +12,13 @@ class destinationDataSourceSettings extends Model
      * @var string
      */
     public $dataSourceName;
+
     /**
      * @var string[]
      */
     public $dataSourceProperties;
     protected $_name = [
-        'dataSourceName'       => 'DataSourceName',
+        'dataSourceName' => 'DataSourceName',
         'dataSourceProperties' => 'DataSourceProperties',
     ];
 

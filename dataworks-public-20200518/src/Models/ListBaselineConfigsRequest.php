@@ -12,43 +12,50 @@ class ListBaselineConfigsRequest extends Model
      * @var string
      */
     public $baselineTypes;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $priority;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $searchText;
+
     /**
      * @var bool
      */
     public $useflag;
     protected $_name = [
         'baselineTypes' => 'BaselineTypes',
-        'owner'         => 'Owner',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'priority'      => 'Priority',
-        'projectId'     => 'ProjectId',
-        'searchText'    => 'SearchText',
-        'useflag'       => 'Useflag',
+        'owner' => 'Owner',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'priority' => 'Priority',
+        'projectId' => 'ProjectId',
+        'searchText' => 'SearchText',
+        'useflag' => 'Useflag',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class data extends Model
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $meta;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'message' => 'Message',
-        'meta'    => 'Meta',
-        'status'  => 'Status',
+        'meta' => 'Meta',
+        'status' => 'Status',
     ];
 
     public function validate()

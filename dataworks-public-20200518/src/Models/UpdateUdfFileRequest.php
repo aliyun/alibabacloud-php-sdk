@@ -12,63 +12,74 @@ class UpdateUdfFileRequest extends Model
      * @var string
      */
     public $className;
+
     /**
      * @var string
      */
     public $cmdDescription;
+
     /**
      * @var string
      */
     public $example;
+
     /**
      * @var string
      */
     public $fileFolderPath;
+
     /**
      * @var string
      */
     public $fileId;
+
     /**
      * @var string
      */
     public $functionType;
+
     /**
      * @var string
      */
     public $parameterDescription;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
+
     /**
      * @var string
      */
     public $resources;
+
     /**
      * @var string
      */
     public $returnValue;
+
     /**
      * @var string
      */
     public $udfDescription;
     protected $_name = [
-        'className'            => 'ClassName',
-        'cmdDescription'       => 'CmdDescription',
-        'example'              => 'Example',
-        'fileFolderPath'       => 'FileFolderPath',
-        'fileId'               => 'FileId',
-        'functionType'         => 'FunctionType',
+        'className' => 'ClassName',
+        'cmdDescription' => 'CmdDescription',
+        'example' => 'Example',
+        'fileFolderPath' => 'FileFolderPath',
+        'fileId' => 'FileId',
+        'functionType' => 'FunctionType',
         'parameterDescription' => 'ParameterDescription',
-        'projectId'            => 'ProjectId',
-        'projectIdentifier'    => 'ProjectIdentifier',
-        'resources'            => 'Resources',
-        'returnValue'          => 'ReturnValue',
-        'udfDescription'       => 'UdfDescription',
+        'projectId' => 'ProjectId',
+        'projectIdentifier' => 'ProjectIdentifier',
+        'resources' => 'Resources',
+        'returnValue' => 'ReturnValue',
+        'udfDescription' => 'UdfDescription',
     ];
 
     public function validate()

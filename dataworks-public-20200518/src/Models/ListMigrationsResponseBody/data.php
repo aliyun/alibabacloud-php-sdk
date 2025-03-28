@@ -13,14 +13,17 @@ class data extends Model
      * @var migrations[]
      */
     public $migrations;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
@@ -28,7 +31,7 @@ class data extends Model
     protected $_name = [
         'migrations' => 'Migrations',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'totalCount' => 'TotalCount',
     ];
 
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->migrations) {
             if (\is_array($this->migrations)) {
                 $res['Migrations'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->migrations as $item1) {
                     $res['Migrations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['Migrations'])) {
             if (!empty($map['Migrations'])) {
                 $model->migrations = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Migrations'] as $item1) {
                     $model->migrations[$n1++] = migrations::fromMap($item1);
                 }

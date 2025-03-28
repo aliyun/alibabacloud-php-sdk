@@ -12,18 +12,20 @@ class GetDataServiceGroupRequest extends Model
      * @var string
      */
     public $groupId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
-        'groupId'   => 'GroupId',
+        'groupId' => 'GroupId',
         'projectId' => 'ProjectId',
-        'tenantId'  => 'TenantId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

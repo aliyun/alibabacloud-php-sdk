@@ -12,10 +12,12 @@ class GetMetaTableListByCategoryRequest extends Model
      * @var int
      */
     public $categoryId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
@@ -23,7 +25,7 @@ class GetMetaTableListByCategoryRequest extends Model
     protected $_name = [
         'categoryId' => 'CategoryId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

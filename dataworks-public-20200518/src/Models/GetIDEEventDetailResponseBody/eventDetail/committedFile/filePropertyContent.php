@@ -12,33 +12,38 @@ class filePropertyContent extends Model
      * @var int
      */
     public $businessId;
+
     /**
      * @var int
      */
     public $currentVersion;
+
     /**
      * @var string
      */
     public $dataSourceName;
+
     /**
      * @var string
      */
     public $folderId;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $parentFileId;
     protected $_name = [
-        'businessId'     => 'BusinessId',
+        'businessId' => 'BusinessId',
         'currentVersion' => 'CurrentVersion',
         'dataSourceName' => 'DataSourceName',
-        'folderId'       => 'FolderId',
-        'owner'          => 'Owner',
-        'parentFileId'   => 'ParentFileId',
+        'folderId' => 'FolderId',
+        'owner' => 'Owner',
+        'parentFileId' => 'ParentFileId',
     ];
 
     public function validate()

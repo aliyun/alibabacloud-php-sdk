@@ -12,18 +12,20 @@ class ListTablesRequest extends Model
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'dataSourceType' => 'DataSourceType',
-        'nextToken'      => 'NextToken',
-        'pageSize'       => 'PageSize',
+        'nextToken' => 'NextToken',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

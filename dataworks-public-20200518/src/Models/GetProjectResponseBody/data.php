@@ -13,153 +13,182 @@ class data extends Model
      * @var string
      */
     public $appkey;
+
     /**
      * @var bool
      */
     public $baseProject;
+
     /**
      * @var string
      */
     public $defaultDiResourceGroupIdentifier;
+
     /**
      * @var int
      */
     public $destination;
+
     /**
      * @var string
      */
     public $devStorageQuota;
+
     /**
      * @var int
      */
     public $developmentType;
+
     /**
      * @var bool
      */
     public $disableDevelopment;
+
     /**
      * @var string[]
      */
     public $envTypes;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $isAllowDownload;
+
     /**
      * @var int
      */
     public $isDefault;
+
     /**
      * @var int
      */
     public $maxFlowNode;
+
     /**
      * @var string
      */
     public $prodStorageQuota;
+
     /**
      * @var string
      */
     public $projectDescription;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
+
     /**
      * @var int
      */
     public $projectMode;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $projectOwnerBaseId;
+
     /**
      * @var int
      */
     public $protectedMode;
+
     /**
      * @var string
      */
     public $residentArea;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $schedulerMaxRetryTimes;
+
     /**
      * @var int
      */
     public $schedulerRetryInterval;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $tablePrivacyMode;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var int
      */
     public $tenantId;
+
     /**
      * @var bool
      */
     public $useProxyOdpsAccount;
     protected $_name = [
-        'appkey'                           => 'Appkey',
-        'baseProject'                      => 'BaseProject',
+        'appkey' => 'Appkey',
+        'baseProject' => 'BaseProject',
         'defaultDiResourceGroupIdentifier' => 'DefaultDiResourceGroupIdentifier',
-        'destination'                      => 'Destination',
-        'devStorageQuota'                  => 'DevStorageQuota',
-        'developmentType'                  => 'DevelopmentType',
-        'disableDevelopment'               => 'DisableDevelopment',
-        'envTypes'                         => 'EnvTypes',
-        'gmtCreate'                        => 'GmtCreate',
-        'gmtModified'                      => 'GmtModified',
-        'isAllowDownload'                  => 'IsAllowDownload',
-        'isDefault'                        => 'IsDefault',
-        'maxFlowNode'                      => 'MaxFlowNode',
-        'prodStorageQuota'                 => 'ProdStorageQuota',
-        'projectDescription'               => 'ProjectDescription',
-        'projectId'                        => 'ProjectId',
-        'projectIdentifier'                => 'ProjectIdentifier',
-        'projectMode'                      => 'ProjectMode',
-        'projectName'                      => 'ProjectName',
-        'projectOwnerBaseId'               => 'ProjectOwnerBaseId',
-        'protectedMode'                    => 'ProtectedMode',
-        'residentArea'                     => 'ResidentArea',
-        'resourceManagerResourceGroupId'   => 'ResourceManagerResourceGroupId',
-        'schedulerMaxRetryTimes'           => 'SchedulerMaxRetryTimes',
-        'schedulerRetryInterval'           => 'SchedulerRetryInterval',
-        'status'                           => 'Status',
-        'tablePrivacyMode'                 => 'TablePrivacyMode',
-        'tags'                             => 'Tags',
-        'tenantId'                         => 'TenantId',
-        'useProxyOdpsAccount'              => 'UseProxyOdpsAccount',
+        'destination' => 'Destination',
+        'devStorageQuota' => 'DevStorageQuota',
+        'developmentType' => 'DevelopmentType',
+        'disableDevelopment' => 'DisableDevelopment',
+        'envTypes' => 'EnvTypes',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'isAllowDownload' => 'IsAllowDownload',
+        'isDefault' => 'IsDefault',
+        'maxFlowNode' => 'MaxFlowNode',
+        'prodStorageQuota' => 'ProdStorageQuota',
+        'projectDescription' => 'ProjectDescription',
+        'projectId' => 'ProjectId',
+        'projectIdentifier' => 'ProjectIdentifier',
+        'projectMode' => 'ProjectMode',
+        'projectName' => 'ProjectName',
+        'projectOwnerBaseId' => 'ProjectOwnerBaseId',
+        'protectedMode' => 'ProtectedMode',
+        'residentArea' => 'ResidentArea',
+        'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
+        'schedulerMaxRetryTimes' => 'SchedulerMaxRetryTimes',
+        'schedulerRetryInterval' => 'SchedulerRetryInterval',
+        'status' => 'Status',
+        'tablePrivacyMode' => 'TablePrivacyMode',
+        'tags' => 'Tags',
+        'tenantId' => 'TenantId',
+        'useProxyOdpsAccount' => 'UseProxyOdpsAccount',
     ];
 
     public function validate()
@@ -207,7 +236,7 @@ class data extends Model
         if (null !== $this->envTypes) {
             if (\is_array($this->envTypes)) {
                 $res['EnvTypes'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->envTypes as $item1) {
                     $res['EnvTypes'][$n1++] = $item1;
                 }
@@ -293,7 +322,7 @@ class data extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -350,7 +379,7 @@ class data extends Model
         if (isset($map['EnvTypes'])) {
             if (!empty($map['EnvTypes'])) {
                 $model->envTypes = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['EnvTypes'] as $item1) {
                     $model->envTypes[$n1++] = $item1;
                 }
@@ -436,7 +465,7 @@ class data extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

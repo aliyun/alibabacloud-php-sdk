@@ -12,28 +12,32 @@ class ListMetaCollectionEntitiesRequest extends Model
      * @var string
      */
     public $collectionQualifiedName;
+
     /**
      * @var string
      */
     public $entityType;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'collectionQualifiedName' => 'CollectionQualifiedName',
-        'entityType'              => 'EntityType',
-        'keyword'                 => 'Keyword',
-        'nextToken'               => 'NextToken',
-        'pageSize'                => 'PageSize',
+        'entityType' => 'EntityType',
+        'keyword' => 'Keyword',
+        'nextToken' => 'NextToken',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

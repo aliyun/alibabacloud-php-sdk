@@ -11,8 +11,14 @@ class columnMetaList extends Model
     /**
      * @var string
      */
+    public $actions;
+
+    /**
+     * @var string
+     */
     public $name;
     protected $_name = [
+        'actions' => 'Actions',
         'name' => 'Name',
     ];
 
@@ -24,6 +30,10 @@ class columnMetaList extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->actions) {
+            $res['Actions'] = $this->actions;
+        }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -39,6 +49,10 @@ class columnMetaList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Actions'])) {
+            $model->actions = $map['Actions'];
+        }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

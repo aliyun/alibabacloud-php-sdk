@@ -12,12 +12,13 @@ class themes extends Model
      * @var int
      */
     public $themeId;
+
     /**
      * @var int
      */
     public $themeLevel;
     protected $_name = [
-        'themeId'    => 'ThemeId',
+        'themeId' => 'ThemeId',
         'themeLevel' => 'ThemeLevel',
     ];
 

@@ -12,38 +12,44 @@ class ListRemindsRequest extends Model
      * @var string
      */
     public $alertTarget;
+
     /**
      * @var string
      */
     public $founder;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $remindTypes;
+
     /**
      * @var string
      */
     public $searchText;
     protected $_name = [
         'alertTarget' => 'AlertTarget',
-        'founder'     => 'Founder',
-        'nodeId'      => 'NodeId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'founder' => 'Founder',
+        'nodeId' => 'NodeId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'remindTypes' => 'RemindTypes',
-        'searchText'  => 'SearchText',
+        'searchText' => 'SearchText',
     ];
 
     public function validate()

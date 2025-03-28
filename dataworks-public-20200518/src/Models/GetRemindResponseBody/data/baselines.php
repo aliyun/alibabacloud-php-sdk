@@ -12,12 +12,13 @@ class baselines extends Model
      * @var int
      */
     public $baselineId;
+
     /**
      * @var string
      */
     public $baselineName;
     protected $_name = [
-        'baselineId'   => 'BaselineId',
+        'baselineId' => 'BaselineId',
         'baselineName' => 'BaselineName',
     ];
 

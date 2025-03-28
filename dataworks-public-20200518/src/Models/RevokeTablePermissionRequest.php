@@ -12,33 +12,38 @@ class RevokeTablePermissionRequest extends Model
      * @var string
      */
     public $actions;
+
     /**
      * @var string
      */
     public $maxComputeProjectName;
+
     /**
      * @var string
      */
     public $revokeUserId;
+
     /**
      * @var string
      */
     public $revokeUserName;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
     public $workspaceId;
     protected $_name = [
-        'actions'               => 'Actions',
+        'actions' => 'Actions',
         'maxComputeProjectName' => 'MaxComputeProjectName',
-        'revokeUserId'          => 'RevokeUserId',
-        'revokeUserName'        => 'RevokeUserName',
-        'tableName'             => 'TableName',
-        'workspaceId'           => 'WorkspaceId',
+        'revokeUserId' => 'RevokeUserId',
+        'revokeUserName' => 'RevokeUserName',
+        'tableName' => 'TableName',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

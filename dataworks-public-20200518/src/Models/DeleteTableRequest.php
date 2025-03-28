@@ -12,27 +12,31 @@ class DeleteTableRequest extends Model
      * @var string
      */
     public $appGuid;
+
     /**
      * @var int
      */
     public $envType;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $schema;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'appGuid'   => 'AppGuid',
-        'envType'   => 'EnvType',
+        'appGuid' => 'AppGuid',
+        'envType' => 'EnvType',
         'projectId' => 'ProjectId',
-        'schema'    => 'Schema',
+        'schema' => 'Schema',
         'tableName' => 'TableName',
     ];
 

@@ -12,17 +12,19 @@ class transformationRules extends Model
      * @var string
      */
     public $ruleActionType;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var string
      */
     public $ruleTargetType;
     protected $_name = [
         'ruleActionType' => 'RuleActionType',
-        'ruleName'       => 'RuleName',
+        'ruleName' => 'RuleName',
         'ruleTargetType' => 'RuleTargetType',
     ];
 

@@ -12,28 +12,32 @@ class UpdateDataSourceRequest extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var int
      */
     public $dataSourceId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $envType;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'content'      => 'Content',
+        'content' => 'Content',
         'dataSourceId' => 'DataSourceId',
-        'description'  => 'Description',
-        'envType'      => 'EnvType',
-        'status'       => 'Status',
+        'description' => 'Description',
+        'envType' => 'EnvType',
+        'status' => 'Status',
     ];
 
     public function validate()

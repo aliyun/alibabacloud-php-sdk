@@ -12,12 +12,13 @@ class ListDagsRequest extends Model
      * @var int
      */
     public $opSeq;
+
     /**
      * @var string
      */
     public $projectEnv;
     protected $_name = [
-        'opSeq'      => 'OpSeq',
+        'opSeq' => 'OpSeq',
         'projectEnv' => 'ProjectEnv',
     ];
 

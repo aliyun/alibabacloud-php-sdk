@@ -12,12 +12,13 @@ class GetSensitiveDataResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var mixed[]
      */
     public $sensitiveData;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'sensitiveData' => 'SensitiveData',
     ];
 

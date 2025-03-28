@@ -13,48 +13,56 @@ class CreateImportMigrationAdvanceRequest extends Model
      * @var string
      */
     public $calculateEngineMap;
+
     /**
      * @var string
      */
     public $commitRule;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var Stream
      */
     public $packageFileObject;
+
     /**
      * @var string
      */
     public $packageType;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $resourceGroupMap;
+
     /**
      * @var string
      */
     public $workspaceMap;
     protected $_name = [
         'calculateEngineMap' => 'CalculateEngineMap',
-        'commitRule'         => 'CommitRule',
-        'description'        => 'Description',
-        'name'               => 'Name',
-        'packageFileObject'  => 'PackageFile',
-        'packageType'        => 'PackageType',
-        'projectId'          => 'ProjectId',
-        'resourceGroupMap'   => 'ResourceGroupMap',
-        'workspaceMap'       => 'WorkspaceMap',
+        'commitRule' => 'CommitRule',
+        'description' => 'Description',
+        'name' => 'Name',
+        'packageFileObject' => 'PackageFile',
+        'packageType' => 'PackageType',
+        'projectId' => 'ProjectId',
+        'resourceGroupMap' => 'ResourceGroupMap',
+        'workspaceMap' => 'WorkspaceMap',
     ];
 
     public function validate()

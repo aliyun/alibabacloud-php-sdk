@@ -12,13 +12,14 @@ class QueryPublicModelEngineRequest extends Model
      * @var string
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $text;
     protected $_name = [
         'projectId' => 'ProjectId',
-        'text'      => 'Text',
+        'text' => 'Text',
     ];
 
     public function validate()

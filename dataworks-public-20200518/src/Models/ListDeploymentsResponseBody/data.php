@@ -13,23 +13,26 @@ class data extends Model
      * @var deployments[]
      */
     public $deployments;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'deployments' => 'Deployments',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'totalCount'  => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->deployments) {
             if (\is_array($this->deployments)) {
                 $res['Deployments'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->deployments as $item1) {
                     $res['Deployments'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['Deployments'])) {
             if (!empty($map['Deployments'])) {
                 $model->deployments = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Deployments'] as $item1) {
                     $model->deployments[$n1++] = deployments::fromMap($item1);
                 }

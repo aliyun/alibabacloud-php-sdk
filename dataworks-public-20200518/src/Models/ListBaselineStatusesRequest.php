@@ -12,53 +12,62 @@ class ListBaselineStatusesRequest extends Model
      * @var string
      */
     public $baselineTypes;
+
     /**
      * @var string
      */
     public $bizdate;
+
     /**
      * @var string
      */
     public $finishStatus;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $priority;
+
     /**
      * @var string
      */
     public $searchText;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $topicId;
     protected $_name = [
         'baselineTypes' => 'BaselineTypes',
-        'bizdate'       => 'Bizdate',
-        'finishStatus'  => 'FinishStatus',
-        'owner'         => 'Owner',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'priority'      => 'Priority',
-        'searchText'    => 'SearchText',
-        'status'        => 'Status',
-        'topicId'       => 'TopicId',
+        'bizdate' => 'Bizdate',
+        'finishStatus' => 'FinishStatus',
+        'owner' => 'Owner',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'priority' => 'Priority',
+        'searchText' => 'SearchText',
+        'status' => 'Status',
+        'topicId' => 'TopicId',
     ];
 
     public function validate()

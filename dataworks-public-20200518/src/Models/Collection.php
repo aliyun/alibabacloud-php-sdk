@@ -12,48 +12,56 @@ class Collection extends Model
      * @var string
      */
     public $collectionType;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $level;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $ownerName;
+
     /**
      * @var string
      */
     public $qualifiedName;
+
     /**
      * @var int
      */
     public $updateTime;
     protected $_name = [
         'collectionType' => 'CollectionType',
-        'comment'        => 'Comment',
-        'createTime'     => 'CreateTime',
-        'level'          => 'Level',
-        'name'           => 'Name',
-        'ownerId'        => 'OwnerId',
-        'ownerName'      => 'OwnerName',
-        'qualifiedName'  => 'QualifiedName',
-        'updateTime'     => 'UpdateTime',
+        'comment' => 'Comment',
+        'createTime' => 'CreateTime',
+        'level' => 'Level',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'ownerName' => 'OwnerName',
+        'qualifiedName' => 'QualifiedName',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

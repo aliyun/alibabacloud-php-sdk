@@ -12,12 +12,13 @@ class UpdateMetaTableIntroWikiRequest extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $tableGuid;
     protected $_name = [
-        'content'   => 'Content',
+        'content' => 'Content',
         'tableGuid' => 'TableGuid',
     ];
 

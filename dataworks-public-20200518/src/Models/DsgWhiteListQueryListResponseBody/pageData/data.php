@@ -12,48 +12,56 @@ class data extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var int
      */
     public $sceneId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string[]
      */
     public $userGroups;
     protected $_name = [
-        'endTime'     => 'EndTime',
-        'gmtCreate'   => 'GmtCreate',
+        'endTime' => 'EndTime',
+        'gmtCreate' => 'GmtCreate',
         'gmtModified' => 'GmtModified',
-        'id'          => 'Id',
-        'ruleId'      => 'RuleId',
-        'sceneId'     => 'SceneId',
-        'startTime'   => 'StartTime',
-        'type'        => 'Type',
-        'userGroups'  => 'UserGroups',
+        'id' => 'Id',
+        'ruleId' => 'RuleId',
+        'sceneId' => 'SceneId',
+        'startTime' => 'StartTime',
+        'type' => 'Type',
+        'userGroups' => 'UserGroups',
     ];
 
     public function validate()
@@ -102,7 +110,7 @@ class data extends Model
         if (null !== $this->userGroups) {
             if (\is_array($this->userGroups)) {
                 $res['UserGroups'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->userGroups as $item1) {
                     $res['UserGroups'][$n1++] = $item1;
                 }
@@ -155,7 +163,7 @@ class data extends Model
         if (isset($map['UserGroups'])) {
             if (!empty($map['UserGroups'])) {
                 $model->userGroups = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['UserGroups'] as $item1) {
                     $model->userGroups[$n1++] = $item1;
                 }

@@ -15,17 +15,19 @@ class data extends Model
      * @var file
      */
     public $file;
+
     /**
      * @var nodeConfiguration
      */
     public $nodeConfiguration;
+
     /**
      * @var resourceDownloadLink
      */
     public $resourceDownloadLink;
     protected $_name = [
-        'file'                 => 'File',
-        'nodeConfiguration'    => 'NodeConfiguration',
+        'file' => 'File',
+        'nodeConfiguration' => 'NodeConfiguration',
         'resourceDownloadLink' => 'ResourceDownloadLink',
     ];
 

@@ -12,18 +12,20 @@ class deployedItems extends Model
      * @var int
      */
     public $fileId;
+
     /**
      * @var int
      */
     public $fileVersion;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'fileId'      => 'FileId',
+        'fileId' => 'FileId',
         'fileVersion' => 'FileVersion',
-        'status'      => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

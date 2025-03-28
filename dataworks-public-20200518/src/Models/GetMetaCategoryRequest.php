@@ -12,17 +12,19 @@ class GetMetaCategoryRequest extends Model
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $parentCategoryId;
     protected $_name = [
-        'pageNum'          => 'PageNum',
-        'pageSize'         => 'PageSize',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'parentCategoryId' => 'ParentCategoryId',
     ];
 

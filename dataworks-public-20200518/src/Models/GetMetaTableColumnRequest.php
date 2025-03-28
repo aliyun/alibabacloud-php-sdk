@@ -12,38 +12,44 @@ class GetMetaTableColumnRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $tableGuid;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'dataSourceType' => 'DataSourceType',
-        'databaseName'   => 'DatabaseName',
-        'pageNum'        => 'PageNum',
-        'pageSize'       => 'PageSize',
-        'tableGuid'      => 'TableGuid',
-        'tableName'      => 'TableName',
+        'databaseName' => 'DatabaseName',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'tableGuid' => 'TableGuid',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

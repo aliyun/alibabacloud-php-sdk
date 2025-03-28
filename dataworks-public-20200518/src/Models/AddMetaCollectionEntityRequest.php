@@ -12,18 +12,20 @@ class AddMetaCollectionEntityRequest extends Model
      * @var string
      */
     public $collectionQualifiedName;
+
     /**
      * @var string
      */
     public $entityQualifiedName;
+
     /**
      * @var string
      */
     public $remark;
     protected $_name = [
         'collectionQualifiedName' => 'CollectionQualifiedName',
-        'entityQualifiedName'     => 'EntityQualifiedName',
-        'remark'                  => 'Remark',
+        'entityQualifiedName' => 'EntityQualifiedName',
+        'remark' => 'Remark',
     ];
 
     public function validate()

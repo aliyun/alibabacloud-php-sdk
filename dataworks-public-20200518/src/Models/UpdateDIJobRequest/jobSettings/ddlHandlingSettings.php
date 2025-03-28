@@ -12,13 +12,14 @@ class ddlHandlingSettings extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'action' => 'Action',
-        'type'   => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

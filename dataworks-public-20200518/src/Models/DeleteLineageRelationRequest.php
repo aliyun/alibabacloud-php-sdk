@@ -12,23 +12,26 @@ class DeleteLineageRelationRequest extends Model
      * @var string
      */
     public $destEntityQualifiedName;
+
     /**
      * @var string
      */
     public $relationshipGuid;
+
     /**
      * @var string
      */
     public $relationshipType;
+
     /**
      * @var string
      */
     public $srcEntityQualifiedName;
     protected $_name = [
         'destEntityQualifiedName' => 'DestEntityQualifiedName',
-        'relationshipGuid'        => 'RelationshipGuid',
-        'relationshipType'        => 'RelationshipType',
-        'srcEntityQualifiedName'  => 'SrcEntityQualifiedName',
+        'relationshipGuid' => 'RelationshipGuid',
+        'relationshipType' => 'RelationshipType',
+        'srcEntityQualifiedName' => 'SrcEntityQualifiedName',
     ];
 
     public function validate()

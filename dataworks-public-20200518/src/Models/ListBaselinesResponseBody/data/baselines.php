@@ -13,53 +13,62 @@ class baselines extends Model
      * @var bool
      */
     public $alertEnabled;
+
     /**
      * @var int
      */
     public $alertMarginThreshold;
+
     /**
      * @var int
      */
     public $baselineId;
+
     /**
      * @var string
      */
     public $baselineName;
+
     /**
      * @var string
      */
     public $baselineType;
+
     /**
      * @var bool
      */
     public $enabled;
+
     /**
      * @var overTimeSettings[]
      */
     public $overTimeSettings;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'alertEnabled'         => 'AlertEnabled',
+        'alertEnabled' => 'AlertEnabled',
         'alertMarginThreshold' => 'AlertMarginThreshold',
-        'baselineId'           => 'BaselineId',
-        'baselineName'         => 'BaselineName',
-        'baselineType'         => 'BaselineType',
-        'enabled'              => 'Enabled',
-        'overTimeSettings'     => 'OverTimeSettings',
-        'owner'                => 'Owner',
-        'priority'             => 'Priority',
-        'projectId'            => 'ProjectId',
+        'baselineId' => 'BaselineId',
+        'baselineName' => 'BaselineName',
+        'baselineType' => 'BaselineType',
+        'enabled' => 'Enabled',
+        'overTimeSettings' => 'OverTimeSettings',
+        'owner' => 'Owner',
+        'priority' => 'Priority',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()
@@ -100,7 +109,7 @@ class baselines extends Model
         if (null !== $this->overTimeSettings) {
             if (\is_array($this->overTimeSettings)) {
                 $res['OverTimeSettings'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->overTimeSettings as $item1) {
                     $res['OverTimeSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -157,7 +166,7 @@ class baselines extends Model
         if (isset($map['OverTimeSettings'])) {
             if (!empty($map['OverTimeSettings'])) {
                 $model->overTimeSettings = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['OverTimeSettings'] as $item1) {
                     $model->overTimeSettings[$n1++] = overTimeSettings::fromMap($item1);
                 }

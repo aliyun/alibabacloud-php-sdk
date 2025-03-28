@@ -13,28 +13,32 @@ class applyOrder extends Model
      * @var string
      */
     public $applyBaseId;
+
     /**
      * @var int
      */
     public $applyTimestamp;
+
     /**
      * @var approveContent
      */
     public $approveContent;
+
     /**
      * @var string
      */
     public $flowId;
+
     /**
      * @var int
      */
     public $flowStatus;
     protected $_name = [
-        'applyBaseId'    => 'ApplyBaseId',
+        'applyBaseId' => 'ApplyBaseId',
         'applyTimestamp' => 'ApplyTimestamp',
         'approveContent' => 'ApproveContent',
-        'flowId'         => 'FlowId',
-        'flowStatus'     => 'FlowStatus',
+        'flowId' => 'FlowId',
+        'flowStatus' => 'FlowStatus',
     ];
 
     public function validate()

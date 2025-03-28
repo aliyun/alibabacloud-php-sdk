@@ -12,83 +12,98 @@ class data extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $entityLevel;
+
     /**
      * @var string
      */
     public $envType;
+
     /**
      * @var string
      */
     public $followers;
+
     /**
      * @var bool
      */
     public $hasRelativeNode;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $matchExpression;
+
     /**
      * @var int
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $modifyUser;
+
     /**
      * @var string
      */
     public $onDuty;
+
     /**
      * @var string
      */
     public $onDutyAccountName;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $relativeNode;
+
     /**
      * @var int
      */
     public $sql;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
     public $task;
     protected $_name = [
-        'createTime'        => 'CreateTime',
-        'entityLevel'       => 'EntityLevel',
-        'envType'           => 'EnvType',
-        'followers'         => 'Followers',
-        'hasRelativeNode'   => 'HasRelativeNode',
-        'id'                => 'Id',
-        'matchExpression'   => 'MatchExpression',
-        'modifyTime'        => 'ModifyTime',
-        'modifyUser'        => 'ModifyUser',
-        'onDuty'            => 'OnDuty',
+        'createTime' => 'CreateTime',
+        'entityLevel' => 'EntityLevel',
+        'envType' => 'EnvType',
+        'followers' => 'Followers',
+        'hasRelativeNode' => 'HasRelativeNode',
+        'id' => 'Id',
+        'matchExpression' => 'MatchExpression',
+        'modifyTime' => 'ModifyTime',
+        'modifyUser' => 'ModifyUser',
+        'onDuty' => 'OnDuty',
         'onDutyAccountName' => 'OnDutyAccountName',
-        'projectName'       => 'ProjectName',
-        'relativeNode'      => 'RelativeNode',
-        'sql'               => 'Sql',
-        'tableName'         => 'TableName',
-        'task'              => 'Task',
+        'projectName' => 'ProjectName',
+        'relativeNode' => 'RelativeNode',
+        'sql' => 'Sql',
+        'tableName' => 'TableName',
+        'task' => 'Task',
     ];
 
     public function validate()

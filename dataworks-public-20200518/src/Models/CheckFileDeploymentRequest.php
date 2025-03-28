@@ -12,18 +12,20 @@ class CheckFileDeploymentRequest extends Model
      * @var string
      */
     public $checkDetailUrl;
+
     /**
      * @var string
      */
     public $checkerInstanceId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'checkDetailUrl'    => 'CheckDetailUrl',
+        'checkDetailUrl' => 'CheckDetailUrl',
         'checkerInstanceId' => 'CheckerInstanceId',
-        'status'            => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

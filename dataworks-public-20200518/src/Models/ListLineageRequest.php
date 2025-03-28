@@ -12,28 +12,32 @@ class ListLineageRequest extends Model
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $entityQualifiedName;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'direction'           => 'Direction',
+        'direction' => 'Direction',
         'entityQualifiedName' => 'EntityQualifiedName',
-        'keyword'             => 'Keyword',
-        'nextToken'           => 'NextToken',
-        'pageSize'            => 'PageSize',
+        'keyword' => 'Keyword',
+        'nextToken' => 'NextToken',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

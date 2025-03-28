@@ -12,23 +12,26 @@ class UpdateClusterConfigsShrinkRequest extends Model
      * @var int
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $configType;
+
     /**
      * @var string
      */
     public $configValuesShrink;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'clusterId'          => 'ClusterId',
-        'configType'         => 'ConfigType',
+        'clusterId' => 'ClusterId',
+        'configType' => 'ConfigType',
         'configValuesShrink' => 'ConfigValues',
-        'projectId'          => 'ProjectId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

@@ -13,12 +13,13 @@ class tableLevelInfo extends Model
      * @var levelList[]
      */
     public $levelList;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'levelList'  => 'LevelList',
+        'levelList' => 'LevelList',
         'totalCount' => 'TotalCount',
     ];
 
@@ -36,7 +37,7 @@ class tableLevelInfo extends Model
         if (null !== $this->levelList) {
             if (\is_array($this->levelList)) {
                 $res['LevelList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->levelList as $item1) {
                     $res['LevelList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class tableLevelInfo extends Model
         if (isset($map['LevelList'])) {
             if (!empty($map['LevelList'])) {
                 $model->levelList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['LevelList'] as $item1) {
                     $model->levelList[$n1++] = levelList::fromMap($item1);
                 }

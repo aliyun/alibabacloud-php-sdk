@@ -12,27 +12,31 @@ class ListFoldersRequest extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $parentFolderPath;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
     protected $_name = [
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'parentFolderPath'  => 'ParentFolderPath',
-        'projectId'         => 'ProjectId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'parentFolderPath' => 'ParentFolderPath',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 

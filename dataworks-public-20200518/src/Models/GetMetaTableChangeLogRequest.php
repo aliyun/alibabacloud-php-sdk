@@ -12,38 +12,44 @@ class GetMetaTableChangeLogRequest extends Model
      * @var string
      */
     public $changeType;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var string
      */
     public $objectType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $startDate;
+
     /**
      * @var string
      */
     public $tableGuid;
     protected $_name = [
         'changeType' => 'ChangeType',
-        'endDate'    => 'EndDate',
+        'endDate' => 'EndDate',
         'objectType' => 'ObjectType',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'startDate'  => 'StartDate',
-        'tableGuid'  => 'TableGuid',
+        'pageSize' => 'PageSize',
+        'startDate' => 'StartDate',
+        'tableGuid' => 'TableGuid',
     ];
 
     public function validate()

@@ -12,48 +12,56 @@ class data extends Model
      * @var int
      */
     public $alarmMode;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $entityId;
+
     /**
      * @var string
      */
     public $follower;
+
     /**
      * @var string
      */
     public $followerAccountName;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'alarmMode'           => 'AlarmMode',
-        'createTime'          => 'CreateTime',
-        'entityId'            => 'EntityId',
-        'follower'            => 'Follower',
+        'alarmMode' => 'AlarmMode',
+        'createTime' => 'CreateTime',
+        'entityId' => 'EntityId',
+        'follower' => 'Follower',
         'followerAccountName' => 'FollowerAccountName',
-        'id'                  => 'Id',
-        'modifyTime'          => 'ModifyTime',
-        'projectName'         => 'ProjectName',
-        'tableName'           => 'TableName',
+        'id' => 'Id',
+        'modifyTime' => 'ModifyTime',
+        'projectName' => 'ProjectName',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

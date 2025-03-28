@@ -12,13 +12,14 @@ class SetEntityTagsRequest extends Model
      * @var string
      */
     public $qualifiedName;
+
     /**
      * @var UserEntityTag[]
      */
     public $tags;
     protected $_name = [
         'qualifiedName' => 'QualifiedName',
-        'tags'          => 'Tags',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -39,7 +40,7 @@ class SetEntityTagsRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -64,7 +65,7 @@ class SetEntityTagsRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = UserEntityTag::fromMap($item1);
                 }

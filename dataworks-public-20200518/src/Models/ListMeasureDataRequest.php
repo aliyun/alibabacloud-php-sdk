@@ -12,23 +12,26 @@ class ListMeasureDataRequest extends Model
      * @var string
      */
     public $componentCode;
+
     /**
      * @var string
      */
     public $domainCode;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
         'componentCode' => 'ComponentCode',
-        'domainCode'    => 'DomainCode',
-        'endTime'       => 'EndTime',
-        'startTime'     => 'StartTime',
+        'domainCode' => 'DomainCode',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

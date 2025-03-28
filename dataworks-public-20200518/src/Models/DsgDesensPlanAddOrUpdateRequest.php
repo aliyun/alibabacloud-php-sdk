@@ -31,7 +31,7 @@ class DsgDesensPlanAddOrUpdateRequest extends Model
         if (null !== $this->desensRules) {
             if (\is_array($this->desensRules)) {
                 $res['DesensRules'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->desensRules as $item1) {
                     $res['DesensRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class DsgDesensPlanAddOrUpdateRequest extends Model
         if (isset($map['DesensRules'])) {
             if (!empty($map['DesensRules'])) {
                 $model->desensRules = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DesensRules'] as $item1) {
                     $model->desensRules[$n1++] = desensRules::fromMap($item1);
                 }

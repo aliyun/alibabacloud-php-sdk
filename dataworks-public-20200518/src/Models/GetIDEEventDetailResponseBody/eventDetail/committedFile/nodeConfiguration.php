@@ -14,63 +14,74 @@ class nodeConfiguration extends Model
      * @var int
      */
     public $autoRerunIntervalMillis;
+
     /**
      * @var int
      */
     public $autoRerunTimes;
+
     /**
      * @var string
      */
     public $cronExpress;
+
     /**
      * @var string
      */
     public $cycleType;
+
     /**
      * @var string
      */
     public $dependentNodeIdList;
+
     /**
      * @var string
      */
     public $dependentType;
+
     /**
      * @var inputList[]
      */
     public $inputList;
+
     /**
      * @var outputList[]
      */
     public $outputList;
+
     /**
      * @var string
      */
     public $paraValue;
+
     /**
      * @var string
      */
     public $rerunMode;
+
     /**
      * @var int
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $schedulerType;
     protected $_name = [
         'autoRerunIntervalMillis' => 'AutoRerunIntervalMillis',
-        'autoRerunTimes'          => 'AutoRerunTimes',
-        'cronExpress'             => 'CronExpress',
-        'cycleType'               => 'CycleType',
-        'dependentNodeIdList'     => 'DependentNodeIdList',
-        'dependentType'           => 'DependentType',
-        'inputList'               => 'InputList',
-        'outputList'              => 'OutputList',
-        'paraValue'               => 'ParaValue',
-        'rerunMode'               => 'RerunMode',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'schedulerType'           => 'SchedulerType',
+        'autoRerunTimes' => 'AutoRerunTimes',
+        'cronExpress' => 'CronExpress',
+        'cycleType' => 'CycleType',
+        'dependentNodeIdList' => 'DependentNodeIdList',
+        'dependentType' => 'DependentType',
+        'inputList' => 'InputList',
+        'outputList' => 'OutputList',
+        'paraValue' => 'ParaValue',
+        'rerunMode' => 'RerunMode',
+        'resourceGroupId' => 'ResourceGroupId',
+        'schedulerType' => 'SchedulerType',
     ];
 
     public function validate()
@@ -114,7 +125,7 @@ class nodeConfiguration extends Model
         if (null !== $this->inputList) {
             if (\is_array($this->inputList)) {
                 $res['InputList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->inputList as $item1) {
                     $res['InputList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -124,7 +135,7 @@ class nodeConfiguration extends Model
         if (null !== $this->outputList) {
             if (\is_array($this->outputList)) {
                 $res['OutputList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->outputList as $item1) {
                     $res['OutputList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -185,7 +196,7 @@ class nodeConfiguration extends Model
         if (isset($map['InputList'])) {
             if (!empty($map['InputList'])) {
                 $model->inputList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['InputList'] as $item1) {
                     $model->inputList[$n1++] = inputList::fromMap($item1);
                 }
@@ -195,7 +206,7 @@ class nodeConfiguration extends Model
         if (isset($map['OutputList'])) {
             if (!empty($map['OutputList'])) {
                 $model->outputList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['OutputList'] as $item1) {
                     $model->outputList[$n1++] = outputList::fromMap($item1);
                 }

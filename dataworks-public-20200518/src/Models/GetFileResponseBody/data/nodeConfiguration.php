@@ -16,113 +16,134 @@ class nodeConfiguration extends Model
      * @var string
      */
     public $applyScheduleImmediately;
+
     /**
      * @var int
      */
     public $autoRerunIntervalMillis;
+
     /**
      * @var int
      */
     public $autoRerunTimes;
+
     /**
      * @var string
      */
     public $cronExpress;
+
     /**
      * @var string
      */
     public $cycleType;
+
     /**
      * @var string
      */
     public $dependentNodeIdList;
+
     /**
      * @var string
      */
     public $dependentType;
+
     /**
      * @var int
      */
     public $endEffectDate;
+
     /**
      * @var string
      */
     public $ignoreParentSkipRunningProperty;
+
     /**
      * @var string
      */
     public $imageId;
+
     /**
      * @var inputList[]
      */
     public $inputList;
+
     /**
      * @var inputParameters[]
      */
     public $inputParameters;
+
     /**
      * @var outputList[]
      */
     public $outputList;
+
     /**
      * @var outputParameters[]
      */
     public $outputParameters;
+
     /**
      * @var string
      */
     public $paraValue;
+
     /**
      * @var string
      */
     public $rerunMode;
+
     /**
      * @var int
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $schedulerType;
+
     /**
      * @var int
      */
     public $startEffectDate;
+
     /**
      * @var bool
      */
     public $startImmediately;
+
     /**
      * @var bool
      */
     public $stop;
+
     /**
      * @var int
      */
     public $timeout;
     protected $_name = [
-        'applyScheduleImmediately'        => 'ApplyScheduleImmediately',
-        'autoRerunIntervalMillis'         => 'AutoRerunIntervalMillis',
-        'autoRerunTimes'                  => 'AutoRerunTimes',
-        'cronExpress'                     => 'CronExpress',
-        'cycleType'                       => 'CycleType',
-        'dependentNodeIdList'             => 'DependentNodeIdList',
-        'dependentType'                   => 'DependentType',
-        'endEffectDate'                   => 'EndEffectDate',
+        'applyScheduleImmediately' => 'ApplyScheduleImmediately',
+        'autoRerunIntervalMillis' => 'AutoRerunIntervalMillis',
+        'autoRerunTimes' => 'AutoRerunTimes',
+        'cronExpress' => 'CronExpress',
+        'cycleType' => 'CycleType',
+        'dependentNodeIdList' => 'DependentNodeIdList',
+        'dependentType' => 'DependentType',
+        'endEffectDate' => 'EndEffectDate',
         'ignoreParentSkipRunningProperty' => 'IgnoreParentSkipRunningProperty',
-        'imageId'                         => 'ImageId',
-        'inputList'                       => 'InputList',
-        'inputParameters'                 => 'InputParameters',
-        'outputList'                      => 'OutputList',
-        'outputParameters'                => 'OutputParameters',
-        'paraValue'                       => 'ParaValue',
-        'rerunMode'                       => 'RerunMode',
-        'resourceGroupId'                 => 'ResourceGroupId',
-        'schedulerType'                   => 'SchedulerType',
-        'startEffectDate'                 => 'StartEffectDate',
-        'startImmediately'                => 'StartImmediately',
-        'stop'                            => 'Stop',
-        'timeout'                         => 'Timeout',
+        'imageId' => 'ImageId',
+        'inputList' => 'InputList',
+        'inputParameters' => 'InputParameters',
+        'outputList' => 'OutputList',
+        'outputParameters' => 'OutputParameters',
+        'paraValue' => 'ParaValue',
+        'rerunMode' => 'RerunMode',
+        'resourceGroupId' => 'ResourceGroupId',
+        'schedulerType' => 'SchedulerType',
+        'startEffectDate' => 'StartEffectDate',
+        'startImmediately' => 'StartImmediately',
+        'stop' => 'Stop',
+        'timeout' => 'Timeout',
     ];
 
     public function validate()
@@ -188,7 +209,7 @@ class nodeConfiguration extends Model
         if (null !== $this->inputList) {
             if (\is_array($this->inputList)) {
                 $res['InputList'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->inputList as $item1) {
                     $res['InputList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -198,7 +219,7 @@ class nodeConfiguration extends Model
         if (null !== $this->inputParameters) {
             if (\is_array($this->inputParameters)) {
                 $res['InputParameters'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->inputParameters as $item1) {
                     $res['InputParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -208,7 +229,7 @@ class nodeConfiguration extends Model
         if (null !== $this->outputList) {
             if (\is_array($this->outputList)) {
                 $res['OutputList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->outputList as $item1) {
                     $res['OutputList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -218,7 +239,7 @@ class nodeConfiguration extends Model
         if (null !== $this->outputParameters) {
             if (\is_array($this->outputParameters)) {
                 $res['OutputParameters'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->outputParameters as $item1) {
                     $res['OutputParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -311,7 +332,7 @@ class nodeConfiguration extends Model
         if (isset($map['InputList'])) {
             if (!empty($map['InputList'])) {
                 $model->inputList = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['InputList'] as $item1) {
                     $model->inputList[$n1++] = inputList::fromMap($item1);
                 }
@@ -321,7 +342,7 @@ class nodeConfiguration extends Model
         if (isset($map['InputParameters'])) {
             if (!empty($map['InputParameters'])) {
                 $model->inputParameters = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['InputParameters'] as $item1) {
                     $model->inputParameters[$n1++] = inputParameters::fromMap($item1);
                 }
@@ -331,7 +352,7 @@ class nodeConfiguration extends Model
         if (isset($map['OutputList'])) {
             if (!empty($map['OutputList'])) {
                 $model->outputList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['OutputList'] as $item1) {
                     $model->outputList[$n1++] = outputList::fromMap($item1);
                 }
@@ -341,7 +362,7 @@ class nodeConfiguration extends Model
         if (isset($map['OutputParameters'])) {
             if (!empty($map['OutputParameters'])) {
                 $model->outputParameters = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['OutputParameters'] as $item1) {
                     $model->outputParameters[$n1++] = outputParameters::fromMap($item1);
                 }

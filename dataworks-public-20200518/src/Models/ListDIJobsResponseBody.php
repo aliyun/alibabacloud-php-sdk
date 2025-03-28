@@ -13,13 +13,14 @@ class ListDIJobsResponseBody extends Model
      * @var DIJobPaging
      */
     public $DIJobPaging;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DIJobPaging' => 'DIJobPaging',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

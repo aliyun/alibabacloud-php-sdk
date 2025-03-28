@@ -12,43 +12,50 @@ class extensions extends Model
      * @var string
      */
     public $createUser;
+
     /**
      * @var string
      */
     public $extensionCode;
+
     /**
      * @var string
      */
     public $extensionDesc;
+
     /**
      * @var string
      */
     public $extensionName;
+
     /**
      * @var string
      */
     public $modifyUser;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var string
      */
     public $parameterSetting;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
-        'createUser'       => 'CreateUser',
-        'extensionCode'    => 'ExtensionCode',
-        'extensionDesc'    => 'ExtensionDesc',
-        'extensionName'    => 'ExtensionName',
-        'modifyUser'       => 'ModifyUser',
-        'owner'            => 'Owner',
+        'createUser' => 'CreateUser',
+        'extensionCode' => 'ExtensionCode',
+        'extensionDesc' => 'ExtensionDesc',
+        'extensionName' => 'ExtensionName',
+        'modifyUser' => 'ModifyUser',
+        'owner' => 'Owner',
         'parameterSetting' => 'ParameterSetting',
-        'tenantId'         => 'TenantId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

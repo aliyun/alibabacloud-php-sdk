@@ -499,8 +499,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTableThemeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTableThemeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTopicsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListTopicsResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\MountDirectoryRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\MountDirectoryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\OfflineNodeRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\OfflineNodeResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\PublishDataServiceApiRequest;
@@ -534,8 +532,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RestartInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RestartInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ResumeInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ResumeInstanceResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RevokeColumnPermissionRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RevokeColumnPermissionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RevokeTablePermissionRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RevokeTablePermissionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RunCycleDagNodesRequest;
@@ -590,8 +586,6 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TopTenElapsedTimeInstanceR
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TopTenElapsedTimeInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TopTenErrorTimesInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\TopTenErrorTimesInstanceResponse;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UmountDirectoryRequest;
-use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UmountDirectoryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateBaselineRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateBaselineResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\UpdateBaselineShrinkRequest;
@@ -673,31 +667,31 @@ class Dataworkspublic extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-1'        => 'dataworks.ap-northeast-1.aliyuncs.com',
-            'ap-south-1'            => 'dataworks.ap-south-1.aliyuncs.com',
-            'ap-southeast-1'        => 'dataworks.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-2'        => 'dataworks.ap-southeast-2.aliyuncs.com',
-            'ap-southeast-3'        => 'dataworks.ap-southeast-3.aliyuncs.com',
-            'ap-southeast-5'        => 'dataworks.ap-southeast-5.aliyuncs.com',
-            'cn-beijing'            => 'dataworks.cn-beijing.aliyuncs.com',
-            'cn-chengdu'            => 'dataworks.cn-chengdu.aliyuncs.com',
-            'cn-hangzhou'           => 'dataworks.cn-hangzhou.aliyuncs.com',
-            'cn-hongkong'           => 'dataworks.cn-hongkong.aliyuncs.com',
-            'cn-huhehaote'          => 'dataworks.aliyuncs.com',
-            'cn-qingdao'            => 'dataworks.aliyuncs.com',
-            'cn-shanghai'           => 'dataworks.cn-shanghai.aliyuncs.com',
-            'cn-shenzhen'           => 'dataworks.cn-shenzhen.aliyuncs.com',
-            'cn-zhangjiakou'        => 'dataworks.aliyuncs.com',
-            'eu-central-1'          => 'dataworks.eu-central-1.aliyuncs.com',
-            'eu-west-1'             => 'dataworks.eu-west-1.aliyuncs.com',
-            'me-east-1'             => 'dataworks.me-east-1.aliyuncs.com',
-            'us-east-1'             => 'dataworks.us-east-1.aliyuncs.com',
-            'us-west-1'             => 'dataworks.us-west-1.aliyuncs.com',
-            'cn-hangzhou-finance'   => 'dataworks.aliyuncs.com',
+        $this->_endpointMap = [
+            'ap-northeast-1' => 'dataworks.ap-northeast-1.aliyuncs.com',
+            'ap-south-1' => 'dataworks.ap-south-1.aliyuncs.com',
+            'ap-southeast-1' => 'dataworks.ap-southeast-1.aliyuncs.com',
+            'ap-southeast-2' => 'dataworks.ap-southeast-2.aliyuncs.com',
+            'ap-southeast-3' => 'dataworks.ap-southeast-3.aliyuncs.com',
+            'ap-southeast-5' => 'dataworks.ap-southeast-5.aliyuncs.com',
+            'cn-beijing' => 'dataworks.cn-beijing.aliyuncs.com',
+            'cn-chengdu' => 'dataworks.cn-chengdu.aliyuncs.com',
+            'cn-hangzhou' => 'dataworks.cn-hangzhou.aliyuncs.com',
+            'cn-hongkong' => 'dataworks.cn-hongkong.aliyuncs.com',
+            'cn-huhehaote' => 'dataworks.aliyuncs.com',
+            'cn-qingdao' => 'dataworks.aliyuncs.com',
+            'cn-shanghai' => 'dataworks.cn-shanghai.aliyuncs.com',
+            'cn-shenzhen' => 'dataworks.cn-shenzhen.aliyuncs.com',
+            'cn-zhangjiakou' => 'dataworks.aliyuncs.com',
+            'eu-central-1' => 'dataworks.eu-central-1.aliyuncs.com',
+            'eu-west-1' => 'dataworks.eu-west-1.aliyuncs.com',
+            'me-east-1' => 'dataworks.me-east-1.aliyuncs.com',
+            'us-east-1' => 'dataworks.us-east-1.aliyuncs.com',
+            'us-west-1' => 'dataworks.us-west-1.aliyuncs.com',
+            'cn-hangzhou-finance' => 'dataworks.aliyuncs.com',
             'cn-shenzhen-finance-1' => 'dataworks.aliyuncs.com',
             'cn-shanghai-finance-1' => 'dataworks.aliyuncs.com',
-            'cn-north-2-gov-1'      => 'dataworks.aliyuncs.com',
+            'cn-north-2-gov-1' => 'dataworks.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dataworks-public', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -732,6 +726,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - AbolishDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AbolishDataServiceApiResponse
      *
      * @param AbolishDataServiceApiRequest $request
@@ -759,15 +754,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AbolishDataServiceApi',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AbolishDataServiceApi',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AbolishDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -780,6 +775,7 @@ class Dataworkspublic extends OpenApiClient
      * Unpublishes a DataService Studio API.
      *
      * @param request - AbolishDataServiceApiRequest
+     *
      * @returns AbolishDataServiceApiResponse
      *
      * @param AbolishDataServiceApiRequest $request
@@ -798,6 +794,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - AddMetaCollectionEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddMetaCollectionEntityResponse
      *
      * @param AddMetaCollectionEntityRequest $request
@@ -825,15 +822,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddMetaCollectionEntity',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddMetaCollectionEntity',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddMetaCollectionEntityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -846,6 +843,7 @@ class Dataworkspublic extends OpenApiClient
      * Adds an entity to a collection.
      *
      * @param request - AddMetaCollectionEntityRequest
+     *
      * @returns AddMetaCollectionEntityResponse
      *
      * @param AddMetaCollectionEntityRequest $request
@@ -868,6 +866,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - AddProjectMemberToRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddProjectMemberToRoleResponse
      *
      * @param AddProjectMemberToRoleRequest $request
@@ -899,15 +898,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddProjectMemberToRole',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddProjectMemberToRole',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddProjectMemberToRoleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -924,6 +923,7 @@ class Dataworkspublic extends OpenApiClient
      * *   If you assign a built-in workspace-level role to a member of a DataWorks workspace, the member is automatically granted the permissions of the mapped role of the MaxCompute compute engine in the development environment. For more information, see [Appendix: Mappings between the built-in workspace-level roles of DataWorks and the roles of MaxCompute](https://help.aliyun.com/document_detail/449397.html).
      *
      * @param request - AddProjectMemberToRoleRequest
+     *
      * @returns AddProjectMemberToRoleResponse
      *
      * @param AddProjectMemberToRoleRequest $request
@@ -942,6 +942,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - AddRecognizeRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddRecognizeRuleResponse
      *
      * @param AddRecognizeRuleRequest $request
@@ -1029,15 +1030,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddRecognizeRule',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddRecognizeRule',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddRecognizeRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1050,6 +1051,7 @@ class Dataworkspublic extends OpenApiClient
      * Adds a sensitive field that is defined based on the category and sensitivity level of data in Data Security Guard.
      *
      * @param request - AddRecognizeRuleRequest
+     *
      * @returns AddRecognizeRuleResponse
      *
      * @param AddRecognizeRuleRequest $request
@@ -1068,6 +1070,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - AddToMetaCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddToMetaCategoryResponse
      *
      * @param AddToMetaCategoryRequest $request
@@ -1091,15 +1094,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddToMetaCategory',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddToMetaCategory',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddToMetaCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1112,6 +1115,7 @@ class Dataworkspublic extends OpenApiClient
      * Adds a metatable to a specified category.
      *
      * @param request - AddToMetaCategoryRequest
+     *
      * @returns AddToMetaCategoryResponse
      *
      * @param AddToMetaCategoryRequest $request
@@ -1130,6 +1134,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ApprovePermissionApplyOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ApprovePermissionApplyOrderResponse
      *
      * @param ApprovePermissionApplyOrderRequest $request
@@ -1157,15 +1162,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ApprovePermissionApplyOrder',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ApprovePermissionApplyOrder',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ApprovePermissionApplyOrderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1178,6 +1183,7 @@ class Dataworkspublic extends OpenApiClient
      * Processes a permission request order.
      *
      * @param request - ApprovePermissionApplyOrderRequest
+     *
      * @returns ApprovePermissionApplyOrderResponse
      *
      * @param ApprovePermissionApplyOrderRequest $request
@@ -1196,6 +1202,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CallbackExtensionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CallbackExtensionResponse
      *
      * @param CallbackExtensionRequest $request
@@ -1227,15 +1234,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CallbackExtension',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CallbackExtension',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CallbackExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1248,6 +1255,7 @@ class Dataworkspublic extends OpenApiClient
      * Sends the processing result of an extension point event by an extension to DataWorks.
      *
      * @param request - CallbackExtensionRequest
+     *
      * @returns CallbackExtensionResponse
      *
      * @param CallbackExtensionRequest $request
@@ -1266,6 +1274,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ChangeResourceManagerResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeResourceManagerResourceGroupResponse
      *
      * @param ChangeResourceManagerResourceGroupRequest $request
@@ -1293,15 +1302,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceManagerResourceGroup',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeResourceManagerResourceGroup',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ChangeResourceManagerResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1314,6 +1323,7 @@ class Dataworkspublic extends OpenApiClient
      * Changes the resource group to which a resource belongs.
      *
      * @param request - ChangeResourceManagerResourceGroupRequest
+     *
      * @returns ChangeResourceManagerResourceGroupResponse
      *
      * @param ChangeResourceManagerResourceGroupRequest $request
@@ -1332,6 +1342,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CheckFileDeploymentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckFileDeploymentResponse
      *
      * @param CheckFileDeploymentRequest $request
@@ -1359,15 +1370,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CheckFileDeployment',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckFileDeployment',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CheckFileDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1380,6 +1391,7 @@ class Dataworkspublic extends OpenApiClient
      * Returns the check events of a file. After you commit your file that is created on the DataStudio page, the system checks the file and returns check events before the system deploys the file. You must determine whether the check can be continued based on the events. You can call this operation to return the check events for the file that you want to deploy to DataWorks.
      *
      * @param request - CheckFileDeploymentRequest
+     *
      * @returns CheckFileDeploymentResponse
      *
      * @param CheckFileDeploymentRequest $request
@@ -1398,6 +1410,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CheckMetaPartitionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckMetaPartitionResponse
      *
      * @param CheckMetaPartitionRequest $request
@@ -1437,15 +1450,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckMetaPartition',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckMetaPartition',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CheckMetaPartitionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1458,6 +1471,7 @@ class Dataworkspublic extends OpenApiClient
      * Checks whether a partition in a MaxCompute metatable exists.
      *
      * @param request - CheckMetaPartitionRequest
+     *
      * @returns CheckMetaPartitionResponse
      *
      * @param CheckMetaPartitionRequest $request
@@ -1476,6 +1490,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CheckMetaTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckMetaTableResponse
      *
      * @param CheckMetaTableRequest $request
@@ -1511,15 +1526,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckMetaTable',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckMetaTable',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CheckMetaTableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1532,6 +1547,7 @@ class Dataworkspublic extends OpenApiClient
      * Checks whether a metatable exists.
      *
      * @param request - CheckMetaTableRequest
+     *
      * @returns CheckMetaTableResponse
      *
      * @param CheckMetaTableRequest $request
@@ -1550,6 +1566,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateBaselineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateBaselineResponse
      *
      * @param CreateBaselineRequest $request
@@ -1597,15 +1614,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateBaseline',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateBaseline',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1618,6 +1635,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a baseline.
      *
      * @param request - CreateBaselineRequest
+     *
      * @returns CreateBaselineResponse
      *
      * @param CreateBaselineRequest $request
@@ -1636,6 +1654,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateBusinessResponse
      *
      * @param CreateBusinessRequest $request
@@ -1675,15 +1694,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateBusiness',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateBusiness',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1696,6 +1715,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a workflow in DataStudio.
      *
      * @param request - CreateBusinessRequest
+     *
      * @returns CreateBusinessResponse
      *
      * @param CreateBusinessRequest $request
@@ -1710,7 +1730,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Adds a data source.
      *
@@ -1718,6 +1737,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateConnectionResponse
      *
      * @param CreateConnectionRequest $request
@@ -1761,15 +1781,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateConnection',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateConnection',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1779,13 +1799,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Adds a data source.
      *
      * @deprecated OpenAPI CreateConnection is deprecated
      *
      * @param request - CreateConnectionRequest
+     *
      * @returns CreateConnectionResponse
      *
      * @param CreateConnectionRequest $request
@@ -1807,6 +1827,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - CreateDIAlarmRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDIAlarmRuleResponse
      *
      * @param CreateDIAlarmRuleRequest $tmpReq
@@ -1856,15 +1877,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDIAlarmRule',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDIAlarmRule',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1880,6 +1901,7 @@ class Dataworkspublic extends OpenApiClient
      * You can configure alert rules only for tasks that can be used for real-time data synchronization.
      *
      * @param request - CreateDIAlarmRuleRequest
+     *
      * @returns CreateDIAlarmRuleResponse
      *
      * @param CreateDIAlarmRuleRequest $request
@@ -1898,6 +1920,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - CreateDIJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDIJobResponse
      *
      * @param CreateDIJobRequest $tmpReq
@@ -1990,18 +2013,18 @@ class Dataworkspublic extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDIJob',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDIJob',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2014,6 +2037,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a new-version synchronization task. The following types of synchronization tasks are supported: real-time synchronization of all data in a MySQL database to Hologres and batch synchronization of all data in a MySQL database to Hive.
      *
      * @param request - CreateDIJobRequest
+     *
      * @returns CreateDIJobResponse
      *
      * @param CreateDIJobRequest $request
@@ -2030,8 +2054,12 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a data synchronization task.
      *
+     * @remarks
+     * You cannot configure scheduling properties for a task by calling this operation. If you want to configure scheduling properties for a task, you can call the UpdateFile operation.[](~~2780137~~)
+     *
      * @param request - CreateDISyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDISyncTaskResponse
      *
      * @param CreateDISyncTaskRequest $request
@@ -2070,18 +2098,18 @@ class Dataworkspublic extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDISyncTask',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDISyncTask',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDISyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2093,7 +2121,11 @@ class Dataworkspublic extends OpenApiClient
     /**
      * Creates a data synchronization task.
      *
+     * @remarks
+     * You cannot configure scheduling properties for a task by calling this operation. If you want to configure scheduling properties for a task, you can call the UpdateFile operation.[](~~2780137~~)
+     *
      * @param request - CreateDISyncTaskRequest
+     *
      * @returns CreateDISyncTaskResponse
      *
      * @param CreateDISyncTaskRequest $request
@@ -2108,12 +2140,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * @deprecated OpenAPI CreateDagComplement is deprecated
      *
      * @param request - CreateDagComplementRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDagComplementResponse
      *
      * @param CreateDagComplementRequest $request
@@ -2173,15 +2205,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDagComplement',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDagComplement',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDagComplementResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2191,11 +2223,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * @deprecated OpenAPI CreateDagComplement is deprecated
      *
      * @param request - CreateDagComplementRequest
+     *
      * @returns CreateDagComplementResponse
      *
      * @param CreateDagComplementRequest $request
@@ -2210,12 +2242,12 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * @deprecated OpenAPI CreateDagTest is deprecated
      *
      * @param request - CreateDagTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDagTestResponse
      *
      * @param CreateDagTestRequest $request
@@ -2251,15 +2283,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDagTest',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDagTest',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDagTestResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2269,11 +2301,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * @deprecated OpenAPI CreateDagTest is deprecated
      *
      * @param request - CreateDagTestRequest
+     *
      * @returns CreateDagTestResponse
      *
      * @param CreateDagTestRequest $request
@@ -2292,6 +2324,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDataServiceApiResponse
      *
      * @param CreateDataServiceApiRequest $request
@@ -2383,15 +2416,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDataServiceApi',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDataServiceApi',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2404,6 +2437,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates an API.
      *
      * @param request - CreateDataServiceApiRequest
+     *
      * @returns CreateDataServiceApiResponse
      *
      * @param CreateDataServiceApiRequest $request
@@ -2422,6 +2456,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateDataServiceApiAuthorityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDataServiceApiAuthorityResponse
      *
      * @param CreateDataServiceApiAuthorityRequest $request
@@ -2457,15 +2492,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDataServiceApiAuthority',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDataServiceApiAuthority',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDataServiceApiAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2478,6 +2513,7 @@ class Dataworkspublic extends OpenApiClient
      * Grants the access permissions on an API in DataService Studio.
      *
      * @param request - CreateDataServiceApiAuthorityRequest
+     *
      * @returns CreateDataServiceApiAuthorityResponse
      *
      * @param CreateDataServiceApiAuthorityRequest $request
@@ -2496,6 +2532,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateDataServiceFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDataServiceFolderResponse
      *
      * @param CreateDataServiceFolderRequest $request
@@ -2531,15 +2568,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDataServiceFolder',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDataServiceFolder',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDataServiceFolderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2552,6 +2589,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a folder in DataService Studio.
      *
      * @param request - CreateDataServiceFolderRequest
+     *
      * @returns CreateDataServiceFolderResponse
      *
      * @param CreateDataServiceFolderRequest $request
@@ -2570,6 +2608,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateDataServiceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDataServiceGroupResponse
      *
      * @param CreateDataServiceGroupRequest $request
@@ -2605,15 +2644,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDataServiceGroup',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDataServiceGroup',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDataServiceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2626,6 +2665,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a business process.
      *
      * @param request - CreateDataServiceGroupRequest
+     *
      * @returns CreateDataServiceGroupResponse
      *
      * @param CreateDataServiceGroupRequest $request
@@ -2644,6 +2684,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDataSourceResponse
      *
      * @param CreateDataSourceRequest $request
@@ -2687,15 +2728,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDataSource',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDataSource',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2708,6 +2749,7 @@ class Dataworkspublic extends OpenApiClient
      * Adds a data source to DataWorks.
      *
      * @param request - CreateDataSourceRequest
+     *
      * @returns CreateDataSourceResponse
      *
      * @param CreateDataSourceRequest $request
@@ -2726,6 +2768,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateExportMigrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateExportMigrationResponse
      *
      * @param CreateExportMigrationRequest $request
@@ -2765,15 +2808,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateExportMigration',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateExportMigration',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateExportMigrationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2786,6 +2829,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates an export task. You can use this operation to create an export task but cannot use this operation to start the created export task.
      *
      * @param request - CreateExportMigrationRequest
+     *
      * @returns CreateExportMigrationResponse
      *
      * @param CreateExportMigrationRequest $request
@@ -2804,6 +2848,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateFileResponse
      *
      * @param CreateFileRequest $request
@@ -2955,15 +3000,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateFile',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFile',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateFileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2976,6 +3021,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a file in DataStudio. You cannot call this operation to create files for Data Integration nodes.
      *
      * @param request - CreateFileRequest
+     *
      * @returns CreateFileResponse
      *
      * @param CreateFileRequest $request
@@ -2994,6 +3040,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateFolderResponse
      *
      * @param CreateFolderRequest $request
@@ -3021,15 +3068,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateFolder',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFolder',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3042,6 +3089,7 @@ class Dataworkspublic extends OpenApiClient
      * The operation that you want to perform. Set the value to \\*\\*CreateFolder\\*\\*.
      *
      * @param request - CreateFolderRequest
+     *
      * @returns CreateFolderResponse
      *
      * @param CreateFolderRequest $request
@@ -3078,6 +3126,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateImportMigrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateImportMigrationResponse
      *
      * @param CreateImportMigrationRequest $request
@@ -3129,15 +3178,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateImportMigration',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateImportMigration',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateImportMigrationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3168,6 +3217,7 @@ class Dataworkspublic extends OpenApiClient
      *         ...
      *
      * @param request - CreateImportMigrationRequest
+     *
      * @returns CreateImportMigrationResponse
      *
      * @param CreateImportMigrationRequest $request
@@ -3190,10 +3240,10 @@ class Dataworkspublic extends OpenApiClient
     public function createImportMigrationAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
@@ -3204,56 +3254,56 @@ class Dataworkspublic extends OpenApiClient
         }
 
         $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $authClient  = new OpenPlatform($authConfig);
+        $authClient = new OpenPlatform($authConfig);
         $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'dataworks-public',
+            'product' => 'dataworks-public',
             'regionId' => $this->_regionId,
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeyId'     => $accessKeyId,
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $ossClient     = new OSS($ossConfig);
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
         $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         Utils::convert($runtime, $ossRuntime);
         $createImportMigrationReq = new CreateImportMigrationRequest([]);
         Utils::convert($request, $createImportMigrationReq);
         if (null !== $request->packageFileObject) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->packageFileObject,
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->packageFileObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
                 'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
+                'header' => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
             $createImportMigrationReq->packageFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
@@ -3263,7 +3313,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Triggers a manually triggered workflow to run. Before you call this operation, make sure that the manually triggered workflow is committed and deployed. You can find the manually triggered workflow on the Operation Center page only after the manually triggered workflow is committed and deployed.
      *
@@ -3271,6 +3320,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateManualDagRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateManualDagResponse
      *
      * @param CreateManualDagRequest $request
@@ -3318,15 +3368,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateManualDag',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateManualDag',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateManualDagResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3336,13 +3386,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Triggers a manually triggered workflow to run. Before you call this operation, make sure that the manually triggered workflow is committed and deployed. You can find the manually triggered workflow on the Operation Center page only after the manually triggered workflow is committed and deployed.
      *
      * @deprecated OpenAPI CreateManualDag is deprecated
      *
      * @param request - CreateManualDagRequest
+     *
      * @returns CreateManualDagResponse
      *
      * @param CreateManualDagRequest $request
@@ -3361,6 +3411,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateMetaCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateMetaCategoryResponse
      *
      * @param CreateMetaCategoryRequest $request
@@ -3388,15 +3439,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMetaCategory',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMetaCategory',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateMetaCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3409,6 +3460,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a category.
      *
      * @param request - CreateMetaCategoryRequest
+     *
      * @returns CreateMetaCategoryResponse
      *
      * @param CreateMetaCategoryRequest $request
@@ -3430,6 +3482,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateMetaCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateMetaCollectionResponse
      *
      * @param CreateMetaCollectionRequest $request
@@ -3461,15 +3514,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMetaCollection',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMetaCollection',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3485,6 +3538,7 @@ class Dataworkspublic extends OpenApiClient
      * Collections are classified into various types. The names of collections of the same type must be different.
      *
      * @param request - CreateMetaCollectionRequest
+     *
      * @returns CreateMetaCollectionResponse
      *
      * @param CreateMetaCollectionRequest $request
@@ -3503,6 +3557,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreatePermissionApplyOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePermissionApplyOrderResponse
      *
      * @param CreatePermissionApplyOrderRequest $request
@@ -3522,8 +3577,16 @@ class Dataworkspublic extends OpenApiClient
             @$query['ApplyReason'] = $request->applyReason;
         }
 
+        if (null !== $request->applyType) {
+            @$query['ApplyType'] = $request->applyType;
+        }
+
         if (null !== $request->applyUserIds) {
             @$query['ApplyUserIds'] = $request->applyUserIds;
+        }
+
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
         }
 
         if (null !== $request->deadline) {
@@ -3550,15 +3613,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePermissionApplyOrder',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePermissionApplyOrder',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePermissionApplyOrderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3571,6 +3634,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a permission request order.
      *
      * @param request - CreatePermissionApplyOrderRequest
+     *
      * @returns CreatePermissionApplyOrderResponse
      *
      * @param CreatePermissionApplyOrderRequest $request
@@ -3589,6 +3653,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - CreateProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateProjectResponse
      *
      * @param CreateProjectRequest $tmpReq
@@ -3646,15 +3711,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateProject',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateProject',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateProjectResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3667,6 +3732,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a DataWorks workspace.
      *
      * @param request - CreateProjectRequest
+     *
      * @returns CreateProjectResponse
      *
      * @param CreateProjectRequest $request
@@ -3685,6 +3751,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateProjectMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateProjectMemberResponse
      *
      * @param CreateProjectMemberRequest $request
@@ -3716,15 +3783,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateProjectMember',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateProjectMember',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3737,6 +3804,7 @@ class Dataworkspublic extends OpenApiClient
      * Adds a user to a DataWorks workspace.
      *
      * @param request - CreateProjectMemberRequest
+     *
      * @returns CreateProjectMemberResponse
      *
      * @param CreateProjectMemberRequest $request
@@ -3755,6 +3823,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateQualityEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateQualityEntityResponse
      *
      * @param CreateQualityEntityRequest $request
@@ -3794,15 +3863,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateQualityEntity',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateQualityEntity',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateQualityEntityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3815,6 +3884,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a partition filter expression.
      *
      * @param request - CreateQualityEntityRequest
+     *
      * @returns CreateQualityEntityResponse
      *
      * @param CreateQualityEntityRequest $request
@@ -3833,6 +3903,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateQualityFollowerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateQualityFollowerResponse
      *
      * @param CreateQualityFollowerRequest $request
@@ -3868,15 +3939,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateQualityFollower',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateQualityFollower',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateQualityFollowerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3889,6 +3960,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a subscriber for a partition filter expression.
      *
      * @param request - CreateQualityFollowerRequest
+     *
      * @returns CreateQualityFollowerResponse
      *
      * @param CreateQualityFollowerRequest $request
@@ -3907,6 +3979,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateQualityRelativeNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateQualityRelativeNodeResponse
      *
      * @param CreateQualityRelativeNodeRequest $request
@@ -3954,15 +4027,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateQualityRelativeNode',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateQualityRelativeNode',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateQualityRelativeNodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3975,6 +4048,7 @@ class Dataworkspublic extends OpenApiClient
      * Associates a node with a partition filter expression.
      *
      * @param request - CreateQualityRelativeNodeRequest
+     *
      * @returns CreateQualityRelativeNodeResponse
      *
      * @param CreateQualityRelativeNodeRequest $request
@@ -3993,6 +4067,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateQualityRuleResponse
      *
      * @param CreateQualityRuleRequest $request
@@ -4088,15 +4163,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateQualityRule',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateQualityRule',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4109,6 +4184,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a monitoring rule.
      *
      * @param request - CreateQualityRuleRequest
+     *
      * @returns CreateQualityRuleResponse
      *
      * @param CreateQualityRuleRequest $request
@@ -4127,6 +4203,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateRemindRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateRemindResponse
      *
      * @param CreateRemindRequest $request
@@ -4206,15 +4283,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateRemind',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRemind',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateRemindResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4227,6 +4304,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a custom alert rule.
      *
      * @param request - CreateRemindRequest
+     *
      * @returns CreateRemindResponse
      *
      * @param CreateRemindRequest $request
@@ -4245,6 +4323,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateResourceFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateResourceFileResponse
      *
      * @param CreateResourceFileRequest $request
@@ -4308,15 +4387,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateResourceFile',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateResourceFile',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateResourceFileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4329,6 +4408,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates or uploads a resource file in DataStudio. The feature that is implemented by calling this operation is the same as the resource creation feature provided in the integrated development environment (IDE).
      *
      * @param request - CreateResourceFileRequest
+     *
      * @returns CreateResourceFileResponse
      *
      * @param CreateResourceFileRequest $request
@@ -4351,10 +4431,10 @@ class Dataworkspublic extends OpenApiClient
     public function createResourceFileAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
@@ -4365,56 +4445,56 @@ class Dataworkspublic extends OpenApiClient
         }
 
         $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $authClient  = new OpenPlatform($authConfig);
+        $authClient = new OpenPlatform($authConfig);
         $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'dataworks-public',
+            'product' => 'dataworks-public',
             'regionId' => $this->_regionId,
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeyId'     => $accessKeyId,
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $ossClient     = new OSS($ossConfig);
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
         $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         Utils::convert($runtime, $ossRuntime);
         $createResourceFileReq = new CreateResourceFileRequest([]);
         Utils::convert($request, $createResourceFileReq);
         if (null !== $request->resourceFileObject) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->resourceFileObject,
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->resourceFileObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
                 'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
+                'header' => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
             $createResourceFileReq->resourceFile = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
@@ -4428,6 +4508,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTableResponse
      *
      * @param CreateTableRequest $request
@@ -4522,18 +4603,18 @@ class Dataworkspublic extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTable',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTable',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4546,6 +4627,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a MaxCompute table or view.
      *
      * @param request - CreateTableRequest
+     *
      * @returns CreateTableResponse
      *
      * @param CreateTableRequest $request
@@ -4564,6 +4646,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateTableLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTableLevelResponse
      *
      * @param CreateTableLevelRequest $request
@@ -4595,15 +4678,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTableLevel',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTableLevel',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTableLevelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4616,6 +4699,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param request - CreateTableLevelRequest
+     *
      * @returns CreateTableLevelResponse
      *
      * @param CreateTableLevelRequest $request
@@ -4634,6 +4718,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateTableThemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTableThemeResponse
      *
      * @param CreateTableThemeRequest $request
@@ -4665,15 +4750,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTableTheme',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTableTheme',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateTableThemeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4686,6 +4771,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a table theme. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param request - CreateTableThemeRequest
+     *
      * @returns CreateTableThemeResponse
      *
      * @param CreateTableThemeRequest $request
@@ -4704,6 +4790,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - CreateUdfFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateUdfFileResponse
      *
      * @param CreateUdfFileRequest $request
@@ -4771,15 +4858,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateUdfFile',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateUdfFile',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateUdfFileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4792,6 +4879,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a file for a function in DataStudio.
      *
      * @param request - CreateUdfFileRequest
+     *
      * @returns CreateUdfFileResponse
      *
      * @param CreateUdfFileRequest $request
@@ -4810,6 +4898,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteBaselineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteBaselineResponse
      *
      * @param DeleteBaselineRequest $request
@@ -4833,15 +4922,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteBaseline',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteBaseline',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4854,6 +4943,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a baseline based on its ID. You can delete a baseline only if the nodes in the baseline does not have ancestor nodes. You can call the UpdateBaseline operation to delete the relationships between the nodes and their ancestor nodes.
      *
      * @param request - DeleteBaselineRequest
+     *
      * @returns DeleteBaselineResponse
      *
      * @param DeleteBaselineRequest $request
@@ -4870,6 +4960,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @param request - DeleteBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteBusinessResponse
      *
      * @param DeleteBusinessRequest $request
@@ -4897,15 +4988,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteBusiness',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteBusiness',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4916,6 +5007,7 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * @param request - DeleteBusinessRequest
+     *
      * @returns DeleteBusinessResponse
      *
      * @param DeleteBusinessRequest $request
@@ -4930,7 +5022,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Removes a data source.
      *
@@ -4938,6 +5029,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteConnectionResponse
      *
      * @param DeleteConnectionRequest $request
@@ -4957,15 +5049,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteConnection',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteConnection',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4975,13 +5067,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Removes a data source.
      *
      * @deprecated OpenAPI DeleteConnection is deprecated
      *
      * @param request - DeleteConnectionRequest
+     *
      * @returns DeleteConnectionResponse
      *
      * @param DeleteConnectionRequest $request
@@ -5003,6 +5095,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteDIAlarmRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDIAlarmRuleResponse
      *
      * @param DeleteDIAlarmRuleRequest $request
@@ -5022,15 +5115,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDIAlarmRule',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDIAlarmRule',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5046,6 +5139,7 @@ class Dataworkspublic extends OpenApiClient
      * You can configure alert rules only for tasks whose MigrationType is set to RealtimeIncremental.
      *
      * @param request - DeleteDIAlarmRuleRequest
+     *
      * @returns DeleteDIAlarmRuleResponse
      *
      * @param DeleteDIAlarmRuleRequest $request
@@ -5064,6 +5158,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteDIJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDIJobResponse
      *
      * @param DeleteDIJobRequest $request
@@ -5083,15 +5178,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDIJob',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDIJob',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5104,6 +5199,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a Data Integration task of a new version. Only the following type of task is supported: real-time data synchronization from a MySQL database to Hologres.
      *
      * @param request - DeleteDIJobRequest
+     *
      * @returns DeleteDIJobResponse
      *
      * @param DeleteDIJobRequest $request
@@ -5125,6 +5221,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteDISyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDISyncTaskResponse
      *
      * @param DeleteDISyncTaskRequest $request
@@ -5152,15 +5249,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDISyncTask',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDISyncTask',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDISyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5176,6 +5273,7 @@ class Dataworkspublic extends OpenApiClient
      * If you want to delete a batch synchronization task, call the DeleteFile operation. For more information, see [Delete a synchronization task](https://help.aliyun.com/document_detail/321443.html).
      *
      * @param request - DeleteDISyncTaskRequest
+     *
      * @returns DeleteDISyncTaskResponse
      *
      * @param DeleteDISyncTaskRequest $request
@@ -5194,6 +5292,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDataServiceApiResponse
      *
      * @param DeleteDataServiceApiRequest $request
@@ -5221,15 +5320,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDataServiceApi',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDataServiceApi',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5242,6 +5341,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes an API in DataService Studio.
      *
      * @param request - DeleteDataServiceApiRequest
+     *
      * @returns DeleteDataServiceApiResponse
      *
      * @param DeleteDataServiceApiRequest $request
@@ -5260,6 +5360,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteDataServiceApiAuthorityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDataServiceApiAuthorityResponse
      *
      * @param DeleteDataServiceApiAuthorityRequest $request
@@ -5291,15 +5392,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDataServiceApiAuthority',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDataServiceApiAuthority',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDataServiceApiAuthorityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5312,6 +5413,7 @@ class Dataworkspublic extends OpenApiClient
      * Revokes the access permissions on an API.
      *
      * @param request - DeleteDataServiceApiAuthorityRequest
+     *
      * @returns DeleteDataServiceApiAuthorityResponse
      *
      * @param DeleteDataServiceApiAuthorityRequest $request
@@ -5330,6 +5432,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDataSourceResponse
      *
      * @param DeleteDataSourceRequest $request
@@ -5349,15 +5452,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDataSource',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDataSource',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5370,6 +5473,7 @@ class Dataworkspublic extends OpenApiClient
      * Removes a data source.
      *
      * @param request - DeleteDataSourceRequest
+     *
      * @returns DeleteDataSourceResponse
      *
      * @param DeleteDataSourceRequest $request
@@ -5388,6 +5492,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteFileResponse
      *
      * @param DeleteFileRequest $request
@@ -5415,15 +5520,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFile',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteFile',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteFileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5436,6 +5541,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a file from DataStudio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
      *
      * @param request - DeleteFileRequest
+     *
      * @returns DeleteFileResponse
      *
      * @param DeleteFileRequest $request
@@ -5452,6 +5558,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @param request - DeleteFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteFolderResponse
      *
      * @param DeleteFolderRequest $request
@@ -5479,15 +5586,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFolder',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteFolder',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteFolderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5498,6 +5605,7 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * @param request - DeleteFolderRequest
+     *
      * @returns DeleteFolderResponse
      *
      * @param DeleteFolderRequest $request
@@ -5516,6 +5624,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteFromMetaCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteFromMetaCategoryResponse
      *
      * @param DeleteFromMetaCategoryRequest $request
@@ -5539,15 +5648,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFromMetaCategory',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteFromMetaCategory',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteFromMetaCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5560,6 +5669,7 @@ class Dataworkspublic extends OpenApiClient
      * Removes a table from a specified category.
      *
      * @param request - DeleteFromMetaCategoryRequest
+     *
      * @returns DeleteFromMetaCategoryResponse
      *
      * @param DeleteFromMetaCategoryRequest $request
@@ -5581,6 +5691,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteLineageRelationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteLineageRelationResponse
      *
      * @param DeleteLineageRelationRequest $request
@@ -5612,15 +5723,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteLineageRelation',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteLineageRelation',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteLineageRelationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5636,6 +5747,7 @@ class Dataworkspublic extends OpenApiClient
      * This API is currently in the trial phase. Users who wish to experience it can apply, and after the administrator adds them to the trial list, they can call this API.
      *
      * @param request - DeleteLineageRelationRequest
+     *
      * @returns DeleteLineageRelationResponse
      *
      * @param DeleteLineageRelationRequest $request
@@ -5654,6 +5766,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteMetaCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteMetaCategoryResponse
      *
      * @param DeleteMetaCategoryRequest $request
@@ -5665,19 +5778,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMetaCategory',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMetaCategory',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteMetaCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5690,6 +5803,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a category.
      *
      * @param request - DeleteMetaCategoryRequest
+     *
      * @returns DeleteMetaCategoryResponse
      *
      * @param DeleteMetaCategoryRequest $request
@@ -5708,6 +5822,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteMetaCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteMetaCollectionResponse
      *
      * @param DeleteMetaCollectionRequest $request
@@ -5727,15 +5842,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMetaCollection',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMetaCollection',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5748,6 +5863,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a collection.
      *
      * @param request - DeleteMetaCollectionRequest
+     *
      * @returns DeleteMetaCollectionResponse
      *
      * @param DeleteMetaCollectionRequest $request
@@ -5766,6 +5882,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteMetaCollectionEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteMetaCollectionEntityResponse
      *
      * @param DeleteMetaCollectionEntityRequest $request
@@ -5789,15 +5906,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMetaCollectionEntity',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMetaCollectionEntity',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteMetaCollectionEntityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5810,6 +5927,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes an entity from a collection.
      *
      * @param request - DeleteMetaCollectionEntityRequest
+     *
      * @returns DeleteMetaCollectionEntityResponse
      *
      * @param DeleteMetaCollectionEntityRequest $request
@@ -5828,6 +5946,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteProjectMemberRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteProjectMemberResponse
      *
      * @param DeleteProjectMemberRequest $request
@@ -5851,15 +5970,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteProjectMember',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteProjectMember',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteProjectMemberResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5872,6 +5991,7 @@ class Dataworkspublic extends OpenApiClient
      * Removes a user from a DataWorks workspace.
      *
      * @param request - DeleteProjectMemberRequest
+     *
      * @returns DeleteProjectMemberResponse
      *
      * @param DeleteProjectMemberRequest $request
@@ -5890,6 +6010,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteQualityEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteQualityEntityResponse
      *
      * @param DeleteQualityEntityRequest $request
@@ -5921,15 +6042,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteQualityEntity',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteQualityEntity',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteQualityEntityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5942,6 +6063,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a partition filter expression.
      *
      * @param request - DeleteQualityEntityRequest
+     *
      * @returns DeleteQualityEntityResponse
      *
      * @param DeleteQualityEntityRequest $request
@@ -5963,6 +6085,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteQualityFollowerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteQualityFollowerResponse
      *
      * @param DeleteQualityFollowerRequest $request
@@ -5990,15 +6113,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteQualityFollower',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteQualityFollower',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteQualityFollowerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6014,6 +6137,7 @@ class Dataworkspublic extends OpenApiClient
      * In Data Quality, you must configure monitoring rules based on a partition filter expression. Data Quality uses these rules to detect changes in source data and dirty data generated during the process of extract, transform, and load (ETL). This way, you can prevent tasks from producing unexpected dirty data that affects the smooth running of tasks and business decision-making. You can go to the Manage Subscriptions page to add subscribers for a partition filter expression. When the monitoring rule that is created based on the partition filter expression is triggered, the subscribers can receive notifications and troubleshoot errors at the earliest opportunity. For more information, see [Configure monitoring rules](https://help.aliyun.com/document_detail/73690.html).
      *
      * @param request - DeleteQualityFollowerRequest
+     *
      * @returns DeleteQualityFollowerResponse
      *
      * @param DeleteQualityFollowerRequest $request
@@ -6030,6 +6154,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @param request - DeleteQualityRelativeNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteQualityRelativeNodeResponse
      *
      * @param DeleteQualityRelativeNodeRequest $request
@@ -6077,15 +6202,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteQualityRelativeNode',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteQualityRelativeNode',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteQualityRelativeNodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6096,6 +6221,7 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * @param request - DeleteQualityRelativeNodeRequest
+     *
      * @returns DeleteQualityRelativeNodeResponse
      *
      * @param DeleteQualityRelativeNodeRequest $request
@@ -6114,6 +6240,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteQualityRuleResponse
      *
      * @param DeleteQualityRuleRequest $request
@@ -6141,15 +6268,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteQualityRule',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteQualityRule',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6162,6 +6289,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a monitoring rule.
      *
      * @param request - DeleteQualityRuleRequest
+     *
      * @returns DeleteQualityRuleResponse
      *
      * @param DeleteQualityRuleRequest $request
@@ -6180,6 +6308,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteRecognizeRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRecognizeRuleResponse
      *
      * @param DeleteRecognizeRuleRequest $request
@@ -6203,15 +6332,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRecognizeRule',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRecognizeRule',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteRecognizeRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6224,6 +6353,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes sensitive field types.
      *
      * @param request - DeleteRecognizeRuleRequest
+     *
      * @returns DeleteRecognizeRuleResponse
      *
      * @param DeleteRecognizeRuleRequest $request
@@ -6242,6 +6372,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteRemindRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRemindResponse
      *
      * @param DeleteRemindRequest $request
@@ -6261,15 +6392,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRemind',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRemind',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteRemindResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6282,6 +6413,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a custom alert rule.
      *
      * @param request - DeleteRemindRequest
+     *
      * @returns DeleteRemindResponse
      *
      * @param DeleteRemindRequest $request
@@ -6298,6 +6430,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @param request - DeleteTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTableResponse
      *
      * @param DeleteTableRequest $request
@@ -6333,15 +6466,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTable',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTable',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6352,6 +6485,7 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * @param request - DeleteTableRequest
+     *
      * @returns DeleteTableResponse
      *
      * @param DeleteTableRequest $request
@@ -6370,6 +6504,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteTableLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTableLevelResponse
      *
      * @param DeleteTableLevelRequest $request
@@ -6393,15 +6528,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTableLevel',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTableLevel',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTableLevelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6414,6 +6549,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a table level. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param request - DeleteTableLevelRequest
+     *
      * @returns DeleteTableLevelResponse
      *
      * @param DeleteTableLevelRequest $request
@@ -6432,6 +6568,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeleteTableThemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTableThemeResponse
      *
      * @param DeleteTableThemeRequest $request
@@ -6455,15 +6592,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTableTheme',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTableTheme',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteTableThemeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6476,6 +6613,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a table theme. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param request - DeleteTableThemeRequest
+     *
      * @returns DeleteTableThemeResponse
      *
      * @param DeleteTableThemeRequest $request
@@ -6494,6 +6632,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeployDISyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeployDISyncTaskResponse
      *
      * @param DeployDISyncTaskRequest $request
@@ -6521,15 +6660,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeployDISyncTask',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeployDISyncTask',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeployDISyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6542,6 +6681,7 @@ class Dataworkspublic extends OpenApiClient
      * Deploys a real-time synchronization task.
      *
      * @param request - DeployDISyncTaskRequest
+     *
      * @returns DeployDISyncTaskResponse
      *
      * @param DeployDISyncTaskRequest $request
@@ -6560,6 +6700,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DeployFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeployFileResponse
      *
      * @param DeployFileRequest $request
@@ -6595,15 +6736,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeployFile',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeployFile',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeployFileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6616,6 +6757,7 @@ class Dataworkspublic extends OpenApiClient
      * Deploys a file to the production environment.
      *
      * @param request - DeployFileRequest
+     *
      * @returns DeployFileResponse
      *
      * @param DeployFileRequest $request
@@ -6634,6 +6776,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DesensitizeDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DesensitizeDataResponse
      *
      * @param DesensitizeDataRequest $request
@@ -6645,19 +6788,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DesensitizeData',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DesensitizeData',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DesensitizeDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6670,6 +6813,7 @@ class Dataworkspublic extends OpenApiClient
      * Masks data.
      *
      * @param request - DesensitizeDataRequest
+     *
      * @returns DesensitizeDataResponse
      *
      * @param DesensitizeDataRequest $request
@@ -6688,6 +6832,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - DsgDesensPlanAddOrUpdateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgDesensPlanAddOrUpdateResponse
      *
      * @param DsgDesensPlanAddOrUpdateRequest $tmpReq
@@ -6713,15 +6858,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DsgDesensPlanAddOrUpdate',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgDesensPlanAddOrUpdate',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgDesensPlanAddOrUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6734,6 +6879,7 @@ class Dataworkspublic extends OpenApiClient
      * Adds or modifies a data masking rule.
      *
      * @param request - DsgDesensPlanAddOrUpdateRequest
+     *
      * @returns DsgDesensPlanAddOrUpdateResponse
      *
      * @param DsgDesensPlanAddOrUpdateRequest $request
@@ -6752,6 +6898,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - DsgDesensPlanDeleteRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgDesensPlanDeleteResponse
      *
      * @param DsgDesensPlanDeleteRequest $tmpReq
@@ -6781,15 +6928,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DsgDesensPlanDelete',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgDesensPlanDelete',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgDesensPlanDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6802,6 +6949,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a data masking rule created in Data Security Guard.
      *
      * @param request - DsgDesensPlanDeleteRequest
+     *
      * @returns DsgDesensPlanDeleteResponse
      *
      * @param DsgDesensPlanDeleteRequest $request
@@ -6820,6 +6968,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DsgDesensPlanQueryListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgDesensPlanQueryListResponse
      *
      * @param DsgDesensPlanQueryListRequest $request
@@ -6831,19 +6980,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DsgDesensPlanQueryList',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgDesensPlanQueryList',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgDesensPlanQueryListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6856,6 +7005,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of data masking rules.
      *
      * @param request - DsgDesensPlanQueryListRequest
+     *
      * @returns DsgDesensPlanQueryListResponse
      *
      * @param DsgDesensPlanQueryListRequest $request
@@ -6874,6 +7024,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - DsgDesensPlanUpdateStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgDesensPlanUpdateStatusResponse
      *
      * @param DsgDesensPlanUpdateStatusRequest $tmpReq
@@ -6907,15 +7058,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DsgDesensPlanUpdateStatus',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgDesensPlanUpdateStatus',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgDesensPlanUpdateStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6928,6 +7079,7 @@ class Dataworkspublic extends OpenApiClient
      * Modifies the status of a data masking rule.
      *
      * @param request - DsgDesensPlanUpdateStatusRequest
+     *
      * @returns DsgDesensPlanUpdateStatusResponse
      *
      * @param DsgDesensPlanUpdateStatusRequest $request
@@ -6946,6 +7098,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DsgPlatformQueryProjectsAndSchemaFromMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgPlatformQueryProjectsAndSchemaFromMetaResponse
      *
      * @param DsgPlatformQueryProjectsAndSchemaFromMetaRequest $request
@@ -6957,19 +7110,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DsgPlatformQueryProjectsAndSchemaFromMeta',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgPlatformQueryProjectsAndSchemaFromMeta',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgPlatformQueryProjectsAndSchemaFromMetaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6982,6 +7135,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of compute engines of different types in the current tenant.
      *
      * @param request - DsgPlatformQueryProjectsAndSchemaFromMetaRequest
+     *
      * @returns DsgPlatformQueryProjectsAndSchemaFromMetaResponse
      *
      * @param DsgPlatformQueryProjectsAndSchemaFromMetaRequest $request
@@ -7000,6 +7154,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DsgQueryDefaultTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgQueryDefaultTemplatesResponse
      *
      * @param DsgQueryDefaultTemplatesRequest $request
@@ -7011,19 +7166,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DsgQueryDefaultTemplates',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgQueryDefaultTemplates',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgQueryDefaultTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7036,6 +7191,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of available sensitive field type templates and the data masking rules supported by the templates. You can refer to the response parameters of this operation to configure a data masking rule.
      *
      * @param request - DsgQueryDefaultTemplatesRequest
+     *
      * @returns DsgQueryDefaultTemplatesResponse
      *
      * @param DsgQueryDefaultTemplatesRequest $request
@@ -7060,6 +7216,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DsgQuerySensResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgQuerySensResultResponse
      *
      * @param DsgQuerySensResultRequest $request
@@ -7135,15 +7292,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DsgQuerySensResult',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgQuerySensResult',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgQuerySensResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7162,6 +7319,7 @@ class Dataworkspublic extends OpenApiClient
      * *   This operation supports paged query.
      *
      * @param request - DsgQuerySensResultRequest
+     *
      * @returns DsgQuerySensResultResponse
      *
      * @param DsgQuerySensResultRequest $request
@@ -7180,6 +7338,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - DsgRunSensIdentifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgRunSensIdentifyResponse
      *
      * @param DsgRunSensIdentifyRequest $tmpReq
@@ -7209,15 +7368,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DsgRunSensIdentify',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgRunSensIdentify',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgRunSensIdentifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7230,6 +7389,7 @@ class Dataworkspublic extends OpenApiClient
      * Starts a sensitive data identification task in Data Security Guard.
      *
      * @param request - DsgRunSensIdentifyRequest
+     *
      * @returns DsgRunSensIdentifyResponse
      *
      * @param DsgRunSensIdentifyRequest $request
@@ -7248,6 +7408,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - DsgSceneAddOrUpdateSceneRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgSceneAddOrUpdateSceneResponse
      *
      * @param DsgSceneAddOrUpdateSceneRequest $tmpReq
@@ -7273,15 +7434,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DsgSceneAddOrUpdateScene',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgSceneAddOrUpdateScene',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgSceneAddOrUpdateSceneResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7294,6 +7455,7 @@ class Dataworkspublic extends OpenApiClient
      * Adds or modifies a level-2 data masking scenario.
      *
      * @param request - DsgSceneAddOrUpdateSceneRequest
+     *
      * @returns DsgSceneAddOrUpdateSceneResponse
      *
      * @param DsgSceneAddOrUpdateSceneRequest $request
@@ -7312,6 +7474,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DsgSceneQuerySceneListByNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgSceneQuerySceneListByNameResponse
      *
      * @param DsgSceneQuerySceneListByNameRequest $request
@@ -7323,19 +7486,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DsgSceneQuerySceneListByName',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgSceneQuerySceneListByName',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgSceneQuerySceneListByNameResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7348,6 +7511,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of data masking scenarios.
      *
      * @param request - DsgSceneQuerySceneListByNameRequest
+     *
      * @returns DsgSceneQuerySceneListByNameResponse
      *
      * @param DsgSceneQuerySceneListByNameRequest $request
@@ -7366,6 +7530,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - DsgScenedDeleteSceneRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgScenedDeleteSceneResponse
      *
      * @param DsgScenedDeleteSceneRequest $tmpReq
@@ -7391,15 +7556,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DsgScenedDeleteScene',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgScenedDeleteScene',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgScenedDeleteSceneResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7412,6 +7577,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a level-2 data masking scenario created in Data Security Guard.
      *
      * @param request - DsgScenedDeleteSceneRequest
+     *
      * @returns DsgScenedDeleteSceneResponse
      *
      * @param DsgScenedDeleteSceneRequest $request
@@ -7430,6 +7596,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DsgStopSensIdentifyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgStopSensIdentifyResponse
      *
      * @param DsgStopSensIdentifyRequest $request
@@ -7453,15 +7620,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DsgStopSensIdentify',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgStopSensIdentify',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgStopSensIdentifyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7474,6 +7641,7 @@ class Dataworkspublic extends OpenApiClient
      * Stops a sensitive data identification task.
      *
      * @param request - DsgStopSensIdentifyRequest
+     *
      * @returns DsgStopSensIdentifyResponse
      *
      * @param DsgStopSensIdentifyRequest $request
@@ -7492,6 +7660,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - DsgUserGroupAddOrUpdateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgUserGroupAddOrUpdateResponse
      *
      * @param DsgUserGroupAddOrUpdateRequest $tmpReq
@@ -7517,15 +7686,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DsgUserGroupAddOrUpdate',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgUserGroupAddOrUpdate',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgUserGroupAddOrUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7538,6 +7707,7 @@ class Dataworkspublic extends OpenApiClient
      * Adds or modifies a user group.
      *
      * @param request - DsgUserGroupAddOrUpdateRequest
+     *
      * @returns DsgUserGroupAddOrUpdateResponse
      *
      * @param DsgUserGroupAddOrUpdateRequest $request
@@ -7556,6 +7726,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - DsgUserGroupDeleteRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgUserGroupDeleteResponse
      *
      * @param DsgUserGroupDeleteRequest $tmpReq
@@ -7581,15 +7752,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DsgUserGroupDelete',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgUserGroupDelete',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgUserGroupDeleteResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7602,6 +7773,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a user group configured in Data Security Guard.
      *
      * @param request - DsgUserGroupDeleteRequest
+     *
      * @returns DsgUserGroupDeleteResponse
      *
      * @param DsgUserGroupDeleteRequest $request
@@ -7620,6 +7792,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DsgUserGroupGetOdpsRoleGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgUserGroupGetOdpsRoleGroupsResponse
      *
      * @param DsgUserGroupGetOdpsRoleGroupsRequest $request
@@ -7631,19 +7804,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DsgUserGroupGetOdpsRoleGroups',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgUserGroupGetOdpsRoleGroups',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgUserGroupGetOdpsRoleGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7656,6 +7829,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of MaxCompute roles that can be selected by the members of a user group when the user group is created or modified by the tenant in Data Security Guard.
      *
      * @param request - DsgUserGroupGetOdpsRoleGroupsRequest
+     *
      * @returns DsgUserGroupGetOdpsRoleGroupsResponse
      *
      * @param DsgUserGroupGetOdpsRoleGroupsRequest $request
@@ -7674,6 +7848,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DsgUserGroupQueryListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgUserGroupQueryListResponse
      *
      * @param DsgUserGroupQueryListRequest $request
@@ -7685,19 +7860,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DsgUserGroupQueryList',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgUserGroupQueryList',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgUserGroupQueryListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7710,6 +7885,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of user groups in Data Security Guard.
      *
      * @param request - DsgUserGroupQueryListRequest
+     *
      * @returns DsgUserGroupQueryListResponse
      *
      * @param DsgUserGroupQueryListRequest $request
@@ -7728,6 +7904,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DsgUserGroupQueryUserListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgUserGroupQueryUserListResponse
      *
      * @param RuntimeOptions $runtime
@@ -7736,17 +7913,17 @@ class Dataworkspublic extends OpenApiClient
      */
     public function dsgUserGroupQueryUserListWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DsgUserGroupQueryUserList',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgUserGroupQueryUserList',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgUserGroupQueryUserListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7774,6 +7951,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - DsgWhiteListAddOrUpdateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgWhiteListAddOrUpdateResponse
      *
      * @param DsgWhiteListAddOrUpdateRequest $tmpReq
@@ -7799,15 +7977,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DsgWhiteListAddOrUpdate',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgWhiteListAddOrUpdate',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgWhiteListAddOrUpdateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7820,6 +7998,7 @@ class Dataworkspublic extends OpenApiClient
      * Adds or modifies a data masking whitelist.
      *
      * @param request - DsgWhiteListAddOrUpdateRequest
+     *
      * @returns DsgWhiteListAddOrUpdateResponse
      *
      * @param DsgWhiteListAddOrUpdateRequest $request
@@ -7838,6 +8017,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - DsgWhiteListDeleteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgWhiteListDeleteListResponse
      *
      * @param DsgWhiteListDeleteListRequest $tmpReq
@@ -7863,15 +8043,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DsgWhiteListDeleteList',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgWhiteListDeleteList',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgWhiteListDeleteListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7884,6 +8064,7 @@ class Dataworkspublic extends OpenApiClient
      * Deletes a data masking whitelist configured in Data Security Guard.
      *
      * @param request - DsgWhiteListDeleteListRequest
+     *
      * @returns DsgWhiteListDeleteListResponse
      *
      * @param DsgWhiteListDeleteListRequest $request
@@ -7902,6 +8083,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - DsgWhiteListQueryListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DsgWhiteListQueryListResponse
      *
      * @param DsgWhiteListQueryListRequest $request
@@ -7913,19 +8095,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DsgWhiteListQueryList',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DsgWhiteListQueryList',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DsgWhiteListQueryListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7938,6 +8120,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a data masking whitelist.
      *
      * @param request - DsgWhiteListQueryListRequest
+     *
      * @returns DsgWhiteListQueryListResponse
      *
      * @param DsgWhiteListQueryListRequest $request
@@ -7956,6 +8139,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - EditRecognizeRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EditRecognizeRuleResponse
      *
      * @param EditRecognizeRuleRequest $request
@@ -8047,15 +8231,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EditRecognizeRule',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EditRecognizeRule',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EditRecognizeRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8068,6 +8252,7 @@ class Dataworkspublic extends OpenApiClient
      * Edits a sensitive field that is defined based on the category and sensitivity level of data in Data Security Guard.
      *
      * @param request - EditRecognizeRuleRequest
+     *
      * @returns EditRecognizeRuleResponse
      *
      * @param EditRecognizeRuleRequest $request
@@ -8084,6 +8269,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @param request - EstablishRelationTableToBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EstablishRelationTableToBusinessResponse
      *
      * @param EstablishRelationTableToBusinessRequest $request
@@ -8119,15 +8305,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'EstablishRelationTableToBusiness',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EstablishRelationTableToBusiness',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EstablishRelationTableToBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8138,6 +8324,7 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * @param request - EstablishRelationTableToBusinessRequest
+     *
      * @returns EstablishRelationTableToBusinessResponse
      *
      * @param EstablishRelationTableToBusinessRequest $request
@@ -8156,6 +8343,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ExportDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExportDataSourcesResponse
      *
      * @param ExportDataSourcesRequest $request
@@ -8167,19 +8355,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExportDataSources',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExportDataSources',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExportDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8192,6 +8380,7 @@ class Dataworkspublic extends OpenApiClient
      * Exports a list of data sources.
      *
      * @param request - ExportDataSourcesRequest
+     *
      * @returns ExportDataSourcesResponse
      *
      * @param ExportDataSourcesRequest $request
@@ -8213,6 +8402,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GenerateDISyncTaskConfigForCreatingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenerateDISyncTaskConfigForCreatingResponse
      *
      * @param GenerateDISyncTaskConfigForCreatingRequest $request
@@ -8244,15 +8434,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateDISyncTaskConfigForCreating',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateDISyncTaskConfigForCreating',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GenerateDISyncTaskConfigForCreatingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8268,6 +8458,7 @@ class Dataworkspublic extends OpenApiClient
      * DataWorks allows you to use the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to directly create a batch synchronization task in Data Integration. To create a real-time synchronization task or another type of synchronization task, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can use the parameters as request parameters of [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) and call the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to create a real-time synchronization task or another type of synchronization task. DataWorks allows you to create real-time synchronization tasks and other types of synchronization tasks in Data Integration only in asynchronous mode.
      *
      * @param request - GenerateDISyncTaskConfigForCreatingRequest
+     *
      * @returns GenerateDISyncTaskConfigForCreatingResponse
      *
      * @param GenerateDISyncTaskConfigForCreatingRequest $request
@@ -8289,6 +8480,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GenerateDISyncTaskConfigForUpdatingRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenerateDISyncTaskConfigForUpdatingResponse
      *
      * @param GenerateDISyncTaskConfigForUpdatingRequest $request
@@ -8324,15 +8516,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateDISyncTaskConfigForUpdating',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateDISyncTaskConfigForUpdating',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GenerateDISyncTaskConfigForUpdatingResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8348,6 +8540,7 @@ class Dataworkspublic extends OpenApiClient
      * DataWorks allows you to use only the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update a batch synchronization task in Data Integration. To update a real-time synchronization task, you must first call the GenerateDISyncTaskConfigForUpdating operation to generate the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the UpdateDISyncTask operation and use the parameters as request parameters to update a real-time synchronization task in Data Integration. DataWorks allows you to create or update real-time synchronization tasks in Data Integration only in asynchronous mode.
      *
      * @param request - GenerateDISyncTaskConfigForUpdatingRequest
+     *
      * @returns GenerateDISyncTaskConfigForUpdatingResponse
      *
      * @param GenerateDISyncTaskConfigForUpdatingRequest $request
@@ -8366,6 +8559,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetAlertMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAlertMessageResponse
      *
      * @param GetAlertMessageRequest $request
@@ -8385,15 +8579,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetAlertMessage',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAlertMessage',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAlertMessageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8406,6 +8600,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries alert information based on the alert ID that is specified by the AlertId parameter.
      *
      * @param request - GetAlertMessageRequest
+     *
      * @returns GetAlertMessageResponse
      *
      * @param GetAlertMessageRequest $request
@@ -8424,6 +8619,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetBaselineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetBaselineResponse
      *
      * @param GetBaselineRequest $request
@@ -8447,15 +8643,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetBaseline',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBaseline',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8468,6 +8664,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about a baseline based on its ID.
      *
      * @param request - GetBaselineRequest
+     *
      * @returns GetBaselineResponse
      *
      * @param GetBaselineRequest $request
@@ -8486,6 +8683,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetBaselineConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetBaselineConfigResponse
      *
      * @param GetBaselineConfigRequest $request
@@ -8505,15 +8703,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetBaselineConfig',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBaselineConfig',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetBaselineConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8526,6 +8724,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the configurations of a baseline.
      *
      * @param request - GetBaselineConfigRequest
+     *
      * @returns GetBaselineConfigResponse
      *
      * @param GetBaselineConfigRequest $request
@@ -8544,6 +8743,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetBaselineKeyPathRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetBaselineKeyPathResponse
      *
      * @param GetBaselineKeyPathRequest $request
@@ -8571,15 +8771,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetBaselineKeyPath',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBaselineKeyPath',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetBaselineKeyPathResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8592,6 +8792,7 @@ class Dataworkspublic extends OpenApiClient
      * The information about the events that are associated with the instance.
      *
      * @param request - GetBaselineKeyPathRequest
+     *
      * @returns GetBaselineKeyPathResponse
      *
      * @param GetBaselineKeyPathRequest $request
@@ -8610,6 +8811,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetBaselineStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetBaselineStatusResponse
      *
      * @param GetBaselineStatusRequest $request
@@ -8637,15 +8839,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetBaselineStatus',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBaselineStatus',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetBaselineStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8658,6 +8860,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the details of a baseline instance.
      *
      * @param request - GetBaselineStatusRequest
+     *
      * @returns GetBaselineStatusResponse
      *
      * @param GetBaselineStatusRequest $request
@@ -8676,6 +8879,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetBusinessResponse
      *
      * @param GetBusinessRequest $request
@@ -8703,15 +8907,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetBusiness',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetBusiness',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8724,6 +8928,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about a workflow.
      *
      * @param request - GetBusinessRequest
+     *
      * @returns GetBusinessResponse
      *
      * @param GetBusinessRequest $request
@@ -8742,6 +8947,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetDDLJobStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDDLJobStatusResponse
      *
      * @param GetDDLJobStatusRequest $request
@@ -8753,19 +8959,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDDLJobStatus',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDDLJobStatus',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDDLJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8778,6 +8984,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the status of a table creation, update, or deletion task.
      *
      * @param request - GetDDLJobStatusRequest
+     *
      * @returns GetDDLJobStatusResponse
      *
      * @param GetDDLJobStatusRequest $request
@@ -8799,6 +9006,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetDIAlarmRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDIAlarmRuleResponse
      *
      * @param GetDIAlarmRuleRequest $request
@@ -8818,15 +9026,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDIAlarmRule',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDIAlarmRule',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8842,6 +9050,7 @@ class Dataworkspublic extends OpenApiClient
      * You can configure alert rules only for tasks that can be used for real-time data synchronization.
      *
      * @param request - GetDIAlarmRuleRequest
+     *
      * @returns GetDIAlarmRuleResponse
      *
      * @param GetDIAlarmRuleRequest $request
@@ -8860,6 +9069,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetDIJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDIJobResponse
      *
      * @param GetDIJobRequest $request
@@ -8883,15 +9093,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDIJob',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDIJob',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8904,6 +9114,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about a new-version synchronization task created in Data Integration. The following types of synchronization tasks are supported: real-time synchronization of all data in a MySQL database to Hologres.
      *
      * @param request - GetDIJobRequest
+     *
      * @returns GetDIJobResponse
      *
      * @param GetDIJobRequest $request
@@ -8922,6 +9133,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetDISyncInstanceInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDISyncInstanceInfoResponse
      *
      * @param GetDISyncInstanceInfoRequest $request
@@ -8949,15 +9161,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDISyncInstanceInfo',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDISyncInstanceInfo',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDISyncInstanceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8970,6 +9182,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the status of a real-time synchronization task or a data synchronization solution.
      *
      * @param request - GetDISyncInstanceInfoRequest
+     *
      * @returns GetDISyncInstanceInfoResponse
      *
      * @param GetDISyncInstanceInfoRequest $request
@@ -8988,6 +9201,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetDISyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDISyncTaskResponse
      *
      * @param GetDISyncTaskRequest $request
@@ -9015,15 +9229,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDISyncTask',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDISyncTask',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDISyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9036,6 +9250,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the details of a real-time synchronization task or a data synchronization solution.
      *
      * @param request - GetDISyncTaskRequest
+     *
      * @returns GetDISyncTaskResponse
      *
      * @param GetDISyncTaskRequest $request
@@ -9066,6 +9281,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetDagRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDagResponse
      *
      * @param GetDagRequest  $request
@@ -9089,15 +9305,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDag',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDag',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDagResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9122,6 +9338,7 @@ class Dataworkspublic extends OpenApiClient
      * *   SUCCESS
      *
      * @param request - GetDagRequest
+     *
      * @returns GetDagResponse
      *
      * @param GetDagRequest $request
@@ -9140,6 +9357,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDataServiceApiResponse
      *
      * @param GetDataServiceApiRequest $request
@@ -9167,15 +9385,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDataServiceApi',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDataServiceApi',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9188,6 +9406,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the details of a DataService Studio API in the development state.
      *
      * @param request - GetDataServiceApiRequest
+     *
      * @returns GetDataServiceApiResponse
      *
      * @param GetDataServiceApiRequest $request
@@ -9206,6 +9425,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetDataServiceApiTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDataServiceApiTestResponse
      *
      * @param GetDataServiceApiTestRequest $request
@@ -9217,19 +9437,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDataServiceApiTest',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDataServiceApiTest',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDataServiceApiTestResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9242,6 +9462,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the test results of an API in DataService Studio.
      *
      * @param request - GetDataServiceApiTestRequest
+     *
      * @returns GetDataServiceApiTestResponse
      *
      * @param GetDataServiceApiTestRequest $request
@@ -9260,6 +9481,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetDataServiceApplicationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDataServiceApplicationResponse
      *
      * @param GetDataServiceApplicationRequest $request
@@ -9287,15 +9509,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDataServiceApplication',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDataServiceApplication',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDataServiceApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9308,6 +9530,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the details of an application.
      *
      * @param request - GetDataServiceApplicationRequest
+     *
      * @returns GetDataServiceApplicationResponse
      *
      * @param GetDataServiceApplicationRequest $request
@@ -9326,6 +9549,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetDataServiceFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDataServiceFolderResponse
      *
      * @param GetDataServiceFolderRequest $request
@@ -9353,15 +9577,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDataServiceFolder',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDataServiceFolder',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDataServiceFolderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9374,6 +9598,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a folder.
      *
      * @param request - GetDataServiceFolderRequest
+     *
      * @returns GetDataServiceFolderResponse
      *
      * @param GetDataServiceFolderRequest $request
@@ -9392,6 +9617,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetDataServiceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDataServiceGroupResponse
      *
      * @param GetDataServiceGroupRequest $request
@@ -9419,15 +9645,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDataServiceGroup',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDataServiceGroup',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDataServiceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9440,6 +9666,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a business process.
      *
      * @param request - GetDataServiceGroupRequest
+     *
      * @returns GetDataServiceGroupResponse
      *
      * @param GetDataServiceGroupRequest $request
@@ -9458,6 +9685,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetDataServicePublishedApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDataServicePublishedApiResponse
      *
      * @param GetDataServicePublishedApiRequest $request
@@ -9485,15 +9713,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDataServicePublishedApi',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDataServicePublishedApi',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDataServicePublishedApiResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9506,6 +9734,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about a DataService Studio API in the published state.
      *
      * @param request - GetDataServicePublishedApiRequest
+     *
      * @returns GetDataServicePublishedApiResponse
      *
      * @param GetDataServicePublishedApiRequest $request
@@ -9524,6 +9753,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetDataSourceMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDataSourceMetaResponse
      *
      * @param GetDataSourceMetaRequest $request
@@ -9559,15 +9789,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDataSourceMeta',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDataSourceMeta',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDataSourceMetaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9580,6 +9810,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the metadata of a specified data source.
      *
      * @param request - GetDataSourceMetaRequest
+     *
      * @returns GetDataSourceMetaResponse
      *
      * @param GetDataSourceMetaRequest $request
@@ -9598,6 +9829,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetDeploymentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDeploymentResponse
      *
      * @param GetDeploymentRequest $request
@@ -9625,15 +9857,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetDeployment',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDeployment',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9646,6 +9878,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about a deployment package.
      *
      * @param request - GetDeploymentRequest
+     *
      * @returns GetDeploymentResponse
      *
      * @param GetDeploymentRequest $request
@@ -9664,6 +9897,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetExtensionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetExtensionResponse
      *
      * @param GetExtensionRequest $request
@@ -9683,15 +9917,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetExtension',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetExtension',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9704,6 +9938,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the details of an extension.
      *
      * @param request - GetExtensionRequest
+     *
      * @returns GetExtensionResponse
      *
      * @param GetExtensionRequest $request
@@ -9722,6 +9957,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFileResponse
      *
      * @param GetFileRequest $request
@@ -9753,15 +9989,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFile',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFile',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9774,6 +10010,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about a file.
      *
      * @param request - GetFileRequest
+     *
      * @returns GetFileResponse
      *
      * @param GetFileRequest $request
@@ -9792,6 +10029,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetFileTypeStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFileTypeStatisticResponse
      *
      * @param GetFileTypeStatisticRequest $request
@@ -9815,15 +10053,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFileTypeStatistic',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFileTypeStatistic',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFileTypeStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9836,6 +10074,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the distribution of node types.
      *
      * @param request - GetFileTypeStatisticRequest
+     *
      * @returns GetFileTypeStatisticResponse
      *
      * @param GetFileTypeStatisticRequest $request
@@ -9854,6 +10093,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetFileVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFileVersionResponse
      *
      * @param GetFileVersionRequest $request
@@ -9885,15 +10125,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFileVersion',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFileVersion',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFileVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9906,6 +10146,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about a file version.
      *
      * @param request - GetFileVersionRequest
+     *
      * @returns GetFileVersionResponse
      *
      * @param GetFileVersionRequest $request
@@ -9924,6 +10165,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFolderResponse
      *
      * @param GetFolderRequest $request
@@ -9955,15 +10197,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetFolder',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFolder',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetFolderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9976,6 +10218,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about a folder.
      *
      * @param request - GetFolderRequest
+     *
      * @returns GetFolderResponse
      *
      * @param GetFolderRequest $request
@@ -9994,6 +10237,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetIDEEventDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetIDEEventDetailResponse
      *
      * @param GetIDEEventDetailRequest $request
@@ -10017,15 +10261,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetIDEEventDetail',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetIDEEventDetail',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetIDEEventDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10038,6 +10282,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the data snapshot of an extension point based on the ID of a message in DataWorks OpenEvent when the related extension point event is triggered.
      *
      * @param request - GetIDEEventDetailRequest
+     *
      * @returns GetIDEEventDetailResponse
      *
      * @param GetIDEEventDetailRequest $request
@@ -10056,6 +10301,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceResponse
      *
      * @param GetInstanceRequest $request
@@ -10079,15 +10325,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetInstance',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstance',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10100,6 +10346,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about an instance.
      *
      * @param request - GetInstanceRequest
+     *
      * @returns GetInstanceResponse
      *
      * @param GetInstanceRequest $request
@@ -10114,7 +10361,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the ranking of the running durations of instances.
      *
@@ -10122,6 +10368,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetInstanceConsumeTimeRankRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceConsumeTimeRankResponse
      *
      * @param GetInstanceConsumeTimeRankRequest $request
@@ -10145,15 +10392,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceConsumeTimeRank',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceConsumeTimeRank',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceConsumeTimeRankResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10163,13 +10410,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the ranking of the running durations of instances.
      *
      * @deprecated OpenAPI GetInstanceConsumeTimeRank is deprecated
      *
      * @param request - GetInstanceConsumeTimeRankRequest
+     *
      * @returns GetInstanceConsumeTimeRankResponse
      *
      * @param GetInstanceConsumeTimeRankRequest $request
@@ -10184,7 +10431,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the quantity trend of auto triggered instances.
      *
@@ -10192,6 +10438,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetInstanceCountTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceCountTrendResponse
      *
      * @param GetInstanceCountTrendRequest $request
@@ -10219,15 +10466,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceCountTrend',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceCountTrend',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceCountTrendResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10237,13 +10484,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the quantity trend of auto triggered instances.
      *
      * @deprecated OpenAPI GetInstanceCountTrend is deprecated
      *
      * @param request - GetInstanceCountTrendRequest
+     *
      * @returns GetInstanceCountTrendResponse
      *
      * @param GetInstanceCountTrendRequest $request
@@ -10258,7 +10505,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the ranking of nodes on which errors occur within the last month.
      *
@@ -10266,6 +10512,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetInstanceErrorRankRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceErrorRankResponse
      *
      * @param GetInstanceErrorRankRequest $request
@@ -10285,15 +10532,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceErrorRank',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceErrorRank',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceErrorRankResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10303,13 +10550,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the ranking of nodes on which errors occur within the last month.
      *
      * @deprecated OpenAPI GetInstanceErrorRank is deprecated
      *
      * @param request - GetInstanceErrorRankRequest
+     *
      * @returns GetInstanceErrorRankResponse
      *
      * @param GetInstanceErrorRankRequest $request
@@ -10331,6 +10578,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetInstanceLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceLogResponse
      *
      * @param GetInstanceLogRequest $request
@@ -10358,15 +10606,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceLog',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceLog',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10382,6 +10630,7 @@ class Dataworkspublic extends OpenApiClient
      * You may not obtain the instance logs that were generated more than seven days ago.
      *
      * @param request - GetInstanceLogRequest
+     *
      * @returns GetInstanceLogResponse
      *
      * @param GetInstanceLogRequest $request
@@ -10396,7 +10645,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the statistics of instances in different states.
      *
@@ -10404,6 +10652,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetInstanceStatusCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceStatusCountResponse
      *
      * @param GetInstanceStatusCountRequest $request
@@ -10431,15 +10680,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceStatusCount',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceStatusCount',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceStatusCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10449,13 +10698,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the statistics of instances in different states.
      *
      * @deprecated OpenAPI GetInstanceStatusCount is deprecated
      *
      * @param request - GetInstanceStatusCountRequest
+     *
      * @returns GetInstanceStatusCountResponse
      *
      * @param GetInstanceStatusCountRequest $request
@@ -10474,6 +10723,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetInstanceStatusStatisticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetInstanceStatusStatisticResponse
      *
      * @param GetInstanceStatusStatisticRequest $request
@@ -10513,15 +10763,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceStatusStatistic',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceStatusStatistic',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetInstanceStatusStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10534,6 +10784,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the number of instances that are in each state.
      *
      * @param request - GetInstanceStatusStatisticRequest
+     *
      * @returns GetInstanceStatusStatisticResponse
      *
      * @param GetInstanceStatusStatisticRequest $request
@@ -10548,7 +10799,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the information about instances in a manually triggered workflow.
      *
@@ -10556,6 +10806,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetManualDagInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetManualDagInstancesResponse
      *
      * @param GetManualDagInstancesRequest $request
@@ -10583,15 +10834,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetManualDagInstances',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetManualDagInstances',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetManualDagInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10601,13 +10852,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the information about instances in a manually triggered workflow.
      *
      * @deprecated OpenAPI GetManualDagInstances is deprecated
      *
      * @param request - GetManualDagInstancesRequest
+     *
      * @returns GetManualDagInstancesResponse
      *
      * @param GetManualDagInstancesRequest $request
@@ -10626,6 +10877,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMetaCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMetaCategoryResponse
      *
      * @param GetMetaCategoryRequest $request
@@ -10653,15 +10905,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMetaCategory',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMetaCategory',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMetaCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10674,6 +10926,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about a category tree.
      *
      * @param request - GetMetaCategoryRequest
+     *
      * @returns GetMetaCategoryResponse
      *
      * @param GetMetaCategoryRequest $request
@@ -10692,6 +10945,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMetaCollectionDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMetaCollectionDetailResponse
      *
      * @param GetMetaCollectionDetailRequest $request
@@ -10711,15 +10965,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMetaCollectionDetail',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMetaCollectionDetail',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMetaCollectionDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10732,6 +10986,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about a collection.
      *
      * @param request - GetMetaCollectionDetailRequest
+     *
      * @returns GetMetaCollectionDetailResponse
      *
      * @param GetMetaCollectionDetailRequest $request
@@ -10750,6 +11005,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMetaColumnLineageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMetaColumnLineageResponse
      *
      * @param GetMetaColumnLineageRequest $request
@@ -10801,15 +11057,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMetaColumnLineage',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMetaColumnLineage',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMetaColumnLineageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10822,6 +11078,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the lineage of a field in a metatable.
      *
      * @param request - GetMetaColumnLineageRequest
+     *
      * @returns GetMetaColumnLineageResponse
      *
      * @param GetMetaColumnLineageRequest $request
@@ -10844,6 +11101,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMetaDBInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMetaDBInfoResponse
      *
      * @param GetMetaDBInfoRequest $request
@@ -10855,19 +11113,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMetaDBInfo',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMetaDBInfo',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMetaDBInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10884,6 +11142,7 @@ class Dataworkspublic extends OpenApiClient
      * You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID of the EMR cluster.
      *
      * @param request - GetMetaDBInfoRequest
+     *
      * @returns GetMetaDBInfoResponse
      *
      * @param GetMetaDBInfoRequest $request
@@ -10902,6 +11161,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMetaDBTableListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMetaDBTableListResponse
      *
      * @param GetMetaDBTableListRequest $request
@@ -10941,15 +11201,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMetaDBTableList',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMetaDBTableList',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMetaDBTableListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10962,6 +11222,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries metatables in a compute engine instance.
      *
      * @param request - GetMetaDBTableListRequest
+     *
      * @returns GetMetaDBTableListResponse
      *
      * @param GetMetaDBTableListRequest $request
@@ -10980,6 +11241,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMetaTableBasicInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMetaTableBasicInfoResponse
      *
      * @param GetMetaTableBasicInfoRequest $request
@@ -10991,19 +11253,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMetaTableBasicInfo',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMetaTableBasicInfo',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMetaTableBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11016,6 +11278,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the basic information about a metatable.
      *
      * @param request - GetMetaTableBasicInfoRequest
+     *
      * @returns GetMetaTableBasicInfoResponse
      *
      * @param GetMetaTableBasicInfoRequest $request
@@ -11037,6 +11300,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMetaTableChangeLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMetaTableChangeLogResponse
      *
      * @param GetMetaTableChangeLogRequest $request
@@ -11080,15 +11344,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMetaTableChangeLog',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMetaTableChangeLog',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMetaTableChangeLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11104,6 +11368,7 @@ class Dataworkspublic extends OpenApiClient
      * > This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param request - GetMetaTableChangeLogRequest
+     *
      * @returns GetMetaTableChangeLogResponse
      *
      * @param GetMetaTableChangeLogRequest $request
@@ -11122,6 +11387,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMetaTableColumnRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMetaTableColumnResponse
      *
      * @param GetMetaTableColumnRequest $request
@@ -11133,19 +11399,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMetaTableColumn',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMetaTableColumn',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMetaTableColumnResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11158,6 +11424,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the field information of a metatable.
      *
      * @param request - GetMetaTableColumnRequest
+     *
      * @returns GetMetaTableColumnResponse
      *
      * @param GetMetaTableColumnRequest $request
@@ -11179,6 +11446,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMetaTableFullInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMetaTableFullInfoResponse
      *
      * @param GetMetaTableFullInfoRequest $request
@@ -11190,19 +11458,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMetaTableFullInfo',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMetaTableFullInfo',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMetaTableFullInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11218,6 +11486,7 @@ class Dataworkspublic extends OpenApiClient
      * You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
      *
      * @param request - GetMetaTableFullInfoRequest
+     *
      * @returns GetMetaTableFullInfoResponse
      *
      * @param GetMetaTableFullInfoRequest $request
@@ -11236,6 +11505,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMetaTableIntroWikiRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMetaTableIntroWikiResponse
      *
      * @param GetMetaTableIntroWikiRequest $request
@@ -11259,15 +11529,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMetaTableIntroWiki',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMetaTableIntroWiki',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMetaTableIntroWikiResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11280,6 +11550,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the instructions on how to use a table.
      *
      * @param request - GetMetaTableIntroWikiRequest
+     *
      * @returns GetMetaTableIntroWikiResponse
      *
      * @param GetMetaTableIntroWikiRequest $request
@@ -11298,6 +11569,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMetaTableLineageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMetaTableLineageResponse
      *
      * @param GetMetaTableLineageRequest $request
@@ -11345,15 +11617,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMetaTableLineage',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMetaTableLineage',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMetaTableLineageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11366,6 +11638,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the lineage of a metatable.
      *
      * @param request - GetMetaTableLineageRequest
+     *
      * @returns GetMetaTableLineageResponse
      *
      * @param GetMetaTableLineageRequest $request
@@ -11384,6 +11657,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMetaTableListByCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMetaTableListByCategoryResponse
      *
      * @param GetMetaTableListByCategoryRequest $request
@@ -11395,19 +11669,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMetaTableListByCategory',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMetaTableListByCategory',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMetaTableListByCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11420,6 +11694,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries metatables in a specified category.
      *
      * @param request - GetMetaTableListByCategoryRequest
+     *
      * @returns GetMetaTableListByCategoryResponse
      *
      * @param GetMetaTableListByCategoryRequest $request
@@ -11438,6 +11713,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMetaTableOutputRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMetaTableOutputResponse
      *
      * @param GetMetaTableOutputRequest $request
@@ -11477,15 +11753,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMetaTableOutput',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMetaTableOutput',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMetaTableOutputResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11498,6 +11774,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the output information of a metatable.
      *
      * @param request - GetMetaTableOutputRequest
+     *
      * @returns GetMetaTableOutputResponse
      *
      * @param GetMetaTableOutputRequest $request
@@ -11519,6 +11796,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - GetMetaTablePartitionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMetaTablePartitionResponse
      *
      * @param GetMetaTablePartitionRequest $tmpReq
@@ -11572,15 +11850,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMetaTablePartition',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMetaTablePartition',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMetaTablePartitionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11596,6 +11874,7 @@ class Dataworkspublic extends OpenApiClient
      * You can call this operation to query only the partitions of a metatable in a MaxCompute or E-MapReduce (EMR) compute engine. If you query partitions of a metatable in an EMR compute engine, only DataLake clusters that use Data Lake Formation (DLF) to manage metadata and Hadoop clusters whose cluster version is earlier than 3.41.0 or 5.7.0 are supported.
      *
      * @param request - GetMetaTablePartitionRequest
+     *
      * @returns GetMetaTablePartitionResponse
      *
      * @param GetMetaTablePartitionRequest $request
@@ -11614,6 +11893,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMetaTableProducingTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMetaTableProducingTasksResponse
      *
      * @param GetMetaTableProducingTasksRequest $request
@@ -11653,15 +11933,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMetaTableProducingTasks',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMetaTableProducingTasks',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMetaTableProducingTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11674,6 +11954,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the output tasks of a metatable.
      *
      * @param request - GetMetaTableProducingTasksRequest
+     *
      * @returns GetMetaTableProducingTasksResponse
      *
      * @param GetMetaTableProducingTasksRequest $request
@@ -11692,6 +11973,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMetaTableThemeLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMetaTableThemeLevelResponse
      *
      * @param GetMetaTableThemeLevelRequest $request
@@ -11703,19 +11985,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMetaTableThemeLevel',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMetaTableThemeLevel',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMetaTableThemeLevelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11728,6 +12010,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about the themes and levels of a metatable.
      *
      * @param request - GetMetaTableThemeLevelRequest
+     *
      * @returns GetMetaTableThemeLevelResponse
      *
      * @param GetMetaTableThemeLevelRequest $request
@@ -11746,6 +12029,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMigrationProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMigrationProcessResponse
      *
      * @param GetMigrationProcessRequest $request
@@ -11769,15 +12053,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMigrationProcess',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMigrationProcess',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMigrationProcessResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11790,6 +12074,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the progress of a migration task.
      *
      * @param request - GetMigrationProcessRequest
+     *
      * @returns GetMigrationProcessResponse
      *
      * @param GetMigrationProcessRequest $request
@@ -11808,6 +12093,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetMigrationSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMigrationSummaryResponse
      *
      * @param GetMigrationSummaryRequest $request
@@ -11831,15 +12117,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetMigrationSummary',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMigrationSummary',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMigrationSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11852,6 +12138,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about a migration task.
      *
      * @param request - GetMigrationSummaryRequest
+     *
      * @returns GetMigrationSummaryResponse
      *
      * @param GetMigrationSummaryRequest $request
@@ -11870,6 +12157,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNodeResponse
      *
      * @param GetNodeRequest $request
@@ -11893,15 +12181,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetNode',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNode',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetNodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11914,6 +12202,7 @@ class Dataworkspublic extends OpenApiClient
      * Indicates whether the request is successful.
      *
      * @param request - GetNodeRequest
+     *
      * @returns GetNodeResponse
      *
      * @param GetNodeRequest $request
@@ -11932,6 +12221,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetNodeChildrenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNodeChildrenResponse
      *
      * @param GetNodeChildrenRequest $request
@@ -11955,15 +12245,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetNodeChildren',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNodeChildren',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetNodeChildrenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11976,6 +12266,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of instances.
      *
      * @param request - GetNodeChildrenRequest
+     *
      * @returns GetNodeChildrenResponse
      *
      * @param GetNodeChildrenRequest $request
@@ -11994,6 +12285,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetNodeCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNodeCodeResponse
      *
      * @param GetNodeCodeRequest $request
@@ -12017,15 +12309,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetNodeCode',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNodeCode',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetNodeCodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12038,6 +12330,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the code of a node.
      *
      * @param request - GetNodeCodeRequest
+     *
      * @returns GetNodeCodeResponse
      *
      * @param GetNodeCodeRequest $request
@@ -12052,7 +12345,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the nodes associated with a baseline.
      *
@@ -12060,6 +12352,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetNodeOnBaselineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNodeOnBaselineResponse
      *
      * @param GetNodeOnBaselineRequest $request
@@ -12079,15 +12372,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetNodeOnBaseline',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNodeOnBaseline',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetNodeOnBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12097,13 +12390,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the nodes associated with a baseline.
      *
      * @deprecated OpenAPI GetNodeOnBaseline is deprecated
      *
      * @param request - GetNodeOnBaselineRequest
+     *
      * @returns GetNodeOnBaselineResponse
      *
      * @param GetNodeOnBaselineRequest $request
@@ -12122,6 +12415,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetNodeParentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNodeParentsResponse
      *
      * @param GetNodeParentsRequest $request
@@ -12145,15 +12439,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetNodeParents',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNodeParents',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetNodeParentsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12166,6 +12460,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of ancestor nodes of a node.
      *
      * @param request - GetNodeParentsRequest
+     *
      * @returns GetNodeParentsResponse
      *
      * @param GetNodeParentsRequest $request
@@ -12180,7 +12475,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the information about node types, including the code and name of a node type.
      *
@@ -12188,6 +12482,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetNodeTypeListInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetNodeTypeListInfoResponse
      *
      * @param GetNodeTypeListInfoRequest $request
@@ -12227,15 +12522,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetNodeTypeListInfo',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNodeTypeListInfo',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetNodeTypeListInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12245,13 +12540,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the information about node types, including the code and name of a node type.
      *
      * @deprecated OpenAPI GetNodeTypeListInfo is deprecated
      *
      * @param request - GetNodeTypeListInfoRequest
+     *
      * @returns GetNodeTypeListInfoResponse
      *
      * @param GetNodeTypeListInfoRequest $request
@@ -12270,6 +12565,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetOpRiskDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetOpRiskDataResponse
      *
      * @param GetOpRiskDataRequest $request
@@ -12281,19 +12577,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetOpRiskData',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetOpRiskData',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetOpRiskDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12306,6 +12602,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the records that are generated on a specified date for access to the high-risk sensitive data in all the DataWorks workspaces of a tenant.
      *
      * @param request - GetOpRiskDataRequest
+     *
      * @returns GetOpRiskDataResponse
      *
      * @param GetOpRiskDataRequest $request
@@ -12324,6 +12621,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetOpSensitiveDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetOpSensitiveDataResponse
      *
      * @param GetOpSensitiveDataRequest $request
@@ -12335,19 +12633,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetOpSensitiveData',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetOpSensitiveData',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetOpSensitiveDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12360,6 +12658,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the records that are generated on a specified date for access to sensitive data in all the DataWorks workspaces of a tenant.
      *
      * @param request - GetOpSensitiveDataRequest
+     *
      * @returns GetOpSensitiveDataResponse
      *
      * @param GetOpSensitiveDataRequest $request
@@ -12378,6 +12677,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetOptionValueForProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetOptionValueForProjectResponse
      *
      * @param GetOptionValueForProjectRequest $request
@@ -12401,15 +12701,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetOptionValueForProject',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetOptionValueForProject',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetOptionValueForProjectResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12422,6 +12722,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the option settings of an extension in a workspace.
      *
      * @param request - GetOptionValueForProjectRequest
+     *
      * @returns GetOptionValueForProjectResponse
      *
      * @param GetOptionValueForProjectRequest $request
@@ -12440,6 +12741,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetPermissionApplyOrderDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPermissionApplyOrderDetailResponse
      *
      * @param GetPermissionApplyOrderDetailRequest $request
@@ -12459,15 +12761,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPermissionApplyOrderDetail',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPermissionApplyOrderDetail',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetPermissionApplyOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12480,6 +12782,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the details of a permission request order.
      *
      * @param request - GetPermissionApplyOrderDetailRequest
+     *
      * @returns GetPermissionApplyOrderDetailResponse
      *
      * @param GetPermissionApplyOrderDetailRequest $request
@@ -12498,6 +12801,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetProjectResponse
      *
      * @param GetProjectRequest $request
@@ -12521,15 +12825,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetProject',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetProject',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetProjectResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12542,6 +12846,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about a DataWorks workspace.
      *
      * @param request - GetProjectRequest
+     *
      * @returns GetProjectResponse
      *
      * @param GetProjectRequest $request
@@ -12556,7 +12861,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the information about a DataWorks workspace.
      *
@@ -12564,6 +12868,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetProjectDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetProjectDetailResponse
      *
      * @param GetProjectDetailRequest $request
@@ -12583,15 +12888,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetProjectDetail',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetProjectDetail',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetProjectDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12601,13 +12906,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the information about a DataWorks workspace.
      *
      * @deprecated OpenAPI GetProjectDetail is deprecated
      *
      * @param request - GetProjectDetailRequest
+     *
      * @returns GetProjectDetailResponse
      *
      * @param GetProjectDetailRequest $request
@@ -12624,6 +12929,7 @@ class Dataworkspublic extends OpenApiClient
     /**
      * @param request - GetQualityEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQualityEntityResponse
      *
      * @param GetQualityEntityRequest $request
@@ -12659,15 +12965,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetQualityEntity',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQualityEntity',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetQualityEntityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12678,6 +12984,7 @@ class Dataworkspublic extends OpenApiClient
 
     /**
      * @param request - GetQualityEntityRequest
+     *
      * @returns GetQualityEntityResponse
      *
      * @param GetQualityEntityRequest $request
@@ -12696,6 +13003,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetQualityFollowerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQualityFollowerResponse
      *
      * @param GetQualityFollowerRequest $request
@@ -12723,15 +13031,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetQualityFollower',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQualityFollower',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetQualityFollowerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12744,6 +13052,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the subscribers of a partition filter expression.
      *
      * @param request - GetQualityFollowerRequest
+     *
      * @returns GetQualityFollowerResponse
      *
      * @param GetQualityFollowerRequest $request
@@ -12762,6 +13071,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetQualityRuleResponse
      *
      * @param GetQualityRuleRequest $request
@@ -12789,15 +13099,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetQualityRule',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetQualityRule',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12810,6 +13120,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about a monitoring rule.
      *
      * @param request - GetQualityRuleRequest
+     *
      * @returns GetQualityRuleResponse
      *
      * @param GetQualityRuleRequest $request
@@ -12832,6 +13143,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetRemindRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRemindResponse
      *
      * @param GetRemindRequest $request
@@ -12851,15 +13163,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetRemind',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRemind',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetRemindResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12876,6 +13188,7 @@ class Dataworkspublic extends OpenApiClient
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetRemind\\&type=RPC\\&version=2020-05-18)
      *
      * @param request - GetRemindRequest
+     *
      * @returns GetRemindResponse
      *
      * @param GetRemindRequest $request
@@ -12894,6 +13207,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetSensitiveDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSensitiveDataResponse
      *
      * @param GetSensitiveDataRequest $request
@@ -12905,19 +13219,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSensitiveData',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSensitiveData',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSensitiveDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12930,6 +13244,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the latest sensitive data in all the DataWorks workspaces of a tenant.
      *
      * @param request - GetSensitiveDataRequest
+     *
      * @returns GetSensitiveDataResponse
      *
      * @param GetSensitiveDataRequest $request
@@ -12944,7 +13259,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the statistics of instances in different periods of a day.
      *
@@ -12952,6 +13266,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetSuccessInstanceTrendRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSuccessInstanceTrendResponse
      *
      * @param GetSuccessInstanceTrendRequest $request
@@ -12971,15 +13286,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSuccessInstanceTrend',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSuccessInstanceTrend',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSuccessInstanceTrendResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12989,13 +13304,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the statistics of instances in different periods of a day.
      *
      * @deprecated OpenAPI GetSuccessInstanceTrend is deprecated
      *
      * @param request - GetSuccessInstanceTrendRequest
+     *
      * @returns GetSuccessInstanceTrendResponse
      *
      * @param GetSuccessInstanceTrendRequest $request
@@ -13016,6 +13331,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetTopicRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTopicResponse
      *
      * @param GetTopicRequest $request
@@ -13035,15 +13351,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetTopic',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTopic',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTopicResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13058,6 +13374,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      *
      * @param request - GetTopicRequest
+     *
      * @returns GetTopicResponse
      *
      * @param GetTopicRequest $request
@@ -13080,6 +13397,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - GetTopicInfluenceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTopicInfluenceResponse
      *
      * @param GetTopicInfluenceRequest $request
@@ -13099,15 +13417,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetTopicInfluence',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTopicInfluence',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTopicInfluenceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13124,6 +13442,7 @@ class Dataworkspublic extends OpenApiClient
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=GetTopicInfluence\\&type=RPC\\&version=2020-05-18)
      *
      * @param request - GetTopicInfluenceRequest
+     *
      * @returns GetTopicInfluenceResponse
      *
      * @param GetTopicInfluenceRequest $request
@@ -13147,6 +13466,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ImportDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ImportDataSourcesResponse
      *
      * @param ImportDataSourcesRequest $request
@@ -13170,15 +13490,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ImportDataSources',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImportDataSources',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ImportDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13196,6 +13516,7 @@ class Dataworkspublic extends OpenApiClient
      * *   For more information about how to export data sources from DataWorks workspaces to your on-premises machine, see [ExportDataSources](https://help.aliyun.com/document_detail/279570.html).
      *
      * @param request - ImportDataSourcesRequest
+     *
      * @returns ImportDataSourcesResponse
      *
      * @param ImportDataSourcesRequest $request
@@ -13214,6 +13535,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListAlertMessagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAlertMessagesResponse
      *
      * @param ListAlertMessagesRequest $request
@@ -13265,15 +13587,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListAlertMessages',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAlertMessages',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListAlertMessagesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13286,6 +13608,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of alerts.
      *
      * @param request - ListAlertMessagesRequest
+     *
      * @returns ListAlertMessagesResponse
      *
      * @param ListAlertMessagesRequest $request
@@ -13304,6 +13627,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListBaselineConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListBaselineConfigsResponse
      *
      * @param ListBaselineConfigsRequest $request
@@ -13351,15 +13675,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListBaselineConfigs',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListBaselineConfigs',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListBaselineConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13372,6 +13696,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of baselines.
      *
      * @param request - ListBaselineConfigsRequest
+     *
      * @returns ListBaselineConfigsResponse
      *
      * @param ListBaselineConfigsRequest $request
@@ -13390,6 +13715,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListBaselineStatusesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListBaselineStatusesResponse
      *
      * @param ListBaselineStatusesRequest $request
@@ -13445,15 +13771,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListBaselineStatuses',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListBaselineStatuses',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListBaselineStatusesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13466,6 +13792,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of baseline instances.
      *
      * @param request - ListBaselineStatusesRequest
+     *
      * @returns ListBaselineStatusesResponse
      *
      * @param ListBaselineStatusesRequest $request
@@ -13484,6 +13811,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListBaselinesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListBaselinesResponse
      *
      * @param ListBaselinesRequest $request
@@ -13531,15 +13859,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListBaselines',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListBaselines',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListBaselinesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13552,6 +13880,7 @@ class Dataworkspublic extends OpenApiClient
      * Obtains a list of baselines.
      *
      * @param request - ListBaselinesRequest
+     *
      * @returns ListBaselinesResponse
      *
      * @param ListBaselinesRequest $request
@@ -13570,6 +13899,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListBusinessResponse
      *
      * @param ListBusinessRequest $request
@@ -13605,15 +13935,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListBusiness',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListBusiness',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13626,6 +13956,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of workflows.
      *
      * @param request - ListBusinessRequest
+     *
      * @returns ListBusinessResponse
      *
      * @param ListBusinessRequest $request
@@ -13644,6 +13975,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListCalcEnginesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCalcEnginesResponse
      *
      * @param ListCalcEnginesRequest $request
@@ -13683,15 +14015,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCalcEngines',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCalcEngines',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCalcEnginesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13704,6 +14036,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of compute engines that are associated with a DataWorks workspace.
      *
      * @param request - ListCalcEnginesRequest
+     *
      * @returns ListCalcEnginesResponse
      *
      * @param ListCalcEnginesRequest $request
@@ -13722,6 +14055,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListCheckProcessesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCheckProcessesResponse
      *
      * @param ListCheckProcessesRequest $request
@@ -13765,15 +14099,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListCheckProcesses',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCheckProcesses',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCheckProcessesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13786,6 +14120,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the check results of extension point events.
      *
      * @param request - ListCheckProcessesRequest
+     *
      * @returns ListCheckProcessesResponse
      *
      * @param ListCheckProcessesRequest $request
@@ -13804,6 +14139,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListClusterConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListClusterConfigsResponse
      *
      * @param ListClusterConfigsRequest $request
@@ -13815,19 +14151,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListClusterConfigs',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListClusterConfigs',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListClusterConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13840,6 +14176,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the configurations of submodules in a workspace. You can query information about SPARK parameters.
      *
      * @param request - ListClusterConfigsRequest
+     *
      * @returns ListClusterConfigsResponse
      *
      * @param ListClusterConfigsRequest $request
@@ -13858,6 +14195,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListClustersResponse
      *
      * @param ListClustersRequest $request
@@ -13869,19 +14207,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListClusters',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListClusters',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListClustersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13894,6 +14232,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries clusters that are registered in DataWorks. E-MapReduce (EMR) clusters and Cloudera\\"s Distribution Including Apache Hadoop (CDH) clusters are supported.
      *
      * @param request - ListClustersRequest
+     *
      * @returns ListClustersResponse
      *
      * @param ListClustersRequest $request
@@ -13908,7 +14247,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries a list of data sources.
      *
@@ -13916,6 +14254,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListConnectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListConnectionsResponse
      *
      * @param ListConnectionsRequest $request
@@ -13927,19 +14266,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListConnections',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListConnections',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListConnectionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13949,13 +14288,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries a list of data sources.
      *
      * @deprecated OpenAPI ListConnections is deprecated
      *
      * @param request - ListConnectionsRequest
+     *
      * @returns ListConnectionsResponse
      *
      * @param ListConnectionsRequest $request
@@ -13977,6 +14316,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListDIAlarmRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDIAlarmRulesResponse
      *
      * @param ListDIAlarmRulesRequest $request
@@ -14004,15 +14344,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDIAlarmRules',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDIAlarmRules',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDIAlarmRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14028,6 +14368,7 @@ class Dataworkspublic extends OpenApiClient
      * You can configure alert rules only for tasks that can be used for real-time data synchronization.
      *
      * @param request - ListDIAlarmRulesRequest
+     *
      * @returns ListDIAlarmRulesResponse
      *
      * @param ListDIAlarmRulesRequest $request
@@ -14049,6 +14390,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListDIJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDIJobsResponse
      *
      * @param ListDIJobsRequest $request
@@ -14088,15 +14430,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDIJobs',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDIJobs',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDIJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14112,6 +14454,7 @@ class Dataworkspublic extends OpenApiClient
      * You can call this operation to obtain only the basic information about the tasks. If you want to obtain the details of a task, call the GetDIJob operation.
      *
      * @param request - ListDIJobsRequest
+     *
      * @returns ListDIJobsResponse
      *
      * @param ListDIJobsRequest $request
@@ -14133,6 +14476,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListDIProjectConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDIProjectConfigResponse
      *
      * @param ListDIProjectConfigRequest $request
@@ -14160,15 +14504,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDIProjectConfig',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDIProjectConfig',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDIProjectConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14184,6 +14528,7 @@ class Dataworkspublic extends OpenApiClient
      * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization tasks in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](https://help.aliyun.com/document_detail/199008.html).
      *
      * @param request - ListDIProjectConfigRequest
+     *
      * @returns ListDIProjectConfigResponse
      *
      * @param ListDIProjectConfigRequest $request
@@ -14214,6 +14559,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListDagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDagsResponse
      *
      * @param ListDagsRequest $request
@@ -14237,15 +14583,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDags',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDags',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDagsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14270,6 +14616,7 @@ class Dataworkspublic extends OpenApiClient
      * *   SUCCESS: The DAG is successfully run.
      *
      * @param request - ListDagsRequest
+     *
      * @returns ListDagsResponse
      *
      * @param ListDagsRequest $request
@@ -14288,6 +14635,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListDataServiceApiAuthoritiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDataServiceApiAuthoritiesResponse
      *
      * @param ListDataServiceApiAuthoritiesRequest $request
@@ -14322,18 +14670,18 @@ class Dataworkspublic extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDataServiceApiAuthorities',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDataServiceApiAuthorities',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDataServiceApiAuthoritiesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14346,6 +14694,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the APIs on which other users are granted the access permissions.
      *
      * @param request - ListDataServiceApiAuthoritiesRequest
+     *
      * @returns ListDataServiceApiAuthoritiesResponse
      *
      * @param ListDataServiceApiAuthoritiesRequest $request
@@ -14364,6 +14713,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListDataServiceApiTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDataServiceApiTestResponse
      *
      * @param ListDataServiceApiTestRequest $request
@@ -14375,19 +14725,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDataServiceApiTest',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDataServiceApiTest',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDataServiceApiTestResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14400,6 +14750,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the test records of a DataService Studio API. This API operation allows you to query only the test records that are generated within the previous month.
      *
      * @param request - ListDataServiceApiTestRequest
+     *
      * @returns ListDataServiceApiTestResponse
      *
      * @param ListDataServiceApiTestRequest $request
@@ -14418,6 +14769,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListDataServiceApisRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDataServiceApisResponse
      *
      * @param ListDataServiceApisRequest $request
@@ -14461,15 +14813,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDataServiceApis',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDataServiceApis',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDataServiceApisResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14482,6 +14834,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of APIs in the development state.
      *
      * @param request - ListDataServiceApisRequest
+     *
      * @returns ListDataServiceApisResponse
      *
      * @param ListDataServiceApisRequest $request
@@ -14500,6 +14853,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListDataServiceApplicationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDataServiceApplicationsResponse
      *
      * @param ListDataServiceApplicationsRequest $request
@@ -14531,15 +14885,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDataServiceApplications',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDataServiceApplications',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDataServiceApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14552,6 +14906,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the basic information of applications.
      *
      * @param request - ListDataServiceApplicationsRequest
+     *
      * @returns ListDataServiceApplicationsResponse
      *
      * @param ListDataServiceApplicationsRequest $request
@@ -14570,6 +14925,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListDataServiceAuthorizedApisRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDataServiceAuthorizedApisResponse
      *
      * @param ListDataServiceAuthorizedApisRequest $request
@@ -14604,18 +14960,18 @@ class Dataworkspublic extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDataServiceAuthorizedApis',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDataServiceAuthorizedApis',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDataServiceAuthorizedApisResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14628,6 +14984,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the APIs that you are authorized to access.
      *
      * @param request - ListDataServiceAuthorizedApisRequest
+     *
      * @returns ListDataServiceAuthorizedApisResponse
      *
      * @param ListDataServiceAuthorizedApisRequest $request
@@ -14646,6 +15003,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListDataServiceFoldersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDataServiceFoldersResponse
      *
      * @param ListDataServiceFoldersRequest $request
@@ -14685,15 +15043,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDataServiceFolders',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDataServiceFolders',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDataServiceFoldersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14706,6 +15064,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries folders.
      *
      * @param request - ListDataServiceFoldersRequest
+     *
      * @returns ListDataServiceFoldersResponse
      *
      * @param ListDataServiceFoldersRequest $request
@@ -14724,6 +15083,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListDataServiceGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDataServiceGroupsResponse
      *
      * @param ListDataServiceGroupsRequest $request
@@ -14759,15 +15119,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDataServiceGroups',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDataServiceGroups',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDataServiceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14780,6 +15140,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries business processes.
      *
      * @param request - ListDataServiceGroupsRequest
+     *
      * @returns ListDataServiceGroupsResponse
      *
      * @param ListDataServiceGroupsRequest $request
@@ -14798,6 +15159,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListDataServicePublishedApisRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDataServicePublishedApisResponse
      *
      * @param ListDataServicePublishedApisRequest $request
@@ -14841,15 +15203,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDataServicePublishedApis',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDataServicePublishedApis',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDataServicePublishedApisResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14862,6 +15224,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of APIs in the published state.
      *
      * @param request - ListDataServicePublishedApisRequest
+     *
      * @returns ListDataServicePublishedApisResponse
      *
      * @param ListDataServicePublishedApisRequest $request
@@ -14880,6 +15243,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListDataSourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDataSourcesResponse
      *
      * @param ListDataSourcesRequest $request
@@ -14891,19 +15255,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDataSources',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDataSources',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDataSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14916,6 +15280,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the data sources added to a DataWorks workspace.
      *
      * @param request - ListDataSourcesRequest
+     *
      * @returns ListDataSourcesResponse
      *
      * @param ListDataSourcesRequest $request
@@ -14934,6 +15299,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListDeploymentsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDeploymentsResponse
      *
      * @param ListDeploymentsRequest $request
@@ -14989,15 +15355,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListDeployments',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDeployments',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDeploymentsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15010,6 +15376,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of deployment packages. This operation is equivalent to viewing a list of deployment packages on the Deployment Packages page of the DataWorks console.
      *
      * @param request - ListDeploymentsRequest
+     *
      * @returns ListDeploymentsResponse
      *
      * @param ListDeploymentsRequest $request
@@ -15031,6 +15398,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListEnabledExtensionsForProjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListEnabledExtensionsForProjectResponse
      *
      * @param ListEnabledExtensionsForProjectRequest $request
@@ -15058,15 +15426,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListEnabledExtensionsForProject',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListEnabledExtensionsForProject',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListEnabledExtensionsForProjectResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15082,6 +15450,7 @@ class Dataworkspublic extends OpenApiClient
      * For information about codes of extension point events, see [Development references: Extension point event codes](https://help.aliyun.com/document_detail/463357.html).
      *
      * @param request - ListEnabledExtensionsForProjectRequest
+     *
      * @returns ListEnabledExtensionsForProjectResponse
      *
      * @param ListEnabledExtensionsForProjectRequest $request
@@ -15100,6 +15469,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - ListEntitiesByTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListEntitiesByTagsResponse
      *
      * @param ListEntitiesByTagsRequest $tmpReq
@@ -15117,19 +15487,19 @@ class Dataworkspublic extends OpenApiClient
         }
 
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEntitiesByTags',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListEntitiesByTags',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListEntitiesByTagsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15142,6 +15512,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of entities by tag. Only entities of the maxcompute-table type are supported.
      *
      * @param request - ListEntitiesByTagsRequest
+     *
      * @returns ListEntitiesByTagsResponse
      *
      * @param ListEntitiesByTagsRequest $request
@@ -15160,6 +15531,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListEntityTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListEntityTagsResponse
      *
      * @param ListEntityTagsRequest $request
@@ -15171,19 +15543,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEntityTags',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListEntityTags',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListEntityTagsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15196,6 +15568,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of tags of an entity. Only entities of the maxcompute-table type are supported.
      *
      * @param request - ListEntityTagsRequest
+     *
      * @returns ListEntityTagsResponse
      *
      * @param ListEntityTagsRequest $request
@@ -15214,6 +15587,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListExtensionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListExtensionsResponse
      *
      * @param ListExtensionsRequest $request
@@ -15237,15 +15611,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListExtensions',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListExtensions',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListExtensionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15258,6 +15632,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of extensions.
      *
      * @param request - ListExtensionsRequest
+     *
      * @returns ListExtensionsResponse
      *
      * @param ListExtensionsRequest $request
@@ -15276,6 +15651,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListFileTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListFileTypeResponse
      *
      * @param ListFileTypeRequest $request
@@ -15315,15 +15691,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListFileType',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFileType',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListFileTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15336,6 +15712,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about node types, such as the code and name.
      *
      * @param request - ListFileTypeRequest
+     *
      * @returns ListFileTypeResponse
      *
      * @param ListFileTypeRequest $request
@@ -15354,6 +15731,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListFileVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListFileVersionsResponse
      *
      * @param ListFileVersionsRequest $request
@@ -15389,15 +15767,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListFileVersions',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFileVersions',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListFileVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15410,6 +15788,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of file versions.
      *
      * @param request - ListFileVersionsRequest
+     *
      * @returns ListFileVersionsResponse
      *
      * @param ListFileVersionsRequest $request
@@ -15428,6 +15807,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListFilesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListFilesResponse
      *
      * @param ListFilesRequest $request
@@ -15457,6 +15837,10 @@ class Dataworkspublic extends OpenApiClient
 
         if (null !== $request->keyword) {
             @$body['Keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->lastEditUser) {
+            @$body['LastEditUser'] = $request->lastEditUser;
         }
 
         if (null !== $request->needAbsoluteFolderPath) {
@@ -15499,15 +15883,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListFiles',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFiles',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListFilesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15520,6 +15904,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of files.
      *
      * @param request - ListFilesRequest
+     *
      * @returns ListFilesResponse
      *
      * @param ListFilesRequest $request
@@ -15538,6 +15923,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListFoldersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListFoldersResponse
      *
      * @param ListFoldersRequest $request
@@ -15573,15 +15959,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListFolders',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFolders',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListFoldersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15594,6 +15980,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of folders.
      *
      * @param request - ListFoldersRequest
+     *
      * @returns ListFoldersResponse
      *
      * @param ListFoldersRequest $request
@@ -15612,6 +15999,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListInnerNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInnerNodesResponse
      *
      * @param ListInnerNodesRequest $request
@@ -15655,15 +16043,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListInnerNodes',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInnerNodes',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListInnerNodesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15676,6 +16064,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries information about inner nodes. For example, you can call this operation to query the inner nodes of a node group or a do-while node. You cannot call this operation to query the inner nodes of a PAI node.
      *
      * @param request - ListInnerNodesRequest
+     *
      * @returns ListInnerNodesResponse
      *
      * @param ListInnerNodesRequest $request
@@ -15694,6 +16083,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListInstanceAmountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstanceAmountResponse
      *
      * @param ListInstanceAmountRequest $request
@@ -15721,15 +16111,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListInstanceAmount',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstanceAmount',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListInstanceAmountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15742,6 +16132,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the trend of the number of auto triggered node instances within a specified period of time.
      *
      * @param request - ListInstanceAmountRequest
+     *
      * @returns ListInstanceAmountResponse
      *
      * @param ListInstanceAmountRequest $request
@@ -15760,6 +16151,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListInstanceHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstanceHistoryResponse
      *
      * @param ListInstanceHistoryRequest $request
@@ -15783,15 +16175,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListInstanceHistory',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstanceHistory',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListInstanceHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15804,6 +16196,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries information about the historical records of all instances. One historical record is generated if an instance is rerun once.
      *
      * @param request - ListInstanceHistoryRequest
+     *
      * @returns ListInstanceHistoryResponse
      *
      * @param ListInstanceHistoryRequest $request
@@ -15822,6 +16215,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstancesResponse
      *
      * @param ListInstancesRequest $request
@@ -15897,15 +16291,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListInstances',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstances',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15918,6 +16312,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of instances.
      *
      * @param request - ListInstancesRequest
+     *
      * @returns ListInstancesResponse
      *
      * @param ListInstancesRequest $request
@@ -15936,6 +16331,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListLineageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListLineageResponse
      *
      * @param ListLineageRequest $request
@@ -15971,15 +16367,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListLineage',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListLineage',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListLineageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15992,6 +16388,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the ancestor or descendant lineage of an entity.
      *
      * @param request - ListLineageRequest
+     *
      * @returns ListLineageResponse
      *
      * @param ListLineageRequest $request
@@ -16010,6 +16407,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListManualDagInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListManualDagInstancesResponse
      *
      * @param ListManualDagInstancesRequest $request
@@ -16037,15 +16435,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListManualDagInstances',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListManualDagInstances',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListManualDagInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16058,6 +16456,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the information about instances in a manually triggered workflow.
      *
      * @param request - ListManualDagInstancesRequest
+     *
      * @returns ListManualDagInstancesResponse
      *
      * @param ListManualDagInstancesRequest $request
@@ -16076,6 +16475,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListMeasureDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListMeasureDataResponse
      *
      * @param ListMeasureDataRequest $request
@@ -16107,15 +16507,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMeasureData',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMeasureData',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMeasureDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16128,6 +16528,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the statistics on the number of phone call-based alerts or text message-based alerts reported within the tenant to which your account belongs during the previous 30 days.
      *
      * @param request - ListMeasureDataRequest
+     *
      * @returns ListMeasureDataResponse
      *
      * @param ListMeasureDataRequest $request
@@ -16146,6 +16547,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListMetaCollectionEntitiesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListMetaCollectionEntitiesResponse
      *
      * @param ListMetaCollectionEntitiesRequest $request
@@ -16181,15 +16583,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMetaCollectionEntities',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMetaCollectionEntities',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMetaCollectionEntitiesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16202,6 +16604,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the entities in a collection.
      *
      * @param request - ListMetaCollectionEntitiesRequest
+     *
      * @returns ListMetaCollectionEntitiesResponse
      *
      * @param ListMetaCollectionEntitiesRequest $request
@@ -16223,6 +16626,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListMetaCollectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListMetaCollectionsResponse
      *
      * @param ListMetaCollectionsRequest $request
@@ -16274,15 +16678,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMetaCollections',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMetaCollections',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMetaCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16298,6 +16702,7 @@ class Dataworkspublic extends OpenApiClient
      * The type can be ALBUM or ALBUM_CATEGORY. ALBUM indicates data albums. ALBUM_CATEGORY indicates categories.
      *
      * @param request - ListMetaCollectionsRequest
+     *
      * @returns ListMetaCollectionsResponse
      *
      * @param ListMetaCollectionsRequest $request
@@ -16316,6 +16721,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListMetaDBRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListMetaDBResponse
      *
      * @param ListMetaDBRequest $request
@@ -16327,19 +16733,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMetaDB',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMetaDB',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMetaDBResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16352,6 +16758,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of metadatabases.
      *
      * @param request - ListMetaDBRequest
+     *
      * @returns ListMetaDBResponse
      *
      * @param ListMetaDBRequest $request
@@ -16370,6 +16777,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListMigrationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListMigrationsResponse
      *
      * @param ListMigrationsRequest $request
@@ -16405,15 +16813,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListMigrations',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMigrations',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMigrationsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16426,6 +16834,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of migration tasks.
      *
      * @param request - ListMigrationsRequest
+     *
      * @returns ListMigrationsResponse
      *
      * @param ListMigrationsRequest $request
@@ -16440,7 +16849,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the information about one level of ancestor or descendant nodes of a node.
      *
@@ -16448,6 +16856,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListNodeIORequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListNodeIOResponse
      *
      * @param ListNodeIORequest $request
@@ -16475,15 +16884,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListNodeIO',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNodeIO',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListNodeIOResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16493,13 +16902,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the information about one level of ancestor or descendant nodes of a node.
      *
      * @deprecated OpenAPI ListNodeIO is deprecated
      *
      * @param request - ListNodeIORequest
+     *
      * @returns ListNodeIOResponse
      *
      * @param ListNodeIORequest $request
@@ -16518,6 +16927,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListNodeInputOrOutputRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListNodeInputOrOutputResponse
      *
      * @param ListNodeInputOrOutputRequest $request
@@ -16545,15 +16955,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListNodeInputOrOutput',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNodeInputOrOutput',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListNodeInputOrOutputResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16566,6 +16976,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the input and output information about a node. Only the ancestor or descendant nodes at the nearest level can be queried each time.
      *
      * @param request - ListNodeInputOrOutputRequest
+     *
      * @returns ListNodeInputOrOutputResponse
      *
      * @param ListNodeInputOrOutputRequest $request
@@ -16584,6 +16995,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListNodesResponse
      *
      * @param ListNodesRequest $request
@@ -16635,15 +17047,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListNodes',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNodes',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListNodesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16656,6 +17068,7 @@ class Dataworkspublic extends OpenApiClient
      * The ID of the workspace.
      *
      * @param request - ListNodesRequest
+     *
      * @returns ListNodesResponse
      *
      * @param ListNodesRequest $request
@@ -16674,6 +17087,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListNodesByBaselineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListNodesByBaselineResponse
      *
      * @param ListNodesByBaselineRequest $request
@@ -16693,15 +17107,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListNodesByBaseline',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNodesByBaseline',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListNodesByBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16714,6 +17128,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries nodes in a baseline.
      *
      * @param request - ListNodesByBaselineRequest
+     *
      * @returns ListNodesByBaselineResponse
      *
      * @param ListNodesByBaselineRequest $request
@@ -16732,6 +17147,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListNodesByOutputRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListNodesByOutputResponse
      *
      * @param ListNodesByOutputRequest $request
@@ -16755,15 +17171,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListNodesByOutput',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNodesByOutput',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListNodesByOutputResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16776,6 +17192,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries nodes based on the output of the nodes.
      *
      * @param request - ListNodesByOutputRequest
+     *
      * @returns ListNodesByOutputResponse
      *
      * @param ListNodesByOutputRequest $request
@@ -16794,6 +17211,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListPermissionApplyOrdersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPermissionApplyOrdersResponse
      *
      * @param ListPermissionApplyOrdersRequest $request
@@ -16805,6 +17223,14 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->applyType) {
+            @$query['ApplyType'] = $request->applyType;
+        }
+
+        if (null !== $request->catalogName) {
+            @$query['CatalogName'] = $request->catalogName;
+        }
+
         if (null !== $request->endTime) {
             @$query['EndTime'] = $request->endTime;
         }
@@ -16853,15 +17279,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPermissionApplyOrders',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPermissionApplyOrders',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListPermissionApplyOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16874,6 +17300,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of permission request orders.
      *
      * @param request - ListPermissionApplyOrdersRequest
+     *
      * @returns ListPermissionApplyOrdersResponse
      *
      * @param ListPermissionApplyOrdersRequest $request
@@ -16888,7 +17315,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the distribution of different types of nodes.
      *
@@ -16896,6 +17322,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListProgramTypeCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListProgramTypeCountResponse
      *
      * @param ListProgramTypeCountRequest $request
@@ -16919,15 +17346,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListProgramTypeCount',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProgramTypeCount',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListProgramTypeCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16937,13 +17364,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries the distribution of different types of nodes.
      *
      * @deprecated OpenAPI ListProgramTypeCount is deprecated
      *
      * @param request - ListProgramTypeCountRequest
+     *
      * @returns ListProgramTypeCountResponse
      *
      * @param ListProgramTypeCountRequest $request
@@ -16965,6 +17392,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListProjectIdsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListProjectIdsResponse
      *
      * @param ListProjectIdsRequest $request
@@ -16984,15 +17412,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProjectIds',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProjectIds',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListProjectIdsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17008,6 +17436,7 @@ class Dataworkspublic extends OpenApiClient
      * An Alibaba Cloud account can assume a role such as the developer, O\\&M engineer, or workspace administrator role in a workspace. For more information, see [Manage members and roles](https://help.aliyun.com/document_detail/136941.html).
      *
      * @param request - ListProjectIdsRequest
+     *
      * @returns ListProjectIdsResponse
      *
      * @param ListProjectIdsRequest $request
@@ -17026,6 +17455,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListProjectMembersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListProjectMembersResponse
      *
      * @param ListProjectMembersRequest $request
@@ -17053,15 +17483,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProjectMembers',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProjectMembers',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListProjectMembersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17074,6 +17504,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of existing members in a DataWorks workspace.
      *
      * @param request - ListProjectMembersRequest
+     *
      * @returns ListProjectMembersResponse
      *
      * @param ListProjectMembersRequest $request
@@ -17096,6 +17527,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListProjectRolesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListProjectRolesResponse
      *
      * @param ListProjectRolesRequest $request
@@ -17115,15 +17547,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProjectRoles',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProjectRoles',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListProjectRolesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17140,6 +17572,7 @@ class Dataworkspublic extends OpenApiClient
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=dataworks-public\\&api=ListProjectRoles\\&type=RPC\\&version=2020-05-18)
      *
      * @param request - ListProjectRolesRequest
+     *
      * @returns ListProjectRolesResponse
      *
      * @param ListProjectRolesRequest $request
@@ -17158,6 +17591,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - ListProjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListProjectsResponse
      *
      * @param ListProjectsRequest $tmpReq
@@ -17195,15 +17629,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProjects',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListProjects',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListProjectsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17216,6 +17650,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of DataWorks workspaces of the tenant to which a user belongs.
      *
      * @param request - ListProjectsRequest
+     *
      * @returns ListProjectsResponse
      *
      * @param ListProjectsRequest $request
@@ -17236,6 +17671,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListQualityResultsByEntityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListQualityResultsByEntityResponse
      *
      * @param ListQualityResultsByEntityRequest $request
@@ -17279,15 +17715,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListQualityResultsByEntity',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListQualityResultsByEntity',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListQualityResultsByEntityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17302,6 +17738,7 @@ class Dataworkspublic extends OpenApiClient
      * @remarks
      *
      * @param request - ListQualityResultsByEntityRequest
+     *
      * @returns ListQualityResultsByEntityResponse
      *
      * @param ListQualityResultsByEntityRequest $request
@@ -17320,6 +17757,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListQualityResultsByRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListQualityResultsByRuleResponse
      *
      * @param ListQualityResultsByRuleRequest $request
@@ -17363,15 +17801,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListQualityResultsByRule',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListQualityResultsByRule',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListQualityResultsByRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17384,6 +17822,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries monitoring results after the data quality of a data source or a compute engine is monitored based on monitoring rules.
      *
      * @param request - ListQualityResultsByRuleRequest
+     *
      * @returns ListQualityResultsByRuleResponse
      *
      * @param ListQualityResultsByRuleRequest $request
@@ -17402,6 +17841,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListQualityRulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListQualityRulesResponse
      *
      * @param ListQualityRulesRequest $request
@@ -17437,15 +17877,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListQualityRules',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListQualityRules',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListQualityRulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17458,6 +17898,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries monitoring rules based on a partition filter expression.
      *
      * @param request - ListQualityRulesRequest
+     *
      * @returns ListQualityRulesResponse
      *
      * @param ListQualityRulesRequest $request
@@ -17476,6 +17917,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListRefDISyncTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRefDISyncTasksResponse
      *
      * @param ListRefDISyncTasksRequest $request
@@ -17515,15 +17957,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRefDISyncTasks',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRefDISyncTasks',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListRefDISyncTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17536,6 +17978,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries synchronization tasks in Data Integration that use a specific data source.
      *
      * @param request - ListRefDISyncTasksRequest
+     *
      * @returns ListRefDISyncTasksResponse
      *
      * @param ListRefDISyncTasksRequest $request
@@ -17554,6 +17997,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListRemindsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRemindsResponse
      *
      * @param ListRemindsRequest $request
@@ -17597,15 +18041,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListReminds',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListReminds',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListRemindsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17618,6 +18062,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of custom alert rules.
      *
      * @param request - ListRemindsRequest
+     *
      * @returns ListRemindsResponse
      *
      * @param ListRemindsRequest $request
@@ -17636,6 +18081,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - ListResourceGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResourceGroupsResponse
      *
      * @param ListResourceGroupsRequest $tmpReq
@@ -17677,15 +18123,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceGroups',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResourceGroups',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17698,6 +18144,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of resource groups of a specific type.
      *
      * @param request - ListResourceGroupsRequest
+     *
      * @returns ListResourceGroupsResponse
      *
      * @param ListResourceGroupsRequest $request
@@ -17716,6 +18163,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListShiftPersonnelsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListShiftPersonnelsResponse
      *
      * @param ListShiftPersonnelsRequest $request
@@ -17751,15 +18199,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListShiftPersonnels',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListShiftPersonnels',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListShiftPersonnelsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17772,6 +18220,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of on-duty engineers in a shift schedule.
      *
      * @param request - ListShiftPersonnelsRequest
+     *
      * @returns ListShiftPersonnelsResponse
      *
      * @param ListShiftPersonnelsRequest $request
@@ -17790,6 +18239,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListShiftSchedulesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListShiftSchedulesResponse
      *
      * @param ListShiftSchedulesRequest $request
@@ -17821,15 +18271,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListShiftSchedules',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListShiftSchedules',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListShiftSchedulesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17842,6 +18292,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of shift schedules in Operation Center.
      *
      * @param request - ListShiftSchedulesRequest
+     *
      * @returns ListShiftSchedulesResponse
      *
      * @param ListShiftSchedulesRequest $request
@@ -17860,6 +18311,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListSuccessInstanceAmountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSuccessInstanceAmountResponse
      *
      * @param ListSuccessInstanceAmountRequest $request
@@ -17879,15 +18331,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListSuccessInstanceAmount',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSuccessInstanceAmount',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSuccessInstanceAmountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17900,6 +18352,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the trend of the number of auto triggered node instances that are successfully run every hour on the hour of the current day.
      *
      * @param request - ListSuccessInstanceAmountRequest
+     *
      * @returns ListSuccessInstanceAmountResponse
      *
      * @param ListSuccessInstanceAmountRequest $request
@@ -17918,6 +18371,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListTableLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTableLevelResponse
      *
      * @param ListTableLevelRequest $request
@@ -17929,19 +18383,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTableLevel',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTableLevel',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTableLevelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -17954,6 +18408,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of table levels. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param request - ListTableLevelRequest
+     *
      * @returns ListTableLevelResponse
      *
      * @param ListTableLevelRequest $request
@@ -17972,6 +18427,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListTableThemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTableThemeResponse
      *
      * @param ListTableThemeRequest $request
@@ -17983,19 +18439,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTableTheme',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTableTheme',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTableThemeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18008,6 +18464,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries a list of table themes. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param request - ListTableThemeRequest
+     *
      * @returns ListTableThemeResponse
      *
      * @param ListTableThemeRequest $request
@@ -18026,6 +18483,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTablesResponse
      *
      * @param ListTablesRequest $request
@@ -18053,15 +18511,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTables',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTables',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTablesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18074,6 +18532,7 @@ class Dataworkspublic extends OpenApiClient
      * Obtains tables of different data source types within a tenant by page.
      *
      * @param request - ListTablesRequest
+     *
      * @returns ListTablesResponse
      *
      * @param ListTablesRequest $request
@@ -18092,6 +18551,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ListTopicsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTopicsResponse
      *
      * @param ListTopicsRequest $request
@@ -18143,15 +18603,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListTopics',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTopics',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTopicsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18164,6 +18624,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries events.
      *
      * @param request - ListTopicsRequest
+     *
      * @returns ListTopicsResponse
      *
      * @param ListTopicsRequest $request
@@ -18178,76 +18639,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Adds a directory to the left-side navigation pane of DataAnalysis.
-     *
-     * @param request - MountDirectoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns MountDirectoryResponse
-     *
-     * @param MountDirectoryRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return MountDirectoryResponse
-     */
-    public function mountDirectoryWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->targetId) {
-            @$body['TargetId'] = $request->targetId;
-        }
-
-        if (null !== $request->targetType) {
-            @$body['TargetType'] = $request->targetType;
-        }
-
-        if (null !== $request->targetUserId) {
-            @$body['TargetUserId'] = $request->targetUserId;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'MountDirectory',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return MountDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
-
-        return MountDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * Adds a directory to the left-side navigation pane of DataAnalysis.
-     *
-     * @param request - MountDirectoryRequest
-     * @returns MountDirectoryResponse
-     *
-     * @param MountDirectoryRequest $request
-     *
-     * @return MountDirectoryResponse
-     */
-    public function mountDirectory($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->mountDirectoryWithOptions($request, $runtime);
-    }
-
-    /**
      * Undeploys a node.
      *
      * @param request - OfflineNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns OfflineNodeResponse
      *
      * @param OfflineNodeRequest $request
@@ -18271,15 +18667,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'OfflineNode',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'OfflineNode',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return OfflineNodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18292,6 +18688,7 @@ class Dataworkspublic extends OpenApiClient
      * Undeploys a node.
      *
      * @param request - OfflineNodeRequest
+     *
      * @returns OfflineNodeResponse
      *
      * @param OfflineNodeRequest $request
@@ -18310,6 +18707,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - PublishDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PublishDataServiceApiResponse
      *
      * @param PublishDataServiceApiRequest $request
@@ -18337,15 +18735,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PublishDataServiceApi',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PublishDataServiceApi',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return PublishDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18358,6 +18756,7 @@ class Dataworkspublic extends OpenApiClient
      * Publishes an API.
      *
      * @param request - PublishDataServiceApiRequest
+     *
      * @returns PublishDataServiceApiResponse
      *
      * @param PublishDataServiceApiRequest $request
@@ -18379,6 +18778,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - QueryDISyncTaskConfigProcessResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryDISyncTaskConfigProcessResultResponse
      *
      * @param QueryDISyncTaskConfigProcessResultRequest $request
@@ -18406,15 +18806,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryDISyncTaskConfigProcessResult',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDISyncTaskConfigProcessResult',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryDISyncTaskConfigProcessResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18430,6 +18830,7 @@ class Dataworkspublic extends OpenApiClient
      * DataWorks allows you to call only the [CreateDISyncTask](https://help.aliyun.com/document_detail/278725.html) operation to create a batch synchronization task or the [UpdateDISyncTask](https://help.aliyun.com/document_detail/289109.html) operation to update a batch synchronization task in Data Integration. To create or update a real-time synchronization task, you must first call the [GenerateDISyncTaskConfigForCreating](https://help.aliyun.com/document_detail/383463.html) or [GenerateDISyncTaskConfigForUpdating](https://help.aliyun.com/document_detail/383464.html) operation to obtain the ID of an asynchronous thread and call the [QueryDISyncTaskConfigProcessResult](https://help.aliyun.com/document_detail/383465.html) operation to obtain the asynchronously generated parameters based on the ID. Then, you can call the CreateDISyncTask or UpdateDISyncTask operation and use the parameters as request parameters to create or update a real-time synchronization task. DataWorks allows you to create or update real-time synchronization tasks in Data Integration only in asynchronous mode.
      *
      * @param request - QueryDISyncTaskConfigProcessResultRequest
+     *
      * @returns QueryDISyncTaskConfigProcessResultResponse
      *
      * @param QueryDISyncTaskConfigProcessResultRequest $request
@@ -18448,6 +18849,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - QueryDefaultTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryDefaultTemplateResponse
      *
      * @param QueryDefaultTemplateRequest $request
@@ -18467,15 +18869,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryDefaultTemplate',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryDefaultTemplate',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryDefaultTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18488,6 +18890,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the default data category and data sensitivity level template defined by Data Security Guard.
      *
      * @param request - QueryDefaultTemplateRequest
+     *
      * @returns QueryDefaultTemplateResponse
      *
      * @param QueryDefaultTemplateRequest $request
@@ -18511,6 +18914,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - QueryPublicModelEngineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryPublicModelEngineResponse
      *
      * @param QueryPublicModelEngineRequest $request
@@ -18534,15 +18938,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryPublicModelEngine',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryPublicModelEngine',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryPublicModelEngineResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18560,6 +18964,7 @@ class Dataworkspublic extends OpenApiClient
      * *   A maximum of 1,000 entries can be returned each time you call this API operation.
      *
      * @param request - QueryPublicModelEngineRequest
+     *
      * @returns QueryPublicModelEngineResponse
      *
      * @param QueryPublicModelEngineRequest $request
@@ -18578,6 +18983,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - QueryRecognizeDataByRuleTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryRecognizeDataByRuleTypeResponse
      *
      * @param QueryRecognizeDataByRuleTypeRequest $request
@@ -18601,15 +19007,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryRecognizeDataByRuleType',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryRecognizeDataByRuleType',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryRecognizeDataByRuleTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18622,6 +19028,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the type of a sensitive data identification rule.
      *
      * @param request - QueryRecognizeDataByRuleTypeRequest
+     *
      * @returns QueryRecognizeDataByRuleTypeResponse
      *
      * @param QueryRecognizeDataByRuleTypeRequest $request
@@ -18640,6 +19047,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - QueryRecognizeRuleDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryRecognizeRuleDetailResponse
      *
      * @param QueryRecognizeRuleDetailRequest $request
@@ -18663,15 +19071,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QueryRecognizeRuleDetail',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryRecognizeRuleDetail',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryRecognizeRuleDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18684,6 +19092,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the details of a specified sensitive field in Data Security Guard.
      *
      * @param request - QueryRecognizeRuleDetailRequest
+     *
      * @returns QueryRecognizeRuleDetailResponse
      *
      * @param QueryRecognizeRuleDetailRequest $request
@@ -18702,6 +19111,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - QueryRecognizeRulesTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryRecognizeRulesTypeResponse
      *
      * @param RuntimeOptions $runtime
@@ -18710,17 +19120,17 @@ class Dataworkspublic extends OpenApiClient
      */
     public function queryRecognizeRulesTypeWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'QueryRecognizeRulesType',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryRecognizeRulesType',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryRecognizeRulesTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18748,6 +19158,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - QuerySensClassificationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QuerySensClassificationResponse
      *
      * @param QuerySensClassificationRequest $request
@@ -18771,15 +19182,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QuerySensClassification',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySensClassification',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QuerySensClassificationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18792,6 +19203,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries data categories.
      *
      * @param request - QuerySensClassificationRequest
+     *
      * @returns QuerySensClassificationResponse
      *
      * @param QuerySensClassificationRequest $request
@@ -18810,6 +19222,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - QuerySensLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QuerySensLevelResponse
      *
      * @param QuerySensLevelRequest $request
@@ -18833,15 +19246,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QuerySensLevel',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySensLevel',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QuerySensLevelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18854,6 +19267,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries data sensitivity levels in Data Security Guard.
      *
      * @param request - QuerySensLevelRequest
+     *
      * @returns QuerySensLevelResponse
      *
      * @param QuerySensLevelRequest $request
@@ -18872,6 +19286,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - QuerySensNodeInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QuerySensNodeInfoResponse
      *
      * @param QuerySensNodeInfoRequest $request
@@ -18915,15 +19330,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'QuerySensNodeInfo',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySensNodeInfo',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QuerySensNodeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -18936,6 +19351,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries sensitive data identification rules.
      *
      * @param request - QuerySensNodeInfoRequest
+     *
      * @returns QuerySensNodeInfoResponse
      *
      * @param QuerySensNodeInfoRequest $request
@@ -18957,6 +19373,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - RegisterLineageRelationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RegisterLineageRelationResponse
      *
      * @param RegisterLineageRelationRequest $tmpReq
@@ -18982,15 +19399,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RegisterLineageRelation',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RegisterLineageRelation',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RegisterLineageRelationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19006,6 +19423,7 @@ class Dataworkspublic extends OpenApiClient
      * This operation is in the trial phase. Users who need to call this operation can apply for it. The users can call this operation after the administrator adds the users to the trial list.
      *
      * @param request - RegisterLineageRelationRequest
+     *
      * @returns RegisterLineageRelationResponse
      *
      * @param RegisterLineageRelationRequest $request
@@ -19024,6 +19442,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - RemoveEntityTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveEntityTagsResponse
      *
      * @param RemoveEntityTagsRequest $tmpReq
@@ -19052,18 +19471,18 @@ class Dataworkspublic extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RemoveEntityTags',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveEntityTags',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveEntityTagsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19076,6 +19495,7 @@ class Dataworkspublic extends OpenApiClient
      * Removes tags from an entity. Only entities of the maxcompute-table type are supported.
      *
      * @param request - RemoveEntityTagsRequest
+     *
      * @returns RemoveEntityTagsResponse
      *
      * @param RemoveEntityTagsRequest $request
@@ -19094,6 +19514,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - RemoveProjectMemberFromRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveProjectMemberFromRoleResponse
      *
      * @param RemoveProjectMemberFromRoleRequest $request
@@ -19121,15 +19542,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveProjectMemberFromRole',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveProjectMemberFromRole',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveProjectMemberFromRoleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19142,6 +19563,7 @@ class Dataworkspublic extends OpenApiClient
      * Removes a role from a user in a DataWorks workspace.
      *
      * @param request - RemoveProjectMemberFromRoleRequest
+     *
      * @returns RemoveProjectMemberFromRoleResponse
      *
      * @param RemoveProjectMemberFromRoleRequest $request
@@ -19160,6 +19582,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - RestartInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RestartInstanceResponse
      *
      * @param RestartInstanceRequest $request
@@ -19183,15 +19606,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RestartInstance',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestartInstance',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RestartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19204,6 +19627,7 @@ class Dataworkspublic extends OpenApiClient
      * Restarts an instance.
      *
      * @param request - RestartInstanceRequest
+     *
      * @returns RestartInstanceResponse
      *
      * @param RestartInstanceRequest $request
@@ -19222,6 +19646,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ResumeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResumeInstanceResponse
      *
      * @param ResumeInstanceRequest $request
@@ -19245,15 +19670,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ResumeInstance',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResumeInstance',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ResumeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19266,6 +19691,7 @@ class Dataworkspublic extends OpenApiClient
      * Resumes a suspended instance.
      *
      * @param request - ResumeInstanceRequest
+     *
      * @returns ResumeInstanceResponse
      *
      * @param ResumeInstanceRequest $request
@@ -19280,88 +19706,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Revokes permissions on table fields from a user.
-     *
-     * @param request - RevokeColumnPermissionRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns RevokeColumnPermissionResponse
-     *
-     * @param RevokeColumnPermissionRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return RevokeColumnPermissionResponse
-     */
-    public function revokeColumnPermissionWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $query = [];
-        if (null !== $request->columns) {
-            @$query['Columns'] = $request->columns;
-        }
-
-        if (null !== $request->maxComputeProjectName) {
-            @$query['MaxComputeProjectName'] = $request->maxComputeProjectName;
-        }
-
-        if (null !== $request->revokeUserId) {
-            @$query['RevokeUserId'] = $request->revokeUserId;
-        }
-
-        if (null !== $request->revokeUserName) {
-            @$query['RevokeUserName'] = $request->revokeUserName;
-        }
-
-        if (null !== $request->tableName) {
-            @$query['TableName'] = $request->tableName;
-        }
-
-        if (null !== $request->workspaceId) {
-            @$query['WorkspaceId'] = $request->workspaceId;
-        }
-
-        $req = new OpenApiRequest([
-            'query' => Utils::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RevokeColumnPermission',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return RevokeColumnPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
-
-        return RevokeColumnPermissionResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * Revokes permissions on table fields from a user.
-     *
-     * @param request - RevokeColumnPermissionRequest
-     * @returns RevokeColumnPermissionResponse
-     *
-     * @param RevokeColumnPermissionRequest $request
-     *
-     * @return RevokeColumnPermissionResponse
-     */
-    public function revokeColumnPermission($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->revokeColumnPermissionWithOptions($request, $runtime);
-    }
-
-    /**
      * Revokes permissions on a table from a user.
      *
      * @param request - RevokeTablePermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RevokeTablePermissionResponse
      *
      * @param RevokeTablePermissionRequest $request
@@ -19401,15 +19750,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RevokeTablePermission',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevokeTablePermission',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RevokeTablePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19422,6 +19771,7 @@ class Dataworkspublic extends OpenApiClient
      * Revokes permissions on a table from a user.
      *
      * @param request - RevokeTablePermissionRequest
+     *
      * @returns RevokeTablePermissionResponse
      *
      * @param RevokeTablePermissionRequest $request
@@ -19443,6 +19793,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - RunCycleDagNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RunCycleDagNodesResponse
      *
      * @param RunCycleDagNodesRequest $request
@@ -19518,15 +19869,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunCycleDagNodes',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RunCycleDagNodes',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunCycleDagNodesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19542,6 +19893,7 @@ class Dataworkspublic extends OpenApiClient
      * For more information about data backfill, see [Backfill data](https://help.aliyun.com/document_detail/137937.html).
      *
      * @param request - RunCycleDagNodesRequest
+     *
      * @returns RunCycleDagNodesResponse
      *
      * @param RunCycleDagNodesRequest $request
@@ -19560,6 +19912,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - RunManualDagNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RunManualDagNodesResponse
      *
      * @param RunManualDagNodesRequest $request
@@ -19619,15 +19972,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunManualDagNodes',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RunManualDagNodes',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunManualDagNodesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19640,6 +19993,7 @@ class Dataworkspublic extends OpenApiClient
      * Runs nodes in a manually triggered workflow. Before you call this operation, make sure that the manually triggered workflow is committed and deployed. You can find a manually triggered workflow in Operation Center only after the manually triggered workflow is committed and deployed.
      *
      * @param request - RunManualDagNodesRequest
+     *
      * @returns RunManualDagNodesResponse
      *
      * @param RunManualDagNodesRequest $request
@@ -19658,6 +20012,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - RunSmokeTestRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RunSmokeTestResponse
      *
      * @param RunSmokeTestRequest $request
@@ -19693,15 +20048,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunSmokeTest',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RunSmokeTest',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunSmokeTestResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19714,6 +20069,7 @@ class Dataworkspublic extends OpenApiClient
      * Creates a workflow to perform smoke testing.
      *
      * @param request - RunSmokeTestRequest
+     *
      * @returns RunSmokeTestResponse
      *
      * @param RunSmokeTestRequest $request
@@ -19732,6 +20088,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - RunTriggerNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RunTriggerNodeResponse
      *
      * @param RunTriggerNodeRequest $request
@@ -19763,15 +20120,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RunTriggerNode',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RunTriggerNode',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RunTriggerNodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19784,6 +20141,7 @@ class Dataworkspublic extends OpenApiClient
      * Runs a manually triggered node.
      *
      * @param request - RunTriggerNodeRequest
+     *
      * @returns RunTriggerNodeResponse
      *
      * @param RunTriggerNodeRequest $request
@@ -19802,6 +20160,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - SaveDataServiceApiTestResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SaveDataServiceApiTestResultResponse
      *
      * @param SaveDataServiceApiTestResultRequest $request
@@ -19837,15 +20196,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SaveDataServiceApiTestResult',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SaveDataServiceApiTestResult',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SaveDataServiceApiTestResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19858,6 +20217,7 @@ class Dataworkspublic extends OpenApiClient
      * Saves the test results of an API.
      *
      * @param request - SaveDataServiceApiTestResultRequest
+     *
      * @returns SaveDataServiceApiTestResultResponse
      *
      * @param SaveDataServiceApiTestResultRequest $request
@@ -19876,6 +20236,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - ScanSensitiveDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ScanSensitiveDataResponse
      *
      * @param ScanSensitiveDataRequest $request
@@ -19887,19 +20248,19 @@ class Dataworkspublic extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ScanSensitiveData',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ScanSensitiveData',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ScanSensitiveDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -19912,6 +20273,7 @@ class Dataworkspublic extends OpenApiClient
      * Checks whether input data contains sensitive data.
      *
      * @param request - ScanSensitiveDataRequest
+     *
      * @returns ScanSensitiveDataResponse
      *
      * @param ScanSensitiveDataRequest $request
@@ -19933,6 +20295,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - SearchMetaTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchMetaTablesResponse
      *
      * @param SearchMetaTablesRequest $request
@@ -19980,15 +20343,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SearchMetaTables',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchMetaTables',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SearchMetaTablesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20004,6 +20367,7 @@ class Dataworkspublic extends OpenApiClient
      * You can call this operation to query only metatables in a MaxCompute or E-MapReduce (EMR) compute engine.
      *
      * @param request - SearchMetaTablesRequest
+     *
      * @returns SearchMetaTablesResponse
      *
      * @param SearchMetaTablesRequest $request
@@ -20018,7 +20382,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries a node based on the output.
      *
@@ -20026,6 +20389,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - SearchNodesByOutputRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchNodesByOutputResponse
      *
      * @param SearchNodesByOutputRequest $request
@@ -20049,15 +20413,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SearchNodesByOutput',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchNodesByOutput',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SearchNodesByOutputResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20067,13 +20431,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Queries a node based on the output.
      *
      * @deprecated OpenAPI SearchNodesByOutput is deprecated
      *
      * @param request - SearchNodesByOutputRequest
+     *
      * @returns SearchNodesByOutputResponse
      *
      * @param SearchNodesByOutputRequest $request
@@ -20088,7 +20452,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Shares a data source to a specific DataWorks workspace or a specific user.
      *
@@ -20096,6 +20459,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - SetDataSourceShareRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetDataSourceShareResponse
      *
      * @param SetDataSourceShareRequest $request
@@ -20131,15 +20495,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDataSourceShare',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDataSourceShare',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SetDataSourceShareResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20149,13 +20513,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Shares a data source to a specific DataWorks workspace or a specific user.
      *
      * @deprecated OpenAPI SetDataSourceShare is deprecated
      *
      * @param request - SetDataSourceShareRequest
+     *
      * @returns SetDataSourceShareResponse
      *
      * @param SetDataSourceShareRequest $request
@@ -20174,6 +20538,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - SetEntityTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetEntityTagsResponse
      *
      * @param SetEntityTagsRequest $tmpReq
@@ -20202,18 +20567,18 @@ class Dataworkspublic extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetEntityTags',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetEntityTags',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SetEntityTagsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20226,6 +20591,7 @@ class Dataworkspublic extends OpenApiClient
      * Configures tags for an entity. Only entities of the maxcompute-table type are supported.
      *
      * @param request - SetEntityTagsRequest
+     *
      * @returns SetEntityTagsResponse
      *
      * @param SetEntityTagsRequest $request
@@ -20244,6 +20610,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - SetSuccessInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetSuccessInstanceResponse
      *
      * @param SetSuccessInstanceRequest $request
@@ -20267,15 +20634,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetSuccessInstance',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetSuccessInstance',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SetSuccessInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20288,6 +20655,7 @@ class Dataworkspublic extends OpenApiClient
      * Sets the state of a failed instance to successful.
      *
      * @param request - SetSuccessInstanceRequest
+     *
      * @returns SetSuccessInstanceResponse
      *
      * @param SetSuccessInstanceRequest $request
@@ -20306,6 +20674,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - StartDIJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartDIJobResponse
      *
      * @param StartDIJobRequest $tmpReq
@@ -20339,15 +20708,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartDIJob',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartDIJob',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20360,6 +20729,7 @@ class Dataworkspublic extends OpenApiClient
      * Starts a synchronization task of a new version. Only the following type of task is supported: real-time data synchronization from a MySQL database to Hologres.
      *
      * @param request - StartDIJobRequest
+     *
      * @returns StartDIJobResponse
      *
      * @param StartDIJobRequest $request
@@ -20378,6 +20748,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - StartDISyncInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartDISyncInstanceResponse
      *
      * @param StartDISyncInstanceRequest $request
@@ -20409,15 +20780,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartDISyncInstance',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartDISyncInstance',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartDISyncInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20430,6 +20801,7 @@ class Dataworkspublic extends OpenApiClient
      * Starts a real-time synchronization task or a synchronization solution.
      *
      * @param request - StartDISyncInstanceRequest
+     *
      * @returns StartDISyncInstanceResponse
      *
      * @param StartDISyncInstanceRequest $request
@@ -20448,6 +20820,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - StartMigrationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartMigrationResponse
      *
      * @param StartMigrationRequest $request
@@ -20471,15 +20844,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartMigration',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartMigration',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartMigrationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20492,6 +20865,7 @@ class Dataworkspublic extends OpenApiClient
      * Starts a migration task.
      *
      * @param request - StartMigrationRequest
+     *
      * @returns StartMigrationResponse
      *
      * @param StartMigrationRequest $request
@@ -20510,6 +20884,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - StopDIJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopDIJobResponse
      *
      * @param StopDIJobRequest $request
@@ -20529,15 +20904,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StopDIJob',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopDIJob',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20550,6 +20925,7 @@ class Dataworkspublic extends OpenApiClient
      * Stops a new-version synchronization task. The following type of synchronization task is supported: real-time synchronization of all data in a MySQL database to Hologres.
      *
      * @param request - StopDIJobRequest
+     *
      * @returns StopDIJobResponse
      *
      * @param StopDIJobRequest $request
@@ -20568,6 +20944,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - StopDISyncInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopDISyncInstanceResponse
      *
      * @param StopDISyncInstanceRequest $request
@@ -20595,15 +20972,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopDISyncInstance',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopDISyncInstance',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopDISyncInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20616,6 +20993,7 @@ class Dataworkspublic extends OpenApiClient
      * Stops a real-time synchronization task.
      *
      * @param request - StopDISyncInstanceRequest
+     *
      * @returns StopDISyncInstanceResponse
      *
      * @param StopDISyncInstanceRequest $request
@@ -20634,6 +21012,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - StopInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopInstanceResponse
      *
      * @param StopInstanceRequest $request
@@ -20657,15 +21036,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StopInstance',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopInstance',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20678,6 +21057,7 @@ class Dataworkspublic extends OpenApiClient
      * Terminates an instance.
      *
      * @param request - StopInstanceRequest
+     *
      * @returns StopInstanceResponse
      *
      * @param StopInstanceRequest $request
@@ -20696,6 +21076,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - SubmitDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SubmitDataServiceApiResponse
      *
      * @param SubmitDataServiceApiRequest $request
@@ -20723,15 +21104,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SubmitDataServiceApi',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitDataServiceApi',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubmitDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20744,6 +21125,7 @@ class Dataworkspublic extends OpenApiClient
      * Submits an API in DataService Studio.
      *
      * @param request - SubmitDataServiceApiRequest
+     *
      * @returns SubmitDataServiceApiResponse
      *
      * @param SubmitDataServiceApiRequest $request
@@ -20762,6 +21144,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - SubmitFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SubmitFileResponse
      *
      * @param SubmitFileRequest $request
@@ -20797,15 +21180,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SubmitFile',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitFile',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubmitFileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20818,6 +21201,7 @@ class Dataworkspublic extends OpenApiClient
      * Commits a file to the development environment of the scheduling system to generate a task.
      *
      * @param request - SubmitFileRequest
+     *
      * @returns SubmitFileResponse
      *
      * @param SubmitFileRequest $request
@@ -20836,6 +21220,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - SuspendInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SuspendInstanceResponse
      *
      * @param SuspendInstanceRequest $request
@@ -20859,15 +21244,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SuspendInstance',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SuspendInstance',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SuspendInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20880,6 +21265,7 @@ class Dataworkspublic extends OpenApiClient
      * Suspends an instance.
      *
      * @param request - SuspendInstanceRequest
+     *
      * @returns SuspendInstanceResponse
      *
      * @param SuspendInstanceRequest $request
@@ -20898,6 +21284,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - TerminateDISyncInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TerminateDISyncInstanceResponse
      *
      * @param TerminateDISyncInstanceRequest $request
@@ -20925,15 +21312,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TerminateDISyncInstance',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TerminateDISyncInstance',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TerminateDISyncInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -20946,6 +21333,7 @@ class Dataworkspublic extends OpenApiClient
      * Undeploys a real-time synchronization task.
      *
      * @param request - TerminateDISyncInstanceRequest
+     *
      * @returns TerminateDISyncInstanceResponse
      *
      * @param TerminateDISyncInstanceRequest $request
@@ -20964,6 +21352,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - TestDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TestDataServiceApiResponse
      *
      * @param TestDataServiceApiRequest $request
@@ -21002,18 +21391,18 @@ class Dataworkspublic extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TestDataServiceApi',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TestDataServiceApi',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TestDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21026,6 +21415,7 @@ class Dataworkspublic extends OpenApiClient
      * Tests a DataService Studio API in asynchronous mode. You can call the GetDataServiceApiTest operation to query the test result.
      *
      * @param request - TestDataServiceApiRequest
+     *
      * @returns TestDataServiceApiResponse
      *
      * @param TestDataServiceApiRequest $request
@@ -21044,6 +21434,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - TestNetworkConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TestNetworkConnectionResponse
      *
      * @param TestNetworkConnectionRequest $request
@@ -21075,15 +21466,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TestNetworkConnection',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TestNetworkConnection',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TestNetworkConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21096,6 +21487,7 @@ class Dataworkspublic extends OpenApiClient
      * Tests the network connectivity between a data source and a resource group.
      *
      * @param request - TestNetworkConnectionRequest
+     *
      * @returns TestNetworkConnectionResponse
      *
      * @param TestNetworkConnectionRequest $request
@@ -21114,6 +21506,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - TopTenElapsedTimeInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TopTenElapsedTimeInstanceResponse
      *
      * @param TopTenElapsedTimeInstanceRequest $request
@@ -21133,15 +21526,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TopTenElapsedTimeInstance',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TopTenElapsedTimeInstance',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TopTenElapsedTimeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21154,6 +21547,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the ranking of the running durations of instances.
      *
      * @param request - TopTenElapsedTimeInstanceRequest
+     *
      * @returns TopTenElapsedTimeInstanceResponse
      *
      * @param TopTenElapsedTimeInstanceRequest $request
@@ -21172,6 +21566,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - TopTenErrorTimesInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TopTenErrorTimesInstanceResponse
      *
      * @param TopTenErrorTimesInstanceRequest $request
@@ -21191,15 +21586,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'TopTenErrorTimesInstance',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TopTenErrorTimesInstance',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TopTenErrorTimesInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21212,6 +21607,7 @@ class Dataworkspublic extends OpenApiClient
      * Queries the ranking of nodes on which errors occur within the previous month.
      *
      * @param request - TopTenErrorTimesInstanceRequest
+     *
      * @returns TopTenErrorTimesInstanceResponse
      *
      * @param TopTenErrorTimesInstanceRequest $request
@@ -21226,76 +21622,11 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
-     * Removes a directory from the left-side navigation pane of DataAnalysis.
-     *
-     * @param request - UmountDirectoryRequest
-     * @param runtime - runtime options for this request RuntimeOptions
-     * @returns UmountDirectoryResponse
-     *
-     * @param UmountDirectoryRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return UmountDirectoryResponse
-     */
-    public function umountDirectoryWithOptions($request, $runtime)
-    {
-        $request->validate();
-        $body = [];
-        if (null !== $request->targetId) {
-            @$body['TargetId'] = $request->targetId;
-        }
-
-        if (null !== $request->targetType) {
-            @$body['TargetType'] = $request->targetType;
-        }
-
-        if (null !== $request->targetUserId) {
-            @$body['TargetUserId'] = $request->targetUserId;
-        }
-
-        $req = new OpenApiRequest([
-            'body' => Utils::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UmountDirectory',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
-            return UmountDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
-        }
-
-        return UmountDirectoryResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * Removes a directory from the left-side navigation pane of DataAnalysis.
-     *
-     * @param request - UmountDirectoryRequest
-     * @returns UmountDirectoryResponse
-     *
-     * @param UmountDirectoryRequest $request
-     *
-     * @return UmountDirectoryResponse
-     */
-    public function umountDirectory($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->umountDirectoryWithOptions($request, $runtime);
-    }
-
-    /**
      * Updates a baseline.
      *
      * @param tmpReq - UpdateBaselineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateBaselineResponse
      *
      * @param UpdateBaselineRequest $tmpReq
@@ -21373,15 +21704,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateBaseline',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateBaseline',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateBaselineResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21394,6 +21725,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates a baseline.
      *
      * @param request - UpdateBaselineRequest
+     *
      * @returns UpdateBaselineResponse
      *
      * @param UpdateBaselineRequest $request
@@ -21412,6 +21744,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateBusinessRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateBusinessResponse
      *
      * @param UpdateBusinessRequest $request
@@ -21451,15 +21784,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateBusiness',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateBusiness',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateBusinessResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21472,6 +21805,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates a workflow.
      *
      * @param request - UpdateBusinessRequest
+     *
      * @returns UpdateBusinessResponse
      *
      * @param UpdateBusinessRequest $request
@@ -21490,6 +21824,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - UpdateClusterConfigsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateClusterConfigsResponse
      *
      * @param UpdateClusterConfigsRequest $tmpReq
@@ -21526,18 +21861,18 @@ class Dataworkspublic extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateClusterConfigs',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateClusterConfigs',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateClusterConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21550,6 +21885,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates the configurations of submodules in a workspace. You can configure SPARK parameters.
      *
      * @param request - UpdateClusterConfigsRequest
+     *
      * @returns UpdateClusterConfigsResponse
      *
      * @param UpdateClusterConfigsRequest $request
@@ -21564,7 +21900,6 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Updates a data source.
      *
@@ -21572,6 +21907,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateConnectionResponse
      *
      * @param UpdateConnectionRequest $request
@@ -21607,15 +21943,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateConnection',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateConnection',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21625,13 +21961,13 @@ class Dataworkspublic extends OpenApiClient
     }
 
     // Deprecated
-
     /**
      * Updates a data source.
      *
      * @deprecated OpenAPI UpdateConnection is deprecated
      *
      * @param request - UpdateConnectionRequest
+     *
      * @returns UpdateConnectionResponse
      *
      * @param UpdateConnectionRequest $request
@@ -21653,6 +21989,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - UpdateDIAlarmRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDIAlarmRuleResponse
      *
      * @param UpdateDIAlarmRuleRequest $tmpReq
@@ -21702,15 +22039,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDIAlarmRule',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDIAlarmRule',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDIAlarmRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21726,6 +22063,7 @@ class Dataworkspublic extends OpenApiClient
      * You can configure alert rules only for tasks that can be used for real-time data synchronization. You must update all fields in the alert rule.
      *
      * @param request - UpdateDIAlarmRuleRequest
+     *
      * @returns UpdateDIAlarmRuleResponse
      *
      * @param UpdateDIAlarmRuleRequest $request
@@ -21744,6 +22082,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param tmpReq - UpdateDIJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDIJobResponse
      *
      * @param UpdateDIJobRequest $tmpReq
@@ -21801,15 +22140,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDIJob',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDIJob',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDIJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21822,6 +22161,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates a new-version synchronization task. The following type of task is supported: real-time synchronization of all data in a MySQL database to Hologres.
      *
      * @param request - UpdateDIJobRequest
+     *
      * @returns UpdateDIJobResponse
      *
      * @param UpdateDIJobRequest $request
@@ -21843,6 +22183,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateDIProjectConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDIProjectConfigResponse
      *
      * @param UpdateDIProjectConfigRequest $request
@@ -21874,15 +22215,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDIProjectConfig',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDIProjectConfig',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDIProjectConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21898,6 +22239,7 @@ class Dataworkspublic extends OpenApiClient
      * DataWorks allows you to specify a default global configuration only for the processing rules of DDL messages in synchronization solutions. After you configure the **processing rules of DDL messages** in synchronization solutions, the configuration is used as the default global configuration and applies to all real-time synchronization tasks in the solutions. You can modify the **processing rules of DDL messages** based on your business requirements. For more information about how to configure a synchronization solution, see [Synchronization solutions](https://help.aliyun.com/document_detail/199008.html).
      *
      * @param request - UpdateDIProjectConfigRequest
+     *
      * @returns UpdateDIProjectConfigResponse
      *
      * @param UpdateDIProjectConfigRequest $request
@@ -21916,6 +22258,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateDISyncTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDISyncTaskResponse
      *
      * @param UpdateDISyncTaskRequest $request
@@ -21951,15 +22294,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDISyncTask',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDISyncTask',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDISyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -21972,6 +22315,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates a data synchronization task.
      *
      * @param request - UpdateDISyncTaskRequest
+     *
      * @returns UpdateDISyncTaskResponse
      *
      * @param UpdateDISyncTaskRequest $request
@@ -21990,6 +22334,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateDataServiceApiRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDataServiceApiResponse
      *
      * @param UpdateDataServiceApiRequest $request
@@ -22061,15 +22406,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDataServiceApi',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDataServiceApi',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDataServiceApiResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22082,6 +22427,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates the information about an API in the development state in DataService Studio.
      *
      * @param request - UpdateDataServiceApiRequest
+     *
      * @returns UpdateDataServiceApiResponse
      *
      * @param UpdateDataServiceApiRequest $request
@@ -22100,6 +22446,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDataSourceResponse
      *
      * @param UpdateDataSourceRequest $request
@@ -22135,15 +22482,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDataSource',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDataSource',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22156,6 +22503,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates a data source.
      *
      * @param request - UpdateDataSourceRequest
+     *
      * @returns UpdateDataSourceResponse
      *
      * @param UpdateDataSourceRequest $request
@@ -22177,6 +22525,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateFileResponse
      *
      * @param UpdateFileRequest $request
@@ -22324,15 +22673,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFile',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateFile',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateFileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22348,6 +22697,7 @@ class Dataworkspublic extends OpenApiClient
      * When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
      *
      * @param request - UpdateFileRequest
+     *
      * @returns UpdateFileResponse
      *
      * @param UpdateFileRequest $request
@@ -22366,6 +22716,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateFolderRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateFolderResponse
      *
      * @param UpdateFolderRequest $request
@@ -22397,15 +22748,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFolder',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateFolder',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateFolderResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22418,6 +22769,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates a folder.
      *
      * @param request - UpdateFolderRequest
+     *
      * @returns UpdateFolderResponse
      *
      * @param UpdateFolderRequest $request
@@ -22436,6 +22788,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateIDEEventResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateIDEEventResultResponse
      *
      * @param UpdateIDEEventResultRequest $request
@@ -22467,15 +22820,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateIDEEventResult',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateIDEEventResult',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateIDEEventResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22488,6 +22841,7 @@ class Dataworkspublic extends OpenApiClient
      * Returns the check result of an extension point event to DataStudio after the extension point event is triggered during data development and checked by an extension.
      *
      * @param request - UpdateIDEEventResultRequest
+     *
      * @returns UpdateIDEEventResultResponse
      *
      * @param UpdateIDEEventResultRequest $request
@@ -22506,6 +22860,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateMetaCategoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateMetaCategoryResponse
      *
      * @param UpdateMetaCategoryRequest $request
@@ -22533,15 +22888,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMetaCategory',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateMetaCategory',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateMetaCategoryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22554,6 +22909,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates a category.
      *
      * @param request - UpdateMetaCategoryRequest
+     *
      * @returns UpdateMetaCategoryResponse
      *
      * @param UpdateMetaCategoryRequest $request
@@ -22575,6 +22931,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateMetaCollectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateMetaCollectionResponse
      *
      * @param UpdateMetaCollectionRequest $request
@@ -22602,15 +22959,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMetaCollection',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateMetaCollection',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateMetaCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22626,6 +22983,7 @@ class Dataworkspublic extends OpenApiClient
      * Only the name and comment of a collection can be updated.
      *
      * @param request - UpdateMetaCollectionRequest
+     *
      * @returns UpdateMetaCollectionResponse
      *
      * @param UpdateMetaCollectionRequest $request
@@ -22644,6 +23002,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateMetaTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateMetaTableResponse
      *
      * @param UpdateMetaTableRequest $request
@@ -22702,18 +23061,18 @@ class Dataworkspublic extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMetaTable',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateMetaTable',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateMetaTableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22726,6 +23085,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates the metadata information about a table. Only MaxCompute tables are supported.
      *
      * @param request - UpdateMetaTableRequest
+     *
      * @returns UpdateMetaTableResponse
      *
      * @param UpdateMetaTableRequest $request
@@ -22744,6 +23104,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateMetaTableIntroWikiRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateMetaTableIntroWikiResponse
      *
      * @param UpdateMetaTableIntroWikiRequest $request
@@ -22766,18 +23127,18 @@ class Dataworkspublic extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateMetaTableIntroWiki',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateMetaTableIntroWiki',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateMetaTableIntroWikiResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22790,6 +23151,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates the instructions on how to use a table. If no instruction on how to use the table is available, the instructions that are configured by calling this operation are added.
      *
      * @param request - UpdateMetaTableIntroWikiRequest
+     *
      * @returns UpdateMetaTableIntroWikiResponse
      *
      * @param UpdateMetaTableIntroWikiRequest $request
@@ -22808,6 +23170,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateNodeOwnerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateNodeOwnerResponse
      *
      * @param UpdateNodeOwnerRequest $request
@@ -22835,15 +23198,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateNodeOwner',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateNodeOwner',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateNodeOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22856,6 +23219,7 @@ class Dataworkspublic extends OpenApiClient
      * Changes the owner of a node.
      *
      * @param request - UpdateNodeOwnerRequest
+     *
      * @returns UpdateNodeOwnerResponse
      *
      * @param UpdateNodeOwnerRequest $request
@@ -22874,6 +23238,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateNodeRunModeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateNodeRunModeResponse
      *
      * @param UpdateNodeRunModeRequest $request
@@ -22901,15 +23266,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateNodeRunMode',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateNodeRunMode',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateNodeRunModeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22922,6 +23287,7 @@ class Dataworkspublic extends OpenApiClient
      * Freezes or unfreezes a node.
      *
      * @param request - UpdateNodeRunModeRequest
+     *
      * @returns UpdateNodeRunModeResponse
      *
      * @param UpdateNodeRunModeRequest $request
@@ -22940,6 +23306,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateQualityFollowerRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateQualityFollowerResponse
      *
      * @param UpdateQualityFollowerRequest $request
@@ -22975,15 +23342,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateQualityFollower',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateQualityFollower',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateQualityFollowerResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -22996,6 +23363,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates a subscription relationship.
      *
      * @param request - UpdateQualityFollowerRequest
+     *
      * @returns UpdateQualityFollowerResponse
      *
      * @param UpdateQualityFollowerRequest $request
@@ -23014,6 +23382,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateQualityRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateQualityRuleResponse
      *
      * @param UpdateQualityRuleRequest $request
@@ -23117,15 +23486,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateQualityRule',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateQualityRule',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateQualityRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23138,6 +23507,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates a monitoring rule.
      *
      * @param request - UpdateQualityRuleRequest
+     *
      * @returns UpdateQualityRuleResponse
      *
      * @param UpdateQualityRuleRequest $request
@@ -23156,6 +23526,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateRemindRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateRemindResponse
      *
      * @param UpdateRemindRequest $request
@@ -23243,15 +23614,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRemind',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRemind',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateRemindResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23264,6 +23635,7 @@ class Dataworkspublic extends OpenApiClient
      * Modifies a custom alert rule.
      *
      * @param request - UpdateRemindRequest
+     *
      * @returns UpdateRemindResponse
      *
      * @param UpdateRemindRequest $request
@@ -23282,6 +23654,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTableResponse
      *
      * @param UpdateTableRequest $request
@@ -23376,18 +23749,18 @@ class Dataworkspublic extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTable',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTable',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23400,6 +23773,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates a MaxCompute table.
      *
      * @param request - UpdateTableRequest
+     *
      * @returns UpdateTableResponse
      *
      * @param UpdateTableRequest $request
@@ -23418,6 +23792,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateTableAddColumnRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTableAddColumnResponse
      *
      * @param UpdateTableAddColumnRequest $request
@@ -23440,18 +23815,18 @@ class Dataworkspublic extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTableAddColumn',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTableAddColumn',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTableAddColumnResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23464,6 +23839,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates the fields in a MaxCompute table.
      *
      * @param request - UpdateTableAddColumnRequest
+     *
      * @returns UpdateTableAddColumnResponse
      *
      * @param UpdateTableAddColumnRequest $request
@@ -23482,6 +23858,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateTableLevelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTableLevelResponse
      *
      * @param UpdateTableLevelRequest $request
@@ -23517,15 +23894,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTableLevel',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTableLevel',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTableLevelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23538,6 +23915,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates a table level. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param request - UpdateTableLevelRequest
+     *
      * @returns UpdateTableLevelResponse
      *
      * @param UpdateTableLevelRequest $request
@@ -23556,6 +23934,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateTableModelInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTableModelInfoResponse
      *
      * @param UpdateTableModelInfoRequest $request
@@ -23591,15 +23970,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTableModelInfo',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTableModelInfo',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTableModelInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23612,6 +23991,7 @@ class Dataworkspublic extends OpenApiClient
      * Modifies the information about a table, such as the table folder, level, and category.
      *
      * @param request - UpdateTableModelInfoRequest
+     *
      * @returns UpdateTableModelInfoResponse
      *
      * @param UpdateTableModelInfoRequest $request
@@ -23630,6 +24010,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateTableThemeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTableThemeResponse
      *
      * @param UpdateTableThemeRequest $request
@@ -23657,15 +24038,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTableTheme',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTableTheme',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateTableThemeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23678,6 +24059,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates a table theme. This operation will be replaced soon. We recommend that you do not call this operation.
      *
      * @param request - UpdateTableThemeRequest
+     *
      * @returns UpdateTableThemeResponse
      *
      * @param UpdateTableThemeRequest $request
@@ -23696,6 +24078,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateUdfFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateUdfFileResponse
      *
      * @param UpdateUdfFileRequest $request
@@ -23759,15 +24142,15 @@ class Dataworkspublic extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateUdfFile',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateUdfFile',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateUdfFileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23780,6 +24163,7 @@ class Dataworkspublic extends OpenApiClient
      * Updates the file information about a function.
      *
      * @param request - UpdateUdfFileRequest
+     *
      * @returns UpdateUdfFileResponse
      *
      * @param UpdateUdfFileRequest $request
@@ -23798,6 +24182,7 @@ class Dataworkspublic extends OpenApiClient
      *
      * @param request - UpdateWorkbenchEventResultRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateWorkbenchEventResultResponse
      *
      * @param UpdateWorkbenchEventResultRequest $request
@@ -23829,15 +24214,15 @@ class Dataworkspublic extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateWorkbenchEventResult',
-            'version'     => '2020-05-18',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateWorkbenchEventResult',
+            'version' => '2020-05-18',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateWorkbenchEventResultResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -23850,6 +24235,7 @@ class Dataworkspublic extends OpenApiClient
      * Returns the processing result sent by an extension after a process in Operation Center is blocked by the extension.
      *
      * @param request - UpdateWorkbenchEventResultRequest
+     *
      * @returns UpdateWorkbenchEventResultResponse
      *
      * @param UpdateWorkbenchEventResultRequest $request

@@ -12,53 +12,62 @@ class columnList extends Model
      * @var string
      */
     public $caption;
+
     /**
      * @var string
      */
     public $columnGuid;
+
     /**
      * @var string
      */
     public $columnName;
+
     /**
      * @var string
      */
     public $columnType;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var bool
      */
     public $isForeignKey;
+
     /**
      * @var bool
      */
     public $isPartitionColumn;
+
     /**
      * @var bool
      */
     public $isPrimaryKey;
+
     /**
      * @var int
      */
     public $position;
+
     /**
      * @var int
      */
     public $relationCount;
     protected $_name = [
-        'caption'           => 'Caption',
-        'columnGuid'        => 'ColumnGuid',
-        'columnName'        => 'ColumnName',
-        'columnType'        => 'ColumnType',
-        'comment'           => 'Comment',
-        'isForeignKey'      => 'IsForeignKey',
+        'caption' => 'Caption',
+        'columnGuid' => 'ColumnGuid',
+        'columnName' => 'ColumnName',
+        'columnType' => 'ColumnType',
+        'comment' => 'Comment',
+        'isForeignKey' => 'IsForeignKey',
         'isPartitionColumn' => 'IsPartitionColumn',
-        'isPrimaryKey'      => 'IsPrimaryKey',
-        'position'          => 'Position',
-        'relationCount'     => 'RelationCount',
+        'isPrimaryKey' => 'IsPrimaryKey',
+        'position' => 'Position',
+        'relationCount' => 'RelationCount',
     ];
 
     public function validate()

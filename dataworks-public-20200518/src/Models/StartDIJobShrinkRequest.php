@@ -12,17 +12,19 @@ class StartDIJobShrinkRequest extends Model
      * @var int
      */
     public $DIJobId;
+
     /**
      * @var bool
      */
     public $forceToRerun;
+
     /**
      * @var string
      */
     public $realtimeStartSettingsShrink;
     protected $_name = [
-        'DIJobId'                     => 'DIJobId',
-        'forceToRerun'                => 'ForceToRerun',
+        'DIJobId' => 'DIJobId',
+        'forceToRerun' => 'ForceToRerun',
         'realtimeStartSettingsShrink' => 'RealtimeStartSettings',
     ];
 

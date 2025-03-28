@@ -13,43 +13,62 @@ class CreatePermissionApplyOrderRequest extends Model
      * @var applyObject[]
      */
     public $applyObject;
+
     /**
      * @var string
      */
     public $applyReason;
+
+    /**
+     * @var string
+     */
+    public $applyType;
+
     /**
      * @var string
      */
     public $applyUserIds;
+
+    /**
+     * @var string
+     */
+    public $catalogName;
+
     /**
      * @var int
      */
     public $deadline;
+
     /**
      * @var string
      */
     public $engineType;
+
     /**
      * @var string
      */
     public $maxComputeProjectName;
+
     /**
      * @var int
      */
     public $orderType;
+
     /**
      * @var int
      */
     public $workspaceId;
     protected $_name = [
-        'applyObject'           => 'ApplyObject',
-        'applyReason'           => 'ApplyReason',
-        'applyUserIds'          => 'ApplyUserIds',
-        'deadline'              => 'Deadline',
-        'engineType'            => 'EngineType',
+        'applyObject' => 'ApplyObject',
+        'applyReason' => 'ApplyReason',
+        'applyType' => 'ApplyType',
+        'applyUserIds' => 'ApplyUserIds',
+        'catalogName' => 'CatalogName',
+        'deadline' => 'Deadline',
+        'engineType' => 'EngineType',
         'maxComputeProjectName' => 'MaxComputeProjectName',
-        'orderType'             => 'OrderType',
-        'workspaceId'           => 'WorkspaceId',
+        'orderType' => 'OrderType',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -66,7 +85,7 @@ class CreatePermissionApplyOrderRequest extends Model
         if (null !== $this->applyObject) {
             if (\is_array($this->applyObject)) {
                 $res['ApplyObject'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->applyObject as $item1) {
                     $res['ApplyObject'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -77,8 +96,16 @@ class CreatePermissionApplyOrderRequest extends Model
             $res['ApplyReason'] = $this->applyReason;
         }
 
+        if (null !== $this->applyType) {
+            $res['ApplyType'] = $this->applyType;
+        }
+
         if (null !== $this->applyUserIds) {
             $res['ApplyUserIds'] = $this->applyUserIds;
+        }
+
+        if (null !== $this->catalogName) {
+            $res['CatalogName'] = $this->catalogName;
         }
 
         if (null !== $this->deadline) {
@@ -115,7 +142,7 @@ class CreatePermissionApplyOrderRequest extends Model
         if (isset($map['ApplyObject'])) {
             if (!empty($map['ApplyObject'])) {
                 $model->applyObject = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ApplyObject'] as $item1) {
                     $model->applyObject[$n1++] = applyObject::fromMap($item1);
                 }
@@ -126,8 +153,16 @@ class CreatePermissionApplyOrderRequest extends Model
             $model->applyReason = $map['ApplyReason'];
         }
 
+        if (isset($map['ApplyType'])) {
+            $model->applyType = $map['ApplyType'];
+        }
+
         if (isset($map['ApplyUserIds'])) {
             $model->applyUserIds = $map['ApplyUserIds'];
+        }
+
+        if (isset($map['CatalogName'])) {
+            $model->catalogName = $map['CatalogName'];
         }
 
         if (isset($map['Deadline'])) {

@@ -12,58 +12,68 @@ class solutionDetail extends Model
      * @var string
      */
     public $creatorName;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $processContent;
+
     /**
      * @var string
      */
     public $processExtra;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $sourceType;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $submitTime;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'creatorName'    => 'CreatorName',
-        'id'             => 'Id',
-        'name'           => 'Name',
+        'creatorName' => 'CreatorName',
+        'id' => 'Id',
+        'name' => 'Name',
         'processContent' => 'ProcessContent',
-        'processExtra'   => 'ProcessExtra',
-        'projectId'      => 'ProjectId',
-        'sourceType'     => 'SourceType',
-        'startTime'      => 'StartTime',
-        'status'         => 'Status',
-        'submitTime'     => 'SubmitTime',
-        'type'           => 'Type',
+        'processExtra' => 'ProcessExtra',
+        'projectId' => 'ProjectId',
+        'sourceType' => 'SourceType',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'submitTime' => 'SubmitTime',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -12,68 +12,80 @@ class apiAuthorizedList extends Model
      * @var int
      */
     public $apiId;
+
     /**
      * @var string
      */
     public $apiName;
+
     /**
      * @var string
      */
     public $apiPath;
+
     /**
      * @var int
      */
     public $apiStatus;
+
     /**
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $grantCreatedTime;
+
     /**
      * @var string
      */
     public $grantEndTime;
+
     /**
      * @var string
      */
     public $grantOperatorId;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
-        'apiId'            => 'ApiId',
-        'apiName'          => 'ApiName',
-        'apiPath'          => 'ApiPath',
-        'apiStatus'        => 'ApiStatus',
-        'createdTime'      => 'CreatedTime',
-        'creatorId'        => 'CreatorId',
+        'apiId' => 'ApiId',
+        'apiName' => 'ApiName',
+        'apiPath' => 'ApiPath',
+        'apiStatus' => 'ApiStatus',
+        'createdTime' => 'CreatedTime',
+        'creatorId' => 'CreatorId',
         'grantCreatedTime' => 'GrantCreatedTime',
-        'grantEndTime'     => 'GrantEndTime',
-        'grantOperatorId'  => 'GrantOperatorId',
-        'groupId'          => 'GroupId',
-        'modifiedTime'     => 'ModifiedTime',
-        'projectId'        => 'ProjectId',
-        'tenantId'         => 'TenantId',
+        'grantEndTime' => 'GrantEndTime',
+        'grantOperatorId' => 'GrantOperatorId',
+        'groupId' => 'GroupId',
+        'modifiedTime' => 'ModifiedTime',
+        'projectId' => 'ProjectId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

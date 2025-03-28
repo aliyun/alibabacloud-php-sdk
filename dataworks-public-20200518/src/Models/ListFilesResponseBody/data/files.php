@@ -12,113 +12,134 @@ class files extends Model
      * @var string
      */
     public $absoluteFolderPath;
+
     /**
      * @var bool
      */
     public $autoParsing;
+
     /**
      * @var int
      */
     public $bizId;
+
     /**
      * @var int
      */
     public $businessId;
+
     /**
      * @var int
      */
     public $commitStatus;
+
     /**
      * @var string
      */
     public $connectionName;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $createUser;
+
     /**
      * @var int
      */
     public $currentVersion;
+
     /**
      * @var string
      */
     public $fileDescription;
+
     /**
      * @var string
      */
     public $fileFolderId;
+
     /**
      * @var int
      */
     public $fileId;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var int
      */
     public $fileType;
+
     /**
      * @var bool
      */
     public $isMaxCompute;
+
     /**
      * @var int
      */
     public $lastEditTime;
+
     /**
      * @var string
      */
     public $lastEditUser;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $parentId;
+
     /**
      * @var string
      */
     public $useType;
     protected $_name = [
         'absoluteFolderPath' => 'AbsoluteFolderPath',
-        'autoParsing'        => 'AutoParsing',
-        'bizId'              => 'BizId',
-        'businessId'         => 'BusinessId',
-        'commitStatus'       => 'CommitStatus',
-        'connectionName'     => 'ConnectionName',
-        'content'            => 'Content',
-        'createTime'         => 'CreateTime',
-        'createUser'         => 'CreateUser',
-        'currentVersion'     => 'CurrentVersion',
-        'fileDescription'    => 'FileDescription',
-        'fileFolderId'       => 'FileFolderId',
-        'fileId'             => 'FileId',
-        'fileName'           => 'FileName',
-        'fileType'           => 'FileType',
-        'isMaxCompute'       => 'IsMaxCompute',
-        'lastEditTime'       => 'LastEditTime',
-        'lastEditUser'       => 'LastEditUser',
-        'nodeId'             => 'NodeId',
-        'owner'              => 'Owner',
-        'parentId'           => 'ParentId',
-        'useType'            => 'UseType',
+        'autoParsing' => 'AutoParsing',
+        'bizId' => 'BizId',
+        'businessId' => 'BusinessId',
+        'commitStatus' => 'CommitStatus',
+        'connectionName' => 'ConnectionName',
+        'content' => 'Content',
+        'createTime' => 'CreateTime',
+        'createUser' => 'CreateUser',
+        'currentVersion' => 'CurrentVersion',
+        'fileDescription' => 'FileDescription',
+        'fileFolderId' => 'FileFolderId',
+        'fileId' => 'FileId',
+        'fileName' => 'FileName',
+        'fileType' => 'FileType',
+        'isMaxCompute' => 'IsMaxCompute',
+        'lastEditTime' => 'LastEditTime',
+        'lastEditUser' => 'LastEditUser',
+        'nodeId' => 'NodeId',
+        'owner' => 'Owner',
+        'parentId' => 'ParentId',
+        'useType' => 'UseType',
     ];
 
     public function validate()

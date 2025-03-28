@@ -12,12 +12,13 @@ class CreateDataServiceGroupResponseBody extends Model
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'groupId'   => 'GroupId',
+        'groupId' => 'GroupId',
         'requestId' => 'RequestId',
     ];
 

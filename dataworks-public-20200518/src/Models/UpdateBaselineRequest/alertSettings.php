@@ -13,63 +13,74 @@ class alertSettings extends Model
      * @var int
      */
     public $alertInterval;
+
     /**
      * @var int
      */
     public $alertMaximum;
+
     /**
      * @var string[]
      */
     public $alertMethods;
+
     /**
      * @var string
      */
     public $alertRecipient;
+
     /**
      * @var string
      */
     public $alertRecipientType;
+
     /**
      * @var string
      */
     public $alertType;
+
     /**
      * @var bool
      */
     public $baselineAlertEnabled;
+
     /**
      * @var dingRobots[]
      */
     public $dingRobots;
+
     /**
      * @var string
      */
     public $silenceEndTime;
+
     /**
      * @var string
      */
     public $silenceStartTime;
+
     /**
      * @var string[]
      */
     public $topicTypes;
+
     /**
      * @var string[]
      */
     public $webhooks;
     protected $_name = [
-        'alertInterval'        => 'AlertInterval',
-        'alertMaximum'         => 'AlertMaximum',
-        'alertMethods'         => 'AlertMethods',
-        'alertRecipient'       => 'AlertRecipient',
-        'alertRecipientType'   => 'AlertRecipientType',
-        'alertType'            => 'AlertType',
+        'alertInterval' => 'AlertInterval',
+        'alertMaximum' => 'AlertMaximum',
+        'alertMethods' => 'AlertMethods',
+        'alertRecipient' => 'AlertRecipient',
+        'alertRecipientType' => 'AlertRecipientType',
+        'alertType' => 'AlertType',
         'baselineAlertEnabled' => 'BaselineAlertEnabled',
-        'dingRobots'           => 'DingRobots',
-        'silenceEndTime'       => 'SilenceEndTime',
-        'silenceStartTime'     => 'SilenceStartTime',
-        'topicTypes'           => 'TopicTypes',
-        'webhooks'             => 'Webhooks',
+        'dingRobots' => 'DingRobots',
+        'silenceEndTime' => 'SilenceEndTime',
+        'silenceStartTime' => 'SilenceStartTime',
+        'topicTypes' => 'TopicTypes',
+        'webhooks' => 'Webhooks',
     ];
 
     public function validate()
@@ -103,7 +114,7 @@ class alertSettings extends Model
         if (null !== $this->alertMethods) {
             if (\is_array($this->alertMethods)) {
                 $res['AlertMethods'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->alertMethods as $item1) {
                     $res['AlertMethods'][$n1++] = $item1;
                 }
@@ -129,7 +140,7 @@ class alertSettings extends Model
         if (null !== $this->dingRobots) {
             if (\is_array($this->dingRobots)) {
                 $res['DingRobots'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->dingRobots as $item1) {
                     $res['DingRobots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -147,7 +158,7 @@ class alertSettings extends Model
         if (null !== $this->topicTypes) {
             if (\is_array($this->topicTypes)) {
                 $res['TopicTypes'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->topicTypes as $item1) {
                     $res['TopicTypes'][$n1++] = $item1;
                 }
@@ -157,7 +168,7 @@ class alertSettings extends Model
         if (null !== $this->webhooks) {
             if (\is_array($this->webhooks)) {
                 $res['Webhooks'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->webhooks as $item1) {
                     $res['Webhooks'][$n1++] = $item1;
                 }
@@ -186,7 +197,7 @@ class alertSettings extends Model
         if (isset($map['AlertMethods'])) {
             if (!empty($map['AlertMethods'])) {
                 $model->alertMethods = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['AlertMethods'] as $item1) {
                     $model->alertMethods[$n1++] = $item1;
                 }
@@ -212,7 +223,7 @@ class alertSettings extends Model
         if (isset($map['DingRobots'])) {
             if (!empty($map['DingRobots'])) {
                 $model->dingRobots = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['DingRobots'] as $item1) {
                     $model->dingRobots[$n1++] = dingRobots::fromMap($item1);
                 }
@@ -230,7 +241,7 @@ class alertSettings extends Model
         if (isset($map['TopicTypes'])) {
             if (!empty($map['TopicTypes'])) {
                 $model->topicTypes = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['TopicTypes'] as $item1) {
                     $model->topicTypes[$n1++] = $item1;
                 }
@@ -240,7 +251,7 @@ class alertSettings extends Model
         if (isset($map['Webhooks'])) {
             if (!empty($map['Webhooks'])) {
                 $model->webhooks = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Webhooks'] as $item1) {
                     $model->webhooks[$n1++] = $item1;
                 }

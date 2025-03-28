@@ -13,23 +13,26 @@ class data extends Model
      * @var dataEntityList[]
      */
     public $dataEntityList;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'dataEntityList' => 'DataEntityList',
-        'pageNum'        => 'PageNum',
-        'pageSize'       => 'PageSize',
-        'totalCount'     => 'TotalCount',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->dataEntityList) {
             if (\is_array($this->dataEntityList)) {
                 $res['DataEntityList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->dataEntityList as $item1) {
                     $res['DataEntityList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['DataEntityList'])) {
             if (!empty($map['DataEntityList'])) {
                 $model->dataEntityList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['DataEntityList'] as $item1) {
                     $model->dataEntityList[$n1++] = dataEntityList::fromMap($item1);
                 }

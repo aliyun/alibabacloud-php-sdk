@@ -12,23 +12,26 @@ class theme extends Model
      * @var int
      */
     public $level;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $parentId;
+
     /**
      * @var int
      */
     public $themeId;
     protected $_name = [
-        'level'    => 'Level',
-        'name'     => 'Name',
+        'level' => 'Level',
+        'name' => 'Name',
         'parentId' => 'ParentId',
-        'themeId'  => 'ThemeId',
+        'themeId' => 'ThemeId',
     ];
 
     public function validate()

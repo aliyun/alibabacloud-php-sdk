@@ -18,113 +18,134 @@ class data extends Model
      * @var int
      */
     public $alertInterval;
+
     /**
      * @var string[]
      */
     public $alertMethods;
+
     /**
      * @var string[]
      */
     public $alertTargets;
+
     /**
      * @var string
      */
     public $alertUnit;
+
     /**
      * @var int[]
      */
     public $allowNodes;
+
     /**
      * @var baselines[]
      */
     public $baselines;
+
     /**
      * @var bizProcesses[]
      */
     public $bizProcesses;
+
     /**
      * @var string
      */
     public $detail;
+
     /**
      * @var string
      */
     public $dndEnd;
+
     /**
      * @var string
      */
     public $dndStart;
+
     /**
      * @var string
      */
     public $founder;
+
     /**
      * @var int
      */
     public $maxAlertTimes;
+
     /**
      * @var nodes[]
      */
     public $nodes;
+
     /**
      * @var projects[]
      */
     public $projects;
+
     /**
      * @var receivers[]
      */
     public $receivers;
+
     /**
      * @var int
      */
     public $remindId;
+
     /**
      * @var string
      */
     public $remindName;
+
     /**
      * @var string
      */
     public $remindType;
+
     /**
      * @var string
      */
     public $remindUnit;
+
     /**
      * @var robots[]
      */
     public $robots;
+
     /**
      * @var bool
      */
     public $useflag;
+
     /**
      * @var string[]
      */
     public $webhooks;
     protected $_name = [
         'alertInterval' => 'AlertInterval',
-        'alertMethods'  => 'AlertMethods',
-        'alertTargets'  => 'AlertTargets',
-        'alertUnit'     => 'AlertUnit',
-        'allowNodes'    => 'AllowNodes',
-        'baselines'     => 'Baselines',
-        'bizProcesses'  => 'BizProcesses',
-        'detail'        => 'Detail',
-        'dndEnd'        => 'DndEnd',
-        'dndStart'      => 'DndStart',
-        'founder'       => 'Founder',
+        'alertMethods' => 'AlertMethods',
+        'alertTargets' => 'AlertTargets',
+        'alertUnit' => 'AlertUnit',
+        'allowNodes' => 'AllowNodes',
+        'baselines' => 'Baselines',
+        'bizProcesses' => 'BizProcesses',
+        'detail' => 'Detail',
+        'dndEnd' => 'DndEnd',
+        'dndStart' => 'DndStart',
+        'founder' => 'Founder',
         'maxAlertTimes' => 'MaxAlertTimes',
-        'nodes'         => 'Nodes',
-        'projects'      => 'Projects',
-        'receivers'     => 'Receivers',
-        'remindId'      => 'RemindId',
-        'remindName'    => 'RemindName',
-        'remindType'    => 'RemindType',
-        'remindUnit'    => 'RemindUnit',
-        'robots'        => 'Robots',
-        'useflag'       => 'Useflag',
-        'webhooks'      => 'Webhooks',
+        'nodes' => 'Nodes',
+        'projects' => 'Projects',
+        'receivers' => 'Receivers',
+        'remindId' => 'RemindId',
+        'remindName' => 'RemindName',
+        'remindType' => 'RemindType',
+        'remindUnit' => 'RemindUnit',
+        'robots' => 'Robots',
+        'useflag' => 'Useflag',
+        'webhooks' => 'Webhooks',
     ];
 
     public function validate()
@@ -172,7 +193,7 @@ class data extends Model
         if (null !== $this->alertMethods) {
             if (\is_array($this->alertMethods)) {
                 $res['AlertMethods'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->alertMethods as $item1) {
                     $res['AlertMethods'][$n1++] = $item1;
                 }
@@ -182,7 +203,7 @@ class data extends Model
         if (null !== $this->alertTargets) {
             if (\is_array($this->alertTargets)) {
                 $res['AlertTargets'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->alertTargets as $item1) {
                     $res['AlertTargets'][$n1++] = $item1;
                 }
@@ -196,7 +217,7 @@ class data extends Model
         if (null !== $this->allowNodes) {
             if (\is_array($this->allowNodes)) {
                 $res['AllowNodes'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->allowNodes as $item1) {
                     $res['AllowNodes'][$n1++] = $item1;
                 }
@@ -206,7 +227,7 @@ class data extends Model
         if (null !== $this->baselines) {
             if (\is_array($this->baselines)) {
                 $res['Baselines'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->baselines as $item1) {
                     $res['Baselines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -216,7 +237,7 @@ class data extends Model
         if (null !== $this->bizProcesses) {
             if (\is_array($this->bizProcesses)) {
                 $res['BizProcesses'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->bizProcesses as $item1) {
                     $res['BizProcesses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -246,7 +267,7 @@ class data extends Model
         if (null !== $this->nodes) {
             if (\is_array($this->nodes)) {
                 $res['Nodes'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->nodes as $item1) {
                     $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -256,7 +277,7 @@ class data extends Model
         if (null !== $this->projects) {
             if (\is_array($this->projects)) {
                 $res['Projects'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->projects as $item1) {
                     $res['Projects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -266,7 +287,7 @@ class data extends Model
         if (null !== $this->receivers) {
             if (\is_array($this->receivers)) {
                 $res['Receivers'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->receivers as $item1) {
                     $res['Receivers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -292,7 +313,7 @@ class data extends Model
         if (null !== $this->robots) {
             if (\is_array($this->robots)) {
                 $res['Robots'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->robots as $item1) {
                     $res['Robots'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -306,7 +327,7 @@ class data extends Model
         if (null !== $this->webhooks) {
             if (\is_array($this->webhooks)) {
                 $res['Webhooks'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->webhooks as $item1) {
                     $res['Webhooks'][$n1++] = $item1;
                 }
@@ -331,7 +352,7 @@ class data extends Model
         if (isset($map['AlertMethods'])) {
             if (!empty($map['AlertMethods'])) {
                 $model->alertMethods = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['AlertMethods'] as $item1) {
                     $model->alertMethods[$n1++] = $item1;
                 }
@@ -341,7 +362,7 @@ class data extends Model
         if (isset($map['AlertTargets'])) {
             if (!empty($map['AlertTargets'])) {
                 $model->alertTargets = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['AlertTargets'] as $item1) {
                     $model->alertTargets[$n1++] = $item1;
                 }
@@ -355,7 +376,7 @@ class data extends Model
         if (isset($map['AllowNodes'])) {
             if (!empty($map['AllowNodes'])) {
                 $model->allowNodes = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['AllowNodes'] as $item1) {
                     $model->allowNodes[$n1++] = $item1;
                 }
@@ -365,7 +386,7 @@ class data extends Model
         if (isset($map['Baselines'])) {
             if (!empty($map['Baselines'])) {
                 $model->baselines = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Baselines'] as $item1) {
                     $model->baselines[$n1++] = baselines::fromMap($item1);
                 }
@@ -375,7 +396,7 @@ class data extends Model
         if (isset($map['BizProcesses'])) {
             if (!empty($map['BizProcesses'])) {
                 $model->bizProcesses = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['BizProcesses'] as $item1) {
                     $model->bizProcesses[$n1++] = bizProcesses::fromMap($item1);
                 }
@@ -405,7 +426,7 @@ class data extends Model
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Nodes'] as $item1) {
                     $model->nodes[$n1++] = nodes::fromMap($item1);
                 }
@@ -415,7 +436,7 @@ class data extends Model
         if (isset($map['Projects'])) {
             if (!empty($map['Projects'])) {
                 $model->projects = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Projects'] as $item1) {
                     $model->projects[$n1++] = projects::fromMap($item1);
                 }
@@ -425,7 +446,7 @@ class data extends Model
         if (isset($map['Receivers'])) {
             if (!empty($map['Receivers'])) {
                 $model->receivers = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Receivers'] as $item1) {
                     $model->receivers[$n1++] = receivers::fromMap($item1);
                 }
@@ -451,7 +472,7 @@ class data extends Model
         if (isset($map['Robots'])) {
             if (!empty($map['Robots'])) {
                 $model->robots = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Robots'] as $item1) {
                     $model->robots[$n1++] = robots::fromMap($item1);
                 }
@@ -465,7 +486,7 @@ class data extends Model
         if (isset($map['Webhooks'])) {
             if (!empty($map['Webhooks'])) {
                 $model->webhooks = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Webhooks'] as $item1) {
                     $model->webhooks[$n1++] = $item1;
                 }

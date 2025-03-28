@@ -12,58 +12,68 @@ class dataEntityList extends Model
      * @var string
      */
     public $comment;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $dataSize;
+
     /**
      * @var int
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $partitionGuid;
+
     /**
      * @var string
      */
     public $partitionLocation;
+
     /**
      * @var string
      */
     public $partitionName;
+
     /**
      * @var string
      */
     public $partitionPath;
+
     /**
      * @var string
      */
     public $partitionType;
+
     /**
      * @var int
      */
     public $recordCount;
+
     /**
      * @var string
      */
     public $tableGuid;
     protected $_name = [
-        'comment'           => 'Comment',
-        'createTime'        => 'CreateTime',
-        'dataSize'          => 'DataSize',
-        'modifiedTime'      => 'ModifiedTime',
-        'partitionGuid'     => 'PartitionGuid',
+        'comment' => 'Comment',
+        'createTime' => 'CreateTime',
+        'dataSize' => 'DataSize',
+        'modifiedTime' => 'ModifiedTime',
+        'partitionGuid' => 'PartitionGuid',
         'partitionLocation' => 'PartitionLocation',
-        'partitionName'     => 'PartitionName',
-        'partitionPath'     => 'PartitionPath',
-        'partitionType'     => 'PartitionType',
-        'recordCount'       => 'RecordCount',
-        'tableGuid'         => 'TableGuid',
+        'partitionName' => 'PartitionName',
+        'partitionPath' => 'PartitionPath',
+        'partitionType' => 'PartitionType',
+        'recordCount' => 'RecordCount',
+        'tableGuid' => 'TableGuid',
     ];
 
     public function validate()

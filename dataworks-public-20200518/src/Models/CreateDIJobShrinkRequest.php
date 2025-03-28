@@ -12,68 +12,80 @@ class CreateDIJobShrinkRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $destinationDataSourceSettingsShrink;
+
     /**
      * @var string
      */
     public $destinationDataSourceType;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var string
      */
     public $jobSettingsShrink;
+
     /**
      * @var string
      */
     public $migrationType;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $resourceSettingsShrink;
+
     /**
      * @var string
      */
     public $sourceDataSourceSettingsShrink;
+
     /**
      * @var string
      */
     public $sourceDataSourceType;
+
     /**
      * @var string
      */
     public $systemDebug;
+
     /**
      * @var string
      */
     public $tableMappingsShrink;
+
     /**
      * @var string
      */
     public $transformationRulesShrink;
     protected $_name = [
-        'description'                         => 'Description',
+        'description' => 'Description',
         'destinationDataSourceSettingsShrink' => 'DestinationDataSourceSettings',
-        'destinationDataSourceType'           => 'DestinationDataSourceType',
-        'jobName'                             => 'JobName',
-        'jobSettingsShrink'                   => 'JobSettings',
-        'migrationType'                       => 'MigrationType',
-        'projectId'                           => 'ProjectId',
-        'resourceSettingsShrink'              => 'ResourceSettings',
-        'sourceDataSourceSettingsShrink'      => 'SourceDataSourceSettings',
-        'sourceDataSourceType'                => 'SourceDataSourceType',
-        'systemDebug'                         => 'SystemDebug',
-        'tableMappingsShrink'                 => 'TableMappings',
-        'transformationRulesShrink'           => 'TransformationRules',
+        'destinationDataSourceType' => 'DestinationDataSourceType',
+        'jobName' => 'JobName',
+        'jobSettingsShrink' => 'JobSettings',
+        'migrationType' => 'MigrationType',
+        'projectId' => 'ProjectId',
+        'resourceSettingsShrink' => 'ResourceSettings',
+        'sourceDataSourceSettingsShrink' => 'SourceDataSourceSettings',
+        'sourceDataSourceType' => 'SourceDataSourceType',
+        'systemDebug' => 'SystemDebug',
+        'tableMappingsShrink' => 'TableMappings',
+        'transformationRulesShrink' => 'TransformationRules',
     ];
 
     public function validate()

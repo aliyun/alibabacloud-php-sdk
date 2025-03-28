@@ -12,13 +12,14 @@ class data extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $project;
     protected $_name = [
         'clusterId' => 'ClusterId',
-        'project'   => 'Project',
+        'project' => 'Project',
     ];
 
     public function validate()

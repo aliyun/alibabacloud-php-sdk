@@ -13,23 +13,26 @@ class data extends Model
      * @var dataSources[]
      */
     public $dataSources;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'dataSources' => 'DataSources',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'totalCount'  => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->dataSources) {
             if (\is_array($this->dataSources)) {
                 $res['DataSources'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->dataSources as $item1) {
                     $res['DataSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['DataSources'])) {
             if (!empty($map['DataSources'])) {
                 $model->dataSources = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DataSources'] as $item1) {
                     $model->dataSources[$n1++] = dataSources::fromMap($item1);
                 }

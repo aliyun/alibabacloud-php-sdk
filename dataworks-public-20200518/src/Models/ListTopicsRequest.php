@@ -12,48 +12,56 @@ class ListTopicsRequest extends Model
      * @var string
      */
     public $beginTime;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $topicStatuses;
+
     /**
      * @var string
      */
     public $topicTypes;
     protected $_name = [
-        'beginTime'     => 'BeginTime',
-        'endTime'       => 'EndTime',
-        'instanceId'    => 'InstanceId',
-        'nodeId'        => 'NodeId',
-        'owner'         => 'Owner',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'beginTime' => 'BeginTime',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
+        'nodeId' => 'NodeId',
+        'owner' => 'Owner',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'topicStatuses' => 'TopicStatuses',
-        'topicTypes'    => 'TopicTypes',
+        'topicTypes' => 'TopicTypes',
     ];
 
     public function validate()

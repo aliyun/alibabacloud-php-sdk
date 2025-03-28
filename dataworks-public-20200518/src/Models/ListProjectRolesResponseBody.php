@@ -13,13 +13,14 @@ class ListProjectRolesResponseBody extends Model
      * @var projectRoleList[]
      */
     public $projectRoleList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'projectRoleList' => 'ProjectRoleList',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class ListProjectRolesResponseBody extends Model
         if (null !== $this->projectRoleList) {
             if (\is_array($this->projectRoleList)) {
                 $res['ProjectRoleList'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->projectRoleList as $item1) {
                     $res['ProjectRoleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class ListProjectRolesResponseBody extends Model
         if (isset($map['ProjectRoleList'])) {
             if (!empty($map['ProjectRoleList'])) {
                 $model->projectRoleList = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ProjectRoleList'] as $item1) {
                     $model->projectRoleList[$n1++] = projectRoleList::fromMap($item1);
                 }

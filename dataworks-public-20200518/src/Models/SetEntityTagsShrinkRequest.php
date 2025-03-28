@@ -12,13 +12,14 @@ class SetEntityTagsShrinkRequest extends Model
      * @var string
      */
     public $qualifiedName;
+
     /**
      * @var string
      */
     public $tagsShrink;
     protected $_name = [
         'qualifiedName' => 'QualifiedName',
-        'tagsShrink'    => 'Tags',
+        'tagsShrink' => 'Tags',
     ];
 
     public function validate()

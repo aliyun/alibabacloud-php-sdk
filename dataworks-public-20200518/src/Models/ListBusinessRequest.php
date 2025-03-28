@@ -12,27 +12,31 @@ class ListBusinessRequest extends Model
      * @var string
      */
     public $keyword;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
     protected $_name = [
-        'keyword'           => 'Keyword',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'projectId'         => 'ProjectId',
+        'keyword' => 'Keyword',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 

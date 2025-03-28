@@ -12,68 +12,80 @@ class data extends Model
      * @var string
      */
     public $changeType;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var int
      */
     public $commitTime;
+
     /**
      * @var string
      */
     public $commitUser;
+
     /**
      * @var string
      */
     public $fileContent;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $filePropertyContent;
+
     /**
      * @var int
      */
     public $fileVersion;
+
     /**
      * @var bool
      */
     public $isCurrentProd;
+
     /**
      * @var string
      */
     public $nodeContent;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $useType;
     protected $_name = [
-        'changeType'          => 'ChangeType',
-        'comment'             => 'Comment',
-        'commitTime'          => 'CommitTime',
-        'commitUser'          => 'CommitUser',
-        'fileContent'         => 'FileContent',
-        'fileName'            => 'FileName',
+        'changeType' => 'ChangeType',
+        'comment' => 'Comment',
+        'commitTime' => 'CommitTime',
+        'commitUser' => 'CommitUser',
+        'fileContent' => 'FileContent',
+        'fileName' => 'FileName',
         'filePropertyContent' => 'FilePropertyContent',
-        'fileVersion'         => 'FileVersion',
-        'isCurrentProd'       => 'IsCurrentProd',
-        'nodeContent'         => 'NodeContent',
-        'nodeId'              => 'NodeId',
-        'status'              => 'Status',
-        'useType'             => 'UseType',
+        'fileVersion' => 'FileVersion',
+        'isCurrentProd' => 'IsCurrentProd',
+        'nodeContent' => 'NodeContent',
+        'nodeId' => 'NodeId',
+        'status' => 'Status',
+        'useType' => 'UseType',
     ];
 
     public function validate()

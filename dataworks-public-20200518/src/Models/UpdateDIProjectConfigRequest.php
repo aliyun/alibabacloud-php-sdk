@@ -12,23 +12,26 @@ class UpdateDIProjectConfigRequest extends Model
      * @var string
      */
     public $destinationType;
+
     /**
      * @var string
      */
     public $projectConfig;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $sourceType;
     protected $_name = [
         'destinationType' => 'DestinationType',
-        'projectConfig'   => 'ProjectConfig',
-        'projectId'       => 'ProjectId',
-        'sourceType'      => 'SourceType',
+        'projectConfig' => 'ProjectConfig',
+        'projectId' => 'ProjectId',
+        'sourceType' => 'SourceType',
     ];
 
     public function validate()

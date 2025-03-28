@@ -12,12 +12,13 @@ class outputList extends Model
      * @var string
      */
     public $output;
+
     /**
      * @var string
      */
     public $refTableName;
     protected $_name = [
-        'output'       => 'Output',
+        'output' => 'Output',
         'refTableName' => 'RefTableName',
     ];
 

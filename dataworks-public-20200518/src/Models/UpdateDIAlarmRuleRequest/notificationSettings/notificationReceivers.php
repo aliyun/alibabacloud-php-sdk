@@ -12,12 +12,13 @@ class notificationReceivers extends Model
      * @var string
      */
     public $receiverType;
+
     /**
      * @var string[]
      */
     public $receiverValues;
     protected $_name = [
-        'receiverType'   => 'ReceiverType',
+        'receiverType' => 'ReceiverType',
         'receiverValues' => 'ReceiverValues',
     ];
 
@@ -39,7 +40,7 @@ class notificationReceivers extends Model
         if (null !== $this->receiverValues) {
             if (\is_array($this->receiverValues)) {
                 $res['ReceiverValues'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->receiverValues as $item1) {
                     $res['ReceiverValues'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class notificationReceivers extends Model
         if (isset($map['ReceiverValues'])) {
             if (!empty($map['ReceiverValues'])) {
                 $model->receiverValues = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ReceiverValues'] as $item1) {
                     $model->receiverValues[$n1++] = $item1;
                 }

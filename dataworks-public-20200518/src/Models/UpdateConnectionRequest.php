@@ -12,28 +12,32 @@ class UpdateConnectionRequest extends Model
      * @var int
      */
     public $connectionId;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $envType;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'connectionId' => 'ConnectionId',
-        'content'      => 'Content',
-        'description'  => 'Description',
-        'envType'      => 'EnvType',
-        'status'       => 'Status',
+        'content' => 'Content',
+        'description' => 'Description',
+        'envType' => 'EnvType',
+        'status' => 'Status',
     ];
 
     public function validate()

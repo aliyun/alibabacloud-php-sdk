@@ -15,27 +15,31 @@ class scriptDetails extends Model
      * @var bool
      */
     public $isPagedResponse;
+
     /**
      * @var string
      */
     public $script;
+
     /**
      * @var scriptConnection
      */
     public $scriptConnection;
+
     /**
      * @var scriptRequestParameters[]
      */
     public $scriptRequestParameters;
+
     /**
      * @var scriptResponseParameters[]
      */
     public $scriptResponseParameters;
     protected $_name = [
-        'isPagedResponse'          => 'IsPagedResponse',
-        'script'                   => 'Script',
-        'scriptConnection'         => 'ScriptConnection',
-        'scriptRequestParameters'  => 'ScriptRequestParameters',
+        'isPagedResponse' => 'IsPagedResponse',
+        'script' => 'Script',
+        'scriptConnection' => 'ScriptConnection',
+        'scriptRequestParameters' => 'ScriptRequestParameters',
         'scriptResponseParameters' => 'ScriptResponseParameters',
     ];
 
@@ -71,7 +75,7 @@ class scriptDetails extends Model
         if (null !== $this->scriptRequestParameters) {
             if (\is_array($this->scriptRequestParameters)) {
                 $res['ScriptRequestParameters'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->scriptRequestParameters as $item1) {
                     $res['ScriptRequestParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -81,7 +85,7 @@ class scriptDetails extends Model
         if (null !== $this->scriptResponseParameters) {
             if (\is_array($this->scriptResponseParameters)) {
                 $res['ScriptResponseParameters'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->scriptResponseParameters as $item1) {
                     $res['ScriptResponseParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -114,7 +118,7 @@ class scriptDetails extends Model
         if (isset($map['ScriptRequestParameters'])) {
             if (!empty($map['ScriptRequestParameters'])) {
                 $model->scriptRequestParameters = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['ScriptRequestParameters'] as $item1) {
                     $model->scriptRequestParameters[$n1++] = scriptRequestParameters::fromMap($item1);
                 }
@@ -124,7 +128,7 @@ class scriptDetails extends Model
         if (isset($map['ScriptResponseParameters'])) {
             if (!empty($map['ScriptResponseParameters'])) {
                 $model->scriptResponseParameters = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['ScriptResponseParameters'] as $item1) {
                     $model->scriptResponseParameters[$n1++] = scriptResponseParameters::fromMap($item1);
                 }

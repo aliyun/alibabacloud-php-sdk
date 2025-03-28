@@ -12,78 +12,92 @@ class ListInstancesRequest extends Model
      * @var string
      */
     public $beginBizdate;
+
     /**
      * @var string
      */
     public $bizName;
+
     /**
      * @var string
      */
     public $bizdate;
+
     /**
      * @var int
      */
     public $dagId;
+
     /**
      * @var string
      */
     public $endBizdate;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $programType;
+
     /**
      * @var string
      */
     public $projectEnv;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'beginBizdate' => 'BeginBizdate',
-        'bizName'      => 'BizName',
-        'bizdate'      => 'Bizdate',
-        'dagId'        => 'DagId',
-        'endBizdate'   => 'EndBizdate',
-        'nodeId'       => 'NodeId',
-        'nodeName'     => 'NodeName',
-        'orderBy'      => 'OrderBy',
-        'owner'        => 'Owner',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'programType'  => 'ProgramType',
-        'projectEnv'   => 'ProjectEnv',
-        'projectId'    => 'ProjectId',
-        'status'       => 'Status',
+        'bizName' => 'BizName',
+        'bizdate' => 'Bizdate',
+        'dagId' => 'DagId',
+        'endBizdate' => 'EndBizdate',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'orderBy' => 'OrderBy',
+        'owner' => 'Owner',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'programType' => 'ProgramType',
+        'projectEnv' => 'ProjectEnv',
+        'projectId' => 'ProjectId',
+        'status' => 'Status',
     ];
 
     public function validate()

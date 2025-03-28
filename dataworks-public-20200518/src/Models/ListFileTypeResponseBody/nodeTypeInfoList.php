@@ -13,23 +13,26 @@ class nodeTypeInfoList extends Model
      * @var nodeTypeInfo[]
      */
     public $nodeTypeInfo;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'nodeTypeInfo' => 'NodeTypeInfo',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'totalCount'   => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class nodeTypeInfoList extends Model
         if (null !== $this->nodeTypeInfo) {
             if (\is_array($this->nodeTypeInfo)) {
                 $res['NodeTypeInfo'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->nodeTypeInfo as $item1) {
                     $res['NodeTypeInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class nodeTypeInfoList extends Model
         if (isset($map['NodeTypeInfo'])) {
             if (!empty($map['NodeTypeInfo'])) {
                 $model->nodeTypeInfo = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['NodeTypeInfo'] as $item1) {
                     $model->nodeTypeInfo[$n1++] = nodeTypeInfo::fromMap($item1);
                 }

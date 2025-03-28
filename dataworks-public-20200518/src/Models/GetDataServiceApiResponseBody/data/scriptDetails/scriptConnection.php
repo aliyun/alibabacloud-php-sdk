@@ -12,13 +12,14 @@ class scriptConnection extends Model
      * @var int
      */
     public $connectionId;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
         'connectionId' => 'ConnectionId',
-        'tableName'    => 'TableName',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

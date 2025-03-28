@@ -14,58 +14,68 @@ class committedFile extends Model
      * @var string
      */
     public $changeType;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $committor;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var int
      */
     public $fileId;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var filePropertyContent
      */
     public $filePropertyContent;
+
     /**
      * @var int
      */
     public $fileType;
+
     /**
      * @var nodeConfiguration
      */
     public $nodeConfiguration;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $useType;
     protected $_name = [
-        'changeType'          => 'ChangeType',
-        'comment'             => 'Comment',
-        'committor'           => 'Committor',
-        'content'             => 'Content',
-        'fileId'              => 'FileId',
-        'fileName'            => 'FileName',
+        'changeType' => 'ChangeType',
+        'comment' => 'Comment',
+        'committor' => 'Committor',
+        'content' => 'Content',
+        'fileId' => 'FileId',
+        'fileName' => 'FileName',
         'filePropertyContent' => 'FilePropertyContent',
-        'fileType'            => 'FileType',
-        'nodeConfiguration'   => 'NodeConfiguration',
-        'nodeId'              => 'NodeId',
-        'useType'             => 'UseType',
+        'fileType' => 'FileType',
+        'nodeConfiguration' => 'NodeConfiguration',
+        'nodeId' => 'NodeId',
+        'useType' => 'UseType',
     ];
 
     public function validate()

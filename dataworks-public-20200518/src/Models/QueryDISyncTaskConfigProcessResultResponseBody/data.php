@@ -12,17 +12,19 @@ class data extends Model
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskContent;
     protected $_name = [
-        'message'     => 'Message',
-        'status'      => 'Status',
+        'message' => 'Message',
+        'status' => 'Status',
         'taskContent' => 'TaskContent',
     ];
 

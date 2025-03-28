@@ -12,22 +12,25 @@ class ListEntitiesByTagsShrinkRequest extends Model
      * @var string
      */
     public $entityType;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $tagsShrink;
     protected $_name = [
         'entityType' => 'EntityType',
-        'nextToken'  => 'NextToken',
-        'pageSize'   => 'PageSize',
+        'nextToken' => 'NextToken',
+        'pageSize' => 'PageSize',
         'tagsShrink' => 'Tags',
     ];
 

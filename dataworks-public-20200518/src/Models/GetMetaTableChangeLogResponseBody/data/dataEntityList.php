@@ -12,33 +12,38 @@ class dataEntityList extends Model
      * @var string
      */
     public $changeContent;
+
     /**
      * @var string
      */
     public $changeType;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $objectType;
+
     /**
      * @var string
      */
     public $operator;
     protected $_name = [
         'changeContent' => 'ChangeContent',
-        'changeType'    => 'ChangeType',
-        'createTime'    => 'CreateTime',
-        'modifiedTime'  => 'ModifiedTime',
-        'objectType'    => 'ObjectType',
-        'operator'      => 'Operator',
+        'changeType' => 'ChangeType',
+        'createTime' => 'CreateTime',
+        'modifiedTime' => 'ModifiedTime',
+        'objectType' => 'ObjectType',
+        'operator' => 'Operator',
     ];
 
     public function validate()

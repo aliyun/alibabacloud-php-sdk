@@ -31,7 +31,7 @@ class DsgWhiteListAddOrUpdateRequest extends Model
         if (null !== $this->whiteLists) {
             if (\is_array($this->whiteLists)) {
                 $res['WhiteLists'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->whiteLists as $item1) {
                     $res['WhiteLists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class DsgWhiteListAddOrUpdateRequest extends Model
         if (isset($map['WhiteLists'])) {
             if (!empty($map['WhiteLists'])) {
                 $model->whiteLists = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['WhiteLists'] as $item1) {
                     $model->whiteLists[$n1++] = whiteLists::fromMap($item1);
                 }

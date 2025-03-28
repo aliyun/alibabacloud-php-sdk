@@ -12,12 +12,13 @@ class OfflineNodeRequest extends Model
      * @var int
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'nodeId'    => 'NodeId',
+        'nodeId' => 'NodeId',
         'projectId' => 'ProjectId',
     ];
 

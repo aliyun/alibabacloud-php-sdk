@@ -12,18 +12,20 @@ class UpdateNodeOwnerRequest extends Model
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $projectEnv;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'nodeId'     => 'NodeId',
+        'nodeId' => 'NodeId',
         'projectEnv' => 'ProjectEnv',
-        'userId'     => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

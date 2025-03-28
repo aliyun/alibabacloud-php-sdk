@@ -12,17 +12,19 @@ class data extends Model
      * @var string
      */
     public $data;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'data'      => 'Data',
-        'nodeId'    => 'NodeId',
+        'data' => 'Data',
+        'nodeId' => 'NodeId',
         'tableName' => 'TableName',
     ];
 

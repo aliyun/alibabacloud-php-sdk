@@ -12,13 +12,14 @@ class ListProgramTypeCountRequest extends Model
      * @var string
      */
     public $projectEnv;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
         'projectEnv' => 'ProjectEnv',
-        'projectId'  => 'ProjectId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

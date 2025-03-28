@@ -12,23 +12,26 @@ class LineageRelationRegisterVO extends Model
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var LineageEntityVO
      */
     public $destEntity;
+
     /**
      * @var RelationshipVO
      */
     public $relationship;
+
     /**
      * @var LineageEntityVO
      */
     public $srcEntity;
     protected $_name = [
         'createTimestamp' => 'CreateTimestamp',
-        'destEntity'      => 'DestEntity',
-        'relationship'    => 'Relationship',
-        'srcEntity'       => 'SrcEntity',
+        'destEntity' => 'DestEntity',
+        'relationship' => 'Relationship',
+        'srcEntity' => 'SrcEntity',
     ];
 
     public function validate()

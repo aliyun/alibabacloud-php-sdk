@@ -12,22 +12,25 @@ class CreateMetaCollectionRequest extends Model
      * @var string
      */
     public $collectionType;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $parentQualifiedName;
     protected $_name = [
-        'collectionType'      => 'CollectionType',
-        'comment'             => 'Comment',
-        'name'                => 'Name',
+        'collectionType' => 'CollectionType',
+        'comment' => 'Comment',
+        'name' => 'Name',
         'parentQualifiedName' => 'ParentQualifiedName',
     ];
 

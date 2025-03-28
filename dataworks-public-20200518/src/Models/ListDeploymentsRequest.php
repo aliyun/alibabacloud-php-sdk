@@ -12,53 +12,62 @@ class ListDeploymentsRequest extends Model
      * @var string
      */
     public $creator;
+
     /**
      * @var int
      */
     public $endCreateTime;
+
     /**
      * @var int
      */
     public $endExecuteTime;
+
     /**
      * @var string
      */
     public $executor;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'creator'           => 'Creator',
-        'endCreateTime'     => 'EndCreateTime',
-        'endExecuteTime'    => 'EndExecuteTime',
-        'executor'          => 'Executor',
-        'keyword'           => 'Keyword',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'projectId'         => 'ProjectId',
+        'creator' => 'Creator',
+        'endCreateTime' => 'EndCreateTime',
+        'endExecuteTime' => 'EndExecuteTime',
+        'executor' => 'Executor',
+        'keyword' => 'Keyword',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
-        'status'            => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

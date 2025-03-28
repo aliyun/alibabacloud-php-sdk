@@ -14,208 +14,248 @@ class ruleChecks extends Model
      * @var string
      */
     public $actualExpression;
+
     /**
      * @var int
      */
     public $beginTime;
+
     /**
      * @var int
      */
     public $bizDate;
+
     /**
      * @var int
      */
     public $blockType;
+
     /**
      * @var int
      */
     public $checkResult;
+
     /**
      * @var int
      */
     public $checkResultStatus;
+
     /**
      * @var int
      */
     public $checkerId;
+
     /**
      * @var string
      */
     public $checkerName;
+
     /**
      * @var int
      */
     public $checkerType;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var float
      */
     public $criticalThreshold;
+
     /**
      * @var string
      */
     public $dateType;
+
     /**
      * @var bool
      */
     public $discreteCheck;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $entityId;
+
     /**
      * @var float
      */
     public $expectValue;
+
     /**
      * @var string
      */
     public $externalId;
+
     /**
      * @var string
      */
     public $externalType;
+
     /**
      * @var bool
      */
     public $fixedCheck;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var bool
      */
     public $isPrediction;
+
     /**
      * @var float
      */
     public $lowerValue;
+
     /**
      * @var string
      */
     public $matchExpression;
+
     /**
      * @var string
      */
     public $methodName;
+
     /**
      * @var string
      */
     public $op;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $property;
+
     /**
      * @var referenceValue[]
      */
     public $referenceValue;
+
     /**
      * @var string
      */
     public $resultString;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var sampleValue[]
      */
     public $sampleValue;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var int
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateName;
+
     /**
      * @var string
      */
     public $timeCost;
+
     /**
      * @var string
      */
     public $trend;
+
     /**
      * @var float
      */
     public $upperValue;
+
     /**
      * @var float
      */
     public $warningThreshold;
+
     /**
      * @var string
      */
     public $whereCondition;
     protected $_name = [
-        'actualExpression'  => 'ActualExpression',
-        'beginTime'         => 'BeginTime',
-        'bizDate'           => 'BizDate',
-        'blockType'         => 'BlockType',
-        'checkResult'       => 'CheckResult',
+        'actualExpression' => 'ActualExpression',
+        'beginTime' => 'BeginTime',
+        'bizDate' => 'BizDate',
+        'blockType' => 'BlockType',
+        'checkResult' => 'CheckResult',
         'checkResultStatus' => 'CheckResultStatus',
-        'checkerId'         => 'CheckerId',
-        'checkerName'       => 'CheckerName',
-        'checkerType'       => 'CheckerType',
-        'comment'           => 'Comment',
+        'checkerId' => 'CheckerId',
+        'checkerName' => 'CheckerName',
+        'checkerType' => 'CheckerType',
+        'comment' => 'Comment',
         'criticalThreshold' => 'CriticalThreshold',
-        'dateType'          => 'DateType',
-        'discreteCheck'     => 'DiscreteCheck',
-        'endTime'           => 'EndTime',
-        'entityId'          => 'EntityId',
-        'expectValue'       => 'ExpectValue',
-        'externalId'        => 'ExternalId',
-        'externalType'      => 'ExternalType',
-        'fixedCheck'        => 'FixedCheck',
-        'id'                => 'Id',
-        'isPrediction'      => 'IsPrediction',
-        'lowerValue'        => 'LowerValue',
-        'matchExpression'   => 'MatchExpression',
-        'methodName'        => 'MethodName',
-        'op'                => 'Op',
-        'projectName'       => 'ProjectName',
-        'property'          => 'Property',
-        'referenceValue'    => 'ReferenceValue',
-        'resultString'      => 'ResultString',
-        'ruleId'            => 'RuleId',
-        'ruleName'          => 'RuleName',
-        'sampleValue'       => 'SampleValue',
-        'tableName'         => 'TableName',
-        'taskId'            => 'TaskId',
-        'templateId'        => 'TemplateId',
-        'templateName'      => 'TemplateName',
-        'timeCost'          => 'TimeCost',
-        'trend'             => 'Trend',
-        'upperValue'        => 'UpperValue',
-        'warningThreshold'  => 'WarningThreshold',
-        'whereCondition'    => 'WhereCondition',
+        'dateType' => 'DateType',
+        'discreteCheck' => 'DiscreteCheck',
+        'endTime' => 'EndTime',
+        'entityId' => 'EntityId',
+        'expectValue' => 'ExpectValue',
+        'externalId' => 'ExternalId',
+        'externalType' => 'ExternalType',
+        'fixedCheck' => 'FixedCheck',
+        'id' => 'Id',
+        'isPrediction' => 'IsPrediction',
+        'lowerValue' => 'LowerValue',
+        'matchExpression' => 'MatchExpression',
+        'methodName' => 'MethodName',
+        'op' => 'Op',
+        'projectName' => 'ProjectName',
+        'property' => 'Property',
+        'referenceValue' => 'ReferenceValue',
+        'resultString' => 'ResultString',
+        'ruleId' => 'RuleId',
+        'ruleName' => 'RuleName',
+        'sampleValue' => 'SampleValue',
+        'tableName' => 'TableName',
+        'taskId' => 'TaskId',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'timeCost' => 'TimeCost',
+        'trend' => 'Trend',
+        'upperValue' => 'UpperValue',
+        'warningThreshold' => 'WarningThreshold',
+        'whereCondition' => 'WhereCondition',
     ];
 
     public function validate()
@@ -343,7 +383,7 @@ class ruleChecks extends Model
         if (null !== $this->referenceValue) {
             if (\is_array($this->referenceValue)) {
                 $res['ReferenceValue'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->referenceValue as $item1) {
                     $res['ReferenceValue'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -365,7 +405,7 @@ class ruleChecks extends Model
         if (null !== $this->sampleValue) {
             if (\is_array($this->sampleValue)) {
                 $res['SampleValue'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->sampleValue as $item1) {
                     $res['SampleValue'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -530,7 +570,7 @@ class ruleChecks extends Model
         if (isset($map['ReferenceValue'])) {
             if (!empty($map['ReferenceValue'])) {
                 $model->referenceValue = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ReferenceValue'] as $item1) {
                     $model->referenceValue[$n1++] = referenceValue::fromMap($item1);
                 }
@@ -552,7 +592,7 @@ class ruleChecks extends Model
         if (isset($map['SampleValue'])) {
             if (!empty($map['SampleValue'])) {
                 $model->sampleValue = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['SampleValue'] as $item1) {
                     $model->sampleValue[$n1++] = sampleValue::fromMap($item1);
                 }

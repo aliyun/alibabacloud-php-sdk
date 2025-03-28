@@ -12,32 +12,37 @@ class userGroups extends Model
      * @var string[]
      */
     public $accounts;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var int
      */
     public $userGroupType;
     protected $_name = [
-        'accounts'      => 'Accounts',
-        'id'            => 'Id',
-        'name'          => 'Name',
-        'owner'         => 'Owner',
-        'projectName'   => 'ProjectName',
+        'accounts' => 'Accounts',
+        'id' => 'Id',
+        'name' => 'Name',
+        'owner' => 'Owner',
+        'projectName' => 'ProjectName',
         'userGroupType' => 'UserGroupType',
     ];
 
@@ -55,7 +60,7 @@ class userGroups extends Model
         if (null !== $this->accounts) {
             if (\is_array($this->accounts)) {
                 $res['Accounts'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->accounts as $item1) {
                     $res['Accounts'][$n1++] = $item1;
                 }
@@ -96,7 +101,7 @@ class userGroups extends Model
         if (isset($map['Accounts'])) {
             if (!empty($map['Accounts'])) {
                 $model->accounts = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Accounts'] as $item1) {
                     $model->accounts[$n1++] = $item1;
                 }

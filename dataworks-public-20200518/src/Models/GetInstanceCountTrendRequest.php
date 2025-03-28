@@ -12,17 +12,19 @@ class GetInstanceCountTrendRequest extends Model
      * @var string
      */
     public $beginDate;
+
     /**
      * @var string
      */
     public $endDate;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
         'beginDate' => 'BeginDate',
-        'endDate'   => 'EndDate',
+        'endDate' => 'EndDate',
         'projectId' => 'ProjectId',
     ];
 

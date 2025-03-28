@@ -13,13 +13,14 @@ class ListProjectsResponseBody extends Model
      * @var pageResult
      */
     public $pageResult;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'pageResult' => 'PageResult',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

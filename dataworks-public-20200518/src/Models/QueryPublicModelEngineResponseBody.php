@@ -12,12 +12,13 @@ class QueryPublicModelEngineResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var mixed[][]
      */
     public $returnValue;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'returnValue' => 'ReturnValue',
     ];
 
@@ -39,7 +40,7 @@ class QueryPublicModelEngineResponseBody extends Model
         if (null !== $this->returnValue) {
             if (\is_array($this->returnValue)) {
                 $res['ReturnValue'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->returnValue as $item1) {
                     if (\is_array($item1)) {
                         $res['ReturnValue'][$n1++] = [];
@@ -69,7 +70,7 @@ class QueryPublicModelEngineResponseBody extends Model
         if (isset($map['ReturnValue'])) {
             if (!empty($map['ReturnValue'])) {
                 $model->returnValue = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ReturnValue'] as $item1) {
                     if (!empty($item1)) {
                         $model->returnValue[$n1++] = [];

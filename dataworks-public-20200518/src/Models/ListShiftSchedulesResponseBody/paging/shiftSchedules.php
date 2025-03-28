@@ -12,13 +12,14 @@ class shiftSchedules extends Model
      * @var string
      */
     public $shiftScheduleIdentifier;
+
     /**
      * @var string
      */
     public $shiftScheduleName;
     protected $_name = [
         'shiftScheduleIdentifier' => 'ShiftScheduleIdentifier',
-        'shiftScheduleName'       => 'ShiftScheduleName',
+        'shiftScheduleName' => 'ShiftScheduleName',
     ];
 
     public function validate()

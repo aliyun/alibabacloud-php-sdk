@@ -13,33 +13,38 @@ class DsgWhiteListQueryListResponseBody extends Model
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var pageData
      */
     public $pageData;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'errorCode'      => 'ErrorCode',
-        'errorMessage'   => 'ErrorMessage',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'pageData'       => 'PageData',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'pageData' => 'PageData',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class ListRefDISyncTasksRequest extends Model
      * @var string
      */
     public $datasourceName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $refType;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
         'datasourceName' => 'DatasourceName',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'projectId'      => 'ProjectId',
-        'refType'        => 'RefType',
-        'taskType'       => 'TaskType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
+        'refType' => 'RefType',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

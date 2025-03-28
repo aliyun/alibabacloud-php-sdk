@@ -13,22 +13,25 @@ class data extends Model
      * @var files[]
      */
     public $files;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'files'      => 'Files',
+        'files' => 'Files',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'totalCount' => 'TotalCount',
     ];
 
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->files) {
             if (\is_array($this->files)) {
                 $res['Files'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->files as $item1) {
                     $res['Files'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['Files'])) {
             if (!empty($map['Files'])) {
                 $model->files = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Files'] as $item1) {
                     $model->files[$n1++] = files::fromMap($item1);
                 }

@@ -12,13 +12,14 @@ class receivers extends Model
      * @var string[]
      */
     public $alertTargets;
+
     /**
      * @var string
      */
     public $alertUnit;
     protected $_name = [
         'alertTargets' => 'AlertTargets',
-        'alertUnit'    => 'AlertUnit',
+        'alertUnit' => 'AlertUnit',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class receivers extends Model
         if (null !== $this->alertTargets) {
             if (\is_array($this->alertTargets)) {
                 $res['AlertTargets'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->alertTargets as $item1) {
                     $res['AlertTargets'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class receivers extends Model
         if (isset($map['AlertTargets'])) {
             if (!empty($map['AlertTargets'])) {
                 $model->alertTargets = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['AlertTargets'] as $item1) {
                     $model->alertTargets[$n1++] = $item1;
                 }

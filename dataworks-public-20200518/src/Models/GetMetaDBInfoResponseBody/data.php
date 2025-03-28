@@ -12,83 +12,98 @@ class data extends Model
      * @var string
      */
     public $appGuid;
+
     /**
      * @var string
      */
     public $clusterBizId;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $endpoint;
+
     /**
      * @var int
      */
     public $envType;
+
     /**
      * @var string
      */
     public $location;
+
     /**
      * @var int
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $ownerName;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $projectNameCn;
+
     /**
      * @var int
      */
     public $tenantId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'appGuid'       => 'AppGuid',
-        'clusterBizId'  => 'ClusterBizId',
-        'comment'       => 'Comment',
-        'createTime'    => 'CreateTime',
-        'endpoint'      => 'Endpoint',
-        'envType'       => 'EnvType',
-        'location'      => 'Location',
-        'modifyTime'    => 'ModifyTime',
-        'name'          => 'Name',
-        'ownerId'       => 'OwnerId',
-        'ownerName'     => 'OwnerName',
-        'projectId'     => 'ProjectId',
-        'projectName'   => 'ProjectName',
+        'appGuid' => 'AppGuid',
+        'clusterBizId' => 'ClusterBizId',
+        'comment' => 'Comment',
+        'createTime' => 'CreateTime',
+        'endpoint' => 'Endpoint',
+        'envType' => 'EnvType',
+        'location' => 'Location',
+        'modifyTime' => 'ModifyTime',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'ownerName' => 'OwnerName',
+        'projectId' => 'ProjectId',
+        'projectName' => 'ProjectName',
         'projectNameCn' => 'ProjectNameCn',
-        'tenantId'      => 'TenantId',
-        'type'          => 'Type',
+        'tenantId' => 'TenantId',
+        'type' => 'Type',
     ];
 
     public function validate()

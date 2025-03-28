@@ -12,88 +12,104 @@ class instances extends Model
      * @var int
      */
     public $beginRunningTime;
+
     /**
      * @var int
      */
     public $beginWaitResTime;
+
     /**
      * @var int
      */
     public $beginWaitTimeTime;
+
     /**
      * @var int
      */
     public $bizDate;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $createUser;
+
     /**
      * @var int
      */
     public $cycTime;
+
     /**
      * @var int
      */
     public $dagId;
+
     /**
      * @var string
      */
     public $dagType;
+
     /**
      * @var int
      */
     public $finishTime;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $modifyTime;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $paramValues;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'beginRunningTime'  => 'BeginRunningTime',
-        'beginWaitResTime'  => 'BeginWaitResTime',
+        'beginRunningTime' => 'BeginRunningTime',
+        'beginWaitResTime' => 'BeginWaitResTime',
         'beginWaitTimeTime' => 'BeginWaitTimeTime',
-        'bizDate'           => 'BizDate',
-        'createTime'        => 'CreateTime',
-        'createUser'        => 'CreateUser',
-        'cycTime'           => 'CycTime',
-        'dagId'             => 'DagId',
-        'dagType'           => 'DagType',
-        'finishTime'        => 'FinishTime',
-        'instanceId'        => 'InstanceId',
-        'modifyTime'        => 'ModifyTime',
-        'nodeId'            => 'NodeId',
-        'nodeName'          => 'NodeName',
-        'paramValues'       => 'ParamValues',
-        'status'            => 'Status',
-        'taskType'          => 'TaskType',
+        'bizDate' => 'BizDate',
+        'createTime' => 'CreateTime',
+        'createUser' => 'CreateUser',
+        'cycTime' => 'CycTime',
+        'dagId' => 'DagId',
+        'dagType' => 'DagType',
+        'finishTime' => 'FinishTime',
+        'instanceId' => 'InstanceId',
+        'modifyTime' => 'ModifyTime',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'paramValues' => 'ParamValues',
+        'status' => 'Status',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

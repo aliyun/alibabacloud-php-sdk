@@ -13,43 +13,50 @@ class desensRules extends Model
      * @var bool
      */
     public $checkWatermark;
+
     /**
      * @var string
      */
     public $dataType;
+
     /**
      * @var desensPlan
      */
     public $desensPlan;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var int[]
      */
     public $sceneIds;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
         'checkWatermark' => 'CheckWatermark',
-        'dataType'       => 'DataType',
-        'desensPlan'     => 'DesensPlan',
-        'id'             => 'Id',
-        'owner'          => 'Owner',
-        'ruleName'       => 'RuleName',
-        'sceneIds'       => 'SceneIds',
-        'status'         => 'Status',
+        'dataType' => 'DataType',
+        'desensPlan' => 'DesensPlan',
+        'id' => 'Id',
+        'owner' => 'Owner',
+        'ruleName' => 'RuleName',
+        'sceneIds' => 'SceneIds',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -93,7 +100,7 @@ class desensRules extends Model
         if (null !== $this->sceneIds) {
             if (\is_array($this->sceneIds)) {
                 $res['SceneIds'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->sceneIds as $item1) {
                     $res['SceneIds'][$n1++] = $item1;
                 }
@@ -142,7 +149,7 @@ class desensRules extends Model
         if (isset($map['SceneIds'])) {
             if (!empty($map['SceneIds'])) {
                 $model->sceneIds = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['SceneIds'] as $item1) {
                     $model->sceneIds[$n1++] = $item1;
                 }

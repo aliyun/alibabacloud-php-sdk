@@ -12,118 +12,140 @@ class data extends Model
      * @var int
      */
     public $addTime;
+
     /**
      * @var int
      */
     public $alertTime;
+
     /**
      * @var string
      */
     public $assigner;
+
     /**
      * @var int
      */
     public $baselineBuffer;
+
     /**
      * @var int
      */
     public $baselineId;
+
     /**
      * @var int
      */
     public $baselineInGroupId;
+
     /**
      * @var string
      */
     public $baselineName;
+
     /**
      * @var string
      */
     public $baselineStatus;
+
     /**
      * @var int
      */
     public $buffer;
+
     /**
      * @var int
      */
     public $dealTime;
+
     /**
      * @var string
      */
     public $dealUser;
+
     /**
      * @var int
      */
     public $fixTime;
+
     /**
      * @var int
      */
     public $happenTime;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $nextAlertTime;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $topicId;
+
     /**
      * @var string
      */
     public $topicName;
+
     /**
      * @var string
      */
     public $topicStatus;
+
     /**
      * @var string
      */
     public $topicType;
     protected $_name = [
-        'addTime'           => 'AddTime',
-        'alertTime'         => 'AlertTime',
-        'assigner'          => 'Assigner',
-        'baselineBuffer'    => 'BaselineBuffer',
-        'baselineId'        => 'BaselineId',
+        'addTime' => 'AddTime',
+        'alertTime' => 'AlertTime',
+        'assigner' => 'Assigner',
+        'baselineBuffer' => 'BaselineBuffer',
+        'baselineId' => 'BaselineId',
         'baselineInGroupId' => 'BaselineInGroupId',
-        'baselineName'      => 'BaselineName',
-        'baselineStatus'    => 'BaselineStatus',
-        'buffer'            => 'Buffer',
-        'dealTime'          => 'DealTime',
-        'dealUser'          => 'DealUser',
-        'fixTime'           => 'FixTime',
-        'happenTime'        => 'HappenTime',
-        'instanceId'        => 'InstanceId',
-        'nextAlertTime'     => 'NextAlertTime',
-        'nodeId'            => 'NodeId',
-        'nodeName'          => 'NodeName',
-        'owner'             => 'Owner',
-        'projectId'         => 'ProjectId',
-        'topicId'           => 'TopicId',
-        'topicName'         => 'TopicName',
-        'topicStatus'       => 'TopicStatus',
-        'topicType'         => 'TopicType',
+        'baselineName' => 'BaselineName',
+        'baselineStatus' => 'BaselineStatus',
+        'buffer' => 'Buffer',
+        'dealTime' => 'DealTime',
+        'dealUser' => 'DealUser',
+        'fixTime' => 'FixTime',
+        'happenTime' => 'HappenTime',
+        'instanceId' => 'InstanceId',
+        'nextAlertTime' => 'NextAlertTime',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'owner' => 'Owner',
+        'projectId' => 'ProjectId',
+        'topicId' => 'TopicId',
+        'topicName' => 'TopicName',
+        'topicStatus' => 'TopicStatus',
+        'topicType' => 'TopicType',
     ];
 
     public function validate()

@@ -12,22 +12,25 @@ class stepDetail extends Model
      * @var string
      */
     public $info;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $stepId;
+
     /**
      * @var string
      */
     public $stepName;
     protected $_name = [
-        'info'     => 'Info',
-        'status'   => 'Status',
-        'stepId'   => 'StepId',
+        'info' => 'Info',
+        'status' => 'Status',
+        'stepId' => 'StepId',
         'stepName' => 'StepName',
     ];
 

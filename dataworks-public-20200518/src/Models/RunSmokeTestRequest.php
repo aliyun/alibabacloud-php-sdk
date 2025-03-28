@@ -12,26 +12,30 @@ class RunSmokeTestRequest extends Model
      * @var string
      */
     public $bizdate;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeParams;
+
     /**
      * @var string
      */
     public $projectEnv;
     protected $_name = [
-        'bizdate'    => 'Bizdate',
-        'name'       => 'Name',
-        'nodeId'     => 'NodeId',
+        'bizdate' => 'Bizdate',
+        'name' => 'Name',
+        'nodeId' => 'NodeId',
         'nodeParams' => 'NodeParams',
         'projectEnv' => 'ProjectEnv',
     ];

@@ -12,28 +12,32 @@ class ListResourceGroupsShrinkRequest extends Model
      * @var string
      */
     public $bizExtKey;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var int
      */
     public $resourceGroupType;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $tagsShrink;
     protected $_name = [
-        'bizExtKey'                      => 'BizExtKey',
-        'keyword'                        => 'Keyword',
-        'resourceGroupType'              => 'ResourceGroupType',
+        'bizExtKey' => 'BizExtKey',
+        'keyword' => 'Keyword',
+        'resourceGroupType' => 'ResourceGroupType',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'tagsShrink'                     => 'Tags',
+        'tagsShrink' => 'Tags',
     ];
 
     public function validate()

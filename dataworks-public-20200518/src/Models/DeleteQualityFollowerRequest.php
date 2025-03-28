@@ -12,17 +12,19 @@ class DeleteQualityFollowerRequest extends Model
      * @var int
      */
     public $followerId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'followerId'  => 'FollowerId',
-        'projectId'   => 'ProjectId',
+        'followerId' => 'FollowerId',
+        'projectId' => 'ProjectId',
         'projectName' => 'ProjectName',
     ];
 

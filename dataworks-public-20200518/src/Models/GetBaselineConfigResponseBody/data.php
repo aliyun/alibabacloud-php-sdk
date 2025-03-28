@@ -12,73 +12,86 @@ class data extends Model
      * @var int
      */
     public $baselineId;
+
     /**
      * @var string
      */
     public $baselineName;
+
     /**
      * @var string
      */
     public $baselineType;
+
     /**
      * @var int
      */
     public $expHour;
+
     /**
      * @var int
      */
     public $expMinu;
+
     /**
      * @var string
      */
     public $hourExpDetail;
+
     /**
      * @var string
      */
     public $hourSlaDetail;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $slaHour;
+
     /**
      * @var int
      */
     public $slaMinu;
+
     /**
      * @var bool
      */
     public $useFlag;
     protected $_name = [
-        'baselineId'    => 'BaselineId',
-        'baselineName'  => 'BaselineName',
-        'baselineType'  => 'BaselineType',
-        'expHour'       => 'ExpHour',
-        'expMinu'       => 'ExpMinu',
+        'baselineId' => 'BaselineId',
+        'baselineName' => 'BaselineName',
+        'baselineType' => 'BaselineType',
+        'expHour' => 'ExpHour',
+        'expMinu' => 'ExpMinu',
         'hourExpDetail' => 'HourExpDetail',
         'hourSlaDetail' => 'HourSlaDetail',
-        'isDefault'     => 'IsDefault',
-        'owner'         => 'Owner',
-        'priority'      => 'Priority',
-        'projectId'     => 'ProjectId',
-        'slaHour'       => 'SlaHour',
-        'slaMinu'       => 'SlaMinu',
-        'useFlag'       => 'UseFlag',
+        'isDefault' => 'IsDefault',
+        'owner' => 'Owner',
+        'priority' => 'Priority',
+        'projectId' => 'ProjectId',
+        'slaHour' => 'SlaHour',
+        'slaMinu' => 'SlaMinu',
+        'useFlag' => 'UseFlag',
     ];
 
     public function validate()

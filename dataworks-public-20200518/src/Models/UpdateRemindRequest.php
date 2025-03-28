@@ -12,93 +12,110 @@ class UpdateRemindRequest extends Model
      * @var int
      */
     public $alertInterval;
+
     /**
      * @var string
      */
     public $alertMethods;
+
     /**
      * @var string
      */
     public $alertTargets;
+
     /**
      * @var string
      */
     public $alertUnit;
+
     /**
      * @var string
      */
     public $baselineIds;
+
     /**
      * @var string
      */
     public $bizProcessIds;
+
     /**
      * @var string
      */
     public $detail;
+
     /**
      * @var string
      */
     public $dndEnd;
+
     /**
      * @var int
      */
     public $maxAlertTimes;
+
     /**
      * @var string
      */
     public $nodeIds;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $remindId;
+
     /**
      * @var string
      */
     public $remindName;
+
     /**
      * @var string
      */
     public $remindType;
+
     /**
      * @var string
      */
     public $remindUnit;
+
     /**
      * @var string
      */
     public $robotUrls;
+
     /**
      * @var bool
      */
     public $useFlag;
+
     /**
      * @var string
      */
     public $webhooks;
     protected $_name = [
         'alertInterval' => 'AlertInterval',
-        'alertMethods'  => 'AlertMethods',
-        'alertTargets'  => 'AlertTargets',
-        'alertUnit'     => 'AlertUnit',
-        'baselineIds'   => 'BaselineIds',
+        'alertMethods' => 'AlertMethods',
+        'alertTargets' => 'AlertTargets',
+        'alertUnit' => 'AlertUnit',
+        'baselineIds' => 'BaselineIds',
         'bizProcessIds' => 'BizProcessIds',
-        'detail'        => 'Detail',
-        'dndEnd'        => 'DndEnd',
+        'detail' => 'Detail',
+        'dndEnd' => 'DndEnd',
         'maxAlertTimes' => 'MaxAlertTimes',
-        'nodeIds'       => 'NodeIds',
-        'projectId'     => 'ProjectId',
-        'remindId'      => 'RemindId',
-        'remindName'    => 'RemindName',
-        'remindType'    => 'RemindType',
-        'remindUnit'    => 'RemindUnit',
-        'robotUrls'     => 'RobotUrls',
-        'useFlag'       => 'UseFlag',
-        'webhooks'      => 'Webhooks',
+        'nodeIds' => 'NodeIds',
+        'projectId' => 'ProjectId',
+        'remindId' => 'RemindId',
+        'remindName' => 'RemindName',
+        'remindType' => 'RemindType',
+        'remindUnit' => 'RemindUnit',
+        'robotUrls' => 'RobotUrls',
+        'useFlag' => 'UseFlag',
+        'webhooks' => 'Webhooks',
     ];
 
     public function validate()

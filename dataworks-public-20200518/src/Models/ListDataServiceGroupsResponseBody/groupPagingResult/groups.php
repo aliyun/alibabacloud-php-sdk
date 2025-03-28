@@ -12,48 +12,56 @@ class groups extends Model
      * @var string
      */
     public $apiGatewayGroupId;
+
     /**
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
         'apiGatewayGroupId' => 'ApiGatewayGroupId',
-        'createdTime'       => 'CreatedTime',
-        'creatorId'         => 'CreatorId',
-        'description'       => 'Description',
-        'groupId'           => 'GroupId',
-        'groupName'         => 'GroupName',
-        'modifiedTime'      => 'ModifiedTime',
-        'projectId'         => 'ProjectId',
-        'tenantId'          => 'TenantId',
+        'createdTime' => 'CreatedTime',
+        'creatorId' => 'CreatorId',
+        'description' => 'Description',
+        'groupId' => 'GroupId',
+        'groupName' => 'GroupName',
+        'modifiedTime' => 'ModifiedTime',
+        'projectId' => 'ProjectId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

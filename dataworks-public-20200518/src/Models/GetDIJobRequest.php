@@ -12,12 +12,13 @@ class GetDIJobRequest extends Model
      * @var int
      */
     public $DIJobId;
+
     /**
      * @var bool
      */
     public $withDetails;
     protected $_name = [
-        'DIJobId'     => 'DIJobId',
+        'DIJobId' => 'DIJobId',
         'withDetails' => 'WithDetails',
     ];
 

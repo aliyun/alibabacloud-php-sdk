@@ -12,23 +12,26 @@ class StartDISyncInstanceRequest extends Model
      * @var int
      */
     public $fileId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $startParam;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'fileId'     => 'FileId',
-        'projectId'  => 'ProjectId',
+        'fileId' => 'FileId',
+        'projectId' => 'ProjectId',
         'startParam' => 'StartParam',
-        'taskType'   => 'TaskType',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

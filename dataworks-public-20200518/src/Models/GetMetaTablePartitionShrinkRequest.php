@@ -12,43 +12,50 @@ class GetMetaTablePartitionShrinkRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sortCriterionShrink;
+
     /**
      * @var string
      */
     public $tableGuid;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'clusterId'           => 'ClusterId',
-        'dataSourceType'      => 'DataSourceType',
-        'databaseName'        => 'DatabaseName',
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
+        'clusterId' => 'ClusterId',
+        'dataSourceType' => 'DataSourceType',
+        'databaseName' => 'DatabaseName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'sortCriterionShrink' => 'SortCriterion',
-        'tableGuid'           => 'TableGuid',
-        'tableName'           => 'TableName',
+        'tableGuid' => 'TableGuid',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

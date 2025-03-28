@@ -12,18 +12,22 @@ class alarmRuleList extends Model
      * @var string
      */
     public $aggregator;
+
     /**
      * @var string
      */
     public $comparator;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var int
      */
@@ -31,9 +35,9 @@ class alarmRuleList extends Model
     protected $_name = [
         'aggregator' => 'Aggregator',
         'comparator' => 'Comparator',
-        'duration'   => 'Duration',
-        'level'      => 'Level',
-        'threshold'  => 'Threshold',
+        'duration' => 'Duration',
+        'level' => 'Level',
+        'threshold' => 'Threshold',
     ];
 
     public function validate()

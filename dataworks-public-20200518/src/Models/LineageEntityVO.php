@@ -12,37 +12,43 @@ class LineageEntityVO extends Model
      * @var string[]
      */
     public $attributes;
+
     /**
      * @var string
      */
     public $detailUrl;
+
     /**
      * @var string
      */
     public $entityType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var string
      */
     public $parentName;
+
     /**
      * @var string
      */
     public $qualifiedName;
     protected $_name = [
-        'attributes'    => 'Attributes',
-        'detailUrl'     => 'DetailUrl',
-        'entityType'    => 'EntityType',
-        'name'          => 'Name',
-        'owner'         => 'Owner',
-        'parentName'    => 'ParentName',
+        'attributes' => 'Attributes',
+        'detailUrl' => 'DetailUrl',
+        'entityType' => 'EntityType',
+        'name' => 'Name',
+        'owner' => 'Owner',
+        'parentName' => 'ParentName',
         'qualifiedName' => 'QualifiedName',
     ];
 

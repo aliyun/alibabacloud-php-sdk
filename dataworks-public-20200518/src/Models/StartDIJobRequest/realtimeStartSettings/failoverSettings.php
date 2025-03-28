@@ -12,12 +12,13 @@ class failoverSettings extends Model
      * @var int
      */
     public $interval;
+
     /**
      * @var int
      */
     public $upperLimit;
     protected $_name = [
-        'interval'   => 'Interval',
+        'interval' => 'Interval',
         'upperLimit' => 'UpperLimit',
     ];
 

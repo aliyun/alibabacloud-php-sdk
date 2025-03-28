@@ -12,32 +12,37 @@ class errorRank extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $prgType;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'count'     => 'Count',
-        'nodeId'    => 'NodeId',
-        'nodeName'  => 'NodeName',
-        'owner'     => 'Owner',
-        'prgType'   => 'PrgType',
+        'count' => 'Count',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'owner' => 'Owner',
+        'prgType' => 'PrgType',
         'projectId' => 'ProjectId',
     ];
 

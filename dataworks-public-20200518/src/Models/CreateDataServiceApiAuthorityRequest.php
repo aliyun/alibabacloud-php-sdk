@@ -12,28 +12,32 @@ class CreateDataServiceApiAuthorityRequest extends Model
      * @var int
      */
     public $apiId;
+
     /**
      * @var int
      */
     public $authorizedProjectId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
-        'apiId'               => 'ApiId',
+        'apiId' => 'ApiId',
         'authorizedProjectId' => 'AuthorizedProjectId',
-        'endTime'             => 'EndTime',
-        'projectId'           => 'ProjectId',
-        'tenantId'            => 'TenantId',
+        'endTime' => 'EndTime',
+        'projectId' => 'ProjectId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

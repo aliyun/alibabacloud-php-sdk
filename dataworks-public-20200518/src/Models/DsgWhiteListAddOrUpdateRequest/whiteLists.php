@@ -12,27 +12,31 @@ class whiteLists extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $ruleId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var int[]
      */
     public $userGroupIds;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'id'           => 'Id',
-        'ruleId'       => 'RuleId',
-        'startTime'    => 'StartTime',
+        'endTime' => 'EndTime',
+        'id' => 'Id',
+        'ruleId' => 'RuleId',
+        'startTime' => 'StartTime',
         'userGroupIds' => 'UserGroupIds',
     ];
 
@@ -66,7 +70,7 @@ class whiteLists extends Model
         if (null !== $this->userGroupIds) {
             if (\is_array($this->userGroupIds)) {
                 $res['UserGroupIds'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->userGroupIds as $item1) {
                     $res['UserGroupIds'][$n1++] = $item1;
                 }
@@ -103,7 +107,7 @@ class whiteLists extends Model
         if (isset($map['UserGroupIds'])) {
             if (!empty($map['UserGroupIds'])) {
                 $model->userGroupIds = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['UserGroupIds'] as $item1) {
                     $model->userGroupIds[$n1++] = $item1;
                 }

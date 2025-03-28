@@ -12,58 +12,68 @@ class dataEntityList extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var int
      */
     public $entityType;
+
     /**
      * @var int
      */
     public $envType;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $schema;
+
     /**
      * @var string
      */
     public $tableGuid;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'databaseName' => 'DatabaseName',
-        'entityType'   => 'EntityType',
-        'envType'      => 'EnvType',
-        'ownerId'      => 'OwnerId',
-        'projectId'    => 'ProjectId',
-        'projectName'  => 'ProjectName',
-        'schema'       => 'Schema',
-        'tableGuid'    => 'TableGuid',
-        'tableName'    => 'TableName',
-        'tenantId'     => 'TenantId',
+        'entityType' => 'EntityType',
+        'envType' => 'EnvType',
+        'ownerId' => 'OwnerId',
+        'projectId' => 'ProjectId',
+        'projectName' => 'ProjectName',
+        'schema' => 'Schema',
+        'tableGuid' => 'TableGuid',
+        'tableName' => 'TableName',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

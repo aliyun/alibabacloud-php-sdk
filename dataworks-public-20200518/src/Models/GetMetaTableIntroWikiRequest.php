@@ -12,12 +12,13 @@ class GetMetaTableIntroWikiRequest extends Model
      * @var string
      */
     public $tableGuid;
+
     /**
      * @var int
      */
     public $wikiVersion;
     protected $_name = [
-        'tableGuid'   => 'TableGuid',
+        'tableGuid' => 'TableGuid',
         'wikiVersion' => 'WikiVersion',
     ];
 

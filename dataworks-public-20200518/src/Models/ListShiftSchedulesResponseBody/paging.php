@@ -13,23 +13,26 @@ class paging extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var shiftSchedules[]
      */
     public $shiftSchedules;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'shiftSchedules' => 'ShiftSchedules',
-        'totalCount'     => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -54,7 +57,7 @@ class paging extends Model
         if (null !== $this->shiftSchedules) {
             if (\is_array($this->shiftSchedules)) {
                 $res['ShiftSchedules'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->shiftSchedules as $item1) {
                     $res['ShiftSchedules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class paging extends Model
         if (isset($map['ShiftSchedules'])) {
             if (!empty($map['ShiftSchedules'])) {
                 $model->shiftSchedules = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ShiftSchedules'] as $item1) {
                     $model->shiftSchedules[$n1++] = shiftSchedules::fromMap($item1);
                 }

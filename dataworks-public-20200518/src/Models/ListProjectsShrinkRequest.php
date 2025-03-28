@@ -12,23 +12,26 @@ class ListProjectsShrinkRequest extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var string
      */
     public $tagsShrink;
     protected $_name = [
-        'pageNumber'                     => 'PageNumber',
-        'pageSize'                       => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'tagsShrink'                     => 'Tags',
+        'tagsShrink' => 'Tags',
     ];
 
     public function validate()

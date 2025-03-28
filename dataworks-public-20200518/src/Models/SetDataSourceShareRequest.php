@@ -12,28 +12,32 @@ class SetDataSourceShareRequest extends Model
      * @var string
      */
     public $datasourceName;
+
     /**
      * @var string
      */
     public $envType;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectPermissions;
+
     /**
      * @var string
      */
     public $userPermissions;
     protected $_name = [
-        'datasourceName'     => 'DatasourceName',
-        'envType'            => 'EnvType',
-        'projectId'          => 'ProjectId',
+        'datasourceName' => 'DatasourceName',
+        'envType' => 'EnvType',
+        'projectId' => 'ProjectId',
         'projectPermissions' => 'ProjectPermissions',
-        'userPermissions'    => 'UserPermissions',
+        'userPermissions' => 'UserPermissions',
     ];
 
     public function validate()

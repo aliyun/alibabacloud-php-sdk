@@ -13,13 +13,14 @@ class ListProgramTypeCountResponseBody extends Model
      * @var programTypeAndCounts[]
      */
     public $programTypeAndCounts;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'programTypeAndCounts' => 'ProgramTypeAndCounts',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class ListProgramTypeCountResponseBody extends Model
         if (null !== $this->programTypeAndCounts) {
             if (\is_array($this->programTypeAndCounts)) {
                 $res['ProgramTypeAndCounts'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->programTypeAndCounts as $item1) {
                     $res['ProgramTypeAndCounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class ListProgramTypeCountResponseBody extends Model
         if (isset($map['ProgramTypeAndCounts'])) {
             if (!empty($map['ProgramTypeAndCounts'])) {
                 $model->programTypeAndCounts = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['ProgramTypeAndCounts'] as $item1) {
                     $model->programTypeAndCounts[$n1++] = programTypeAndCounts::fromMap($item1);
                 }

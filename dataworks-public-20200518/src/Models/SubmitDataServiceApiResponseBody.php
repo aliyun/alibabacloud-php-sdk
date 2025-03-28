@@ -12,28 +12,32 @@ class SubmitDataServiceApiResponseBody extends Model
      * @var bool
      */
     public $data;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'data'           => 'Data',
-        'errorCode'      => 'ErrorCode',
+        'data' => 'Data',
+        'errorCode' => 'ErrorCode',
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

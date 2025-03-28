@@ -12,18 +12,20 @@ class ListClusterConfigsRequest extends Model
      * @var int
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $configType;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'clusterId'  => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'configType' => 'ConfigType',
-        'projectId'  => 'ProjectId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

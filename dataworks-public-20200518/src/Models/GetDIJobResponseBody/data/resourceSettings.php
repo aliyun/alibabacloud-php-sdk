@@ -14,18 +14,20 @@ class resourceSettings extends Model
      * @var offlineResourceSettings
      */
     public $offlineResourceSettings;
+
     /**
      * @var realtimeResourceSettings
      */
     public $realtimeResourceSettings;
+
     /**
      * @var float
      */
     public $requestedCu;
     protected $_name = [
-        'offlineResourceSettings'  => 'OfflineResourceSettings',
+        'offlineResourceSettings' => 'OfflineResourceSettings',
         'realtimeResourceSettings' => 'RealtimeResourceSettings',
-        'requestedCu'              => 'RequestedCu',
+        'requestedCu' => 'RequestedCu',
     ];
 
     public function validate()

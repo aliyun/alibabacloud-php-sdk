@@ -12,28 +12,32 @@ class dataEntityList extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $columnGuid;
+
     /**
      * @var string
      */
     public $columnName;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'clusterId'    => 'ClusterId',
-        'columnGuid'   => 'ColumnGuid',
-        'columnName'   => 'ColumnName',
+        'clusterId' => 'ClusterId',
+        'columnGuid' => 'ColumnGuid',
+        'columnName' => 'ColumnName',
         'databaseName' => 'DatabaseName',
-        'tableName'    => 'TableName',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

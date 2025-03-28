@@ -13,6 +13,7 @@ class GetExtensionResponseBody extends Model
      * @var extension
      */
     public $extension;
+
     /**
      * @var string
      */

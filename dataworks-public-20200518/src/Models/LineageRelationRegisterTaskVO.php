@@ -12,33 +12,38 @@ class LineageRelationRegisterTaskVO extends Model
      * @var string[]
      */
     public $attributes;
+
     /**
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var LineageEntityVO[]
      */
     public $inputEntities;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var LineageEntityVO[]
      */
     public $outputEntities;
+
     /**
      * @var string
      */
     public $qualifiedName;
     protected $_name = [
-        'attributes'      => 'Attributes',
+        'attributes' => 'Attributes',
         'createTimestamp' => 'CreateTimestamp',
-        'inputEntities'   => 'InputEntities',
-        'name'            => 'Name',
-        'outputEntities'  => 'OutputEntities',
-        'qualifiedName'   => 'QualifiedName',
+        'inputEntities' => 'InputEntities',
+        'name' => 'Name',
+        'outputEntities' => 'OutputEntities',
+        'qualifiedName' => 'QualifiedName',
     ];
 
     public function validate()
@@ -74,7 +79,7 @@ class LineageRelationRegisterTaskVO extends Model
         if (null !== $this->inputEntities) {
             if (\is_array($this->inputEntities)) {
                 $res['InputEntities'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->inputEntities as $item1) {
                     $res['InputEntities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +93,7 @@ class LineageRelationRegisterTaskVO extends Model
         if (null !== $this->outputEntities) {
             if (\is_array($this->outputEntities)) {
                 $res['OutputEntities'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->outputEntities as $item1) {
                     $res['OutputEntities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -126,7 +131,7 @@ class LineageRelationRegisterTaskVO extends Model
         if (isset($map['InputEntities'])) {
             if (!empty($map['InputEntities'])) {
                 $model->inputEntities = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['InputEntities'] as $item1) {
                     $model->inputEntities[$n1++] = LineageEntityVO::fromMap($item1);
                 }
@@ -140,7 +145,7 @@ class LineageRelationRegisterTaskVO extends Model
         if (isset($map['OutputEntities'])) {
             if (!empty($map['OutputEntities'])) {
                 $model->outputEntities = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['OutputEntities'] as $item1) {
                     $model->outputEntities[$n1++] = LineageEntityVO::fromMap($item1);
                 }

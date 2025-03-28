@@ -12,23 +12,26 @@ class topics extends Model
      * @var int
      */
     public $addTime;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $topicId;
+
     /**
      * @var string
      */
     public $topicName;
     protected $_name = [
-        'addTime'    => 'AddTime',
+        'addTime' => 'AddTime',
         'instanceId' => 'InstanceId',
-        'topicId'    => 'TopicId',
-        'topicName'  => 'TopicName',
+        'topicId' => 'TopicId',
+        'topicName' => 'TopicName',
     ];
 
     public function validate()

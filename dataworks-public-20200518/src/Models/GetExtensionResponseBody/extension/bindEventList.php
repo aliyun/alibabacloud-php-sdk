@@ -12,6 +12,7 @@ class bindEventList extends Model
      * @var string
      */
     public $eventCode;
+
     /**
      * @var string
      */

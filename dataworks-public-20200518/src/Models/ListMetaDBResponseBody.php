@@ -13,13 +13,14 @@ class ListMetaDBResponseBody extends Model
      * @var databaseInfo
      */
     public $databaseInfo;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'databaseInfo' => 'DatabaseInfo',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class DsgWhiteListQueryListRequest extends Model
      * @var string
      */
     public $dataType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $sceneId;
     protected $_name = [
-        'dataType'   => 'DataType',
+        'dataType' => 'DataType',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'sceneId'    => 'SceneId',
+        'pageSize' => 'PageSize',
+        'sceneId' => 'SceneId',
     ];
 
     public function validate()

@@ -13,14 +13,17 @@ class applyOrders extends Model
      * @var applyOrder[]
      */
     public $applyOrder;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
@@ -28,7 +31,7 @@ class applyOrders extends Model
     protected $_name = [
         'applyOrder' => 'ApplyOrder',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'totalCount' => 'TotalCount',
     ];
 
@@ -46,7 +49,7 @@ class applyOrders extends Model
         if (null !== $this->applyOrder) {
             if (\is_array($this->applyOrder)) {
                 $res['ApplyOrder'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->applyOrder as $item1) {
                     $res['ApplyOrder'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class applyOrders extends Model
         if (isset($map['ApplyOrder'])) {
             if (!empty($map['ApplyOrder'])) {
                 $model->applyOrder = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ApplyOrder'] as $item1) {
                     $model->applyOrder[$n1++] = applyOrder::fromMap($item1);
                 }

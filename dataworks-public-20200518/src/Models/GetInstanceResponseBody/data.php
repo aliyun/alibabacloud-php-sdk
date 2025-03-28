@@ -12,148 +12,176 @@ class data extends Model
      * @var int
      */
     public $baselineId;
+
     /**
      * @var int
      */
     public $beginRunningTime;
+
     /**
      * @var int
      */
     public $beginWaitResTime;
+
     /**
      * @var int
      */
     public $beginWaitTimeTime;
+
     /**
      * @var int
      */
     public $bizdate;
+
     /**
      * @var int
      */
     public $businessId;
+
     /**
      * @var string
      */
     public $connection;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $createUser;
+
     /**
      * @var int
      */
     public $cycTime;
+
     /**
      * @var int
      */
     public $dagId;
+
     /**
      * @var string
      */
     public $dagType;
+
     /**
      * @var string
      */
     public $dqcDescription;
+
     /**
      * @var int
      */
     public $dqcType;
+
     /**
      * @var int
      */
     public $finishTime;
+
     /**
      * @var int
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $modifyTime;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var string
      */
     public $paramValues;
+
     /**
      * @var int
      */
     public $periodNumber;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var int
      */
     public $relatedFlowId;
+
     /**
      * @var int
      */
     public $repeatInterval;
+
     /**
      * @var bool
      */
     public $repeatability;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $taskRerunTime;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'baselineId'        => 'BaselineId',
-        'beginRunningTime'  => 'BeginRunningTime',
-        'beginWaitResTime'  => 'BeginWaitResTime',
+        'baselineId' => 'BaselineId',
+        'beginRunningTime' => 'BeginRunningTime',
+        'beginWaitResTime' => 'BeginWaitResTime',
         'beginWaitTimeTime' => 'BeginWaitTimeTime',
-        'bizdate'           => 'Bizdate',
-        'businessId'        => 'BusinessId',
-        'connection'        => 'Connection',
-        'createTime'        => 'CreateTime',
-        'createUser'        => 'CreateUser',
-        'cycTime'           => 'CycTime',
-        'dagId'             => 'DagId',
-        'dagType'           => 'DagType',
-        'dqcDescription'    => 'DqcDescription',
-        'dqcType'           => 'DqcType',
-        'finishTime'        => 'FinishTime',
-        'instanceId'        => 'InstanceId',
-        'modifyTime'        => 'ModifyTime',
-        'nodeId'            => 'NodeId',
-        'nodeName'          => 'NodeName',
-        'owner'             => 'Owner',
-        'paramValues'       => 'ParamValues',
-        'periodNumber'      => 'PeriodNumber',
-        'priority'          => 'Priority',
-        'relatedFlowId'     => 'RelatedFlowId',
-        'repeatInterval'    => 'RepeatInterval',
-        'repeatability'     => 'Repeatability',
-        'status'            => 'Status',
-        'taskRerunTime'     => 'TaskRerunTime',
-        'taskType'          => 'TaskType',
+        'bizdate' => 'Bizdate',
+        'businessId' => 'BusinessId',
+        'connection' => 'Connection',
+        'createTime' => 'CreateTime',
+        'createUser' => 'CreateUser',
+        'cycTime' => 'CycTime',
+        'dagId' => 'DagId',
+        'dagType' => 'DagType',
+        'dqcDescription' => 'DqcDescription',
+        'dqcType' => 'DqcType',
+        'finishTime' => 'FinishTime',
+        'instanceId' => 'InstanceId',
+        'modifyTime' => 'ModifyTime',
+        'nodeId' => 'NodeId',
+        'nodeName' => 'NodeName',
+        'owner' => 'Owner',
+        'paramValues' => 'ParamValues',
+        'periodNumber' => 'PeriodNumber',
+        'priority' => 'Priority',
+        'relatedFlowId' => 'RelatedFlowId',
+        'repeatInterval' => 'RepeatInterval',
+        'repeatability' => 'Repeatability',
+        'status' => 'Status',
+        'taskRerunTime' => 'TaskRerunTime',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

@@ -12,22 +12,25 @@ class columns extends Model
      * @var string
      */
     public $columnName;
+
     /**
      * @var string
      */
     public $columnType;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var bool
      */
     public $isPartitionColumn;
     protected $_name = [
-        'columnName'        => 'ColumnName',
-        'columnType'        => 'ColumnType',
-        'comment'           => 'Comment',
+        'columnName' => 'ColumnName',
+        'columnType' => 'ColumnType',
+        'comment' => 'Comment',
         'isPartitionColumn' => 'IsPartitionColumn',
     ];
 

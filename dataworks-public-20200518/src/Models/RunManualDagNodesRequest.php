@@ -12,58 +12,68 @@ class RunManualDagNodesRequest extends Model
      * @var string
      */
     public $bizDate;
+
     /**
      * @var string
      */
     public $dagParameters;
+
     /**
      * @var string
      */
     public $endBizDate;
+
     /**
      * @var string
      */
     public $excludeNodeIds;
+
     /**
      * @var string
      */
     public $flowName;
+
     /**
      * @var string
      */
     public $includeNodeIds;
+
     /**
      * @var string
      */
     public $nodeParameters;
+
     /**
      * @var string
      */
     public $projectEnv;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $startBizDate;
     protected $_name = [
-        'bizDate'        => 'BizDate',
-        'dagParameters'  => 'DagParameters',
-        'endBizDate'     => 'EndBizDate',
+        'bizDate' => 'BizDate',
+        'dagParameters' => 'DagParameters',
+        'endBizDate' => 'EndBizDate',
         'excludeNodeIds' => 'ExcludeNodeIds',
-        'flowName'       => 'FlowName',
+        'flowName' => 'FlowName',
         'includeNodeIds' => 'IncludeNodeIds',
         'nodeParameters' => 'NodeParameters',
-        'projectEnv'     => 'ProjectEnv',
-        'projectId'      => 'ProjectId',
-        'projectName'    => 'ProjectName',
-        'startBizDate'   => 'StartBizDate',
+        'projectEnv' => 'ProjectEnv',
+        'projectId' => 'ProjectId',
+        'projectName' => 'ProjectName',
+        'startBizDate' => 'StartBizDate',
     ];
 
     public function validate()

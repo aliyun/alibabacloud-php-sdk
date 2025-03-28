@@ -12,18 +12,20 @@ class UpdateMetaCategoryRequest extends Model
      * @var int
      */
     public $categoryId;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
         'categoryId' => 'CategoryId',
-        'comment'    => 'Comment',
-        'name'       => 'Name',
+        'comment' => 'Comment',
+        'name' => 'Name',
     ];
 
     public function validate()

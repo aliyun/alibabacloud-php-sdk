@@ -13,13 +13,14 @@ class DsgRunSensIdentifyRequest extends Model
      * @var esMetaParams[]
      */
     public $esMetaParams;
+
     /**
      * @var string
      */
     public $tenantId;
     protected $_name = [
         'esMetaParams' => 'EsMetaParams',
-        'tenantId'     => 'TenantId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DsgRunSensIdentifyRequest extends Model
         if (null !== $this->esMetaParams) {
             if (\is_array($this->esMetaParams)) {
                 $res['EsMetaParams'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->esMetaParams as $item1) {
                     $res['EsMetaParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DsgRunSensIdentifyRequest extends Model
         if (isset($map['EsMetaParams'])) {
             if (!empty($map['EsMetaParams'])) {
                 $model->esMetaParams = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['EsMetaParams'] as $item1) {
                     $model->esMetaParams[$n1++] = esMetaParams::fromMap($item1);
                 }

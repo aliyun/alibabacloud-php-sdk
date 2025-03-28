@@ -12,22 +12,25 @@ class ListTableLevelRequest extends Model
      * @var int
      */
     public $levelType;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
         'levelType' => 'LevelType',
-        'pageNum'   => 'PageNum',
-        'pageSize'  => 'PageSize',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
         'projectId' => 'ProjectId',
     ];
 

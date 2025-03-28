@@ -12,23 +12,26 @@ class TestNetworkConnectionRequest extends Model
      * @var string
      */
     public $datasourceName;
+
     /**
      * @var string
      */
     public $envType;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $resourceGroup;
     protected $_name = [
         'datasourceName' => 'DatasourceName',
-        'envType'        => 'EnvType',
-        'projectId'      => 'ProjectId',
-        'resourceGroup'  => 'ResourceGroup',
+        'envType' => 'EnvType',
+        'projectId' => 'ProjectId',
+        'resourceGroup' => 'ResourceGroup',
     ];
 
     public function validate()

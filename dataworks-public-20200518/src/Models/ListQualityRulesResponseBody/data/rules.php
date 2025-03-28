@@ -12,133 +12,158 @@ class rules extends Model
      * @var int
      */
     public $blockType;
+
     /**
      * @var int
      */
     public $checkerId;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $criticalThreshold;
+
     /**
      * @var int
      */
     public $entityId;
+
     /**
      * @var string
      */
     public $expectValue;
+
     /**
      * @var bool
      */
     public $fixCheck;
+
     /**
      * @var string
      */
     public $historyCriticalThreshold;
+
     /**
      * @var string
      */
     public $historyWarningThreshold;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $matchExpression;
+
     /**
      * @var int
      */
     public $methodId;
+
     /**
      * @var string
      */
     public $methodName;
+
     /**
      * @var string
      */
     public $onDuty;
+
     /**
      * @var string
      */
     public $onDutyAccountName;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $property;
+
     /**
      * @var string
      */
     public $propertyKey;
+
     /**
      * @var int
      */
     public $ruleCheckerRelationId;
+
     /**
      * @var string
      */
     public $ruleName;
+
     /**
      * @var int
      */
     public $ruleType;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateName;
+
     /**
      * @var string
      */
     public $trend;
+
     /**
      * @var string
      */
     public $warningThreshold;
     protected $_name = [
-        'blockType'                => 'BlockType',
-        'checkerId'                => 'CheckerId',
-        'comment'                  => 'Comment',
-        'criticalThreshold'        => 'CriticalThreshold',
-        'entityId'                 => 'EntityId',
-        'expectValue'              => 'ExpectValue',
-        'fixCheck'                 => 'FixCheck',
+        'blockType' => 'BlockType',
+        'checkerId' => 'CheckerId',
+        'comment' => 'Comment',
+        'criticalThreshold' => 'CriticalThreshold',
+        'entityId' => 'EntityId',
+        'expectValue' => 'ExpectValue',
+        'fixCheck' => 'FixCheck',
         'historyCriticalThreshold' => 'HistoryCriticalThreshold',
-        'historyWarningThreshold'  => 'HistoryWarningThreshold',
-        'id'                       => 'Id',
-        'matchExpression'          => 'MatchExpression',
-        'methodId'                 => 'MethodId',
-        'methodName'               => 'MethodName',
-        'onDuty'                   => 'OnDuty',
-        'onDutyAccountName'        => 'OnDutyAccountName',
-        'projectName'              => 'ProjectName',
-        'property'                 => 'Property',
-        'propertyKey'              => 'PropertyKey',
-        'ruleCheckerRelationId'    => 'RuleCheckerRelationId',
-        'ruleName'                 => 'RuleName',
-        'ruleType'                 => 'RuleType',
-        'tableName'                => 'TableName',
-        'templateId'               => 'TemplateId',
-        'templateName'             => 'TemplateName',
-        'trend'                    => 'Trend',
-        'warningThreshold'         => 'WarningThreshold',
+        'historyWarningThreshold' => 'HistoryWarningThreshold',
+        'id' => 'Id',
+        'matchExpression' => 'MatchExpression',
+        'methodId' => 'MethodId',
+        'methodName' => 'MethodName',
+        'onDuty' => 'OnDuty',
+        'onDutyAccountName' => 'OnDutyAccountName',
+        'projectName' => 'ProjectName',
+        'property' => 'Property',
+        'propertyKey' => 'PropertyKey',
+        'ruleCheckerRelationId' => 'RuleCheckerRelationId',
+        'ruleName' => 'RuleName',
+        'ruleType' => 'RuleType',
+        'tableName' => 'TableName',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'trend' => 'Trend',
+        'warningThreshold' => 'WarningThreshold',
     ];
 
     public function validate()

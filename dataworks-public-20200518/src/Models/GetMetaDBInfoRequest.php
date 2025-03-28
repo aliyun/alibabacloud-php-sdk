@@ -12,23 +12,26 @@ class GetMetaDBInfoRequest extends Model
      * @var string
      */
     public $appGuid;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var string
      */
     public $databaseName;
     protected $_name = [
-        'appGuid'        => 'AppGuid',
-        'clusterId'      => 'ClusterId',
+        'appGuid' => 'AppGuid',
+        'clusterId' => 'ClusterId',
         'dataSourceType' => 'DataSourceType',
-        'databaseName'   => 'DatabaseName',
+        'databaseName' => 'DatabaseName',
     ];
 
     public function validate()

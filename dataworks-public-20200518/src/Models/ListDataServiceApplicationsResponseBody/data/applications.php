@@ -12,18 +12,20 @@ class applications extends Model
      * @var int
      */
     public $applicationId;
+
     /**
      * @var string
      */
     public $applicationName;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'applicationId'   => 'ApplicationId',
+        'applicationId' => 'ApplicationId',
         'applicationName' => 'ApplicationName',
-        'projectId'       => 'ProjectId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

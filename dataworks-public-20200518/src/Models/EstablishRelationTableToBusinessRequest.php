@@ -12,28 +12,32 @@ class EstablishRelationTableToBusinessRequest extends Model
      * @var string
      */
     public $businessId;
+
     /**
      * @var string
      */
     public $folderId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
+
     /**
      * @var string
      */
     public $tableGuid;
     protected $_name = [
-        'businessId'        => 'BusinessId',
-        'folderId'          => 'FolderId',
-        'projectId'         => 'ProjectId',
+        'businessId' => 'BusinessId',
+        'folderId' => 'FolderId',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
-        'tableGuid'         => 'TableGuid',
+        'tableGuid' => 'TableGuid',
     ];
 
     public function validate()

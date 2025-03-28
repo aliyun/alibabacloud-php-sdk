@@ -12,38 +12,44 @@ class dbList extends Model
      * @var int
      */
     public $createTimeStamp;
+
     /**
      * @var string
      */
     public $location;
+
     /**
      * @var int
      */
     public $modifiedTimeStamp;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $UUID;
     protected $_name = [
-        'createTimeStamp'   => 'CreateTimeStamp',
-        'location'          => 'Location',
+        'createTimeStamp' => 'CreateTimeStamp',
+        'location' => 'Location',
         'modifiedTimeStamp' => 'ModifiedTimeStamp',
-        'name'              => 'Name',
-        'ownerId'           => 'OwnerId',
-        'type'              => 'Type',
-        'UUID'              => 'UUID',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'type' => 'Type',
+        'UUID' => 'UUID',
     ];
 
     public function validate()

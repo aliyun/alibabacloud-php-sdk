@@ -12,63 +12,74 @@ class CreateResourceFileRequest extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $fileDescription;
+
     /**
      * @var string
      */
     public $fileFolderPath;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var int
      */
     public $fileType;
+
     /**
      * @var string
      */
     public $originResourceName;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var bool
      */
     public $registerToCalcEngine;
+
     /**
      * @var string
      */
     public $resourceFile;
+
     /**
      * @var string
      */
     public $storageURL;
+
     /**
      * @var bool
      */
     public $uploadMode;
     protected $_name = [
-        'content'              => 'Content',
-        'fileDescription'      => 'FileDescription',
-        'fileFolderPath'       => 'FileFolderPath',
-        'fileName'             => 'FileName',
-        'fileType'             => 'FileType',
-        'originResourceName'   => 'OriginResourceName',
-        'owner'                => 'Owner',
-        'projectId'            => 'ProjectId',
+        'content' => 'Content',
+        'fileDescription' => 'FileDescription',
+        'fileFolderPath' => 'FileFolderPath',
+        'fileName' => 'FileName',
+        'fileType' => 'FileType',
+        'originResourceName' => 'OriginResourceName',
+        'owner' => 'Owner',
+        'projectId' => 'ProjectId',
         'registerToCalcEngine' => 'RegisterToCalcEngine',
-        'resourceFile'         => 'ResourceFile',
-        'storageURL'           => 'StorageURL',
-        'uploadMode'           => 'UploadMode',
+        'resourceFile' => 'ResourceFile',
+        'storageURL' => 'StorageURL',
+        'uploadMode' => 'UploadMode',
     ];
 
     public function validate()

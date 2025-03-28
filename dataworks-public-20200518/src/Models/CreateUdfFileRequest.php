@@ -12,68 +12,80 @@ class CreateUdfFileRequest extends Model
      * @var string
      */
     public $className;
+
     /**
      * @var string
      */
     public $cmdDescription;
+
     /**
      * @var bool
      */
     public $createFolderIfNotExists;
+
     /**
      * @var string
      */
     public $example;
+
     /**
      * @var string
      */
     public $fileFolderPath;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $functionType;
+
     /**
      * @var string
      */
     public $parameterDescription;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
+
     /**
      * @var string
      */
     public $resources;
+
     /**
      * @var string
      */
     public $returnValue;
+
     /**
      * @var string
      */
     public $udfDescription;
     protected $_name = [
-        'className'               => 'ClassName',
-        'cmdDescription'          => 'CmdDescription',
+        'className' => 'ClassName',
+        'cmdDescription' => 'CmdDescription',
         'createFolderIfNotExists' => 'CreateFolderIfNotExists',
-        'example'                 => 'Example',
-        'fileFolderPath'          => 'FileFolderPath',
-        'fileName'                => 'FileName',
-        'functionType'            => 'FunctionType',
-        'parameterDescription'    => 'ParameterDescription',
-        'projectId'               => 'ProjectId',
-        'projectIdentifier'       => 'ProjectIdentifier',
-        'resources'               => 'Resources',
-        'returnValue'             => 'ReturnValue',
-        'udfDescription'          => 'UdfDescription',
+        'example' => 'Example',
+        'fileFolderPath' => 'FileFolderPath',
+        'fileName' => 'FileName',
+        'functionType' => 'FunctionType',
+        'parameterDescription' => 'ParameterDescription',
+        'projectId' => 'ProjectId',
+        'projectIdentifier' => 'ProjectIdentifier',
+        'resources' => 'Resources',
+        'returnValue' => 'ReturnValue',
+        'udfDescription' => 'UdfDescription',
     ];
 
     public function validate()

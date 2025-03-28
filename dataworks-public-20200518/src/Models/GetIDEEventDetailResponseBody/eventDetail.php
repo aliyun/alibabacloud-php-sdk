@@ -16,23 +16,26 @@ class eventDetail extends Model
      * @var committedFile
      */
     public $committedFile;
+
     /**
      * @var deletedFile
      */
     public $deletedFile;
+
     /**
      * @var fileExecutionCommand
      */
     public $fileExecutionCommand;
+
     /**
      * @var tableModel
      */
     public $tableModel;
     protected $_name = [
-        'committedFile'        => 'CommittedFile',
-        'deletedFile'          => 'DeletedFile',
+        'committedFile' => 'CommittedFile',
+        'deletedFile' => 'DeletedFile',
         'fileExecutionCommand' => 'FileExecutionCommand',
-        'tableModel'           => 'TableModel',
+        'tableModel' => 'TableModel',
     ];
 
     public function validate()

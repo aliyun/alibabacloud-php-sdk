@@ -12,38 +12,44 @@ class ListInnerNodesRequest extends Model
      * @var string
      */
     public $nodeName;
+
     /**
      * @var int
      */
     public $outerNodeId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $programType;
+
     /**
      * @var string
      */
     public $projectEnv;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'nodeName'    => 'NodeName',
+        'nodeName' => 'NodeName',
         'outerNodeId' => 'OuterNodeId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'programType' => 'ProgramType',
-        'projectEnv'  => 'ProjectEnv',
-        'projectId'   => 'ProjectId',
+        'projectEnv' => 'ProjectEnv',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

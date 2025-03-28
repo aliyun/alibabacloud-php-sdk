@@ -12,27 +12,31 @@ class DeployFileRequest extends Model
      * @var string
      */
     public $comment;
+
     /**
      * @var int
      */
     public $fileId;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
     protected $_name = [
-        'comment'           => 'Comment',
-        'fileId'            => 'FileId',
-        'nodeId'            => 'NodeId',
-        'projectId'         => 'ProjectId',
+        'comment' => 'Comment',
+        'fileId' => 'FileId',
+        'nodeId' => 'NodeId',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 

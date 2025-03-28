@@ -12,68 +12,80 @@ class calcEngines extends Model
      * @var int
      */
     public $bindingProjectId;
+
     /**
      * @var string
      */
     public $bindingProjectName;
+
     /**
      * @var string
      */
     public $calcEngineType;
+
     /**
      * @var string
      */
     public $dwRegion;
+
     /**
      * @var int
      */
     public $engineId;
+
     /**
      * @var mixed[]
      */
     public $engineInfo;
+
     /**
      * @var string
      */
     public $envType;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $taskAuthType;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
-        'bindingProjectId'   => 'BindingProjectId',
+        'bindingProjectId' => 'BindingProjectId',
         'bindingProjectName' => 'BindingProjectName',
-        'calcEngineType'     => 'CalcEngineType',
-        'dwRegion'           => 'DwRegion',
-        'engineId'           => 'EngineId',
-        'engineInfo'         => 'EngineInfo',
-        'envType'            => 'EnvType',
-        'gmtCreate'          => 'GmtCreate',
-        'isDefault'          => 'IsDefault',
-        'name'               => 'Name',
-        'region'             => 'Region',
-        'taskAuthType'       => 'TaskAuthType',
-        'tenantId'           => 'TenantId',
+        'calcEngineType' => 'CalcEngineType',
+        'dwRegion' => 'DwRegion',
+        'engineId' => 'EngineId',
+        'engineInfo' => 'EngineInfo',
+        'envType' => 'EnvType',
+        'gmtCreate' => 'GmtCreate',
+        'isDefault' => 'IsDefault',
+        'name' => 'Name',
+        'region' => 'Region',
+        'taskAuthType' => 'TaskAuthType',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

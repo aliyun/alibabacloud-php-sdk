@@ -12,10 +12,12 @@ class DsgDesensPlanUpdateStatusShrinkRequest extends Model
      * @var string
      */
     public $idsShrink;
+
     /**
      * @var string
      */
     public $sceneCode;
+
     /**
      * @var int
      */
@@ -23,7 +25,7 @@ class DsgDesensPlanUpdateStatusShrinkRequest extends Model
     protected $_name = [
         'idsShrink' => 'Ids',
         'sceneCode' => 'SceneCode',
-        'status'    => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

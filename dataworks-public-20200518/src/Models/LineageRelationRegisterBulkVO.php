@@ -12,23 +12,26 @@ class LineageRelationRegisterBulkVO extends Model
      * @var int
      */
     public $createTimestamp;
+
     /**
      * @var LineageEntityVO[]
      */
     public $destEntities;
+
     /**
      * @var RelationshipVO
      */
     public $relationship;
+
     /**
      * @var LineageEntityVO[]
      */
     public $srcEntities;
     protected $_name = [
         'createTimestamp' => 'CreateTimestamp',
-        'destEntities'    => 'DestEntities',
-        'relationship'    => 'Relationship',
-        'srcEntities'     => 'SrcEntities',
+        'destEntities' => 'DestEntities',
+        'relationship' => 'Relationship',
+        'srcEntities' => 'SrcEntities',
     ];
 
     public function validate()
@@ -55,7 +58,7 @@ class LineageRelationRegisterBulkVO extends Model
         if (null !== $this->destEntities) {
             if (\is_array($this->destEntities)) {
                 $res['DestEntities'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->destEntities as $item1) {
                     $res['DestEntities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -69,7 +72,7 @@ class LineageRelationRegisterBulkVO extends Model
         if (null !== $this->srcEntities) {
             if (\is_array($this->srcEntities)) {
                 $res['SrcEntities'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->srcEntities as $item1) {
                     $res['SrcEntities'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -94,7 +97,7 @@ class LineageRelationRegisterBulkVO extends Model
         if (isset($map['DestEntities'])) {
             if (!empty($map['DestEntities'])) {
                 $model->destEntities = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['DestEntities'] as $item1) {
                     $model->destEntities[$n1++] = LineageEntityVO::fromMap($item1);
                 }
@@ -108,7 +111,7 @@ class LineageRelationRegisterBulkVO extends Model
         if (isset($map['SrcEntities'])) {
             if (!empty($map['SrcEntities'])) {
                 $model->srcEntities = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['SrcEntities'] as $item1) {
                     $model->srcEntities[$n1++] = LineageEntityVO::fromMap($item1);
                 }

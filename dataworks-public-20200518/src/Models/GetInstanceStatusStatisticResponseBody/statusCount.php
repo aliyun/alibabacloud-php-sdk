@@ -12,37 +12,43 @@ class statusCount extends Model
      * @var int
      */
     public $failureCount;
+
     /**
      * @var int
      */
     public $notRunCount;
+
     /**
      * @var int
      */
     public $runningCount;
+
     /**
      * @var int
      */
     public $successCount;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var int
      */
     public $waitResCount;
+
     /**
      * @var int
      */
     public $waitTimeCount;
     protected $_name = [
-        'failureCount'  => 'FailureCount',
-        'notRunCount'   => 'NotRunCount',
-        'runningCount'  => 'RunningCount',
-        'successCount'  => 'SuccessCount',
-        'totalCount'    => 'TotalCount',
-        'waitResCount'  => 'WaitResCount',
+        'failureCount' => 'FailureCount',
+        'notRunCount' => 'NotRunCount',
+        'runningCount' => 'RunningCount',
+        'successCount' => 'SuccessCount',
+        'totalCount' => 'TotalCount',
+        'waitResCount' => 'WaitResCount',
         'waitTimeCount' => 'WaitTimeCount',
     ];
 

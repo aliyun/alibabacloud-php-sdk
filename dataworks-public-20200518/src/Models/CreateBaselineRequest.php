@@ -13,43 +13,50 @@ class CreateBaselineRequest extends Model
      * @var int
      */
     public $alertMarginThreshold;
+
     /**
      * @var string
      */
     public $baselineName;
+
     /**
      * @var string
      */
     public $baselineType;
+
     /**
      * @var string
      */
     public $nodeIds;
+
     /**
      * @var overtimeSettings[]
      */
     public $overtimeSettings;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
         'alertMarginThreshold' => 'AlertMarginThreshold',
-        'baselineName'         => 'BaselineName',
-        'baselineType'         => 'BaselineType',
-        'nodeIds'              => 'NodeIds',
-        'overtimeSettings'     => 'OvertimeSettings',
-        'owner'                => 'Owner',
-        'priority'             => 'Priority',
-        'projectId'            => 'ProjectId',
+        'baselineName' => 'BaselineName',
+        'baselineType' => 'BaselineType',
+        'nodeIds' => 'NodeIds',
+        'overtimeSettings' => 'OvertimeSettings',
+        'owner' => 'Owner',
+        'priority' => 'Priority',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()
@@ -82,7 +89,7 @@ class CreateBaselineRequest extends Model
         if (null !== $this->overtimeSettings) {
             if (\is_array($this->overtimeSettings)) {
                 $res['OvertimeSettings'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->overtimeSettings as $item1) {
                     $res['OvertimeSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -131,7 +138,7 @@ class CreateBaselineRequest extends Model
         if (isset($map['OvertimeSettings'])) {
             if (!empty($map['OvertimeSettings'])) {
                 $model->overtimeSettings = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['OvertimeSettings'] as $item1) {
                     $model->overtimeSettings[$n1++] = overtimeSettings::fromMap($item1);
                 }

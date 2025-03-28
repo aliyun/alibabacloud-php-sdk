@@ -12,168 +12,200 @@ class UpdateFileRequest extends Model
      * @var string
      */
     public $advancedSettings;
+
     /**
      * @var bool
      */
     public $applyScheduleImmediately;
+
     /**
      * @var bool
      */
     public $autoParsing;
+
     /**
      * @var int
      */
     public $autoRerunIntervalMillis;
+
     /**
      * @var int
      */
     public $autoRerunTimes;
+
     /**
      * @var string
      */
     public $connectionName;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $cronExpress;
+
     /**
      * @var string
      */
     public $cycleType;
+
     /**
      * @var string
      */
     public $dependentNodeIdList;
+
     /**
      * @var string
      */
     public $dependentType;
+
     /**
      * @var int
      */
     public $endEffectDate;
+
     /**
      * @var string
      */
     public $fileDescription;
+
     /**
      * @var string
      */
     public $fileFolderPath;
+
     /**
      * @var int
      */
     public $fileId;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var bool
      */
     public $ignoreParentSkipRunningProperty;
+
     /**
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $inputList;
+
     /**
      * @var string
      */
     public $inputParameters;
+
     /**
      * @var string
      */
     public $outputList;
+
     /**
      * @var string
      */
     public $outputParameters;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var string
      */
     public $paraValue;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
+
     /**
      * @var string
      */
     public $rerunMode;
+
     /**
      * @var string
      */
     public $resourceGroupIdentifier;
+
     /**
      * @var string
      */
     public $schedulerType;
+
     /**
      * @var int
      */
     public $startEffectDate;
+
     /**
      * @var bool
      */
     public $startImmediately;
+
     /**
      * @var bool
      */
     public $stop;
+
     /**
      * @var int
      */
     public $timeout;
     protected $_name = [
-        'advancedSettings'                => 'AdvancedSettings',
-        'applyScheduleImmediately'        => 'ApplyScheduleImmediately',
-        'autoParsing'                     => 'AutoParsing',
-        'autoRerunIntervalMillis'         => 'AutoRerunIntervalMillis',
-        'autoRerunTimes'                  => 'AutoRerunTimes',
-        'connectionName'                  => 'ConnectionName',
-        'content'                         => 'Content',
-        'cronExpress'                     => 'CronExpress',
-        'cycleType'                       => 'CycleType',
-        'dependentNodeIdList'             => 'DependentNodeIdList',
-        'dependentType'                   => 'DependentType',
-        'endEffectDate'                   => 'EndEffectDate',
-        'fileDescription'                 => 'FileDescription',
-        'fileFolderPath'                  => 'FileFolderPath',
-        'fileId'                          => 'FileId',
-        'fileName'                        => 'FileName',
+        'advancedSettings' => 'AdvancedSettings',
+        'applyScheduleImmediately' => 'ApplyScheduleImmediately',
+        'autoParsing' => 'AutoParsing',
+        'autoRerunIntervalMillis' => 'AutoRerunIntervalMillis',
+        'autoRerunTimes' => 'AutoRerunTimes',
+        'connectionName' => 'ConnectionName',
+        'content' => 'Content',
+        'cronExpress' => 'CronExpress',
+        'cycleType' => 'CycleType',
+        'dependentNodeIdList' => 'DependentNodeIdList',
+        'dependentType' => 'DependentType',
+        'endEffectDate' => 'EndEffectDate',
+        'fileDescription' => 'FileDescription',
+        'fileFolderPath' => 'FileFolderPath',
+        'fileId' => 'FileId',
+        'fileName' => 'FileName',
         'ignoreParentSkipRunningProperty' => 'IgnoreParentSkipRunningProperty',
-        'imageId'                         => 'ImageId',
-        'inputList'                       => 'InputList',
-        'inputParameters'                 => 'InputParameters',
-        'outputList'                      => 'OutputList',
-        'outputParameters'                => 'OutputParameters',
-        'owner'                           => 'Owner',
-        'paraValue'                       => 'ParaValue',
-        'projectId'                       => 'ProjectId',
-        'projectIdentifier'               => 'ProjectIdentifier',
-        'rerunMode'                       => 'RerunMode',
-        'resourceGroupIdentifier'         => 'ResourceGroupIdentifier',
-        'schedulerType'                   => 'SchedulerType',
-        'startEffectDate'                 => 'StartEffectDate',
-        'startImmediately'                => 'StartImmediately',
-        'stop'                            => 'Stop',
-        'timeout'                         => 'Timeout',
+        'imageId' => 'ImageId',
+        'inputList' => 'InputList',
+        'inputParameters' => 'InputParameters',
+        'outputList' => 'OutputList',
+        'outputParameters' => 'OutputParameters',
+        'owner' => 'Owner',
+        'paraValue' => 'ParaValue',
+        'projectId' => 'ProjectId',
+        'projectIdentifier' => 'ProjectIdentifier',
+        'rerunMode' => 'RerunMode',
+        'resourceGroupIdentifier' => 'ResourceGroupIdentifier',
+        'schedulerType' => 'SchedulerType',
+        'startEffectDate' => 'StartEffectDate',
+        'startImmediately' => 'StartImmediately',
+        'stop' => 'Stop',
+        'timeout' => 'Timeout',
     ];
 
     public function validate()

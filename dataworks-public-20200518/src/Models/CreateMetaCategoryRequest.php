@@ -12,17 +12,19 @@ class CreateMetaCategoryRequest extends Model
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $parentId;
     protected $_name = [
-        'comment'  => 'Comment',
-        'name'     => 'Name',
+        'comment' => 'Comment',
+        'name' => 'Name',
         'parentId' => 'ParentId',
     ];
 

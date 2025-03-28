@@ -12,13 +12,14 @@ class QuerySensLevelRequest extends Model
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $tenantId;
     protected $_name = [
         'templateId' => 'TemplateId',
-        'tenantId'   => 'tenantId',
+        'tenantId' => 'tenantId',
     ];
 
     public function validate()

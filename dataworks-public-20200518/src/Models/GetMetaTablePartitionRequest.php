@@ -13,43 +13,50 @@ class GetMetaTablePartitionRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var sortCriterion
      */
     public $sortCriterion;
+
     /**
      * @var string
      */
     public $tableGuid;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'dataSourceType' => 'DataSourceType',
-        'databaseName'   => 'DatabaseName',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'sortCriterion'  => 'SortCriterion',
-        'tableGuid'      => 'TableGuid',
-        'tableName'      => 'TableName',
+        'databaseName' => 'DatabaseName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'sortCriterion' => 'SortCriterion',
+        'tableGuid' => 'TableGuid',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

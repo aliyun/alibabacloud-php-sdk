@@ -13,42 +13,49 @@ class data extends Model
      * @var mixed[]
      */
     public $children;
+
     /**
      * @var string
      */
     public $desc;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var projects[]
      */
     public $projects;
+
     /**
      * @var string
      */
     public $sceneCode;
+
     /**
      * @var int
      */
     public $sceneLevel;
+
     /**
      * @var string
      */
     public $sceneName;
+
     /**
      * @var string
      */
     public $userGroups;
     protected $_name = [
-        'children'   => 'Children',
-        'desc'       => 'Desc',
-        'id'         => 'Id',
-        'projects'   => 'Projects',
-        'sceneCode'  => 'SceneCode',
+        'children' => 'Children',
+        'desc' => 'Desc',
+        'id' => 'Id',
+        'projects' => 'Projects',
+        'sceneCode' => 'SceneCode',
         'sceneLevel' => 'SceneLevel',
-        'sceneName'  => 'SceneName',
+        'sceneName' => 'SceneName',
         'userGroups' => 'UserGroups',
     ];
 
@@ -69,7 +76,7 @@ class data extends Model
         if (null !== $this->children) {
             if (\is_array($this->children)) {
                 $res['Children'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->children as $item1) {
                     $res['Children'][$n1++] = $item1;
                 }
@@ -87,7 +94,7 @@ class data extends Model
         if (null !== $this->projects) {
             if (\is_array($this->projects)) {
                 $res['Projects'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->projects as $item1) {
                     $res['Projects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -124,7 +131,7 @@ class data extends Model
         if (isset($map['Children'])) {
             if (!empty($map['Children'])) {
                 $model->children = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Children'] as $item1) {
                     $model->children[$n1++] = $item1;
                 }
@@ -142,7 +149,7 @@ class data extends Model
         if (isset($map['Projects'])) {
             if (!empty($map['Projects'])) {
                 $model->projects = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Projects'] as $item1) {
                     $model->projects[$n1++] = projects::fromMap($item1);
                 }

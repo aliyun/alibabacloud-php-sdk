@@ -12,58 +12,68 @@ class UpdateMetaTableRequest extends Model
      * @var string
      */
     public $addedLabels;
+
     /**
      * @var string
      */
     public $caption;
+
     /**
      * @var int
      */
     public $categoryId;
+
     /**
      * @var int
      */
     public $envType;
+
     /**
      * @var string
      */
     public $newOwnerId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $removedLabels;
+
     /**
      * @var string
      */
     public $schema;
+
     /**
      * @var string
      */
     public $tableGuid;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
     public $visibility;
     protected $_name = [
-        'addedLabels'   => 'AddedLabels',
-        'caption'       => 'Caption',
-        'categoryId'    => 'CategoryId',
-        'envType'       => 'EnvType',
-        'newOwnerId'    => 'NewOwnerId',
-        'projectId'     => 'ProjectId',
+        'addedLabels' => 'AddedLabels',
+        'caption' => 'Caption',
+        'categoryId' => 'CategoryId',
+        'envType' => 'EnvType',
+        'newOwnerId' => 'NewOwnerId',
+        'projectId' => 'ProjectId',
         'removedLabels' => 'RemovedLabels',
-        'schema'        => 'Schema',
-        'tableGuid'     => 'TableGuid',
-        'tableName'     => 'TableName',
-        'visibility'    => 'Visibility',
+        'schema' => 'Schema',
+        'tableGuid' => 'TableGuid',
+        'tableName' => 'TableName',
+        'visibility' => 'Visibility',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class ApprovePermissionApplyOrderResponseBody extends Model
      * @var bool
      */
     public $approveSuccess;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'approveSuccess' => 'ApproveSuccess',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

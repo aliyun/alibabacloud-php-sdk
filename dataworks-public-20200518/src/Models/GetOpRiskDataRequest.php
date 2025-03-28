@@ -12,26 +12,30 @@ class GetOpRiskDataRequest extends Model
      * @var string
      */
     public $date;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $riskType;
     protected $_name = [
-        'date'     => 'Date',
-        'name'     => 'Name',
-        'pageNo'   => 'PageNo',
+        'date' => 'Date',
+        'name' => 'Name',
+        'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
         'riskType' => 'RiskType',
     ];

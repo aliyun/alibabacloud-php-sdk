@@ -12,12 +12,13 @@ class GetDagRequest extends Model
      * @var int
      */
     public $dagId;
+
     /**
      * @var string
      */
     public $projectEnv;
     protected $_name = [
-        'dagId'      => 'DagId',
+        'dagId' => 'DagId',
         'projectEnv' => 'ProjectEnv',
     ];
 

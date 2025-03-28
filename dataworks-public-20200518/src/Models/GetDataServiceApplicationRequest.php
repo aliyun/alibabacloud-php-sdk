@@ -12,18 +12,20 @@ class GetDataServiceApplicationRequest extends Model
      * @var int
      */
     public $applicationId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
         'applicationId' => 'ApplicationId',
-        'projectId'     => 'ProjectId',
-        'tenantId'      => 'TenantId',
+        'projectId' => 'ProjectId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

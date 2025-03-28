@@ -14,58 +14,68 @@ class extension extends Model
      * @var bindEventList[]
      */
     public $bindEventList;
+
     /**
      * @var string
      */
     public $detailUrl;
+
     /**
      * @var eventCategoryList[]
      */
     public $eventCategoryList;
+
     /**
      * @var string
      */
     public $extensionCode;
+
     /**
      * @var string
      */
     public $extensionDesc;
+
     /**
      * @var string
      */
     public $extensionName;
+
     /**
      * @var string
      */
     public $helpDocUrl;
+
     /**
      * @var string
      */
     public $optionSetting;
+
     /**
      * @var string
      */
     public $parameterSetting;
+
     /**
      * @var int
      */
     public $projectTesting;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'bindEventList'     => 'BindEventList',
-        'detailUrl'         => 'DetailUrl',
+        'bindEventList' => 'BindEventList',
+        'detailUrl' => 'DetailUrl',
         'eventCategoryList' => 'EventCategoryList',
-        'extensionCode'     => 'ExtensionCode',
-        'extensionDesc'     => 'ExtensionDesc',
-        'extensionName'     => 'ExtensionName',
-        'helpDocUrl'        => 'HelpDocUrl',
-        'optionSetting'     => 'OptionSetting',
-        'parameterSetting'  => 'ParameterSetting',
-        'projectTesting'    => 'ProjectTesting',
-        'status'            => 'Status',
+        'extensionCode' => 'ExtensionCode',
+        'extensionDesc' => 'ExtensionDesc',
+        'extensionName' => 'ExtensionName',
+        'helpDocUrl' => 'HelpDocUrl',
+        'optionSetting' => 'OptionSetting',
+        'parameterSetting' => 'ParameterSetting',
+        'projectTesting' => 'ProjectTesting',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -85,7 +95,7 @@ class extension extends Model
         if (null !== $this->bindEventList) {
             if (\is_array($this->bindEventList)) {
                 $res['BindEventList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->bindEventList as $item1) {
                     $res['BindEventList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -99,7 +109,7 @@ class extension extends Model
         if (null !== $this->eventCategoryList) {
             if (\is_array($this->eventCategoryList)) {
                 $res['EventCategoryList'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->eventCategoryList as $item1) {
                     $res['EventCategoryList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -152,7 +162,7 @@ class extension extends Model
         if (isset($map['BindEventList'])) {
             if (!empty($map['BindEventList'])) {
                 $model->bindEventList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['BindEventList'] as $item1) {
                     $model->bindEventList[$n1++] = bindEventList::fromMap($item1);
                 }
@@ -166,7 +176,7 @@ class extension extends Model
         if (isset($map['EventCategoryList'])) {
             if (!empty($map['EventCategoryList'])) {
                 $model->eventCategoryList = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['EventCategoryList'] as $item1) {
                     $model->eventCategoryList[$n1++] = eventCategoryList::fromMap($item1);
                 }

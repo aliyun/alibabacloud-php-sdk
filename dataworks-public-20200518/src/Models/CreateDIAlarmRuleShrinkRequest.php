@@ -12,33 +12,38 @@ class CreateDIAlarmRuleShrinkRequest extends Model
      * @var int
      */
     public $DIJobId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $metricType;
+
     /**
      * @var string
      */
     public $notificationSettingsShrink;
+
     /**
      * @var string
      */
     public $triggerConditionsShrink;
     protected $_name = [
-        'DIJobId'                    => 'DIJobId',
-        'description'                => 'Description',
-        'enabled'                    => 'Enabled',
-        'metricType'                 => 'MetricType',
+        'DIJobId' => 'DIJobId',
+        'description' => 'Description',
+        'enabled' => 'Enabled',
+        'metricType' => 'MetricType',
         'notificationSettingsShrink' => 'NotificationSettings',
-        'triggerConditionsShrink'    => 'TriggerConditions',
+        'triggerConditionsShrink' => 'TriggerConditions',
     ];
 
     public function validate()

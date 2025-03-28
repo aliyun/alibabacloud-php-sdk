@@ -12,68 +12,80 @@ class data extends Model
      * @var int
      */
     public $bizdate;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $createUser;
+
     /**
      * @var int
      */
     public $dagId;
+
     /**
      * @var int
      */
     public $finishTime;
+
     /**
      * @var int
      */
     public $gmtdate;
+
     /**
      * @var int
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $opSeq;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'bizdate'    => 'Bizdate',
+        'bizdate' => 'Bizdate',
         'createTime' => 'CreateTime',
         'createUser' => 'CreateUser',
-        'dagId'      => 'DagId',
+        'dagId' => 'DagId',
         'finishTime' => 'FinishTime',
-        'gmtdate'    => 'Gmtdate',
+        'gmtdate' => 'Gmtdate',
         'modifyTime' => 'ModifyTime',
-        'name'       => 'Name',
-        'opSeq'      => 'OpSeq',
-        'projectId'  => 'ProjectId',
-        'startTime'  => 'StartTime',
-        'status'     => 'Status',
-        'type'       => 'Type',
+        'name' => 'Name',
+        'opSeq' => 'OpSeq',
+        'projectId' => 'ProjectId',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()

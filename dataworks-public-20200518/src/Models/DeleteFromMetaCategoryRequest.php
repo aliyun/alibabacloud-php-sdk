@@ -12,13 +12,14 @@ class DeleteFromMetaCategoryRequest extends Model
      * @var int
      */
     public $categoryId;
+
     /**
      * @var string
      */
     public $tableGuid;
     protected $_name = [
         'categoryId' => 'CategoryId',
-        'tableGuid'  => 'TableGuid',
+        'tableGuid' => 'TableGuid',
     ];
 
     public function validate()

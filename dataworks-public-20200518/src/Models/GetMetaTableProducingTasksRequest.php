@@ -12,33 +12,38 @@ class GetMetaTableProducingTasksRequest extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $tableGuid;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'clusterId'      => 'ClusterId',
+        'clusterId' => 'ClusterId',
         'dataSourceType' => 'DataSourceType',
-        'dbName'         => 'DbName',
-        'schemaName'     => 'SchemaName',
-        'tableGuid'      => 'TableGuid',
-        'tableName'      => 'TableName',
+        'dbName' => 'DbName',
+        'schemaName' => 'SchemaName',
+        'tableGuid' => 'TableGuid',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

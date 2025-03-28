@@ -12,48 +12,56 @@ class scriptRequestParameters extends Model
      * @var string
      */
     public $columnName;
+
     /**
      * @var string
      */
     public $defaultValue;
+
     /**
      * @var string
      */
     public $exampleValue;
+
     /**
      * @var bool
      */
     public $isRequiredParameter;
+
     /**
      * @var int
      */
     public $parameterDataType;
+
     /**
      * @var string
      */
     public $parameterDescription;
+
     /**
      * @var string
      */
     public $parameterName;
+
     /**
      * @var int
      */
     public $parameterOperator;
+
     /**
      * @var int
      */
     public $parameterPosition;
     protected $_name = [
-        'columnName'           => 'ColumnName',
-        'defaultValue'         => 'DefaultValue',
-        'exampleValue'         => 'ExampleValue',
-        'isRequiredParameter'  => 'IsRequiredParameter',
-        'parameterDataType'    => 'ParameterDataType',
+        'columnName' => 'ColumnName',
+        'defaultValue' => 'DefaultValue',
+        'exampleValue' => 'ExampleValue',
+        'isRequiredParameter' => 'IsRequiredParameter',
+        'parameterDataType' => 'ParameterDataType',
         'parameterDescription' => 'ParameterDescription',
-        'parameterName'        => 'ParameterName',
-        'parameterOperator'    => 'ParameterOperator',
-        'parameterPosition'    => 'ParameterPosition',
+        'parameterName' => 'ParameterName',
+        'parameterOperator' => 'ParameterOperator',
+        'parameterPosition' => 'ParameterPosition',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class column extends Model
      * @var string
      */
     public $columnName;
+
     /**
      * @var string
      */
     public $columnNameCn;
+
     /**
      * @var string
      */
     public $columnType;
+
     /**
      * @var string
      */
     public $comment;
     protected $_name = [
-        'columnName'   => 'ColumnName',
+        'columnName' => 'ColumnName',
         'columnNameCn' => 'ColumnNameCn',
-        'columnType'   => 'ColumnType',
-        'comment'      => 'Comment',
+        'columnType' => 'ColumnType',
+        'comment' => 'Comment',
     ];
 
     public function validate()

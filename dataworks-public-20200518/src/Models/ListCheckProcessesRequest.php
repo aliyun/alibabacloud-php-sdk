@@ -12,38 +12,44 @@ class ListCheckProcessesRequest extends Model
      * @var string
      */
     public $eventCode;
+
     /**
      * @var string
      */
     public $messageId;
+
     /**
      * @var string
      */
     public $operator;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'eventCode'  => 'EventCode',
-        'messageId'  => 'MessageId',
-        'operator'   => 'Operator',
+        'eventCode' => 'EventCode',
+        'messageId' => 'MessageId',
+        'operator' => 'Operator',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'projectId'  => 'ProjectId',
-        'status'     => 'Status',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
+        'status' => 'Status',
     ];
 
     public function validate()

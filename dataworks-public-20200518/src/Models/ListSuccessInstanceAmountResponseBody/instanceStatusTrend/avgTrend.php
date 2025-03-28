@@ -12,12 +12,13 @@ class avgTrend extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $timePoint;
     protected $_name = [
-        'count'     => 'Count',
+        'count' => 'Count',
         'timePoint' => 'TimePoint',
     ];
 

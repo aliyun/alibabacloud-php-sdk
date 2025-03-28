@@ -13,23 +13,26 @@ class pagingInfo extends Model
      * @var checkProcesses[]
      */
     public $checkProcesses;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'checkProcesses' => 'CheckProcesses',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'totalCount'     => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class pagingInfo extends Model
         if (null !== $this->checkProcesses) {
             if (\is_array($this->checkProcesses)) {
                 $res['CheckProcesses'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->checkProcesses as $item1) {
                     $res['CheckProcesses'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class pagingInfo extends Model
         if (isset($map['CheckProcesses'])) {
             if (!empty($map['CheckProcesses'])) {
                 $model->checkProcesses = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['CheckProcesses'] as $item1) {
                     $model->checkProcesses[$n1++] = checkProcesses::fromMap($item1);
                 }

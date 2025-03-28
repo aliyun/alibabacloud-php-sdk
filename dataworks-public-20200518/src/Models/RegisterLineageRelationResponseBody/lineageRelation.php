@@ -12,18 +12,20 @@ class lineageRelation extends Model
      * @var string
      */
     public $destEntityQualifiedName;
+
     /**
      * @var string
      */
     public $relationshipGuid;
+
     /**
      * @var string
      */
     public $srcEntityQualifiedName;
     protected $_name = [
         'destEntityQualifiedName' => 'DestEntityQualifiedName',
-        'relationshipGuid'        => 'RelationshipGuid',
-        'srcEntityQualifiedName'  => 'SrcEntityQualifiedName',
+        'relationshipGuid' => 'RelationshipGuid',
+        'srcEntityQualifiedName' => 'SrcEntityQualifiedName',
     ];
 
     public function validate()

@@ -12,6 +12,7 @@ class RestartInstanceRequest extends Model
      * @var int
      */
     public $instanceId;
+
     /**
      * @var string
      */

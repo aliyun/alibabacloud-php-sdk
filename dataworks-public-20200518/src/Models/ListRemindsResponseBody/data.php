@@ -13,22 +13,25 @@ class data extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var reminds[]
      */
     public $reminds;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'reminds'    => 'Reminds',
+        'pageSize' => 'PageSize',
+        'reminds' => 'Reminds',
         'totalCount' => 'TotalCount',
     ];
 
@@ -54,7 +57,7 @@ class data extends Model
         if (null !== $this->reminds) {
             if (\is_array($this->reminds)) {
                 $res['Reminds'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->reminds as $item1) {
                     $res['Reminds'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class data extends Model
         if (isset($map['Reminds'])) {
             if (!empty($map['Reminds'])) {
                 $model->reminds = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Reminds'] as $item1) {
                     $model->reminds[$n1++] = reminds::fromMap($item1);
                 }

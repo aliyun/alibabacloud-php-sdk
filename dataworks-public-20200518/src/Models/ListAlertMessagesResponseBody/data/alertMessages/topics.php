@@ -12,32 +12,37 @@ class topics extends Model
      * @var int
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $topicId;
+
     /**
      * @var string
      */
     public $topicName;
+
     /**
      * @var string
      */
     public $topicOwner;
+
     /**
      * @var string
      */
     public $topicStatus;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
-        'nodeId'      => 'NodeId',
-        'topicId'     => 'TopicId',
-        'topicName'   => 'TopicName',
-        'topicOwner'  => 'TopicOwner',
+        'instanceId' => 'InstanceId',
+        'nodeId' => 'NodeId',
+        'topicId' => 'TopicId',
+        'topicName' => 'TopicName',
+        'topicOwner' => 'TopicOwner',
         'topicStatus' => 'TopicStatus',
     ];
 

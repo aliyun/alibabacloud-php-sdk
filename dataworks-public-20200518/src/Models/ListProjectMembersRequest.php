@@ -12,18 +12,20 @@ class ListProjectMembersRequest extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'projectId'  => 'ProjectId',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

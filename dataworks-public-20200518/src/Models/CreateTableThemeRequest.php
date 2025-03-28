@@ -12,22 +12,25 @@ class CreateTableThemeRequest extends Model
      * @var int
      */
     public $level;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $parentId;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'level'     => 'Level',
-        'name'      => 'Name',
-        'parentId'  => 'ParentId',
+        'level' => 'Level',
+        'name' => 'Name',
+        'parentId' => 'ParentId',
         'projectId' => 'ProjectId',
     ];
 

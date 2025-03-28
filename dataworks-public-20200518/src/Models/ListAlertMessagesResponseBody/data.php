@@ -13,23 +13,26 @@ class data extends Model
      * @var alertMessages[]
      */
     public $alertMessages;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
         'alertMessages' => 'AlertMessages',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'totalCount'    => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->alertMessages) {
             if (\is_array($this->alertMessages)) {
                 $res['AlertMessages'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->alertMessages as $item1) {
                     $res['AlertMessages'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['AlertMessages'])) {
             if (!empty($map['AlertMessages'])) {
                 $model->alertMessages = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['AlertMessages'] as $item1) {
                     $model->alertMessages[$n1++] = alertMessages::fromMap($item1);
                 }

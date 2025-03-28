@@ -14,83 +14,98 @@ class data extends Model
      * @var int
      */
     public $baselineId;
+
     /**
      * @var string
      */
     public $baselineName;
+
     /**
      * @var int
      */
     public $bizdate;
+
     /**
      * @var blockInstance
      */
     public $blockInstance;
+
     /**
      * @var float
      */
     public $buffer;
+
     /**
      * @var int
      */
     public $endCast;
+
     /**
      * @var int
      */
     public $expTime;
+
     /**
      * @var string
      */
     public $finishStatus;
+
     /**
      * @var int
      */
     public $finishTime;
+
     /**
      * @var int
      */
     public $inGroupId;
+
     /**
      * @var lastInstance
      */
     public $lastInstance;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $slaTime;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'baselineId'    => 'BaselineId',
-        'baselineName'  => 'BaselineName',
-        'bizdate'       => 'Bizdate',
+        'baselineId' => 'BaselineId',
+        'baselineName' => 'BaselineName',
+        'bizdate' => 'Bizdate',
         'blockInstance' => 'BlockInstance',
-        'buffer'        => 'Buffer',
-        'endCast'       => 'EndCast',
-        'expTime'       => 'ExpTime',
-        'finishStatus'  => 'FinishStatus',
-        'finishTime'    => 'FinishTime',
-        'inGroupId'     => 'InGroupId',
-        'lastInstance'  => 'LastInstance',
-        'owner'         => 'Owner',
-        'priority'      => 'Priority',
-        'projectId'     => 'ProjectId',
-        'slaTime'       => 'SlaTime',
-        'status'        => 'Status',
+        'buffer' => 'Buffer',
+        'endCast' => 'EndCast',
+        'expTime' => 'ExpTime',
+        'finishStatus' => 'FinishStatus',
+        'finishTime' => 'FinishTime',
+        'inGroupId' => 'InGroupId',
+        'lastInstance' => 'LastInstance',
+        'owner' => 'Owner',
+        'priority' => 'Priority',
+        'projectId' => 'ProjectId',
+        'slaTime' => 'SlaTime',
+        'status' => 'Status',
     ];
 
     public function validate()

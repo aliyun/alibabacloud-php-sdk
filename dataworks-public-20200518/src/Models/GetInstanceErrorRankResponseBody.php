@@ -13,13 +13,14 @@ class GetInstanceErrorRankResponseBody extends Model
      * @var instanceErrorRank
      */
     public $instanceErrorRank;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceErrorRank' => 'InstanceErrorRank',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

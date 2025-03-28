@@ -9,61 +9,83 @@ use AlibabaCloud\Dara\Model;
 class ListPermissionApplyOrdersRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $applyType;
+
+    /**
+     * @var string
+     */
+    public $catalogName;
+
+    /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $engineType;
+
     /**
      * @var int
      */
     public $flowStatus;
+
     /**
      * @var string
      */
     public $maxComputeProjectName;
+
     /**
      * @var int
      */
     public $orderType;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $queryType;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
     public $workspaceId;
     protected $_name = [
-        'endTime'               => 'EndTime',
-        'engineType'            => 'EngineType',
-        'flowStatus'            => 'FlowStatus',
+        'applyType' => 'ApplyType',
+        'catalogName' => 'CatalogName',
+        'endTime' => 'EndTime',
+        'engineType' => 'EngineType',
+        'flowStatus' => 'FlowStatus',
         'maxComputeProjectName' => 'MaxComputeProjectName',
-        'orderType'             => 'OrderType',
-        'pageNum'               => 'PageNum',
-        'pageSize'              => 'PageSize',
-        'queryType'             => 'QueryType',
-        'startTime'             => 'StartTime',
-        'tableName'             => 'TableName',
-        'workspaceId'           => 'WorkspaceId',
+        'orderType' => 'OrderType',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'queryType' => 'QueryType',
+        'startTime' => 'StartTime',
+        'tableName' => 'TableName',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -74,6 +96,14 @@ class ListPermissionApplyOrdersRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->applyType) {
+            $res['ApplyType'] = $this->applyType;
+        }
+
+        if (null !== $this->catalogName) {
+            $res['CatalogName'] = $this->catalogName;
+        }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -129,6 +159,14 @@ class ListPermissionApplyOrdersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplyType'])) {
+            $model->applyType = $map['ApplyType'];
+        }
+
+        if (isset($map['CatalogName'])) {
+            $model->catalogName = $map['CatalogName'];
+        }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }

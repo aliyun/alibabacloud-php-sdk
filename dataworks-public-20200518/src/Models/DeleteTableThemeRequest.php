@@ -12,13 +12,14 @@ class DeleteTableThemeRequest extends Model
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $themeId;
     protected $_name = [
         'projectId' => 'ProjectId',
-        'themeId'   => 'ThemeId',
+        'themeId' => 'ThemeId',
     ];
 
     public function validate()

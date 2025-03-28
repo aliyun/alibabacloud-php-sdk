@@ -12,33 +12,38 @@ class entityContent extends Model
      * @var string
      */
     public $dataSourceQualifiedName;
+
     /**
      * @var string
      */
     public $dataSourceUniqueId;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
         'dataSourceQualifiedName' => 'DataSourceQualifiedName',
-        'dataSourceUniqueId'      => 'DataSourceUniqueId',
-        'databaseName'            => 'DatabaseName',
-        'instanceId'              => 'InstanceId',
-        'projectName'             => 'ProjectName',
-        'tableName'               => 'TableName',
+        'dataSourceUniqueId' => 'DataSourceUniqueId',
+        'databaseName' => 'DatabaseName',
+        'instanceId' => 'InstanceId',
+        'projectName' => 'ProjectName',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

@@ -13,23 +13,26 @@ class data extends Model
      * @var calcEngines[]
      */
     public $calcEngines;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'calcEngines' => 'CalcEngines',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'totalCount'  => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->calcEngines) {
             if (\is_array($this->calcEngines)) {
                 $res['CalcEngines'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->calcEngines as $item1) {
                     $res['CalcEngines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['CalcEngines'])) {
             if (!empty($map['CalcEngines'])) {
                 $model->calcEngines = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['CalcEngines'] as $item1) {
                     $model->calcEngines[$n1++] = calcEngines::fromMap($item1);
                 }

@@ -12,48 +12,56 @@ class ListAlertMessagesRequest extends Model
      * @var string
      */
     public $alertMethods;
+
     /**
      * @var string
      */
     public $alertRuleTypes;
+
     /**
      * @var string
      */
     public $alertUser;
+
     /**
      * @var int
      */
     public $baselineId;
+
     /**
      * @var string
      */
     public $beginTime;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $remindId;
     protected $_name = [
-        'alertMethods'   => 'AlertMethods',
+        'alertMethods' => 'AlertMethods',
         'alertRuleTypes' => 'AlertRuleTypes',
-        'alertUser'      => 'AlertUser',
-        'baselineId'     => 'BaselineId',
-        'beginTime'      => 'BeginTime',
-        'endTime'        => 'EndTime',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'remindId'       => 'RemindId',
+        'alertUser' => 'AlertUser',
+        'baselineId' => 'BaselineId',
+        'beginTime' => 'BeginTime',
+        'endTime' => 'EndTime',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'remindId' => 'RemindId',
     ];
 
     public function validate()

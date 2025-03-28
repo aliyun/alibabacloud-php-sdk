@@ -12,17 +12,19 @@ class DeleteFolderRequest extends Model
      * @var string
      */
     public $folderId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
     protected $_name = [
-        'folderId'          => 'FolderId',
-        'projectId'         => 'ProjectId',
+        'folderId' => 'FolderId',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 

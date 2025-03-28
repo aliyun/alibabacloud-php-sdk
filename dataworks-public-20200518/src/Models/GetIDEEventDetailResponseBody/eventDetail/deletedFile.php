@@ -12,63 +12,74 @@ class deletedFile extends Model
      * @var int
      */
     public $businessId;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var int
      */
     public $currentVersion;
+
     /**
      * @var string
      */
     public $dataSourceName;
+
     /**
      * @var int
      */
     public $fileId;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var int
      */
     public $fileType;
+
     /**
      * @var string
      */
     public $folderId;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $parentFileId;
+
     /**
      * @var string
      */
     public $useType;
     protected $_name = [
-        'businessId'     => 'BusinessId',
-        'content'        => 'Content',
+        'businessId' => 'BusinessId',
+        'content' => 'Content',
         'currentVersion' => 'CurrentVersion',
         'dataSourceName' => 'DataSourceName',
-        'fileId'         => 'FileId',
-        'fileName'       => 'FileName',
-        'fileType'       => 'FileType',
-        'folderId'       => 'FolderId',
-        'nodeId'         => 'NodeId',
-        'owner'          => 'Owner',
-        'parentFileId'   => 'ParentFileId',
-        'useType'        => 'UseType',
+        'fileId' => 'FileId',
+        'fileName' => 'FileName',
+        'fileType' => 'FileType',
+        'folderId' => 'FolderId',
+        'nodeId' => 'NodeId',
+        'owner' => 'Owner',
+        'parentFileId' => 'ParentFileId',
+        'useType' => 'UseType',
     ];
 
     public function validate()

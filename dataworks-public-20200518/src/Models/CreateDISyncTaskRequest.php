@@ -12,33 +12,38 @@ class CreateDISyncTaskRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $taskContent;
+
     /**
      * @var string
      */
     public $taskName;
+
     /**
      * @var string
      */
     public $taskParam;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
         'clientToken' => 'ClientToken',
-        'projectId'   => 'ProjectId',
+        'projectId' => 'ProjectId',
         'taskContent' => 'TaskContent',
-        'taskName'    => 'TaskName',
-        'taskParam'   => 'TaskParam',
-        'taskType'    => 'TaskType',
+        'taskName' => 'TaskName',
+        'taskParam' => 'TaskParam',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

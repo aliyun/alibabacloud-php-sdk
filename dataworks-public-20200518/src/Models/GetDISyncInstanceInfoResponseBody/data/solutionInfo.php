@@ -13,23 +13,26 @@ class solutionInfo extends Model
      * @var string
      */
     public $creatorName;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var stepDetail[]
      */
     public $stepDetail;
     protected $_name = [
         'creatorName' => 'CreatorName',
-        'id'          => 'Id',
-        'status'      => 'Status',
-        'stepDetail'  => 'StepDetail',
+        'id' => 'Id',
+        'status' => 'Status',
+        'stepDetail' => 'StepDetail',
     ];
 
     public function validate()
@@ -58,7 +61,7 @@ class solutionInfo extends Model
         if (null !== $this->stepDetail) {
             if (\is_array($this->stepDetail)) {
                 $res['StepDetail'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->stepDetail as $item1) {
                     $res['StepDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -91,7 +94,7 @@ class solutionInfo extends Model
         if (isset($map['StepDetail'])) {
             if (!empty($map['StepDetail'])) {
                 $model->stepDetail = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['StepDetail'] as $item1) {
                     $model->stepDetail[$n1++] = stepDetail::fromMap($item1);
                 }

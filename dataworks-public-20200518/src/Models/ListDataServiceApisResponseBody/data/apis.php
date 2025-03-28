@@ -15,113 +15,134 @@ class apis extends Model
      * @var int
      */
     public $apiId;
+
     /**
      * @var int
      */
     public $apiMode;
+
     /**
      * @var string
      */
     public $apiName;
+
     /**
      * @var string
      */
     public $apiPath;
+
     /**
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $creatorId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $folderId;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $operatorId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int[]
      */
     public $protocols;
+
     /**
      * @var registrationDetails
      */
     public $registrationDetails;
+
     /**
      * @var int
      */
     public $requestMethod;
+
     /**
      * @var int
      */
     public $responseContentType;
+
     /**
      * @var scriptDetails
      */
     public $scriptDetails;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $tenantId;
+
     /**
      * @var int
      */
     public $timeout;
+
     /**
      * @var int
      */
     public $visibleRange;
+
     /**
      * @var wizardDetails
      */
     public $wizardDetails;
     protected $_name = [
-        'apiId'               => 'ApiId',
-        'apiMode'             => 'ApiMode',
-        'apiName'             => 'ApiName',
-        'apiPath'             => 'ApiPath',
-        'createdTime'         => 'CreatedTime',
-        'creatorId'           => 'CreatorId',
-        'description'         => 'Description',
-        'folderId'            => 'FolderId',
-        'groupId'             => 'GroupId',
-        'modifiedTime'        => 'ModifiedTime',
-        'operatorId'          => 'OperatorId',
-        'projectId'           => 'ProjectId',
-        'protocols'           => 'Protocols',
+        'apiId' => 'ApiId',
+        'apiMode' => 'ApiMode',
+        'apiName' => 'ApiName',
+        'apiPath' => 'ApiPath',
+        'createdTime' => 'CreatedTime',
+        'creatorId' => 'CreatorId',
+        'description' => 'Description',
+        'folderId' => 'FolderId',
+        'groupId' => 'GroupId',
+        'modifiedTime' => 'ModifiedTime',
+        'operatorId' => 'OperatorId',
+        'projectId' => 'ProjectId',
+        'protocols' => 'Protocols',
         'registrationDetails' => 'RegistrationDetails',
-        'requestMethod'       => 'RequestMethod',
+        'requestMethod' => 'RequestMethod',
         'responseContentType' => 'ResponseContentType',
-        'scriptDetails'       => 'ScriptDetails',
-        'status'              => 'Status',
-        'tenantId'            => 'TenantId',
-        'timeout'             => 'Timeout',
-        'visibleRange'        => 'VisibleRange',
-        'wizardDetails'       => 'WizardDetails',
+        'scriptDetails' => 'ScriptDetails',
+        'status' => 'Status',
+        'tenantId' => 'TenantId',
+        'timeout' => 'Timeout',
+        'visibleRange' => 'VisibleRange',
+        'wizardDetails' => 'WizardDetails',
     ];
 
     public function validate()
@@ -195,7 +216,7 @@ class apis extends Model
         if (null !== $this->protocols) {
             if (\is_array($this->protocols)) {
                 $res['Protocols'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->protocols as $item1) {
                     $res['Protocols'][$n1++] = $item1;
                 }
@@ -300,7 +321,7 @@ class apis extends Model
         if (isset($map['Protocols'])) {
             if (!empty($map['Protocols'])) {
                 $model->protocols = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Protocols'] as $item1) {
                     $model->protocols[$n1++] = $item1;
                 }

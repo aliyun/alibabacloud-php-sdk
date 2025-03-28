@@ -12,82 +12,97 @@ class migrations extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $createUser;
+
     /**
      * @var string
      */
     public $createUserName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $downloadUrl;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $migrationType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $packageType;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $tenantId;
+
     /**
      * @var int
      */
     public $updateTime;
+
     /**
      * @var string
      */
     public $updateUser;
+
     /**
      * @var string
      */
     public $updateUserName;
     protected $_name = [
-        'createTime'     => 'CreateTime',
-        'createUser'     => 'CreateUser',
+        'createTime' => 'CreateTime',
+        'createUser' => 'CreateUser',
         'createUserName' => 'CreateUserName',
-        'description'    => 'Description',
-        'downloadUrl'    => 'DownloadUrl',
-        'id'             => 'Id',
-        'message'        => 'Message',
-        'migrationType'  => 'MigrationType',
-        'name'           => 'Name',
-        'packageType'    => 'PackageType',
-        'projectId'      => 'ProjectId',
-        'status'         => 'Status',
-        'tenantId'       => 'TenantId',
-        'updateTime'     => 'UpdateTime',
-        'updateUser'     => 'UpdateUser',
+        'description' => 'Description',
+        'downloadUrl' => 'DownloadUrl',
+        'id' => 'Id',
+        'message' => 'Message',
+        'migrationType' => 'MigrationType',
+        'name' => 'Name',
+        'packageType' => 'PackageType',
+        'projectId' => 'ProjectId',
+        'status' => 'Status',
+        'tenantId' => 'TenantId',
+        'updateTime' => 'UpdateTime',
+        'updateUser' => 'UpdateUser',
         'updateUserName' => 'UpdateUserName',
     ];
 

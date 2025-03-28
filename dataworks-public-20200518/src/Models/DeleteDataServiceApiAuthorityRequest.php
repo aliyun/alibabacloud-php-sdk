@@ -12,23 +12,26 @@ class DeleteDataServiceApiAuthorityRequest extends Model
      * @var int
      */
     public $apiId;
+
     /**
      * @var int
      */
     public $authorizedProjectId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
-        'apiId'               => 'ApiId',
+        'apiId' => 'ApiId',
         'authorizedProjectId' => 'AuthorizedProjectId',
-        'projectId'           => 'ProjectId',
-        'tenantId'            => 'TenantId',
+        'projectId' => 'ProjectId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

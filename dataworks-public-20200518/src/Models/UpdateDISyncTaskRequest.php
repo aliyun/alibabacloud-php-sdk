@@ -12,28 +12,32 @@ class UpdateDISyncTaskRequest extends Model
      * @var int
      */
     public $fileId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $taskContent;
+
     /**
      * @var string
      */
     public $taskParam;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'fileId'      => 'FileId',
-        'projectId'   => 'ProjectId',
+        'fileId' => 'FileId',
+        'projectId' => 'ProjectId',
         'taskContent' => 'TaskContent',
-        'taskParam'   => 'TaskParam',
-        'taskType'    => 'TaskType',
+        'taskParam' => 'TaskParam',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

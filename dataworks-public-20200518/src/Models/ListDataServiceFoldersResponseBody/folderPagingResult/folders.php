@@ -12,43 +12,50 @@ class folders extends Model
      * @var string
      */
     public $createdTime;
+
     /**
      * @var int
      */
     public $folderId;
+
     /**
      * @var string
      */
     public $folderName;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var int
      */
     public $parentId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var int
      */
     public $tenantId;
     protected $_name = [
-        'createdTime'  => 'CreatedTime',
-        'folderId'     => 'FolderId',
-        'folderName'   => 'FolderName',
-        'groupId'      => 'GroupId',
+        'createdTime' => 'CreatedTime',
+        'folderId' => 'FolderId',
+        'folderName' => 'FolderName',
+        'groupId' => 'GroupId',
         'modifiedTime' => 'ModifiedTime',
-        'parentId'     => 'ParentId',
-        'projectId'    => 'ProjectId',
-        'tenantId'     => 'TenantId',
+        'parentId' => 'ParentId',
+        'projectId' => 'ProjectId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

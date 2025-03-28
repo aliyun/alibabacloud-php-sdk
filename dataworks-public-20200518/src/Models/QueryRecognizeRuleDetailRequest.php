@@ -12,13 +12,14 @@ class QueryRecognizeRuleDetailRequest extends Model
      * @var string
      */
     public $sensitiveName;
+
     /**
      * @var string
      */
     public $tenantId;
     protected $_name = [
         'sensitiveName' => 'SensitiveName',
-        'tenantId'      => 'TenantId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

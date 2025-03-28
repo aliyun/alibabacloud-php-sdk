@@ -12,12 +12,13 @@ class GetInstanceConsumeTimeRankRequest extends Model
      * @var string
      */
     public $bizdate;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'bizdate'   => 'Bizdate',
+        'bizdate' => 'Bizdate',
         'projectId' => 'ProjectId',
     ];
 

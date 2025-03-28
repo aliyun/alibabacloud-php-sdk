@@ -12,13 +12,14 @@ class desensPlan extends Model
      * @var string
      */
     public $desensPlanType;
+
     /**
      * @var mixed[]
      */
     public $extParam;
     protected $_name = [
         'desensPlanType' => 'DesensPlanType',
-        'extParam'       => 'ExtParam',
+        'extParam' => 'ExtParam',
     ];
 
     public function validate()

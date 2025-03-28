@@ -13,6 +13,7 @@ class GetManualDagInstancesResponseBody extends Model
      * @var instances[]
      */
     public $instances;
+
     /**
      * @var string
      */
@@ -36,7 +37,7 @@ class GetManualDagInstancesResponseBody extends Model
         if (null !== $this->instances) {
             if (\is_array($this->instances)) {
                 $res['Instances'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->instances as $item1) {
                     $res['Instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class GetManualDagInstancesResponseBody extends Model
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Instances'] as $item1) {
                     $model->instances[$n1++] = instances::fromMap($item1);
                 }

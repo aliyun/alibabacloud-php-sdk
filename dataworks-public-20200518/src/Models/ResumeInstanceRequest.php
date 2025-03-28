@@ -12,6 +12,7 @@ class ResumeInstanceRequest extends Model
      * @var int
      */
     public $instanceId;
+
     /**
      * @var string
      */

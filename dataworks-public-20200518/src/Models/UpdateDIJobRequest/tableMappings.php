@@ -14,13 +14,14 @@ class tableMappings extends Model
      * @var sourceObjectSelectionRules[]
      */
     public $sourceObjectSelectionRules;
+
     /**
      * @var transformationRules[]
      */
     public $transformationRules;
     protected $_name = [
         'sourceObjectSelectionRules' => 'SourceObjectSelectionRules',
-        'transformationRules'        => 'TransformationRules',
+        'transformationRules' => 'TransformationRules',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class tableMappings extends Model
         if (null !== $this->sourceObjectSelectionRules) {
             if (\is_array($this->sourceObjectSelectionRules)) {
                 $res['SourceObjectSelectionRules'] = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($this->sourceObjectSelectionRules as $item1) {
                     $res['SourceObjectSelectionRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -50,7 +51,7 @@ class tableMappings extends Model
         if (null !== $this->transformationRules) {
             if (\is_array($this->transformationRules)) {
                 $res['TransformationRules'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->transformationRules as $item1) {
                     $res['TransformationRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -71,7 +72,7 @@ class tableMappings extends Model
         if (isset($map['SourceObjectSelectionRules'])) {
             if (!empty($map['SourceObjectSelectionRules'])) {
                 $model->sourceObjectSelectionRules = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($map['SourceObjectSelectionRules'] as $item1) {
                     $model->sourceObjectSelectionRules[$n1++] = sourceObjectSelectionRules::fromMap($item1);
                 }
@@ -81,7 +82,7 @@ class tableMappings extends Model
         if (isset($map['TransformationRules'])) {
             if (!empty($map['TransformationRules'])) {
                 $model->transformationRules = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['TransformationRules'] as $item1) {
                     $model->transformationRules[$n1++] = transformationRules::fromMap($item1);
                 }

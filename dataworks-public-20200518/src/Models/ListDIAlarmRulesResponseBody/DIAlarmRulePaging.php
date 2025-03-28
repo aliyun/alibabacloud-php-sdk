@@ -13,23 +13,26 @@ class DIAlarmRulePaging extends Model
      * @var DIJobAlarmRules[]
      */
     public $DIJobAlarmRules;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'DIJobAlarmRules' => 'DIJobAlarmRules',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'totalCount'      => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class DIAlarmRulePaging extends Model
         if (null !== $this->DIJobAlarmRules) {
             if (\is_array($this->DIJobAlarmRules)) {
                 $res['DIJobAlarmRules'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->DIJobAlarmRules as $item1) {
                     $res['DIJobAlarmRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class DIAlarmRulePaging extends Model
         if (isset($map['DIJobAlarmRules'])) {
             if (!empty($map['DIJobAlarmRules'])) {
                 $model->DIJobAlarmRules = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['DIJobAlarmRules'] as $item1) {
                     $model->DIJobAlarmRules[$n1++] = DIJobAlarmRules::fromMap($item1);
                 }

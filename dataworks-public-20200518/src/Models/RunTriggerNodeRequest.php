@@ -12,23 +12,26 @@ class RunTriggerNodeRequest extends Model
      * @var int
      */
     public $appId;
+
     /**
      * @var int
      */
     public $bizDate;
+
     /**
      * @var int
      */
     public $cycleTime;
+
     /**
      * @var int
      */
     public $nodeId;
     protected $_name = [
-        'appId'     => 'AppId',
-        'bizDate'   => 'BizDate',
+        'appId' => 'AppId',
+        'bizDate' => 'BizDate',
         'cycleTime' => 'CycleTime',
-        'nodeId'    => 'NodeId',
+        'nodeId' => 'NodeId',
     ];
 
     public function validate()

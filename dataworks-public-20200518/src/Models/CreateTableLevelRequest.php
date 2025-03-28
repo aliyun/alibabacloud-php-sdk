@@ -12,23 +12,26 @@ class CreateTableLevelRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $levelType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
         'description' => 'Description',
-        'levelType'   => 'LevelType',
-        'name'        => 'Name',
-        'projectId'   => 'ProjectId',
+        'levelType' => 'LevelType',
+        'name' => 'Name',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

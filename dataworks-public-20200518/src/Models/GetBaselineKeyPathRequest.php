@@ -12,18 +12,20 @@ class GetBaselineKeyPathRequest extends Model
      * @var int
      */
     public $baselineId;
+
     /**
      * @var string
      */
     public $bizdate;
+
     /**
      * @var int
      */
     public $inGroupId;
     protected $_name = [
         'baselineId' => 'BaselineId',
-        'bizdate'    => 'Bizdate',
-        'inGroupId'  => 'InGroupId',
+        'bizdate' => 'Bizdate',
+        'inGroupId' => 'InGroupId',
     ];
 
     public function validate()

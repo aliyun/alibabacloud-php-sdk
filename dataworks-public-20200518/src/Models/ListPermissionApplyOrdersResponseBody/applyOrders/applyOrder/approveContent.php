@@ -13,17 +13,19 @@ class approveContent extends Model
      * @var string
      */
     public $applyReason;
+
     /**
      * @var int
      */
     public $orderType;
+
     /**
      * @var projectMeta
      */
     public $projectMeta;
     protected $_name = [
         'applyReason' => 'ApplyReason',
-        'orderType'   => 'OrderType',
+        'orderType' => 'OrderType',
         'projectMeta' => 'ProjectMeta',
     ];
 

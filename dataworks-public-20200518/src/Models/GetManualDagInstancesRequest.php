@@ -12,17 +12,19 @@ class GetManualDagInstancesRequest extends Model
      * @var string
      */
     public $dagId;
+
     /**
      * @var string
      */
     public $projectEnv;
+
     /**
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'dagId'       => 'DagId',
-        'projectEnv'  => 'ProjectEnv',
+        'dagId' => 'DagId',
+        'projectEnv' => 'ProjectEnv',
         'projectName' => 'ProjectName',
     ];
 

@@ -12,12 +12,13 @@ class bizProcesses extends Model
      * @var int
      */
     public $bizId;
+
     /**
      * @var string
      */
     public $bizProcessName;
     protected $_name = [
-        'bizId'          => 'BizId',
+        'bizId' => 'BizId',
         'bizProcessName' => 'BizProcessName',
     ];
 

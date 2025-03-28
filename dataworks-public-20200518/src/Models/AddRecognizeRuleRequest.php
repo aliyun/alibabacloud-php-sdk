@@ -12,93 +12,110 @@ class AddRecognizeRuleRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $colExclude;
+
     /**
      * @var string
      */
     public $colScan;
+
     /**
      * @var string
      */
     public $commentScan;
+
     /**
      * @var string
      */
     public $contentScan;
+
     /**
      * @var int
      */
     public $hitThreshold;
+
     /**
      * @var string
      */
     public $level;
+
     /**
      * @var string
      */
     public $levelName;
+
     /**
      * @var string
      */
     public $nodeId;
+
     /**
      * @var string
      */
     public $nodeParent;
+
     /**
      * @var int
      */
     public $operationType;
+
     /**
      * @var string
      */
     public $recognizeRules;
+
     /**
      * @var string
      */
     public $recognizeRulesType;
+
     /**
      * @var string
      */
     public $sensitiveDescription;
+
     /**
      * @var string
      */
     public $sensitiveName;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $tenantId;
     protected $_name = [
-        'accountName'          => 'AccountName',
-        'colExclude'           => 'ColExclude',
-        'colScan'              => 'ColScan',
-        'commentScan'          => 'CommentScan',
-        'contentScan'          => 'ContentScan',
-        'hitThreshold'         => 'HitThreshold',
-        'level'                => 'Level',
-        'levelName'            => 'LevelName',
-        'nodeId'               => 'NodeId',
-        'nodeParent'           => 'NodeParent',
-        'operationType'        => 'OperationType',
-        'recognizeRules'       => 'RecognizeRules',
-        'recognizeRulesType'   => 'RecognizeRulesType',
+        'accountName' => 'AccountName',
+        'colExclude' => 'ColExclude',
+        'colScan' => 'ColScan',
+        'commentScan' => 'CommentScan',
+        'contentScan' => 'ContentScan',
+        'hitThreshold' => 'HitThreshold',
+        'level' => 'Level',
+        'levelName' => 'LevelName',
+        'nodeId' => 'NodeId',
+        'nodeParent' => 'NodeParent',
+        'operationType' => 'OperationType',
+        'recognizeRules' => 'RecognizeRules',
+        'recognizeRulesType' => 'RecognizeRulesType',
         'sensitiveDescription' => 'SensitiveDescription',
-        'sensitiveName'        => 'SensitiveName',
-        'status'               => 'Status',
-        'templateId'           => 'TemplateId',
-        'tenantId'             => 'TenantId',
+        'sensitiveName' => 'SensitiveName',
+        'status' => 'Status',
+        'templateId' => 'TemplateId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()

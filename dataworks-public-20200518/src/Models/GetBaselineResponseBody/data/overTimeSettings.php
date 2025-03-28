@@ -12,13 +12,14 @@ class overTimeSettings extends Model
      * @var int
      */
     public $cycle;
+
     /**
      * @var string
      */
     public $time;
     protected $_name = [
         'cycle' => 'Cycle',
-        'time'  => 'Time',
+        'time' => 'Time',
     ];
 
     public function validate()

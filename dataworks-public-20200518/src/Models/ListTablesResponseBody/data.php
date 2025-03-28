@@ -13,18 +13,20 @@ class data extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var tableEntityList[]
      */
     public $tableEntityList;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'nextToken'       => 'NextToken',
+        'nextToken' => 'NextToken',
         'tableEntityList' => 'TableEntityList',
-        'total'           => 'Total',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class data extends Model
         if (null !== $this->tableEntityList) {
             if (\is_array($this->tableEntityList)) {
                 $res['TableEntityList'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->tableEntityList as $item1) {
                     $res['TableEntityList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class data extends Model
         if (isset($map['TableEntityList'])) {
             if (!empty($map['TableEntityList'])) {
                 $model->tableEntityList = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['TableEntityList'] as $item1) {
                     $model->tableEntityList[$n1++] = tableEntityList::fromMap($item1);
                 }

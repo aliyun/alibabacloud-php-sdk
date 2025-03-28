@@ -12,17 +12,19 @@ class projects extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var string
      */
     public $dbType;
+
     /**
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
-        'dbType'      => 'DbType',
+        'clusterId' => 'ClusterId',
+        'dbType' => 'DbType',
         'projectName' => 'ProjectName',
     ];
 

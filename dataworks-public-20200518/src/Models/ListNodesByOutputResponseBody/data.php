@@ -13,13 +13,14 @@ class data extends Model
      * @var nodeList[]
      */
     public $nodeList;
+
     /**
      * @var string
      */
     public $output;
     protected $_name = [
         'nodeList' => 'NodeList',
-        'output'   => 'Output',
+        'output' => 'Output',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class data extends Model
         if (null !== $this->nodeList) {
             if (\is_array($this->nodeList)) {
                 $res['NodeList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->nodeList as $item1) {
                     $res['NodeList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class data extends Model
         if (isset($map['NodeList'])) {
             if (!empty($map['NodeList'])) {
                 $model->nodeList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['NodeList'] as $item1) {
                     $model->nodeList[$n1++] = nodeList::fromMap($item1);
                 }

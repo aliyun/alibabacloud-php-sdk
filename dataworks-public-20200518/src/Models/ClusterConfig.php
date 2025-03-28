@@ -12,18 +12,20 @@ class ClusterConfig extends Model
      * @var string
      */
     public $configValue;
+
     /**
      * @var bool
      */
     public $enableOverwrite;
+
     /**
      * @var string
      */
     public $moduleName;
     protected $_name = [
-        'configValue'     => 'ConfigValue',
+        'configValue' => 'ConfigValue',
         'enableOverwrite' => 'EnableOverwrite',
-        'moduleName'      => 'ModuleName',
+        'moduleName' => 'ModuleName',
     ];
 
     public function validate()

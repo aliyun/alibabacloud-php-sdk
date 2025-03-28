@@ -12,38 +12,44 @@ class CreateDataSourceRequest extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $envType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $subType;
     protected $_name = [
-        'content'        => 'Content',
+        'content' => 'Content',
         'dataSourceType' => 'DataSourceType',
-        'description'    => 'Description',
-        'envType'        => 'EnvType',
-        'name'           => 'Name',
-        'projectId'      => 'ProjectId',
-        'subType'        => 'SubType',
+        'description' => 'Description',
+        'envType' => 'EnvType',
+        'name' => 'Name',
+        'projectId' => 'ProjectId',
+        'subType' => 'SubType',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class ImportDataSourcesRequest extends Model
      * @var string
      */
     public $dataSources;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
         'dataSources' => 'DataSources',
-        'projectId'   => 'ProjectId',
+        'projectId' => 'ProjectId',
     ];
 
     public function validate()

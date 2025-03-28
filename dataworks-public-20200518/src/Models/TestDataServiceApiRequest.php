@@ -16,33 +16,38 @@ class TestDataServiceApiRequest extends Model
      * @var int
      */
     public $apiId;
+
     /**
      * @var string
      */
     public $bodyContent;
+
     /**
      * @var bodyParams[]
      */
     public $bodyParams;
+
     /**
      * @var headParams[]
      */
     public $headParams;
+
     /**
      * @var pathParams[]
      */
     public $pathParams;
+
     /**
      * @var queryParam[]
      */
     public $queryParam;
     protected $_name = [
-        'apiId'       => 'ApiId',
+        'apiId' => 'ApiId',
         'bodyContent' => 'BodyContent',
-        'bodyParams'  => 'BodyParams',
-        'headParams'  => 'HeadParams',
-        'pathParams'  => 'PathParams',
-        'queryParam'  => 'QueryParam',
+        'bodyParams' => 'BodyParams',
+        'headParams' => 'HeadParams',
+        'pathParams' => 'PathParams',
+        'queryParam' => 'QueryParam',
     ];
 
     public function validate()
@@ -76,7 +81,7 @@ class TestDataServiceApiRequest extends Model
         if (null !== $this->bodyParams) {
             if (\is_array($this->bodyParams)) {
                 $res['BodyParams'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->bodyParams as $item1) {
                     $res['BodyParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -86,7 +91,7 @@ class TestDataServiceApiRequest extends Model
         if (null !== $this->headParams) {
             if (\is_array($this->headParams)) {
                 $res['HeadParams'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->headParams as $item1) {
                     $res['HeadParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +101,7 @@ class TestDataServiceApiRequest extends Model
         if (null !== $this->pathParams) {
             if (\is_array($this->pathParams)) {
                 $res['PathParams'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->pathParams as $item1) {
                     $res['PathParams'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -106,7 +111,7 @@ class TestDataServiceApiRequest extends Model
         if (null !== $this->queryParam) {
             if (\is_array($this->queryParam)) {
                 $res['QueryParam'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->queryParam as $item1) {
                     $res['QueryParam'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -135,7 +140,7 @@ class TestDataServiceApiRequest extends Model
         if (isset($map['BodyParams'])) {
             if (!empty($map['BodyParams'])) {
                 $model->bodyParams = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['BodyParams'] as $item1) {
                     $model->bodyParams[$n1++] = bodyParams::fromMap($item1);
                 }
@@ -145,7 +150,7 @@ class TestDataServiceApiRequest extends Model
         if (isset($map['HeadParams'])) {
             if (!empty($map['HeadParams'])) {
                 $model->headParams = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['HeadParams'] as $item1) {
                     $model->headParams[$n1++] = headParams::fromMap($item1);
                 }
@@ -155,7 +160,7 @@ class TestDataServiceApiRequest extends Model
         if (isset($map['PathParams'])) {
             if (!empty($map['PathParams'])) {
                 $model->pathParams = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['PathParams'] as $item1) {
                     $model->pathParams[$n1++] = pathParams::fromMap($item1);
                 }
@@ -165,7 +170,7 @@ class TestDataServiceApiRequest extends Model
         if (isset($map['QueryParam'])) {
             if (!empty($map['QueryParam'])) {
                 $model->queryParam = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['QueryParam'] as $item1) {
                     $model->queryParam[$n1++] = queryParam::fromMap($item1);
                 }

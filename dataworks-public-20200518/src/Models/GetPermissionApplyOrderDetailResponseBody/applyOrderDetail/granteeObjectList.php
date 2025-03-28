@@ -12,22 +12,25 @@ class granteeObjectList extends Model
      * @var string
      */
     public $granteeId;
+
     /**
      * @var string
      */
     public $granteeName;
+
     /**
      * @var int
      */
     public $granteeType;
+
     /**
      * @var int
      */
     public $granteeTypeSub;
     protected $_name = [
-        'granteeId'      => 'GranteeId',
-        'granteeName'    => 'GranteeName',
-        'granteeType'    => 'GranteeType',
+        'granteeId' => 'GranteeId',
+        'granteeName' => 'GranteeName',
+        'granteeType' => 'GranteeType',
         'granteeTypeSub' => 'GranteeTypeSub',
     ];
 

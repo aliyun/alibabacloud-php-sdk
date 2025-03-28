@@ -13,18 +13,20 @@ class ListInnerNodesResponseBody extends Model
      * @var paging
      */
     public $paging;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'paging'    => 'Paging',
+        'paging' => 'Paging',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

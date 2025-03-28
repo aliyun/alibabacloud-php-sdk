@@ -12,12 +12,13 @@ class DesensitizeDataRequest extends Model
      * @var string
      */
     public $data;
+
     /**
      * @var string
      */
     public $sceneCode;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'sceneCode' => 'SceneCode',
     ];
 

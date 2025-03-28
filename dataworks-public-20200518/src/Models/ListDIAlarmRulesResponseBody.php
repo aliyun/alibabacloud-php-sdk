@@ -13,13 +13,14 @@ class ListDIAlarmRulesResponseBody extends Model
      * @var DIAlarmRulePaging
      */
     public $DIAlarmRulePaging;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DIAlarmRulePaging' => 'DIAlarmRulePaging',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

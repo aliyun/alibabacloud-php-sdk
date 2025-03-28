@@ -13,68 +13,80 @@ class projectList extends Model
      * @var bool
      */
     public $disableDevelopment;
+
     /**
      * @var int
      */
     public $isDefault;
+
     /**
      * @var string
      */
     public $projectDescription;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $projectOwnerBaseId;
+
     /**
      * @var int
      */
     public $projectStatus;
+
     /**
      * @var string
      */
     public $projectStatusCode;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var int
      */
     public $tablePrivacyMode;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var bool
      */
     public $useProxyOdpsAccount;
     protected $_name = [
-        'disableDevelopment'             => 'DisableDevelopment',
-        'isDefault'                      => 'IsDefault',
-        'projectDescription'             => 'ProjectDescription',
-        'projectId'                      => 'ProjectId',
-        'projectIdentifier'              => 'ProjectIdentifier',
-        'projectName'                    => 'ProjectName',
-        'projectOwnerBaseId'             => 'ProjectOwnerBaseId',
-        'projectStatus'                  => 'ProjectStatus',
-        'projectStatusCode'              => 'ProjectStatusCode',
+        'disableDevelopment' => 'DisableDevelopment',
+        'isDefault' => 'IsDefault',
+        'projectDescription' => 'ProjectDescription',
+        'projectId' => 'ProjectId',
+        'projectIdentifier' => 'ProjectIdentifier',
+        'projectName' => 'ProjectName',
+        'projectOwnerBaseId' => 'ProjectOwnerBaseId',
+        'projectStatus' => 'ProjectStatus',
+        'projectStatusCode' => 'ProjectStatusCode',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'tablePrivacyMode'               => 'TablePrivacyMode',
-        'tags'                           => 'Tags',
-        'useProxyOdpsAccount'            => 'UseProxyOdpsAccount',
+        'tablePrivacyMode' => 'TablePrivacyMode',
+        'tags' => 'Tags',
+        'useProxyOdpsAccount' => 'UseProxyOdpsAccount',
     ];
 
     public function validate()
@@ -135,7 +147,7 @@ class projectList extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -204,7 +216,7 @@ class projectList extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

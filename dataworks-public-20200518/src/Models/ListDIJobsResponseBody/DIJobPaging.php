@@ -13,22 +13,25 @@ class DIJobPaging extends Model
      * @var DIJobs[]
      */
     public $DIJobs;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'DIJobs'     => 'DIJobs',
+        'DIJobs' => 'DIJobs',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'totalCount' => 'TotalCount',
     ];
 
@@ -46,7 +49,7 @@ class DIJobPaging extends Model
         if (null !== $this->DIJobs) {
             if (\is_array($this->DIJobs)) {
                 $res['DIJobs'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->DIJobs as $item1) {
                     $res['DIJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class DIJobPaging extends Model
         if (isset($map['DIJobs'])) {
             if (!empty($map['DIJobs'])) {
                 $model->DIJobs = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['DIJobs'] as $item1) {
                     $model->DIJobs[$n1++] = DIJobs::fromMap($item1);
                 }

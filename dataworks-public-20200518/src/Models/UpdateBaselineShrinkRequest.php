@@ -12,68 +12,80 @@ class UpdateBaselineShrinkRequest extends Model
      * @var bool
      */
     public $alertEnabled;
+
     /**
      * @var int
      */
     public $alertMarginThreshold;
+
     /**
      * @var string
      */
     public $alertSettingsShrink;
+
     /**
      * @var int
      */
     public $baselineId;
+
     /**
      * @var string
      */
     public $baselineName;
+
     /**
      * @var string
      */
     public $baselineType;
+
     /**
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $nodeIds;
+
     /**
      * @var string
      */
     public $overtimeSettingsShrink;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $removeNodeIds;
     protected $_name = [
-        'alertEnabled'           => 'AlertEnabled',
-        'alertMarginThreshold'   => 'AlertMarginThreshold',
-        'alertSettingsShrink'    => 'AlertSettings',
-        'baselineId'             => 'BaselineId',
-        'baselineName'           => 'BaselineName',
-        'baselineType'           => 'BaselineType',
-        'enabled'                => 'Enabled',
-        'nodeIds'                => 'NodeIds',
+        'alertEnabled' => 'AlertEnabled',
+        'alertMarginThreshold' => 'AlertMarginThreshold',
+        'alertSettingsShrink' => 'AlertSettings',
+        'baselineId' => 'BaselineId',
+        'baselineName' => 'BaselineName',
+        'baselineType' => 'BaselineType',
+        'enabled' => 'Enabled',
+        'nodeIds' => 'NodeIds',
         'overtimeSettingsShrink' => 'OvertimeSettings',
-        'owner'                  => 'Owner',
-        'priority'               => 'Priority',
-        'projectId'              => 'ProjectId',
-        'removeNodeIds'          => 'RemoveNodeIds',
+        'owner' => 'Owner',
+        'priority' => 'Priority',
+        'projectId' => 'ProjectId',
+        'removeNodeIds' => 'RemoveNodeIds',
     ];
 
     public function validate()

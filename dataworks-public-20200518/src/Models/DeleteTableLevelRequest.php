@@ -12,12 +12,13 @@ class DeleteTableLevelRequest extends Model
      * @var int
      */
     public $levelId;
+
     /**
      * @var int
      */
     public $projectId;
     protected $_name = [
-        'levelId'   => 'LevelId',
+        'levelId' => 'LevelId',
         'projectId' => 'ProjectId',
     ];
 

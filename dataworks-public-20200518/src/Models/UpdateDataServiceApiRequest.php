@@ -12,73 +12,86 @@ class UpdateDataServiceApiRequest extends Model
      * @var string
      */
     public $apiDescription;
+
     /**
      * @var int
      */
     public $apiId;
+
     /**
      * @var string
      */
     public $apiPath;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $protocols;
+
     /**
      * @var string
      */
     public $registrationDetails;
+
     /**
      * @var int
      */
     public $requestMethod;
+
     /**
      * @var int
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $responseContentType;
+
     /**
      * @var string
      */
     public $scriptDetails;
+
     /**
      * @var int
      */
     public $tenantId;
+
     /**
      * @var int
      */
     public $timeout;
+
     /**
      * @var int
      */
     public $visibleRange;
+
     /**
      * @var string
      */
     public $wizardDetails;
     protected $_name = [
-        'apiDescription'      => 'ApiDescription',
-        'apiId'               => 'ApiId',
-        'apiPath'             => 'ApiPath',
-        'projectId'           => 'ProjectId',
-        'protocols'           => 'Protocols',
+        'apiDescription' => 'ApiDescription',
+        'apiId' => 'ApiId',
+        'apiPath' => 'ApiPath',
+        'projectId' => 'ProjectId',
+        'protocols' => 'Protocols',
         'registrationDetails' => 'RegistrationDetails',
-        'requestMethod'       => 'RequestMethod',
-        'resourceGroupId'     => 'ResourceGroupId',
+        'requestMethod' => 'RequestMethod',
+        'resourceGroupId' => 'ResourceGroupId',
         'responseContentType' => 'ResponseContentType',
-        'scriptDetails'       => 'ScriptDetails',
-        'tenantId'            => 'TenantId',
-        'timeout'             => 'Timeout',
-        'visibleRange'        => 'VisibleRange',
-        'wizardDetails'       => 'WizardDetails',
+        'scriptDetails' => 'ScriptDetails',
+        'tenantId' => 'TenantId',
+        'timeout' => 'Timeout',
+        'visibleRange' => 'VisibleRange',
+        'wizardDetails' => 'WizardDetails',
     ];
 
     public function validate()

@@ -13,112 +13,133 @@ class data extends Model
      * @var string
      */
     public $clusterId;
+
     /**
      * @var columnList[]
      */
     public $columnList;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $dataSize;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var int
      */
     public $envType;
+
     /**
      * @var int
      */
     public $isVisible;
+
     /**
      * @var int
      */
     public $lastAccessTime;
+
     /**
      * @var int
      */
     public $lastDdlTime;
+
     /**
      * @var int
      */
     public $lastModifyTime;
+
     /**
      * @var int
      */
     public $lifeCycle;
+
     /**
      * @var string
      */
     public $location;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $partitionKeys;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $schema;
+
     /**
      * @var string
      */
     public $tableGuid;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
     public $tenantId;
+
     /**
      * @var int
      */
     public $totalColumnCount;
     protected $_name = [
-        'clusterId'        => 'ClusterId',
-        'columnList'       => 'ColumnList',
-        'comment'          => 'Comment',
-        'createTime'       => 'CreateTime',
-        'dataSize'         => 'DataSize',
-        'databaseName'     => 'DatabaseName',
-        'envType'          => 'EnvType',
-        'isVisible'        => 'IsVisible',
-        'lastAccessTime'   => 'LastAccessTime',
-        'lastDdlTime'      => 'LastDdlTime',
-        'lastModifyTime'   => 'LastModifyTime',
-        'lifeCycle'        => 'LifeCycle',
-        'location'         => 'Location',
-        'ownerId'          => 'OwnerId',
-        'partitionKeys'    => 'PartitionKeys',
-        'projectId'        => 'ProjectId',
-        'projectName'      => 'ProjectName',
-        'schema'           => 'Schema',
-        'tableGuid'        => 'TableGuid',
-        'tableName'        => 'TableName',
-        'tenantId'         => 'TenantId',
+        'clusterId' => 'ClusterId',
+        'columnList' => 'ColumnList',
+        'comment' => 'Comment',
+        'createTime' => 'CreateTime',
+        'dataSize' => 'DataSize',
+        'databaseName' => 'DatabaseName',
+        'envType' => 'EnvType',
+        'isVisible' => 'IsVisible',
+        'lastAccessTime' => 'LastAccessTime',
+        'lastDdlTime' => 'LastDdlTime',
+        'lastModifyTime' => 'LastModifyTime',
+        'lifeCycle' => 'LifeCycle',
+        'location' => 'Location',
+        'ownerId' => 'OwnerId',
+        'partitionKeys' => 'PartitionKeys',
+        'projectId' => 'ProjectId',
+        'projectName' => 'ProjectName',
+        'schema' => 'Schema',
+        'tableGuid' => 'TableGuid',
+        'tableName' => 'TableName',
+        'tenantId' => 'TenantId',
         'totalColumnCount' => 'TotalColumnCount',
     ];
 
@@ -140,7 +161,7 @@ class data extends Model
         if (null !== $this->columnList) {
             if (\is_array($this->columnList)) {
                 $res['ColumnList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->columnList as $item1) {
                     $res['ColumnList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -245,7 +266,7 @@ class data extends Model
         if (isset($map['ColumnList'])) {
             if (!empty($map['ColumnList'])) {
                 $model->columnList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ColumnList'] as $item1) {
                     $model->columnList[$n1++] = columnList::fromMap($item1);
                 }

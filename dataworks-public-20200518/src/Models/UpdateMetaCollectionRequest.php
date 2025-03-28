@@ -12,17 +12,19 @@ class UpdateMetaCollectionRequest extends Model
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $qualifiedName;
     protected $_name = [
-        'comment'       => 'Comment',
-        'name'          => 'Name',
+        'comment' => 'Comment',
+        'name' => 'Name',
         'qualifiedName' => 'QualifiedName',
     ];
 

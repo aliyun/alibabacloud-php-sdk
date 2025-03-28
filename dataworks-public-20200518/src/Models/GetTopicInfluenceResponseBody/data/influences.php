@@ -12,48 +12,56 @@ class influences extends Model
      * @var int
      */
     public $baselineId;
+
     /**
      * @var string
      */
     public $baselineName;
+
     /**
      * @var int
      */
     public $bizdate;
+
     /**
      * @var int
      */
     public $buffer;
+
     /**
      * @var int
      */
     public $inGroupId;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'baselineId'   => 'BaselineId',
+        'baselineId' => 'BaselineId',
         'baselineName' => 'BaselineName',
-        'bizdate'      => 'Bizdate',
-        'buffer'       => 'Buffer',
-        'inGroupId'    => 'InGroupId',
-        'owner'        => 'Owner',
-        'priority'     => 'Priority',
-        'projectId'    => 'ProjectId',
-        'status'       => 'Status',
+        'bizdate' => 'Bizdate',
+        'buffer' => 'Buffer',
+        'inGroupId' => 'InGroupId',
+        'owner' => 'Owner',
+        'priority' => 'Priority',
+        'projectId' => 'ProjectId',
+        'status' => 'Status',
     ];
 
     public function validate()

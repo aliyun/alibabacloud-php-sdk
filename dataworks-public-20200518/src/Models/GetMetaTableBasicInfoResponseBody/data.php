@@ -12,138 +12,164 @@ class data extends Model
      * @var string
      */
     public $caption;
+
     /**
      * @var string
      */
     public $clusterId;
+
     /**
      * @var int
      */
     public $columnCount;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $dataSize;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var int
      */
     public $envType;
+
     /**
      * @var int
      */
     public $favoriteCount;
+
     /**
      * @var bool
      */
     public $isPartitionTable;
+
     /**
      * @var bool
      */
     public $isView;
+
     /**
      * @var int
      */
     public $isVisible;
+
     /**
      * @var int
      */
     public $lastAccessTime;
+
     /**
      * @var int
      */
     public $lastDdlTime;
+
     /**
      * @var int
      */
     public $lastModifyTime;
+
     /**
      * @var int
      */
     public $lifeCycle;
+
     /**
      * @var string
      */
     public $location;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $partitionKeys;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var int
      */
     public $readCount;
+
     /**
      * @var string
      */
     public $schema;
+
     /**
      * @var string
      */
     public $tableGuid;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
     public $tenantId;
+
     /**
      * @var int
      */
     public $viewCount;
     protected $_name = [
-        'caption'          => 'Caption',
-        'clusterId'        => 'ClusterId',
-        'columnCount'      => 'ColumnCount',
-        'comment'          => 'Comment',
-        'createTime'       => 'CreateTime',
-        'dataSize'         => 'DataSize',
-        'databaseName'     => 'DatabaseName',
-        'envType'          => 'EnvType',
-        'favoriteCount'    => 'FavoriteCount',
+        'caption' => 'Caption',
+        'clusterId' => 'ClusterId',
+        'columnCount' => 'ColumnCount',
+        'comment' => 'Comment',
+        'createTime' => 'CreateTime',
+        'dataSize' => 'DataSize',
+        'databaseName' => 'DatabaseName',
+        'envType' => 'EnvType',
+        'favoriteCount' => 'FavoriteCount',
         'isPartitionTable' => 'IsPartitionTable',
-        'isView'           => 'IsView',
-        'isVisible'        => 'IsVisible',
-        'lastAccessTime'   => 'LastAccessTime',
-        'lastDdlTime'      => 'LastDdlTime',
-        'lastModifyTime'   => 'LastModifyTime',
-        'lifeCycle'        => 'LifeCycle',
-        'location'         => 'Location',
-        'ownerId'          => 'OwnerId',
-        'partitionKeys'    => 'PartitionKeys',
-        'projectId'        => 'ProjectId',
-        'projectName'      => 'ProjectName',
-        'readCount'        => 'ReadCount',
-        'schema'           => 'Schema',
-        'tableGuid'        => 'TableGuid',
-        'tableName'        => 'TableName',
-        'tenantId'         => 'TenantId',
-        'viewCount'        => 'ViewCount',
+        'isView' => 'IsView',
+        'isVisible' => 'IsVisible',
+        'lastAccessTime' => 'LastAccessTime',
+        'lastDdlTime' => 'LastDdlTime',
+        'lastModifyTime' => 'LastModifyTime',
+        'lifeCycle' => 'LifeCycle',
+        'location' => 'Location',
+        'ownerId' => 'OwnerId',
+        'partitionKeys' => 'PartitionKeys',
+        'projectId' => 'ProjectId',
+        'projectName' => 'ProjectName',
+        'readCount' => 'ReadCount',
+        'schema' => 'Schema',
+        'tableGuid' => 'TableGuid',
+        'tableName' => 'TableName',
+        'tenantId' => 'TenantId',
+        'viewCount' => 'ViewCount',
     ];
 
     public function validate()

@@ -12,98 +12,116 @@ class CreateDataServiceApiRequest extends Model
      * @var string
      */
     public $apiDescription;
+
     /**
      * @var int
      */
     public $apiMode;
+
     /**
      * @var string
      */
     public $apiName;
+
     /**
      * @var string
      */
     public $apiPath;
+
     /**
      * @var int
      */
     public $folderId;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $protocols;
+
     /**
      * @var string
      */
     public $registrationDetails;
+
     /**
      * @var int
      */
     public $requestContentType;
+
     /**
      * @var int
      */
     public $requestMethod;
+
     /**
      * @var int
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $responseContentType;
+
     /**
      * @var string
      */
     public $scriptDetails;
+
     /**
      * @var int
      */
     public $sqlMode;
+
     /**
      * @var int
      */
     public $tenantId;
+
     /**
      * @var int
      */
     public $timeout;
+
     /**
      * @var int
      */
     public $visibleRange;
+
     /**
      * @var string
      */
     public $wizardDetails;
     protected $_name = [
-        'apiDescription'      => 'ApiDescription',
-        'apiMode'             => 'ApiMode',
-        'apiName'             => 'ApiName',
-        'apiPath'             => 'ApiPath',
-        'folderId'            => 'FolderId',
-        'groupId'             => 'GroupId',
-        'projectId'           => 'ProjectId',
-        'protocols'           => 'Protocols',
+        'apiDescription' => 'ApiDescription',
+        'apiMode' => 'ApiMode',
+        'apiName' => 'ApiName',
+        'apiPath' => 'ApiPath',
+        'folderId' => 'FolderId',
+        'groupId' => 'GroupId',
+        'projectId' => 'ProjectId',
+        'protocols' => 'Protocols',
         'registrationDetails' => 'RegistrationDetails',
-        'requestContentType'  => 'RequestContentType',
-        'requestMethod'       => 'RequestMethod',
-        'resourceGroupId'     => 'ResourceGroupId',
+        'requestContentType' => 'RequestContentType',
+        'requestMethod' => 'RequestMethod',
+        'resourceGroupId' => 'ResourceGroupId',
         'responseContentType' => 'ResponseContentType',
-        'scriptDetails'       => 'ScriptDetails',
-        'sqlMode'             => 'SqlMode',
-        'tenantId'            => 'TenantId',
-        'timeout'             => 'Timeout',
-        'visibleRange'        => 'VisibleRange',
-        'wizardDetails'       => 'WizardDetails',
+        'scriptDetails' => 'ScriptDetails',
+        'sqlMode' => 'SqlMode',
+        'tenantId' => 'TenantId',
+        'timeout' => 'Timeout',
+        'visibleRange' => 'VisibleRange',
+        'wizardDetails' => 'WizardDetails',
     ];
 
     public function validate()

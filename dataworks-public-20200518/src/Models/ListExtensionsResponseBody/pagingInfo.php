@@ -13,14 +13,17 @@ class pagingInfo extends Model
      * @var extensions[]
      */
     public $extensions;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
@@ -28,7 +31,7 @@ class pagingInfo extends Model
     protected $_name = [
         'extensions' => 'Extensions',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'totalCount' => 'TotalCount',
     ];
 
@@ -46,7 +49,7 @@ class pagingInfo extends Model
         if (null !== $this->extensions) {
             if (\is_array($this->extensions)) {
                 $res['Extensions'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->extensions as $item1) {
                     $res['Extensions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class pagingInfo extends Model
         if (isset($map['Extensions'])) {
             if (!empty($map['Extensions'])) {
                 $model->extensions = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Extensions'] as $item1) {
                     $model->extensions[$n1++] = extensions::fromMap($item1);
                 }

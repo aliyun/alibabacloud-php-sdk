@@ -12,33 +12,38 @@ class ListClusterConfigsResponseBody extends Model
      * @var ClusterConfig[]
      */
     public $clusterConfigs;
+
     /**
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'clusterConfigs' => 'ClusterConfigs',
-        'errorCode'      => 'ErrorCode',
-        'errorMessage'   => 'ErrorMessage',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -55,7 +60,7 @@ class ListClusterConfigsResponseBody extends Model
         if (null !== $this->clusterConfigs) {
             if (\is_array($this->clusterConfigs)) {
                 $res['ClusterConfigs'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->clusterConfigs as $item1) {
                     $res['ClusterConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +101,7 @@ class ListClusterConfigsResponseBody extends Model
         if (isset($map['ClusterConfigs'])) {
             if (!empty($map['ClusterConfigs'])) {
                 $model->clusterConfigs = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ClusterConfigs'] as $item1) {
                     $model->clusterConfigs[$n1++] = ClusterConfig::fromMap($item1);
                 }

@@ -12,22 +12,25 @@ class GetFileRequest extends Model
      * @var int
      */
     public $fileId;
+
     /**
      * @var int
      */
     public $nodeId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $projectIdentifier;
     protected $_name = [
-        'fileId'            => 'FileId',
-        'nodeId'            => 'NodeId',
-        'projectId'         => 'ProjectId',
+        'fileId' => 'FileId',
+        'nodeId' => 'NodeId',
+        'projectId' => 'ProjectId',
         'projectIdentifier' => 'ProjectIdentifier',
     ];
 

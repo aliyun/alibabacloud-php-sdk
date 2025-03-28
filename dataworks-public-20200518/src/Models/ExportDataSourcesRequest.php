@@ -12,38 +12,44 @@ class ExportDataSourcesRequest extends Model
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var int
      */
     public $envType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $subType;
     protected $_name = [
         'dataSourceType' => 'DataSourceType',
-        'envType'        => 'EnvType',
-        'name'           => 'Name',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'projectId'      => 'ProjectId',
-        'subType'        => 'SubType',
+        'envType' => 'EnvType',
+        'name' => 'Name',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
+        'subType' => 'SubType',
     ];
 
     public function validate()

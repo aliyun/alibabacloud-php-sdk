@@ -13,48 +13,56 @@ class CreateProjectRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $disableDevelopment;
+
     /**
      * @var int
      */
     public $isAllowDownload;
+
     /**
      * @var string
      */
     public $projectDescription;
+
     /**
      * @var string
      */
     public $projectIdentifier;
+
     /**
      * @var int
      */
     public $projectMode;
+
     /**
      * @var string
      */
     public $projectName;
+
     /**
      * @var string
      */
     public $resourceManagerResourceGroupId;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'clientToken'                    => 'ClientToken',
-        'disableDevelopment'             => 'DisableDevelopment',
-        'isAllowDownload'                => 'IsAllowDownload',
-        'projectDescription'             => 'ProjectDescription',
-        'projectIdentifier'              => 'ProjectIdentifier',
-        'projectMode'                    => 'ProjectMode',
-        'projectName'                    => 'ProjectName',
+        'clientToken' => 'ClientToken',
+        'disableDevelopment' => 'DisableDevelopment',
+        'isAllowDownload' => 'IsAllowDownload',
+        'projectDescription' => 'ProjectDescription',
+        'projectIdentifier' => 'ProjectIdentifier',
+        'projectMode' => 'ProjectMode',
+        'projectName' => 'ProjectName',
         'resourceManagerResourceGroupId' => 'ResourceManagerResourceGroupId',
-        'tags'                           => 'Tags',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -103,7 +111,7 @@ class CreateProjectRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -156,7 +164,7 @@ class CreateProjectRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

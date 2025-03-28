@@ -12,33 +12,38 @@ class ListDIJobsRequest extends Model
      * @var string
      */
     public $destinationDataSourceType;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $sourceDataSourceType;
     protected $_name = [
         'destinationDataSourceType' => 'DestinationDataSourceType',
-        'jobName'                   => 'JobName',
-        'pageNumber'                => 'PageNumber',
-        'pageSize'                  => 'PageSize',
-        'projectId'                 => 'ProjectId',
-        'sourceDataSourceType'      => 'SourceDataSourceType',
+        'jobName' => 'JobName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'projectId' => 'ProjectId',
+        'sourceDataSourceType' => 'SourceDataSourceType',
     ];
 
     public function validate()

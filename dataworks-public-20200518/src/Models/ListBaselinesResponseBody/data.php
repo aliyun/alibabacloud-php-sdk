@@ -13,22 +13,25 @@ class data extends Model
      * @var baselines[]
      */
     public $baselines;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
-        'baselines'  => 'Baselines',
+        'baselines' => 'Baselines',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
         'totalCount' => 'TotalCount',
     ];
 
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->baselines) {
             if (\is_array($this->baselines)) {
                 $res['Baselines'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->baselines as $item1) {
                     $res['Baselines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['Baselines'])) {
             if (!empty($map['Baselines'])) {
                 $model->baselines = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Baselines'] as $item1) {
                     $model->baselines[$n1++] = baselines::fromMap($item1);
                 }

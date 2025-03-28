@@ -12,43 +12,50 @@ class CreateManualDagRequest extends Model
      * @var string
      */
     public $bizDate;
+
     /**
      * @var string
      */
     public $dagParameters;
+
     /**
      * @var string
      */
     public $excludeNodeIds;
+
     /**
      * @var string
      */
     public $flowName;
+
     /**
      * @var string
      */
     public $includeNodeIds;
+
     /**
      * @var string
      */
     public $nodeParameters;
+
     /**
      * @var string
      */
     public $projectEnv;
+
     /**
      * @var string
      */
     public $projectName;
     protected $_name = [
-        'bizDate'        => 'BizDate',
-        'dagParameters'  => 'DagParameters',
+        'bizDate' => 'BizDate',
+        'dagParameters' => 'DagParameters',
         'excludeNodeIds' => 'ExcludeNodeIds',
-        'flowName'       => 'FlowName',
+        'flowName' => 'FlowName',
         'includeNodeIds' => 'IncludeNodeIds',
         'nodeParameters' => 'NodeParameters',
-        'projectEnv'     => 'ProjectEnv',
-        'projectName'    => 'ProjectName',
+        'projectEnv' => 'ProjectEnv',
+        'projectName' => 'ProjectName',
     ];
 
     public function validate()

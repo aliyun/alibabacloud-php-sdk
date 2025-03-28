@@ -13,33 +13,38 @@ class ListMeasureDataResponseBody extends Model
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var measureDatas[]
      */
     public $measureDatas;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'errorCode'      => 'ErrorCode',
-        'errorMessage'   => 'ErrorMessage',
+        'errorCode' => 'ErrorCode',
+        'errorMessage' => 'ErrorMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'measureDatas'   => 'MeasureDatas',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'measureDatas' => 'MeasureDatas',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -68,7 +73,7 @@ class ListMeasureDataResponseBody extends Model
         if (null !== $this->measureDatas) {
             if (\is_array($this->measureDatas)) {
                 $res['MeasureDatas'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->measureDatas as $item1) {
                     $res['MeasureDatas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +114,7 @@ class ListMeasureDataResponseBody extends Model
         if (isset($map['MeasureDatas'])) {
             if (!empty($map['MeasureDatas'])) {
                 $model->measureDatas = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['MeasureDatas'] as $item1) {
                     $model->measureDatas[$n1++] = measureDatas::fromMap($item1);
                 }

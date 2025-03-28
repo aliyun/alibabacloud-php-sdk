@@ -13,13 +13,14 @@ class GetIDEEventDetailResponseBody extends Model
      * @var eventDetail
      */
     public $eventDetail;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'eventDetail' => 'EventDetail',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

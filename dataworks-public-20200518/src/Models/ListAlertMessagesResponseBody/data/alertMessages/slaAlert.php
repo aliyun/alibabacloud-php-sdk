@@ -12,38 +12,44 @@ class slaAlert extends Model
      * @var int
      */
     public $baselineId;
+
     /**
      * @var string
      */
     public $baselineName;
+
     /**
      * @var string
      */
     public $baselineOwner;
+
     /**
      * @var int
      */
     public $bizdate;
+
     /**
      * @var int
      */
     public $inGroupId;
+
     /**
      * @var int
      */
     public $projectId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'baselineId'    => 'BaselineId',
-        'baselineName'  => 'BaselineName',
+        'baselineId' => 'BaselineId',
+        'baselineName' => 'BaselineName',
         'baselineOwner' => 'BaselineOwner',
-        'bizdate'       => 'Bizdate',
-        'inGroupId'     => 'InGroupId',
-        'projectId'     => 'ProjectId',
-        'status'        => 'Status',
+        'bizdate' => 'Bizdate',
+        'inGroupId' => 'InGroupId',
+        'projectId' => 'ProjectId',
+        'status' => 'Status',
     ];
 
     public function validate()
