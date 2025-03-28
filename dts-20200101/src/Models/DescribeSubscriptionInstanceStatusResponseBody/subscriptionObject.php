@@ -31,7 +31,7 @@ class subscriptionObject extends Model
         if (null !== $this->synchronousObject) {
             if (\is_array($this->synchronousObject)) {
                 $res['SynchronousObject'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->synchronousObject as $item1) {
                     $res['SynchronousObject'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class subscriptionObject extends Model
         if (isset($map['SynchronousObject'])) {
             if (!empty($map['SynchronousObject'])) {
                 $model->synchronousObject = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['SynchronousObject'] as $item1) {
                     $model->synchronousObject[$n1++] = synchronousObject::fromMap($item1);
                 }

@@ -12,33 +12,38 @@ class dataSynchronizationStatus extends Model
      * @var string
      */
     public $checkpoint;
+
     /**
      * @var string
      */
     public $delay;
+
     /**
      * @var int
      */
     public $delayMillis;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $percent;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'checkpoint'   => 'Checkpoint',
-        'delay'        => 'Delay',
-        'delayMillis'  => 'DelayMillis',
+        'checkpoint' => 'Checkpoint',
+        'delay' => 'Delay',
+        'delayMillis' => 'DelayMillis',
         'errorMessage' => 'ErrorMessage',
-        'percent'      => 'Percent',
-        'status'       => 'Status',
+        'percent' => 'Percent',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -12,68 +12,80 @@ class tagList extends Model
      * @var int
      */
     public $aliUid;
+
     /**
      * @var int
      */
     public $creator;
+
     /**
      * @var string
      */
     public $gmtCreate;
+
     /**
      * @var string
      */
     public $gmtModified;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $scope;
+
     /**
      * @var string
      */
     public $srcRegion;
+
     /**
      * @var string
      */
     public $tagCategory;
+
     /**
      * @var string
      */
     public $tagKey;
+
     /**
      * @var string
      */
     public $tagValue;
     protected $_name = [
-        'aliUid'       => 'AliUid',
-        'creator'      => 'Creator',
-        'gmtCreate'    => 'GmtCreate',
-        'gmtModified'  => 'GmtModified',
-        'id'           => 'Id',
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'aliUid' => 'AliUid',
+        'creator' => 'Creator',
+        'gmtCreate' => 'GmtCreate',
+        'gmtModified' => 'GmtModified',
+        'id' => 'Id',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'scope'        => 'Scope',
-        'srcRegion'    => 'SrcRegion',
-        'tagCategory'  => 'TagCategory',
-        'tagKey'       => 'TagKey',
-        'tagValue'     => 'TagValue',
+        'scope' => 'Scope',
+        'srcRegion' => 'SrcRegion',
+        'tagCategory' => 'TagCategory',
+        'tagKey' => 'TagKey',
+        'tagValue' => 'TagValue',
     ];
 
     public function validate()

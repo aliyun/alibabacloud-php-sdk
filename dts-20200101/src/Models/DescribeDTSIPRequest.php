@@ -12,23 +12,26 @@ class DescribeDTSIPRequest extends Model
      * @var string
      */
     public $destinationEndpointRegion;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $sourceEndpointRegion;
     protected $_name = [
         'destinationEndpointRegion' => 'DestinationEndpointRegion',
-        'regionId'                  => 'RegionId',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'sourceEndpointRegion'      => 'SourceEndpointRegion',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceEndpointRegion' => 'SourceEndpointRegion',
     ];
 
     public function validate()

@@ -13,68 +13,80 @@ class DescribeDataCheckTableDetailsResponseBody extends Model
      * @var int
      */
     public $diffTableCount;
+
     /**
      * @var string
      */
     public $dynamicCode;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $failedTableCount;
+
     /**
      * @var int
      */
     public $finishedCount;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var tableDetails[]
      */
     public $tableDetails;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'diffTableCount'   => 'DiffTableCount',
-        'dynamicCode'      => 'DynamicCode',
-        'dynamicMessage'   => 'DynamicMessage',
-        'errCode'          => 'ErrCode',
-        'errMessage'       => 'ErrMessage',
+        'diffTableCount' => 'DiffTableCount',
+        'dynamicCode' => 'DynamicCode',
+        'dynamicMessage' => 'DynamicMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'failedTableCount' => 'FailedTableCount',
-        'finishedCount'    => 'FinishedCount',
-        'httpStatusCode'   => 'HttpStatusCode',
-        'pageNumber'       => 'PageNumber',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
-        'tableDetails'     => 'TableDetails',
-        'totalCount'       => 'TotalCount',
+        'finishedCount' => 'FinishedCount',
+        'httpStatusCode' => 'HttpStatusCode',
+        'pageNumber' => 'PageNumber',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'tableDetails' => 'TableDetails',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -135,7 +147,7 @@ class DescribeDataCheckTableDetailsResponseBody extends Model
         if (null !== $this->tableDetails) {
             if (\is_array($this->tableDetails)) {
                 $res['TableDetails'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->tableDetails as $item1) {
                     $res['TableDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -204,7 +216,7 @@ class DescribeDataCheckTableDetailsResponseBody extends Model
         if (isset($map['TableDetails'])) {
             if (!empty($map['TableDetails'])) {
                 $model->tableDetails = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['TableDetails'] as $item1) {
                     $model->tableDetails[$n1++] = tableDetails::fromMap($item1);
                 }

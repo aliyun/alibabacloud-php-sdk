@@ -13,43 +13,50 @@ class DescribeSynchronizationJobStatusListResponseBody extends Model
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var synchronizationJobListStatusList[]
      */
     public $synchronizationJobListStatusList;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'errCode'                          => 'ErrCode',
-        'errMessage'                       => 'ErrMessage',
-        'pageNumber'                       => 'PageNumber',
-        'pageRecordCount'                  => 'PageRecordCount',
-        'requestId'                        => 'RequestId',
-        'success'                          => 'Success',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'synchronizationJobListStatusList' => 'SynchronizationJobListStatusList',
-        'totalRecordCount'                 => 'TotalRecordCount',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()
@@ -90,7 +97,7 @@ class DescribeSynchronizationJobStatusListResponseBody extends Model
         if (null !== $this->synchronizationJobListStatusList) {
             if (\is_array($this->synchronizationJobListStatusList)) {
                 $res['SynchronizationJobListStatusList'] = [];
-                $n1                                      = 0;
+                $n1 = 0;
                 foreach ($this->synchronizationJobListStatusList as $item1) {
                     $res['SynchronizationJobListStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -139,7 +146,7 @@ class DescribeSynchronizationJobStatusListResponseBody extends Model
         if (isset($map['SynchronizationJobListStatusList'])) {
             if (!empty($map['SynchronizationJobListStatusList'])) {
                 $model->synchronizationJobListStatusList = [];
-                $n1                                      = 0;
+                $n1 = 0;
                 foreach ($map['SynchronizationJobListStatusList'] as $item1) {
                     $model->synchronizationJobListStatusList[$n1++] = synchronizationJobListStatusList::fromMap($item1);
                 }

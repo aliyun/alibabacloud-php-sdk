@@ -12,18 +12,20 @@ class diffDetails extends Model
      * @var string
      */
     public $diff;
+
     /**
      * @var string
      */
     public $gmtCreated;
+
     /**
      * @var int
      */
     public $id;
     protected $_name = [
-        'diff'       => 'Diff',
+        'diff' => 'Diff',
         'gmtCreated' => 'GmtCreated',
-        'id'         => 'Id',
+        'id' => 'Id',
     ];
 
     public function validate()

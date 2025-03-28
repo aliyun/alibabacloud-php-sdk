@@ -12,17 +12,19 @@ class StartReverseWriterRequest extends Model
      * @var string
      */
     public $checkPoint;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'checkPoint'      => 'CheckPoint',
-        'dtsJobId'        => 'DtsJobId',
+        'checkPoint' => 'CheckPoint',
+        'dtsJobId' => 'DtsJobId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

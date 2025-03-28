@@ -12,53 +12,62 @@ class parameters extends Model
      * @var string
      */
     public $checkingCode;
+
     /**
      * @var string
      */
     public $defaultValue;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $forceRestart;
+
     /**
      * @var string
      */
     public $modifiable;
+
     /**
      * @var string
      */
     public $module;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $recommendValue;
+
     /**
      * @var string
      */
     public $runningValue;
+
     /**
      * @var int
      */
     public $valueType;
     protected $_name = [
-        'checkingCode'   => 'CheckingCode',
-        'defaultValue'   => 'DefaultValue',
-        'description'    => 'Description',
-        'forceRestart'   => 'ForceRestart',
-        'modifiable'     => 'Modifiable',
-        'module'         => 'Module',
-        'name'           => 'Name',
+        'checkingCode' => 'CheckingCode',
+        'defaultValue' => 'DefaultValue',
+        'description' => 'Description',
+        'forceRestart' => 'ForceRestart',
+        'modifiable' => 'Modifiable',
+        'module' => 'Module',
+        'name' => 'Name',
         'recommendValue' => 'RecommendValue',
-        'runningValue'   => 'RunningValue',
-        'valueType'      => 'ValueType',
+        'runningValue' => 'RunningValue',
+        'valueType' => 'ValueType',
     ];
 
     public function validate()

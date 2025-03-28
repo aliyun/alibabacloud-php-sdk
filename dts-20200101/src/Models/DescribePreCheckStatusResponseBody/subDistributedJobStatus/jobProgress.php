@@ -13,128 +13,152 @@ class jobProgress extends Model
      * @var string
      */
     public $bootTime;
+
     /**
      * @var bool
      */
     public $canSkip;
+
     /**
      * @var string
      */
     public $current;
+
     /**
      * @var string
      */
     public $ddlSql;
+
     /**
      * @var int
      */
     public $delaySeconds;
+
     /**
      * @var string
      */
     public $destSchema;
+
     /**
      * @var int
      */
     public $diffRow;
+
     /**
      * @var string
      */
     public $errDetail;
+
     /**
      * @var string
      */
     public $errMsg;
+
     /**
      * @var string
      */
     public $finishTime;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $ignoreFlag;
+
     /**
      * @var string
      */
     public $item;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var logs[]
      */
     public $logs;
+
     /**
      * @var string
      */
     public $names;
+
     /**
      * @var int
      */
     public $orderNum;
+
     /**
      * @var string
      */
     public $parentObj;
+
     /**
      * @var string
      */
     public $repairMethod;
+
     /**
      * @var bool
      */
     public $skip;
+
     /**
      * @var string
      */
     public $sourceSchema;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $sub;
+
     /**
      * @var string
      */
     public $targetNames;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'bootTime'     => 'BootTime',
-        'canSkip'      => 'CanSkip',
-        'current'      => 'Current',
-        'ddlSql'       => 'DdlSql',
+        'bootTime' => 'BootTime',
+        'canSkip' => 'CanSkip',
+        'current' => 'Current',
+        'ddlSql' => 'DdlSql',
         'delaySeconds' => 'DelaySeconds',
-        'destSchema'   => 'DestSchema',
-        'diffRow'      => 'DiffRow',
-        'errDetail'    => 'ErrDetail',
-        'errMsg'       => 'ErrMsg',
-        'finishTime'   => 'FinishTime',
-        'id'           => 'Id',
-        'ignoreFlag'   => 'IgnoreFlag',
-        'item'         => 'Item',
-        'jobId'        => 'JobId',
-        'logs'         => 'Logs',
-        'names'        => 'Names',
-        'orderNum'     => 'OrderNum',
-        'parentObj'    => 'ParentObj',
+        'destSchema' => 'DestSchema',
+        'diffRow' => 'DiffRow',
+        'errDetail' => 'ErrDetail',
+        'errMsg' => 'ErrMsg',
+        'finishTime' => 'FinishTime',
+        'id' => 'Id',
+        'ignoreFlag' => 'IgnoreFlag',
+        'item' => 'Item',
+        'jobId' => 'JobId',
+        'logs' => 'Logs',
+        'names' => 'Names',
+        'orderNum' => 'OrderNum',
+        'parentObj' => 'ParentObj',
         'repairMethod' => 'RepairMethod',
-        'skip'         => 'Skip',
+        'skip' => 'Skip',
         'sourceSchema' => 'SourceSchema',
-        'state'        => 'State',
-        'sub'          => 'Sub',
-        'targetNames'  => 'TargetNames',
-        'total'        => 'Total',
+        'state' => 'State',
+        'sub' => 'Sub',
+        'targetNames' => 'TargetNames',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -207,7 +231,7 @@ class jobProgress extends Model
         if (null !== $this->logs) {
             if (\is_array($this->logs)) {
                 $res['Logs'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->logs as $item1) {
                     $res['Logs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -324,7 +348,7 @@ class jobProgress extends Model
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
                 $model->logs = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Logs'] as $item1) {
                     $model->logs[$n1++] = logs::fromMap($item1);
                 }

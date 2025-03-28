@@ -12,32 +12,37 @@ class DescribeTagValuesResponseBody extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
     public $tagValues;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'category'   => 'Category',
+        'category' => 'Category',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'tagValues'  => 'TagValues',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'tagValues' => 'TagValues',
         'totalCount' => 'TotalCount',
     ];
 
@@ -71,7 +76,7 @@ class DescribeTagValuesResponseBody extends Model
         if (null !== $this->tagValues) {
             if (\is_array($this->tagValues)) {
                 $res['TagValues'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->tagValues as $item1) {
                     $res['TagValues'][$n1++] = $item1;
                 }
@@ -112,7 +117,7 @@ class DescribeTagValuesResponseBody extends Model
         if (isset($map['TagValues'])) {
             if (!empty($map['TagValues'])) {
                 $model->tagValues = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['TagValues'] as $item1) {
                     $model->tagValues[$n1++] = $item1;
                 }

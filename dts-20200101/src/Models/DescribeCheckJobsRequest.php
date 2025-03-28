@@ -12,37 +12,43 @@ class DescribeCheckJobsRequest extends Model
      * @var string
      */
     public $checkJobId;
+
     /**
      * @var int
      */
     public $checkType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'checkJobId'      => 'CheckJobId',
-        'checkType'       => 'CheckType',
-        'instanceId'      => 'InstanceId',
-        'jobName'         => 'JobName',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'checkJobId' => 'CheckJobId',
+        'checkType' => 'CheckType',
+        'instanceId' => 'InstanceId',
+        'jobName' => 'JobName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

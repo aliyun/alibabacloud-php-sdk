@@ -12,123 +12,146 @@ class DescribeDtsJobsRequest extends Model
      * @var string
      */
     public $dedicatedClusterId;
+
     /**
      * @var string
      */
     public $destProductType;
+
     /**
      * @var string
      */
     public $dtsBisLabel;
+
     /**
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $jobType;
+
     /**
      * @var string
      */
     public $orderColumn;
+
     /**
      * @var string
      */
     public $orderDirection;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $params;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $srcProductType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var bool
      */
     public $withoutDbList;
+
     /**
      * @var bool
      */
     public $zeroEtlJob;
     protected $_name = [
         'dedicatedClusterId' => 'DedicatedClusterId',
-        'destProductType'    => 'DestProductType',
-        'dtsBisLabel'        => 'DtsBisLabel',
-        'dtsInstanceId'      => 'DtsInstanceId',
-        'dtsJobId'           => 'DtsJobId',
-        'groupId'            => 'GroupId',
-        'instanceId'         => 'InstanceId',
-        'instanceType'       => 'InstanceType',
-        'jobType'            => 'JobType',
-        'orderColumn'        => 'OrderColumn',
-        'orderDirection'     => 'OrderDirection',
-        'ownerId'            => 'OwnerId',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'params'             => 'Params',
-        'region'             => 'Region',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'srcProductType'     => 'SrcProductType',
-        'status'             => 'Status',
-        'tags'               => 'Tags',
-        'type'               => 'Type',
-        'withoutDbList'      => 'WithoutDbList',
-        'zeroEtlJob'         => 'ZeroEtlJob',
+        'destProductType' => 'DestProductType',
+        'dtsBisLabel' => 'DtsBisLabel',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'dtsJobId' => 'DtsJobId',
+        'groupId' => 'GroupId',
+        'instanceId' => 'InstanceId',
+        'instanceType' => 'InstanceType',
+        'jobType' => 'JobType',
+        'orderColumn' => 'OrderColumn',
+        'orderDirection' => 'OrderDirection',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'params' => 'Params',
+        'region' => 'Region',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'srcProductType' => 'SrcProductType',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'type' => 'Type',
+        'withoutDbList' => 'WithoutDbList',
+        'zeroEtlJob' => 'ZeroEtlJob',
     ];
 
     public function validate()

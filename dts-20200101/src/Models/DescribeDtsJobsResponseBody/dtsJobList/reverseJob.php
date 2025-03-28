@@ -23,162 +23,193 @@ class reverseJob extends Model
      * @var string
      */
     public $checkpoint;
+
     /**
      * @var string
      */
     public $cpuUsage;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var dataInitializationStatus
      */
     public $dataInitializationStatus;
+
     /**
      * @var dataSynchronizationStatus
      */
     public $dataSynchronizationStatus;
+
     /**
      * @var string
      */
     public $dbObject;
+
     /**
      * @var string
      */
     public $dedicatedClusterId;
+
     /**
      * @var int
      */
     public $delay;
+
     /**
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
+
     /**
      * @var string
      */
     public $dtsInstanceID;
+
     /**
      * @var string
      */
     public $dtsJobClass;
+
     /**
      * @var string
      */
     public $dtsJobDirection;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $dtsJobName;
+
     /**
      * @var int
      */
     public $duUsage;
+
     /**
      * @var errorDetails[]
      */
     public $errorDetails;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $etlSafeCheckpoint;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var fullDataCheckStatus
      */
     public $fullDataCheckStatus;
+
     /**
      * @var incDataCheckStatus
      */
     public $incDataCheckStatus;
+
     /**
      * @var float
      */
     public $maxDu;
+
     /**
      * @var string
      */
     public $memUsage;
+
     /**
      * @var migrationMode
      */
     public $migrationMode;
+
     /**
      * @var float
      */
     public $minDu;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var performance
      */
     public $performance;
+
     /**
      * @var precheckStatus
      */
     public $precheckStatus;
+
     /**
      * @var string
      */
     public $reserved;
+
     /**
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var structureInitializationStatus
      */
     public $structureInitializationStatus;
     protected $_name = [
-        'checkpoint'                    => 'Checkpoint',
-        'cpuUsage'                      => 'CpuUsage',
-        'createTime'                    => 'CreateTime',
-        'dataInitializationStatus'      => 'DataInitializationStatus',
-        'dataSynchronizationStatus'     => 'DataSynchronizationStatus',
-        'dbObject'                      => 'DbObject',
-        'dedicatedClusterId'            => 'DedicatedClusterId',
-        'delay'                         => 'Delay',
-        'destinationEndpoint'           => 'DestinationEndpoint',
-        'dtsInstanceID'                 => 'DtsInstanceID',
-        'dtsJobClass'                   => 'DtsJobClass',
-        'dtsJobDirection'               => 'DtsJobDirection',
-        'dtsJobId'                      => 'DtsJobId',
-        'dtsJobName'                    => 'DtsJobName',
-        'duUsage'                       => 'DuUsage',
-        'errorDetails'                  => 'ErrorDetails',
-        'errorMessage'                  => 'ErrorMessage',
-        'etlSafeCheckpoint'             => 'EtlSafeCheckpoint',
-        'expireTime'                    => 'ExpireTime',
-        'fullDataCheckStatus'           => 'FullDataCheckStatus',
-        'incDataCheckStatus'            => 'IncDataCheckStatus',
-        'maxDu'                         => 'MaxDu',
-        'memUsage'                      => 'MemUsage',
-        'migrationMode'                 => 'MigrationMode',
-        'minDu'                         => 'MinDu',
-        'payType'                       => 'PayType',
-        'performance'                   => 'Performance',
-        'precheckStatus'                => 'PrecheckStatus',
-        'reserved'                      => 'Reserved',
-        'sourceEndpoint'                => 'SourceEndpoint',
-        'status'                        => 'Status',
+        'checkpoint' => 'Checkpoint',
+        'cpuUsage' => 'CpuUsage',
+        'createTime' => 'CreateTime',
+        'dataInitializationStatus' => 'DataInitializationStatus',
+        'dataSynchronizationStatus' => 'DataSynchronizationStatus',
+        'dbObject' => 'DbObject',
+        'dedicatedClusterId' => 'DedicatedClusterId',
+        'delay' => 'Delay',
+        'destinationEndpoint' => 'DestinationEndpoint',
+        'dtsInstanceID' => 'DtsInstanceID',
+        'dtsJobClass' => 'DtsJobClass',
+        'dtsJobDirection' => 'DtsJobDirection',
+        'dtsJobId' => 'DtsJobId',
+        'dtsJobName' => 'DtsJobName',
+        'duUsage' => 'DuUsage',
+        'errorDetails' => 'ErrorDetails',
+        'errorMessage' => 'ErrorMessage',
+        'etlSafeCheckpoint' => 'EtlSafeCheckpoint',
+        'expireTime' => 'ExpireTime',
+        'fullDataCheckStatus' => 'FullDataCheckStatus',
+        'incDataCheckStatus' => 'IncDataCheckStatus',
+        'maxDu' => 'MaxDu',
+        'memUsage' => 'MemUsage',
+        'migrationMode' => 'MigrationMode',
+        'minDu' => 'MinDu',
+        'payType' => 'PayType',
+        'performance' => 'Performance',
+        'precheckStatus' => 'PrecheckStatus',
+        'reserved' => 'Reserved',
+        'sourceEndpoint' => 'SourceEndpoint',
+        'status' => 'Status',
         'structureInitializationStatus' => 'StructureInitializationStatus',
     ];
 
@@ -286,7 +317,7 @@ class reverseJob extends Model
         if (null !== $this->errorDetails) {
             if (\is_array($this->errorDetails)) {
                 $res['ErrorDetails'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->errorDetails as $item1) {
                     $res['ErrorDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -431,7 +462,7 @@ class reverseJob extends Model
         if (isset($map['ErrorDetails'])) {
             if (!empty($map['ErrorDetails'])) {
                 $model->errorDetails = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ErrorDetails'] as $item1) {
                     $model->errorDetails[$n1++] = errorDetails::fromMap($item1);
                 }

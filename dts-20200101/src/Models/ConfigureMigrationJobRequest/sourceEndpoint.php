@@ -12,63 +12,74 @@ class sourceEndpoint extends Model
      * @var string
      */
     public $databaseName;
+
     /**
      * @var string
      */
     public $engineName;
+
     /**
      * @var string
      */
     public $IP;
+
     /**
      * @var string
      */
     public $instanceID;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $oracleSID;
+
     /**
      * @var string
      */
     public $ownerID;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
         'databaseName' => 'DatabaseName',
-        'engineName'   => 'EngineName',
-        'IP'           => 'IP',
-        'instanceID'   => 'InstanceID',
+        'engineName' => 'EngineName',
+        'IP' => 'IP',
+        'instanceID' => 'InstanceID',
         'instanceType' => 'InstanceType',
-        'oracleSID'    => 'OracleSID',
-        'ownerID'      => 'OwnerID',
-        'password'     => 'Password',
-        'port'         => 'Port',
-        'region'       => 'Region',
-        'role'         => 'Role',
-        'userName'     => 'UserName',
+        'oracleSID' => 'OracleSID',
+        'ownerID' => 'OwnerID',
+        'password' => 'Password',
+        'port' => 'Port',
+        'region' => 'Region',
+        'role' => 'Role',
+        'userName' => 'UserName',
     ];
 
     public function validate()

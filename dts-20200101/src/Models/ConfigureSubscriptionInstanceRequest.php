@@ -15,58 +15,68 @@ class ConfigureSubscriptionInstanceRequest extends Model
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var subscriptionDataType
      */
     public $subscriptionDataType;
+
     /**
      * @var subscriptionInstance
      */
     public $subscriptionInstance;
+
     /**
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $subscriptionInstanceId;
+
     /**
      * @var string
      */
     public $subscriptionInstanceName;
+
     /**
      * @var string
      */
     public $subscriptionInstanceNetworkType;
+
     /**
      * @var string
      */
     public $subscriptionObject;
     protected $_name = [
-        'sourceEndpoint'                  => 'SourceEndpoint',
-        'subscriptionDataType'            => 'SubscriptionDataType',
-        'subscriptionInstance'            => 'SubscriptionInstance',
-        'accountId'                       => 'AccountId',
-        'ownerId'                         => 'OwnerId',
-        'regionId'                        => 'RegionId',
-        'resourceGroupId'                 => 'ResourceGroupId',
-        'subscriptionInstanceId'          => 'SubscriptionInstanceId',
-        'subscriptionInstanceName'        => 'SubscriptionInstanceName',
+        'sourceEndpoint' => 'SourceEndpoint',
+        'subscriptionDataType' => 'SubscriptionDataType',
+        'subscriptionInstance' => 'SubscriptionInstance',
+        'accountId' => 'AccountId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'subscriptionInstanceId' => 'SubscriptionInstanceId',
+        'subscriptionInstanceName' => 'SubscriptionInstanceName',
         'subscriptionInstanceNetworkType' => 'SubscriptionInstanceNetworkType',
-        'subscriptionObject'              => 'SubscriptionObject',
+        'subscriptionObject' => 'SubscriptionObject',
     ];
 
     public function validate()

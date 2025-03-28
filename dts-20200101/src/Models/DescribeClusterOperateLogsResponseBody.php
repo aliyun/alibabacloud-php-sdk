@@ -13,57 +13,67 @@ class DescribeClusterOperateLogsResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var dataPoints[]
      */
     public $dataPoints;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'code'             => 'Code',
-        'dataPoints'       => 'DataPoints',
-        'dynamicMessage'   => 'DynamicMessage',
-        'errCode'          => 'ErrCode',
-        'errMessage'       => 'ErrMessage',
-        'httpStatusCode'   => 'HttpStatusCode',
-        'pageNumber'       => 'PageNumber',
-        'pageRecordCount'  => 'PageRecordCount',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'code' => 'Code',
+        'dataPoints' => 'DataPoints',
+        'dynamicMessage' => 'DynamicMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
@@ -85,7 +95,7 @@ class DescribeClusterOperateLogsResponseBody extends Model
         if (null !== $this->dataPoints) {
             if (\is_array($this->dataPoints)) {
                 $res['DataPoints'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->dataPoints as $item1) {
                     $res['DataPoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -146,7 +156,7 @@ class DescribeClusterOperateLogsResponseBody extends Model
         if (isset($map['DataPoints'])) {
             if (!empty($map['DataPoints'])) {
                 $model->dataPoints = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['DataPoints'] as $item1) {
                     $model->dataPoints[$n1++] = dataPoints::fromMap($item1);
                 }

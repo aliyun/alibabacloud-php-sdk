@@ -13,47 +13,55 @@ class DescribeMigrationJobDetailRequest extends Model
      * @var migrationMode
      */
     public $migrationMode;
+
     /**
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $migrationJobId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'migrationMode'   => 'MigrationMode',
-        'accountId'       => 'AccountId',
-        'clientToken'     => 'ClientToken',
-        'migrationJobId'  => 'MigrationJobId',
-        'ownerId'         => 'OwnerId',
-        'pageNum'         => 'PageNum',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'migrationMode' => 'MigrationMode',
+        'accountId' => 'AccountId',
+        'clientToken' => 'ClientToken',
+        'migrationJobId' => 'MigrationJobId',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

@@ -12,58 +12,68 @@ class TransferPayTypeResponseBody extends Model
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'chargeType'     => 'ChargeType',
-        'code'           => 'Code',
-        'dtsJobId'       => 'DtsJobId',
+        'chargeType' => 'ChargeType',
+        'code' => 'Code',
+        'dtsJobId' => 'DtsJobId',
         'dynamicMessage' => 'DynamicMessage',
-        'endTime'        => 'EndTime',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
+        'endTime' => 'EndTime',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'instanceId'     => 'InstanceId',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'instanceId' => 'InstanceId',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

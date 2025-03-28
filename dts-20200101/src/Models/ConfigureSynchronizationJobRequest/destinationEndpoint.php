@@ -12,38 +12,44 @@ class destinationEndpoint extends Model
      * @var string
      */
     public $dataBaseName;
+
     /**
      * @var string
      */
     public $IP;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
         'dataBaseName' => 'DataBaseName',
-        'IP'           => 'IP',
-        'instanceId'   => 'InstanceId',
+        'IP' => 'IP',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'password'     => 'Password',
-        'port'         => 'Port',
-        'userName'     => 'UserName',
+        'password' => 'Password',
+        'port' => 'Port',
+        'userName' => 'UserName',
     ];
 
     public function validate()

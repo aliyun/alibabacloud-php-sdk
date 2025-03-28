@@ -12,23 +12,26 @@ class ReverseTwoWayDirectionRequest extends Model
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var bool
      */
     public $ignoreErrorSubJob;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'dtsInstanceId'     => 'DtsInstanceId',
+        'dtsInstanceId' => 'DtsInstanceId',
         'ignoreErrorSubJob' => 'IgnoreErrorSubJob',
-        'regionId'          => 'RegionId',
-        'resourceGroupId'   => 'ResourceGroupId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

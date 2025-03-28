@@ -12,23 +12,26 @@ class migrationMode extends Model
      * @var bool
      */
     public $dataExtractTransformLoad;
+
     /**
      * @var bool
      */
     public $dataInitialization;
+
     /**
      * @var bool
      */
     public $dataSynchronization;
+
     /**
      * @var bool
      */
     public $structureInitialization;
     protected $_name = [
         'dataExtractTransformLoad' => 'DataExtractTransformLoad',
-        'dataInitialization'       => 'DataInitialization',
-        'dataSynchronization'      => 'DataSynchronization',
-        'structureInitialization'  => 'StructureInitialization',
+        'dataInitialization' => 'DataInitialization',
+        'dataSynchronization' => 'DataSynchronization',
+        'structureInitialization' => 'StructureInitialization',
     ];
 
     public function validate()

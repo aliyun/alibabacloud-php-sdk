@@ -13,58 +13,68 @@ class DescribeDataCheckTableDiffDetailsResponseBody extends Model
      * @var string
      */
     public $dbName;
+
     /**
      * @var int
      */
     public $diffCount;
+
     /**
      * @var diffDetails[]
      */
     public $diffDetails;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $tbName;
     protected $_name = [
-        'dbName'         => 'DbName',
-        'diffCount'      => 'DiffCount',
-        'diffDetails'    => 'DiffDetails',
+        'dbName' => 'DbName',
+        'diffCount' => 'DiffCount',
+        'diffDetails' => 'DiffDetails',
         'dynamicMessage' => 'DynamicMessage',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'instanceId'     => 'InstanceId',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
-        'tbName'         => 'TbName',
+        'instanceId' => 'InstanceId',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'tbName' => 'TbName',
     ];
 
     public function validate()
@@ -89,7 +99,7 @@ class DescribeDataCheckTableDiffDetailsResponseBody extends Model
         if (null !== $this->diffDetails) {
             if (\is_array($this->diffDetails)) {
                 $res['DiffDetails'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->diffDetails as $item1) {
                     $res['DiffDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -150,7 +160,7 @@ class DescribeDataCheckTableDiffDetailsResponseBody extends Model
         if (isset($map['DiffDetails'])) {
             if (!empty($map['DiffDetails'])) {
                 $model->diffDetails = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DiffDetails'] as $item1) {
                     $model->diffDetails[$n1++] = diffDetails::fromMap($item1);
                 }

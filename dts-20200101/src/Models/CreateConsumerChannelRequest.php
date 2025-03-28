@@ -12,38 +12,44 @@ class CreateConsumerChannelRequest extends Model
      * @var string
      */
     public $consumerGroupName;
+
     /**
      * @var string
      */
     public $consumerGroupPassword;
+
     /**
      * @var string
      */
     public $consumerGroupUserName;
+
     /**
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'consumerGroupName'     => 'ConsumerGroupName',
+        'consumerGroupName' => 'ConsumerGroupName',
         'consumerGroupPassword' => 'ConsumerGroupPassword',
         'consumerGroupUserName' => 'ConsumerGroupUserName',
-        'dtsInstanceId'         => 'DtsInstanceId',
-        'dtsJobId'              => 'DtsJobId',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'dtsJobId' => 'DtsJobId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

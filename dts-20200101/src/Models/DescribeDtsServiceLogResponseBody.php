@@ -13,58 +13,68 @@ class DescribeDtsServiceLogResponseBody extends Model
      * @var string
      */
     public $dynamicCode;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var serviceLogContexts[]
      */
     public $serviceLogContexts;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'dynamicCode'        => 'DynamicCode',
-        'dynamicMessage'     => 'DynamicMessage',
-        'errCode'            => 'ErrCode',
-        'errMessage'         => 'ErrMessage',
-        'httpStatusCode'     => 'HttpStatusCode',
-        'pageNumber'         => 'PageNumber',
-        'pageRecordCount'    => 'PageRecordCount',
-        'requestId'          => 'RequestId',
+        'dynamicCode' => 'DynamicCode',
+        'dynamicMessage' => 'DynamicMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
         'serviceLogContexts' => 'ServiceLogContexts',
-        'success'            => 'Success',
-        'totalRecordCount'   => 'TotalRecordCount',
+        'success' => 'Success',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()
@@ -113,7 +123,7 @@ class DescribeDtsServiceLogResponseBody extends Model
         if (null !== $this->serviceLogContexts) {
             if (\is_array($this->serviceLogContexts)) {
                 $res['ServiceLogContexts'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->serviceLogContexts as $item1) {
                     $res['ServiceLogContexts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -174,7 +184,7 @@ class DescribeDtsServiceLogResponseBody extends Model
         if (isset($map['ServiceLogContexts'])) {
             if (!empty($map['ServiceLogContexts'])) {
                 $model->serviceLogContexts = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ServiceLogContexts'] as $item1) {
                     $model->serviceLogContexts[$n1++] = serviceLogContexts::fromMap($item1);
                 }

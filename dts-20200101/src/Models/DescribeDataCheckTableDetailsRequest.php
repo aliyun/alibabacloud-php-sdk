@@ -12,43 +12,50 @@ class DescribeDataCheckTableDetailsRequest extends Model
      * @var int
      */
     public $checkType;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'checkType'       => 'CheckType',
-        'dtsJobId'        => 'DtsJobId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'checkType' => 'CheckType',
+        'dtsJobId' => 'DtsJobId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
-        'schemaName'      => 'SchemaName',
-        'status'          => 'Status',
-        'tableName'       => 'TableName',
+        'schemaName' => 'SchemaName',
+        'status' => 'Status',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

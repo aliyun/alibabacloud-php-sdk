@@ -13,43 +13,50 @@ class structureInitializationDetails extends Model
      * @var constraints[]
      */
     public $constraints;
+
     /**
      * @var string
      */
     public $destinationOwnerDBName;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $objectDefinition;
+
     /**
      * @var string
      */
     public $objectName;
+
     /**
      * @var string
      */
     public $objectType;
+
     /**
      * @var string
      */
     public $sourceOwnerDBName;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'constraints'            => 'Constraints',
+        'constraints' => 'Constraints',
         'destinationOwnerDBName' => 'DestinationOwnerDBName',
-        'errorMessage'           => 'ErrorMessage',
-        'objectDefinition'       => 'ObjectDefinition',
-        'objectName'             => 'ObjectName',
-        'objectType'             => 'ObjectType',
-        'sourceOwnerDBName'      => 'SourceOwnerDBName',
-        'status'                 => 'Status',
+        'errorMessage' => 'ErrorMessage',
+        'objectDefinition' => 'ObjectDefinition',
+        'objectName' => 'ObjectName',
+        'objectType' => 'ObjectType',
+        'sourceOwnerDBName' => 'SourceOwnerDBName',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -66,7 +73,7 @@ class structureInitializationDetails extends Model
         if (null !== $this->constraints) {
             if (\is_array($this->constraints)) {
                 $res['Constraints'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->constraints as $item1) {
                     $res['Constraints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -115,7 +122,7 @@ class structureInitializationDetails extends Model
         if (isset($map['Constraints'])) {
             if (!empty($map['Constraints'])) {
                 $model->constraints = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Constraints'] as $item1) {
                     $model->constraints[$n1++] = constraints::fromMap($item1);
                 }

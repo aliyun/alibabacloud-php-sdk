@@ -12,27 +12,31 @@ class TransferInstanceClassRequest extends Model
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $instanceClass;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'dtsJobId'        => 'DtsJobId',
-        'instanceClass'   => 'InstanceClass',
-        'orderType'       => 'OrderType',
-        'regionId'        => 'RegionId',
+        'dtsJobId' => 'DtsJobId',
+        'instanceClass' => 'InstanceClass',
+        'orderType' => 'OrderType',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

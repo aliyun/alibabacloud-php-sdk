@@ -12,27 +12,31 @@ class migrationMode extends Model
      * @var bool
      */
     public $dataInitialization;
+
     /**
      * @var bool
      */
     public $dataSynchronization;
+
     /**
      * @var bool
      */
     public $fullDataCheck;
+
     /**
      * @var bool
      */
     public $incDataCheck;
+
     /**
      * @var bool
      */
     public $structureInitialization;
     protected $_name = [
-        'dataInitialization'      => 'DataInitialization',
-        'dataSynchronization'     => 'DataSynchronization',
-        'fullDataCheck'           => 'FullDataCheck',
-        'incDataCheck'            => 'IncDataCheck',
+        'dataInitialization' => 'DataInitialization',
+        'dataSynchronization' => 'DataSynchronization',
+        'fullDataCheck' => 'FullDataCheck',
+        'incDataCheck' => 'IncDataCheck',
         'structureInitialization' => 'StructureInitialization',
     ];
 

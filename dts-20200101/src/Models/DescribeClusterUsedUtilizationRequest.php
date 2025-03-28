@@ -12,53 +12,62 @@ class DescribeClusterUsedUtilizationRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $dedicatedClusterId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $env;
+
     /**
      * @var string
      */
     public $metricType;
+
     /**
      * @var string
      */
     public $ownerID;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $securityToken;
     protected $_name = [
-        'accountId'          => 'AccountId',
-        'clientToken'        => 'ClientToken',
+        'accountId' => 'AccountId',
+        'clientToken' => 'ClientToken',
         'dedicatedClusterId' => 'DedicatedClusterId',
-        'dtsJobId'           => 'DtsJobId',
-        'env'                => 'Env',
-        'metricType'         => 'MetricType',
-        'ownerID'            => 'OwnerID',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'securityToken'      => 'SecurityToken',
+        'dtsJobId' => 'DtsJobId',
+        'env' => 'Env',
+        'metricType' => 'MetricType',
+        'ownerID' => 'OwnerID',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'securityToken' => 'SecurityToken',
     ];
 
     public function validate()

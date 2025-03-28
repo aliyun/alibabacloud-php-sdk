@@ -13,43 +13,50 @@ class DescribeSubscriptionInstancesResponseBody extends Model
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var subscriptionInstances
      */
     public $subscriptionInstances;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'errCode'               => 'ErrCode',
-        'errMessage'            => 'ErrMessage',
-        'pageNumber'            => 'PageNumber',
-        'pageRecordCount'       => 'PageRecordCount',
-        'requestId'             => 'RequestId',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
         'subscriptionInstances' => 'SubscriptionInstances',
-        'success'               => 'Success',
-        'totalRecordCount'      => 'TotalRecordCount',
+        'success' => 'Success',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()

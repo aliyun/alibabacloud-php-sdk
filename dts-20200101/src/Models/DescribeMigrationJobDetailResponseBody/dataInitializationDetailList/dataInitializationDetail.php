@@ -12,43 +12,50 @@ class dataInitializationDetail extends Model
      * @var string
      */
     public $destinationOwnerDBName;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $finishRowNum;
+
     /**
      * @var string
      */
     public $migrationTime;
+
     /**
      * @var string
      */
     public $sourceOwnerDBName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $totalRowNum;
     protected $_name = [
         'destinationOwnerDBName' => 'DestinationOwnerDBName',
-        'errorMessage'           => 'ErrorMessage',
-        'finishRowNum'           => 'FinishRowNum',
-        'migrationTime'          => 'MigrationTime',
-        'sourceOwnerDBName'      => 'SourceOwnerDBName',
-        'status'                 => 'Status',
-        'tableName'              => 'TableName',
-        'totalRowNum'            => 'TotalRowNum',
+        'errorMessage' => 'ErrorMessage',
+        'finishRowNum' => 'FinishRowNum',
+        'migrationTime' => 'MigrationTime',
+        'sourceOwnerDBName' => 'SourceOwnerDBName',
+        'status' => 'Status',
+        'tableName' => 'TableName',
+        'totalRowNum' => 'TotalRowNum',
     ];
 
     public function validate()

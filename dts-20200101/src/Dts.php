@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\ConfigureSynchronizationJobReplicatorC
 use AlibabaCloud\SDK\Dts\V20200101\Models\ConfigureSynchronizationJobReplicatorCompareResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ConfigureSynchronizationJobRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ConfigureSynchronizationJobResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ConvertInstanceResourceGroupRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ConvertInstanceResourceGroupResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CountJobByConditionRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CountJobByConditionResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateConsumerChannelRequest;
@@ -98,6 +100,10 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeEndpointSwitchStatusRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeEndpointSwitchStatusResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeEtlJobLogsRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeEtlJobLogsResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeFullProcessListRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeFullProcessListResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeGadInstancesRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeGadInstancesResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeInitializationStatusRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeInitializationStatusResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeJobMonitorRuleRequest;
@@ -112,6 +118,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMigrationJobsRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMigrationJobsResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMigrationJobStatusRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMigrationJobStatusResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribePreCheckCreateGadOrderResultRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribePreCheckCreateGadOrderResultResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribePreCheckStatusRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribePreCheckStatusResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeSubscriptionInstanceAlertRequest;
@@ -141,6 +149,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeTagKeysRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeTagKeysResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeTagValuesRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeTagValuesResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DetachGadInstanceDbMemberRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DetachGadInstanceDbMemberResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\InitDtsRdsInstanceRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\InitDtsRdsInstanceResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ListDedicatedClusterRequest;
@@ -173,12 +183,16 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobShrinkRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDynamicConfigRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDynamicConfigResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyGadInstanceNameRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyGadInstanceNameResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifySubscriptionObjectRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifySubscriptionObjectResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifySubscriptionRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifySubscriptionResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifySynchronizationObjectRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifySynchronizationObjectResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\PreCheckCreateGadOrderRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\PreCheckCreateGadOrderResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\RenewInstanceResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ResetDtsJobRequest;
@@ -189,6 +203,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\ReverseTwoWayDirectionRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ReverseTwoWayDirectionResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ShieldPrecheckRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ShieldPrecheckResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\SkipFullJobTableRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\SkipFullJobTableResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\SkipPreCheckRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\SkipPreCheckResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\StartDtsJobRequest;
@@ -256,62 +272,62 @@ class Dts extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-qingdao'                  => 'dts.aliyuncs.com',
-            'cn-beijing'                  => 'dts.aliyuncs.com',
-            'cn-zhangjiakou'              => 'dts.aliyuncs.com',
-            'cn-huhehaote'                => 'dts.aliyuncs.com',
-            'cn-hangzhou'                 => 'dts.aliyuncs.com',
-            'cn-shanghai'                 => 'dts.aliyuncs.com',
-            'cn-shenzhen'                 => 'dts.aliyuncs.com',
-            'cn-hongkong'                 => 'dts.aliyuncs.com',
-            'ap-southeast-1'              => 'dts.aliyuncs.com',
-            'ap-southeast-2'              => 'dts.aliyuncs.com',
-            'ap-southeast-3'              => 'dts.aliyuncs.com',
-            'ap-southeast-5'              => 'dts.aliyuncs.com',
-            'eu-west-1'                   => 'dts.aliyuncs.com',
-            'us-west-1'                   => 'dts.aliyuncs.com',
-            'us-east-1'                   => 'dts.aliyuncs.com',
-            'eu-central-1'                => 'dts.aliyuncs.com',
-            'me-east-1'                   => 'dts.aliyuncs.com',
-            'ap-south-1'                  => 'dts.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'dts.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'dts.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'dts.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'dts.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'dts.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'dts.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'dts.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'dts.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'dts.aliyuncs.com',
-            'cn-chengdu'                  => 'dts.aliyuncs.com',
-            'cn-edge-1'                   => 'dts.aliyuncs.com',
-            'cn-fujian'                   => 'dts.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'dts.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'dts.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-qingdao' => 'dts.aliyuncs.com',
+            'cn-beijing' => 'dts.aliyuncs.com',
+            'cn-zhangjiakou' => 'dts.aliyuncs.com',
+            'cn-huhehaote' => 'dts.aliyuncs.com',
+            'cn-hangzhou' => 'dts.aliyuncs.com',
+            'cn-shanghai' => 'dts.aliyuncs.com',
+            'cn-shenzhen' => 'dts.aliyuncs.com',
+            'cn-hongkong' => 'dts.aliyuncs.com',
+            'ap-southeast-1' => 'dts.aliyuncs.com',
+            'ap-southeast-2' => 'dts.aliyuncs.com',
+            'ap-southeast-3' => 'dts.aliyuncs.com',
+            'ap-southeast-5' => 'dts.aliyuncs.com',
+            'eu-west-1' => 'dts.aliyuncs.com',
+            'us-west-1' => 'dts.aliyuncs.com',
+            'us-east-1' => 'dts.aliyuncs.com',
+            'eu-central-1' => 'dts.aliyuncs.com',
+            'me-east-1' => 'dts.aliyuncs.com',
+            'ap-south-1' => 'dts.aliyuncs.com',
+            'cn-hangzhou-finance' => 'dts.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'dts.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'dts.aliyuncs.com',
+            'cn-north-2-gov-1' => 'dts.aliyuncs.com',
+            'ap-northeast-2-pop' => 'dts.aliyuncs.com',
+            'cn-beijing-finance-1' => 'dts.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'dts.aliyuncs.com',
+            'cn-beijing-gov-1' => 'dts.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'dts.aliyuncs.com',
+            'cn-chengdu' => 'dts.aliyuncs.com',
+            'cn-edge-1' => 'dts.aliyuncs.com',
+            'cn-fujian' => 'dts.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'dts.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'dts.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'dts.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'dts.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'dts.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'dts.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'dts.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'dts.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'dts.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'dts.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'dts.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'dts.aliyuncs.com',
-            'cn-shanghai-inner'           => 'dts.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'dts.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'dts.aliyuncs.com',
+            'cn-huhehaote-nebula-1' => 'dts.aliyuncs.com',
+            'cn-qingdao-nebula' => 'dts.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'dts.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'dts.aliyuncs.com',
+            'cn-shanghai-inner' => 'dts.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'dts.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'dts.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'dts.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'dts.aliyuncs.com',
-            'cn-wuhan'                    => 'dts.aliyuncs.com',
-            'cn-wulanchabu'               => 'dts.aliyuncs.com',
-            'cn-yushanfang'               => 'dts.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'dts.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'dts.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'dts.aliyuncs.com',
-            'eu-west-1-oxs'               => 'dts.aliyuncs.com',
-            'rus-west-1-pop'              => 'dts.aliyuncs.com',
+            'cn-shenzhen-inner' => 'dts.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'dts.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'dts.aliyuncs.com',
+            'cn-wuhan' => 'dts.aliyuncs.com',
+            'cn-wulanchabu' => 'dts.aliyuncs.com',
+            'cn-yushanfang' => 'dts.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'dts.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'dts.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'dts.aliyuncs.com',
+            'eu-west-1-oxs' => 'dts.aliyuncs.com',
+            'rus-west-1-pop' => 'dts.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dts', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -346,6 +362,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ConfigureDtsJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigureDtsJobResponse
      *
      * @param ConfigureDtsJobRequest $request
@@ -620,18 +637,18 @@ class Dts extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConfigureDtsJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigureDtsJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigureDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -644,6 +661,7 @@ class Dts extends OpenApiClient
      * Configures a data migration or synchronization task.
      *
      * @param request - ConfigureDtsJobRequest
+     *
      * @returns ConfigureDtsJobResponse
      *
      * @param ConfigureDtsJobRequest $request
@@ -666,10 +684,10 @@ class Dts extends OpenApiClient
     public function configureDtsJobAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
@@ -680,56 +698,56 @@ class Dts extends OpenApiClient
         }
 
         $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $authClient  = new OpenPlatform($authConfig);
+        $authClient = new OpenPlatform($authConfig);
         $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'Dts',
+            'product' => 'Dts',
             'regionId' => $this->_regionId,
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeyId'     => $accessKeyId,
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $ossClient     = new OSS($ossConfig);
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
         $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         Utils::convert($runtime, $ossRuntime);
         $configureDtsJobReq = new ConfigureDtsJobRequest([]);
         Utils::convert($request, $configureDtsJobReq);
         if (null !== $request->fileOssUrlObject) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->fileOssUrlObject,
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->fileOssUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
                 'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
+                'header' => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
             $configureDtsJobReq->fileOssUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
@@ -743,6 +761,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ConfigureMigrationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigureMigrationJobResponse
      *
      * @param ConfigureMigrationJobRequest $request
@@ -805,18 +824,18 @@ class Dts extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConfigureMigrationJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigureMigrationJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigureMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -829,6 +848,7 @@ class Dts extends OpenApiClient
      * Configures a data migration task.
      *
      * @param request - ConfigureMigrationJobRequest
+     *
      * @returns ConfigureMigrationJobResponse
      *
      * @param ConfigureMigrationJobRequest $request
@@ -847,6 +867,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ConfigureMigrationJobAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigureMigrationJobAlertResponse
      *
      * @param ConfigureMigrationJobAlertRequest $request
@@ -902,15 +923,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigureMigrationJobAlert',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigureMigrationJobAlert',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigureMigrationJobAlertResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -923,6 +944,7 @@ class Dts extends OpenApiClient
      * Configures alert settings to monitor a data migration instance.
      *
      * @param request - ConfigureMigrationJobAlertRequest
+     *
      * @returns ConfigureMigrationJobAlertResponse
      *
      * @param ConfigureMigrationJobAlertRequest $request
@@ -944,6 +966,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ConfigureSubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigureSubscriptionResponse
      *
      * @param ConfigureSubscriptionRequest $request
@@ -1115,15 +1138,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigureSubscription',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigureSubscription',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigureSubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1139,6 +1162,7 @@ class Dts extends OpenApiClient
      * >  You can preview related API operation parameters when you configure a change tracking task in the Data Transmission Service (DTS) console. This helps you configure the request parameters of this API operation. For more information, see [Preview the request parameters of API operations](https://help.aliyun.com/document_detail/2851612.html).
      *
      * @param request - ConfigureSubscriptionRequest
+     *
      * @returns ConfigureSubscriptionResponse
      *
      * @param ConfigureSubscriptionRequest $request
@@ -1160,6 +1184,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ConfigureSubscriptionInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigureSubscriptionInstanceResponse
      *
      * @param ConfigureSubscriptionInstanceRequest $request
@@ -1218,18 +1243,18 @@ class Dts extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConfigureSubscriptionInstance',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigureSubscriptionInstance',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigureSubscriptionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1245,6 +1270,7 @@ class Dts extends OpenApiClient
      * Before you call this operation, you must call the [CreateSubscriptionInstance](https://help.aliyun.com/document_detail/49436.html) operation to create a change tracking instance.
      *
      * @param request - ConfigureSubscriptionInstanceRequest
+     *
      * @returns ConfigureSubscriptionInstanceResponse
      *
      * @param ConfigureSubscriptionInstanceRequest $request
@@ -1263,6 +1289,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ConfigureSubscriptionInstanceAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigureSubscriptionInstanceAlertResponse
      *
      * @param ConfigureSubscriptionInstanceAlertRequest $request
@@ -1318,15 +1345,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigureSubscriptionInstanceAlert',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigureSubscriptionInstanceAlert',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigureSubscriptionInstanceAlertResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1339,6 +1366,7 @@ class Dts extends OpenApiClient
      * Configures alert settings to monitor a change tracking instance.
      *
      * @param request - ConfigureSubscriptionInstanceAlertRequest
+     *
      * @returns ConfigureSubscriptionInstanceAlertResponse
      *
      * @param ConfigureSubscriptionInstanceAlertRequest $request
@@ -1363,6 +1391,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ConfigureSynchronizationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigureSynchronizationJobResponse
      *
      * @param ConfigureSynchronizationJobRequest $request
@@ -1437,18 +1466,18 @@ class Dts extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ConfigureSynchronizationJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigureSynchronizationJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigureSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1467,6 +1496,7 @@ class Dts extends OpenApiClient
      * *   A data synchronization task may fail to be started due to precheck failures. You can call the [DescribeSynchronizationJobStatus](https://help.aliyun.com/document_detail/49453.html) operation to query the status of the task. Then, you can change parameter settings based on the error messages about the precheck failures. After you fix the issue, you must call the [StartSynchronizationJob](https://help.aliyun.com/document_detail/49448.html) operation to restart the data synchronization task.
      *
      * @param request - ConfigureSynchronizationJobRequest
+     *
      * @returns ConfigureSynchronizationJobResponse
      *
      * @param ConfigureSynchronizationJobRequest $request
@@ -1485,6 +1515,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ConfigureSynchronizationJobAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigureSynchronizationJobAlertResponse
      *
      * @param ConfigureSynchronizationJobAlertRequest $request
@@ -1544,15 +1575,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigureSynchronizationJobAlert',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigureSynchronizationJobAlert',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigureSynchronizationJobAlertResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1565,6 +1596,7 @@ class Dts extends OpenApiClient
      * Configures alert settings to monitor a data synchronization instance.
      *
      * @param request - ConfigureSynchronizationJobAlertRequest
+     *
      * @returns ConfigureSynchronizationJobAlertResponse
      *
      * @param ConfigureSynchronizationJobAlertRequest $request
@@ -1583,6 +1615,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ConfigureSynchronizationJobReplicatorCompareRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ConfigureSynchronizationJobReplicatorCompareResponse
      *
      * @param ConfigureSynchronizationJobReplicatorCompareRequest $request
@@ -1630,15 +1663,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ConfigureSynchronizationJobReplicatorCompare',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ConfigureSynchronizationJobReplicatorCompare',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ConfigureSynchronizationJobReplicatorCompareResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1651,6 +1684,7 @@ class Dts extends OpenApiClient
      * Enables or disables image matching for a data synchronization instance.
      *
      * @param request - ConfigureSynchronizationJobReplicatorCompareRequest
+     *
      * @returns ConfigureSynchronizationJobReplicatorCompareResponse
      *
      * @param ConfigureSynchronizationJobReplicatorCompareRequest $request
@@ -1665,10 +1699,91 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查询符合条件的任务数.
+     * Transfers resource groups of instance resources.
+     *
+     * @param request - ConvertInstanceResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ConvertInstanceResourceGroupResponse
+     *
+     * @param ConvertInstanceResourceGroupRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ConvertInstanceResourceGroupResponse
+     */
+    public function convertInstanceResourceGroupWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dtsJobId) {
+            @$query['DtsJobId'] = $request->dtsJobId;
+        }
+
+        if (null !== $request->newResourceGroupId) {
+            @$query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->zeroEtlJob) {
+            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ConvertInstanceResourceGroup',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ConvertInstanceResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ConvertInstanceResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Transfers resource groups of instance resources.
+     *
+     * @param request - ConvertInstanceResourceGroupRequest
+     *
+     * @returns ConvertInstanceResourceGroupResponse
+     *
+     * @param ConvertInstanceResourceGroupRequest $request
+     *
+     * @return ConvertInstanceResourceGroupResponse
+     */
+    public function convertInstanceResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->convertInstanceResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Counts tasks by condition.
      *
      * @param request - CountJobByConditionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CountJobByConditionResponse
      *
      * @param CountJobByConditionRequest $request
@@ -1724,15 +1839,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CountJobByCondition',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CountJobByCondition',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CountJobByConditionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1742,9 +1857,10 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * 查询符合条件的任务数.
+     * Counts tasks by condition.
      *
      * @param request - CountJobByConditionRequest
+     *
      * @returns CountJobByConditionResponse
      *
      * @param CountJobByConditionRequest $request
@@ -1763,6 +1879,7 @@ class Dts extends OpenApiClient
      *
      * @param request - CreateConsumerChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateConsumerChannelResponse
      *
      * @param CreateConsumerChannelRequest $request
@@ -1806,15 +1923,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateConsumerChannel',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateConsumerChannel',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateConsumerChannelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1827,6 +1944,7 @@ class Dts extends OpenApiClient
      * Creates a consumer group for a change tracking task. Downstream clients can use the consumer group to consume tracked data.
      *
      * @param request - CreateConsumerChannelRequest
+     *
      * @returns CreateConsumerChannelResponse
      *
      * @param CreateConsumerChannelRequest $request
@@ -1845,6 +1963,7 @@ class Dts extends OpenApiClient
      *
      * @param request - CreateConsumerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateConsumerGroupResponse
      *
      * @param CreateConsumerGroupRequest $request
@@ -1892,15 +2011,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateConsumerGroup',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateConsumerGroup',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1913,6 +2032,7 @@ class Dts extends OpenApiClient
      * Creates a consumer group for a change tracking instance.
      *
      * @param request - CreateConsumerGroupRequest
+     *
      * @returns CreateConsumerGroupResponse
      *
      * @param CreateConsumerGroupRequest $request
@@ -1931,6 +2051,7 @@ class Dts extends OpenApiClient
      *
      * @param request - CreateDedicatedClusterMonitorRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDedicatedClusterMonitorRuleResponse
      *
      * @param CreateDedicatedClusterMonitorRuleRequest $request
@@ -1990,15 +2111,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDedicatedClusterMonitorRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDedicatedClusterMonitorRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDedicatedClusterMonitorRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2011,6 +2132,7 @@ class Dts extends OpenApiClient
      * Creates an alert rule.
      *
      * @param request - CreateDedicatedClusterMonitorRuleRequest
+     *
      * @returns CreateDedicatedClusterMonitorRuleResponse
      *
      * @param CreateDedicatedClusterMonitorRuleRequest $request
@@ -2033,6 +2155,7 @@ class Dts extends OpenApiClient
      *
      * @param request - CreateDtsInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDtsInstanceResponse
      *
      * @param CreateDtsInstanceRequest $request
@@ -2140,15 +2263,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDtsInstance',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDtsInstance',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDtsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2165,6 +2288,7 @@ class Dts extends OpenApiClient
      * *   If you want to run a DTS task on a DTS dedicated cluster, you must configure the task before you purchase a DTS instance. You can call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation to configure a DTS task.
      *
      * @param request - CreateDtsInstanceRequest
+     *
      * @returns CreateDtsInstanceResponse
      *
      * @param CreateDtsInstanceRequest $request
@@ -2189,6 +2313,7 @@ class Dts extends OpenApiClient
      *
      * @param request - CreateJobMonitorRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateJobMonitorRuleResponse
      *
      * @param CreateJobMonitorRuleRequest $request
@@ -2244,15 +2369,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateJobMonitorRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateJobMonitorRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateJobMonitorRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2271,6 +2396,7 @@ class Dts extends OpenApiClient
      * *   **Full Timeout**: DTS monitors the duration of a DTS task. If the duration of the task exceeds the specified threshold, an alert is triggered. The threshold is specified in units of hours.
      *
      * @param request - CreateJobMonitorRuleRequest
+     *
      * @returns CreateJobMonitorRuleResponse
      *
      * @param CreateJobMonitorRuleRequest $request
@@ -2289,6 +2415,7 @@ class Dts extends OpenApiClient
      *
      * @param request - CreateMigrationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateMigrationJobResponse
      *
      * @param CreateMigrationJobRequest $request
@@ -2332,15 +2459,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateMigrationJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateMigrationJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2353,6 +2480,7 @@ class Dts extends OpenApiClient
      * Purchases a data migration instance.
      *
      * @param request - CreateMigrationJobRequest
+     *
      * @returns CreateMigrationJobResponse
      *
      * @param CreateMigrationJobRequest $request
@@ -2375,6 +2503,7 @@ class Dts extends OpenApiClient
      *
      * @param request - CreateReverseDtsJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateReverseDtsJobResponse
      *
      * @param CreateReverseDtsJobRequest $request
@@ -2406,15 +2535,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateReverseDtsJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateReverseDtsJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateReverseDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2431,6 +2560,7 @@ class Dts extends OpenApiClient
      * > 创建的反向任务固定为同步任务，且只有增量写入模块。
      *
      * @param request - CreateReverseDtsJobRequest
+     *
      * @returns CreateReverseDtsJobResponse
      *
      * @param CreateReverseDtsJobRequest $request
@@ -2449,6 +2579,7 @@ class Dts extends OpenApiClient
      *
      * @param request - CreateSubscriptionInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSubscriptionInstanceResponse
      *
      * @param CreateSubscriptionInstanceRequest $request
@@ -2504,15 +2635,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSubscriptionInstance',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSubscriptionInstance',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSubscriptionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2525,6 +2656,7 @@ class Dts extends OpenApiClient
      * Purchases a change tracking instance.
      *
      * @param request - CreateSubscriptionInstanceRequest
+     *
      * @returns CreateSubscriptionInstanceResponse
      *
      * @param CreateSubscriptionInstanceRequest $request
@@ -2543,6 +2675,7 @@ class Dts extends OpenApiClient
      *
      * @param request - CreateSynchronizationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSynchronizationJobResponse
      *
      * @param CreateSynchronizationJobRequest $request
@@ -2622,15 +2755,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSynchronizationJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSynchronizationJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2643,6 +2776,7 @@ class Dts extends OpenApiClient
      * Creates a data synchronization instance.
      *
      * @param request - CreateSynchronizationJobRequest
+     *
      * @returns CreateSynchronizationJobResponse
      *
      * @param CreateSynchronizationJobRequest $request
@@ -2661,6 +2795,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DeleteConsumerChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteConsumerChannelResponse
      *
      * @param DeleteConsumerChannelRequest $request
@@ -2696,15 +2831,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteConsumerChannel',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteConsumerChannel',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteConsumerChannelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2717,6 +2852,7 @@ class Dts extends OpenApiClient
      * Deletes a consumer group.
      *
      * @param request - DeleteConsumerChannelRequest
+     *
      * @returns DeleteConsumerChannelResponse
      *
      * @param DeleteConsumerChannelRequest $request
@@ -2735,6 +2871,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DeleteConsumerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteConsumerGroupResponse
      *
      * @param DeleteConsumerGroupRequest $request
@@ -2774,15 +2911,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteConsumerGroup',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteConsumerGroup',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2795,6 +2932,7 @@ class Dts extends OpenApiClient
      * Deletes a consumer group.
      *
      * @param request - DeleteConsumerGroupRequest
+     *
      * @returns DeleteConsumerGroupResponse
      *
      * @param DeleteConsumerGroupRequest $request
@@ -2813,6 +2951,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DeleteDtsJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDtsJobResponse
      *
      * @param DeleteDtsJobRequest $request
@@ -2856,15 +2995,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDtsJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDtsJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2877,6 +3016,7 @@ class Dts extends OpenApiClient
      * Deletes a data migration, data synchronization, or change tracking task.
      *
      * @param request - DeleteDtsJobRequest
+     *
      * @returns DeleteDtsJobResponse
      *
      * @param DeleteDtsJobRequest $request
@@ -2895,6 +3035,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DeleteDtsJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDtsJobsResponse
      *
      * @param DeleteDtsJobsRequest $request
@@ -2926,15 +3067,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDtsJobs',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDtsJobs',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDtsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2947,6 +3088,7 @@ class Dts extends OpenApiClient
      * Deletes multiple data migration, data synchronization, or change tracking tasks.
      *
      * @param request - DeleteDtsJobsRequest
+     *
      * @returns DeleteDtsJobsResponse
      *
      * @param DeleteDtsJobsRequest $request
@@ -2965,6 +3107,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DeleteMigrationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteMigrationJobResponse
      *
      * @param DeleteMigrationJobRequest $request
@@ -3000,15 +3143,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMigrationJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteMigrationJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3021,6 +3164,7 @@ class Dts extends OpenApiClient
      * Releases a data migration instance.
      *
      * @param request - DeleteMigrationJobRequest
+     *
      * @returns DeleteMigrationJobResponse
      *
      * @param DeleteMigrationJobRequest $request
@@ -3039,6 +3183,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DeleteSubscriptionInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSubscriptionInstanceResponse
      *
      * @param DeleteSubscriptionInstanceRequest $request
@@ -3074,15 +3219,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSubscriptionInstance',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSubscriptionInstance',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSubscriptionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3095,6 +3240,7 @@ class Dts extends OpenApiClient
      * Releases a change tracking instance.
      *
      * @param request - DeleteSubscriptionInstanceRequest
+     *
      * @returns DeleteSubscriptionInstanceResponse
      *
      * @param DeleteSubscriptionInstanceRequest $request
@@ -3113,6 +3259,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DeleteSynchronizationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSynchronizationJobResponse
      *
      * @param DeleteSynchronizationJobRequest $request
@@ -3148,15 +3295,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSynchronizationJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSynchronizationJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3169,6 +3316,7 @@ class Dts extends OpenApiClient
      * Releases a data synchronization instance.
      *
      * @param request - DeleteSynchronizationJobRequest
+     *
      * @returns DeleteSynchronizationJobResponse
      *
      * @param DeleteSynchronizationJobRequest $request
@@ -3187,6 +3335,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeChannelAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeChannelAccountResponse
      *
      * @param DescribeChannelAccountRequest $request
@@ -3230,15 +3379,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeChannelAccount',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeChannelAccount',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeChannelAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3251,6 +3400,7 @@ class Dts extends OpenApiClient
      * 查询数据投递链路store账号.
      *
      * @param request - DescribeChannelAccountRequest
+     *
      * @returns DescribeChannelAccountResponse
      *
      * @param DescribeChannelAccountRequest $request
@@ -3269,6 +3419,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeCheckJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCheckJobsResponse
      *
      * @param DescribeCheckJobsRequest $request
@@ -3312,15 +3463,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCheckJobs',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCheckJobs',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCheckJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3333,6 +3484,7 @@ class Dts extends OpenApiClient
      * 请求所有数据校验任务数据.
      *
      * @param request - DescribeCheckJobsRequest
+     *
      * @returns DescribeCheckJobsResponse
      *
      * @param DescribeCheckJobsRequest $request
@@ -3351,6 +3503,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeClusterOperateLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeClusterOperateLogsResponse
      *
      * @param DescribeClusterOperateLogsRequest $request
@@ -3405,18 +3558,18 @@ class Dts extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeClusterOperateLogs',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeClusterOperateLogs',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeClusterOperateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3429,6 +3582,7 @@ class Dts extends OpenApiClient
      * Queries operation logs of a Data Transmission Service (DTS) dedicated cluster.
      *
      * @param request - DescribeClusterOperateLogsRequest
+     *
      * @returns DescribeClusterOperateLogsResponse
      *
      * @param DescribeClusterOperateLogsRequest $request
@@ -3447,6 +3601,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeClusterUsedUtilizationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeClusterUsedUtilizationResponse
      *
      * @param DescribeClusterUsedUtilizationRequest $request
@@ -3501,18 +3656,18 @@ class Dts extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeClusterUsedUtilization',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeClusterUsedUtilization',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeClusterUsedUtilizationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3525,6 +3680,7 @@ class Dts extends OpenApiClient
      * Queries the resource usage of a cluster.
      *
      * @param request - DescribeClusterUsedUtilizationRequest
+     *
      * @returns DescribeClusterUsedUtilizationResponse
      *
      * @param DescribeClusterUsedUtilizationRequest $request
@@ -3543,6 +3699,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeConnectionStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeConnectionStatusResponse
      *
      * @param DescribeConnectionStatusRequest $request
@@ -3654,15 +3811,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeConnectionStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeConnectionStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeConnectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3675,6 +3832,7 @@ class Dts extends OpenApiClient
      * Queries the connectivity of Data Transmission Service (DTS) servers to the source and destination databases.
      *
      * @param request - DescribeConnectionStatusRequest
+     *
      * @returns DescribeConnectionStatusResponse
      *
      * @param DescribeConnectionStatusRequest $request
@@ -3693,6 +3851,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeConsumerChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeConsumerChannelResponse
      *
      * @param DescribeConsumerChannelRequest $request
@@ -3736,15 +3895,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeConsumerChannel',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeConsumerChannel',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeConsumerChannelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3757,6 +3916,7 @@ class Dts extends OpenApiClient
      * Queries the information of a consumer group, including the consumer group ID, consumer group name, username, and message latency.
      *
      * @param request - DescribeConsumerChannelRequest
+     *
      * @returns DescribeConsumerChannelResponse
      *
      * @param DescribeConsumerChannelRequest $request
@@ -3775,6 +3935,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeConsumerGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeConsumerGroupResponse
      *
      * @param DescribeConsumerGroupRequest $request
@@ -3818,15 +3979,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeConsumerGroup',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeConsumerGroup',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3839,6 +4000,7 @@ class Dts extends OpenApiClient
      * Queries the details of consumer groups in a change tracking instance.
      *
      * @param request - DescribeConsumerGroupRequest
+     *
      * @returns DescribeConsumerGroupResponse
      *
      * @param DescribeConsumerGroupRequest $request
@@ -3857,6 +4019,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeDTSIPRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDTSIPResponse
      *
      * @param DescribeDTSIPRequest $request
@@ -3888,15 +4051,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDTSIP',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDTSIP',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDTSIPResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3909,6 +4072,7 @@ class Dts extends OpenApiClient
      * Queries the CIDR blocks of DTS servers.
      *
      * @param request - DescribeDTSIPRequest
+     *
      * @returns DescribeDTSIPResponse
      *
      * @param DescribeDTSIPRequest $request
@@ -3927,6 +4091,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeDataCheckReportUrlRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDataCheckReportUrlResponse
      *
      * @param DescribeDataCheckReportUrlRequest $request
@@ -3962,15 +4127,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataCheckReportUrl',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataCheckReportUrl',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDataCheckReportUrlResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3983,6 +4148,7 @@ class Dts extends OpenApiClient
      * Queries the download URL of the data consistency verification report.
      *
      * @param request - DescribeDataCheckReportUrlRequest
+     *
      * @returns DescribeDataCheckReportUrlResponse
      *
      * @param DescribeDataCheckReportUrlRequest $request
@@ -4001,6 +4167,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeDataCheckTableDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDataCheckTableDetailsResponse
      *
      * @param DescribeDataCheckTableDetailsRequest $request
@@ -4048,15 +4215,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataCheckTableDetails',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataCheckTableDetails',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDataCheckTableDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4069,6 +4236,7 @@ class Dts extends OpenApiClient
      * Queries the details of a data verification task.
      *
      * @param request - DescribeDataCheckTableDetailsRequest
+     *
      * @returns DescribeDataCheckTableDetailsResponse
      *
      * @param DescribeDataCheckTableDetailsRequest $request
@@ -4087,6 +4255,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeDataCheckTableDiffDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDataCheckTableDiffDetailsResponse
      *
      * @param DescribeDataCheckTableDiffDetailsRequest $request
@@ -4130,15 +4299,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDataCheckTableDiffDetails',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDataCheckTableDiffDetails',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDataCheckTableDiffDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4151,6 +4320,7 @@ class Dts extends OpenApiClient
      * Queries the information about inconsistent data in the data verification task.
      *
      * @param request - DescribeDataCheckTableDiffDetailsRequest
+     *
      * @returns DescribeDataCheckTableDiffDetailsResponse
      *
      * @param DescribeDataCheckTableDiffDetailsRequest $request
@@ -4169,6 +4339,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeDedicatedClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDedicatedClusterResponse
      *
      * @param DescribeDedicatedClusterRequest $request
@@ -4200,15 +4371,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDedicatedCluster',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDedicatedCluster',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4221,6 +4392,7 @@ class Dts extends OpenApiClient
      * Queries the information about a dedicated cluster.
      *
      * @param request - DescribeDedicatedClusterRequest
+     *
      * @returns DescribeDedicatedClusterResponse
      *
      * @param DescribeDedicatedClusterRequest $request
@@ -4235,10 +4407,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * The mobile phone number to which alerts are sent. Separate multiple mobile phone numbers with commas (,).
+     * Queries the information about an alert rule.
      *
      * @param request - DescribeDedicatedClusterMonitorRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDedicatedClusterMonitorRuleResponse
      *
      * @param DescribeDedicatedClusterMonitorRuleRequest $request
@@ -4270,15 +4443,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDedicatedClusterMonitorRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDedicatedClusterMonitorRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDedicatedClusterMonitorRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4288,9 +4461,10 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * The mobile phone number to which alerts are sent. Separate multiple mobile phone numbers with commas (,).
+     * Queries the information about an alert rule.
      *
      * @param request - DescribeDedicatedClusterMonitorRuleRequest
+     *
      * @returns DescribeDedicatedClusterMonitorRuleResponse
      *
      * @param DescribeDedicatedClusterMonitorRuleRequest $request
@@ -4309,6 +4483,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeDtsEtlJobVersionInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDtsEtlJobVersionInfoResponse
      *
      * @param DescribeDtsEtlJobVersionInfoRequest $request
@@ -4348,15 +4523,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDtsEtlJobVersionInfo',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDtsEtlJobVersionInfo',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDtsEtlJobVersionInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4369,6 +4544,7 @@ class Dts extends OpenApiClient
      * Queries the details of extract, transform, and load (ETL) tasks.
      *
      * @param request - DescribeDtsEtlJobVersionInfoRequest
+     *
      * @returns DescribeDtsEtlJobVersionInfoResponse
      *
      * @param DescribeDtsEtlJobVersionInfoRequest $request
@@ -4387,6 +4563,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeDtsJobConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDtsJobConfigResponse
      *
      * @param DescribeDtsJobConfigRequest $request
@@ -4426,15 +4603,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDtsJobConfig',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDtsJobConfig',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDtsJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4447,6 +4624,7 @@ class Dts extends OpenApiClient
      * 查询DTS任务配置.
      *
      * @param request - DescribeDtsJobConfigRequest
+     *
      * @returns DescribeDtsJobConfigResponse
      *
      * @param DescribeDtsJobConfigRequest $request
@@ -4466,6 +4644,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeDtsJobDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDtsJobDetailResponse
      *
      * @param DescribeDtsJobDetailRequest $request
@@ -4509,15 +4688,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDtsJobDetail',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDtsJobDetail',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDtsJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4531,6 +4710,7 @@ class Dts extends OpenApiClient
      * \\\\\\\\\\>  If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
      *
      * @param request - DescribeDtsJobDetailRequest
+     *
      * @returns DescribeDtsJobDetailResponse
      *
      * @param DescribeDtsJobDetailRequest $request
@@ -4553,6 +4733,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeDtsJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDtsJobsResponse
      *
      * @param DescribeDtsJobsRequest $request
@@ -4664,15 +4845,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDtsJobs',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDtsJobs',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDtsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4689,6 +4870,7 @@ class Dts extends OpenApiClient
      * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Dts\\&api=DescribeDtsJobs\\&type=RPC\\&version=2020-01-01)
      *
      * @param request - DescribeDtsJobsRequest
+     *
      * @returns DescribeDtsJobsResponse
      *
      * @param DescribeDtsJobsRequest $request
@@ -4707,6 +4889,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeDtsServiceLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDtsServiceLogResponse
      *
      * @param DescribeDtsServiceLogRequest $request
@@ -4766,15 +4949,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDtsServiceLog',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDtsServiceLog',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDtsServiceLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4787,6 +4970,7 @@ class Dts extends OpenApiClient
      * Queries the logs of a data migration or synchronization task.
      *
      * @param request - DescribeDtsServiceLogRequest
+     *
      * @returns DescribeDtsServiceLogResponse
      *
      * @param DescribeDtsServiceLogRequest $request
@@ -4805,6 +4989,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeEndpointSwitchStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEndpointSwitchStatusResponse
      *
      * @param DescribeEndpointSwitchStatusRequest $request
@@ -4844,15 +5029,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEndpointSwitchStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEndpointSwitchStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeEndpointSwitchStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4865,6 +5050,7 @@ class Dts extends OpenApiClient
      * Queries the status of the task that changes the database connection settings.
      *
      * @param request - DescribeEndpointSwitchStatusRequest
+     *
      * @returns DescribeEndpointSwitchStatusResponse
      *
      * @param DescribeEndpointSwitchStatusRequest $request
@@ -4883,6 +5069,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeEtlJobLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEtlJobLogsResponse
      *
      * @param DescribeEtlJobLogsRequest $request
@@ -4910,15 +5097,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEtlJobLogs',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEtlJobLogs',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeEtlJobLogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4931,6 +5118,7 @@ class Dts extends OpenApiClient
      * Queries the logs of extract, transform, and load (ETL) tasks.
      *
      * @param request - DescribeEtlJobLogsRequest
+     *
      * @returns DescribeEtlJobLogsResponse
      *
      * @param DescribeEtlJobLogsRequest $request
@@ -4945,10 +5133,171 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * Queries full data migration tasks.
+     *
+     * @param request - DescribeFullProcessListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeFullProcessListResponse
+     *
+     * @param DescribeFullProcessListRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeFullProcessListResponse
+     */
+    public function describeFullProcessListWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dtsJobId) {
+            @$query['DtsJobId'] = $request->dtsJobId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->zeroEtlJob) {
+            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeFullProcessList',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeFullProcessListResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeFullProcessListResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries full data migration tasks.
+     *
+     * @param request - DescribeFullProcessListRequest
+     *
+     * @returns DescribeFullProcessListResponse
+     *
+     * @param DescribeFullProcessListRequest $request
+     *
+     * @return DescribeFullProcessListResponse
+     */
+    public function describeFullProcessList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeFullProcessListWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询GAD实例列表.
+     *
+     * @param request - DescribeGadInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeGadInstancesResponse
+     *
+     * @param DescribeGadInstancesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeGadInstancesResponse
+     */
+    public function describeGadInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->masterDbInstanceId) {
+            @$query['MasterDbInstanceId'] = $request->masterDbInstanceId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->slaveDbInstanceId) {
+            @$query['SlaveDbInstanceId'] = $request->slaveDbInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeGadInstances',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeGadInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeGadInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询GAD实例列表.
+     *
+     * @param request - DescribeGadInstancesRequest
+     *
+     * @returns DescribeGadInstancesResponse
+     *
+     * @param DescribeGadInstancesRequest $request
+     *
+     * @return DescribeGadInstancesResponse
+     */
+    public function describeGadInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGadInstancesWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the details of initial data synchronization, including the information about the schemas and historical data of the object to be synchronized.
      *
      * @param request - DescribeInitializationStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInitializationStatusResponse
      *
      * @param DescribeInitializationStatusRequest $request
@@ -4992,15 +5341,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInitializationStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInitializationStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInitializationStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5013,6 +5362,7 @@ class Dts extends OpenApiClient
      * Queries the details of initial data synchronization, including the information about the schemas and historical data of the object to be synchronized.
      *
      * @param request - DescribeInitializationStatusRequest
+     *
      * @returns DescribeInitializationStatusResponse
      *
      * @param DescribeInitializationStatusRequest $request
@@ -5031,6 +5381,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeJobMonitorRuleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeJobMonitorRuleResponse
      *
      * @param DescribeJobMonitorRuleRequest $request
@@ -5058,15 +5409,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeJobMonitorRule',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeJobMonitorRule',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeJobMonitorRuleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5079,6 +5430,7 @@ class Dts extends OpenApiClient
      * Queries the monitoring rules of a Data Transmission Service (DTS) task.
      *
      * @param request - DescribeJobMonitorRuleRequest
+     *
      * @returns DescribeJobMonitorRuleResponse
      *
      * @param DescribeJobMonitorRuleRequest $request
@@ -5097,6 +5449,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeMetricListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeMetricListResponse
      *
      * @param DescribeMetricListRequest $request
@@ -5159,18 +5512,18 @@ class Dts extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMetricList',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMetricList',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeMetricListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5183,6 +5536,7 @@ class Dts extends OpenApiClient
      * Queries the metrics of a cluster.
      *
      * @param request - DescribeMetricListRequest
+     *
      * @returns DescribeMetricListResponse
      *
      * @param DescribeMetricListRequest $request
@@ -5201,6 +5555,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeMigrationJobAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeMigrationJobAlertResponse
      *
      * @param DescribeMigrationJobAlertRequest $request
@@ -5240,15 +5595,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMigrationJobAlert',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMigrationJobAlert',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeMigrationJobAlertResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5261,6 +5616,7 @@ class Dts extends OpenApiClient
      * Queries the alert settings of a data migration instance.
      *
      * @param request - DescribeMigrationJobAlertRequest
+     *
      * @returns DescribeMigrationJobAlertResponse
      *
      * @param DescribeMigrationJobAlertRequest $request
@@ -5279,6 +5635,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeMigrationJobDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeMigrationJobDetailResponse
      *
      * @param DescribeMigrationJobDetailRequest $request
@@ -5330,15 +5687,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMigrationJobDetail',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMigrationJobDetail',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeMigrationJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5351,6 +5708,7 @@ class Dts extends OpenApiClient
      * Queries the details of a data migration task.
      *
      * @param request - DescribeMigrationJobDetailRequest
+     *
      * @returns DescribeMigrationJobDetailResponse
      *
      * @param DescribeMigrationJobDetailRequest $request
@@ -5369,6 +5727,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeMigrationJobStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeMigrationJobStatusResponse
      *
      * @param DescribeMigrationJobStatusRequest $request
@@ -5408,15 +5767,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMigrationJobStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMigrationJobStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeMigrationJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5429,6 +5788,7 @@ class Dts extends OpenApiClient
      * Queries the status of a data migration task.
      *
      * @param request - DescribeMigrationJobStatusRequest
+     *
      * @returns DescribeMigrationJobStatusResponse
      *
      * @param DescribeMigrationJobStatusRequest $request
@@ -5447,6 +5807,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeMigrationJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeMigrationJobsResponse
      *
      * @param DescribeMigrationJobsRequest $request
@@ -5494,15 +5855,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeMigrationJobs',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeMigrationJobs',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeMigrationJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5515,6 +5876,7 @@ class Dts extends OpenApiClient
      * Queries the list of data migration instances and the details of each instance.
      *
      * @param request - DescribeMigrationJobsRequest
+     *
      * @returns DescribeMigrationJobsResponse
      *
      * @param DescribeMigrationJobsRequest $request
@@ -5529,10 +5891,87 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * 查询预检查创建GAD订单任务结果.
+     *
+     * @param request - DescribePreCheckCreateGadOrderResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribePreCheckCreateGadOrderResultResponse
+     *
+     * @param DescribePreCheckCreateGadOrderResultRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return DescribePreCheckCreateGadOrderResultResponse
+     */
+    public function describePreCheckCreateGadOrderResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->taskId) {
+            @$query['TaskId'] = $request->taskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribePreCheckCreateGadOrderResult',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribePreCheckCreateGadOrderResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribePreCheckCreateGadOrderResultResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询预检查创建GAD订单任务结果.
+     *
+     * @param request - DescribePreCheckCreateGadOrderResultRequest
+     *
+     * @returns DescribePreCheckCreateGadOrderResultResponse
+     *
+     * @param DescribePreCheckCreateGadOrderResultRequest $request
+     *
+     * @return DescribePreCheckCreateGadOrderResultResponse
+     */
+    public function describePreCheckCreateGadOrderResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePreCheckCreateGadOrderResultWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the status of a Data Transmission Service (DTS) subtask that performs precheck, schema migration, initial schema synchronization, full data migration, initial full data synchronization, incremental data migration, or incremental data synchronization.
      *
      * @param request - DescribePreCheckStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePreCheckStatusResponse
      *
      * @param DescribePreCheckStatusRequest $request
@@ -5588,15 +6027,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePreCheckStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePreCheckStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePreCheckStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5609,6 +6048,7 @@ class Dts extends OpenApiClient
      * Queries the status of a Data Transmission Service (DTS) subtask that performs precheck, schema migration, initial schema synchronization, full data migration, initial full data synchronization, incremental data migration, or incremental data synchronization.
      *
      * @param request - DescribePreCheckStatusRequest
+     *
      * @returns DescribePreCheckStatusResponse
      *
      * @param DescribePreCheckStatusRequest $request
@@ -5627,6 +6067,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeSubscriptionInstanceAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSubscriptionInstanceAlertResponse
      *
      * @param DescribeSubscriptionInstanceAlertRequest $request
@@ -5666,15 +6107,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSubscriptionInstanceAlert',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSubscriptionInstanceAlert',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSubscriptionInstanceAlertResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5687,6 +6128,7 @@ class Dts extends OpenApiClient
      * Queries the alert settings of a change tracking instance.
      *
      * @param request - DescribeSubscriptionInstanceAlertRequest
+     *
      * @returns DescribeSubscriptionInstanceAlertResponse
      *
      * @param DescribeSubscriptionInstanceAlertRequest $request
@@ -5705,6 +6147,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeSubscriptionInstanceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSubscriptionInstanceStatusResponse
      *
      * @param DescribeSubscriptionInstanceStatusRequest $request
@@ -5740,15 +6183,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSubscriptionInstanceStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSubscriptionInstanceStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSubscriptionInstanceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5761,6 +6204,7 @@ class Dts extends OpenApiClient
      * Queries the status of a change tracking instance.
      *
      * @param request - DescribeSubscriptionInstanceStatusRequest
+     *
      * @returns DescribeSubscriptionInstanceStatusResponse
      *
      * @param DescribeSubscriptionInstanceStatusRequest $request
@@ -5779,6 +6223,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeSubscriptionInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSubscriptionInstancesResponse
      *
      * @param DescribeSubscriptionInstancesRequest $request
@@ -5830,15 +6275,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSubscriptionInstances',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSubscriptionInstances',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSubscriptionInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5851,6 +6296,7 @@ class Dts extends OpenApiClient
      * Queries the list of change tracking instances and the details of each instance.
      *
      * @param request - DescribeSubscriptionInstancesRequest
+     *
      * @returns DescribeSubscriptionInstancesResponse
      *
      * @param DescribeSubscriptionInstancesRequest $request
@@ -5865,12 +6311,15 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * Queries the details of the subtasks in a distributed change tracking task for a PolarDB-X 1.0 instance.
+     *
      * @remarks
      *   When Data Transmission Service (DTS) tracks data changes from a PolarDB-X 1.0 instance, data is distributed across the attached ApsaraDB RDS for MySQL instances. DTS runs a subtask for each ApsaraDB RDS for MySQL instance. You can call this operation to query the details of the subtasks in a distributed change tracking task.
      * *   You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the ID of the change tracking instance and the ID of the consumer group.
      *
      * @param tmpReq - DescribeSubscriptionMetaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSubscriptionMetaResponse
      *
      * @param DescribeSubscriptionMetaRequest $tmpReq
@@ -5920,15 +6369,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSubscriptionMeta',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSubscriptionMeta',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSubscriptionMetaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5938,11 +6387,14 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * Queries the details of the subtasks in a distributed change tracking task for a PolarDB-X 1.0 instance.
+     *
      * @remarks
      *   When Data Transmission Service (DTS) tracks data changes from a PolarDB-X 1.0 instance, data is distributed across the attached ApsaraDB RDS for MySQL instances. DTS runs a subtask for each ApsaraDB RDS for MySQL instance. You can call this operation to query the details of the subtasks in a distributed change tracking task.
      * *   You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the ID of the change tracking instance and the ID of the consumer group.
      *
      * @param request - DescribeSubscriptionMetaRequest
+     *
      * @returns DescribeSubscriptionMetaResponse
      *
      * @param DescribeSubscriptionMetaRequest $request
@@ -5961,6 +6413,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeSyncStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSyncStatusResponse
      *
      * @param DescribeSyncStatusRequest $request
@@ -5996,15 +6449,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSyncStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSyncStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSyncStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6017,6 +6470,7 @@ class Dts extends OpenApiClient
      * 查看同步和迁移任务的增量写入延迟信息.
      *
      * @param request - DescribeSyncStatusRequest
+     *
      * @returns DescribeSyncStatusResponse
      *
      * @param DescribeSyncStatusRequest $request
@@ -6035,6 +6489,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeSynchronizationJobAlertRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSynchronizationJobAlertResponse
      *
      * @param DescribeSynchronizationJobAlertRequest $request
@@ -6078,15 +6533,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSynchronizationJobAlert',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSynchronizationJobAlert',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSynchronizationJobAlertResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6099,6 +6554,7 @@ class Dts extends OpenApiClient
      * Queries the alert settings of a data synchronization instance.
      *
      * @param request - DescribeSynchronizationJobAlertRequest
+     *
      * @returns DescribeSynchronizationJobAlertResponse
      *
      * @param DescribeSynchronizationJobAlertRequest $request
@@ -6117,6 +6573,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeSynchronizationJobReplicatorCompareRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSynchronizationJobReplicatorCompareResponse
      *
      * @param DescribeSynchronizationJobReplicatorCompareRequest $request
@@ -6160,15 +6617,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSynchronizationJobReplicatorCompare',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSynchronizationJobReplicatorCompare',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSynchronizationJobReplicatorCompareResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6181,6 +6638,7 @@ class Dts extends OpenApiClient
      * Queries whether image matching is enabled for a data synchronization instance.
      *
      * @param request - DescribeSynchronizationJobReplicatorCompareRequest
+     *
      * @returns DescribeSynchronizationJobReplicatorCompareResponse
      *
      * @param DescribeSynchronizationJobReplicatorCompareRequest $request
@@ -6199,6 +6657,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeSynchronizationJobStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSynchronizationJobStatusResponse
      *
      * @param DescribeSynchronizationJobStatusRequest $request
@@ -6242,15 +6701,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSynchronizationJobStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSynchronizationJobStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSynchronizationJobStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6263,6 +6722,7 @@ class Dts extends OpenApiClient
      * Queries the status of a data synchronization instance.
      *
      * @param request - DescribeSynchronizationJobStatusRequest
+     *
      * @returns DescribeSynchronizationJobStatusResponse
      *
      * @param DescribeSynchronizationJobStatusRequest $request
@@ -6281,6 +6741,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeSynchronizationJobStatusListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSynchronizationJobStatusListResponse
      *
      * @param DescribeSynchronizationJobStatusListRequest $request
@@ -6320,15 +6781,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSynchronizationJobStatusList',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSynchronizationJobStatusList',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSynchronizationJobStatusListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6341,6 +6802,7 @@ class Dts extends OpenApiClient
      * Queries the status of one or more data synchronization instances.
      *
      * @param request - DescribeSynchronizationJobStatusListRequest
+     *
      * @returns DescribeSynchronizationJobStatusListResponse
      *
      * @param DescribeSynchronizationJobStatusListRequest $request
@@ -6359,6 +6821,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeSynchronizationJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSynchronizationJobsResponse
      *
      * @param DescribeSynchronizationJobsRequest $request
@@ -6410,15 +6873,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSynchronizationJobs',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSynchronizationJobs',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSynchronizationJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6431,6 +6894,7 @@ class Dts extends OpenApiClient
      * Queries the list of data synchronization instances and the details of each instance.
      *
      * @param request - DescribeSynchronizationJobsRequest
+     *
      * @returns DescribeSynchronizationJobsResponse
      *
      * @param DescribeSynchronizationJobsRequest $request
@@ -6449,6 +6913,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeSynchronizationObjectModifyStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSynchronizationObjectModifyStatusResponse
      *
      * @param DescribeSynchronizationObjectModifyStatusRequest $request
@@ -6488,15 +6953,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSynchronizationObjectModifyStatus',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSynchronizationObjectModifyStatus',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSynchronizationObjectModifyStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6509,6 +6974,7 @@ class Dts extends OpenApiClient
      * Queries the status of the task that changes the objects to be synchronized.
      *
      * @param request - DescribeSynchronizationObjectModifyStatusRequest
+     *
      * @returns DescribeSynchronizationObjectModifyStatusResponse
      *
      * @param DescribeSynchronizationObjectModifyStatusRequest $request
@@ -6527,6 +6993,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTagKeysResponse
      *
      * @param DescribeTagKeysRequest $request
@@ -6570,15 +7037,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTagKeys',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTagKeys',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6591,6 +7058,7 @@ class Dts extends OpenApiClient
      * Queries all the tags added to a data migration, data synchronization, or change tracking instance.
      *
      * @param request - DescribeTagKeysRequest
+     *
      * @returns DescribeTagKeysResponse
      *
      * @param DescribeTagKeysRequest $request
@@ -6609,6 +7077,7 @@ class Dts extends OpenApiClient
      *
      * @param request - DescribeTagValuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTagValuesResponse
      *
      * @param DescribeTagValuesRequest $request
@@ -6656,15 +7125,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTagValues',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTagValues',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6677,6 +7146,7 @@ class Dts extends OpenApiClient
      * Queries all the tag values of a tag bound to a data migration, data synchronization, or change tracking instance.
      *
      * @param request - DescribeTagValuesRequest
+     *
      * @returns DescribeTagValuesResponse
      *
      * @param DescribeTagValuesRequest $request
@@ -6691,6 +7161,82 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * 移除从角色.
+     *
+     * @param request - DetachGadInstanceDbMemberRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DetachGadInstanceDbMemberResponse
+     *
+     * @param DetachGadInstanceDbMemberRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DetachGadInstanceDbMemberResponse
+     */
+    public function detachGadInstanceDbMemberWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->slaveDbInstanceId) {
+            @$query['SlaveDbInstanceId'] = $request->slaveDbInstanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DetachGadInstanceDbMember',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetachGadInstanceDbMemberResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DetachGadInstanceDbMemberResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 移除从角色.
+     *
+     * @param request - DetachGadInstanceDbMemberRequest
+     *
+     * @returns DetachGadInstanceDbMemberResponse
+     *
+     * @param DetachGadInstanceDbMemberRequest $request
+     *
+     * @return DetachGadInstanceDbMemberResponse
+     */
+    public function detachGadInstanceDbMember($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachGadInstanceDbMemberWithOptions($request, $runtime);
+    }
+
+    /**
      * Initializes a built-in account on a node of an active geo-redundancy database cluster. Data Transmission Service (DTS) uses the built-in account to connect to the node and perform data synchronization tasks.
      *
      * @remarks
@@ -6699,6 +7245,7 @@ class Dts extends OpenApiClient
      *
      * @param request - InitDtsRdsInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InitDtsRdsInstanceResponse
      *
      * @param InitDtsRdsInstanceRequest $request
@@ -6742,15 +7289,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InitDtsRdsInstance',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InitDtsRdsInstance',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return InitDtsRdsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6767,6 +7314,7 @@ class Dts extends OpenApiClient
      * *   This operation is used to initialize the built-in account named rdsdt_dtsacct on a node of an active geo-redundancy database cluster. DTS uses this account to connect to the node and perform data synchronization tasks.
      *
      * @param request - InitDtsRdsInstanceRequest
+     *
      * @returns InitDtsRdsInstanceResponse
      *
      * @param InitDtsRdsInstanceRequest $request
@@ -6785,6 +7333,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ListDedicatedClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDedicatedClusterResponse
      *
      * @param ListDedicatedClusterRequest $request
@@ -6840,15 +7389,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDedicatedCluster',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDedicatedCluster',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6861,6 +7410,7 @@ class Dts extends OpenApiClient
      * Queries all clusters that are created within an Alibaba Cloud account. You can also query clusters based on the specified conditions.
      *
      * @param request - ListDedicatedClusterRequest
+     *
      * @returns ListDedicatedClusterResponse
      *
      * @param ListDedicatedClusterRequest $request
@@ -6881,6 +7431,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -6920,15 +7471,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6943,6 +7494,7 @@ class Dts extends OpenApiClient
      * @remarks
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -6961,6 +7513,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ModifyConsumerChannelRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyConsumerChannelResponse
      *
      * @param ModifyConsumerChannelRequest $request
@@ -7008,15 +7561,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyConsumerChannel',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyConsumerChannel',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyConsumerChannelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7029,6 +7582,7 @@ class Dts extends OpenApiClient
      * Modifies the information of a consumer group, including the consumer group name, username, and password.
      *
      * @param request - ModifyConsumerChannelRequest
+     *
      * @returns ModifyConsumerChannelResponse
      *
      * @param ModifyConsumerChannelRequest $request
@@ -7047,6 +7601,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ModifyConsumerGroupPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyConsumerGroupPasswordResponse
      *
      * @param ModifyConsumerGroupPasswordRequest $request
@@ -7102,15 +7657,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyConsumerGroupPassword',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyConsumerGroupPassword',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyConsumerGroupPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7123,6 +7678,7 @@ class Dts extends OpenApiClient
      * Modifies the password of a consumer group.
      *
      * @param request - ModifyConsumerGroupPasswordRequest
+     *
      * @returns ModifyConsumerGroupPasswordResponse
      *
      * @param ModifyConsumerGroupPasswordRequest $request
@@ -7141,6 +7697,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ModifyConsumptionTimestampRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyConsumptionTimestampResponse
      *
      * @param ModifyConsumptionTimestampRequest $request
@@ -7180,15 +7737,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyConsumptionTimestamp',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyConsumptionTimestamp',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyConsumptionTimestampResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7201,6 +7758,7 @@ class Dts extends OpenApiClient
      * Modifies the consumption checkpoint of a change tracking instance.
      *
      * @param request - ModifyConsumptionTimestampRequest
+     *
      * @returns ModifyConsumptionTimestampResponse
      *
      * @param ModifyConsumptionTimestampRequest $request
@@ -7222,6 +7780,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ModifyDedicatedClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDedicatedClusterResponse
      *
      * @param ModifyDedicatedClusterRequest $request
@@ -7265,15 +7824,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDedicatedCluster',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDedicatedCluster',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7289,6 +7848,7 @@ class Dts extends OpenApiClient
      * You can modify only the overcommit ratio.
      *
      * @param request - ModifyDedicatedClusterRequest
+     *
      * @returns ModifyDedicatedClusterResponse
      *
      * @param ModifyDedicatedClusterRequest $request
@@ -7310,6 +7870,7 @@ class Dts extends OpenApiClient
      *
      * @param tmpReq - ModifyDtsJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDtsJobResponse
      *
      * @param ModifyDtsJobRequest $tmpReq
@@ -7394,18 +7955,18 @@ class Dts extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDtsJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDtsJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7421,6 +7982,7 @@ class Dts extends OpenApiClient
      * When you configure a data synchronization task in the Data Transmission Service (DTS) console, you can move the pointer over **Next: Save Task Settings and Precheck** in the **Advanced Settings** step and click **Preview OpenAPI parameters** to view the parameters that are used to configure the task by calling an API operation.
      *
      * @param request - ModifyDtsJobRequest
+     *
      * @returns ModifyDtsJobResponse
      *
      * @param ModifyDtsJobRequest $request
@@ -7443,10 +8005,10 @@ class Dts extends OpenApiClient
     public function modifyDtsJobAdvance($request, $runtime)
     {
         // Step 0: init client
-        $accessKeyId          = $this->_credential->getAccessKeyId();
-        $accessKeySecret      = $this->_credential->getAccessKeySecret();
-        $securityToken        = $this->_credential->getSecurityToken();
-        $credentialType       = $this->_credential->getType();
+        $accessKeyId = $this->_credential->getAccessKeyId();
+        $accessKeySecret = $this->_credential->getAccessKeySecret();
+        $securityToken = $this->_credential->getSecurityToken();
+        $credentialType = $this->_credential->getType();
         $openPlatformEndpoint = $this->_openPlatformEndpoint;
         if (null === $openPlatformEndpoint) {
             $openPlatformEndpoint = 'openplatform.aliyuncs.com';
@@ -7457,56 +8019,56 @@ class Dts extends OpenApiClient
         }
 
         $authConfig = new Config([
-            'accessKeyId'     => $accessKeyId,
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'securityToken'   => $securityToken,
-            'type'            => $credentialType,
-            'endpoint'        => $openPlatformEndpoint,
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'securityToken' => $securityToken,
+            'type' => $credentialType,
+            'endpoint' => $openPlatformEndpoint,
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $authClient  = new OpenPlatform($authConfig);
+        $authClient = new OpenPlatform($authConfig);
         $authRequest = new AuthorizeFileUploadRequest([
-            'product'  => 'Dts',
+            'product' => 'Dts',
             'regionId' => $this->_regionId,
         ]);
         $authResponse = new AuthorizeFileUploadResponse([]);
-        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
-            'accessKeyId'     => $accessKeyId,
+        $ossConfig = new OSS\Config([
+            'accessKeyId' => $accessKeyId,
             'accessKeySecret' => $accessKeySecret,
-            'type'            => 'access_key',
-            'protocol'        => $this->_protocol,
-            'regionId'        => $this->_regionId,
+            'type' => 'access_key',
+            'protocol' => $this->_protocol,
+            'regionId' => $this->_regionId,
         ]);
-        $ossClient     = new OSS($ossConfig);
-        $fileObj       = new FileField([]);
-        $ossHeader     = new header([]);
+        $ossClient = new OSS($ossConfig);
+        $fileObj = new FileField([]);
+        $ossHeader = new header([]);
         $uploadRequest = new PostObjectRequest([]);
-        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        $ossRuntime = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
         Utils::convert($runtime, $ossRuntime);
         $modifyDtsJobReq = new ModifyDtsJobRequest([]);
         Utils::convert($request, $modifyDtsJobReq);
         if (null !== $request->fileOssUrlObject) {
-            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $authResponse = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
             $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
-            $ossConfig->endpoint    = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
-            $ossClient              = new OSS($ossConfig);
-            $fileObj                = new FileField([
-                'filename'    => $authResponse->body->objectKey,
-                'content'     => $request->fileOssUrlObject,
+            $ossConfig->endpoint = Utils::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient = new OSS($ossConfig);
+            $fileObj = new FileField([
+                'filename' => $authResponse->body->objectKey,
+                'content' => $request->fileOssUrlObject,
                 'contentType' => '',
             ]);
             $ossHeader = new header([
-                'accessKeyId'         => $authResponse->body->accessKeyId,
-                'policy'              => $authResponse->body->encodedPolicy,
-                'signature'           => $authResponse->body->signature,
-                'key'                 => $authResponse->body->objectKey,
-                'file'                => $fileObj,
+                'accessKeyId' => $authResponse->body->accessKeyId,
+                'policy' => $authResponse->body->encodedPolicy,
+                'signature' => $authResponse->body->signature,
+                'key' => $authResponse->body->objectKey,
+                'file' => $fileObj,
                 'successActionStatus' => '201',
             ]);
             $uploadRequest = new PostObjectRequest([
                 'bucketName' => $authResponse->body->bucket,
-                'header'     => $ossHeader,
+                'header' => $ossHeader,
             ]);
             $ossClient->postObject($uploadRequest, $ossRuntime);
             $modifyDtsJobReq->fileOssUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
@@ -7520,6 +8082,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ModifyDtsJobConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDtsJobConfigResponse
      *
      * @param ModifyDtsJobConfigRequest $request
@@ -7555,15 +8118,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDtsJobConfig',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDtsJobConfig',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDtsJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7576,6 +8139,7 @@ class Dts extends OpenApiClient
      * Modifies the parameters of a Data Transmission Service (DTS) task.
      *
      * @param request - ModifyDtsJobConfigRequest
+     *
      * @returns ModifyDtsJobConfigResponse
      *
      * @param ModifyDtsJobConfigRequest $request
@@ -7597,6 +8161,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ModifyDtsJobDedicatedClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDtsJobDedicatedClusterResponse
      *
      * @param ModifyDtsJobDedicatedClusterRequest $request
@@ -7632,15 +8197,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDtsJobDedicatedCluster',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDtsJobDedicatedCluster',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDtsJobDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7656,6 +8221,7 @@ class Dts extends OpenApiClient
      * > After a DTS task is migrated from a dedicated cluster to a shared cluster, the task is billed on a pay-as-you-go basis.
      *
      * @param request - ModifyDtsJobDedicatedClusterRequest
+     *
      * @returns ModifyDtsJobDedicatedClusterResponse
      *
      * @param ModifyDtsJobDedicatedClusterRequest $request
@@ -7678,6 +8244,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ModifyDtsJobDuLimitRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDtsJobDuLimitResponse
      *
      * @param ModifyDtsJobDuLimitRequest $request
@@ -7713,15 +8280,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDtsJobDuLimit',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDtsJobDuLimit',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDtsJobDuLimitResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7738,6 +8305,7 @@ class Dts extends OpenApiClient
      * *   Before you modify the upper limit of DUs for a DTS task, make sure that sufficient DUs are available.
      *
      * @param request - ModifyDtsJobDuLimitRequest
+     *
      * @returns ModifyDtsJobDuLimitResponse
      *
      * @param ModifyDtsJobDuLimitRequest $request
@@ -7759,6 +8327,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ModifyDtsJobEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDtsJobEndpointResponse
      *
      * @param ModifyDtsJobEndpointRequest $request
@@ -7854,15 +8423,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDtsJobEndpoint',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDtsJobEndpoint',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDtsJobEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7878,6 +8447,7 @@ class Dts extends OpenApiClient
      * >  After the database is changed, Data Transmission Service (DTS) rolls back the incremental write offset for 10 seconds. If the synchronized or migrated data does not have a primary key, make sure that no data is written to the source database while the source or destination database is being replaced. Otherwise, duplicate data may exist.
      *
      * @param request - ModifyDtsJobEndpointRequest
+     *
      * @returns ModifyDtsJobEndpointResponse
      *
      * @param ModifyDtsJobEndpointRequest $request
@@ -7896,6 +8466,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ModifyDtsJobNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDtsJobNameResponse
      *
      * @param ModifyDtsJobNameRequest $request
@@ -7931,15 +8502,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDtsJobName',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDtsJobName',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDtsJobNameResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7952,6 +8523,7 @@ class Dts extends OpenApiClient
      * Changes the name of a Data Transmission Service (DTS) task.
      *
      * @param request - ModifyDtsJobNameRequest
+     *
      * @returns ModifyDtsJobNameResponse
      *
      * @param ModifyDtsJobNameRequest $request
@@ -7970,6 +8542,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ModifyDtsJobPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDtsJobPasswordResponse
      *
      * @param ModifyDtsJobPasswordRequest $request
@@ -8021,15 +8594,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDtsJobPassword',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDtsJobPassword',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDtsJobPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8042,6 +8615,7 @@ class Dts extends OpenApiClient
      * Changes the password of the account used to log on to the source or destination database in a Data Transmission Service (DTS) task.
      *
      * @param request - ModifyDtsJobPasswordRequest
+     *
      * @returns ModifyDtsJobPasswordResponse
      *
      * @param ModifyDtsJobPasswordRequest $request
@@ -8060,6 +8634,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ModifyDynamicConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDynamicConfigResponse
      *
      * @param ModifyDynamicConfigRequest $request
@@ -8099,15 +8674,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDynamicConfig',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDynamicConfig',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDynamicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8120,6 +8695,7 @@ class Dts extends OpenApiClient
      * Enables throttling for data synchronization and data migration.
      *
      * @param request - ModifyDynamicConfigRequest
+     *
      * @returns ModifyDynamicConfigResponse
      *
      * @param ModifyDynamicConfigRequest $request
@@ -8134,6 +8710,82 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * 修改GAD实例名称.
+     *
+     * @param request - ModifyGadInstanceNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ModifyGadInstanceNameResponse
+     *
+     * @param ModifyGadInstanceNameRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyGadInstanceNameResponse
+     */
+    public function modifyGadInstanceNameWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ModifyGadInstanceName',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ModifyGadInstanceNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ModifyGadInstanceNameResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 修改GAD实例名称.
+     *
+     * @param request - ModifyGadInstanceNameRequest
+     *
+     * @returns ModifyGadInstanceNameResponse
+     *
+     * @param ModifyGadInstanceNameRequest $request
+     *
+     * @return ModifyGadInstanceNameResponse
+     */
+    public function modifyGadInstanceName($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyGadInstanceNameWithOptions($request, $runtime);
+    }
+
+    /**
      * Modifies the information about a change tracking task.
      *
      * @remarks
@@ -8141,6 +8793,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ModifySubscriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifySubscriptionResponse
      *
      * @param ModifySubscriptionRequest $request
@@ -8184,15 +8837,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySubscription',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySubscription',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifySubscriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8208,6 +8861,7 @@ class Dts extends OpenApiClient
      * >  You can preview related API operation parameters when you modify the information about a change tracking task in the Data Transmission Service (DTS) console. This helps you configure the request parameters of this API operation. For more information, see [Preview the request parameters of API operations](https://help.aliyun.com/document_detail/2851612.html).
      *
      * @param request - ModifySubscriptionRequest
+     *
      * @returns ModifySubscriptionResponse
      *
      * @param ModifySubscriptionRequest $request
@@ -8226,6 +8880,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ModifySubscriptionObjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifySubscriptionObjectResponse
      *
      * @param ModifySubscriptionObjectRequest $request
@@ -8265,15 +8920,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySubscriptionObject',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySubscriptionObject',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifySubscriptionObjectResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8286,6 +8941,7 @@ class Dts extends OpenApiClient
      * Modifies the objects for change tracking.
      *
      * @param request - ModifySubscriptionObjectRequest
+     *
      * @returns ModifySubscriptionObjectResponse
      *
      * @param ModifySubscriptionObjectRequest $request
@@ -8304,6 +8960,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ModifySynchronizationObjectRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifySynchronizationObjectResponse
      *
      * @param ModifySynchronizationObjectRequest $request
@@ -8346,18 +9003,18 @@ class Dts extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifySynchronizationObject',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySynchronizationObject',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifySynchronizationObjectResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8370,6 +9027,7 @@ class Dts extends OpenApiClient
      * Modifies the objects to be synchronized.
      *
      * @param request - ModifySynchronizationObjectRequest
+     *
      * @returns ModifySynchronizationObjectResponse
      *
      * @param ModifySynchronizationObjectRequest $request
@@ -8384,10 +9042,91 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * 预检查创建GAD订单.
+     *
+     * @param request - PreCheckCreateGadOrderRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PreCheckCreateGadOrderResponse
+     *
+     * @param PreCheckCreateGadOrderRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return PreCheckCreateGadOrderResponse
+     */
+    public function preCheckCreateGadOrderWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->slaveDbInstanceId) {
+            @$query['SlaveDbInstanceId'] = $request->slaveDbInstanceId;
+        }
+
+        if (null !== $request->slaveDbInstanceRegion) {
+            @$query['SlaveDbInstanceRegion'] = $request->slaveDbInstanceRegion;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'PreCheckCreateGadOrder',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PreCheckCreateGadOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return PreCheckCreateGadOrderResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 预检查创建GAD订单.
+     *
+     * @param request - PreCheckCreateGadOrderRequest
+     *
+     * @returns PreCheckCreateGadOrderResponse
+     *
+     * @param PreCheckCreateGadOrderRequest $request
+     *
+     * @return PreCheckCreateGadOrderResponse
+     */
+    public function preCheckCreateGadOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->preCheckCreateGadOrderWithOptions($request, $runtime);
+    }
+
+    /**
      * Renews a Data Transmission Service (DTS) instance. This API operation is available only for subscription instances.
      *
      * @param request - RenewInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RenewInstanceResponse
      *
      * @param RenewInstanceRequest $request
@@ -8427,15 +9166,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RenewInstance',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RenewInstance',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8448,6 +9187,7 @@ class Dts extends OpenApiClient
      * Renews a Data Transmission Service (DTS) instance. This API operation is available only for subscription instances.
      *
      * @param request - RenewInstanceRequest
+     *
      * @returns RenewInstanceResponse
      *
      * @param RenewInstanceRequest $request
@@ -8469,6 +9209,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ResetDtsJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResetDtsJobResponse
      *
      * @param ResetDtsJobRequest $request
@@ -8504,15 +9245,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetDtsJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetDtsJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ResetDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8528,6 +9269,7 @@ class Dts extends OpenApiClient
      * >  If you clear the configurations of a data synchronization or change tracking task, DTS deletes the task. Then, DTS creates another task. The task is in the Not Configured state. You must call the [ConfigureDtsJob](https://help.aliyun.com/document_detail/208399.html) operation reconfigure the task.
      *
      * @param request - ResetDtsJobRequest
+     *
      * @returns ResetDtsJobResponse
      *
      * @param ResetDtsJobRequest $request
@@ -8549,6 +9291,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ResetSynchronizationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResetSynchronizationJobResponse
      *
      * @param ResetSynchronizationJobRequest $request
@@ -8588,15 +9331,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetSynchronizationJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetSynchronizationJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ResetSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8612,6 +9355,7 @@ class Dts extends OpenApiClient
      * >  If you clear the configurations of a data synchronization task, the task will be released. To start the task again, you must call the **ConfigureSynchronizationJob** operation to reconfigure the task.
      *
      * @param request - ResetSynchronizationJobRequest
+     *
      * @returns ResetSynchronizationJobResponse
      *
      * @param ResetSynchronizationJobRequest $request
@@ -8630,6 +9374,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ReverseTwoWayDirectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReverseTwoWayDirectionResponse
      *
      * @param ReverseTwoWayDirectionRequest $request
@@ -8661,15 +9406,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReverseTwoWayDirection',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReverseTwoWayDirection',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReverseTwoWayDirectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8682,6 +9427,7 @@ class Dts extends OpenApiClient
      * 调转双向任务的方向.
      *
      * @param request - ReverseTwoWayDirectionRequest
+     *
      * @returns ReverseTwoWayDirectionResponse
      *
      * @param ReverseTwoWayDirectionRequest $request
@@ -8700,6 +9446,7 @@ class Dts extends OpenApiClient
      *
      * @param request - ShieldPrecheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ShieldPrecheckResponse
      *
      * @param ShieldPrecheckRequest $request
@@ -8731,15 +9478,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ShieldPrecheck',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ShieldPrecheck',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ShieldPrecheckResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8752,6 +9499,7 @@ class Dts extends OpenApiClient
      * Ignores the precheck items that a data migration or synchronization task may fail to pass.
      *
      * @param request - ShieldPrecheckRequest
+     *
      * @returns ShieldPrecheckResponse
      *
      * @param ShieldPrecheckRequest $request
@@ -8766,10 +9514,87 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * The tables that do not need to be synchronized in a full data synchronization are skipped.
+     *
+     * @param request - SkipFullJobTableRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns SkipFullJobTableResponse
+     *
+     * @param SkipFullJobTableRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SkipFullJobTableResponse
+     */
+    public function skipFullJobTableWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->dtsJobId) {
+            @$query['DtsJobId'] = $request->dtsJobId;
+        }
+
+        if (null !== $request->jobProgressId) {
+            @$query['JobProgressId'] = $request->jobProgressId;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->zeroEtlJob) {
+            @$query['ZeroEtlJob'] = $request->zeroEtlJob;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'SkipFullJobTable',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SkipFullJobTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return SkipFullJobTableResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * The tables that do not need to be synchronized in a full data synchronization are skipped.
+     *
+     * @param request - SkipFullJobTableRequest
+     *
+     * @returns SkipFullJobTableResponse
+     *
+     * @param SkipFullJobTableRequest $request
+     *
+     * @return SkipFullJobTableResponse
+     */
+    public function skipFullJobTable($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->skipFullJobTableWithOptions($request, $runtime);
+    }
+
+    /**
      * Skips one or more precheck items.
      *
      * @param request - SkipPreCheckRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SkipPreCheckResponse
      *
      * @param SkipPreCheckRequest $request
@@ -8813,15 +9638,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SkipPreCheck',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SkipPreCheck',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SkipPreCheckResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8834,6 +9659,7 @@ class Dts extends OpenApiClient
      * Skips one or more precheck items.
      *
      * @param request - SkipPreCheckRequest
+     *
      * @returns SkipPreCheckResponse
      *
      * @param SkipPreCheckRequest $request
@@ -8852,6 +9678,7 @@ class Dts extends OpenApiClient
      *
      * @param request - StartDtsJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartDtsJobResponse
      *
      * @param StartDtsJobRequest $request
@@ -8891,15 +9718,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartDtsJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartDtsJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8912,6 +9739,7 @@ class Dts extends OpenApiClient
      * Starts a data migration, data synchronization, or change tracking task.
      *
      * @param request - StartDtsJobRequest
+     *
      * @returns StartDtsJobResponse
      *
      * @param StartDtsJobRequest $request
@@ -8930,6 +9758,7 @@ class Dts extends OpenApiClient
      *
      * @param request - StartDtsJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartDtsJobsResponse
      *
      * @param StartDtsJobsRequest $request
@@ -8961,15 +9790,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartDtsJobs',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartDtsJobs',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartDtsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8982,6 +9811,7 @@ class Dts extends OpenApiClient
      * Starts multiple data migration or data synchronization tasks.
      *
      * @param request - StartDtsJobsRequest
+     *
      * @returns StartDtsJobsResponse
      *
      * @param StartDtsJobsRequest $request
@@ -9000,6 +9830,7 @@ class Dts extends OpenApiClient
      *
      * @param request - StartMigrationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartMigrationJobResponse
      *
      * @param StartMigrationJobRequest $request
@@ -9035,15 +9866,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartMigrationJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartMigrationJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9056,6 +9887,7 @@ class Dts extends OpenApiClient
      * Starts a data migration task.
      *
      * @param request - StartMigrationJobRequest
+     *
      * @returns StartMigrationJobResponse
      *
      * @param StartMigrationJobRequest $request
@@ -9077,6 +9909,7 @@ class Dts extends OpenApiClient
      *
      * @param request - StartReverseWriterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartReverseWriterResponse
      *
      * @param StartReverseWriterRequest $request
@@ -9104,15 +9937,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartReverseWriter',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartReverseWriter',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartReverseWriterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9128,6 +9961,7 @@ class Dts extends OpenApiClient
      * Before you call this operation, make sure that your instance is not released and is paused. You can check the status of the instance in the Data Transmission Service (DTS) console or by calling the [DescribeDtsJobDetail](https://help.aliyun.com/document_detail/208925.html) operation.
      *
      * @param request - StartReverseWriterRequest
+     *
      * @returns StartReverseWriterResponse
      *
      * @param StartReverseWriterRequest $request
@@ -9146,6 +9980,7 @@ class Dts extends OpenApiClient
      *
      * @param request - StartSubscriptionInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartSubscriptionInstanceResponse
      *
      * @param StartSubscriptionInstanceRequest $request
@@ -9181,15 +10016,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartSubscriptionInstance',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartSubscriptionInstance',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartSubscriptionInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9202,6 +10037,7 @@ class Dts extends OpenApiClient
      * Starts a change tracking task.
      *
      * @param request - StartSubscriptionInstanceRequest
+     *
      * @returns StartSubscriptionInstanceResponse
      *
      * @param StartSubscriptionInstanceRequest $request
@@ -9220,6 +10056,7 @@ class Dts extends OpenApiClient
      *
      * @param request - StartSynchronizationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartSynchronizationJobResponse
      *
      * @param StartSynchronizationJobRequest $request
@@ -9259,15 +10096,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartSynchronizationJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartSynchronizationJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9280,6 +10117,7 @@ class Dts extends OpenApiClient
      * Starts a data synchronization task.
      *
      * @param request - StartSynchronizationJobRequest
+     *
      * @returns StartSynchronizationJobResponse
      *
      * @param StartSynchronizationJobRequest $request
@@ -9298,6 +10136,7 @@ class Dts extends OpenApiClient
      *
      * @param request - StopDedicatedClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopDedicatedClusterResponse
      *
      * @param StopDedicatedClusterRequest $request
@@ -9337,15 +10176,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopDedicatedCluster',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopDedicatedCluster',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9358,6 +10197,7 @@ class Dts extends OpenApiClient
      * Releases a cluster.
      *
      * @param request - StopDedicatedClusterRequest
+     *
      * @returns StopDedicatedClusterResponse
      *
      * @param StopDedicatedClusterRequest $request
@@ -9376,6 +10216,7 @@ class Dts extends OpenApiClient
      *
      * @param request - StopDtsJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopDtsJobResponse
      *
      * @param StopDtsJobRequest $request
@@ -9415,15 +10256,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopDtsJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopDtsJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9436,6 +10277,7 @@ class Dts extends OpenApiClient
      * Stops a data migration, data synchronization, or change tracking task.
      *
      * @param request - StopDtsJobRequest
+     *
      * @returns StopDtsJobResponse
      *
      * @param StopDtsJobRequest $request
@@ -9454,6 +10296,7 @@ class Dts extends OpenApiClient
      *
      * @param request - StopDtsJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopDtsJobsResponse
      *
      * @param StopDtsJobsRequest $request
@@ -9485,15 +10328,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopDtsJobs',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopDtsJobs',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopDtsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9506,6 +10349,7 @@ class Dts extends OpenApiClient
      * Stops multiple data migration or data synchronization tasks.
      *
      * @param request - StopDtsJobsRequest
+     *
      * @returns StopDtsJobsResponse
      *
      * @param StopDtsJobsRequest $request
@@ -9524,6 +10368,7 @@ class Dts extends OpenApiClient
      *
      * @param request - StopMigrationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopMigrationJobResponse
      *
      * @param StopMigrationJobRequest $request
@@ -9563,15 +10408,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopMigrationJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopMigrationJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9584,6 +10429,7 @@ class Dts extends OpenApiClient
      * Stops a data migration task that is in the Migrating state.
      *
      * @param request - StopMigrationJobRequest
+     *
      * @returns StopMigrationJobResponse
      *
      * @param StopMigrationJobRequest $request
@@ -9602,6 +10448,7 @@ class Dts extends OpenApiClient
      *
      * @param request - SummaryJobDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SummaryJobDetailResponse
      *
      * @param SummaryJobDetailRequest $request
@@ -9649,15 +10496,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SummaryJobDetail',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SummaryJobDetail',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SummaryJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9670,6 +10517,7 @@ class Dts extends OpenApiClient
      * Queries the number of migrated or synchronized objects in a Data Transmission Service (DTS) task.
      *
      * @param request - SummaryJobDetailRequest
+     *
      * @returns SummaryJobDetailResponse
      *
      * @param SummaryJobDetailRequest $request
@@ -9690,6 +10538,7 @@ class Dts extends OpenApiClient
      *
      * @param request - SuspendDtsJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SuspendDtsJobResponse
      *
      * @param SuspendDtsJobRequest $request
@@ -9729,15 +10578,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SuspendDtsJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SuspendDtsJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SuspendDtsJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9752,6 +10601,7 @@ class Dts extends OpenApiClient
      * @remarks
      *
      * @param request - SuspendDtsJobRequest
+     *
      * @returns SuspendDtsJobResponse
      *
      * @param SuspendDtsJobRequest $request
@@ -9770,6 +10620,7 @@ class Dts extends OpenApiClient
      *
      * @param request - SuspendDtsJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SuspendDtsJobsResponse
      *
      * @param SuspendDtsJobsRequest $request
@@ -9801,15 +10652,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SuspendDtsJobs',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SuspendDtsJobs',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SuspendDtsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9822,6 +10673,7 @@ class Dts extends OpenApiClient
      * Suspends multiple Data Transmission Service (DTS) tasks.
      *
      * @param request - SuspendDtsJobsRequest
+     *
      * @returns SuspendDtsJobsResponse
      *
      * @param SuspendDtsJobsRequest $request
@@ -9840,6 +10692,7 @@ class Dts extends OpenApiClient
      *
      * @param request - SuspendMigrationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SuspendMigrationJobResponse
      *
      * @param SuspendMigrationJobRequest $request
@@ -9879,15 +10732,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SuspendMigrationJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SuspendMigrationJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SuspendMigrationJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9900,6 +10753,7 @@ class Dts extends OpenApiClient
      * Pauses a data migration task.
      *
      * @param request - SuspendMigrationJobRequest
+     *
      * @returns SuspendMigrationJobResponse
      *
      * @param SuspendMigrationJobRequest $request
@@ -9924,6 +10778,7 @@ class Dts extends OpenApiClient
      *
      * @param request - SuspendSynchronizationJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SuspendSynchronizationJobResponse
      *
      * @param SuspendSynchronizationJobRequest $request
@@ -9963,15 +10818,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SuspendSynchronizationJob',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SuspendSynchronizationJob',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SuspendSynchronizationJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9990,6 +10845,7 @@ class Dts extends OpenApiClient
      * *   If the billing method is pay-as-you-go, DTS charges a fee even when the task is paused. This is because DTS only stops writing data to the destination database. DTS continues to pull the logs of the source database so that the task can resume quickly after it is restarted. Therefore, data synchronization consumes resources such as the bandwidth of the source database.
      *
      * @param request - SuspendSynchronizationJobRequest
+     *
      * @returns SuspendSynchronizationJobResponse
      *
      * @param SuspendSynchronizationJobRequest $request
@@ -10008,6 +10864,7 @@ class Dts extends OpenApiClient
      *
      * @param request - SwitchPhysicalDtsJobToCloudRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SwitchPhysicalDtsJobToCloudResponse
      *
      * @param SwitchPhysicalDtsJobToCloudRequest $request
@@ -10043,15 +10900,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchPhysicalDtsJobToCloud',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchPhysicalDtsJobToCloud',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SwitchPhysicalDtsJobToCloudResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10064,6 +10921,7 @@ class Dts extends OpenApiClient
      * 物理迁移任务切换上云.
      *
      * @param request - SwitchPhysicalDtsJobToCloudRequest
+     *
      * @returns SwitchPhysicalDtsJobToCloudResponse
      *
      * @param SwitchPhysicalDtsJobToCloudRequest $request
@@ -10082,6 +10940,7 @@ class Dts extends OpenApiClient
      *
      * @param request - SwitchSynchronizationEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SwitchSynchronizationEndpointResponse
      *
      * @param SwitchSynchronizationEndpointRequest $request
@@ -10129,15 +10988,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchSynchronizationEndpoint',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchSynchronizationEndpoint',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SwitchSynchronizationEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10150,6 +11009,7 @@ class Dts extends OpenApiClient
      * After you perform a primary/secondary switchover on the source or destination database, you can call the SwitchSynchronizationEndpoint operation to transfer the connection settings to Data Transmission Service (DTS). DTS will restart the data synchronization task from the breakpoint.
      *
      * @param request - SwitchSynchronizationEndpointRequest
+     *
      * @returns SwitchSynchronizationEndpointResponse
      *
      * @param SwitchSynchronizationEndpointRequest $request
@@ -10176,6 +11036,7 @@ class Dts extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -10211,15 +11072,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10240,6 +11101,7 @@ class Dts extends OpenApiClient
      * *   You can add tags to up to 50 instances in each request.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -10258,6 +11120,7 @@ class Dts extends OpenApiClient
      *
      * @param request - TransferInstanceClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TransferInstanceClassResponse
      *
      * @param TransferInstanceClassRequest $request
@@ -10293,15 +11156,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TransferInstanceClass',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransferInstanceClass',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TransferInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10314,6 +11177,7 @@ class Dts extends OpenApiClient
      * Upgrades or downgrades a Data Transmission Service (DTS) instance.
      *
      * @param request - TransferInstanceClassRequest
+     *
      * @returns TransferInstanceClassResponse
      *
      * @param TransferInstanceClassRequest $request
@@ -10337,6 +11201,7 @@ class Dts extends OpenApiClient
      *
      * @param request - TransferPayTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TransferPayTypeResponse
      *
      * @param TransferPayTypeRequest $request
@@ -10392,15 +11257,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TransferPayType',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TransferPayType',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TransferPayTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10418,6 +11283,7 @@ class Dts extends OpenApiClient
      * *   Data migration instances only support the pay-as-you-go billing method.
      *
      * @param request - TransferPayTypeRequest
+     *
      * @returns TransferPayTypeResponse
      *
      * @param TransferPayTypeRequest $request
@@ -10439,6 +11305,7 @@ class Dts extends OpenApiClient
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -10478,15 +11345,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10502,6 +11369,7 @@ class Dts extends OpenApiClient
      * >  If a tag is unbound from an instance and is not bound to other instances, the tag is deleted.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -10528,6 +11396,7 @@ class Dts extends OpenApiClient
      *
      * @param request - UpgradeTwoWayRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpgradeTwoWayResponse
      *
      * @param UpgradeTwoWayRequest $request
@@ -10559,15 +11428,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeTwoWay',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeTwoWay',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpgradeTwoWayResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10588,6 +11457,7 @@ class Dts extends OpenApiClient
      * *   The upgrade operation causes data synchronization latency of about 5 seconds. We recommend that you perform this operation during off-peak hours.
      *
      * @param request - UpgradeTwoWayRequest
+     *
      * @returns UpgradeTwoWayResponse
      *
      * @param UpgradeTwoWayRequest $request
@@ -10610,6 +11480,7 @@ class Dts extends OpenApiClient
      *
      * @param request - WhiteIpListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns WhiteIpListResponse
      *
      * @param WhiteIpListRequest $request
@@ -10689,15 +11560,15 @@ class Dts extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'WhiteIpList',
-            'version'     => '2020-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'WhiteIpList',
+            'version' => '2020-01-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return WhiteIpListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10714,6 +11585,7 @@ class Dts extends OpenApiClient
      * The operation that you want to perform. Set the value to **WhiteIpList**.
      *
      * @param request - WhiteIpListRequest
+     *
      * @returns WhiteIpListResponse
      *
      * @param WhiteIpListRequest $request

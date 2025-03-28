@@ -12,103 +12,122 @@ class ModifyDtsJobEndpointRequest extends Model
      * @var string
      */
     public $aliyunUid;
+
     /**
      * @var string
      */
     public $database;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $endpoint;
+
     /**
      * @var string
      */
     public $endpointInstanceId;
+
     /**
      * @var string
      */
     public $endpointInstanceType;
+
     /**
      * @var string
      */
     public $endpointIp;
+
     /**
      * @var string
      */
     public $endpointPort;
+
     /**
      * @var string
      */
     public $endpointRegionId;
+
     /**
      * @var bool
      */
     public $modifyAccount;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $roleName;
+
     /**
      * @var string
      */
     public $shardPassword;
+
     /**
      * @var string
      */
     public $shardUsername;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'aliyunUid'                => 'AliyunUid',
-        'database'                 => 'Database',
-        'dryRun'                   => 'DryRun',
-        'dtsInstanceId'            => 'DtsInstanceId',
-        'dtsJobId'                 => 'DtsJobId',
-        'endpoint'                 => 'Endpoint',
-        'endpointInstanceId'       => 'EndpointInstanceId',
-        'endpointInstanceType'     => 'EndpointInstanceType',
-        'endpointIp'               => 'EndpointIp',
-        'endpointPort'             => 'EndpointPort',
-        'endpointRegionId'         => 'EndpointRegionId',
-        'modifyAccount'            => 'ModifyAccount',
-        'password'                 => 'Password',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'roleName'                 => 'RoleName',
-        'shardPassword'            => 'ShardPassword',
-        'shardUsername'            => 'ShardUsername',
+        'aliyunUid' => 'AliyunUid',
+        'database' => 'Database',
+        'dryRun' => 'DryRun',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'dtsJobId' => 'DtsJobId',
+        'endpoint' => 'Endpoint',
+        'endpointInstanceId' => 'EndpointInstanceId',
+        'endpointInstanceType' => 'EndpointInstanceType',
+        'endpointIp' => 'EndpointIp',
+        'endpointPort' => 'EndpointPort',
+        'endpointRegionId' => 'EndpointRegionId',
+        'modifyAccount' => 'ModifyAccount',
+        'password' => 'Password',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'roleName' => 'RoleName',
+        'shardPassword' => 'ShardPassword',
+        'shardUsername' => 'ShardUsername',
         'synchronizationDirection' => 'SynchronizationDirection',
-        'username'                 => 'Username',
+        'username' => 'Username',
     ];
 
     public function validate()

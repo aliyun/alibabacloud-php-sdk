@@ -31,7 +31,7 @@ class structureInitializationDetailList extends Model
         if (null !== $this->structureInitializationDetail) {
             if (\is_array($this->structureInitializationDetail)) {
                 $res['StructureInitializationDetail'] = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($this->structureInitializationDetail as $item1) {
                     $res['StructureInitializationDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class structureInitializationDetailList extends Model
         if (isset($map['StructureInitializationDetail'])) {
             if (!empty($map['StructureInitializationDetail'])) {
                 $model->structureInitializationDetail = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($map['StructureInitializationDetail'] as $item1) {
                     $model->structureInitializationDetail[$n1++] = structureInitializationDetail::fromMap($item1);
                 }

@@ -13,13 +13,14 @@ class DescribeDtsJobConfigResponseBody extends Model
      * @var parameters[]
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'parameters' => 'Parameters',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeDtsJobConfigResponseBody extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['Parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeDtsJobConfigResponseBody extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     $model->parameters[$n1++] = parameters::fromMap($item1);
                 }

@@ -12,63 +12,74 @@ class destinationEndpoint extends Model
      * @var string
      */
     public $aliyunUid;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var string
      */
     public $engineName;
+
     /**
      * @var string
      */
     public $instanceID;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $ip;
+
     /**
      * @var string
      */
     public $oracleSID;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $roleName;
+
     /**
      * @var string
      */
     public $sslSolutionEnum;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'aliyunUid'       => 'AliyunUid',
-        'databaseName'    => 'DatabaseName',
-        'engineName'      => 'EngineName',
-        'instanceID'      => 'InstanceID',
-        'instanceType'    => 'InstanceType',
-        'ip'              => 'Ip',
-        'oracleSID'       => 'OracleSID',
-        'port'            => 'Port',
-        'region'          => 'Region',
-        'roleName'        => 'RoleName',
+        'aliyunUid' => 'AliyunUid',
+        'databaseName' => 'DatabaseName',
+        'engineName' => 'EngineName',
+        'instanceID' => 'InstanceID',
+        'instanceType' => 'InstanceType',
+        'ip' => 'Ip',
+        'oracleSID' => 'OracleSID',
+        'port' => 'Port',
+        'region' => 'Region',
+        'roleName' => 'RoleName',
         'sslSolutionEnum' => 'SslSolutionEnum',
-        'userName'        => 'UserName',
+        'userName' => 'UserName',
     ];
 
     public function validate()

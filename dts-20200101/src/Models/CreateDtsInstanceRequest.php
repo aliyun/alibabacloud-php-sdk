@@ -12,118 +12,140 @@ class CreateDtsInstanceRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var bool
      */
     public $autoStart;
+
     /**
      * @var int
      */
     public $computeUnit;
+
     /**
      * @var int
      */
     public $databaseCount;
+
     /**
      * @var string
      */
     public $destinationEndpointEngineName;
+
     /**
      * @var string
      */
     public $destinationRegion;
+
     /**
      * @var string
      */
     public $dtsRegion;
+
     /**
      * @var int
      */
     public $du;
+
     /**
      * @var string
      */
     public $feeType;
+
     /**
      * @var string
      */
     public $instanceClass;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var float
      */
     public $maxDu;
+
     /**
      * @var float
      */
     public $minDu;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var int
      */
     public $quantity;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $sourceEndpointEngineName;
+
     /**
      * @var string
      */
     public $sourceRegion;
+
     /**
      * @var string
      */
     public $syncArchitecture;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var int
      */
     public $usedTime;
     protected $_name = [
-        'autoPay'                       => 'AutoPay',
-        'autoStart'                     => 'AutoStart',
-        'computeUnit'                   => 'ComputeUnit',
-        'databaseCount'                 => 'DatabaseCount',
+        'autoPay' => 'AutoPay',
+        'autoStart' => 'AutoStart',
+        'computeUnit' => 'ComputeUnit',
+        'databaseCount' => 'DatabaseCount',
         'destinationEndpointEngineName' => 'DestinationEndpointEngineName',
-        'destinationRegion'             => 'DestinationRegion',
-        'dtsRegion'                     => 'DtsRegion',
-        'du'                            => 'Du',
-        'feeType'                       => 'FeeType',
-        'instanceClass'                 => 'InstanceClass',
-        'jobId'                         => 'JobId',
-        'maxDu'                         => 'MaxDu',
-        'minDu'                         => 'MinDu',
-        'payType'                       => 'PayType',
-        'period'                        => 'Period',
-        'quantity'                      => 'Quantity',
-        'regionId'                      => 'RegionId',
-        'resourceGroupId'               => 'ResourceGroupId',
-        'sourceEndpointEngineName'      => 'SourceEndpointEngineName',
-        'sourceRegion'                  => 'SourceRegion',
-        'syncArchitecture'              => 'SyncArchitecture',
-        'type'                          => 'Type',
-        'usedTime'                      => 'UsedTime',
+        'destinationRegion' => 'DestinationRegion',
+        'dtsRegion' => 'DtsRegion',
+        'du' => 'Du',
+        'feeType' => 'FeeType',
+        'instanceClass' => 'InstanceClass',
+        'jobId' => 'JobId',
+        'maxDu' => 'MaxDu',
+        'minDu' => 'MinDu',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'quantity' => 'Quantity',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceEndpointEngineName' => 'SourceEndpointEngineName',
+        'sourceRegion' => 'SourceRegion',
+        'syncArchitecture' => 'SyncArchitecture',
+        'type' => 'Type',
+        'usedTime' => 'UsedTime',
     ];
 
     public function validate()

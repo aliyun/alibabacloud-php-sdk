@@ -13,42 +13,49 @@ class DescribeMigrationJobsResponseBody extends Model
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var migrationJobs
      */
     public $migrationJobs;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'errCode'          => 'ErrCode',
-        'errMessage'       => 'ErrMessage',
-        'migrationJobs'    => 'MigrationJobs',
-        'pageNumber'       => 'PageNumber',
-        'pageRecordCount'  => 'PageRecordCount',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'migrationJobs' => 'MigrationJobs',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 

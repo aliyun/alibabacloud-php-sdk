@@ -21,118 +21,140 @@ class synchronizationInstances extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $dataInitialization;
+
     /**
      * @var dataInitializationStatus
      */
     public $dataInitializationStatus;
+
     /**
      * @var dataSynchronizationStatus
      */
     public $dataSynchronizationStatus;
+
     /**
      * @var string
      */
     public $delay;
+
     /**
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $instanceCreateTime;
+
     /**
      * @var string
      */
     public $jobCreateTime;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var performance
      */
     public $performance;
+
     /**
      * @var precheckStatus
      */
     public $precheckStatus;
+
     /**
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $structureInitialization;
+
     /**
      * @var structureInitializationStatus
      */
     public $structureInitializationStatus;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var string
      */
     public $synchronizationJobClass;
+
     /**
      * @var string
      */
     public $synchronizationJobId;
+
     /**
      * @var string
      */
     public $synchronizationJobName;
+
     /**
      * @var synchronizationObjects[]
      */
     public $synchronizationObjects;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'createTime'                    => 'CreateTime',
-        'dataInitialization'            => 'DataInitialization',
-        'dataInitializationStatus'      => 'DataInitializationStatus',
-        'dataSynchronizationStatus'     => 'DataSynchronizationStatus',
-        'delay'                         => 'Delay',
-        'destinationEndpoint'           => 'DestinationEndpoint',
-        'errorMessage'                  => 'ErrorMessage',
-        'expireTime'                    => 'ExpireTime',
-        'instanceCreateTime'            => 'InstanceCreateTime',
-        'jobCreateTime'                 => 'JobCreateTime',
-        'payType'                       => 'PayType',
-        'performance'                   => 'Performance',
-        'precheckStatus'                => 'PrecheckStatus',
-        'sourceEndpoint'                => 'SourceEndpoint',
-        'status'                        => 'Status',
-        'structureInitialization'       => 'StructureInitialization',
+        'createTime' => 'CreateTime',
+        'dataInitialization' => 'DataInitialization',
+        'dataInitializationStatus' => 'DataInitializationStatus',
+        'dataSynchronizationStatus' => 'DataSynchronizationStatus',
+        'delay' => 'Delay',
+        'destinationEndpoint' => 'DestinationEndpoint',
+        'errorMessage' => 'ErrorMessage',
+        'expireTime' => 'ExpireTime',
+        'instanceCreateTime' => 'InstanceCreateTime',
+        'jobCreateTime' => 'JobCreateTime',
+        'payType' => 'PayType',
+        'performance' => 'Performance',
+        'precheckStatus' => 'PrecheckStatus',
+        'sourceEndpoint' => 'SourceEndpoint',
+        'status' => 'Status',
+        'structureInitialization' => 'StructureInitialization',
         'structureInitializationStatus' => 'StructureInitializationStatus',
-        'synchronizationDirection'      => 'SynchronizationDirection',
-        'synchronizationJobClass'       => 'SynchronizationJobClass',
-        'synchronizationJobId'          => 'SynchronizationJobId',
-        'synchronizationJobName'        => 'SynchronizationJobName',
-        'synchronizationObjects'        => 'SynchronizationObjects',
-        'tags'                          => 'Tags',
+        'synchronizationDirection' => 'SynchronizationDirection',
+        'synchronizationJobClass' => 'SynchronizationJobClass',
+        'synchronizationJobId' => 'SynchronizationJobId',
+        'synchronizationJobName' => 'SynchronizationJobName',
+        'synchronizationObjects' => 'SynchronizationObjects',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -257,7 +279,7 @@ class synchronizationInstances extends Model
         if (null !== $this->synchronizationObjects) {
             if (\is_array($this->synchronizationObjects)) {
                 $res['SynchronizationObjects'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->synchronizationObjects as $item1) {
                     $res['SynchronizationObjects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -267,7 +289,7 @@ class synchronizationInstances extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -372,7 +394,7 @@ class synchronizationInstances extends Model
         if (isset($map['SynchronizationObjects'])) {
             if (!empty($map['SynchronizationObjects'])) {
                 $model->synchronizationObjects = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['SynchronizationObjects'] as $item1) {
                     $model->synchronizationObjects[$n1++] = synchronizationObjects::fromMap($item1);
                 }
@@ -382,7 +404,7 @@ class synchronizationInstances extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

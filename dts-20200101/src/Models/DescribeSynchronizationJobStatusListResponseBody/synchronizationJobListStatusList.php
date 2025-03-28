@@ -13,13 +13,14 @@ class synchronizationJobListStatusList extends Model
      * @var synchronizationDirectionInfoList[]
      */
     public $synchronizationDirectionInfoList;
+
     /**
      * @var string
      */
     public $synchronizationJobId;
     protected $_name = [
         'synchronizationDirectionInfoList' => 'SynchronizationDirectionInfoList',
-        'synchronizationJobId'             => 'SynchronizationJobId',
+        'synchronizationJobId' => 'SynchronizationJobId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class synchronizationJobListStatusList extends Model
         if (null !== $this->synchronizationDirectionInfoList) {
             if (\is_array($this->synchronizationDirectionInfoList)) {
                 $res['SynchronizationDirectionInfoList'] = [];
-                $n1                                      = 0;
+                $n1 = 0;
                 foreach ($this->synchronizationDirectionInfoList as $item1) {
                     $res['SynchronizationDirectionInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class synchronizationJobListStatusList extends Model
         if (isset($map['SynchronizationDirectionInfoList'])) {
             if (!empty($map['SynchronizationDirectionInfoList'])) {
                 $model->synchronizationDirectionInfoList = [];
-                $n1                                      = 0;
+                $n1 = 0;
                 foreach ($map['SynchronizationDirectionInfoList'] as $item1) {
                     $model->synchronizationDirectionInfoList[$n1++] = synchronizationDirectionInfoList::fromMap($item1);
                 }

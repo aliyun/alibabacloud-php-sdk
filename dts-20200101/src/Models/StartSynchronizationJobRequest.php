@@ -12,33 +12,38 @@ class StartSynchronizationJobRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var string
      */
     public $synchronizationJobId;
     protected $_name = [
-        'accountId'                => 'AccountId',
-        'ownerId'                  => 'OwnerId',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
+        'accountId' => 'AccountId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'synchronizationDirection' => 'SynchronizationDirection',
-        'synchronizationJobId'     => 'SynchronizationJobId',
+        'synchronizationJobId' => 'SynchronizationJobId',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class partitionKey extends Model
      * @var bool
      */
     public $modifyTimeDay;
+
     /**
      * @var bool
      */
     public $modifyTimeHour;
+
     /**
      * @var bool
      */
     public $modifyTimeMinute;
+
     /**
      * @var bool
      */
     public $modifyTimeMonth;
+
     /**
      * @var bool
      */
     public $modifyTimeYear;
     protected $_name = [
-        'modifyTimeDay'    => 'ModifyTime_Day',
-        'modifyTimeHour'   => 'ModifyTime_Hour',
+        'modifyTimeDay' => 'ModifyTime_Day',
+        'modifyTimeHour' => 'ModifyTime_Hour',
         'modifyTimeMinute' => 'ModifyTime_Minute',
-        'modifyTimeMonth'  => 'ModifyTime_Month',
-        'modifyTimeYear'   => 'ModifyTime_Year',
+        'modifyTimeMonth' => 'ModifyTime_Month',
+        'modifyTimeYear' => 'ModifyTime_Year',
     ];
 
     public function validate()

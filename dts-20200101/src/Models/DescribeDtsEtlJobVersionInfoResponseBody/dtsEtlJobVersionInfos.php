@@ -12,53 +12,62 @@ class dtsEtlJobVersionInfos extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $creatorName;
+
     /**
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $dtsJobName;
+
     /**
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $safeCheckpoint;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $version;
     protected $_name = [
-        'createTime'     => 'CreateTime',
-        'creator'        => 'Creator',
-        'creatorName'    => 'CreatorName',
-        'dtsInstanceId'  => 'DtsInstanceId',
-        'dtsJobId'       => 'DtsJobId',
-        'dtsJobName'     => 'DtsJobName',
-        'modifyTime'     => 'ModifyTime',
+        'createTime' => 'CreateTime',
+        'creator' => 'Creator',
+        'creatorName' => 'CreatorName',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'dtsJobId' => 'DtsJobId',
+        'dtsJobName' => 'DtsJobName',
+        'modifyTime' => 'ModifyTime',
         'safeCheckpoint' => 'SafeCheckpoint',
-        'status'         => 'Status',
-        'version'        => 'Version',
+        'status' => 'Status',
+        'version' => 'Version',
     ];
 
     public function validate()

@@ -12,27 +12,31 @@ class CreateSynchronizationJobResponseBody extends Model
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var string
      */
     public $synchronizationJobId;
     protected $_name = [
-        'errCode'              => 'ErrCode',
-        'errMessage'           => 'ErrMessage',
-        'requestId'            => 'RequestId',
-        'success'              => 'Success',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'synchronizationJobId' => 'SynchronizationJobId',
     ];
 

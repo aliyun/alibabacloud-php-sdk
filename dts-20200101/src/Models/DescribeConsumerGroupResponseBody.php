@@ -13,42 +13,49 @@ class DescribeConsumerGroupResponseBody extends Model
      * @var consumerChannels
      */
     public $consumerChannels;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
         'consumerChannels' => 'ConsumerChannels',
-        'errCode'          => 'ErrCode',
-        'errMessage'       => 'ErrMessage',
-        'pageNumber'       => 'PageNumber',
-        'pageRecordCount'  => 'PageRecordCount',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 

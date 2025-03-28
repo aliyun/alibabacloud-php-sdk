@@ -12,33 +12,38 @@ class DescribeConnectionStatusResponseBody extends Model
      * @var mixed[]
      */
     public $destinationConnectionStatus;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var mixed[]
      */
     public $sourceConnectionStatus;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
         'destinationConnectionStatus' => 'DestinationConnectionStatus',
-        'errCode'                     => 'ErrCode',
-        'errMessage'                  => 'ErrMessage',
-        'requestId'                   => 'RequestId',
-        'sourceConnectionStatus'      => 'SourceConnectionStatus',
-        'success'                     => 'Success',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'requestId' => 'RequestId',
+        'sourceConnectionStatus' => 'SourceConnectionStatus',
+        'success' => 'Success',
     ];
 
     public function validate()

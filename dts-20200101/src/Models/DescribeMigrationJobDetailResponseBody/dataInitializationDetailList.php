@@ -31,7 +31,7 @@ class dataInitializationDetailList extends Model
         if (null !== $this->dataInitializationDetail) {
             if (\is_array($this->dataInitializationDetail)) {
                 $res['DataInitializationDetail'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->dataInitializationDetail as $item1) {
                     $res['DataInitializationDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class dataInitializationDetailList extends Model
         if (isset($map['DataInitializationDetail'])) {
             if (!empty($map['DataInitializationDetail'])) {
                 $model->dataInitializationDetail = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['DataInitializationDetail'] as $item1) {
                     $model->dataInitializationDetail[$n1++] = dataInitializationDetail::fromMap($item1);
                 }

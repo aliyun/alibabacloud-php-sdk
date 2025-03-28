@@ -13,73 +13,86 @@ class fullNetCheckJobStatus extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $destRegion;
+
     /**
      * @var string
      */
     public $destRegionCidr;
+
     /**
      * @var string
      */
     public $destinationEndpointType;
+
     /**
      * @var int
      */
     public $errorItem;
+
     /**
      * @var string
      */
     public $hostRegion;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var jobProgress[]
      */
     public $jobProgress;
+
     /**
      * @var string
      */
     public $sourceEndpointType;
+
     /**
      * @var string
      */
     public $srcRegion;
+
     /**
      * @var string
      */
     public $srcRegionCidr;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'code'                    => 'Code',
-        'destRegion'              => 'DestRegion',
-        'destRegionCidr'          => 'DestRegionCidr',
+        'code' => 'Code',
+        'destRegion' => 'DestRegion',
+        'destRegionCidr' => 'DestRegionCidr',
         'destinationEndpointType' => 'DestinationEndpointType',
-        'errorItem'               => 'ErrorItem',
-        'hostRegion'              => 'HostRegion',
-        'jobId'                   => 'JobId',
-        'jobName'                 => 'JobName',
-        'jobProgress'             => 'JobProgress',
-        'sourceEndpointType'      => 'SourceEndpointType',
-        'srcRegion'               => 'SrcRegion',
-        'srcRegionCidr'           => 'SrcRegionCidr',
-        'state'                   => 'State',
-        'total'                   => 'Total',
+        'errorItem' => 'ErrorItem',
+        'hostRegion' => 'HostRegion',
+        'jobId' => 'JobId',
+        'jobName' => 'JobName',
+        'jobProgress' => 'JobProgress',
+        'sourceEndpointType' => 'SourceEndpointType',
+        'srcRegion' => 'SrcRegion',
+        'srcRegionCidr' => 'SrcRegionCidr',
+        'state' => 'State',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -128,7 +141,7 @@ class fullNetCheckJobStatus extends Model
         if (null !== $this->jobProgress) {
             if (\is_array($this->jobProgress)) {
                 $res['JobProgress'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->jobProgress as $item1) {
                     $res['JobProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -201,7 +214,7 @@ class fullNetCheckJobStatus extends Model
         if (isset($map['JobProgress'])) {
             if (!empty($map['JobProgress'])) {
                 $model->jobProgress = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['JobProgress'] as $item1) {
                     $model->jobProgress[$n1++] = jobProgress::fromMap($item1);
                 }

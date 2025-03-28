@@ -13,12 +13,13 @@ class networkDiagnosisResult extends Model
      * @var diagnosis[]
      */
     public $diagnosis;
+
     /**
      * @var string
      */
     public $modelVersion;
     protected $_name = [
-        'diagnosis'    => 'Diagnosis',
+        'diagnosis' => 'Diagnosis',
         'modelVersion' => 'ModelVersion',
     ];
 
@@ -36,7 +37,7 @@ class networkDiagnosisResult extends Model
         if (null !== $this->diagnosis) {
             if (\is_array($this->diagnosis)) {
                 $res['Diagnosis'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->diagnosis as $item1) {
                     $res['Diagnosis'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class networkDiagnosisResult extends Model
         if (isset($map['Diagnosis'])) {
             if (!empty($map['Diagnosis'])) {
                 $model->diagnosis = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Diagnosis'] as $item1) {
                     $model->diagnosis[$n1++] = diagnosis::fromMap($item1);
                 }

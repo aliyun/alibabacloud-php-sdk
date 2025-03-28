@@ -12,33 +12,38 @@ class etlRunningLogs extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $contentKey;
+
     /**
      * @var string
      */
     public $etlId;
+
     /**
      * @var string
      */
     public $logDatetime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'content'     => 'Content',
-        'contentKey'  => 'ContentKey',
-        'etlId'       => 'EtlId',
+        'content' => 'Content',
+        'contentKey' => 'ContentKey',
+        'etlId' => 'EtlId',
         'logDatetime' => 'LogDatetime',
-        'status'      => 'Status',
-        'userId'      => 'UserId',
+        'status' => 'Status',
+        'userId' => 'UserId',
     ];
 
     public function validate()

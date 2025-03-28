@@ -12,33 +12,38 @@ class CreateDtsInstanceResponseBody extends Model
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'errCode'    => 'ErrCode',
+        'errCode' => 'ErrCode',
         'errMessage' => 'ErrMessage',
         'instanceId' => 'InstanceId',
-        'jobId'      => 'JobId',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'jobId' => 'JobId',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

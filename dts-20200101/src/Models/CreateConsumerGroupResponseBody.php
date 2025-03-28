@@ -12,28 +12,32 @@ class CreateConsumerGroupResponseBody extends Model
      * @var string
      */
     public $consumerGroupID;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
         'consumerGroupID' => 'ConsumerGroupID',
-        'errCode'         => 'ErrCode',
-        'errMessage'      => 'ErrMessage',
-        'requestId'       => 'RequestId',
-        'success'         => 'Success',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

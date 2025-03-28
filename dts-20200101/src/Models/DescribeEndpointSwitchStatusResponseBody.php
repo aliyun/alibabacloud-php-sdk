@@ -12,33 +12,38 @@ class DescribeEndpointSwitchStatusResponseBody extends Model
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'errCode'      => 'ErrCode',
-        'errMessage'   => 'ErrMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'errorMessage' => 'ErrorMessage',
-        'requestId'    => 'RequestId',
-        'status'       => 'Status',
-        'success'      => 'Success',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'success' => 'Success',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class SummaryJobDetailRequest extends Model
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $jobCode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $structType;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var bool
      */
     public $zeroEtlJob;
     protected $_name = [
-        'dtsInstanceId'            => 'DtsInstanceId',
-        'dtsJobId'                 => 'DtsJobId',
-        'jobCode'                  => 'JobCode',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'structType'               => 'StructType',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'dtsJobId' => 'DtsJobId',
+        'jobCode' => 'JobCode',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'structType' => 'StructType',
         'synchronizationDirection' => 'SynchronizationDirection',
-        'zeroEtlJob'               => 'ZeroEtlJob',
+        'zeroEtlJob' => 'ZeroEtlJob',
     ];
 
     public function validate()

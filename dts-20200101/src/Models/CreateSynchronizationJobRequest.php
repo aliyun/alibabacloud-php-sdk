@@ -14,83 +14,98 @@ class CreateSynchronizationJobRequest extends Model
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
+
     /**
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var int
      */
     public $DBInstanceCount;
+
     /**
      * @var string
      */
     public $destRegion;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $sourceRegion;
+
     /**
      * @var string
      */
     public $synchronizationJobClass;
+
     /**
      * @var string
      */
     public $topology;
+
     /**
      * @var int
      */
     public $usedTime;
+
     /**
      * @var string
      */
     public $networkType;
     protected $_name = [
-        'destinationEndpoint'     => 'DestinationEndpoint',
-        'sourceEndpoint'          => 'SourceEndpoint',
-        'accountId'               => 'AccountId',
-        'clientToken'             => 'ClientToken',
-        'DBInstanceCount'         => 'DBInstanceCount',
-        'destRegion'              => 'DestRegion',
-        'ownerId'                 => 'OwnerId',
-        'payType'                 => 'PayType',
-        'period'                  => 'Period',
-        'regionId'                => 'RegionId',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'sourceRegion'            => 'SourceRegion',
+        'destinationEndpoint' => 'DestinationEndpoint',
+        'sourceEndpoint' => 'SourceEndpoint',
+        'accountId' => 'AccountId',
+        'clientToken' => 'ClientToken',
+        'DBInstanceCount' => 'DBInstanceCount',
+        'destRegion' => 'DestRegion',
+        'ownerId' => 'OwnerId',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceRegion' => 'SourceRegion',
         'synchronizationJobClass' => 'SynchronizationJobClass',
-        'topology'                => 'Topology',
-        'usedTime'                => 'UsedTime',
-        'networkType'             => 'networkType',
+        'topology' => 'Topology',
+        'usedTime' => 'UsedTime',
+        'networkType' => 'networkType',
     ];
 
     public function validate()

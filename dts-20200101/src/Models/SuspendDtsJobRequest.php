@@ -12,33 +12,38 @@ class SuspendDtsJobRequest extends Model
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var bool
      */
     public $zeroEtlJob;
     protected $_name = [
-        'dtsInstanceId'            => 'DtsInstanceId',
-        'dtsJobId'                 => 'DtsJobId',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'dtsJobId' => 'DtsJobId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'synchronizationDirection' => 'SynchronizationDirection',
-        'zeroEtlJob'               => 'ZeroEtlJob',
+        'zeroEtlJob' => 'ZeroEtlJob',
     ];
 
     public function validate()

@@ -12,27 +12,31 @@ class ModifyDtsJobConfigRequest extends Model
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'dtsJobId'        => 'DtsJobId',
-        'ownerId'         => 'OwnerId',
-        'parameters'      => 'Parameters',
-        'regionId'        => 'RegionId',
+        'dtsJobId' => 'DtsJobId',
+        'ownerId' => 'OwnerId',
+        'parameters' => 'Parameters',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

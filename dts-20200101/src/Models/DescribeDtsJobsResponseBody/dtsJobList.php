@@ -28,273 +28,326 @@ class dtsJobList extends Model
      * @var string
      */
     public $appName;
+
     /**
      * @var string
      */
     public $beginTimestamp;
+
     /**
      * @var string
      */
     public $checkpoint;
+
     /**
      * @var string
      */
     public $consumptionCheckpoint;
+
     /**
      * @var string
      */
     public $consumptionClient;
+
     /**
      * @var string
      */
     public $cpuUsage;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var dataCloudStatus
      */
     public $dataCloudStatus;
+
     /**
      * @var dataEtlStatus
      */
     public $dataEtlStatus;
+
     /**
      * @var dataInitializationStatus
      */
     public $dataInitializationStatus;
+
     /**
      * @var dataSynchronizationStatus
      */
     public $dataSynchronizationStatus;
+
     /**
      * @var string
      */
     public $dbObject;
+
     /**
      * @var string
      */
     public $dedicatedClusterId;
+
     /**
      * @var int
      */
     public $delay;
+
     /**
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
+
     /**
      * @var string
      */
     public $dtsBisLabel;
+
     /**
      * @var string
      */
     public $dtsInstanceID;
+
     /**
      * @var string
      */
     public $dtsJobClass;
+
     /**
      * @var string
      */
     public $dtsJobDirection;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $dtsJobName;
+
     /**
      * @var string
      */
     public $duRealUsage;
+
     /**
      * @var int
      */
     public $duUsage;
+
     /**
      * @var string
      */
     public $endTimestamp;
+
     /**
      * @var errorDetails[]
      */
     public $errorDetails;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $etlSafeCheckpoint;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var fullDataCheckStatus
      */
     public $fullDataCheckStatus;
+
     /**
      * @var incDataCheckStatus
      */
     public $incDataCheckStatus;
+
     /**
      * @var string
      */
     public $jobType;
+
     /**
      * @var float
      */
     public $maxDu;
+
     /**
      * @var string
      */
     public $memUsage;
+
     /**
      * @var string
      */
     public $migrationErrCode;
+
     /**
      * @var string
      */
     public $migrationErrHelpDocId;
+
     /**
      * @var string
      */
     public $migrationErrHelpDocKey;
+
     /**
      * @var string
      */
     public $migrationErrMsg;
+
     /**
      * @var string
      */
     public $migrationErrType;
+
     /**
      * @var string
      */
     public $migrationErrWorkaround;
+
     /**
      * @var migrationMode
      */
     public $migrationMode;
+
     /**
      * @var float
      */
     public $minDu;
+
     /**
      * @var string
      */
     public $originType;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var performance
      */
     public $performance;
+
     /**
      * @var precheckStatus
      */
     public $precheckStatus;
+
     /**
      * @var string
      */
     public $reserved;
+
     /**
      * @var string
      */
     public $resourceGroupDisplayName;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var retryState
      */
     public $retryState;
+
     /**
      * @var reverseJob
      */
     public $reverseJob;
+
     /**
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var structureInitializationStatus
      */
     public $structureInitializationStatus;
+
     /**
      * @var tagList[]
      */
     public $tagList;
     protected $_name = [
-        'appName'                       => 'AppName',
-        'beginTimestamp'                => 'BeginTimestamp',
-        'checkpoint'                    => 'Checkpoint',
-        'consumptionCheckpoint'         => 'ConsumptionCheckpoint',
-        'consumptionClient'             => 'ConsumptionClient',
-        'cpuUsage'                      => 'CpuUsage',
-        'createTime'                    => 'CreateTime',
-        'dataCloudStatus'               => 'DataCloudStatus',
-        'dataEtlStatus'                 => 'DataEtlStatus',
-        'dataInitializationStatus'      => 'DataInitializationStatus',
-        'dataSynchronizationStatus'     => 'DataSynchronizationStatus',
-        'dbObject'                      => 'DbObject',
-        'dedicatedClusterId'            => 'DedicatedClusterId',
-        'delay'                         => 'Delay',
-        'destinationEndpoint'           => 'DestinationEndpoint',
-        'dtsBisLabel'                   => 'DtsBisLabel',
-        'dtsInstanceID'                 => 'DtsInstanceID',
-        'dtsJobClass'                   => 'DtsJobClass',
-        'dtsJobDirection'               => 'DtsJobDirection',
-        'dtsJobId'                      => 'DtsJobId',
-        'dtsJobName'                    => 'DtsJobName',
-        'duRealUsage'                   => 'DuRealUsage',
-        'duUsage'                       => 'DuUsage',
-        'endTimestamp'                  => 'EndTimestamp',
-        'errorDetails'                  => 'ErrorDetails',
-        'errorMessage'                  => 'ErrorMessage',
-        'etlSafeCheckpoint'             => 'EtlSafeCheckpoint',
-        'expireTime'                    => 'ExpireTime',
-        'fullDataCheckStatus'           => 'FullDataCheckStatus',
-        'incDataCheckStatus'            => 'IncDataCheckStatus',
-        'jobType'                       => 'JobType',
-        'maxDu'                         => 'MaxDu',
-        'memUsage'                      => 'MemUsage',
-        'migrationErrCode'              => 'MigrationErrCode',
-        'migrationErrHelpDocId'         => 'MigrationErrHelpDocId',
-        'migrationErrHelpDocKey'        => 'MigrationErrHelpDocKey',
-        'migrationErrMsg'               => 'MigrationErrMsg',
-        'migrationErrType'              => 'MigrationErrType',
-        'migrationErrWorkaround'        => 'MigrationErrWorkaround',
-        'migrationMode'                 => 'MigrationMode',
-        'minDu'                         => 'MinDu',
-        'originType'                    => 'OriginType',
-        'payType'                       => 'PayType',
-        'performance'                   => 'Performance',
-        'precheckStatus'                => 'PrecheckStatus',
-        'reserved'                      => 'Reserved',
-        'resourceGroupDisplayName'      => 'ResourceGroupDisplayName',
-        'resourceGroupId'               => 'ResourceGroupId',
-        'retryState'                    => 'RetryState',
-        'reverseJob'                    => 'ReverseJob',
-        'sourceEndpoint'                => 'SourceEndpoint',
-        'status'                        => 'Status',
+        'appName' => 'AppName',
+        'beginTimestamp' => 'BeginTimestamp',
+        'checkpoint' => 'Checkpoint',
+        'consumptionCheckpoint' => 'ConsumptionCheckpoint',
+        'consumptionClient' => 'ConsumptionClient',
+        'cpuUsage' => 'CpuUsage',
+        'createTime' => 'CreateTime',
+        'dataCloudStatus' => 'DataCloudStatus',
+        'dataEtlStatus' => 'DataEtlStatus',
+        'dataInitializationStatus' => 'DataInitializationStatus',
+        'dataSynchronizationStatus' => 'DataSynchronizationStatus',
+        'dbObject' => 'DbObject',
+        'dedicatedClusterId' => 'DedicatedClusterId',
+        'delay' => 'Delay',
+        'destinationEndpoint' => 'DestinationEndpoint',
+        'dtsBisLabel' => 'DtsBisLabel',
+        'dtsInstanceID' => 'DtsInstanceID',
+        'dtsJobClass' => 'DtsJobClass',
+        'dtsJobDirection' => 'DtsJobDirection',
+        'dtsJobId' => 'DtsJobId',
+        'dtsJobName' => 'DtsJobName',
+        'duRealUsage' => 'DuRealUsage',
+        'duUsage' => 'DuUsage',
+        'endTimestamp' => 'EndTimestamp',
+        'errorDetails' => 'ErrorDetails',
+        'errorMessage' => 'ErrorMessage',
+        'etlSafeCheckpoint' => 'EtlSafeCheckpoint',
+        'expireTime' => 'ExpireTime',
+        'fullDataCheckStatus' => 'FullDataCheckStatus',
+        'incDataCheckStatus' => 'IncDataCheckStatus',
+        'jobType' => 'JobType',
+        'maxDu' => 'MaxDu',
+        'memUsage' => 'MemUsage',
+        'migrationErrCode' => 'MigrationErrCode',
+        'migrationErrHelpDocId' => 'MigrationErrHelpDocId',
+        'migrationErrHelpDocKey' => 'MigrationErrHelpDocKey',
+        'migrationErrMsg' => 'MigrationErrMsg',
+        'migrationErrType' => 'MigrationErrType',
+        'migrationErrWorkaround' => 'MigrationErrWorkaround',
+        'migrationMode' => 'MigrationMode',
+        'minDu' => 'MinDu',
+        'originType' => 'OriginType',
+        'payType' => 'PayType',
+        'performance' => 'Performance',
+        'precheckStatus' => 'PrecheckStatus',
+        'reserved' => 'Reserved',
+        'resourceGroupDisplayName' => 'ResourceGroupDisplayName',
+        'resourceGroupId' => 'ResourceGroupId',
+        'retryState' => 'RetryState',
+        'reverseJob' => 'ReverseJob',
+        'sourceEndpoint' => 'SourceEndpoint',
+        'status' => 'Status',
         'structureInitializationStatus' => 'StructureInitializationStatus',
-        'tagList'                       => 'TagList',
+        'tagList' => 'TagList',
     ];
 
     public function validate()
@@ -452,7 +505,7 @@ class dtsJobList extends Model
         if (null !== $this->errorDetails) {
             if (\is_array($this->errorDetails)) {
                 $res['ErrorDetails'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->errorDetails as $item1) {
                     $res['ErrorDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -574,7 +627,7 @@ class dtsJobList extends Model
         if (null !== $this->tagList) {
             if (\is_array($this->tagList)) {
                 $res['TagList'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->tagList as $item1) {
                     $res['TagList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -691,7 +744,7 @@ class dtsJobList extends Model
         if (isset($map['ErrorDetails'])) {
             if (!empty($map['ErrorDetails'])) {
                 $model->errorDetails = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ErrorDetails'] as $item1) {
                     $model->errorDetails[$n1++] = errorDetails::fromMap($item1);
                 }
@@ -813,7 +866,7 @@ class dtsJobList extends Model
         if (isset($map['TagList'])) {
             if (!empty($map['TagList'])) {
                 $model->tagList = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['TagList'] as $item1) {
                     $model->tagList[$n1++] = tagList::fromMap($item1);
                 }

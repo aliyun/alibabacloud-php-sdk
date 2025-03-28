@@ -13,38 +13,44 @@ class subDistributedJobStatus extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $errorItem;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var jobProgress[]
      */
     public $jobProgress;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'code'        => 'Code',
-        'errorItem'   => 'ErrorItem',
-        'jobId'       => 'JobId',
-        'jobName'     => 'JobName',
+        'code' => 'Code',
+        'errorItem' => 'ErrorItem',
+        'jobId' => 'JobId',
+        'jobName' => 'JobName',
         'jobProgress' => 'JobProgress',
-        'state'       => 'State',
-        'total'       => 'Total',
+        'state' => 'State',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -77,7 +83,7 @@ class subDistributedJobStatus extends Model
         if (null !== $this->jobProgress) {
             if (\is_array($this->jobProgress)) {
                 $res['JobProgress'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->jobProgress as $item1) {
                     $res['JobProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -122,7 +128,7 @@ class subDistributedJobStatus extends Model
         if (isset($map['JobProgress'])) {
             if (!empty($map['JobProgress'])) {
                 $model->jobProgress = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['JobProgress'] as $item1) {
                     $model->jobProgress[$n1++] = jobProgress::fromMap($item1);
                 }

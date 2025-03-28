@@ -12,23 +12,26 @@ class CreateReverseDtsJobRequest extends Model
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $shardPassword;
+
     /**
      * @var string
      */
     public $shardUsername;
     protected $_name = [
-        'dtsJobId'        => 'DtsJobId',
+        'dtsJobId' => 'DtsJobId',
         'resourceGroupId' => 'ResourceGroupId',
-        'shardPassword'   => 'ShardPassword',
-        'shardUsername'   => 'ShardUsername',
+        'shardPassword' => 'ShardPassword',
+        'shardUsername' => 'ShardUsername',
     ];
 
     public function validate()

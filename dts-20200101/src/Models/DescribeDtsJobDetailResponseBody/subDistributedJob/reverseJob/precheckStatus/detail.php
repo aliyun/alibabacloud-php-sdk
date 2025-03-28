@@ -12,28 +12,32 @@ class detail extends Model
      * @var string
      */
     public $checkItem;
+
     /**
      * @var string
      */
     public $checkItemDescription;
+
     /**
      * @var string
      */
     public $checkResult;
+
     /**
      * @var string
      */
     public $failedReason;
+
     /**
      * @var string
      */
     public $repairMethod;
     protected $_name = [
-        'checkItem'            => 'CheckItem',
+        'checkItem' => 'CheckItem',
         'checkItemDescription' => 'CheckItemDescription',
-        'checkResult'          => 'CheckResult',
-        'failedReason'         => 'FailedReason',
-        'repairMethod'         => 'RepairMethod',
+        'checkResult' => 'CheckResult',
+        'failedReason' => 'FailedReason',
+        'repairMethod' => 'RepairMethod',
     ];
 
     public function validate()

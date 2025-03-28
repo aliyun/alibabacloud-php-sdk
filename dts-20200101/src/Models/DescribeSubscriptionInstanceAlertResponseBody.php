@@ -12,58 +12,68 @@ class DescribeSubscriptionInstanceAlertResponseBody extends Model
      * @var string
      */
     public $delayAlertPhone;
+
     /**
      * @var string
      */
     public $delayAlertStatus;
+
     /**
      * @var string
      */
     public $delayOverSeconds;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $errorAlertPhone;
+
     /**
      * @var string
      */
     public $errorAlertStatus;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $subscriptionInstanceID;
+
     /**
      * @var string
      */
     public $subscriptionInstanceName;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'delayAlertPhone'          => 'DelayAlertPhone',
-        'delayAlertStatus'         => 'DelayAlertStatus',
-        'delayOverSeconds'         => 'DelayOverSeconds',
-        'errCode'                  => 'ErrCode',
-        'errMessage'               => 'ErrMessage',
-        'errorAlertPhone'          => 'ErrorAlertPhone',
-        'errorAlertStatus'         => 'ErrorAlertStatus',
-        'requestId'                => 'RequestId',
-        'subscriptionInstanceID'   => 'SubscriptionInstanceID',
+        'delayAlertPhone' => 'DelayAlertPhone',
+        'delayAlertStatus' => 'DelayAlertStatus',
+        'delayOverSeconds' => 'DelayOverSeconds',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'errorAlertPhone' => 'ErrorAlertPhone',
+        'errorAlertStatus' => 'ErrorAlertStatus',
+        'requestId' => 'RequestId',
+        'subscriptionInstanceID' => 'SubscriptionInstanceID',
         'subscriptionInstanceName' => 'SubscriptionInstanceName',
-        'success'                  => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

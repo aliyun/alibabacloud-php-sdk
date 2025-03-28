@@ -12,53 +12,62 @@ class destinationEndpoint extends Model
      * @var string
      */
     public $dataBaseName;
+
     /**
      * @var string
      */
     public $engineName;
+
     /**
      * @var string
      */
     public $IP;
+
     /**
      * @var string
      */
     public $instanceID;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $oracleSID;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
         'dataBaseName' => 'DataBaseName',
-        'engineName'   => 'EngineName',
-        'IP'           => 'IP',
-        'instanceID'   => 'InstanceID',
+        'engineName' => 'EngineName',
+        'IP' => 'IP',
+        'instanceID' => 'InstanceID',
         'instanceType' => 'InstanceType',
-        'oracleSID'    => 'OracleSID',
-        'password'     => 'Password',
-        'port'         => 'Port',
-        'region'       => 'Region',
-        'userName'     => 'UserName',
+        'oracleSID' => 'OracleSID',
+        'password' => 'Password',
+        'port' => 'Port',
+        'region' => 'Region',
+        'userName' => 'UserName',
     ];
 
     public function validate()

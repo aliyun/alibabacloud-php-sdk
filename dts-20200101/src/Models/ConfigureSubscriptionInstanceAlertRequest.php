@@ -12,52 +12,61 @@ class ConfigureSubscriptionInstanceAlertRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $delayAlertPhone;
+
     /**
      * @var string
      */
     public $delayAlertStatus;
+
     /**
      * @var string
      */
     public $delayOverSeconds;
+
     /**
      * @var string
      */
     public $errorAlertPhone;
+
     /**
      * @var string
      */
     public $errorAlertStatus;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $subscriptionInstanceId;
     protected $_name = [
-        'accountId'              => 'AccountId',
-        'delayAlertPhone'        => 'DelayAlertPhone',
-        'delayAlertStatus'       => 'DelayAlertStatus',
-        'delayOverSeconds'       => 'DelayOverSeconds',
-        'errorAlertPhone'        => 'ErrorAlertPhone',
-        'errorAlertStatus'       => 'ErrorAlertStatus',
-        'ownerId'                => 'OwnerId',
-        'regionId'               => 'RegionId',
-        'resourceGroupId'        => 'ResourceGroupId',
+        'accountId' => 'AccountId',
+        'delayAlertPhone' => 'DelayAlertPhone',
+        'delayAlertStatus' => 'DelayAlertStatus',
+        'delayOverSeconds' => 'DelayOverSeconds',
+        'errorAlertPhone' => 'ErrorAlertPhone',
+        'errorAlertStatus' => 'ErrorAlertStatus',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'subscriptionInstanceId' => 'SubscriptionInstanceId',
     ];
 

@@ -12,28 +12,32 @@ class ModifyConsumerChannelResponseBody extends Model
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

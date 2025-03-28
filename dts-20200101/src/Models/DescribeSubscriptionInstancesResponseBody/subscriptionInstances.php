@@ -31,7 +31,7 @@ class subscriptionInstances extends Model
         if (null !== $this->subscriptionInstance) {
             if (\is_array($this->subscriptionInstance)) {
                 $res['SubscriptionInstance'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->subscriptionInstance as $item1) {
                     $res['SubscriptionInstance'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class subscriptionInstances extends Model
         if (isset($map['SubscriptionInstance'])) {
             if (!empty($map['SubscriptionInstance'])) {
                 $model->subscriptionInstance = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['SubscriptionInstance'] as $item1) {
                     $model->subscriptionInstance[$n1++] = subscriptionInstance::fromMap($item1);
                 }

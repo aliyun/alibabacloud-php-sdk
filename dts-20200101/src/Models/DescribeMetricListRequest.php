@@ -12,63 +12,74 @@ class DescribeMetricListRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $env;
+
     /**
      * @var string
      */
     public $metricName;
+
     /**
      * @var string
      */
     public $metricType;
+
     /**
      * @var string
      */
     public $ownerID;
+
     /**
      * @var string
      */
     public $param;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'accountId'       => 'AccountId',
-        'clientToken'     => 'ClientToken',
-        'dtsJobId'        => 'DtsJobId',
-        'endTime'         => 'EndTime',
-        'env'             => 'Env',
-        'metricName'      => 'MetricName',
-        'metricType'      => 'MetricType',
-        'ownerID'         => 'OwnerID',
-        'param'           => 'Param',
-        'period'          => 'Period',
+        'accountId' => 'AccountId',
+        'clientToken' => 'ClientToken',
+        'dtsJobId' => 'DtsJobId',
+        'endTime' => 'EndTime',
+        'env' => 'Env',
+        'metricName' => 'MetricName',
+        'metricType' => 'MetricType',
+        'ownerID' => 'OwnerID',
+        'param' => 'Param',
+        'period' => 'Period',
         'resourceGroupId' => 'ResourceGroupId',
-        'startTime'       => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

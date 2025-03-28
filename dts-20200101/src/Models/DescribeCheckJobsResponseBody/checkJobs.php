@@ -12,83 +12,98 @@ class checkJobs extends Model
      * @var string
      */
     public $chargeType;
+
     /**
      * @var int
      */
     public $checkPoint;
+
     /**
      * @var int
      */
     public $checkType;
+
     /**
      * @var int
      */
     public $diffCount;
+
     /**
      * @var int
      */
     public $diffSum;
+
     /**
      * @var string
      */
     public $dtsInstanceID;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var int
      */
     public $finishCount;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $instanceClass;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var string
      */
     public $jobStepId;
+
     /**
      * @var string
      */
     public $parentJobType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'chargeType'    => 'ChargeType',
-        'checkPoint'    => 'CheckPoint',
-        'checkType'     => 'CheckType',
-        'diffCount'     => 'DiffCount',
-        'diffSum'       => 'DiffSum',
+        'chargeType' => 'ChargeType',
+        'checkPoint' => 'CheckPoint',
+        'checkType' => 'CheckType',
+        'diffCount' => 'DiffCount',
+        'diffSum' => 'DiffSum',
         'dtsInstanceID' => 'DtsInstanceID',
-        'dtsJobId'      => 'DtsJobId',
-        'finishCount'   => 'FinishCount',
-        'groupId'       => 'GroupId',
+        'dtsJobId' => 'DtsJobId',
+        'finishCount' => 'FinishCount',
+        'groupId' => 'GroupId',
         'instanceClass' => 'InstanceClass',
-        'jobName'       => 'JobName',
-        'jobStepId'     => 'JobStepId',
+        'jobName' => 'JobName',
+        'jobStepId' => 'JobStepId',
         'parentJobType' => 'ParentJobType',
-        'regionId'      => 'RegionId',
-        'status'        => 'Status',
-        'totalCount'    => 'TotalCount',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

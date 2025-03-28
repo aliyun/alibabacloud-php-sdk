@@ -17,93 +17,110 @@ class DescribePreCheckStatusResponseBody extends Model
      * @var analysisJobProgress[]
      */
     public $analysisJobProgress;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $errorAnalysisItem;
+
     /**
      * @var int
      */
     public $errorItem;
+
     /**
      * @var fullNetCheckJobStatus[]
      */
     public $fullNetCheckJobStatus;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var jobProgress[]
      */
     public $jobProgress;
+
     /**
      * @var networkDiagnosisResult
      */
     public $networkDiagnosisResult;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var subDistributedJobStatus[]
      */
     public $subDistributedJobStatus;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $total;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'analysisJobProgress'     => 'AnalysisJobProgress',
-        'code'                    => 'Code',
-        'errorAnalysisItem'       => 'ErrorAnalysisItem',
-        'errorItem'               => 'ErrorItem',
-        'fullNetCheckJobStatus'   => 'FullNetCheckJobStatus',
-        'httpStatusCode'          => 'HttpStatusCode',
-        'jobId'                   => 'JobId',
-        'jobName'                 => 'JobName',
-        'jobProgress'             => 'JobProgress',
-        'networkDiagnosisResult'  => 'NetworkDiagnosisResult',
-        'pageNumber'              => 'PageNumber',
-        'pageRecordCount'         => 'PageRecordCount',
-        'requestId'               => 'RequestId',
-        'state'                   => 'State',
+        'analysisJobProgress' => 'AnalysisJobProgress',
+        'code' => 'Code',
+        'errorAnalysisItem' => 'ErrorAnalysisItem',
+        'errorItem' => 'ErrorItem',
+        'fullNetCheckJobStatus' => 'FullNetCheckJobStatus',
+        'httpStatusCode' => 'HttpStatusCode',
+        'jobId' => 'JobId',
+        'jobName' => 'JobName',
+        'jobProgress' => 'JobProgress',
+        'networkDiagnosisResult' => 'NetworkDiagnosisResult',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
+        'state' => 'State',
         'subDistributedJobStatus' => 'SubDistributedJobStatus',
-        'success'                 => 'Success',
-        'total'                   => 'Total',
-        'totalRecordCount'        => 'TotalRecordCount',
+        'success' => 'Success',
+        'total' => 'Total',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()
@@ -132,7 +149,7 @@ class DescribePreCheckStatusResponseBody extends Model
         if (null !== $this->analysisJobProgress) {
             if (\is_array($this->analysisJobProgress)) {
                 $res['AnalysisJobProgress'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->analysisJobProgress as $item1) {
                     $res['AnalysisJobProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -154,7 +171,7 @@ class DescribePreCheckStatusResponseBody extends Model
         if (null !== $this->fullNetCheckJobStatus) {
             if (\is_array($this->fullNetCheckJobStatus)) {
                 $res['FullNetCheckJobStatus'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->fullNetCheckJobStatus as $item1) {
                     $res['FullNetCheckJobStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -176,7 +193,7 @@ class DescribePreCheckStatusResponseBody extends Model
         if (null !== $this->jobProgress) {
             if (\is_array($this->jobProgress)) {
                 $res['JobProgress'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->jobProgress as $item1) {
                     $res['JobProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -206,7 +223,7 @@ class DescribePreCheckStatusResponseBody extends Model
         if (null !== $this->subDistributedJobStatus) {
             if (\is_array($this->subDistributedJobStatus)) {
                 $res['SubDistributedJobStatus'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->subDistributedJobStatus as $item1) {
                     $res['SubDistributedJobStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -239,7 +256,7 @@ class DescribePreCheckStatusResponseBody extends Model
         if (isset($map['AnalysisJobProgress'])) {
             if (!empty($map['AnalysisJobProgress'])) {
                 $model->analysisJobProgress = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['AnalysisJobProgress'] as $item1) {
                     $model->analysisJobProgress[$n1++] = analysisJobProgress::fromMap($item1);
                 }
@@ -261,7 +278,7 @@ class DescribePreCheckStatusResponseBody extends Model
         if (isset($map['FullNetCheckJobStatus'])) {
             if (!empty($map['FullNetCheckJobStatus'])) {
                 $model->fullNetCheckJobStatus = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['FullNetCheckJobStatus'] as $item1) {
                     $model->fullNetCheckJobStatus[$n1++] = fullNetCheckJobStatus::fromMap($item1);
                 }
@@ -283,7 +300,7 @@ class DescribePreCheckStatusResponseBody extends Model
         if (isset($map['JobProgress'])) {
             if (!empty($map['JobProgress'])) {
                 $model->jobProgress = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['JobProgress'] as $item1) {
                     $model->jobProgress[$n1++] = jobProgress::fromMap($item1);
                 }
@@ -313,7 +330,7 @@ class DescribePreCheckStatusResponseBody extends Model
         if (isset($map['SubDistributedJobStatus'])) {
             if (!empty($map['SubDistributedJobStatus'])) {
                 $model->subDistributedJobStatus = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['SubDistributedJobStatus'] as $item1) {
                     $model->subDistributedJobStatus[$n1++] = subDistributedJobStatus::fromMap($item1);
                 }

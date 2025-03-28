@@ -16,98 +16,116 @@ class DescribeSubscriptionInstanceStatusResponseBody extends Model
      * @var string
      */
     public $beginTimestamp;
+
     /**
      * @var string
      */
     public $consumptionCheckpoint;
+
     /**
      * @var string
      */
     public $consumptionClient;
+
     /**
      * @var string
      */
     public $endTimestamp;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $subscribeTopic;
+
     /**
      * @var subscriptionDataType
      */
     public $subscriptionDataType;
+
     /**
      * @var subscriptionHost
      */
     public $subscriptionHost;
+
     /**
      * @var string
      */
     public $subscriptionInstanceID;
+
     /**
      * @var string
      */
     public $subscriptionInstanceName;
+
     /**
      * @var subscriptionObject
      */
     public $subscriptionObject;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'beginTimestamp'           => 'BeginTimestamp',
-        'consumptionCheckpoint'    => 'ConsumptionCheckpoint',
-        'consumptionClient'        => 'ConsumptionClient',
-        'endTimestamp'             => 'EndTimestamp',
-        'errCode'                  => 'ErrCode',
-        'errMessage'               => 'ErrMessage',
-        'errorMessage'             => 'ErrorMessage',
-        'payType'                  => 'PayType',
-        'requestId'                => 'RequestId',
-        'sourceEndpoint'           => 'SourceEndpoint',
-        'status'                   => 'Status',
-        'subscribeTopic'           => 'SubscribeTopic',
-        'subscriptionDataType'     => 'SubscriptionDataType',
-        'subscriptionHost'         => 'SubscriptionHost',
-        'subscriptionInstanceID'   => 'SubscriptionInstanceID',
+        'beginTimestamp' => 'BeginTimestamp',
+        'consumptionCheckpoint' => 'ConsumptionCheckpoint',
+        'consumptionClient' => 'ConsumptionClient',
+        'endTimestamp' => 'EndTimestamp',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'errorMessage' => 'ErrorMessage',
+        'payType' => 'PayType',
+        'requestId' => 'RequestId',
+        'sourceEndpoint' => 'SourceEndpoint',
+        'status' => 'Status',
+        'subscribeTopic' => 'SubscribeTopic',
+        'subscriptionDataType' => 'SubscriptionDataType',
+        'subscriptionHost' => 'SubscriptionHost',
+        'subscriptionInstanceID' => 'SubscriptionInstanceID',
         'subscriptionInstanceName' => 'SubscriptionInstanceName',
-        'subscriptionObject'       => 'SubscriptionObject',
-        'success'                  => 'Success',
-        'taskId'                   => 'TaskId',
+        'subscriptionObject' => 'SubscriptionObject',
+        'success' => 'Success',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

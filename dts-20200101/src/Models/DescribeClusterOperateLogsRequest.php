@@ -12,53 +12,62 @@ class DescribeClusterOperateLogsRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $dedicatedClusterId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $ownerID;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'accountId'          => 'AccountId',
-        'clientToken'        => 'ClientToken',
+        'accountId' => 'AccountId',
+        'clientToken' => 'ClientToken',
         'dedicatedClusterId' => 'DedicatedClusterId',
-        'dtsJobId'           => 'DtsJobId',
-        'endTime'            => 'EndTime',
-        'ownerID'            => 'OwnerID',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'startTime'          => 'StartTime',
+        'dtsJobId' => 'DtsJobId',
+        'endTime' => 'EndTime',
+        'ownerID' => 'OwnerID',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'resourceGroupId' => 'ResourceGroupId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

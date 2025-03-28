@@ -12,28 +12,32 @@ class dataDeliveryChannelInfo extends Model
      * @var int
      */
     public $partitionNum;
+
     /**
      * @var string
      */
     public $publicDproxyUrl;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $topic;
+
     /**
      * @var string
      */
     public $vpcDproxyUrl;
     protected $_name = [
-        'partitionNum'    => 'PartitionNum',
+        'partitionNum' => 'PartitionNum',
         'publicDproxyUrl' => 'PublicDproxyUrl',
-        'region'          => 'Region',
-        'topic'           => 'Topic',
-        'vpcDproxyUrl'    => 'VpcDproxyUrl',
+        'region' => 'Region',
+        'topic' => 'Topic',
+        'vpcDproxyUrl' => 'VpcDproxyUrl',
     ];
 
     public function validate()

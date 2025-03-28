@@ -12,37 +12,43 @@ class DescribeConsumerGroupRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $subscriptionInstanceId;
     protected $_name = [
-        'accountId'              => 'AccountId',
-        'ownerId'                => 'OwnerId',
-        'pageNum'                => 'PageNum',
-        'pageSize'               => 'PageSize',
-        'regionId'               => 'RegionId',
-        'resourceGroupId'        => 'ResourceGroupId',
+        'accountId' => 'AccountId',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'subscriptionInstanceId' => 'SubscriptionInstanceId',
     ];
 

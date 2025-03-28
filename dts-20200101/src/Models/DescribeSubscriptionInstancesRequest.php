@@ -13,48 +13,56 @@ class DescribeSubscriptionInstancesRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $subscriptionInstanceName;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'accountId'                => 'AccountId',
-        'clientToken'              => 'ClientToken',
-        'ownerId'                  => 'OwnerId',
-        'pageNum'                  => 'PageNum',
-        'pageSize'                 => 'PageSize',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
+        'accountId' => 'AccountId',
+        'clientToken' => 'ClientToken',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'subscriptionInstanceName' => 'SubscriptionInstanceName',
-        'tag'                      => 'Tag',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -103,7 +111,7 @@ class DescribeSubscriptionInstancesRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -156,7 +164,7 @@ class DescribeSubscriptionInstancesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

@@ -12,53 +12,62 @@ class DescribePreCheckStatusRequest extends Model
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $jobCode;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $pageNo;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $structPhase;
+
     /**
      * @var string
      */
     public $structType;
+
     /**
      * @var bool
      */
     public $zeroEtlJob;
     protected $_name = [
-        'dtsJobId'        => 'DtsJobId',
-        'jobCode'         => 'JobCode',
-        'name'            => 'Name',
-        'pageNo'          => 'PageNo',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'dtsJobId' => 'DtsJobId',
+        'jobCode' => 'JobCode',
+        'name' => 'Name',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'structPhase'     => 'StructPhase',
-        'structType'      => 'StructType',
-        'zeroEtlJob'      => 'ZeroEtlJob',
+        'structPhase' => 'StructPhase',
+        'structType' => 'StructType',
+        'zeroEtlJob' => 'ZeroEtlJob',
     ];
 
     public function validate()

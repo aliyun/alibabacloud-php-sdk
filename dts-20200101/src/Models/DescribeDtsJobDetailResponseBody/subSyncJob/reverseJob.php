@@ -25,223 +25,266 @@ class reverseJob extends Model
      * @var string
      */
     public $appName;
+
     /**
      * @var string
      */
     public $beginTimestamp;
+
     /**
      * @var string
      */
     public $checkpoint;
+
     /**
      * @var string
      */
     public $consumptionCheckpoint;
+
     /**
      * @var string
      */
     public $consumptionClient;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var dataEtlStatus
      */
     public $dataEtlStatus;
+
     /**
      * @var dataInitializationStatus
      */
     public $dataInitializationStatus;
+
     /**
      * @var dataSynchronizationStatus
      */
     public $dataSynchronizationStatus;
+
     /**
      * @var int
      */
     public $databaseCount;
+
     /**
      * @var string
      */
     public $dbObject;
+
     /**
      * @var int
      */
     public $delay;
+
     /**
      * @var string
      */
     public $destNetType;
+
     /**
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
+
     /**
      * @var string
      */
     public $dtsInstanceID;
+
     /**
      * @var string
      */
     public $dtsJobClass;
+
     /**
      * @var string
      */
     public $dtsJobDirection;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $dtsJobName;
+
     /**
      * @var string
      */
     public $endTimestamp;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $etlCalculator;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $finishTime;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var bool
      */
     public $isDemoJob;
+
     /**
      * @var string
      */
     public $jobType;
+
     /**
      * @var migrationMode
      */
     public $migrationMode;
+
     /**
      * @var string
      */
     public $originType;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var performance
      */
     public $performance;
+
     /**
      * @var precheckStatus
      */
     public $precheckStatus;
+
     /**
      * @var string
      */
     public $reserved;
+
     /**
      * @var retryState
      */
     public $retryState;
+
     /**
      * @var mixed
      */
     public $reverseJob;
+
     /**
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var structureInitializationStatus
      */
     public $structureInitializationStatus;
+
     /**
      * @var string
      */
     public $subscribeTopic;
+
     /**
      * @var subscriptionDataType
      */
     public $subscriptionDataType;
+
     /**
      * @var subscriptionHost
      */
     public $subscriptionHost;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var tagList[]
      */
     public $tagList;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'appName'                       => 'AppName',
-        'beginTimestamp'                => 'BeginTimestamp',
-        'checkpoint'                    => 'Checkpoint',
-        'consumptionCheckpoint'         => 'ConsumptionCheckpoint',
-        'consumptionClient'             => 'ConsumptionClient',
-        'createTime'                    => 'CreateTime',
-        'dataEtlStatus'                 => 'DataEtlStatus',
-        'dataInitializationStatus'      => 'DataInitializationStatus',
-        'dataSynchronizationStatus'     => 'DataSynchronizationStatus',
-        'databaseCount'                 => 'DatabaseCount',
-        'dbObject'                      => 'DbObject',
-        'delay'                         => 'Delay',
-        'destNetType'                   => 'DestNetType',
-        'destinationEndpoint'           => 'DestinationEndpoint',
-        'dtsInstanceID'                 => 'DtsInstanceID',
-        'dtsJobClass'                   => 'DtsJobClass',
-        'dtsJobDirection'               => 'DtsJobDirection',
-        'dtsJobId'                      => 'DtsJobId',
-        'dtsJobName'                    => 'DtsJobName',
-        'endTimestamp'                  => 'EndTimestamp',
-        'errorMessage'                  => 'ErrorMessage',
-        'etlCalculator'                 => 'EtlCalculator',
-        'expireTime'                    => 'ExpireTime',
-        'finishTime'                    => 'FinishTime',
-        'groupId'                       => 'GroupId',
-        'isDemoJob'                     => 'IsDemoJob',
-        'jobType'                       => 'JobType',
-        'migrationMode'                 => 'MigrationMode',
-        'originType'                    => 'OriginType',
-        'payType'                       => 'PayType',
-        'performance'                   => 'Performance',
-        'precheckStatus'                => 'PrecheckStatus',
-        'reserved'                      => 'Reserved',
-        'retryState'                    => 'RetryState',
-        'reverseJob'                    => 'ReverseJob',
-        'sourceEndpoint'                => 'SourceEndpoint',
-        'status'                        => 'Status',
+        'appName' => 'AppName',
+        'beginTimestamp' => 'BeginTimestamp',
+        'checkpoint' => 'Checkpoint',
+        'consumptionCheckpoint' => 'ConsumptionCheckpoint',
+        'consumptionClient' => 'ConsumptionClient',
+        'createTime' => 'CreateTime',
+        'dataEtlStatus' => 'DataEtlStatus',
+        'dataInitializationStatus' => 'DataInitializationStatus',
+        'dataSynchronizationStatus' => 'DataSynchronizationStatus',
+        'databaseCount' => 'DatabaseCount',
+        'dbObject' => 'DbObject',
+        'delay' => 'Delay',
+        'destNetType' => 'DestNetType',
+        'destinationEndpoint' => 'DestinationEndpoint',
+        'dtsInstanceID' => 'DtsInstanceID',
+        'dtsJobClass' => 'DtsJobClass',
+        'dtsJobDirection' => 'DtsJobDirection',
+        'dtsJobId' => 'DtsJobId',
+        'dtsJobName' => 'DtsJobName',
+        'endTimestamp' => 'EndTimestamp',
+        'errorMessage' => 'ErrorMessage',
+        'etlCalculator' => 'EtlCalculator',
+        'expireTime' => 'ExpireTime',
+        'finishTime' => 'FinishTime',
+        'groupId' => 'GroupId',
+        'isDemoJob' => 'IsDemoJob',
+        'jobType' => 'JobType',
+        'migrationMode' => 'MigrationMode',
+        'originType' => 'OriginType',
+        'payType' => 'PayType',
+        'performance' => 'Performance',
+        'precheckStatus' => 'PrecheckStatus',
+        'reserved' => 'Reserved',
+        'retryState' => 'RetryState',
+        'reverseJob' => 'ReverseJob',
+        'sourceEndpoint' => 'SourceEndpoint',
+        'status' => 'Status',
         'structureInitializationStatus' => 'StructureInitializationStatus',
-        'subscribeTopic'                => 'SubscribeTopic',
-        'subscriptionDataType'          => 'SubscriptionDataType',
-        'subscriptionHost'              => 'SubscriptionHost',
-        'synchronizationDirection'      => 'SynchronizationDirection',
-        'tagList'                       => 'TagList',
-        'taskType'                      => 'TaskType',
+        'subscribeTopic' => 'SubscribeTopic',
+        'subscriptionDataType' => 'SubscriptionDataType',
+        'subscriptionHost' => 'SubscriptionHost',
+        'synchronizationDirection' => 'SynchronizationDirection',
+        'tagList' => 'TagList',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()
@@ -462,7 +505,7 @@ class reverseJob extends Model
         if (null !== $this->tagList) {
             if (\is_array($this->tagList)) {
                 $res['TagList'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->tagList as $item1) {
                     $res['TagList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -655,7 +698,7 @@ class reverseJob extends Model
         if (isset($map['TagList'])) {
             if (!empty($map['TagList'])) {
                 $model->tagList = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['TagList'] as $item1) {
                     $model->tagList[$n1++] = tagList::fromMap($item1);
                 }

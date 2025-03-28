@@ -12,13 +12,14 @@ class performance extends Model
      * @var string
      */
     public $flow;
+
     /**
      * @var string
      */
     public $rps;
     protected $_name = [
         'flow' => 'Flow',
-        'rps'  => 'Rps',
+        'rps' => 'Rps',
     ];
 
     public function validate()

@@ -12,103 +12,122 @@ class dedicatedClusterStatus extends Model
      * @var int
      */
     public $cpuUtilization;
+
     /**
      * @var string
      */
     public $dedicatedClusterId;
+
     /**
      * @var string
      */
     public $dedicatedClusterName;
+
     /**
      * @var int
      */
     public $diskUtilization;
+
     /**
      * @var string
      */
     public $dtsInstanceID;
+
     /**
      * @var int
      */
     public $du;
+
     /**
      * @var int
      */
     public $duUtilization;
+
     /**
      * @var int
      */
     public $gmtCreated;
+
     /**
      * @var int
      */
     public $memUtilization;
+
     /**
      * @var int
      */
     public $nodeCount;
+
     /**
      * @var int
      */
     public $oversoldDu;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $totalCpuCore;
+
     /**
      * @var int
      */
     public $totalDiskGBSize;
+
     /**
      * @var int
      */
     public $totalMemGBSize;
+
     /**
      * @var int
      */
     public $usedCpuCore;
+
     /**
      * @var int
      */
     public $usedDiskGBSize;
+
     /**
      * @var int
      */
     public $usedDu;
+
     /**
      * @var int
      */
     public $usedMemGBSize;
     protected $_name = [
-        'cpuUtilization'       => 'CpuUtilization',
-        'dedicatedClusterId'   => 'DedicatedClusterId',
+        'cpuUtilization' => 'CpuUtilization',
+        'dedicatedClusterId' => 'DedicatedClusterId',
         'dedicatedClusterName' => 'DedicatedClusterName',
-        'diskUtilization'      => 'DiskUtilization',
-        'dtsInstanceID'        => 'DtsInstanceID',
-        'du'                   => 'Du',
-        'duUtilization'        => 'DuUtilization',
-        'gmtCreated'           => 'GmtCreated',
-        'memUtilization'       => 'MemUtilization',
-        'nodeCount'            => 'NodeCount',
-        'oversoldDu'           => 'OversoldDu',
-        'regionId'             => 'RegionId',
-        'state'                => 'State',
-        'totalCpuCore'         => 'TotalCpuCore',
-        'totalDiskGBSize'      => 'TotalDiskGBSize',
-        'totalMemGBSize'       => 'TotalMemGBSize',
-        'usedCpuCore'          => 'UsedCpuCore',
-        'usedDiskGBSize'       => 'UsedDiskGBSize',
-        'usedDu'               => 'UsedDu',
-        'usedMemGBSize'        => 'UsedMemGBSize',
+        'diskUtilization' => 'DiskUtilization',
+        'dtsInstanceID' => 'DtsInstanceID',
+        'du' => 'Du',
+        'duUtilization' => 'DuUtilization',
+        'gmtCreated' => 'GmtCreated',
+        'memUtilization' => 'MemUtilization',
+        'nodeCount' => 'NodeCount',
+        'oversoldDu' => 'OversoldDu',
+        'regionId' => 'RegionId',
+        'state' => 'State',
+        'totalCpuCore' => 'TotalCpuCore',
+        'totalDiskGBSize' => 'TotalDiskGBSize',
+        'totalMemGBSize' => 'TotalMemGBSize',
+        'usedCpuCore' => 'UsedCpuCore',
+        'usedDiskGBSize' => 'UsedDiskGBSize',
+        'usedDu' => 'UsedDu',
+        'usedMemGBSize' => 'UsedMemGBSize',
     ];
 
     public function validate()

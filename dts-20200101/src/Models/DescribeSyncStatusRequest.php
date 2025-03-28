@@ -12,27 +12,31 @@ class DescribeSyncStatusRequest extends Model
      * @var string
      */
     public $direction;
+
     /**
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'direction'       => 'Direction',
-        'dtsInstanceId'   => 'DtsInstanceId',
-        'dtsJobId'        => 'DtsJobId',
-        'regionId'        => 'RegionId',
+        'direction' => 'Direction',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'dtsJobId' => 'DtsJobId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

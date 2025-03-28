@@ -12,63 +12,74 @@ class DescribeSynchronizationJobAlertResponseBody extends Model
      * @var string
      */
     public $delayAlertPhone;
+
     /**
      * @var string
      */
     public $delayAlertStatus;
+
     /**
      * @var string
      */
     public $delayOverSeconds;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $errorAlertPhone;
+
     /**
      * @var string
      */
     public $errorAlertStatus;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var string
      */
     public $synchronizationJobId;
+
     /**
      * @var string
      */
     public $synchronizationJobName;
     protected $_name = [
-        'delayAlertPhone'          => 'DelayAlertPhone',
-        'delayAlertStatus'         => 'DelayAlertStatus',
-        'delayOverSeconds'         => 'DelayOverSeconds',
-        'errCode'                  => 'ErrCode',
-        'errMessage'               => 'ErrMessage',
-        'errorAlertPhone'          => 'ErrorAlertPhone',
-        'errorAlertStatus'         => 'ErrorAlertStatus',
-        'requestId'                => 'RequestId',
-        'success'                  => 'Success',
+        'delayAlertPhone' => 'DelayAlertPhone',
+        'delayAlertStatus' => 'DelayAlertStatus',
+        'delayOverSeconds' => 'DelayOverSeconds',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'errorAlertPhone' => 'ErrorAlertPhone',
+        'errorAlertStatus' => 'ErrorAlertStatus',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'synchronizationDirection' => 'SynchronizationDirection',
-        'synchronizationJobId'     => 'SynchronizationJobId',
-        'synchronizationJobName'   => 'SynchronizationJobName',
+        'synchronizationJobId' => 'SynchronizationJobId',
+        'synchronizationJobName' => 'SynchronizationJobName',
     ];
 
     public function validate()

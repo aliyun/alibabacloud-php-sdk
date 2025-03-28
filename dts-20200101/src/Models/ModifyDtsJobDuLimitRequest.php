@@ -12,27 +12,31 @@ class ModifyDtsJobDuLimitRequest extends Model
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var int
      */
     public $duLimit;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'dtsJobId'        => 'DtsJobId',
-        'duLimit'         => 'DuLimit',
-        'ownerId'         => 'OwnerId',
-        'regionId'        => 'RegionId',
+        'dtsJobId' => 'DtsJobId',
+        'duLimit' => 'DuLimit',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

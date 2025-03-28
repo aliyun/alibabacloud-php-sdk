@@ -12,28 +12,32 @@ class subscriptionMetaList extends Model
      * @var int
      */
     public $checkpoint;
+
     /**
      * @var string
      */
     public $DBList;
+
     /**
      * @var string
      */
     public $DProxyUrl;
+
     /**
      * @var string
      */
     public $sid;
+
     /**
      * @var string
      */
     public $topic;
     protected $_name = [
         'checkpoint' => 'Checkpoint',
-        'DBList'     => 'DBList',
-        'DProxyUrl'  => 'DProxyUrl',
-        'sid'        => 'Sid',
-        'topic'      => 'Topic',
+        'DBList' => 'DBList',
+        'DProxyUrl' => 'DProxyUrl',
+        'sid' => 'Sid',
+        'topic' => 'Topic',
     ];
 
     public function validate()

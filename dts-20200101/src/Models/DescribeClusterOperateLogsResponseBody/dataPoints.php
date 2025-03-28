@@ -12,43 +12,50 @@ class dataPoints extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var int
      */
     public $logDatetime;
+
     /**
      * @var string
      */
     public $newValue;
+
     /**
      * @var string
      */
     public $oldValue;
+
     /**
      * @var string
      */
     public $operationName;
+
     /**
      * @var string
      */
     public $operationUser;
+
     /**
      * @var int
      */
     public $success;
     protected $_name = [
-        'content'       => 'Content',
-        'id'            => 'Id',
-        'logDatetime'   => 'LogDatetime',
-        'newValue'      => 'NewValue',
-        'oldValue'      => 'OldValue',
+        'content' => 'Content',
+        'id' => 'Id',
+        'logDatetime' => 'LogDatetime',
+        'newValue' => 'NewValue',
+        'oldValue' => 'OldValue',
         'operationName' => 'OperationName',
         'operationUser' => 'OperationUser',
-        'success'       => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

@@ -12,37 +12,43 @@ class DescribeConsumerChannelRequest extends Model
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $parentChannelId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'dtsInstanceId'   => 'DtsInstanceId',
-        'dtsJobId'        => 'DtsJobId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'dtsJobId' => 'DtsJobId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'parentChannelId' => 'ParentChannelId',
-        'regionId'        => 'RegionId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

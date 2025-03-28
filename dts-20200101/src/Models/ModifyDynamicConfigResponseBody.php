@@ -12,38 +12,44 @@ class ModifyDynamicConfigResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'dynamicMessage' => 'DynamicMessage',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

@@ -12,58 +12,68 @@ class DescribeDtsServiceLogRequest extends Model
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $subJobType;
+
     /**
      * @var bool
      */
     public $zeroEtlJob;
     protected $_name = [
-        'dtsJobId'        => 'DtsJobId',
-        'endTime'         => 'EndTime',
-        'keyword'         => 'Keyword',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'dtsJobId' => 'DtsJobId',
+        'endTime' => 'EndTime',
+        'keyword' => 'Keyword',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'startTime'       => 'StartTime',
-        'status'          => 'Status',
-        'subJobType'      => 'SubJobType',
-        'zeroEtlJob'      => 'ZeroEtlJob',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'subJobType' => 'SubJobType',
+        'zeroEtlJob' => 'ZeroEtlJob',
     ];
 
     public function validate()

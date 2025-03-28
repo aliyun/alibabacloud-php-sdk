@@ -12,48 +12,56 @@ class ModifyDtsJobPasswordRequest extends Model
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $endpoint;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var string
      */
     public $userName;
+
     /**
      * @var bool
      */
     public $zeroEtlJob;
     protected $_name = [
-        'dtsInstanceId'            => 'DtsInstanceId',
-        'dtsJobId'                 => 'DtsJobId',
-        'endpoint'                 => 'Endpoint',
-        'password'                 => 'Password',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'dtsJobId' => 'DtsJobId',
+        'endpoint' => 'Endpoint',
+        'password' => 'Password',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'synchronizationDirection' => 'SynchronizationDirection',
-        'userName'                 => 'UserName',
-        'zeroEtlJob'               => 'ZeroEtlJob',
+        'userName' => 'UserName',
+        'zeroEtlJob' => 'ZeroEtlJob',
     ];
 
     public function validate()

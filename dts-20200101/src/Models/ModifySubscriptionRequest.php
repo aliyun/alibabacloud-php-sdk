@@ -12,36 +12,42 @@ class ModifySubscriptionRequest extends Model
      * @var string
      */
     public $dbList;
+
     /**
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $subscriptionDataTypeDDL;
+
     /**
      * @var bool
      */
     public $subscriptionDataTypeDML;
     protected $_name = [
-        'dbList'                  => 'DbList',
-        'dtsInstanceId'           => 'DtsInstanceId',
-        'dtsJobId'                => 'DtsJobId',
-        'regionId'                => 'RegionId',
-        'resourceGroupId'         => 'ResourceGroupId',
+        'dbList' => 'DbList',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'dtsJobId' => 'DtsJobId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'subscriptionDataTypeDDL' => 'SubscriptionDataTypeDDL',
         'subscriptionDataTypeDML' => 'SubscriptionDataTypeDML',
     ];

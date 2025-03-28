@@ -14,43 +14,50 @@ class SwitchSynchronizationEndpointRequest extends Model
      * @var endpoint
      */
     public $endpoint;
+
     /**
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var string
      */
     public $synchronizationJobId;
     protected $_name = [
-        'endpoint'                 => 'Endpoint',
-        'sourceEndpoint'           => 'SourceEndpoint',
-        'accountId'                => 'AccountId',
-        'ownerId'                  => 'OwnerId',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
+        'endpoint' => 'Endpoint',
+        'sourceEndpoint' => 'SourceEndpoint',
+        'accountId' => 'AccountId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'synchronizationDirection' => 'SynchronizationDirection',
-        'synchronizationJobId'     => 'SynchronizationJobId',
+        'synchronizationJobId' => 'SynchronizationJobId',
     ];
 
     public function validate()

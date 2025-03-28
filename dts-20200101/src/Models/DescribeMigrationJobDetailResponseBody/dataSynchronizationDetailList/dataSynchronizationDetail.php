@@ -12,28 +12,32 @@ class dataSynchronizationDetail extends Model
      * @var string
      */
     public $destinationOwnerDBName;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $sourceOwnerDBName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
         'destinationOwnerDBName' => 'DestinationOwnerDBName',
-        'errorMessage'           => 'ErrorMessage',
-        'sourceOwnerDBName'      => 'SourceOwnerDBName',
-        'status'                 => 'Status',
-        'tableName'              => 'TableName',
+        'errorMessage' => 'ErrorMessage',
+        'sourceOwnerDBName' => 'SourceOwnerDBName',
+        'status' => 'Status',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

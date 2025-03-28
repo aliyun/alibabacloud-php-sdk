@@ -12,83 +12,98 @@ class WhiteIpListRequest extends Model
      * @var string
      */
     public $destAliyunUid;
+
     /**
      * @var string
      */
     public $destPrimaryVswId;
+
     /**
      * @var string
      */
     public $destRoleName;
+
     /**
      * @var string
      */
     public $destSecondaryVswId;
+
     /**
      * @var string
      */
     public $destVpcId;
+
     /**
      * @var string
      */
     public $destinationRegion;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $srcAliyunUid;
+
     /**
      * @var string
      */
     public $srcPrimaryVswId;
+
     /**
      * @var string
      */
     public $srcRoleName;
+
     /**
      * @var string
      */
     public $srcSecondaryVswId;
+
     /**
      * @var string
      */
     public $srcVpcId;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var bool
      */
     public $zeroEtlJob;
     protected $_name = [
-        'destAliyunUid'      => 'DestAliyunUid',
-        'destPrimaryVswId'   => 'DestPrimaryVswId',
-        'destRoleName'       => 'DestRoleName',
+        'destAliyunUid' => 'DestAliyunUid',
+        'destPrimaryVswId' => 'DestPrimaryVswId',
+        'destRoleName' => 'DestRoleName',
         'destSecondaryVswId' => 'DestSecondaryVswId',
-        'destVpcId'          => 'DestVpcId',
-        'destinationRegion'  => 'DestinationRegion',
-        'region'             => 'Region',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'srcAliyunUid'       => 'SrcAliyunUid',
-        'srcPrimaryVswId'    => 'SrcPrimaryVswId',
-        'srcRoleName'        => 'SrcRoleName',
-        'srcSecondaryVswId'  => 'SrcSecondaryVswId',
-        'srcVpcId'           => 'SrcVpcId',
-        'type'               => 'Type',
-        'zeroEtlJob'         => 'ZeroEtlJob',
+        'destVpcId' => 'DestVpcId',
+        'destinationRegion' => 'DestinationRegion',
+        'region' => 'Region',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'srcAliyunUid' => 'SrcAliyunUid',
+        'srcPrimaryVswId' => 'SrcPrimaryVswId',
+        'srcRoleName' => 'SrcRoleName',
+        'srcSecondaryVswId' => 'SrcSecondaryVswId',
+        'srcVpcId' => 'SrcVpcId',
+        'type' => 'Type',
+        'zeroEtlJob' => 'ZeroEtlJob',
     ];
 
     public function validate()

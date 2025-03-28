@@ -12,36 +12,42 @@ class SkipPreCheckRequest extends Model
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $skip;
+
     /**
      * @var string
      */
     public $skipPreCheckItems;
+
     /**
      * @var string
      */
     public $skipPreCheckNames;
     protected $_name = [
-        'dtsJobId'          => 'DtsJobId',
-        'jobId'             => 'JobId',
-        'regionId'          => 'RegionId',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'skip'              => 'Skip',
+        'dtsJobId' => 'DtsJobId',
+        'jobId' => 'JobId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'skip' => 'Skip',
         'skipPreCheckItems' => 'SkipPreCheckItems',
         'skipPreCheckNames' => 'SkipPreCheckNames',
     ];

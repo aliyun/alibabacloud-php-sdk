@@ -12,88 +12,104 @@ class DescribeClusterUsedUtilizationResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var float
      */
     public $cpuTotal;
+
     /**
      * @var string
      */
     public $dedicatedClusterId;
+
     /**
      * @var float
      */
     public $diskTotal;
+
     /**
      * @var float
      */
     public $diskUsed;
+
     /**
      * @var int
      */
     public $duTotal;
+
     /**
      * @var int
      */
     public $duUsed;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var float
      */
     public $memoryTotal;
+
     /**
      * @var float
      */
     public $memoryUsed;
+
     /**
      * @var float
      */
     public $memoryUsedPercentage;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $taskRunning;
     protected $_name = [
-        'code'                 => 'Code',
-        'cpuTotal'             => 'CpuTotal',
-        'dedicatedClusterId'   => 'DedicatedClusterId',
-        'diskTotal'            => 'DiskTotal',
-        'diskUsed'             => 'DiskUsed',
-        'duTotal'              => 'DuTotal',
-        'duUsed'               => 'DuUsed',
-        'dynamicMessage'       => 'DynamicMessage',
-        'errCode'              => 'ErrCode',
-        'errMessage'           => 'ErrMessage',
-        'httpStatusCode'       => 'HttpStatusCode',
-        'memoryTotal'          => 'MemoryTotal',
-        'memoryUsed'           => 'MemoryUsed',
+        'code' => 'Code',
+        'cpuTotal' => 'CpuTotal',
+        'dedicatedClusterId' => 'DedicatedClusterId',
+        'diskTotal' => 'DiskTotal',
+        'diskUsed' => 'DiskUsed',
+        'duTotal' => 'DuTotal',
+        'duUsed' => 'DuUsed',
+        'dynamicMessage' => 'DynamicMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'memoryTotal' => 'MemoryTotal',
+        'memoryUsed' => 'MemoryUsed',
         'memoryUsedPercentage' => 'MemoryUsedPercentage',
-        'requestId'            => 'RequestId',
-        'success'              => 'Success',
-        'taskRunning'          => 'TaskRunning',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'taskRunning' => 'TaskRunning',
     ];
 
     public function validate()

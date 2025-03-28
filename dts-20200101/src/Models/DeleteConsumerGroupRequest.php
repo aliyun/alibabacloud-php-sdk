@@ -12,32 +12,37 @@ class DeleteConsumerGroupRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $consumerGroupID;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $subscriptionInstanceId;
     protected $_name = [
-        'accountId'              => 'AccountId',
-        'consumerGroupID'        => 'ConsumerGroupID',
-        'ownerId'                => 'OwnerId',
-        'regionId'               => 'RegionId',
-        'resourceGroupId'        => 'ResourceGroupId',
+        'accountId' => 'AccountId',
+        'consumerGroupID' => 'ConsumerGroupID',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'subscriptionInstanceId' => 'SubscriptionInstanceId',
     ];
 

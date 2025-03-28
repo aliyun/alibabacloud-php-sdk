@@ -12,53 +12,62 @@ class ListDedicatedClusterRequest extends Model
      * @var string
      */
     public $orderColumn;
+
     /**
      * @var string
      */
     public $orderDirection;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $params;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'orderColumn'     => 'OrderColumn',
-        'orderDirection'  => 'OrderDirection',
-        'ownerId'         => 'OwnerId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'params'          => 'Params',
-        'regionId'        => 'RegionId',
+        'orderColumn' => 'OrderColumn',
+        'orderDirection' => 'OrderDirection',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'params' => 'Params',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'state'           => 'State',
-        'type'            => 'Type',
+        'state' => 'State',
+        'type' => 'Type',
     ];
 
     public function validate()

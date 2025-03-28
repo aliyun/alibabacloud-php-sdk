@@ -13,33 +13,38 @@ class SummaryJobDetailResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var progressSummaryDetails[]
      */
     public $progressSummaryDetails;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'                   => 'Code',
-        'httpStatusCode'         => 'HttpStatusCode',
-        'jobId'                  => 'JobId',
+        'code' => 'Code',
+        'httpStatusCode' => 'HttpStatusCode',
+        'jobId' => 'JobId',
         'progressSummaryDetails' => 'ProgressSummaryDetails',
-        'requestId'              => 'RequestId',
-        'success'                => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -68,7 +73,7 @@ class SummaryJobDetailResponseBody extends Model
         if (null !== $this->progressSummaryDetails) {
             if (\is_array($this->progressSummaryDetails)) {
                 $res['ProgressSummaryDetails'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->progressSummaryDetails as $item1) {
                     $res['ProgressSummaryDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +114,7 @@ class SummaryJobDetailResponseBody extends Model
         if (isset($map['ProgressSummaryDetails'])) {
             if (!empty($map['ProgressSummaryDetails'])) {
                 $model->progressSummaryDetails = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['ProgressSummaryDetails'] as $item1) {
                     $model->progressSummaryDetails[$n1++] = progressSummaryDetails::fromMap($item1);
                 }

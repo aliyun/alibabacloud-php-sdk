@@ -12,198 +12,236 @@ class ConfigureSubscriptionRequest extends Model
      * @var string
      */
     public $checkpoint;
+
     /**
      * @var string
      */
     public $dbList;
+
     /**
      * @var string
      */
     public $dedicatedClusterId;
+
     /**
      * @var bool
      */
     public $delayNotice;
+
     /**
      * @var string
      */
     public $delayPhone;
+
     /**
      * @var int
      */
     public $delayRuleTime;
+
     /**
      * @var string
      */
     public $dtsBisLabel;
+
     /**
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $dtsJobName;
+
     /**
      * @var bool
      */
     public $errorNotice;
+
     /**
      * @var string
      */
     public $errorPhone;
+
     /**
      * @var float
      */
     public $maxDu;
+
     /**
      * @var float
      */
     public $minDu;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $reserve;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $sourceEndpointDatabaseName;
+
     /**
      * @var string
      */
     public $sourceEndpointEngineName;
+
     /**
      * @var string
      */
     public $sourceEndpointIP;
+
     /**
      * @var string
      */
     public $sourceEndpointInstanceID;
+
     /**
      * @var string
      */
     public $sourceEndpointInstanceType;
+
     /**
      * @var string
      */
     public $sourceEndpointOracleSID;
+
     /**
      * @var string
      */
     public $sourceEndpointOwnerID;
+
     /**
      * @var string
      */
     public $sourceEndpointPassword;
+
     /**
      * @var string
      */
     public $sourceEndpointPort;
+
     /**
      * @var string
      */
     public $sourceEndpointRegion;
+
     /**
      * @var string
      */
     public $sourceEndpointRole;
+
     /**
      * @var string
      */
     public $sourceEndpointUserName;
+
     /**
      * @var string
      */
     public $srcCaCertificateOssUrl;
+
     /**
      * @var string
      */
     public $srcCaCertificatePassword;
+
     /**
      * @var string
      */
     public $srcClientCertOssUrl;
+
     /**
      * @var string
      */
     public $srcClientKeyOssUrl;
+
     /**
      * @var string
      */
     public $srcClientPassword;
+
     /**
      * @var bool
      */
     public $subscriptionDataTypeDDL;
+
     /**
      * @var bool
      */
     public $subscriptionDataTypeDML;
+
     /**
      * @var string
      */
     public $subscriptionInstanceNetworkType;
+
     /**
      * @var string
      */
     public $subscriptionInstanceVPCId;
+
     /**
      * @var string
      */
     public $subscriptionInstanceVSwitchId;
     protected $_name = [
-        'checkpoint'                      => 'Checkpoint',
-        'dbList'                          => 'DbList',
-        'dedicatedClusterId'              => 'DedicatedClusterId',
-        'delayNotice'                     => 'DelayNotice',
-        'delayPhone'                      => 'DelayPhone',
-        'delayRuleTime'                   => 'DelayRuleTime',
-        'dtsBisLabel'                     => 'DtsBisLabel',
-        'dtsInstanceId'                   => 'DtsInstanceId',
-        'dtsJobId'                        => 'DtsJobId',
-        'dtsJobName'                      => 'DtsJobName',
-        'errorNotice'                     => 'ErrorNotice',
-        'errorPhone'                      => 'ErrorPhone',
-        'maxDu'                           => 'MaxDu',
-        'minDu'                           => 'MinDu',
-        'regionId'                        => 'RegionId',
-        'reserve'                         => 'Reserve',
-        'resourceGroupId'                 => 'ResourceGroupId',
-        'sourceEndpointDatabaseName'      => 'SourceEndpointDatabaseName',
-        'sourceEndpointEngineName'        => 'SourceEndpointEngineName',
-        'sourceEndpointIP'                => 'SourceEndpointIP',
-        'sourceEndpointInstanceID'        => 'SourceEndpointInstanceID',
-        'sourceEndpointInstanceType'      => 'SourceEndpointInstanceType',
-        'sourceEndpointOracleSID'         => 'SourceEndpointOracleSID',
-        'sourceEndpointOwnerID'           => 'SourceEndpointOwnerID',
-        'sourceEndpointPassword'          => 'SourceEndpointPassword',
-        'sourceEndpointPort'              => 'SourceEndpointPort',
-        'sourceEndpointRegion'            => 'SourceEndpointRegion',
-        'sourceEndpointRole'              => 'SourceEndpointRole',
-        'sourceEndpointUserName'          => 'SourceEndpointUserName',
-        'srcCaCertificateOssUrl'          => 'SrcCaCertificateOssUrl',
-        'srcCaCertificatePassword'        => 'SrcCaCertificatePassword',
-        'srcClientCertOssUrl'             => 'SrcClientCertOssUrl',
-        'srcClientKeyOssUrl'              => 'SrcClientKeyOssUrl',
-        'srcClientPassword'               => 'SrcClientPassword',
-        'subscriptionDataTypeDDL'         => 'SubscriptionDataTypeDDL',
-        'subscriptionDataTypeDML'         => 'SubscriptionDataTypeDML',
+        'checkpoint' => 'Checkpoint',
+        'dbList' => 'DbList',
+        'dedicatedClusterId' => 'DedicatedClusterId',
+        'delayNotice' => 'DelayNotice',
+        'delayPhone' => 'DelayPhone',
+        'delayRuleTime' => 'DelayRuleTime',
+        'dtsBisLabel' => 'DtsBisLabel',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'dtsJobId' => 'DtsJobId',
+        'dtsJobName' => 'DtsJobName',
+        'errorNotice' => 'ErrorNotice',
+        'errorPhone' => 'ErrorPhone',
+        'maxDu' => 'MaxDu',
+        'minDu' => 'MinDu',
+        'regionId' => 'RegionId',
+        'reserve' => 'Reserve',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceEndpointDatabaseName' => 'SourceEndpointDatabaseName',
+        'sourceEndpointEngineName' => 'SourceEndpointEngineName',
+        'sourceEndpointIP' => 'SourceEndpointIP',
+        'sourceEndpointInstanceID' => 'SourceEndpointInstanceID',
+        'sourceEndpointInstanceType' => 'SourceEndpointInstanceType',
+        'sourceEndpointOracleSID' => 'SourceEndpointOracleSID',
+        'sourceEndpointOwnerID' => 'SourceEndpointOwnerID',
+        'sourceEndpointPassword' => 'SourceEndpointPassword',
+        'sourceEndpointPort' => 'SourceEndpointPort',
+        'sourceEndpointRegion' => 'SourceEndpointRegion',
+        'sourceEndpointRole' => 'SourceEndpointRole',
+        'sourceEndpointUserName' => 'SourceEndpointUserName',
+        'srcCaCertificateOssUrl' => 'SrcCaCertificateOssUrl',
+        'srcCaCertificatePassword' => 'SrcCaCertificatePassword',
+        'srcClientCertOssUrl' => 'SrcClientCertOssUrl',
+        'srcClientKeyOssUrl' => 'SrcClientKeyOssUrl',
+        'srcClientPassword' => 'SrcClientPassword',
+        'subscriptionDataTypeDDL' => 'SubscriptionDataTypeDDL',
+        'subscriptionDataTypeDML' => 'SubscriptionDataTypeDML',
         'subscriptionInstanceNetworkType' => 'SubscriptionInstanceNetworkType',
-        'subscriptionInstanceVPCId'       => 'SubscriptionInstanceVPCId',
-        'subscriptionInstanceVSwitchId'   => 'SubscriptionInstanceVSwitchId',
+        'subscriptionInstanceVPCId' => 'SubscriptionInstanceVPCId',
+        'subscriptionInstanceVSwitchId' => 'SubscriptionInstanceVSwitchId',
     ];
 
     public function validate()

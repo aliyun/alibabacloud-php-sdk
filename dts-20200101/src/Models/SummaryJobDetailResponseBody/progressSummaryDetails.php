@@ -12,17 +12,19 @@ class progressSummaryDetails extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var int
      */
     public $state;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'key'        => 'Key',
-        'state'      => 'State',
+        'key' => 'Key',
+        'state' => 'State',
         'totalCount' => 'TotalCount',
     ];
 

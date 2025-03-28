@@ -12,28 +12,32 @@ class StartSubscriptionInstanceResponseBody extends Model
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'errCode'    => 'ErrCode',
+        'errCode' => 'ErrCode',
         'errMessage' => 'ErrMessage',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
-        'taskId'     => 'TaskId',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

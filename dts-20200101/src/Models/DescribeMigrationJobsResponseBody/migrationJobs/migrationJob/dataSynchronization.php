@@ -12,23 +12,26 @@ class dataSynchronization extends Model
      * @var string
      */
     public $delay;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $percent;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'delay'        => 'Delay',
+        'delay' => 'Delay',
         'errorMessage' => 'ErrorMessage',
-        'percent'      => 'Percent',
-        'status'       => 'status',
+        'percent' => 'Percent',
+        'status' => 'status',
     ];
 
     public function validate()

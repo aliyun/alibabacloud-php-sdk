@@ -12,33 +12,38 @@ class sourceEndpoint extends Model
      * @var string
      */
     public $engineName;
+
     /**
      * @var string
      */
     public $IP;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'engineName'   => 'EngineName',
-        'IP'           => 'IP',
-        'instanceId'   => 'InstanceId',
+        'engineName' => 'EngineName',
+        'IP' => 'IP',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'port'         => 'Port',
-        'userName'     => 'UserName',
+        'port' => 'Port',
+        'userName' => 'UserName',
     ];
 
     public function validate()

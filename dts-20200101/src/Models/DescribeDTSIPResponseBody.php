@@ -12,33 +12,38 @@ class DescribeDTSIPResponseBody extends Model
      * @var string
      */
     public $dynamicCode;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'dynamicCode'    => 'DynamicCode',
+        'dynamicCode' => 'DynamicCode',
         'dynamicMessage' => 'DynamicMessage',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

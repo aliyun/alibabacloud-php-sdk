@@ -12,22 +12,25 @@ class ShieldPrecheckRequest extends Model
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $precheckItems;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'dtsInstanceId'   => 'DtsInstanceId',
-        'precheckItems'   => 'PrecheckItems',
-        'regionId'        => 'RegionId',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'precheckItems' => 'PrecheckItems',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

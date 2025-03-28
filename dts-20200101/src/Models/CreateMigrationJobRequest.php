@@ -12,38 +12,44 @@ class CreateMigrationJobRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $migrationJobClass;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'accountId'         => 'AccountId',
-        'clientToken'       => 'ClientToken',
+        'accountId' => 'AccountId',
+        'clientToken' => 'ClientToken',
         'migrationJobClass' => 'MigrationJobClass',
-        'ownerId'           => 'OwnerId',
-        'region'            => 'Region',
-        'regionId'          => 'RegionId',
-        'resourceGroupId'   => 'ResourceGroupId',
+        'ownerId' => 'OwnerId',
+        'region' => 'Region',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class StopDedicatedClusterRequest extends Model
      * @var string
      */
     public $dedicatedClusterId;
+
     /**
      * @var string
      */
     public $dedicatedClusterName;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'dedicatedClusterId'   => 'DedicatedClusterId',
+        'dedicatedClusterId' => 'DedicatedClusterId',
         'dedicatedClusterName' => 'DedicatedClusterName',
-        'instanceId'           => 'InstanceId',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'instanceId' => 'InstanceId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

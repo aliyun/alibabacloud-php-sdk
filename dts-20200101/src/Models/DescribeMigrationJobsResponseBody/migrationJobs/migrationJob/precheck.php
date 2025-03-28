@@ -12,13 +12,14 @@ class precheck extends Model
      * @var string
      */
     public $percent;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'percent' => 'Percent',
-        'status'  => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

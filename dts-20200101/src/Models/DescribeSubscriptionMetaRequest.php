@@ -12,33 +12,38 @@ class DescribeSubscriptionMetaRequest extends Model
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $sid;
+
     /**
      * @var mixed[]
      */
     public $subMigrationJobIds;
+
     /**
      * @var mixed[]
      */
     public $topics;
     protected $_name = [
-        'dtsInstanceId'      => 'DtsInstanceId',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'sid'                => 'Sid',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sid' => 'Sid',
         'subMigrationJobIds' => 'SubMigrationJobIds',
-        'topics'             => 'Topics',
+        'topics' => 'Topics',
     ];
 
     public function validate()

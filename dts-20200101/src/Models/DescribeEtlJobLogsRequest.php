@@ -12,17 +12,19 @@ class DescribeEtlJobLogsRequest extends Model
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'dtsJobId'        => 'DtsJobId',
-        'regionId'        => 'RegionId',
+        'dtsJobId' => 'DtsJobId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

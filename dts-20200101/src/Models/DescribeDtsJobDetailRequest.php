@@ -12,38 +12,44 @@ class DescribeDtsJobDetailRequest extends Model
      * @var string
      */
     public $dtsInstanceID;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $syncSubJobHistory;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var bool
      */
     public $zeroEtlJob;
     protected $_name = [
-        'dtsInstanceID'            => 'DtsInstanceID',
-        'dtsJobId'                 => 'DtsJobId',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'syncSubJobHistory'        => 'SyncSubJobHistory',
+        'dtsInstanceID' => 'DtsInstanceID',
+        'dtsJobId' => 'DtsJobId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'syncSubJobHistory' => 'SyncSubJobHistory',
         'synchronizationDirection' => 'SynchronizationDirection',
-        'zeroEtlJob'               => 'ZeroEtlJob',
+        'zeroEtlJob' => 'ZeroEtlJob',
     ];
 
     public function validate()

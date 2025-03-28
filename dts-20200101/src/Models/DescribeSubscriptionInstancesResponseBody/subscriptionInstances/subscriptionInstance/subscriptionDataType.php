@@ -12,6 +12,7 @@ class subscriptionDataType extends Model
      * @var bool
      */
     public $DDL;
+
     /**
      * @var bool
      */

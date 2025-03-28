@@ -12,17 +12,19 @@ class synchronizationDirectionInfoList extends Model
      * @var string
      */
     public $checkpoint;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
     protected $_name = [
-        'checkpoint'               => 'Checkpoint',
-        'status'                   => 'Status',
+        'checkpoint' => 'Checkpoint',
+        'status' => 'Status',
         'synchronizationDirection' => 'SynchronizationDirection',
     ];
 

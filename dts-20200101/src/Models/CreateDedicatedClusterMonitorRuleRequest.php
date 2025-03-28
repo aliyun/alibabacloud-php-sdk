@@ -12,58 +12,68 @@ class CreateDedicatedClusterMonitorRuleRequest extends Model
      * @var int
      */
     public $cpuAlarmThreshold;
+
     /**
      * @var string
      */
     public $dedicatedClusterId;
+
     /**
      * @var int
      */
     public $diskAlarmThreshold;
+
     /**
      * @var int
      */
     public $duAlarmThreshold;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $memAlarmThreshold;
+
     /**
      * @var int
      */
     public $noticeSwitch;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $phones;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'cpuAlarmThreshold'  => 'CpuAlarmThreshold',
+        'cpuAlarmThreshold' => 'CpuAlarmThreshold',
         'dedicatedClusterId' => 'DedicatedClusterId',
         'diskAlarmThreshold' => 'DiskAlarmThreshold',
-        'duAlarmThreshold'   => 'DuAlarmThreshold',
-        'instanceId'         => 'InstanceId',
-        'memAlarmThreshold'  => 'MemAlarmThreshold',
-        'noticeSwitch'       => 'NoticeSwitch',
-        'ownerId'            => 'OwnerId',
-        'phones'             => 'Phones',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
+        'duAlarmThreshold' => 'DuAlarmThreshold',
+        'instanceId' => 'InstanceId',
+        'memAlarmThreshold' => 'MemAlarmThreshold',
+        'noticeSwitch' => 'NoticeSwitch',
+        'ownerId' => 'OwnerId',
+        'phones' => 'Phones',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

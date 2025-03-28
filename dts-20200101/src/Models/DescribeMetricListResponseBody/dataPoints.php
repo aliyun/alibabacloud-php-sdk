@@ -12,13 +12,14 @@ class dataPoints extends Model
      * @var float
      */
     public $statistics;
+
     /**
      * @var int
      */
     public $timestamp;
     protected $_name = [
         'statistics' => 'Statistics',
-        'timestamp'  => 'Timestamp',
+        'timestamp' => 'Timestamp',
     ];
 
     public function validate()

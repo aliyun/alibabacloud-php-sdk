@@ -12,42 +12,49 @@ class CreateConsumerGroupRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $consumerGroupName;
+
     /**
      * @var string
      */
     public $consumerGroupPassword;
+
     /**
      * @var string
      */
     public $consumerGroupUserName;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $subscriptionInstanceId;
     protected $_name = [
-        'accountId'              => 'AccountId',
-        'consumerGroupName'      => 'ConsumerGroupName',
-        'consumerGroupPassword'  => 'ConsumerGroupPassword',
-        'consumerGroupUserName'  => 'ConsumerGroupUserName',
-        'ownerId'                => 'OwnerId',
-        'regionId'               => 'RegionId',
-        'resourceGroupId'        => 'ResourceGroupId',
+        'accountId' => 'AccountId',
+        'consumerGroupName' => 'ConsumerGroupName',
+        'consumerGroupPassword' => 'ConsumerGroupPassword',
+        'consumerGroupUserName' => 'ConsumerGroupUserName',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'subscriptionInstanceId' => 'SubscriptionInstanceId',
     ];
 

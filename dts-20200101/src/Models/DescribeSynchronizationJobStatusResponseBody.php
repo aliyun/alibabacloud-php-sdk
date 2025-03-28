@@ -20,133 +20,158 @@ class DescribeSynchronizationJobStatusResponseBody extends Model
      * @var string
      */
     public $checkpoint;
+
     /**
      * @var string
      */
     public $dataInitialization;
+
     /**
      * @var dataInitializationStatus
      */
     public $dataInitializationStatus;
+
     /**
      * @var dataSynchronizationStatus
      */
     public $dataSynchronizationStatus;
+
     /**
      * @var string
      */
     public $delay;
+
     /**
      * @var int
      */
     public $delayMillis;
+
     /**
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var performance
      */
     public $performance;
+
     /**
      * @var precheckStatus
      */
     public $precheckStatus;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $structureInitialization;
+
     /**
      * @var structureInitializationStatus
      */
     public $structureInitializationStatus;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var string
      */
     public $synchronizationJobClass;
+
     /**
      * @var string
      */
     public $synchronizationJobId;
+
     /**
      * @var string
      */
     public $synchronizationJobName;
+
     /**
      * @var synchronizationObjects[]
      */
     public $synchronizationObjects;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'checkpoint'                    => 'Checkpoint',
-        'dataInitialization'            => 'DataInitialization',
-        'dataInitializationStatus'      => 'DataInitializationStatus',
-        'dataSynchronizationStatus'     => 'DataSynchronizationStatus',
-        'delay'                         => 'Delay',
-        'delayMillis'                   => 'DelayMillis',
-        'destinationEndpoint'           => 'DestinationEndpoint',
-        'errCode'                       => 'ErrCode',
-        'errMessage'                    => 'ErrMessage',
-        'errorMessage'                  => 'ErrorMessage',
-        'expireTime'                    => 'ExpireTime',
-        'payType'                       => 'PayType',
-        'performance'                   => 'Performance',
-        'precheckStatus'                => 'PrecheckStatus',
-        'requestId'                     => 'RequestId',
-        'sourceEndpoint'                => 'SourceEndpoint',
-        'status'                        => 'Status',
-        'structureInitialization'       => 'StructureInitialization',
+        'checkpoint' => 'Checkpoint',
+        'dataInitialization' => 'DataInitialization',
+        'dataInitializationStatus' => 'DataInitializationStatus',
+        'dataSynchronizationStatus' => 'DataSynchronizationStatus',
+        'delay' => 'Delay',
+        'delayMillis' => 'DelayMillis',
+        'destinationEndpoint' => 'DestinationEndpoint',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'errorMessage' => 'ErrorMessage',
+        'expireTime' => 'ExpireTime',
+        'payType' => 'PayType',
+        'performance' => 'Performance',
+        'precheckStatus' => 'PrecheckStatus',
+        'requestId' => 'RequestId',
+        'sourceEndpoint' => 'SourceEndpoint',
+        'status' => 'Status',
+        'structureInitialization' => 'StructureInitialization',
         'structureInitializationStatus' => 'StructureInitializationStatus',
-        'success'                       => 'Success',
-        'synchronizationDirection'      => 'SynchronizationDirection',
-        'synchronizationJobClass'       => 'SynchronizationJobClass',
-        'synchronizationJobId'          => 'SynchronizationJobId',
-        'synchronizationJobName'        => 'SynchronizationJobName',
-        'synchronizationObjects'        => 'SynchronizationObjects',
-        'taskId'                        => 'TaskId',
+        'success' => 'Success',
+        'synchronizationDirection' => 'SynchronizationDirection',
+        'synchronizationJobClass' => 'SynchronizationJobClass',
+        'synchronizationJobId' => 'SynchronizationJobId',
+        'synchronizationJobName' => 'SynchronizationJobName',
+        'synchronizationObjects' => 'SynchronizationObjects',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()
@@ -280,7 +305,7 @@ class DescribeSynchronizationJobStatusResponseBody extends Model
         if (null !== $this->synchronizationObjects) {
             if (\is_array($this->synchronizationObjects)) {
                 $res['SynchronizationObjects'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->synchronizationObjects as $item1) {
                     $res['SynchronizationObjects'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -401,7 +426,7 @@ class DescribeSynchronizationJobStatusResponseBody extends Model
         if (isset($map['SynchronizationObjects'])) {
             if (!empty($map['SynchronizationObjects'])) {
                 $model->synchronizationObjects = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['SynchronizationObjects'] as $item1) {
                     $model->synchronizationObjects[$n1++] = synchronizationObjects::fromMap($item1);
                 }

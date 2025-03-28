@@ -12,12 +12,13 @@ class sourceEndpoint extends Model
      * @var string
      */
     public $instanceID;
+
     /**
      * @var string
      */
     public $instanceType;
     protected $_name = [
-        'instanceID'   => 'InstanceID',
+        'instanceID' => 'InstanceID',
         'instanceType' => 'InstanceType',
     ];
 

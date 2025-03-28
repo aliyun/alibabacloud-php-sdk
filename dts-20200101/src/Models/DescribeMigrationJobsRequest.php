@@ -13,43 +13,50 @@ class DescribeMigrationJobsRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $migrationJobName;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNum;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'accountId'        => 'AccountId',
+        'accountId' => 'AccountId',
         'migrationJobName' => 'MigrationJobName',
-        'ownerId'          => 'OwnerId',
-        'pageNum'          => 'PageNum',
-        'pageSize'         => 'PageSize',
-        'regionId'         => 'RegionId',
-        'resourceGroupId'  => 'ResourceGroupId',
-        'tag'              => 'Tag',
+        'ownerId' => 'OwnerId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -94,7 +101,7 @@ class DescribeMigrationJobsRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -143,7 +150,7 @@ class DescribeMigrationJobsRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

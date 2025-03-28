@@ -12,63 +12,74 @@ class DescribeDedicatedClusterMonitorRuleResponseBody extends Model
      * @var string
      */
     public $cpuAlarmThreshold;
+
     /**
      * @var string
      */
     public $dedicatedClusterId;
+
     /**
      * @var string
      */
     public $diskAlarmThreshold;
+
     /**
      * @var string
      */
     public $duAlarmThreshold;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $memAlarmThreshold;
+
     /**
      * @var string
      */
     public $noticeSwitch;
+
     /**
      * @var string
      */
     public $phones;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'cpuAlarmThreshold'  => 'CpuAlarmThreshold',
+        'cpuAlarmThreshold' => 'CpuAlarmThreshold',
         'dedicatedClusterId' => 'DedicatedClusterId',
         'diskAlarmThreshold' => 'DiskAlarmThreshold',
-        'duAlarmThreshold'   => 'DuAlarmThreshold',
-        'errCode'            => 'ErrCode',
-        'errMessage'         => 'ErrMessage',
-        'httpStatusCode'     => 'HttpStatusCode',
-        'memAlarmThreshold'  => 'MemAlarmThreshold',
-        'noticeSwitch'       => 'NoticeSwitch',
-        'phones'             => 'Phones',
-        'requestId'          => 'RequestId',
-        'success'            => 'Success',
+        'duAlarmThreshold' => 'DuAlarmThreshold',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'memAlarmThreshold' => 'MemAlarmThreshold',
+        'noticeSwitch' => 'NoticeSwitch',
+        'phones' => 'Phones',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

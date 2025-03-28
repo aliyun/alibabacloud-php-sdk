@@ -12,43 +12,50 @@ class CreateJobMonitorRuleResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
-        'dtsJobId'       => 'DtsJobId',
+        'code' => 'Code',
+        'dtsJobId' => 'DtsJobId',
         'dynamicMessage' => 'DynamicMessage',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

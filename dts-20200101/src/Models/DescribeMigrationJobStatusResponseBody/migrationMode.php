@@ -12,17 +12,19 @@ class migrationMode extends Model
      * @var bool
      */
     public $dataInitialization;
+
     /**
      * @var bool
      */
     public $dataSynchronization;
+
     /**
      * @var bool
      */
     public $structureInitialization;
     protected $_name = [
-        'dataInitialization'      => 'dataInitialization',
-        'dataSynchronization'     => 'dataSynchronization',
+        'dataInitialization' => 'dataInitialization',
+        'dataSynchronization' => 'dataSynchronization',
         'structureInitialization' => 'structureInitialization',
     ];
 

@@ -13,47 +13,55 @@ class DescribeSyncStatusResponseBody extends Model
      * @var string
      */
     public $dynamicCode;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var syncStatusList[]
      */
     public $syncStatusList;
     protected $_name = [
-        'dynamicCode'    => 'DynamicCode',
+        'dynamicCode' => 'DynamicCode',
         'dynamicMessage' => 'DynamicMessage',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'pageNumber'     => 'PageNumber',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'pageNumber' => 'PageNumber',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'syncStatusList' => 'SyncStatusList',
     ];
 
@@ -103,7 +111,7 @@ class DescribeSyncStatusResponseBody extends Model
         if (null !== $this->syncStatusList) {
             if (\is_array($this->syncStatusList)) {
                 $res['SyncStatusList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->syncStatusList as $item1) {
                     $res['SyncStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -156,7 +164,7 @@ class DescribeSyncStatusResponseBody extends Model
         if (isset($map['SyncStatusList'])) {
             if (!empty($map['SyncStatusList'])) {
                 $model->syncStatusList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['SyncStatusList'] as $item1) {
                     $model->syncStatusList[$n1++] = syncStatusList::fromMap($item1);
                 }

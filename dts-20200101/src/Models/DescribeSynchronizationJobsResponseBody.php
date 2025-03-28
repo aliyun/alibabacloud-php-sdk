@@ -13,28 +13,32 @@ class DescribeSynchronizationJobsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var synchronizationInstances[]
      */
     public $synchronizationInstances;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'pageNumber'               => 'PageNumber',
-        'pageRecordCount'          => 'PageRecordCount',
-        'requestId'                => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
         'synchronizationInstances' => 'SynchronizationInstances',
-        'totalRecordCount'         => 'TotalRecordCount',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()
@@ -63,7 +67,7 @@ class DescribeSynchronizationJobsResponseBody extends Model
         if (null !== $this->synchronizationInstances) {
             if (\is_array($this->synchronizationInstances)) {
                 $res['SynchronizationInstances'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->synchronizationInstances as $item1) {
                     $res['SynchronizationInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class DescribeSynchronizationJobsResponseBody extends Model
         if (isset($map['SynchronizationInstances'])) {
             if (!empty($map['SynchronizationInstances'])) {
                 $model->synchronizationInstances = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['SynchronizationInstances'] as $item1) {
                     $model->synchronizationInstances[$n1++] = synchronizationInstances::fromMap($item1);
                 }

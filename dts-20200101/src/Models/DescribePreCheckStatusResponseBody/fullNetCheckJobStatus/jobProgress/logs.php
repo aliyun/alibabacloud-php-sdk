@@ -12,22 +12,25 @@ class logs extends Model
      * @var string
      */
     public $errData;
+
     /**
      * @var string
      */
     public $errMsg;
+
     /**
      * @var string
      */
     public $errType;
+
     /**
      * @var string
      */
     public $logLevel;
     protected $_name = [
-        'errData'  => 'ErrData',
-        'errMsg'   => 'ErrMsg',
-        'errType'  => 'ErrType',
+        'errData' => 'ErrData',
+        'errMsg' => 'ErrMsg',
+        'errType' => 'ErrType',
         'logLevel' => 'LogLevel',
     ];
 

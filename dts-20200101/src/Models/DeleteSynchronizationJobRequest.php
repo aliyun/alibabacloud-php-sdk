@@ -12,27 +12,31 @@ class DeleteSynchronizationJobRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $synchronizationJobId;
     protected $_name = [
-        'accountId'            => 'AccountId',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'accountId' => 'AccountId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'synchronizationJobId' => 'SynchronizationJobId',
     ];
 

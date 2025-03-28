@@ -12,28 +12,32 @@ class endpoint extends Model
      * @var string
      */
     public $IP;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'IP'           => 'IP',
-        'instanceId'   => 'InstanceId',
+        'IP' => 'IP',
+        'instanceId' => 'InstanceId',
         'instanceType' => 'InstanceType',
-        'port'         => 'Port',
-        'type'         => 'Type',
+        'port' => 'Port',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -24,183 +24,218 @@ class etlDemoList extends Model
      * @var string
      */
     public $appName;
+
     /**
      * @var string
      */
     public $beginTimestamp;
+
     /**
      * @var string
      */
     public $checkpoint;
+
     /**
      * @var string
      */
     public $consumptionCheckpoint;
+
     /**
      * @var string
      */
     public $consumptionClient;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var dataEtlStatus
      */
     public $dataEtlStatus;
+
     /**
      * @var dataInitializationStatus
      */
     public $dataInitializationStatus;
+
     /**
      * @var dataSynchronizationStatus
      */
     public $dataSynchronizationStatus;
+
     /**
      * @var string
      */
     public $dbObject;
+
     /**
      * @var int
      */
     public $delay;
+
     /**
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
+
     /**
      * @var string
      */
     public $dtsInstanceID;
+
     /**
      * @var string
      */
     public $dtsJobClass;
+
     /**
      * @var string
      */
     public $dtsJobDirection;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $dtsJobName;
+
     /**
      * @var string
      */
     public $endTimestamp;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $etlSafeCheckpoint;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $jobType;
+
     /**
      * @var migrationMode
      */
     public $migrationMode;
+
     /**
      * @var string
      */
     public $originType;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var performance
      */
     public $performance;
+
     /**
      * @var precheckStatus
      */
     public $precheckStatus;
+
     /**
      * @var string
      */
     public $reserved;
+
     /**
      * @var string
      */
     public $resourceGroupDisplayName;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var retryState
      */
     public $retryState;
+
     /**
      * @var reverseJob
      */
     public $reverseJob;
+
     /**
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var structureInitializationStatus
      */
     public $structureInitializationStatus;
+
     /**
      * @var tagList[]
      */
     public $tagList;
     protected $_name = [
-        'appName'                       => 'AppName',
-        'beginTimestamp'                => 'BeginTimestamp',
-        'checkpoint'                    => 'Checkpoint',
-        'consumptionCheckpoint'         => 'ConsumptionCheckpoint',
-        'consumptionClient'             => 'ConsumptionClient',
-        'createTime'                    => 'CreateTime',
-        'dataEtlStatus'                 => 'DataEtlStatus',
-        'dataInitializationStatus'      => 'DataInitializationStatus',
-        'dataSynchronizationStatus'     => 'DataSynchronizationStatus',
-        'dbObject'                      => 'DbObject',
-        'delay'                         => 'Delay',
-        'destinationEndpoint'           => 'DestinationEndpoint',
-        'dtsInstanceID'                 => 'DtsInstanceID',
-        'dtsJobClass'                   => 'DtsJobClass',
-        'dtsJobDirection'               => 'DtsJobDirection',
-        'dtsJobId'                      => 'DtsJobId',
-        'dtsJobName'                    => 'DtsJobName',
-        'endTimestamp'                  => 'EndTimestamp',
-        'errorMessage'                  => 'ErrorMessage',
-        'etlSafeCheckpoint'             => 'EtlSafeCheckpoint',
-        'expireTime'                    => 'ExpireTime',
-        'jobType'                       => 'JobType',
-        'migrationMode'                 => 'MigrationMode',
-        'originType'                    => 'OriginType',
-        'payType'                       => 'PayType',
-        'performance'                   => 'Performance',
-        'precheckStatus'                => 'PrecheckStatus',
-        'reserved'                      => 'Reserved',
-        'resourceGroupDisplayName'      => 'ResourceGroupDisplayName',
-        'resourceGroupId'               => 'ResourceGroupId',
-        'retryState'                    => 'RetryState',
-        'reverseJob'                    => 'ReverseJob',
-        'sourceEndpoint'                => 'SourceEndpoint',
-        'status'                        => 'Status',
+        'appName' => 'AppName',
+        'beginTimestamp' => 'BeginTimestamp',
+        'checkpoint' => 'Checkpoint',
+        'consumptionCheckpoint' => 'ConsumptionCheckpoint',
+        'consumptionClient' => 'ConsumptionClient',
+        'createTime' => 'CreateTime',
+        'dataEtlStatus' => 'DataEtlStatus',
+        'dataInitializationStatus' => 'DataInitializationStatus',
+        'dataSynchronizationStatus' => 'DataSynchronizationStatus',
+        'dbObject' => 'DbObject',
+        'delay' => 'Delay',
+        'destinationEndpoint' => 'DestinationEndpoint',
+        'dtsInstanceID' => 'DtsInstanceID',
+        'dtsJobClass' => 'DtsJobClass',
+        'dtsJobDirection' => 'DtsJobDirection',
+        'dtsJobId' => 'DtsJobId',
+        'dtsJobName' => 'DtsJobName',
+        'endTimestamp' => 'EndTimestamp',
+        'errorMessage' => 'ErrorMessage',
+        'etlSafeCheckpoint' => 'EtlSafeCheckpoint',
+        'expireTime' => 'ExpireTime',
+        'jobType' => 'JobType',
+        'migrationMode' => 'MigrationMode',
+        'originType' => 'OriginType',
+        'payType' => 'PayType',
+        'performance' => 'Performance',
+        'precheckStatus' => 'PrecheckStatus',
+        'reserved' => 'Reserved',
+        'resourceGroupDisplayName' => 'ResourceGroupDisplayName',
+        'resourceGroupId' => 'ResourceGroupId',
+        'retryState' => 'RetryState',
+        'reverseJob' => 'ReverseJob',
+        'sourceEndpoint' => 'SourceEndpoint',
+        'status' => 'Status',
         'structureInitializationStatus' => 'StructureInitializationStatus',
-        'tagList'                       => 'TagList',
+        'tagList' => 'TagList',
     ];
 
     public function validate()
@@ -390,7 +425,7 @@ class etlDemoList extends Model
         if (null !== $this->tagList) {
             if (\is_array($this->tagList)) {
                 $res['TagList'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->tagList as $item1) {
                     $res['TagList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -551,7 +586,7 @@ class etlDemoList extends Model
         if (isset($map['TagList'])) {
             if (!empty($map['TagList'])) {
                 $model->tagList = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['TagList'] as $item1) {
                     $model->tagList[$n1++] = tagList::fromMap($item1);
                 }

@@ -12,22 +12,25 @@ class UpgradeTwoWayRequest extends Model
      * @var string
      */
     public $instanceClass;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'instanceClass'   => 'InstanceClass',
-        'instanceId'      => 'InstanceId',
-        'regionId'        => 'RegionId',
+        'instanceClass' => 'InstanceClass',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

@@ -12,38 +12,44 @@ class DescribeChannelAccountRequest extends Model
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'dtsJobId'        => 'DtsJobId',
-        'ownerId'         => 'OwnerId',
-        'region'          => 'Region',
-        'regionId'        => 'RegionId',
+        'dtsJobId' => 'DtsJobId',
+        'ownerId' => 'OwnerId',
+        'region' => 'Region',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'tags'            => 'Tags',
-        'type'            => 'Type',
+        'tags' => 'Tags',
+        'type' => 'Type',
     ];
 
     public function validate()

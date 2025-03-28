@@ -13,53 +13,62 @@ class CreateSubscriptionInstanceRequest extends Model
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var int
      */
     public $usedTime;
     protected $_name = [
-        'sourceEndpoint'  => 'SourceEndpoint',
-        'accountId'       => 'AccountId',
-        'clientToken'     => 'ClientToken',
-        'ownerId'         => 'OwnerId',
-        'payType'         => 'PayType',
-        'period'          => 'Period',
-        'region'          => 'Region',
-        'regionId'        => 'RegionId',
+        'sourceEndpoint' => 'SourceEndpoint',
+        'accountId' => 'AccountId',
+        'clientToken' => 'ClientToken',
+        'ownerId' => 'OwnerId',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'region' => 'Region',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'usedTime'        => 'UsedTime',
+        'usedTime' => 'UsedTime',
     ];
 
     public function validate()

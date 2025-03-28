@@ -12,22 +12,25 @@ class checkItem extends Model
      * @var string
      */
     public $checkStatus;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $itemName;
+
     /**
      * @var string
      */
     public $repairMethod;
     protected $_name = [
-        'checkStatus'  => 'CheckStatus',
+        'checkStatus' => 'CheckStatus',
         'errorMessage' => 'ErrorMessage',
-        'itemName'     => 'ItemName',
+        'itemName' => 'ItemName',
         'repairMethod' => 'RepairMethod',
     ];
 

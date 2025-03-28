@@ -12,38 +12,44 @@ class DescribeSynchronizationJobReplicatorCompareRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var string
      */
     public $synchronizationJobId;
     protected $_name = [
-        'accountId'                => 'AccountId',
-        'clientToken'              => 'ClientToken',
-        'ownerId'                  => 'OwnerId',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
+        'accountId' => 'AccountId',
+        'clientToken' => 'ClientToken',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'synchronizationDirection' => 'SynchronizationDirection',
-        'synchronizationJobId'     => 'SynchronizationJobId',
+        'synchronizationJobId' => 'SynchronizationJobId',
     ];
 
     public function validate()

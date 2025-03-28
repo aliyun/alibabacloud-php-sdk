@@ -12,33 +12,38 @@ class ModifyDtsJobResponseBody extends Model
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var bool
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'dtsJobId'   => 'DtsJobId',
-        'errCode'    => 'ErrCode',
+        'dtsJobId' => 'DtsJobId',
+        'errCode' => 'ErrCode',
         'errMessage' => 'ErrMessage',
-        'requestId'  => 'RequestId',
-        'status'     => 'Status',
-        'success'    => 'Success',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'success' => 'Success',
     ];
 
     public function validate()

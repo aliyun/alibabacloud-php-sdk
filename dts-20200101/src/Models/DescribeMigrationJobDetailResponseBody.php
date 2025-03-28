@@ -15,53 +15,62 @@ class DescribeMigrationJobDetailResponseBody extends Model
      * @var dataInitializationDetailList
      */
     public $dataInitializationDetailList;
+
     /**
      * @var dataSynchronizationDetailList
      */
     public $dataSynchronizationDetailList;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var structureInitializationDetailList
      */
     public $structureInitializationDetailList;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'dataInitializationDetailList'      => 'DataInitializationDetailList',
-        'dataSynchronizationDetailList'     => 'DataSynchronizationDetailList',
-        'errCode'                           => 'ErrCode',
-        'errMessage'                        => 'ErrMessage',
-        'pageNumber'                        => 'PageNumber',
-        'pageRecordCount'                   => 'PageRecordCount',
-        'requestId'                         => 'RequestId',
+        'dataInitializationDetailList' => 'DataInitializationDetailList',
+        'dataSynchronizationDetailList' => 'DataSynchronizationDetailList',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
         'structureInitializationDetailList' => 'StructureInitializationDetailList',
-        'success'                           => 'Success',
-        'totalRecordCount'                  => 'TotalRecordCount',
+        'success' => 'Success',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()

@@ -12,52 +12,61 @@ class TransferPayTypeRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var string
      */
     public $buyCount;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $instanceClass;
+
     /**
      * @var int
      */
     public $maxDu;
+
     /**
      * @var int
      */
     public $minDu;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'autoPay'         => 'AutoPay',
-        'buyCount'        => 'BuyCount',
-        'chargeType'      => 'ChargeType',
-        'dtsJobId'        => 'DtsJobId',
-        'instanceClass'   => 'InstanceClass',
-        'maxDu'           => 'MaxDu',
-        'minDu'           => 'MinDu',
-        'period'          => 'Period',
-        'regionId'        => 'RegionId',
+        'autoPay' => 'AutoPay',
+        'buyCount' => 'BuyCount',
+        'chargeType' => 'ChargeType',
+        'dtsJobId' => 'DtsJobId',
+        'instanceClass' => 'InstanceClass',
+        'maxDu' => 'MaxDu',
+        'minDu' => 'MinDu',
+        'period' => 'Period',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

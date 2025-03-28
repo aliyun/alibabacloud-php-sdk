@@ -12,38 +12,44 @@ class InitDtsRdsInstanceRequest extends Model
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $endpointCenId;
+
     /**
      * @var string
      */
     public $endpointInstanceId;
+
     /**
      * @var string
      */
     public $endpointInstanceType;
+
     /**
      * @var string
      */
     public $endpointRegion;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'dtsInstanceId'        => 'DtsInstanceId',
-        'endpointCenId'        => 'EndpointCenId',
-        'endpointInstanceId'   => 'EndpointInstanceId',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'endpointCenId' => 'EndpointCenId',
+        'endpointInstanceId' => 'EndpointInstanceId',
         'endpointInstanceType' => 'EndpointInstanceType',
-        'endpointRegion'       => 'EndpointRegion',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
+        'endpointRegion' => 'EndpointRegion',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

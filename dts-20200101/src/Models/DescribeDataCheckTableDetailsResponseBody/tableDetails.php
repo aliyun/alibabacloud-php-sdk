@@ -12,58 +12,68 @@ class tableDetails extends Model
      * @var string
      */
     public $bootTime;
+
     /**
      * @var int
      */
     public $diffCount;
+
     /**
      * @var int
      */
     public $errorCode;
+
     /**
      * @var int
      */
     public $finishCount;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $sourceDbName;
+
     /**
      * @var string
      */
     public $sourceTbName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $targetDbName;
+
     /**
      * @var string
      */
     public $targetTbName;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'bootTime'     => 'BootTime',
-        'diffCount'    => 'DiffCount',
-        'errorCode'    => 'ErrorCode',
-        'finishCount'  => 'FinishCount',
-        'id'           => 'Id',
+        'bootTime' => 'BootTime',
+        'diffCount' => 'DiffCount',
+        'errorCode' => 'ErrorCode',
+        'finishCount' => 'FinishCount',
+        'id' => 'Id',
         'sourceDbName' => 'SourceDbName',
         'sourceTbName' => 'SourceTbName',
-        'status'       => 'Status',
+        'status' => 'Status',
         'targetDbName' => 'TargetDbName',
         'targetTbName' => 'TargetTbName',
-        'totalCount'   => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class DescribeSubscriptionMetaShrinkRequest extends Model
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $sid;
+
     /**
      * @var string
      */
     public $subMigrationJobIdsShrink;
+
     /**
      * @var string
      */
     public $topicsShrink;
     protected $_name = [
-        'dtsInstanceId'            => 'DtsInstanceId',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'sid'                      => 'Sid',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sid' => 'Sid',
         'subMigrationJobIdsShrink' => 'SubMigrationJobIds',
-        'topicsShrink'             => 'Topics',
+        'topicsShrink' => 'Topics',
     ];
 
     public function validate()

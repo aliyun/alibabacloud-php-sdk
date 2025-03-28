@@ -12,32 +12,37 @@ class ModifyDynamicConfigRequest extends Model
      * @var string
      */
     public $configList;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var bool
      */
     public $enableLimit;
+
     /**
      * @var string
      */
     public $jobCode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'configList'      => 'ConfigList',
-        'dtsJobId'        => 'DtsJobId',
-        'enableLimit'     => 'EnableLimit',
-        'jobCode'         => 'JobCode',
-        'regionId'        => 'RegionId',
+        'configList' => 'ConfigList',
+        'dtsJobId' => 'DtsJobId',
+        'enableLimit' => 'EnableLimit',
+        'jobCode' => 'JobCode',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

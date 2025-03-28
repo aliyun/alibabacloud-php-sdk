@@ -31,7 +31,7 @@ class migrationJobs extends Model
         if (null !== $this->migrationJob) {
             if (\is_array($this->migrationJob)) {
                 $res['MigrationJob'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->migrationJob as $item1) {
                     $res['MigrationJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class migrationJobs extends Model
         if (isset($map['MigrationJob'])) {
             if (!empty($map['MigrationJob'])) {
                 $model->migrationJob = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['MigrationJob'] as $item1) {
                     $model->migrationJob[$n1++] = migrationJob::fromMap($item1);
                 }

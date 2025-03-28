@@ -13,47 +13,55 @@ class DescribeConsumerChannelResponseBody extends Model
      * @var consumerChannels[]
      */
     public $consumerChannels;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $httpStatusCode;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
         'consumerChannels' => 'ConsumerChannels',
-        'errCode'          => 'ErrCode',
-        'errMessage'       => 'ErrMessage',
-        'httpStatusCode'   => 'HttpStatusCode',
-        'pageNumber'       => 'PageNumber',
-        'pageRecordCount'  => 'PageRecordCount',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
@@ -71,7 +79,7 @@ class DescribeConsumerChannelResponseBody extends Model
         if (null !== $this->consumerChannels) {
             if (\is_array($this->consumerChannels)) {
                 $res['ConsumerChannels'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->consumerChannels as $item1) {
                     $res['ConsumerChannels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -124,7 +132,7 @@ class DescribeConsumerChannelResponseBody extends Model
         if (isset($map['ConsumerChannels'])) {
             if (!empty($map['ConsumerChannels'])) {
                 $model->consumerChannels = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ConsumerChannels'] as $item1) {
                     $model->consumerChannels[$n1++] = consumerChannels::fromMap($item1);
                 }

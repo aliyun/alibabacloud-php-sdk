@@ -15,78 +15,92 @@ class ConfigureSynchronizationJobRequest extends Model
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
+
     /**
      * @var partitionKey
      */
     public $partitionKey;
+
     /**
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $checkpoint;
+
     /**
      * @var bool
      */
     public $dataInitialization;
+
     /**
      * @var string
      */
     public $migrationReserved;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $structureInitialization;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var string
      */
     public $synchronizationJobId;
+
     /**
      * @var string
      */
     public $synchronizationJobName;
+
     /**
      * @var string
      */
     public $synchronizationObjects;
     protected $_name = [
-        'destinationEndpoint'      => 'DestinationEndpoint',
-        'partitionKey'             => 'PartitionKey',
-        'sourceEndpoint'           => 'SourceEndpoint',
-        'accountId'                => 'AccountId',
-        'checkpoint'               => 'Checkpoint',
-        'dataInitialization'       => 'DataInitialization',
-        'migrationReserved'        => 'MigrationReserved',
-        'ownerId'                  => 'OwnerId',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'structureInitialization'  => 'StructureInitialization',
+        'destinationEndpoint' => 'DestinationEndpoint',
+        'partitionKey' => 'PartitionKey',
+        'sourceEndpoint' => 'SourceEndpoint',
+        'accountId' => 'AccountId',
+        'checkpoint' => 'Checkpoint',
+        'dataInitialization' => 'DataInitialization',
+        'migrationReserved' => 'MigrationReserved',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'structureInitialization' => 'StructureInitialization',
         'synchronizationDirection' => 'SynchronizationDirection',
-        'synchronizationJobId'     => 'SynchronizationJobId',
-        'synchronizationJobName'   => 'SynchronizationJobName',
-        'synchronizationObjects'   => 'SynchronizationObjects',
+        'synchronizationJobId' => 'SynchronizationJobId',
+        'synchronizationJobName' => 'SynchronizationJobName',
+        'synchronizationObjects' => 'SynchronizationObjects',
     ];
 
     public function validate()

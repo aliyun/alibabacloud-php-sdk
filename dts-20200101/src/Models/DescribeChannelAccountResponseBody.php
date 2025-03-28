@@ -12,48 +12,56 @@ class DescribeChannelAccountResponseBody extends Model
      * @var string
      */
     public $dynamicCode;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'dynamicCode'    => 'DynamicCode',
+        'dynamicCode' => 'DynamicCode',
         'dynamicMessage' => 'DynamicMessage',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'password'       => 'Password',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
-        'username'       => 'Username',
+        'password' => 'Password',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'username' => 'Username',
     ];
 
     public function validate()

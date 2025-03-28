@@ -12,12 +12,13 @@ class subscriptionInstance extends Model
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'VPCId'     => 'VPCId',
+        'VPCId' => 'VPCId',
         'vSwitchId' => 'VSwitchId',
     ];
 

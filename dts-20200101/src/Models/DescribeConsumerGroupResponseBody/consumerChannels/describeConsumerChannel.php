@@ -12,33 +12,38 @@ class describeConsumerChannel extends Model
      * @var string
      */
     public $consumerGroupID;
+
     /**
      * @var string
      */
     public $consumerGroupName;
+
     /**
      * @var string
      */
     public $consumerGroupUserName;
+
     /**
      * @var string
      */
     public $consumptionCheckpoint;
+
     /**
      * @var int
      */
     public $messageDelay;
+
     /**
      * @var int
      */
     public $unconsumedData;
     protected $_name = [
-        'consumerGroupID'       => 'ConsumerGroupID',
-        'consumerGroupName'     => 'ConsumerGroupName',
+        'consumerGroupID' => 'ConsumerGroupID',
+        'consumerGroupName' => 'ConsumerGroupName',
         'consumerGroupUserName' => 'ConsumerGroupUserName',
         'consumptionCheckpoint' => 'ConsumptionCheckpoint',
-        'messageDelay'          => 'MessageDelay',
-        'unconsumedData'        => 'UnconsumedData',
+        'messageDelay' => 'MessageDelay',
+        'unconsumedData' => 'UnconsumedData',
     ];
 
     public function validate()

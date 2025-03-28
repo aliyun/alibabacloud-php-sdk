@@ -12,13 +12,14 @@ class errorDetails extends Model
      * @var string
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $helpUrl;
     protected $_name = [
         'errorCode' => 'ErrorCode',
-        'helpUrl'   => 'HelpUrl',
+        'helpUrl' => 'HelpUrl',
     ];
 
     public function validate()

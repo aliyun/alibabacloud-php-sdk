@@ -12,27 +12,31 @@ class StartMigrationJobRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $migrationJobId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'accountId'       => 'AccountId',
-        'migrationJobId'  => 'MigrationJobId',
-        'ownerId'         => 'OwnerId',
-        'regionId'        => 'RegionId',
+        'accountId' => 'AccountId',
+        'migrationJobId' => 'MigrationJobId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

@@ -13,57 +13,67 @@ class DescribeCheckJobsResponseBody extends Model
      * @var checkJobs[]
      */
     public $checkJobs;
+
     /**
      * @var string
      */
     public $dynamicCode;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'checkJobs'        => 'CheckJobs',
-        'dynamicCode'      => 'DynamicCode',
-        'dynamicMessage'   => 'DynamicMessage',
-        'errCode'          => 'ErrCode',
-        'errMessage'       => 'ErrMessage',
-        'httpStatusCode'   => 'HttpStatusCode',
-        'pageNumber'       => 'PageNumber',
-        'pageRecordCount'  => 'PageRecordCount',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'checkJobs' => 'CheckJobs',
+        'dynamicCode' => 'DynamicCode',
+        'dynamicMessage' => 'DynamicMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
@@ -81,7 +91,7 @@ class DescribeCheckJobsResponseBody extends Model
         if (null !== $this->checkJobs) {
             if (\is_array($this->checkJobs)) {
                 $res['CheckJobs'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->checkJobs as $item1) {
                     $res['CheckJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -142,7 +152,7 @@ class DescribeCheckJobsResponseBody extends Model
         if (isset($map['CheckJobs'])) {
             if (!empty($map['CheckJobs'])) {
                 $model->checkJobs = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['CheckJobs'] as $item1) {
                     $model->checkJobs[$n1++] = checkJobs::fromMap($item1);
                 }

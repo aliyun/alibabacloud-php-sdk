@@ -12,43 +12,50 @@ class retryState extends Model
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var int
      */
     public $maxRetryTime;
+
     /**
      * @var string
      */
     public $module;
+
     /**
      * @var int
      */
     public $retryCount;
+
     /**
      * @var string
      */
     public $retryTarget;
+
     /**
      * @var int
      */
     public $retryTime;
+
     /**
      * @var bool
      */
     public $retrying;
     protected $_name = [
-        'errMessage'   => 'ErrMessage',
-        'jobId'        => 'JobId',
+        'errMessage' => 'ErrMessage',
+        'jobId' => 'JobId',
         'maxRetryTime' => 'MaxRetryTime',
-        'module'       => 'Module',
-        'retryCount'   => 'RetryCount',
-        'retryTarget'  => 'RetryTarget',
-        'retryTime'    => 'RetryTime',
-        'retrying'     => 'Retrying',
+        'module' => 'Module',
+        'retryCount' => 'RetryCount',
+        'retryTarget' => 'RetryTarget',
+        'retryTime' => 'RetryTime',
+        'retrying' => 'Retrying',
     ];
 
     public function validate()

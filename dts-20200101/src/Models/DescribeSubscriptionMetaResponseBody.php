@@ -13,33 +13,38 @@ class DescribeSubscriptionMetaResponseBody extends Model
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var subscriptionMetaList[]
      */
     public $subscriptionMetaList;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'errCode'              => 'ErrCode',
-        'errMessage'           => 'ErrMessage',
-        'httpStatusCode'       => 'HttpStatusCode',
-        'requestId'            => 'RequestId',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'requestId' => 'RequestId',
         'subscriptionMetaList' => 'SubscriptionMetaList',
-        'success'              => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -72,7 +77,7 @@ class DescribeSubscriptionMetaResponseBody extends Model
         if (null !== $this->subscriptionMetaList) {
             if (\is_array($this->subscriptionMetaList)) {
                 $res['SubscriptionMetaList'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->subscriptionMetaList as $item1) {
                     $res['SubscriptionMetaList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -113,7 +118,7 @@ class DescribeSubscriptionMetaResponseBody extends Model
         if (isset($map['SubscriptionMetaList'])) {
             if (!empty($map['SubscriptionMetaList'])) {
                 $model->subscriptionMetaList = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['SubscriptionMetaList'] as $item1) {
                     $model->subscriptionMetaList[$n1++] = subscriptionMetaList::fromMap($item1);
                 }

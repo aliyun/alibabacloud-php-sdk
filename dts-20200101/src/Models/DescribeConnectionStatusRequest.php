@@ -12,94 +12,117 @@ class DescribeConnectionStatusRequest extends Model
      * @var string
      */
     public $destinationEndpointArchitecture;
+
     /**
      * @var string
      */
     public $destinationEndpointDatabaseName;
+
     /**
      * @var string
      */
     public $destinationEndpointEngineName;
+
     /**
      * @var string
      */
     public $destinationEndpointIP;
+
     /**
      * @var string
      */
     public $destinationEndpointInstanceID;
+
     /**
      * @var string
      */
     public $destinationEndpointInstanceType;
+
     /**
      * @var string
      */
     public $destinationEndpointOracleSID;
+
     /**
      * @var string
      */
     public $destinationEndpointPassword;
+
     /**
      * @var string
      */
     public $destinationEndpointPort;
+
     /**
      * @var string
      */
     public $destinationEndpointRegion;
+
     /**
      * @var string
      */
     public $destinationEndpointUserName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $sourceEndpointArchitecture;
+
     /**
      * @var string
      */
     public $sourceEndpointDatabaseName;
+
     /**
      * @var string
      */
     public $sourceEndpointEngineName;
+
     /**
      * @var string
      */
     public $sourceEndpointIP;
+
     /**
      * @var string
      */
     public $sourceEndpointInstanceID;
+
     /**
      * @var string
      */
     public $sourceEndpointInstanceType;
+
     /**
      * @var string
      */
     public $sourceEndpointOracleSID;
+
     /**
      * @var string
      */
     public $sourceEndpointPassword;
+
     /**
      * @var string
      */
     public $sourceEndpointPort;
+
     /**
      * @var string
      */
     public $sourceEndpointRegion;
+
     /**
      * @var string
      */
@@ -107,28 +130,28 @@ class DescribeConnectionStatusRequest extends Model
     protected $_name = [
         'destinationEndpointArchitecture' => 'DestinationEndpointArchitecture',
         'destinationEndpointDatabaseName' => 'DestinationEndpointDatabaseName',
-        'destinationEndpointEngineName'   => 'DestinationEndpointEngineName',
-        'destinationEndpointIP'           => 'DestinationEndpointIP',
-        'destinationEndpointInstanceID'   => 'DestinationEndpointInstanceID',
+        'destinationEndpointEngineName' => 'DestinationEndpointEngineName',
+        'destinationEndpointIP' => 'DestinationEndpointIP',
+        'destinationEndpointInstanceID' => 'DestinationEndpointInstanceID',
         'destinationEndpointInstanceType' => 'DestinationEndpointInstanceType',
-        'destinationEndpointOracleSID'    => 'DestinationEndpointOracleSID',
-        'destinationEndpointPassword'     => 'DestinationEndpointPassword',
-        'destinationEndpointPort'         => 'DestinationEndpointPort',
-        'destinationEndpointRegion'       => 'DestinationEndpointRegion',
-        'destinationEndpointUserName'     => 'DestinationEndpointUserName',
-        'regionId'                        => 'RegionId',
-        'resourceGroupId'                 => 'ResourceGroupId',
-        'sourceEndpointArchitecture'      => 'SourceEndpointArchitecture',
-        'sourceEndpointDatabaseName'      => 'SourceEndpointDatabaseName',
-        'sourceEndpointEngineName'        => 'SourceEndpointEngineName',
-        'sourceEndpointIP'                => 'SourceEndpointIP',
-        'sourceEndpointInstanceID'        => 'SourceEndpointInstanceID',
-        'sourceEndpointInstanceType'      => 'SourceEndpointInstanceType',
-        'sourceEndpointOracleSID'         => 'SourceEndpointOracleSID',
-        'sourceEndpointPassword'          => 'SourceEndpointPassword',
-        'sourceEndpointPort'              => 'SourceEndpointPort',
-        'sourceEndpointRegion'            => 'SourceEndpointRegion',
-        'sourceEndpointUserName'          => 'SourceEndpointUserName',
+        'destinationEndpointOracleSID' => 'DestinationEndpointOracleSID',
+        'destinationEndpointPassword' => 'DestinationEndpointPassword',
+        'destinationEndpointPort' => 'DestinationEndpointPort',
+        'destinationEndpointRegion' => 'DestinationEndpointRegion',
+        'destinationEndpointUserName' => 'DestinationEndpointUserName',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceEndpointArchitecture' => 'SourceEndpointArchitecture',
+        'sourceEndpointDatabaseName' => 'SourceEndpointDatabaseName',
+        'sourceEndpointEngineName' => 'SourceEndpointEngineName',
+        'sourceEndpointIP' => 'SourceEndpointIP',
+        'sourceEndpointInstanceID' => 'SourceEndpointInstanceID',
+        'sourceEndpointInstanceType' => 'SourceEndpointInstanceType',
+        'sourceEndpointOracleSID' => 'SourceEndpointOracleSID',
+        'sourceEndpointPassword' => 'SourceEndpointPassword',
+        'sourceEndpointPort' => 'SourceEndpointPort',
+        'sourceEndpointRegion' => 'SourceEndpointRegion',
+        'sourceEndpointUserName' => 'SourceEndpointUserName',
     ];
 
     public function validate()

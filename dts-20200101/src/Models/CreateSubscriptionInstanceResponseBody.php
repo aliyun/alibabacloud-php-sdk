@@ -12,28 +12,32 @@ class CreateSubscriptionInstanceResponseBody extends Model
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $subscriptionInstanceId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'errCode'                => 'ErrCode',
-        'errMessage'             => 'ErrMessage',
-        'requestId'              => 'RequestId',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'requestId' => 'RequestId',
         'subscriptionInstanceId' => 'SubscriptionInstanceId',
-        'success'                => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

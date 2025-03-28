@@ -12,53 +12,62 @@ class CountJobByConditionRequest extends Model
      * @var string
      */
     public $destDbType;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $jobType;
+
     /**
      * @var string
      */
     public $params;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $srcDbType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'destDbType'      => 'DestDbType',
-        'groupId'         => 'GroupId',
-        'jobType'         => 'JobType',
-        'params'          => 'Params',
-        'region'          => 'Region',
-        'regionId'        => 'RegionId',
+        'destDbType' => 'DestDbType',
+        'groupId' => 'GroupId',
+        'jobType' => 'JobType',
+        'params' => 'Params',
+        'region' => 'Region',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'srcDbType'       => 'SrcDbType',
-        'status'          => 'Status',
-        'type'            => 'Type',
+        'srcDbType' => 'SrcDbType',
+        'status' => 'Status',
+        'type' => 'Type',
     ];
 
     public function validate()

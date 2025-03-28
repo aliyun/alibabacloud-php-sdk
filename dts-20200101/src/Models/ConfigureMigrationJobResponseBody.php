@@ -12,23 +12,26 @@ class ConfigureMigrationJobResponseBody extends Model
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'errCode'    => 'ErrCode',
+        'errCode' => 'ErrCode',
         'errMessage' => 'ErrMessage',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

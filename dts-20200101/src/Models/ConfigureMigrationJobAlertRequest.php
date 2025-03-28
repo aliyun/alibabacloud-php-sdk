@@ -12,53 +12,62 @@ class ConfigureMigrationJobAlertRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $delayAlertPhone;
+
     /**
      * @var string
      */
     public $delayAlertStatus;
+
     /**
      * @var string
      */
     public $delayOverSeconds;
+
     /**
      * @var string
      */
     public $errorAlertPhone;
+
     /**
      * @var string
      */
     public $errorAlertStatus;
+
     /**
      * @var string
      */
     public $migrationJobId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'accountId'        => 'AccountId',
-        'delayAlertPhone'  => 'DelayAlertPhone',
+        'accountId' => 'AccountId',
+        'delayAlertPhone' => 'DelayAlertPhone',
         'delayAlertStatus' => 'DelayAlertStatus',
         'delayOverSeconds' => 'DelayOverSeconds',
-        'errorAlertPhone'  => 'ErrorAlertPhone',
+        'errorAlertPhone' => 'ErrorAlertPhone',
         'errorAlertStatus' => 'ErrorAlertStatus',
-        'migrationJobId'   => 'MigrationJobId',
-        'ownerId'          => 'OwnerId',
-        'regionId'         => 'RegionId',
-        'resourceGroupId'  => 'ResourceGroupId',
+        'migrationJobId' => 'MigrationJobId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

@@ -19,93 +19,110 @@ class DescribeMigrationJobStatusResponseBody extends Model
      * @var dataInitializationStatus
      */
     public $dataInitializationStatus;
+
     /**
      * @var dataSynchronizationStatus
      */
     public $dataSynchronizationStatus;
+
     /**
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $migrationJobClass;
+
     /**
      * @var string
      */
     public $migrationJobId;
+
     /**
      * @var string
      */
     public $migrationJobName;
+
     /**
      * @var string
      */
     public $migrationJobStatus;
+
     /**
      * @var migrationMode
      */
     public $migrationMode;
+
     /**
      * @var string
      */
     public $migrationObject;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var precheckStatus
      */
     public $precheckStatus;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var structureInitializationStatus
      */
     public $structureInitializationStatus;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'dataInitializationStatus'      => 'DataInitializationStatus',
-        'dataSynchronizationStatus'     => 'DataSynchronizationStatus',
-        'destinationEndpoint'           => 'DestinationEndpoint',
-        'errCode'                       => 'ErrCode',
-        'errMessage'                    => 'ErrMessage',
-        'migrationJobClass'             => 'MigrationJobClass',
-        'migrationJobId'                => 'MigrationJobId',
-        'migrationJobName'              => 'MigrationJobName',
-        'migrationJobStatus'            => 'MigrationJobStatus',
-        'migrationMode'                 => 'MigrationMode',
-        'migrationObject'               => 'MigrationObject',
-        'payType'                       => 'PayType',
-        'precheckStatus'                => 'PrecheckStatus',
-        'requestId'                     => 'RequestId',
-        'sourceEndpoint'                => 'SourceEndpoint',
+        'dataInitializationStatus' => 'DataInitializationStatus',
+        'dataSynchronizationStatus' => 'DataSynchronizationStatus',
+        'destinationEndpoint' => 'DestinationEndpoint',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'migrationJobClass' => 'MigrationJobClass',
+        'migrationJobId' => 'MigrationJobId',
+        'migrationJobName' => 'MigrationJobName',
+        'migrationJobStatus' => 'MigrationJobStatus',
+        'migrationMode' => 'MigrationMode',
+        'migrationObject' => 'MigrationObject',
+        'payType' => 'PayType',
+        'precheckStatus' => 'PrecheckStatus',
+        'requestId' => 'RequestId',
+        'sourceEndpoint' => 'SourceEndpoint',
         'structureInitializationStatus' => 'StructureInitializationStatus',
-        'success'                       => 'Success',
-        'taskId'                        => 'TaskId',
+        'success' => 'Success',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

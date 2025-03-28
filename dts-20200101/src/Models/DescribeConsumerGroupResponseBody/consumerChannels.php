@@ -31,7 +31,7 @@ class consumerChannels extends Model
         if (null !== $this->describeConsumerChannel) {
             if (\is_array($this->describeConsumerChannel)) {
                 $res['DescribeConsumerChannel'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->describeConsumerChannel as $item1) {
                     $res['DescribeConsumerChannel'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class consumerChannels extends Model
         if (isset($map['DescribeConsumerChannel'])) {
             if (!empty($map['DescribeConsumerChannel'])) {
                 $model->describeConsumerChannel = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['DescribeConsumerChannel'] as $item1) {
                     $model->describeConsumerChannel[$n1++] = describeConsumerChannel::fromMap($item1);
                 }

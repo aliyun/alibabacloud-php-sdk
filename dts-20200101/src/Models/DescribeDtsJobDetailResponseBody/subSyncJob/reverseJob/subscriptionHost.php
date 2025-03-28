@@ -12,18 +12,20 @@ class subscriptionHost extends Model
      * @var string
      */
     public $privateHost;
+
     /**
      * @var string
      */
     public $publicHost;
+
     /**
      * @var string
      */
     public $vpcHost;
     protected $_name = [
         'privateHost' => 'PrivateHost',
-        'publicHost'  => 'PublicHost',
-        'vpcHost'     => 'VpcHost',
+        'publicHost' => 'PublicHost',
+        'vpcHost' => 'VpcHost',
     ];
 
     public function validate()

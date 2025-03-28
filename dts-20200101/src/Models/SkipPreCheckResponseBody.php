@@ -12,58 +12,68 @@ class SkipPreCheckResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $migrationJobId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $scheduleJobId;
+
     /**
      * @var string
      */
     public $skipItems;
+
     /**
      * @var string
      */
     public $skipNames;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'dynamicMessage' => 'DynamicMessage',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
         'migrationJobId' => 'MigrationJobId',
-        'requestId'      => 'RequestId',
-        'scheduleJobId'  => 'ScheduleJobId',
-        'skipItems'      => 'SkipItems',
-        'skipNames'      => 'SkipNames',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'scheduleJobId' => 'ScheduleJobId',
+        'skipItems' => 'SkipItems',
+        'skipNames' => 'SkipNames',
+        'success' => 'Success',
     ];
 
     public function validate()

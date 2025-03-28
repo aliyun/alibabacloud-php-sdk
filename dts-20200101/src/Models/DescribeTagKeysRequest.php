@@ -12,38 +12,44 @@ class DescribeTagKeysRequest extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'category'        => 'Category',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'category' => 'Category',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'resourceId'      => 'ResourceId',
-        'resourceType'    => 'ResourceType',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class sourceEndpoint extends Model
      * @var string
      */
     public $ownerID;
+
     /**
      * @var string
      */
     public $role;
     protected $_name = [
         'ownerID' => 'OwnerID',
-        'role'    => 'Role',
+        'role' => 'Role',
     ];
 
     public function validate()

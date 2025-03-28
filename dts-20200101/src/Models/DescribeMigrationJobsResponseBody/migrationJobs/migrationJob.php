@@ -21,83 +21,98 @@ class migrationJob extends Model
      * @var dataInitialization
      */
     public $dataInitialization;
+
     /**
      * @var dataSynchronization
      */
     public $dataSynchronization;
+
     /**
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
+
     /**
      * @var string
      */
     public $instanceCreateTime;
+
     /**
      * @var string
      */
     public $jobCreateTime;
+
     /**
      * @var string
      */
     public $migrationJobClass;
+
     /**
      * @var string
      */
     public $migrationJobID;
+
     /**
      * @var string
      */
     public $migrationJobName;
+
     /**
      * @var string
      */
     public $migrationJobStatus;
+
     /**
      * @var migrationMode
      */
     public $migrationMode;
+
     /**
      * @var migrationObject
      */
     public $migrationObject;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var precheck
      */
     public $precheck;
+
     /**
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var structureInitialization
      */
     public $structureInitialization;
+
     /**
      * @var tags
      */
     public $tags;
     protected $_name = [
-        'dataInitialization'      => 'DataInitialization',
-        'dataSynchronization'     => 'DataSynchronization',
-        'destinationEndpoint'     => 'DestinationEndpoint',
-        'instanceCreateTime'      => 'InstanceCreateTime',
-        'jobCreateTime'           => 'JobCreateTime',
-        'migrationJobClass'       => 'MigrationJobClass',
-        'migrationJobID'          => 'MigrationJobID',
-        'migrationJobName'        => 'MigrationJobName',
-        'migrationJobStatus'      => 'MigrationJobStatus',
-        'migrationMode'           => 'MigrationMode',
-        'migrationObject'         => 'MigrationObject',
-        'payType'                 => 'PayType',
-        'precheck'                => 'Precheck',
-        'sourceEndpoint'          => 'SourceEndpoint',
+        'dataInitialization' => 'DataInitialization',
+        'dataSynchronization' => 'DataSynchronization',
+        'destinationEndpoint' => 'DestinationEndpoint',
+        'instanceCreateTime' => 'InstanceCreateTime',
+        'jobCreateTime' => 'JobCreateTime',
+        'migrationJobClass' => 'MigrationJobClass',
+        'migrationJobID' => 'MigrationJobID',
+        'migrationJobName' => 'MigrationJobName',
+        'migrationJobStatus' => 'MigrationJobStatus',
+        'migrationMode' => 'MigrationMode',
+        'migrationObject' => 'MigrationObject',
+        'payType' => 'PayType',
+        'precheck' => 'Precheck',
+        'sourceEndpoint' => 'SourceEndpoint',
         'structureInitialization' => 'StructureInitialization',
-        'tags'                    => 'Tags',
+        'tags' => 'Tags',
     ];
 
     public function validate()

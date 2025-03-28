@@ -20,117 +20,139 @@ class reverseJob extends Model
      * @var string
      */
     public $checkpoint;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var dataInitializationStatus
      */
     public $dataInitializationStatus;
+
     /**
      * @var dataSynchronizationStatus
      */
     public $dataSynchronizationStatus;
+
     /**
      * @var string
      */
     public $dbObject;
+
     /**
      * @var int
      */
     public $delay;
+
     /**
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
+
     /**
      * @var string
      */
     public $dtsInstanceID;
+
     /**
      * @var string
      */
     public $dtsJobClass;
+
     /**
      * @var string
      */
     public $dtsJobDirection;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $dtsJobName;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $etlSafeCheckpoint;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var migrationMode
      */
     public $migrationMode;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var performance
      */
     public $performance;
+
     /**
      * @var precheckStatus
      */
     public $precheckStatus;
+
     /**
      * @var string
      */
     public $reserved;
+
     /**
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var structureInitializationStatus
      */
     public $structureInitializationStatus;
     protected $_name = [
-        'checkpoint'                    => 'Checkpoint',
-        'createTime'                    => 'CreateTime',
-        'dataInitializationStatus'      => 'DataInitializationStatus',
-        'dataSynchronizationStatus'     => 'DataSynchronizationStatus',
-        'dbObject'                      => 'DbObject',
-        'delay'                         => 'Delay',
-        'destinationEndpoint'           => 'DestinationEndpoint',
-        'dtsInstanceID'                 => 'DtsInstanceID',
-        'dtsJobClass'                   => 'DtsJobClass',
-        'dtsJobDirection'               => 'DtsJobDirection',
-        'dtsJobId'                      => 'DtsJobId',
-        'dtsJobName'                    => 'DtsJobName',
-        'errorMessage'                  => 'ErrorMessage',
-        'etlSafeCheckpoint'             => 'EtlSafeCheckpoint',
-        'expireTime'                    => 'ExpireTime',
-        'migrationMode'                 => 'MigrationMode',
-        'payType'                       => 'PayType',
-        'performance'                   => 'Performance',
-        'precheckStatus'                => 'PrecheckStatus',
-        'reserved'                      => 'Reserved',
-        'sourceEndpoint'                => 'SourceEndpoint',
-        'status'                        => 'Status',
+        'checkpoint' => 'Checkpoint',
+        'createTime' => 'CreateTime',
+        'dataInitializationStatus' => 'DataInitializationStatus',
+        'dataSynchronizationStatus' => 'DataSynchronizationStatus',
+        'dbObject' => 'DbObject',
+        'delay' => 'Delay',
+        'destinationEndpoint' => 'DestinationEndpoint',
+        'dtsInstanceID' => 'DtsInstanceID',
+        'dtsJobClass' => 'DtsJobClass',
+        'dtsJobDirection' => 'DtsJobDirection',
+        'dtsJobId' => 'DtsJobId',
+        'dtsJobName' => 'DtsJobName',
+        'errorMessage' => 'ErrorMessage',
+        'etlSafeCheckpoint' => 'EtlSafeCheckpoint',
+        'expireTime' => 'ExpireTime',
+        'migrationMode' => 'MigrationMode',
+        'payType' => 'PayType',
+        'performance' => 'Performance',
+        'precheckStatus' => 'PrecheckStatus',
+        'reserved' => 'Reserved',
+        'sourceEndpoint' => 'SourceEndpoint',
+        'status' => 'Status',
         'structureInitializationStatus' => 'StructureInitializationStatus',
     ];
 

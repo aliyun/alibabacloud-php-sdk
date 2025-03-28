@@ -13,53 +13,62 @@ class DescribeJobMonitorRuleResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var monitorRules[]
      */
     public $monitorRules;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string[]
      */
     public $topics;
     protected $_name = [
-        'code'           => 'Code',
-        'dtsJobId'       => 'DtsJobId',
+        'code' => 'Code',
+        'dtsJobId' => 'DtsJobId',
         'dynamicMessage' => 'DynamicMessage',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'monitorRules'   => 'MonitorRules',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
-        'topics'         => 'Topics',
+        'monitorRules' => 'MonitorRules',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'topics' => 'Topics',
     ];
 
     public function validate()
@@ -103,7 +112,7 @@ class DescribeJobMonitorRuleResponseBody extends Model
         if (null !== $this->monitorRules) {
             if (\is_array($this->monitorRules)) {
                 $res['MonitorRules'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->monitorRules as $item1) {
                     $res['MonitorRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -121,7 +130,7 @@ class DescribeJobMonitorRuleResponseBody extends Model
         if (null !== $this->topics) {
             if (\is_array($this->topics)) {
                 $res['Topics'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->topics as $item1) {
                     $res['Topics'][$n1++] = $item1;
                 }
@@ -166,7 +175,7 @@ class DescribeJobMonitorRuleResponseBody extends Model
         if (isset($map['MonitorRules'])) {
             if (!empty($map['MonitorRules'])) {
                 $model->monitorRules = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['MonitorRules'] as $item1) {
                     $model->monitorRules[$n1++] = monitorRules::fromMap($item1);
                 }
@@ -184,7 +193,7 @@ class DescribeJobMonitorRuleResponseBody extends Model
         if (isset($map['Topics'])) {
             if (!empty($map['Topics'])) {
                 $model->topics = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Topics'] as $item1) {
                     $model->topics[$n1++] = $item1;
                 }

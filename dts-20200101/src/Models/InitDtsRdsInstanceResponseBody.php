@@ -12,38 +12,44 @@ class InitDtsRdsInstanceResponseBody extends Model
      * @var string
      */
     public $adminAccount;
+
     /**
      * @var string
      */
     public $adminPassword;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'adminAccount'   => 'AdminAccount',
-        'adminPassword'  => 'AdminPassword',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
+        'adminAccount' => 'AdminAccount',
+        'adminPassword' => 'AdminPassword',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

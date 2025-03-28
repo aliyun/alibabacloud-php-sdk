@@ -12,52 +12,61 @@ class ModifyConsumerGroupPasswordRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $consumerGroupID;
+
     /**
      * @var string
      */
     public $consumerGroupName;
+
     /**
      * @var string
      */
     public $consumerGroupPassword;
+
     /**
      * @var string
      */
     public $consumerGroupUserName;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $subscriptionInstanceId;
+
     /**
      * @var string
      */
     public $consumerGroupNewPassword;
     protected $_name = [
-        'accountId'                => 'AccountId',
-        'consumerGroupID'          => 'ConsumerGroupID',
-        'consumerGroupName'        => 'ConsumerGroupName',
-        'consumerGroupPassword'    => 'ConsumerGroupPassword',
-        'consumerGroupUserName'    => 'ConsumerGroupUserName',
-        'ownerId'                  => 'OwnerId',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'subscriptionInstanceId'   => 'SubscriptionInstanceId',
+        'accountId' => 'AccountId',
+        'consumerGroupID' => 'ConsumerGroupID',
+        'consumerGroupName' => 'ConsumerGroupName',
+        'consumerGroupPassword' => 'ConsumerGroupPassword',
+        'consumerGroupUserName' => 'ConsumerGroupUserName',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'subscriptionInstanceId' => 'SubscriptionInstanceId',
         'consumerGroupNewPassword' => 'consumerGroupNewPassword',
     ];
 

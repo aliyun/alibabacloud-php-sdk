@@ -12,23 +12,26 @@ class DescribeDedicatedClusterRequest extends Model
      * @var string
      */
     public $dedicatedClusterId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
         'dedicatedClusterId' => 'DedicatedClusterId',
-        'ownerId'            => 'OwnerId',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

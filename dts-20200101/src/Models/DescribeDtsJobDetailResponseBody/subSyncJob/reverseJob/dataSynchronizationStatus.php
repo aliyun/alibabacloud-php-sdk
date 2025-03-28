@@ -12,28 +12,32 @@ class dataSynchronizationStatus extends Model
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var bool
      */
     public $needUpgrade;
+
     /**
      * @var string
      */
     public $percent;
+
     /**
      * @var string
      */
     public $progress;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'errorMessage' => 'ErrorMessage',
-        'needUpgrade'  => 'NeedUpgrade',
-        'percent'      => 'Percent',
-        'progress'     => 'Progress',
-        'status'       => 'Status',
+        'needUpgrade' => 'NeedUpgrade',
+        'percent' => 'Percent',
+        'progress' => 'Progress',
+        'status' => 'Status',
     ];
 
     public function validate()

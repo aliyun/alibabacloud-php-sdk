@@ -31,7 +31,7 @@ class dataSynchronizationDetailList extends Model
         if (null !== $this->dataSynchronizationDetail) {
             if (\is_array($this->dataSynchronizationDetail)) {
                 $res['DataSynchronizationDetail'] = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($this->dataSynchronizationDetail as $item1) {
                     $res['DataSynchronizationDetail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class dataSynchronizationDetailList extends Model
         if (isset($map['DataSynchronizationDetail'])) {
             if (!empty($map['DataSynchronizationDetail'])) {
                 $model->dataSynchronizationDetail = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($map['DataSynchronizationDetail'] as $item1) {
                     $model->dataSynchronizationDetail[$n1++] = dataSynchronizationDetail::fromMap($item1);
                 }

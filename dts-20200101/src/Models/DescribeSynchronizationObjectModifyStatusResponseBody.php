@@ -16,53 +16,62 @@ class DescribeSynchronizationObjectModifyStatusResponseBody extends Model
      * @var dataInitializationStatus
      */
     public $dataInitializationStatus;
+
     /**
      * @var dataSynchronizationStatus
      */
     public $dataSynchronizationStatus;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var precheckStatus
      */
     public $precheckStatus;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var structureInitializationStatus
      */
     public $structureInitializationStatus;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'dataInitializationStatus'      => 'DataInitializationStatus',
-        'dataSynchronizationStatus'     => 'DataSynchronizationStatus',
-        'errCode'                       => 'ErrCode',
-        'errMessage'                    => 'ErrMessage',
-        'errorMessage'                  => 'ErrorMessage',
-        'precheckStatus'                => 'PrecheckStatus',
-        'requestId'                     => 'RequestId',
-        'status'                        => 'Status',
+        'dataInitializationStatus' => 'DataInitializationStatus',
+        'dataSynchronizationStatus' => 'DataSynchronizationStatus',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'errorMessage' => 'ErrorMessage',
+        'precheckStatus' => 'PrecheckStatus',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
         'structureInitializationStatus' => 'StructureInitializationStatus',
-        'success'                       => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

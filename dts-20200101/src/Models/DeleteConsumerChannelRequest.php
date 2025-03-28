@@ -12,27 +12,31 @@ class DeleteConsumerChannelRequest extends Model
      * @var string
      */
     public $consumerGroupId;
+
     /**
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
         'consumerGroupId' => 'ConsumerGroupId',
-        'dtsInstanceId'   => 'DtsInstanceId',
-        'dtsJobId'        => 'DtsJobId',
-        'regionId'        => 'RegionId',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'dtsJobId' => 'DtsJobId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

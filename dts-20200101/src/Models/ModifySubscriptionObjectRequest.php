@@ -12,33 +12,38 @@ class ModifySubscriptionObjectRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $subscriptionInstanceId;
+
     /**
      * @var string
      */
     public $subscriptionObject;
     protected $_name = [
-        'accountId'              => 'AccountId',
-        'ownerId'                => 'OwnerId',
-        'regionId'               => 'RegionId',
-        'resourceGroupId'        => 'ResourceGroupId',
+        'accountId' => 'AccountId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'subscriptionInstanceId' => 'SubscriptionInstanceId',
-        'subscriptionObject'     => 'SubscriptionObject',
+        'subscriptionObject' => 'SubscriptionObject',
     ];
 
     public function validate()

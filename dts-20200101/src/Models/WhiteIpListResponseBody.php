@@ -12,53 +12,62 @@ class WhiteIpListResponseBody extends Model
      * @var string
      */
     public $destIpList;
+
     /**
      * @var string
      */
     public $dynamicCode;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $ipList;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $srcIpList;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'destIpList'     => 'DestIpList',
-        'dynamicCode'    => 'DynamicCode',
+        'destIpList' => 'DestIpList',
+        'dynamicCode' => 'DynamicCode',
         'dynamicMessage' => 'DynamicMessage',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'ipList'         => 'IpList',
-        'requestId'      => 'RequestId',
-        'srcIpList'      => 'SrcIpList',
-        'success'        => 'Success',
+        'ipList' => 'IpList',
+        'requestId' => 'RequestId',
+        'srcIpList' => 'SrcIpList',
+        'success' => 'Success',
     ];
 
     public function validate()

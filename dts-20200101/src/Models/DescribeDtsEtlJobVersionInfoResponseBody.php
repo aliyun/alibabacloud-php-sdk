@@ -13,58 +13,68 @@ class DescribeDtsEtlJobVersionInfoResponseBody extends Model
      * @var dtsEtlJobVersionInfos[]
      */
     public $dtsEtlJobVersionInfos;
+
     /**
      * @var string
      */
     public $dynamicCode;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $httpStatusCode;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
         'dtsEtlJobVersionInfos' => 'DtsEtlJobVersionInfos',
-        'dynamicCode'           => 'DynamicCode',
-        'dynamicMessage'        => 'DynamicMessage',
-        'errCode'               => 'ErrCode',
-        'errMessage'            => 'ErrMessage',
-        'httpStatusCode'        => 'HttpStatusCode',
-        'pageNumber'            => 'PageNumber',
-        'pageRecordCount'       => 'PageRecordCount',
-        'requestId'             => 'RequestId',
-        'success'               => 'Success',
-        'totalRecordCount'      => 'TotalRecordCount',
+        'dynamicCode' => 'DynamicCode',
+        'dynamicMessage' => 'DynamicMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()
@@ -81,7 +91,7 @@ class DescribeDtsEtlJobVersionInfoResponseBody extends Model
         if (null !== $this->dtsEtlJobVersionInfos) {
             if (\is_array($this->dtsEtlJobVersionInfos)) {
                 $res['DtsEtlJobVersionInfos'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->dtsEtlJobVersionInfos as $item1) {
                     $res['DtsEtlJobVersionInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -142,7 +152,7 @@ class DescribeDtsEtlJobVersionInfoResponseBody extends Model
         if (isset($map['DtsEtlJobVersionInfos'])) {
             if (!empty($map['DtsEtlJobVersionInfos'])) {
                 $model->dtsEtlJobVersionInfos = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['DtsEtlJobVersionInfos'] as $item1) {
                     $model->dtsEtlJobVersionInfos[$n1++] = dtsEtlJobVersionInfos::fromMap($item1);
                 }

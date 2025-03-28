@@ -14,62 +14,73 @@ class DescribeDtsJobsResponseBody extends Model
      * @var dtsJobList[]
      */
     public $dtsJobList;
+
     /**
      * @var string
      */
     public $dynamicCode;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var etlDemoList[]
      */
     public $etlDemoList;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'dtsJobList'       => 'DtsJobList',
-        'dynamicCode'      => 'DynamicCode',
-        'dynamicMessage'   => 'DynamicMessage',
-        'errCode'          => 'ErrCode',
-        'errMessage'       => 'ErrMessage',
-        'etlDemoList'      => 'EtlDemoList',
-        'httpStatusCode'   => 'HttpStatusCode',
-        'pageNumber'       => 'PageNumber',
-        'pageRecordCount'  => 'PageRecordCount',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'dtsJobList' => 'DtsJobList',
+        'dynamicCode' => 'DynamicCode',
+        'dynamicMessage' => 'DynamicMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'etlDemoList' => 'EtlDemoList',
+        'httpStatusCode' => 'HttpStatusCode',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
@@ -90,7 +101,7 @@ class DescribeDtsJobsResponseBody extends Model
         if (null !== $this->dtsJobList) {
             if (\is_array($this->dtsJobList)) {
                 $res['DtsJobList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->dtsJobList as $item1) {
                     $res['DtsJobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -116,7 +127,7 @@ class DescribeDtsJobsResponseBody extends Model
         if (null !== $this->etlDemoList) {
             if (\is_array($this->etlDemoList)) {
                 $res['EtlDemoList'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->etlDemoList as $item1) {
                     $res['EtlDemoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -161,7 +172,7 @@ class DescribeDtsJobsResponseBody extends Model
         if (isset($map['DtsJobList'])) {
             if (!empty($map['DtsJobList'])) {
                 $model->dtsJobList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['DtsJobList'] as $item1) {
                     $model->dtsJobList[$n1++] = dtsJobList::fromMap($item1);
                 }
@@ -187,7 +198,7 @@ class DescribeDtsJobsResponseBody extends Model
         if (isset($map['EtlDemoList'])) {
             if (!empty($map['EtlDemoList'])) {
                 $model->etlDemoList = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['EtlDemoList'] as $item1) {
                     $model->etlDemoList[$n1++] = etlDemoList::fromMap($item1);
                 }

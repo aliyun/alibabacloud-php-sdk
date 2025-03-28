@@ -12,28 +12,32 @@ class ModifyDtsJobNameRequest extends Model
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $dtsJobName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $zeroEtlJob;
     protected $_name = [
-        'dtsJobId'        => 'DtsJobId',
-        'dtsJobName'      => 'DtsJobName',
-        'regionId'        => 'RegionId',
+        'dtsJobId' => 'DtsJobId',
+        'dtsJobName' => 'DtsJobName',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'zeroEtlJob'      => 'ZeroEtlJob',
+        'zeroEtlJob' => 'ZeroEtlJob',
     ];
 
     public function validate()

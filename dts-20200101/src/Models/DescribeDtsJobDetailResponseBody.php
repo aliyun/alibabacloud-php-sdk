@@ -22,288 +22,344 @@ class DescribeDtsJobDetailResponseBody extends Model
      * @var string
      */
     public $appName;
+
     /**
      * @var string
      */
     public $beginTimestamp;
+
     /**
      * @var string
      */
     public $binlog;
+
     /**
      * @var string
      */
     public $binlogSite;
+
     /**
      * @var string
      */
     public $binlogTime;
+
     /**
      * @var string
      */
     public $bootTime;
+
     /**
      * @var int
      */
     public $checkpoint;
+
     /**
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */
     public $consumptionCheckpoint;
+
     /**
      * @var string
      */
     public $consumptionClient;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var dataDeliveryChannelInfo
      */
     public $dataDeliveryChannelInfo;
+
     /**
      * @var dataSynchronizationStatus
      */
     public $dataSynchronizationStatus;
+
     /**
      * @var int
      */
     public $databaseCount;
+
     /**
      * @var string
      */
     public $dbObject;
+
     /**
      * @var string
      */
     public $dedicatedClusterId;
+
     /**
      * @var int
      */
     public $delay;
+
     /**
      * @var bool
      */
     public $demoJob;
+
     /**
      * @var string
      */
     public $destNetType;
+
     /**
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
+
     /**
      * @var string
      */
     public $dtsBisLabel;
+
     /**
      * @var string
      */
     public $dtsInstanceID;
+
     /**
      * @var string
      */
     public $dtsJobClass;
+
     /**
      * @var string
      */
     public $dtsJobDirection;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $dtsJobName;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $endTimestamp;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $etlCalculator;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $finishTime;
+
     /**
      * @var string
      */
     public $groupId;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $jobType;
+
     /**
      * @var string
      */
     public $lastUpdateTime;
+
     /**
      * @var float
      */
     public $maxDu;
+
     /**
      * @var migrationMode
      */
     public $migrationMode;
+
     /**
      * @var float
      */
     public $minDu;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $reserved;
+
     /**
      * @var string
      */
     public $resourceGroupDisplayName;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var retryState
      */
     public $retryState;
+
     /**
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var subDistributedJob[]
      */
     public $subDistributedJob;
+
     /**
      * @var subSyncJob[]
      */
     public $subSyncJob;
+
     /**
      * @var string
      */
     public $subscribeTopic;
+
     /**
      * @var subscriptionDataType
      */
     public $subscriptionDataType;
+
     /**
      * @var subscriptionHost
      */
     public $subscriptionHost;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'appName'                   => 'AppName',
-        'beginTimestamp'            => 'BeginTimestamp',
-        'binlog'                    => 'Binlog',
-        'binlogSite'                => 'BinlogSite',
-        'binlogTime'                => 'BinlogTime',
-        'bootTime'                  => 'BootTime',
-        'checkpoint'                => 'Checkpoint',
-        'code'                      => 'Code',
-        'consumptionCheckpoint'     => 'ConsumptionCheckpoint',
-        'consumptionClient'         => 'ConsumptionClient',
-        'createTime'                => 'CreateTime',
-        'dataDeliveryChannelInfo'   => 'DataDeliveryChannelInfo',
+        'appName' => 'AppName',
+        'beginTimestamp' => 'BeginTimestamp',
+        'binlog' => 'Binlog',
+        'binlogSite' => 'BinlogSite',
+        'binlogTime' => 'BinlogTime',
+        'bootTime' => 'BootTime',
+        'checkpoint' => 'Checkpoint',
+        'code' => 'Code',
+        'consumptionCheckpoint' => 'ConsumptionCheckpoint',
+        'consumptionClient' => 'ConsumptionClient',
+        'createTime' => 'CreateTime',
+        'dataDeliveryChannelInfo' => 'DataDeliveryChannelInfo',
         'dataSynchronizationStatus' => 'DataSynchronizationStatus',
-        'databaseCount'             => 'DatabaseCount',
-        'dbObject'                  => 'DbObject',
-        'dedicatedClusterId'        => 'DedicatedClusterId',
-        'delay'                     => 'Delay',
-        'demoJob'                   => 'DemoJob',
-        'destNetType'               => 'DestNetType',
-        'destinationEndpoint'       => 'DestinationEndpoint',
-        'dtsBisLabel'               => 'DtsBisLabel',
-        'dtsInstanceID'             => 'DtsInstanceID',
-        'dtsJobClass'               => 'DtsJobClass',
-        'dtsJobDirection'           => 'DtsJobDirection',
-        'dtsJobId'                  => 'DtsJobId',
-        'dtsJobName'                => 'DtsJobName',
-        'dynamicMessage'            => 'DynamicMessage',
-        'endTimestamp'              => 'EndTimestamp',
-        'errCode'                   => 'ErrCode',
-        'errMessage'                => 'ErrMessage',
-        'errorMessage'              => 'ErrorMessage',
-        'etlCalculator'             => 'EtlCalculator',
-        'expireTime'                => 'ExpireTime',
-        'finishTime'                => 'FinishTime',
-        'groupId'                   => 'GroupId',
-        'httpStatusCode'            => 'HttpStatusCode',
-        'jobType'                   => 'JobType',
-        'lastUpdateTime'            => 'LastUpdateTime',
-        'maxDu'                     => 'MaxDu',
-        'migrationMode'             => 'MigrationMode',
-        'minDu'                     => 'MinDu',
-        'payType'                   => 'PayType',
-        'requestId'                 => 'RequestId',
-        'reserved'                  => 'Reserved',
-        'resourceGroupDisplayName'  => 'ResourceGroupDisplayName',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'retryState'                => 'RetryState',
-        'sourceEndpoint'            => 'SourceEndpoint',
-        'status'                    => 'Status',
-        'subDistributedJob'         => 'SubDistributedJob',
-        'subSyncJob'                => 'SubSyncJob',
-        'subscribeTopic'            => 'SubscribeTopic',
-        'subscriptionDataType'      => 'SubscriptionDataType',
-        'subscriptionHost'          => 'SubscriptionHost',
-        'success'                   => 'Success',
-        'synchronizationDirection'  => 'SynchronizationDirection',
-        'taskType'                  => 'TaskType',
+        'databaseCount' => 'DatabaseCount',
+        'dbObject' => 'DbObject',
+        'dedicatedClusterId' => 'DedicatedClusterId',
+        'delay' => 'Delay',
+        'demoJob' => 'DemoJob',
+        'destNetType' => 'DestNetType',
+        'destinationEndpoint' => 'DestinationEndpoint',
+        'dtsBisLabel' => 'DtsBisLabel',
+        'dtsInstanceID' => 'DtsInstanceID',
+        'dtsJobClass' => 'DtsJobClass',
+        'dtsJobDirection' => 'DtsJobDirection',
+        'dtsJobId' => 'DtsJobId',
+        'dtsJobName' => 'DtsJobName',
+        'dynamicMessage' => 'DynamicMessage',
+        'endTimestamp' => 'EndTimestamp',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'errorMessage' => 'ErrorMessage',
+        'etlCalculator' => 'EtlCalculator',
+        'expireTime' => 'ExpireTime',
+        'finishTime' => 'FinishTime',
+        'groupId' => 'GroupId',
+        'httpStatusCode' => 'HttpStatusCode',
+        'jobType' => 'JobType',
+        'lastUpdateTime' => 'LastUpdateTime',
+        'maxDu' => 'MaxDu',
+        'migrationMode' => 'MigrationMode',
+        'minDu' => 'MinDu',
+        'payType' => 'PayType',
+        'requestId' => 'RequestId',
+        'reserved' => 'Reserved',
+        'resourceGroupDisplayName' => 'ResourceGroupDisplayName',
+        'resourceGroupId' => 'ResourceGroupId',
+        'retryState' => 'RetryState',
+        'sourceEndpoint' => 'SourceEndpoint',
+        'status' => 'Status',
+        'subDistributedJob' => 'SubDistributedJob',
+        'subSyncJob' => 'SubSyncJob',
+        'subscribeTopic' => 'SubscribeTopic',
+        'subscriptionDataType' => 'SubscriptionDataType',
+        'subscriptionHost' => 'SubscriptionHost',
+        'success' => 'Success',
+        'synchronizationDirection' => 'SynchronizationDirection',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()
@@ -543,7 +599,7 @@ class DescribeDtsJobDetailResponseBody extends Model
         if (null !== $this->subDistributedJob) {
             if (\is_array($this->subDistributedJob)) {
                 $res['SubDistributedJob'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->subDistributedJob as $item1) {
                     $res['SubDistributedJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -553,7 +609,7 @@ class DescribeDtsJobDetailResponseBody extends Model
         if (null !== $this->subSyncJob) {
             if (\is_array($this->subSyncJob)) {
                 $res['SubSyncJob'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->subSyncJob as $item1) {
                     $res['SubSyncJob'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -794,7 +850,7 @@ class DescribeDtsJobDetailResponseBody extends Model
         if (isset($map['SubDistributedJob'])) {
             if (!empty($map['SubDistributedJob'])) {
                 $model->subDistributedJob = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['SubDistributedJob'] as $item1) {
                     $model->subDistributedJob[$n1++] = subDistributedJob::fromMap($item1);
                 }
@@ -804,7 +860,7 @@ class DescribeDtsJobDetailResponseBody extends Model
         if (isset($map['SubSyncJob'])) {
             if (!empty($map['SubSyncJob'])) {
                 $model->subSyncJob = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['SubSyncJob'] as $item1) {
                     $model->subSyncJob[$n1++] = subSyncJob::fromMap($item1);
                 }

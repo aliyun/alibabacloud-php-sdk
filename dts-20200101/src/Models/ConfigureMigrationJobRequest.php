@@ -15,63 +15,74 @@ class ConfigureMigrationJobRequest extends Model
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
+
     /**
      * @var migrationMode
      */
     public $migrationMode;
+
     /**
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $checkpoint;
+
     /**
      * @var string
      */
     public $migrationJobId;
+
     /**
      * @var string
      */
     public $migrationJobName;
+
     /**
      * @var string
      */
     public $migrationObject;
+
     /**
      * @var string
      */
     public $migrationReserved;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
         'destinationEndpoint' => 'DestinationEndpoint',
-        'migrationMode'       => 'MigrationMode',
-        'sourceEndpoint'      => 'SourceEndpoint',
-        'accountId'           => 'AccountId',
-        'checkpoint'          => 'Checkpoint',
-        'migrationJobId'      => 'MigrationJobId',
-        'migrationJobName'    => 'MigrationJobName',
-        'migrationObject'     => 'MigrationObject',
-        'migrationReserved'   => 'MigrationReserved',
-        'ownerId'             => 'OwnerId',
-        'regionId'            => 'RegionId',
-        'resourceGroupId'     => 'ResourceGroupId',
+        'migrationMode' => 'MigrationMode',
+        'sourceEndpoint' => 'SourceEndpoint',
+        'accountId' => 'AccountId',
+        'checkpoint' => 'Checkpoint',
+        'migrationJobId' => 'MigrationJobId',
+        'migrationJobName' => 'MigrationJobName',
+        'migrationObject' => 'MigrationObject',
+        'migrationReserved' => 'MigrationReserved',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()

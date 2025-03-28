@@ -31,7 +31,7 @@ class dedicatedClusterStatusList extends Model
         if (null !== $this->dedicatedClusterStatus) {
             if (\is_array($this->dedicatedClusterStatus)) {
                 $res['DedicatedClusterStatus'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->dedicatedClusterStatus as $item1) {
                     $res['DedicatedClusterStatus'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class dedicatedClusterStatusList extends Model
         if (isset($map['DedicatedClusterStatus'])) {
             if (!empty($map['DedicatedClusterStatus'])) {
                 $model->dedicatedClusterStatus = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['DedicatedClusterStatus'] as $item1) {
                     $model->dedicatedClusterStatus[$n1++] = dedicatedClusterStatus::fromMap($item1);
                 }

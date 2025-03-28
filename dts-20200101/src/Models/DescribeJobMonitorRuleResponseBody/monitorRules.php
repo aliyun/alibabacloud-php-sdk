@@ -12,48 +12,56 @@ class monitorRules extends Model
      * @var int
      */
     public $delayRuleTime;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $jobType;
+
     /**
      * @var int
      */
     public $noticeValue;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $phone;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $times;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'delayRuleTime' => 'DelayRuleTime',
-        'jobId'         => 'JobId',
-        'jobType'       => 'JobType',
-        'noticeValue'   => 'NoticeValue',
-        'period'        => 'Period',
-        'phone'         => 'Phone',
-        'state'         => 'State',
-        'times'         => 'Times',
-        'type'          => 'Type',
+        'jobId' => 'JobId',
+        'jobType' => 'JobType',
+        'noticeValue' => 'NoticeValue',
+        'period' => 'Period',
+        'phone' => 'Phone',
+        'state' => 'State',
+        'times' => 'Times',
+        'type' => 'Type',
     ];
 
     public function validate()

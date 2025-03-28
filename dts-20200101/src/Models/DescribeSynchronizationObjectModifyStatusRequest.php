@@ -12,33 +12,38 @@ class DescribeSynchronizationObjectModifyStatusRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'accountId'       => 'AccountId',
-        'clientToken'     => 'ClientToken',
-        'ownerId'         => 'OwnerId',
-        'regionId'        => 'RegionId',
+        'accountId' => 'AccountId',
+        'clientToken' => 'ClientToken',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'taskId'          => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

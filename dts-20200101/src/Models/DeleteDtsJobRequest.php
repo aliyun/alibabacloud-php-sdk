@@ -12,38 +12,44 @@ class DeleteDtsJobRequest extends Model
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $jobType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var bool
      */
     public $zeroEtlJob;
     protected $_name = [
-        'dtsInstanceId'            => 'DtsInstanceId',
-        'dtsJobId'                 => 'DtsJobId',
-        'jobType'                  => 'JobType',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'dtsJobId' => 'DtsJobId',
+        'jobType' => 'JobType',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'synchronizationDirection' => 'SynchronizationDirection',
-        'zeroEtlJob'               => 'ZeroEtlJob',
+        'zeroEtlJob' => 'ZeroEtlJob',
     ];
 
     public function validate()

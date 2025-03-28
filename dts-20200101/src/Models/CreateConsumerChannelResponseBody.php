@@ -12,33 +12,38 @@ class CreateConsumerChannelResponseBody extends Model
      * @var string
      */
     public $consumerGroupID;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
         'consumerGroupID' => 'ConsumerGroupID',
-        'errCode'         => 'ErrCode',
-        'errMessage'      => 'ErrMessage',
-        'httpStatusCode'  => 'HttpStatusCode',
-        'requestId'       => 'RequestId',
-        'success'         => 'Success',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

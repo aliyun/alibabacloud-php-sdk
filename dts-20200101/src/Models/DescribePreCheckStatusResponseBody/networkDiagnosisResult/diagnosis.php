@@ -12,28 +12,32 @@ class diagnosis extends Model
      * @var string
      */
     public $cnDocUrl;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $endpointType;
+
     /**
      * @var string
      */
     public $internationalDocUrl;
+
     /**
      * @var string
      */
     public $result;
     protected $_name = [
-        'cnDocUrl'            => 'CnDocUrl',
-        'code'                => 'Code',
-        'endpointType'        => 'EndpointType',
+        'cnDocUrl' => 'CnDocUrl',
+        'code' => 'Code',
+        'endpointType' => 'EndpointType',
         'internationalDocUrl' => 'InternationalDocUrl',
-        'result'              => 'Result',
+        'result' => 'Result',
     ];
 
     public function validate()

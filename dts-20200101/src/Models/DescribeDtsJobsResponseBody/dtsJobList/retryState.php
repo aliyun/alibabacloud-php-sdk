@@ -12,73 +12,86 @@ class retryState extends Model
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var int
      */
     public $maxRetryTime;
+
     /**
      * @var string
      */
     public $migrationErrCode;
+
     /**
      * @var string
      */
     public $migrationErrHelpDocId;
+
     /**
      * @var string
      */
     public $migrationErrHelpDocKey;
+
     /**
      * @var string
      */
     public $migrationErrMsg;
+
     /**
      * @var string
      */
     public $migrationErrType;
+
     /**
      * @var string
      */
     public $migrationErrWorkaround;
+
     /**
      * @var string
      */
     public $module;
+
     /**
      * @var int
      */
     public $retryCount;
+
     /**
      * @var string
      */
     public $retryTarget;
+
     /**
      * @var int
      */
     public $retryTime;
+
     /**
      * @var bool
      */
     public $retrying;
     protected $_name = [
-        'errMessage'             => 'ErrMessage',
-        'jobId'                  => 'JobId',
-        'maxRetryTime'           => 'MaxRetryTime',
-        'migrationErrCode'       => 'MigrationErrCode',
-        'migrationErrHelpDocId'  => 'MigrationErrHelpDocId',
+        'errMessage' => 'ErrMessage',
+        'jobId' => 'JobId',
+        'maxRetryTime' => 'MaxRetryTime',
+        'migrationErrCode' => 'MigrationErrCode',
+        'migrationErrHelpDocId' => 'MigrationErrHelpDocId',
         'migrationErrHelpDocKey' => 'MigrationErrHelpDocKey',
-        'migrationErrMsg'        => 'MigrationErrMsg',
-        'migrationErrType'       => 'MigrationErrType',
+        'migrationErrMsg' => 'MigrationErrMsg',
+        'migrationErrType' => 'MigrationErrType',
         'migrationErrWorkaround' => 'MigrationErrWorkaround',
-        'module'                 => 'Module',
-        'retryCount'             => 'RetryCount',
-        'retryTarget'            => 'RetryTarget',
-        'retryTime'              => 'RetryTime',
-        'retrying'               => 'Retrying',
+        'module' => 'Module',
+        'retryCount' => 'RetryCount',
+        'retryTarget' => 'RetryTarget',
+        'retryTime' => 'RetryTime',
+        'retrying' => 'Retrying',
     ];
 
     public function validate()

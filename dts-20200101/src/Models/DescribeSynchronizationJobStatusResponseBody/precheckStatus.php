@@ -13,18 +13,20 @@ class precheckStatus extends Model
      * @var detail[]
      */
     public $detail;
+
     /**
      * @var string
      */
     public $percent;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'detail'  => 'Detail',
+        'detail' => 'Detail',
         'percent' => 'Percent',
-        'status'  => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class precheckStatus extends Model
         if (null !== $this->detail) {
             if (\is_array($this->detail)) {
                 $res['Detail'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->detail as $item1) {
                     $res['Detail'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class precheckStatus extends Model
         if (isset($map['Detail'])) {
             if (!empty($map['Detail'])) {
                 $model->detail = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Detail'] as $item1) {
                     $model->detail[$n1++] = detail::fromMap($item1);
                 }

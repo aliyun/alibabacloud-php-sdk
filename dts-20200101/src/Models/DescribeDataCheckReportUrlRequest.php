@@ -12,28 +12,32 @@ class DescribeDataCheckReportUrlRequest extends Model
      * @var int
      */
     public $checkType;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $tbName;
     protected $_name = [
-        'checkType'       => 'CheckType',
-        'dbName'          => 'DbName',
-        'dtsJobId'        => 'DtsJobId',
+        'checkType' => 'CheckType',
+        'dbName' => 'DbName',
+        'dtsJobId' => 'DtsJobId',
         'resourceGroupId' => 'ResourceGroupId',
-        'tbName'          => 'TbName',
+        'tbName' => 'TbName',
     ];
 
     public function validate()

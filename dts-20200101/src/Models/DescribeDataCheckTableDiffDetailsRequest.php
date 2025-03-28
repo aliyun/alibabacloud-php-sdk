@@ -12,38 +12,44 @@ class DescribeDataCheckTableDiffDetailsRequest extends Model
      * @var int
      */
     public $checkType;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $tbName;
     protected $_name = [
-        'checkType'       => 'CheckType',
-        'dbName'          => 'DbName',
-        'dtsJobId'        => 'DtsJobId',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'checkType' => 'CheckType',
+        'dbName' => 'DbName',
+        'dtsJobId' => 'DtsJobId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
-        'tbName'          => 'TbName',
+        'tbName' => 'TbName',
     ];
 
     public function validate()

@@ -12,42 +12,49 @@ class CountJobByConditionResponseBody extends Model
      * @var string
      */
     public $dynamicCode;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'dynamicCode'      => 'DynamicCode',
-        'dynamicMessage'   => 'DynamicMessage',
-        'errCode'          => 'ErrCode',
-        'errMessage'       => 'ErrMessage',
-        'httpStatusCode'   => 'HttpStatusCode',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'dynamicCode' => 'DynamicCode',
+        'dynamicMessage' => 'DynamicMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 

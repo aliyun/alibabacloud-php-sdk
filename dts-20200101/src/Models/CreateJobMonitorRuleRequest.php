@@ -12,53 +12,62 @@ class CreateJobMonitorRuleRequest extends Model
      * @var int
      */
     public $delayRuleTime;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var int
      */
     public $noticeValue;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $phone;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $times;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'delayRuleTime'   => 'DelayRuleTime',
-        'dtsJobId'        => 'DtsJobId',
-        'noticeValue'     => 'NoticeValue',
-        'period'          => 'Period',
-        'phone'           => 'Phone',
-        'regionId'        => 'RegionId',
+        'delayRuleTime' => 'DelayRuleTime',
+        'dtsJobId' => 'DtsJobId',
+        'noticeValue' => 'NoticeValue',
+        'period' => 'Period',
+        'phone' => 'Phone',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'state'           => 'State',
-        'times'           => 'Times',
-        'type'            => 'Type',
+        'state' => 'State',
+        'times' => 'Times',
+        'type' => 'Type',
     ];
 
     public function validate()

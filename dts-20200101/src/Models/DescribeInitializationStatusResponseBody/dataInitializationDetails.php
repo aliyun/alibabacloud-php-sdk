@@ -12,43 +12,50 @@ class dataInitializationDetails extends Model
      * @var string
      */
     public $destinationOwnerDBName;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $finishRowNum;
+
     /**
      * @var string
      */
     public $sourceOwnerDBName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $totalRowNum;
+
     /**
      * @var string
      */
     public $usedTime;
     protected $_name = [
         'destinationOwnerDBName' => 'DestinationOwnerDBName',
-        'errorMessage'           => 'ErrorMessage',
-        'finishRowNum'           => 'FinishRowNum',
-        'sourceOwnerDBName'      => 'SourceOwnerDBName',
-        'status'                 => 'Status',
-        'tableName'              => 'TableName',
-        'totalRowNum'            => 'TotalRowNum',
-        'usedTime'               => 'UsedTime',
+        'errorMessage' => 'ErrorMessage',
+        'finishRowNum' => 'FinishRowNum',
+        'sourceOwnerDBName' => 'SourceOwnerDBName',
+        'status' => 'Status',
+        'tableName' => 'TableName',
+        'totalRowNum' => 'TotalRowNum',
+        'usedTime' => 'UsedTime',
     ];
 
     public function validate()

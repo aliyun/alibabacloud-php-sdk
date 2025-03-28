@@ -12,38 +12,44 @@ class ModifySynchronizationObjectRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var string
      */
     public $synchronizationJobId;
+
     /**
      * @var string
      */
     public $synchronizationObjects;
     protected $_name = [
-        'accountId'                => 'AccountId',
-        'ownerId'                  => 'OwnerId',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
+        'accountId' => 'AccountId',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'synchronizationDirection' => 'SynchronizationDirection',
-        'synchronizationJobId'     => 'SynchronizationJobId',
-        'synchronizationObjects'   => 'SynchronizationObjects',
+        'synchronizationJobId' => 'SynchronizationJobId',
+        'synchronizationObjects' => 'SynchronizationObjects',
     ];
 
     public function validate()

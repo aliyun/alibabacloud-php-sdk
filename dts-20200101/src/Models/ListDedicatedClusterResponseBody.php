@@ -13,48 +13,56 @@ class ListDedicatedClusterResponseBody extends Model
      * @var dedicatedClusterStatusList
      */
     public $dedicatedClusterStatusList;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $httpStatusCode;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
         'dedicatedClusterStatusList' => 'DedicatedClusterStatusList',
-        'errCode'                    => 'ErrCode',
-        'errMessage'                 => 'ErrMessage',
-        'httpStatusCode'             => 'HttpStatusCode',
-        'pageNumber'                 => 'PageNumber',
-        'pageRecordCount'            => 'PageRecordCount',
-        'requestId'                  => 'RequestId',
-        'success'                    => 'Success',
-        'totalRecordCount'           => 'TotalRecordCount',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'totalRecordCount' => 'TotalRecordCount',
     ];
 
     public function validate()

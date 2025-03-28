@@ -13,17 +13,19 @@ class synchronousObject extends Model
      * @var string
      */
     public $databaseName;
+
     /**
      * @var tableList
      */
     public $tableList;
+
     /**
      * @var string
      */
     public $wholeDatabase;
     protected $_name = [
-        'databaseName'  => 'DatabaseName',
-        'tableList'     => 'TableList',
+        'databaseName' => 'DatabaseName',
+        'tableList' => 'TableList',
         'wholeDatabase' => 'WholeDatabase',
     ];
 

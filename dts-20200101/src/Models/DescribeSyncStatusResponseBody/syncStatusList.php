@@ -12,33 +12,38 @@ class syncStatusList extends Model
      * @var int
      */
     public $checkpoint;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $delay;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $rate;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'checkpoint' => 'Checkpoint',
-        'code'       => 'Code',
-        'delay'      => 'Delay',
-        'jobId'      => 'JobId',
-        'rate'       => 'Rate',
-        'status'     => 'Status',
+        'code' => 'Code',
+        'delay' => 'Delay',
+        'jobId' => 'JobId',
+        'rate' => 'Rate',
+        'status' => 'Status',
     ];
 
     public function validate()

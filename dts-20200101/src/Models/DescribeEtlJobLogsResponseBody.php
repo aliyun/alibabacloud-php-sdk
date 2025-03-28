@@ -13,43 +13,50 @@ class DescribeEtlJobLogsResponseBody extends Model
      * @var string
      */
     public $dynamicCode;
+
     /**
      * @var string
      */
     public $dynamicMessage;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var etlRunningLogs[]
      */
     public $etlRunningLogs;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'dynamicCode'    => 'DynamicCode',
+        'dynamicCode' => 'DynamicCode',
         'dynamicMessage' => 'DynamicMessage',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'etlRunningLogs' => 'EtlRunningLogs',
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -82,7 +89,7 @@ class DescribeEtlJobLogsResponseBody extends Model
         if (null !== $this->etlRunningLogs) {
             if (\is_array($this->etlRunningLogs)) {
                 $res['EtlRunningLogs'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->etlRunningLogs as $item1) {
                     $res['EtlRunningLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -131,7 +138,7 @@ class DescribeEtlJobLogsResponseBody extends Model
         if (isset($map['EtlRunningLogs'])) {
             if (!empty($map['EtlRunningLogs'])) {
                 $model->etlRunningLogs = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['EtlRunningLogs'] as $item1) {
                     $model->etlRunningLogs[$n1++] = etlRunningLogs::fromMap($item1);
                 }

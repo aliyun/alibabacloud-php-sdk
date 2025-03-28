@@ -12,133 +12,158 @@ class DescribeDedicatedClusterResponseBody extends Model
      * @var int
      */
     public $cpuUtilization;
+
     /**
      * @var string
      */
     public $dedicatedClusterId;
+
     /**
      * @var string
      */
     public $dedicatedClusterName;
+
     /**
      * @var int
      */
     public $diskUtilization;
+
     /**
      * @var string
      */
     public $dtsInstanceID;
+
     /**
      * @var int
      */
     public $du;
+
     /**
      * @var int
      */
     public $duUtilization;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $gmtCreated;
+
     /**
      * @var int
      */
     public $gmtFinished;
+
     /**
      * @var string
      */
     public $httpStatusCode;
+
     /**
      * @var int
      */
     public $memUtilization;
+
     /**
      * @var int
      */
     public $nodeCount;
+
     /**
      * @var int
      */
     public $oversoldDu;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalCpuCore;
+
     /**
      * @var int
      */
     public $totalDiskGBSize;
+
     /**
      * @var int
      */
     public $totalMemGBSize;
+
     /**
      * @var int
      */
     public $usedCpuCore;
+
     /**
      * @var int
      */
     public $usedDiskGBSize;
+
     /**
      * @var int
      */
     public $usedDu;
+
     /**
      * @var int
      */
     public $usedMemGBSize;
     protected $_name = [
-        'cpuUtilization'       => 'CpuUtilization',
-        'dedicatedClusterId'   => 'DedicatedClusterId',
+        'cpuUtilization' => 'CpuUtilization',
+        'dedicatedClusterId' => 'DedicatedClusterId',
         'dedicatedClusterName' => 'DedicatedClusterName',
-        'diskUtilization'      => 'DiskUtilization',
-        'dtsInstanceID'        => 'DtsInstanceID',
-        'du'                   => 'Du',
-        'duUtilization'        => 'DuUtilization',
-        'errCode'              => 'ErrCode',
-        'errMessage'           => 'ErrMessage',
-        'gmtCreated'           => 'GmtCreated',
-        'gmtFinished'          => 'GmtFinished',
-        'httpStatusCode'       => 'HttpStatusCode',
-        'memUtilization'       => 'MemUtilization',
-        'nodeCount'            => 'NodeCount',
-        'oversoldDu'           => 'OversoldDu',
-        'regionId'             => 'RegionId',
-        'requestId'            => 'RequestId',
-        'state'                => 'State',
-        'success'              => 'Success',
-        'totalCpuCore'         => 'TotalCpuCore',
-        'totalDiskGBSize'      => 'TotalDiskGBSize',
-        'totalMemGBSize'       => 'TotalMemGBSize',
-        'usedCpuCore'          => 'UsedCpuCore',
-        'usedDiskGBSize'       => 'UsedDiskGBSize',
-        'usedDu'               => 'UsedDu',
-        'usedMemGBSize'        => 'UsedMemGBSize',
+        'diskUtilization' => 'DiskUtilization',
+        'dtsInstanceID' => 'DtsInstanceID',
+        'du' => 'Du',
+        'duUtilization' => 'DuUtilization',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'gmtCreated' => 'GmtCreated',
+        'gmtFinished' => 'GmtFinished',
+        'httpStatusCode' => 'HttpStatusCode',
+        'memUtilization' => 'MemUtilization',
+        'nodeCount' => 'NodeCount',
+        'oversoldDu' => 'OversoldDu',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'state' => 'State',
+        'success' => 'Success',
+        'totalCpuCore' => 'TotalCpuCore',
+        'totalDiskGBSize' => 'TotalDiskGBSize',
+        'totalMemGBSize' => 'TotalMemGBSize',
+        'usedCpuCore' => 'UsedCpuCore',
+        'usedDiskGBSize' => 'UsedDiskGBSize',
+        'usedDu' => 'UsedDu',
+        'usedMemGBSize' => 'UsedMemGBSize',
     ];
 
     public function validate()

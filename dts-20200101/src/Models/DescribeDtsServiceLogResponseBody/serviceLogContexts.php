@@ -12,18 +12,20 @@ class serviceLogContexts extends Model
      * @var string
      */
     public $context;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $time;
     protected $_name = [
         'context' => 'Context',
-        'state'   => 'State',
-        'time'    => 'Time',
+        'state' => 'State',
+        'time' => 'Time',
     ];
 
     public function validate()

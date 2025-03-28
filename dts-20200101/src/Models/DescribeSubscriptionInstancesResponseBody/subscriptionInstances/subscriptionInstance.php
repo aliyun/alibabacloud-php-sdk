@@ -17,88 +17,104 @@ class subscriptionInstance extends Model
      * @var string
      */
     public $beginTimestamp;
+
     /**
      * @var string
      */
     public $consumptionCheckpoint;
+
     /**
      * @var string
      */
     public $consumptionClient;
+
     /**
      * @var string
      */
     public $endTimestamp;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $instanceCreateTime;
+
     /**
      * @var string
      */
     public $jobCreateTime;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $subscribeTopic;
+
     /**
      * @var subscriptionDataType
      */
     public $subscriptionDataType;
+
     /**
      * @var subscriptionHost
      */
     public $subscriptionHost;
+
     /**
      * @var string
      */
     public $subscriptionInstanceID;
+
     /**
      * @var string
      */
     public $subscriptionInstanceName;
+
     /**
      * @var subscriptionObject
      */
     public $subscriptionObject;
+
     /**
      * @var tags
      */
     public $tags;
     protected $_name = [
-        'beginTimestamp'           => 'BeginTimestamp',
-        'consumptionCheckpoint'    => 'ConsumptionCheckpoint',
-        'consumptionClient'        => 'ConsumptionClient',
-        'endTimestamp'             => 'EndTimestamp',
-        'errorMessage'             => 'ErrorMessage',
-        'instanceCreateTime'       => 'InstanceCreateTime',
-        'jobCreateTime'            => 'JobCreateTime',
-        'payType'                  => 'PayType',
-        'sourceEndpoint'           => 'SourceEndpoint',
-        'status'                   => 'Status',
-        'subscribeTopic'           => 'SubscribeTopic',
-        'subscriptionDataType'     => 'SubscriptionDataType',
-        'subscriptionHost'         => 'SubscriptionHost',
-        'subscriptionInstanceID'   => 'SubscriptionInstanceID',
+        'beginTimestamp' => 'BeginTimestamp',
+        'consumptionCheckpoint' => 'ConsumptionCheckpoint',
+        'consumptionClient' => 'ConsumptionClient',
+        'endTimestamp' => 'EndTimestamp',
+        'errorMessage' => 'ErrorMessage',
+        'instanceCreateTime' => 'InstanceCreateTime',
+        'jobCreateTime' => 'JobCreateTime',
+        'payType' => 'PayType',
+        'sourceEndpoint' => 'SourceEndpoint',
+        'status' => 'Status',
+        'subscribeTopic' => 'SubscribeTopic',
+        'subscriptionDataType' => 'SubscriptionDataType',
+        'subscriptionHost' => 'SubscriptionHost',
+        'subscriptionInstanceID' => 'SubscriptionInstanceID',
         'subscriptionInstanceName' => 'SubscriptionInstanceName',
-        'subscriptionObject'       => 'SubscriptionObject',
-        'tags'                     => 'Tags',
+        'subscriptionObject' => 'SubscriptionObject',
+        'tags' => 'Tags',
     ];
 
     public function validate()

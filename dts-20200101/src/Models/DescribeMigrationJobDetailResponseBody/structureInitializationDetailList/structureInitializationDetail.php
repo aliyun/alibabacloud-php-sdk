@@ -13,43 +13,50 @@ class structureInitializationDetail extends Model
      * @var constraintList
      */
     public $constraintList;
+
     /**
      * @var string
      */
     public $destinationOwnerDBName;
+
     /**
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $objectDefinition;
+
     /**
      * @var string
      */
     public $objectName;
+
     /**
      * @var string
      */
     public $objectType;
+
     /**
      * @var string
      */
     public $sourceOwnerDBName;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'constraintList'         => 'ConstraintList',
+        'constraintList' => 'ConstraintList',
         'destinationOwnerDBName' => 'DestinationOwnerDBName',
-        'errorMessage'           => 'ErrorMessage',
-        'objectDefinition'       => 'ObjectDefinition',
-        'objectName'             => 'ObjectName',
-        'objectType'             => 'ObjectType',
-        'sourceOwnerDBName'      => 'SourceOwnerDBName',
-        'status'                 => 'Status',
+        'errorMessage' => 'ErrorMessage',
+        'objectDefinition' => 'ObjectDefinition',
+        'objectName' => 'ObjectName',
+        'objectType' => 'ObjectType',
+        'sourceOwnerDBName' => 'SourceOwnerDBName',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class incDataCheckStatus extends Model
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $percent;
+
     /**
      * @var string
      */
     public $progress;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'errorMessage' => 'ErrorMessage',
-        'percent'      => 'Percent',
-        'progress'     => 'Progress',
-        'status'       => 'Status',
+        'percent' => 'Percent',
+        'progress' => 'Progress',
+        'status' => 'Status',
     ];
 
     public function validate()

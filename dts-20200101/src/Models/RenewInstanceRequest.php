@@ -12,32 +12,37 @@ class RenewInstanceRequest extends Model
      * @var string
      */
     public $buyCount;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'buyCount'        => 'BuyCount',
-        'chargeType'      => 'ChargeType',
-        'dtsJobId'        => 'DtsJobId',
-        'period'          => 'Period',
-        'regionId'        => 'RegionId',
+        'buyCount' => 'BuyCount',
+        'chargeType' => 'ChargeType',
+        'dtsJobId' => 'DtsJobId',
+        'period' => 'Period',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

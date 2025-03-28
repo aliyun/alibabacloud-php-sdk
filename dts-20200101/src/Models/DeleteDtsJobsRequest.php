@@ -12,23 +12,26 @@ class DeleteDtsJobsRequest extends Model
      * @var string
      */
     public $dtsJobIds;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $zeroEtlJob;
     protected $_name = [
-        'dtsJobIds'       => 'DtsJobIds',
-        'regionId'        => 'RegionId',
+        'dtsJobIds' => 'DtsJobIds',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'zeroEtlJob'      => 'ZeroEtlJob',
+        'zeroEtlJob' => 'ZeroEtlJob',
     ];
 
     public function validate()

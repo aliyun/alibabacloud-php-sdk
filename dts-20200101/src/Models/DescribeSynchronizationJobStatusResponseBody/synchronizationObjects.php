@@ -14,21 +14,24 @@ class synchronizationObjects extends Model
      * @var string
      */
     public $newSchemaName;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var tableExcludes[]
      */
     public $tableExcludes;
+
     /**
      * @var tableIncludes[]
      */
     public $tableIncludes;
     protected $_name = [
         'newSchemaName' => 'NewSchemaName',
-        'schemaName'    => 'SchemaName',
+        'schemaName' => 'SchemaName',
         'tableExcludes' => 'TableExcludes',
         'tableIncludes' => 'TableIncludes',
     ];
@@ -58,7 +61,7 @@ class synchronizationObjects extends Model
         if (null !== $this->tableExcludes) {
             if (\is_array($this->tableExcludes)) {
                 $res['TableExcludes'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->tableExcludes as $item1) {
                     $res['TableExcludes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -68,7 +71,7 @@ class synchronizationObjects extends Model
         if (null !== $this->tableIncludes) {
             if (\is_array($this->tableIncludes)) {
                 $res['TableIncludes'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->tableIncludes as $item1) {
                     $res['TableIncludes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +100,7 @@ class synchronizationObjects extends Model
         if (isset($map['TableExcludes'])) {
             if (!empty($map['TableExcludes'])) {
                 $model->tableExcludes = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['TableExcludes'] as $item1) {
                     $model->tableExcludes[$n1++] = tableExcludes::fromMap($item1);
                 }
@@ -107,7 +110,7 @@ class synchronizationObjects extends Model
         if (isset($map['TableIncludes'])) {
             if (!empty($map['TableIncludes'])) {
                 $model->tableIncludes = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['TableIncludes'] as $item1) {
                     $model->tableIncludes[$n1++] = tableIncludes::fromMap($item1);
                 }

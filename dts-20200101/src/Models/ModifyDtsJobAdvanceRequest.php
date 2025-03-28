@@ -13,83 +13,98 @@ class ModifyDtsJobAdvanceRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dataInitialization;
+
     /**
      * @var bool
      */
     public $dataSynchronization;
+
     /**
      * @var mixed[]
      */
     public $dbList;
+
     /**
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $etlOperatorColumnReference;
+
     /**
      * @var Stream
      */
     public $fileOssUrlObject;
+
     /**
      * @var string
      */
     public $filterTableName;
+
     /**
      * @var string
      */
     public $modifyTypeEnum;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $reserved;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $structureInitialization;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
+
     /**
      * @var bool
      */
     public $zeroEtlJob;
     protected $_name = [
-        'clientToken'                => 'ClientToken',
-        'dataInitialization'         => 'DataInitialization',
-        'dataSynchronization'        => 'DataSynchronization',
-        'dbList'                     => 'DbList',
-        'dtsInstanceId'              => 'DtsInstanceId',
-        'dtsJobId'                   => 'DtsJobId',
+        'clientToken' => 'ClientToken',
+        'dataInitialization' => 'DataInitialization',
+        'dataSynchronization' => 'DataSynchronization',
+        'dbList' => 'DbList',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'dtsJobId' => 'DtsJobId',
         'etlOperatorColumnReference' => 'EtlOperatorColumnReference',
-        'fileOssUrlObject'           => 'FileOssUrl',
-        'filterTableName'            => 'FilterTableName',
-        'modifyTypeEnum'             => 'ModifyTypeEnum',
-        'regionId'                   => 'RegionId',
-        'reserved'                   => 'Reserved',
-        'resourceGroupId'            => 'ResourceGroupId',
-        'structureInitialization'    => 'StructureInitialization',
-        'synchronizationDirection'   => 'SynchronizationDirection',
-        'zeroEtlJob'                 => 'ZeroEtlJob',
+        'fileOssUrlObject' => 'FileOssUrl',
+        'filterTableName' => 'FilterTableName',
+        'modifyTypeEnum' => 'ModifyTypeEnum',
+        'regionId' => 'RegionId',
+        'reserved' => 'Reserved',
+        'resourceGroupId' => 'ResourceGroupId',
+        'structureInitialization' => 'StructureInitialization',
+        'synchronizationDirection' => 'SynchronizationDirection',
+        'zeroEtlJob' => 'ZeroEtlJob',
     ];
 
     public function validate()

@@ -13,328 +13,392 @@ class ConfigureDtsJobAdvanceRequest extends Model
      * @var string
      */
     public $checkpoint;
+
     /**
      * @var string
      */
     public $dataCheckConfigure;
+
     /**
      * @var bool
      */
     public $dataInitialization;
+
     /**
      * @var bool
      */
     public $dataSynchronization;
+
     /**
      * @var string
      */
     public $dbList;
+
     /**
      * @var string
      */
     public $dedicatedClusterId;
+
     /**
      * @var bool
      */
     public $delayNotice;
+
     /**
      * @var string
      */
     public $delayPhone;
+
     /**
      * @var int
      */
     public $delayRuleTime;
+
     /**
      * @var string
      */
     public $destCaCertificateOssUrl;
+
     /**
      * @var string
      */
     public $destCaCertificatePassword;
+
     /**
      * @var string
      */
     public $destClientCertOssUrl;
+
     /**
      * @var string
      */
     public $destClientKeyOssUrl;
+
     /**
      * @var string
      */
     public $destClientPassword;
+
     /**
      * @var string
      */
     public $destPrimaryVswId;
+
     /**
      * @var string
      */
     public $destSecondaryVswId;
+
     /**
      * @var string
      */
     public $destinationEndpointDataBaseName;
+
     /**
      * @var string
      */
     public $destinationEndpointEngineName;
+
     /**
      * @var string
      */
     public $destinationEndpointIP;
+
     /**
      * @var string
      */
     public $destinationEndpointInstanceID;
+
     /**
      * @var string
      */
     public $destinationEndpointInstanceType;
+
     /**
      * @var string
      */
     public $destinationEndpointOracleSID;
+
     /**
      * @var string
      */
     public $destinationEndpointOwnerID;
+
     /**
      * @var string
      */
     public $destinationEndpointPassword;
+
     /**
      * @var string
      */
     public $destinationEndpointPort;
+
     /**
      * @var string
      */
     public $destinationEndpointRegion;
+
     /**
      * @var string
      */
     public $destinationEndpointRole;
+
     /**
      * @var string
      */
     public $destinationEndpointUserName;
+
     /**
      * @var bool
      */
     public $disasterRecoveryJob;
+
     /**
      * @var string
      */
     public $dtsBisLabel;
+
     /**
      * @var string
      */
     public $dtsInstanceId;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var string
      */
     public $dtsJobName;
+
     /**
      * @var bool
      */
     public $errorNotice;
+
     /**
      * @var string
      */
     public $errorPhone;
+
     /**
      * @var Stream
      */
     public $fileOssUrlObject;
+
     /**
      * @var string
      */
     public $jobType;
+
     /**
      * @var float
      */
     public $maxDu;
+
     /**
      * @var float
      */
     public $minDu;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $reserve;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $sourceEndpointDatabaseName;
+
     /**
      * @var string
      */
     public $sourceEndpointEngineName;
+
     /**
      * @var string
      */
     public $sourceEndpointIP;
+
     /**
      * @var string
      */
     public $sourceEndpointInstanceID;
+
     /**
      * @var string
      */
     public $sourceEndpointInstanceType;
+
     /**
      * @var string
      */
     public $sourceEndpointOracleSID;
+
     /**
      * @var string
      */
     public $sourceEndpointOwnerID;
+
     /**
      * @var string
      */
     public $sourceEndpointPassword;
+
     /**
      * @var string
      */
     public $sourceEndpointPort;
+
     /**
      * @var string
      */
     public $sourceEndpointRegion;
+
     /**
      * @var string
      */
     public $sourceEndpointRole;
+
     /**
      * @var string
      */
     public $sourceEndpointUserName;
+
     /**
      * @var string
      */
     public $sourceEndpointVSwitchID;
+
     /**
      * @var string
      */
     public $srcCaCertificateOssUrl;
+
     /**
      * @var string
      */
     public $srcCaCertificatePassword;
+
     /**
      * @var string
      */
     public $srcClientCertOssUrl;
+
     /**
      * @var string
      */
     public $srcClientKeyOssUrl;
+
     /**
      * @var string
      */
     public $srcClientPassword;
+
     /**
      * @var string
      */
     public $srcPrimaryVswId;
+
     /**
      * @var string
      */
     public $srcSecondaryVswId;
+
     /**
      * @var bool
      */
     public $structureInitialization;
+
     /**
      * @var string
      */
     public $synchronizationDirection;
     protected $_name = [
-        'checkpoint'                      => 'Checkpoint',
-        'dataCheckConfigure'              => 'DataCheckConfigure',
-        'dataInitialization'              => 'DataInitialization',
-        'dataSynchronization'             => 'DataSynchronization',
-        'dbList'                          => 'DbList',
-        'dedicatedClusterId'              => 'DedicatedClusterId',
-        'delayNotice'                     => 'DelayNotice',
-        'delayPhone'                      => 'DelayPhone',
-        'delayRuleTime'                   => 'DelayRuleTime',
-        'destCaCertificateOssUrl'         => 'DestCaCertificateOssUrl',
-        'destCaCertificatePassword'       => 'DestCaCertificatePassword',
-        'destClientCertOssUrl'            => 'DestClientCertOssUrl',
-        'destClientKeyOssUrl'             => 'DestClientKeyOssUrl',
-        'destClientPassword'              => 'DestClientPassword',
-        'destPrimaryVswId'                => 'DestPrimaryVswId',
-        'destSecondaryVswId'              => 'DestSecondaryVswId',
+        'checkpoint' => 'Checkpoint',
+        'dataCheckConfigure' => 'DataCheckConfigure',
+        'dataInitialization' => 'DataInitialization',
+        'dataSynchronization' => 'DataSynchronization',
+        'dbList' => 'DbList',
+        'dedicatedClusterId' => 'DedicatedClusterId',
+        'delayNotice' => 'DelayNotice',
+        'delayPhone' => 'DelayPhone',
+        'delayRuleTime' => 'DelayRuleTime',
+        'destCaCertificateOssUrl' => 'DestCaCertificateOssUrl',
+        'destCaCertificatePassword' => 'DestCaCertificatePassword',
+        'destClientCertOssUrl' => 'DestClientCertOssUrl',
+        'destClientKeyOssUrl' => 'DestClientKeyOssUrl',
+        'destClientPassword' => 'DestClientPassword',
+        'destPrimaryVswId' => 'DestPrimaryVswId',
+        'destSecondaryVswId' => 'DestSecondaryVswId',
         'destinationEndpointDataBaseName' => 'DestinationEndpointDataBaseName',
-        'destinationEndpointEngineName'   => 'DestinationEndpointEngineName',
-        'destinationEndpointIP'           => 'DestinationEndpointIP',
-        'destinationEndpointInstanceID'   => 'DestinationEndpointInstanceID',
+        'destinationEndpointEngineName' => 'DestinationEndpointEngineName',
+        'destinationEndpointIP' => 'DestinationEndpointIP',
+        'destinationEndpointInstanceID' => 'DestinationEndpointInstanceID',
         'destinationEndpointInstanceType' => 'DestinationEndpointInstanceType',
-        'destinationEndpointOracleSID'    => 'DestinationEndpointOracleSID',
-        'destinationEndpointOwnerID'      => 'DestinationEndpointOwnerID',
-        'destinationEndpointPassword'     => 'DestinationEndpointPassword',
-        'destinationEndpointPort'         => 'DestinationEndpointPort',
-        'destinationEndpointRegion'       => 'DestinationEndpointRegion',
-        'destinationEndpointRole'         => 'DestinationEndpointRole',
-        'destinationEndpointUserName'     => 'DestinationEndpointUserName',
-        'disasterRecoveryJob'             => 'DisasterRecoveryJob',
-        'dtsBisLabel'                     => 'DtsBisLabel',
-        'dtsInstanceId'                   => 'DtsInstanceId',
-        'dtsJobId'                        => 'DtsJobId',
-        'dtsJobName'                      => 'DtsJobName',
-        'errorNotice'                     => 'ErrorNotice',
-        'errorPhone'                      => 'ErrorPhone',
-        'fileOssUrlObject'                => 'FileOssUrl',
-        'jobType'                         => 'JobType',
-        'maxDu'                           => 'MaxDu',
-        'minDu'                           => 'MinDu',
-        'ownerId'                         => 'OwnerId',
-        'regionId'                        => 'RegionId',
-        'reserve'                         => 'Reserve',
-        'resourceGroupId'                 => 'ResourceGroupId',
-        'sourceEndpointDatabaseName'      => 'SourceEndpointDatabaseName',
-        'sourceEndpointEngineName'        => 'SourceEndpointEngineName',
-        'sourceEndpointIP'                => 'SourceEndpointIP',
-        'sourceEndpointInstanceID'        => 'SourceEndpointInstanceID',
-        'sourceEndpointInstanceType'      => 'SourceEndpointInstanceType',
-        'sourceEndpointOracleSID'         => 'SourceEndpointOracleSID',
-        'sourceEndpointOwnerID'           => 'SourceEndpointOwnerID',
-        'sourceEndpointPassword'          => 'SourceEndpointPassword',
-        'sourceEndpointPort'              => 'SourceEndpointPort',
-        'sourceEndpointRegion'            => 'SourceEndpointRegion',
-        'sourceEndpointRole'              => 'SourceEndpointRole',
-        'sourceEndpointUserName'          => 'SourceEndpointUserName',
-        'sourceEndpointVSwitchID'         => 'SourceEndpointVSwitchID',
-        'srcCaCertificateOssUrl'          => 'SrcCaCertificateOssUrl',
-        'srcCaCertificatePassword'        => 'SrcCaCertificatePassword',
-        'srcClientCertOssUrl'             => 'SrcClientCertOssUrl',
-        'srcClientKeyOssUrl'              => 'SrcClientKeyOssUrl',
-        'srcClientPassword'               => 'SrcClientPassword',
-        'srcPrimaryVswId'                 => 'SrcPrimaryVswId',
-        'srcSecondaryVswId'               => 'SrcSecondaryVswId',
-        'structureInitialization'         => 'StructureInitialization',
-        'synchronizationDirection'        => 'SynchronizationDirection',
+        'destinationEndpointOracleSID' => 'DestinationEndpointOracleSID',
+        'destinationEndpointOwnerID' => 'DestinationEndpointOwnerID',
+        'destinationEndpointPassword' => 'DestinationEndpointPassword',
+        'destinationEndpointPort' => 'DestinationEndpointPort',
+        'destinationEndpointRegion' => 'DestinationEndpointRegion',
+        'destinationEndpointRole' => 'DestinationEndpointRole',
+        'destinationEndpointUserName' => 'DestinationEndpointUserName',
+        'disasterRecoveryJob' => 'DisasterRecoveryJob',
+        'dtsBisLabel' => 'DtsBisLabel',
+        'dtsInstanceId' => 'DtsInstanceId',
+        'dtsJobId' => 'DtsJobId',
+        'dtsJobName' => 'DtsJobName',
+        'errorNotice' => 'ErrorNotice',
+        'errorPhone' => 'ErrorPhone',
+        'fileOssUrlObject' => 'FileOssUrl',
+        'jobType' => 'JobType',
+        'maxDu' => 'MaxDu',
+        'minDu' => 'MinDu',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
+        'reserve' => 'Reserve',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceEndpointDatabaseName' => 'SourceEndpointDatabaseName',
+        'sourceEndpointEngineName' => 'SourceEndpointEngineName',
+        'sourceEndpointIP' => 'SourceEndpointIP',
+        'sourceEndpointInstanceID' => 'SourceEndpointInstanceID',
+        'sourceEndpointInstanceType' => 'SourceEndpointInstanceType',
+        'sourceEndpointOracleSID' => 'SourceEndpointOracleSID',
+        'sourceEndpointOwnerID' => 'SourceEndpointOwnerID',
+        'sourceEndpointPassword' => 'SourceEndpointPassword',
+        'sourceEndpointPort' => 'SourceEndpointPort',
+        'sourceEndpointRegion' => 'SourceEndpointRegion',
+        'sourceEndpointRole' => 'SourceEndpointRole',
+        'sourceEndpointUserName' => 'SourceEndpointUserName',
+        'sourceEndpointVSwitchID' => 'SourceEndpointVSwitchID',
+        'srcCaCertificateOssUrl' => 'SrcCaCertificateOssUrl',
+        'srcCaCertificatePassword' => 'SrcCaCertificatePassword',
+        'srcClientCertOssUrl' => 'SrcClientCertOssUrl',
+        'srcClientKeyOssUrl' => 'SrcClientKeyOssUrl',
+        'srcClientPassword' => 'SrcClientPassword',
+        'srcPrimaryVswId' => 'SrcPrimaryVswId',
+        'srcSecondaryVswId' => 'SrcSecondaryVswId',
+        'structureInitialization' => 'StructureInitialization',
+        'synchronizationDirection' => 'SynchronizationDirection',
     ];
 
     public function validate()

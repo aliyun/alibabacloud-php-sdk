@@ -12,58 +12,68 @@ class DescribeMigrationJobAlertResponseBody extends Model
      * @var string
      */
     public $delayAlertPhone;
+
     /**
      * @var string
      */
     public $delayAlertStatus;
+
     /**
      * @var string
      */
     public $delayOverSeconds;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $errorAlertPhone;
+
     /**
      * @var string
      */
     public $errorAlertStatus;
+
     /**
      * @var string
      */
     public $migrationJobId;
+
     /**
      * @var string
      */
     public $migrationJobName;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'delayAlertPhone'  => 'DelayAlertPhone',
+        'delayAlertPhone' => 'DelayAlertPhone',
         'delayAlertStatus' => 'DelayAlertStatus',
         'delayOverSeconds' => 'DelayOverSeconds',
-        'errCode'          => 'ErrCode',
-        'errMessage'       => 'ErrMessage',
-        'errorAlertPhone'  => 'ErrorAlertPhone',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'errorAlertPhone' => 'ErrorAlertPhone',
         'errorAlertStatus' => 'ErrorAlertStatus',
-        'migrationJobId'   => 'MigrationJobId',
+        'migrationJobId' => 'MigrationJobId',
         'migrationJobName' => 'MigrationJobName',
-        'requestId'        => 'RequestId',
-        'success'          => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

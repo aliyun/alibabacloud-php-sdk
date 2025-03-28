@@ -13,32 +13,37 @@ class ListTagResourcesResponseBody extends Model
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var tagResources
      */
     public $tagResources;
     protected $_name = [
-        'errCode'      => 'ErrCode',
-        'errMessage'   => 'ErrMessage',
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'tagResources' => 'TagResources',
     ];
 
