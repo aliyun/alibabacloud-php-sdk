@@ -57,6 +57,8 @@ use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodesRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListNodesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListOtaTaskRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListOtaTaskResponse;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListPersistentAppInstancesRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListPersistentAppInstancesResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRegionsRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ListSessionPackagesRequest;
@@ -2245,6 +2247,82 @@ class Appstreamcenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listOtaTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * 查询交付组内持久会话列表.
+     *
+     * @param request - ListPersistentAppInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPersistentAppInstancesResponse
+     *
+     * @param ListPersistentAppInstancesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListPersistentAppInstancesResponse
+     */
+    public function listPersistentAppInstancesWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appInstanceGroupId) {
+            @$query['AppInstanceGroupId'] = $request->appInstanceGroupId;
+        }
+
+        if (null !== $request->appInstancePersistentIds) {
+            @$query['AppInstancePersistentIds'] = $request->appInstancePersistentIds;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->productType) {
+            @$query['ProductType'] = $request->productType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListPersistentAppInstances',
+            'version' => '2021-09-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListPersistentAppInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListPersistentAppInstancesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询交付组内持久会话列表.
+     *
+     * @param request - ListPersistentAppInstancesRequest
+     *
+     * @returns ListPersistentAppInstancesResponse
+     *
+     * @param ListPersistentAppInstancesRequest $request
+     *
+     * @return ListPersistentAppInstancesResponse
+     */
+    public function listPersistentAppInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPersistentAppInstancesWithOptions($request, $runtime);
     }
 
     /**
