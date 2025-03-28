@@ -12,17 +12,19 @@ class GetChangeSetRequest extends Model
      * @var string
      */
     public $changeSetId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var bool
      */
     public $showTemplate;
     protected $_name = [
-        'changeSetId'  => 'ChangeSetId',
-        'regionId'     => 'RegionId',
+        'changeSetId' => 'ChangeSetId',
+        'regionId' => 'RegionId',
         'showTemplate' => 'ShowTemplate',
     ];
 

@@ -12,28 +12,32 @@ class diagnostics extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $diagnosticKey;
+
     /**
      * @var string
      */
     public $diagnosticProduct;
+
     /**
      * @var string
      */
     public $reportId;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'createTime'        => 'CreateTime',
-        'diagnosticKey'     => 'DiagnosticKey',
+        'createTime' => 'CreateTime',
+        'diagnosticKey' => 'DiagnosticKey',
         'diagnosticProduct' => 'DiagnosticProduct',
-        'reportId'          => 'ReportId',
-        'status'            => 'Status',
+        'reportId' => 'ReportId',
+        'status' => 'Status',
     ];
 
     public function validate()

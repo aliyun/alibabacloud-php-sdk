@@ -12,38 +12,44 @@ class CreateDiagnosticResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $diagnosticType;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $reportId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'diagnosticType' => 'DiagnosticType',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'reportId'       => 'ReportId',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'message' => 'Message',
+        'reportId' => 'ReportId',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

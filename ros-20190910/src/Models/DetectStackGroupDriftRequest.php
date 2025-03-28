@@ -12,23 +12,26 @@ class DetectStackGroupDriftRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var mixed[]
      */
     public $operationPreferences;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackGroupName;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'operationPreferences' => 'OperationPreferences',
-        'regionId'             => 'RegionId',
-        'stackGroupName'       => 'StackGroupName',
+        'regionId' => 'RegionId',
+        'stackGroupName' => 'StackGroupName',
     ];
 
     public function validate()

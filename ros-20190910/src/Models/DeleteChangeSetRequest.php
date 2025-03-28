@@ -12,13 +12,14 @@ class DeleteChangeSetRequest extends Model
      * @var string
      */
     public $changeSetId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'changeSetId' => 'ChangeSetId',
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

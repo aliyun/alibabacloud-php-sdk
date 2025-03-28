@@ -12,48 +12,56 @@ class GetTemplateRequest extends Model
      * @var string
      */
     public $changeSetId;
+
     /**
      * @var string
      */
     public $includePermission;
+
     /**
      * @var string
      */
     public $includeTags;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackGroupName;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateStage;
+
     /**
      * @var string
      */
     public $templateVersion;
     protected $_name = [
-        'changeSetId'       => 'ChangeSetId',
+        'changeSetId' => 'ChangeSetId',
         'includePermission' => 'IncludePermission',
-        'includeTags'       => 'IncludeTags',
-        'regionId'          => 'RegionId',
-        'stackGroupName'    => 'StackGroupName',
-        'stackId'           => 'StackId',
-        'templateId'        => 'TemplateId',
-        'templateStage'     => 'TemplateStage',
-        'templateVersion'   => 'TemplateVersion',
+        'includeTags' => 'IncludeTags',
+        'regionId' => 'RegionId',
+        'stackGroupName' => 'StackGroupName',
+        'stackId' => 'StackId',
+        'templateId' => 'TemplateId',
+        'templateStage' => 'TemplateStage',
+        'templateVersion' => 'TemplateVersion',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class CancelUpdateStackRequest extends Model
      * @var string
      */
     public $cancelType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackId;
     protected $_name = [
         'cancelType' => 'CancelType',
-        'regionId'   => 'RegionId',
-        'stackId'    => 'StackId',
+        'regionId' => 'RegionId',
+        'stackId' => 'StackId',
     ];
 
     public function validate()

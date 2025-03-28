@@ -12,22 +12,25 @@ class ListTagValuesRequest extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'key'          => 'Key',
-        'nextToken'    => 'NextToken',
-        'regionId'     => 'RegionId',
+        'key' => 'Key',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'resourceType' => 'ResourceType',
     ];
 

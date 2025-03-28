@@ -12,83 +12,98 @@ class GetResourceTypeResponseBody extends Model
      * @var mixed[]
      */
     public $attributes;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $defaultVersionId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $entityType;
+
     /**
      * @var bool
      */
     public $isDefaultVersion;
+
     /**
      * @var string
      */
     public $latestVersionId;
+
     /**
      * @var mixed[]
      */
     public $properties;
+
     /**
      * @var string
      */
     public $provider;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var bool
      */
     public $supportDriftDetection;
+
     /**
      * @var bool
      */
     public $supportScratchDetection;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var int
      */
     public $totalVersionCount;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'attributes'              => 'Attributes',
-        'createTime'              => 'CreateTime',
-        'defaultVersionId'        => 'DefaultVersionId',
-        'description'             => 'Description',
-        'entityType'              => 'EntityType',
-        'isDefaultVersion'        => 'IsDefaultVersion',
-        'latestVersionId'         => 'LatestVersionId',
-        'properties'              => 'Properties',
-        'provider'                => 'Provider',
-        'requestId'               => 'RequestId',
-        'resourceType'            => 'ResourceType',
-        'supportDriftDetection'   => 'SupportDriftDetection',
+        'attributes' => 'Attributes',
+        'createTime' => 'CreateTime',
+        'defaultVersionId' => 'DefaultVersionId',
+        'description' => 'Description',
+        'entityType' => 'EntityType',
+        'isDefaultVersion' => 'IsDefaultVersion',
+        'latestVersionId' => 'LatestVersionId',
+        'properties' => 'Properties',
+        'provider' => 'Provider',
+        'requestId' => 'RequestId',
+        'resourceType' => 'ResourceType',
+        'supportDriftDetection' => 'SupportDriftDetection',
         'supportScratchDetection' => 'SupportScratchDetection',
-        'templateBody'            => 'TemplateBody',
-        'totalVersionCount'       => 'TotalVersionCount',
-        'updateTime'              => 'UpdateTime',
+        'templateBody' => 'TemplateBody',
+        'totalVersionCount' => 'TotalVersionCount',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class UpdateTemplateResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateVersion;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'templateId'      => 'TemplateId',
+        'requestId' => 'RequestId',
+        'templateId' => 'TemplateId',
         'templateVersion' => 'TemplateVersion',
     ];
 

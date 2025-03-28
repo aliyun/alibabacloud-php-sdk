@@ -12,17 +12,19 @@ class ListTemplateVersionsRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $templateId;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
         'templateId' => 'TemplateId',
     ];
 

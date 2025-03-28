@@ -12,43 +12,50 @@ class stackGroupOperations extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $operationDescription;
+
     /**
      * @var string
      */
     public $operationId;
+
     /**
      * @var string
      */
     public $stackGroupId;
+
     /**
      * @var string
      */
     public $stackGroupName;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'action'               => 'Action',
-        'createTime'           => 'CreateTime',
-        'endTime'              => 'EndTime',
+        'action' => 'Action',
+        'createTime' => 'CreateTime',
+        'endTime' => 'EndTime',
         'operationDescription' => 'OperationDescription',
-        'operationId'          => 'OperationId',
-        'stackGroupId'         => 'StackGroupId',
-        'stackGroupName'       => 'StackGroupName',
-        'status'               => 'Status',
+        'operationId' => 'OperationId',
+        'stackGroupId' => 'StackGroupId',
+        'stackGroupName' => 'StackGroupName',
+        'status' => 'Status',
     ];
 
     public function validate()

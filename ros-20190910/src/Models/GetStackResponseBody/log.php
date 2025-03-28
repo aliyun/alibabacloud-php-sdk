@@ -14,12 +14,13 @@ class log extends Model
      * @var resourceLogs[]
      */
     public $resourceLogs;
+
     /**
      * @var terraformLogs[]
      */
     public $terraformLogs;
     protected $_name = [
-        'resourceLogs'  => 'ResourceLogs',
+        'resourceLogs' => 'ResourceLogs',
         'terraformLogs' => 'TerraformLogs',
     ];
 
@@ -40,7 +41,7 @@ class log extends Model
         if (null !== $this->resourceLogs) {
             if (\is_array($this->resourceLogs)) {
                 $res['ResourceLogs'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->resourceLogs as $item1) {
                     $res['ResourceLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -50,7 +51,7 @@ class log extends Model
         if (null !== $this->terraformLogs) {
             if (\is_array($this->terraformLogs)) {
                 $res['TerraformLogs'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->terraformLogs as $item1) {
                     $res['TerraformLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -71,7 +72,7 @@ class log extends Model
         if (isset($map['ResourceLogs'])) {
             if (!empty($map['ResourceLogs'])) {
                 $model->resourceLogs = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ResourceLogs'] as $item1) {
                     $model->resourceLogs[$n1++] = resourceLogs::fromMap($item1);
                 }
@@ -81,7 +82,7 @@ class log extends Model
         if (isset($map['TerraformLogs'])) {
             if (!empty($map['TerraformLogs'])) {
                 $model->terraformLogs = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['TerraformLogs'] as $item1) {
                     $model->terraformLogs[$n1++] = terraformLogs::fromMap($item1);
                 }

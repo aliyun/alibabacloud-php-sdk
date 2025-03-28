@@ -12,28 +12,32 @@ class GetStackInstanceRequest extends Model
      * @var string
      */
     public $outputOption;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackGroupName;
+
     /**
      * @var string
      */
     public $stackInstanceAccountId;
+
     /**
      * @var string
      */
     public $stackInstanceRegionId;
     protected $_name = [
-        'outputOption'           => 'OutputOption',
-        'regionId'               => 'RegionId',
-        'stackGroupName'         => 'StackGroupName',
+        'outputOption' => 'OutputOption',
+        'regionId' => 'RegionId',
+        'stackGroupName' => 'StackGroupName',
         'stackInstanceAccountId' => 'StackInstanceAccountId',
-        'stackInstanceRegionId'  => 'StackInstanceRegionId',
+        'stackInstanceRegionId' => 'StackInstanceRegionId',
     ];
 
     public function validate()

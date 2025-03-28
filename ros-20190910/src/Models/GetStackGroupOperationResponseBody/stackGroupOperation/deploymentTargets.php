@@ -12,12 +12,13 @@ class deploymentTargets extends Model
      * @var string[]
      */
     public $accountIds;
+
     /**
      * @var string[]
      */
     public $rdFolderIds;
     protected $_name = [
-        'accountIds'  => 'AccountIds',
+        'accountIds' => 'AccountIds',
         'rdFolderIds' => 'RdFolderIds',
     ];
 
@@ -38,7 +39,7 @@ class deploymentTargets extends Model
         if (null !== $this->accountIds) {
             if (\is_array($this->accountIds)) {
                 $res['AccountIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->accountIds as $item1) {
                     $res['AccountIds'][$n1++] = $item1;
                 }
@@ -48,7 +49,7 @@ class deploymentTargets extends Model
         if (null !== $this->rdFolderIds) {
             if (\is_array($this->rdFolderIds)) {
                 $res['RdFolderIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->rdFolderIds as $item1) {
                     $res['RdFolderIds'][$n1++] = $item1;
                 }
@@ -69,7 +70,7 @@ class deploymentTargets extends Model
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
                 $model->accountIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['AccountIds'] as $item1) {
                     $model->accountIds[$n1++] = $item1;
                 }
@@ -79,7 +80,7 @@ class deploymentTargets extends Model
         if (isset($map['RdFolderIds'])) {
             if (!empty($map['RdFolderIds'])) {
                 $model->rdFolderIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['RdFolderIds'] as $item1) {
                     $model->rdFolderIds[$n1++] = $item1;
                 }

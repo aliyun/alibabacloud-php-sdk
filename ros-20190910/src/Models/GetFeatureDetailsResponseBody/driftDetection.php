@@ -30,7 +30,7 @@ class driftDetection extends Model
         if (null !== $this->supportedResourceTypes) {
             if (\is_array($this->supportedResourceTypes)) {
                 $res['SupportedResourceTypes'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->supportedResourceTypes as $item1) {
                     $res['SupportedResourceTypes'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class driftDetection extends Model
         if (isset($map['SupportedResourceTypes'])) {
             if (!empty($map['SupportedResourceTypes'])) {
                 $model->supportedResourceTypes = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['SupportedResourceTypes'] as $item1) {
                     $model->supportedResourceTypes[$n1++] = $item1;
                 }

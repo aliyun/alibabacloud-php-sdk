@@ -13,42 +13,49 @@ class ListTemplateScratchesRequest extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $templateScratchId;
+
     /**
      * @var string
      */
     public $templateScratchType;
     protected $_name = [
-        'pageNumber'          => 'PageNumber',
-        'pageSize'            => 'PageSize',
-        'regionId'            => 'RegionId',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'status'              => 'Status',
-        'tags'                => 'Tags',
-        'templateScratchId'   => 'TemplateScratchId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'templateScratchId' => 'TemplateScratchId',
         'templateScratchType' => 'TemplateScratchType',
     ];
 
@@ -86,7 +93,7 @@ class ListTemplateScratchesRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -135,7 +142,7 @@ class ListTemplateScratchesRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

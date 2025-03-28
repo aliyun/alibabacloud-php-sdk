@@ -12,6 +12,7 @@ class GetTemplateEstimateCostResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var mixed[]
      */

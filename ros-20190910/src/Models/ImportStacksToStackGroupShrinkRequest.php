@@ -12,38 +12,44 @@ class ImportStacksToStackGroupShrinkRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $operationDescription;
+
     /**
      * @var string
      */
     public $operationPreferencesShrink;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceDirectoryFolderIdsShrink;
+
     /**
      * @var string
      */
     public $stackArnsShrink;
+
     /**
      * @var string
      */
     public $stackGroupName;
     protected $_name = [
-        'clientToken'                      => 'ClientToken',
-        'operationDescription'             => 'OperationDescription',
-        'operationPreferencesShrink'       => 'OperationPreferences',
-        'regionId'                         => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'operationDescription' => 'OperationDescription',
+        'operationPreferencesShrink' => 'OperationPreferences',
+        'regionId' => 'RegionId',
         'resourceDirectoryFolderIdsShrink' => 'ResourceDirectoryFolderIds',
-        'stackArnsShrink'                  => 'StackArns',
-        'stackGroupName'                   => 'StackGroupName',
+        'stackArnsShrink' => 'StackArns',
+        'stackGroupName' => 'StackGroupName',
     ];
 
     public function validate()

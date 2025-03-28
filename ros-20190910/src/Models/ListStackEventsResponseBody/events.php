@@ -12,48 +12,56 @@ class events extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var string
      */
     public $logicalResourceId;
+
     /**
      * @var string
      */
     public $physicalResourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $stackName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
     protected $_name = [
-        'createTime'         => 'CreateTime',
-        'eventId'            => 'EventId',
-        'logicalResourceId'  => 'LogicalResourceId',
+        'createTime' => 'CreateTime',
+        'eventId' => 'EventId',
+        'logicalResourceId' => 'LogicalResourceId',
         'physicalResourceId' => 'PhysicalResourceId',
-        'resourceType'       => 'ResourceType',
-        'stackId'            => 'StackId',
-        'stackName'          => 'StackName',
-        'status'             => 'Status',
-        'statusReason'       => 'StatusReason',
+        'resourceType' => 'ResourceType',
+        'stackId' => 'StackId',
+        'stackName' => 'StackName',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
     ];
 
     public function validate()

@@ -13,53 +13,62 @@ class UpdateStackInstancesShrinkRequest extends Model
      * @var string
      */
     public $accountIdsShrink;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $deploymentTargetsShrink;
+
     /**
      * @var string
      */
     public $operationDescription;
+
     /**
      * @var string
      */
     public $operationPreferencesShrink;
+
     /**
      * @var parameterOverrides[]
      */
     public $parameterOverrides;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $regionIdsShrink;
+
     /**
      * @var string
      */
     public $stackGroupName;
+
     /**
      * @var int
      */
     public $timeoutInMinutes;
     protected $_name = [
-        'accountIdsShrink'           => 'AccountIds',
-        'clientToken'                => 'ClientToken',
-        'deploymentTargetsShrink'    => 'DeploymentTargets',
-        'operationDescription'       => 'OperationDescription',
+        'accountIdsShrink' => 'AccountIds',
+        'clientToken' => 'ClientToken',
+        'deploymentTargetsShrink' => 'DeploymentTargets',
+        'operationDescription' => 'OperationDescription',
         'operationPreferencesShrink' => 'OperationPreferences',
-        'parameterOverrides'         => 'ParameterOverrides',
-        'regionId'                   => 'RegionId',
-        'regionIdsShrink'            => 'RegionIds',
-        'stackGroupName'             => 'StackGroupName',
-        'timeoutInMinutes'           => 'TimeoutInMinutes',
+        'parameterOverrides' => 'ParameterOverrides',
+        'regionId' => 'RegionId',
+        'regionIdsShrink' => 'RegionIds',
+        'stackGroupName' => 'StackGroupName',
+        'timeoutInMinutes' => 'TimeoutInMinutes',
     ];
 
     public function validate()
@@ -96,7 +105,7 @@ class UpdateStackInstancesShrinkRequest extends Model
         if (null !== $this->parameterOverrides) {
             if (\is_array($this->parameterOverrides)) {
                 $res['ParameterOverrides'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->parameterOverrides as $item1) {
                     $res['ParameterOverrides'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -153,7 +162,7 @@ class UpdateStackInstancesShrinkRequest extends Model
         if (isset($map['ParameterOverrides'])) {
             if (!empty($map['ParameterOverrides'])) {
                 $model->parameterOverrides = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ParameterOverrides'] as $item1) {
                     $model->parameterOverrides[$n1++] = parameterOverrides::fromMap($item1);
                 }

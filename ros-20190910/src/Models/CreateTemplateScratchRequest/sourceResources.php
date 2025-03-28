@@ -12,23 +12,26 @@ class sourceResources extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $relatedResourceTypeFilter;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'regionId'                  => 'RegionId',
+        'regionId' => 'RegionId',
         'relatedResourceTypeFilter' => 'RelatedResourceTypeFilter',
-        'resourceId'                => 'ResourceId',
-        'resourceType'              => 'ResourceType',
+        'resourceId' => 'ResourceId',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -49,7 +52,7 @@ class sourceResources extends Model
         if (null !== $this->relatedResourceTypeFilter) {
             if (\is_array($this->relatedResourceTypeFilter)) {
                 $res['RelatedResourceTypeFilter'] = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($this->relatedResourceTypeFilter as $item1) {
                     $res['RelatedResourceTypeFilter'][$n1++] = $item1;
                 }
@@ -82,7 +85,7 @@ class sourceResources extends Model
         if (isset($map['RelatedResourceTypeFilter'])) {
             if (!empty($map['RelatedResourceTypeFilter'])) {
                 $model->relatedResourceTypeFilter = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($map['RelatedResourceTypeFilter'] as $item1) {
                     $model->relatedResourceTypeFilter[$n1++] = $item1;
                 }

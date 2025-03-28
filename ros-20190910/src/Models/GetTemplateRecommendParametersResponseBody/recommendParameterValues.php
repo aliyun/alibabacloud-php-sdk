@@ -12,12 +12,13 @@ class recommendParameterValues extends Model
      * @var string
      */
     public $parameterKey;
+
     /**
      * @var string
      */
     public $recommendValue;
     protected $_name = [
-        'parameterKey'   => 'ParameterKey',
+        'parameterKey' => 'ParameterKey',
         'recommendValue' => 'RecommendValue',
     ];
 

@@ -13,68 +13,80 @@ class ContinueCreateStackRequest extends Model
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var int
      */
     public $parallelism;
+
     /**
      * @var parameters[]
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $ramRoleName;
+
     /**
      * @var string[]
      */
     public $recreatingOptions;
+
     /**
      * @var string[]
      */
     public $recreatingResources;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateURL;
+
     /**
      * @var string
      */
     public $templateVersion;
     protected $_name = [
-        'dryRun'              => 'DryRun',
-        'mode'                => 'Mode',
-        'parallelism'         => 'Parallelism',
-        'parameters'          => 'Parameters',
-        'ramRoleName'         => 'RamRoleName',
-        'recreatingOptions'   => 'RecreatingOptions',
+        'dryRun' => 'DryRun',
+        'mode' => 'Mode',
+        'parallelism' => 'Parallelism',
+        'parameters' => 'Parameters',
+        'ramRoleName' => 'RamRoleName',
+        'recreatingOptions' => 'RecreatingOptions',
         'recreatingResources' => 'RecreatingResources',
-        'regionId'            => 'RegionId',
-        'stackId'             => 'StackId',
-        'templateBody'        => 'TemplateBody',
-        'templateId'          => 'TemplateId',
-        'templateURL'         => 'TemplateURL',
-        'templateVersion'     => 'TemplateVersion',
+        'regionId' => 'RegionId',
+        'stackId' => 'StackId',
+        'templateBody' => 'TemplateBody',
+        'templateId' => 'TemplateId',
+        'templateURL' => 'TemplateURL',
+        'templateVersion' => 'TemplateVersion',
     ];
 
     public function validate()
@@ -109,7 +121,7 @@ class ContinueCreateStackRequest extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['Parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -123,7 +135,7 @@ class ContinueCreateStackRequest extends Model
         if (null !== $this->recreatingOptions) {
             if (\is_array($this->recreatingOptions)) {
                 $res['RecreatingOptions'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->recreatingOptions as $item1) {
                     $res['RecreatingOptions'][$n1++] = $item1;
                 }
@@ -133,7 +145,7 @@ class ContinueCreateStackRequest extends Model
         if (null !== $this->recreatingResources) {
             if (\is_array($this->recreatingResources)) {
                 $res['RecreatingResources'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->recreatingResources as $item1) {
                     $res['RecreatingResources'][$n1++] = $item1;
                 }
@@ -190,7 +202,7 @@ class ContinueCreateStackRequest extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     $model->parameters[$n1++] = parameters::fromMap($item1);
                 }
@@ -204,7 +216,7 @@ class ContinueCreateStackRequest extends Model
         if (isset($map['RecreatingOptions'])) {
             if (!empty($map['RecreatingOptions'])) {
                 $model->recreatingOptions = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['RecreatingOptions'] as $item1) {
                     $model->recreatingOptions[$n1++] = $item1;
                 }
@@ -214,7 +226,7 @@ class ContinueCreateStackRequest extends Model
         if (isset($map['RecreatingResources'])) {
             if (!empty($map['RecreatingResources'])) {
                 $model->recreatingResources = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['RecreatingResources'] as $item1) {
                     $model->recreatingResources[$n1++] = $item1;
                 }

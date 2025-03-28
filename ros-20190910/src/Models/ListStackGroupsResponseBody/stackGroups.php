@@ -14,63 +14,74 @@ class stackGroups extends Model
      * @var autoDeployment
      */
     public $autoDeployment;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $driftDetectionTime;
+
     /**
      * @var string
      */
     public $permissionModel;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $stackGroupDriftStatus;
+
     /**
      * @var string
      */
     public $stackGroupId;
+
     /**
      * @var string
      */
     public $stackGroupName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'autoDeployment'        => 'AutoDeployment',
-        'createTime'            => 'CreateTime',
-        'description'           => 'Description',
-        'driftDetectionTime'    => 'DriftDetectionTime',
-        'permissionModel'       => 'PermissionModel',
-        'resourceGroupId'       => 'ResourceGroupId',
+        'autoDeployment' => 'AutoDeployment',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'driftDetectionTime' => 'DriftDetectionTime',
+        'permissionModel' => 'PermissionModel',
+        'resourceGroupId' => 'ResourceGroupId',
         'stackGroupDriftStatus' => 'StackGroupDriftStatus',
-        'stackGroupId'          => 'StackGroupId',
-        'stackGroupName'        => 'StackGroupName',
-        'status'                => 'Status',
-        'tags'                  => 'Tags',
-        'updateTime'            => 'UpdateTime',
+        'stackGroupId' => 'StackGroupId',
+        'stackGroupName' => 'StackGroupName',
+        'status' => 'Status',
+        'tags' => 'Tags',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -130,7 +141,7 @@ class stackGroups extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -195,7 +206,7 @@ class stackGroups extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

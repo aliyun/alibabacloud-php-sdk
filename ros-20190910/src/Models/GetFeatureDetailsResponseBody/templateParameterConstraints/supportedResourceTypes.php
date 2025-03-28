@@ -12,12 +12,13 @@ class supportedResourceTypes extends Model
      * @var string[]
      */
     public $properties;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'properties'   => 'Properties',
+        'properties' => 'Properties',
         'resourceType' => 'ResourceType',
     ];
 
@@ -35,7 +36,7 @@ class supportedResourceTypes extends Model
         if (null !== $this->properties) {
             if (\is_array($this->properties)) {
                 $res['Properties'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->properties as $item1) {
                     $res['Properties'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class supportedResourceTypes extends Model
         if (isset($map['Properties'])) {
             if (!empty($map['Properties'])) {
                 $model->properties = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Properties'] as $item1) {
                     $model->properties[$n1++] = $item1;
                 }

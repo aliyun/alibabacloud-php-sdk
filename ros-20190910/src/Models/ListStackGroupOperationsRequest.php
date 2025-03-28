@@ -12,22 +12,25 @@ class ListStackGroupOperationsRequest extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackGroupName;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'regionId'       => 'RegionId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'stackGroupName' => 'StackGroupName',
     ];
 

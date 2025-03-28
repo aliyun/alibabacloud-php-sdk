@@ -12,48 +12,56 @@ class resourceTypeSummaries extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $defaultVersionId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $entityType;
+
     /**
      * @var string
      */
     public $latestVersionId;
+
     /**
      * @var string
      */
     public $provider;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var int
      */
     public $totalVersionCount;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'        => 'CreateTime',
-        'defaultVersionId'  => 'DefaultVersionId',
-        'description'       => 'Description',
-        'entityType'        => 'EntityType',
-        'latestVersionId'   => 'LatestVersionId',
-        'provider'          => 'Provider',
-        'resourceType'      => 'ResourceType',
+        'createTime' => 'CreateTime',
+        'defaultVersionId' => 'DefaultVersionId',
+        'description' => 'Description',
+        'entityType' => 'EntityType',
+        'latestVersionId' => 'LatestVersionId',
+        'provider' => 'Provider',
+        'resourceType' => 'ResourceType',
         'totalVersionCount' => 'TotalVersionCount',
-        'updateTime'        => 'UpdateTime',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

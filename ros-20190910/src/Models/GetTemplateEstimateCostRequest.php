@@ -13,53 +13,62 @@ class GetTemplateEstimateCostRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var parameters[]
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateScratchId;
+
     /**
      * @var string
      */
     public $templateScratchRegionId;
+
     /**
      * @var string
      */
     public $templateURL;
+
     /**
      * @var string
      */
     public $templateVersion;
     protected $_name = [
-        'clientToken'             => 'ClientToken',
-        'parameters'              => 'Parameters',
-        'regionId'                => 'RegionId',
-        'stackId'                 => 'StackId',
-        'templateBody'            => 'TemplateBody',
-        'templateId'              => 'TemplateId',
-        'templateScratchId'       => 'TemplateScratchId',
+        'clientToken' => 'ClientToken',
+        'parameters' => 'Parameters',
+        'regionId' => 'RegionId',
+        'stackId' => 'StackId',
+        'templateBody' => 'TemplateBody',
+        'templateId' => 'TemplateId',
+        'templateScratchId' => 'TemplateScratchId',
         'templateScratchRegionId' => 'TemplateScratchRegionId',
-        'templateURL'             => 'TemplateURL',
-        'templateVersion'         => 'TemplateVersion',
+        'templateURL' => 'TemplateURL',
+        'templateVersion' => 'TemplateVersion',
     ];
 
     public function validate()
@@ -80,7 +89,7 @@ class GetTemplateEstimateCostRequest extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['Parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -137,7 +146,7 @@ class GetTemplateEstimateCostRequest extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     $model->parameters[$n1++] = parameters::fromMap($item1);
                 }

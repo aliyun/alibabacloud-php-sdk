@@ -12,17 +12,19 @@ class GetResourceTypeTemplateResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var mixed[]
      */
     public $templateBody;
+
     /**
      * @var string
      */
     public $templateContent;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'templateBody'    => 'TemplateBody',
+        'requestId' => 'RequestId',
+        'templateBody' => 'TemplateBody',
         'templateContent' => 'TemplateContent',
     ];
 

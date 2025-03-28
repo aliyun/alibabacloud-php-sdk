@@ -14,113 +14,134 @@ class UpdateStackRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $disableRollback;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string[]
      */
     public $dryRunOptions;
+
     /**
      * @var int
      */
     public $parallelism;
+
     /**
      * @var parameters[]
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $ramRoleName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $replacementOption;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $stackPolicyBody;
+
     /**
      * @var string
      */
     public $stackPolicyDuringUpdateBody;
+
     /**
      * @var string
      */
     public $stackPolicyDuringUpdateURL;
+
     /**
      * @var string
      */
     public $stackPolicyURL;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateURL;
+
     /**
      * @var string
      */
     public $templateVersion;
+
     /**
      * @var int
      */
     public $timeoutInMinutes;
+
     /**
      * @var bool
      */
     public $usePreviousParameters;
     protected $_name = [
-        'clientToken'                 => 'ClientToken',
-        'disableRollback'             => 'DisableRollback',
-        'dryRun'                      => 'DryRun',
-        'dryRunOptions'               => 'DryRunOptions',
-        'parallelism'                 => 'Parallelism',
-        'parameters'                  => 'Parameters',
-        'ramRoleName'                 => 'RamRoleName',
-        'regionId'                    => 'RegionId',
-        'replacementOption'           => 'ReplacementOption',
-        'resourceGroupId'             => 'ResourceGroupId',
-        'stackId'                     => 'StackId',
-        'stackPolicyBody'             => 'StackPolicyBody',
+        'clientToken' => 'ClientToken',
+        'disableRollback' => 'DisableRollback',
+        'dryRun' => 'DryRun',
+        'dryRunOptions' => 'DryRunOptions',
+        'parallelism' => 'Parallelism',
+        'parameters' => 'Parameters',
+        'ramRoleName' => 'RamRoleName',
+        'regionId' => 'RegionId',
+        'replacementOption' => 'ReplacementOption',
+        'resourceGroupId' => 'ResourceGroupId',
+        'stackId' => 'StackId',
+        'stackPolicyBody' => 'StackPolicyBody',
         'stackPolicyDuringUpdateBody' => 'StackPolicyDuringUpdateBody',
-        'stackPolicyDuringUpdateURL'  => 'StackPolicyDuringUpdateURL',
-        'stackPolicyURL'              => 'StackPolicyURL',
-        'tags'                        => 'Tags',
-        'templateBody'                => 'TemplateBody',
-        'templateId'                  => 'TemplateId',
-        'templateURL'                 => 'TemplateURL',
-        'templateVersion'             => 'TemplateVersion',
-        'timeoutInMinutes'            => 'TimeoutInMinutes',
-        'usePreviousParameters'       => 'UsePreviousParameters',
+        'stackPolicyDuringUpdateURL' => 'StackPolicyDuringUpdateURL',
+        'stackPolicyURL' => 'StackPolicyURL',
+        'tags' => 'Tags',
+        'templateBody' => 'TemplateBody',
+        'templateId' => 'TemplateId',
+        'templateURL' => 'TemplateURL',
+        'templateVersion' => 'TemplateVersion',
+        'timeoutInMinutes' => 'TimeoutInMinutes',
+        'usePreviousParameters' => 'UsePreviousParameters',
     ];
 
     public function validate()
@@ -155,7 +176,7 @@ class UpdateStackRequest extends Model
         if (null !== $this->dryRunOptions) {
             if (\is_array($this->dryRunOptions)) {
                 $res['DryRunOptions'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->dryRunOptions as $item1) {
                     $res['DryRunOptions'][$n1++] = $item1;
                 }
@@ -169,7 +190,7 @@ class UpdateStackRequest extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['Parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -215,7 +236,7 @@ class UpdateStackRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -272,7 +293,7 @@ class UpdateStackRequest extends Model
         if (isset($map['DryRunOptions'])) {
             if (!empty($map['DryRunOptions'])) {
                 $model->dryRunOptions = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['DryRunOptions'] as $item1) {
                     $model->dryRunOptions[$n1++] = $item1;
                 }
@@ -286,7 +307,7 @@ class UpdateStackRequest extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     $model->parameters[$n1++] = parameters::fromMap($item1);
                 }
@@ -332,7 +353,7 @@ class UpdateStackRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

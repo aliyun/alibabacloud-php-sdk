@@ -13,18 +13,20 @@ class ListStackOperationRisksResponseBody extends Model
      * @var string[]
      */
     public $missingPolicyActions;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var riskResources[]
      */
     public $riskResources;
     protected $_name = [
         'missingPolicyActions' => 'MissingPolicyActions',
-        'requestId'            => 'RequestId',
-        'riskResources'        => 'RiskResources',
+        'requestId' => 'RequestId',
+        'riskResources' => 'RiskResources',
     ];
 
     public function validate()
@@ -44,7 +46,7 @@ class ListStackOperationRisksResponseBody extends Model
         if (null !== $this->missingPolicyActions) {
             if (\is_array($this->missingPolicyActions)) {
                 $res['MissingPolicyActions'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->missingPolicyActions as $item1) {
                     $res['MissingPolicyActions'][$n1++] = $item1;
                 }
@@ -58,7 +60,7 @@ class ListStackOperationRisksResponseBody extends Model
         if (null !== $this->riskResources) {
             if (\is_array($this->riskResources)) {
                 $res['RiskResources'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->riskResources as $item1) {
                     $res['RiskResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +81,7 @@ class ListStackOperationRisksResponseBody extends Model
         if (isset($map['MissingPolicyActions'])) {
             if (!empty($map['MissingPolicyActions'])) {
                 $model->missingPolicyActions = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['MissingPolicyActions'] as $item1) {
                     $model->missingPolicyActions[$n1++] = $item1;
                 }
@@ -93,7 +95,7 @@ class ListStackOperationRisksResponseBody extends Model
         if (isset($map['RiskResources'])) {
             if (!empty($map['RiskResources'])) {
                 $model->riskResources = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['RiskResources'] as $item1) {
                     $model->riskResources[$n1++] = riskResources::fromMap($item1);
                 }

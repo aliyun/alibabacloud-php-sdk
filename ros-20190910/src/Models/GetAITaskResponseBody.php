@@ -12,53 +12,62 @@ class GetAITaskResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var mixed[]
      */
     public $taskOutput;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'status'         => 'Status',
-        'statusReason'   => 'StatusReason',
-        'success'        => 'Success',
-        'taskId'         => 'TaskId',
-        'taskOutput'     => 'TaskOutput',
-        'taskType'       => 'TaskType',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
+        'success' => 'Success',
+        'taskId' => 'TaskId',
+        'taskOutput' => 'TaskOutput',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

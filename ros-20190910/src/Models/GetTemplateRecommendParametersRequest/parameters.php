@@ -12,18 +12,20 @@ class parameters extends Model
      * @var string[]
      */
     public $parameterCandidateValues;
+
     /**
      * @var string
      */
     public $parameterKey;
+
     /**
      * @var string
      */
     public $parameterValue;
     protected $_name = [
         'parameterCandidateValues' => 'ParameterCandidateValues',
-        'parameterKey'             => 'ParameterKey',
-        'parameterValue'           => 'ParameterValue',
+        'parameterKey' => 'ParameterKey',
+        'parameterValue' => 'ParameterValue',
     ];
 
     public function validate()
@@ -40,7 +42,7 @@ class parameters extends Model
         if (null !== $this->parameterCandidateValues) {
             if (\is_array($this->parameterCandidateValues)) {
                 $res['ParameterCandidateValues'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->parameterCandidateValues as $item1) {
                     $res['ParameterCandidateValues'][$n1++] = $item1;
                 }
@@ -69,7 +71,7 @@ class parameters extends Model
         if (isset($map['ParameterCandidateValues'])) {
             if (!empty($map['ParameterCandidateValues'])) {
                 $model->parameterCandidateValues = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['ParameterCandidateValues'] as $item1) {
                     $model->parameterCandidateValues[$n1++] = $item1;
                 }

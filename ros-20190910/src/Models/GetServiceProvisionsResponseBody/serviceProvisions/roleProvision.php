@@ -13,13 +13,14 @@ class roleProvision extends Model
      * @var string
      */
     public $authorizationURL;
+
     /**
      * @var roles[]
      */
     public $roles;
     protected $_name = [
         'authorizationURL' => 'AuthorizationURL',
-        'roles'            => 'Roles',
+        'roles' => 'Roles',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class roleProvision extends Model
         if (null !== $this->roles) {
             if (\is_array($this->roles)) {
                 $res['Roles'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->roles as $item1) {
                     $res['Roles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class roleProvision extends Model
         if (isset($map['Roles'])) {
             if (!empty($map['Roles'])) {
                 $model->roles = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Roles'] as $item1) {
                     $model->roles[$n1++] = roles::fromMap($item1);
                 }

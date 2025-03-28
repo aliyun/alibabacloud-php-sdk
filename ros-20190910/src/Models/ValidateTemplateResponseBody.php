@@ -16,38 +16,44 @@ class ValidateTemplateResponseBody extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var outputs[]
      */
     public $outputs;
+
     /**
      * @var mixed[][]
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceTypes
      */
     public $resourceTypes;
+
     /**
      * @var resources[]
      */
     public $resources;
+
     /**
      * @var updateInfo
      */
     public $updateInfo;
     protected $_name = [
-        'description'   => 'Description',
-        'outputs'       => 'Outputs',
-        'parameters'    => 'Parameters',
-        'requestId'     => 'RequestId',
+        'description' => 'Description',
+        'outputs' => 'Outputs',
+        'parameters' => 'Parameters',
+        'requestId' => 'RequestId',
         'resourceTypes' => 'ResourceTypes',
-        'resources'     => 'Resources',
-        'updateInfo'    => 'UpdateInfo',
+        'resources' => 'Resources',
+        'updateInfo' => 'UpdateInfo',
     ];
 
     public function validate()
@@ -80,7 +86,7 @@ class ValidateTemplateResponseBody extends Model
         if (null !== $this->outputs) {
             if (\is_array($this->outputs)) {
                 $res['Outputs'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->outputs as $item1) {
                     $res['Outputs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -90,7 +96,7 @@ class ValidateTemplateResponseBody extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['Parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     if (\is_array($item1)) {
                         $res['Parameters'][$n1++] = [];
@@ -113,7 +119,7 @@ class ValidateTemplateResponseBody extends Model
         if (null !== $this->resources) {
             if (\is_array($this->resources)) {
                 $res['Resources'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->resources as $item1) {
                     $res['Resources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -142,7 +148,7 @@ class ValidateTemplateResponseBody extends Model
         if (isset($map['Outputs'])) {
             if (!empty($map['Outputs'])) {
                 $model->outputs = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Outputs'] as $item1) {
                     $model->outputs[$n1++] = outputs::fromMap($item1);
                 }
@@ -152,7 +158,7 @@ class ValidateTemplateResponseBody extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     if (!empty($item1)) {
                         $model->parameters[$n1++] = [];
@@ -175,7 +181,7 @@ class ValidateTemplateResponseBody extends Model
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Resources'] as $item1) {
                     $model->resources[$n1++] = resources::fromMap($item1);
                 }

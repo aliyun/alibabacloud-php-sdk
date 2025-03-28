@@ -12,12 +12,13 @@ class GetFeatureDetailsRequest extends Model
      * @var string
      */
     public $feature;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'feature'  => 'Feature',
+        'feature' => 'Feature',
         'regionId' => 'RegionId',
     ];
 

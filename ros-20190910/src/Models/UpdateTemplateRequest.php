@@ -12,42 +12,49 @@ class UpdateTemplateRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $isDraft;
+
     /**
      * @var string
      */
     public $rotateStrategy;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateName;
+
     /**
      * @var string
      */
     public $templateURL;
+
     /**
      * @var string[]
      */
     public $validationOptions;
     protected $_name = [
-        'description'       => 'Description',
-        'isDraft'           => 'IsDraft',
-        'rotateStrategy'    => 'RotateStrategy',
-        'templateBody'      => 'TemplateBody',
-        'templateId'        => 'TemplateId',
-        'templateName'      => 'TemplateName',
-        'templateURL'       => 'TemplateURL',
+        'description' => 'Description',
+        'isDraft' => 'IsDraft',
+        'rotateStrategy' => 'RotateStrategy',
+        'templateBody' => 'TemplateBody',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
+        'templateURL' => 'TemplateURL',
         'validationOptions' => 'ValidationOptions',
     ];
 
@@ -93,7 +100,7 @@ class UpdateTemplateRequest extends Model
         if (null !== $this->validationOptions) {
             if (\is_array($this->validationOptions)) {
                 $res['ValidationOptions'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->validationOptions as $item1) {
                     $res['ValidationOptions'][$n1++] = $item1;
                 }
@@ -142,7 +149,7 @@ class UpdateTemplateRequest extends Model
         if (isset($map['ValidationOptions'])) {
             if (!empty($map['ValidationOptions'])) {
                 $model->validationOptions = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ValidationOptions'] as $item1) {
                     $model->validationOptions[$n1++] = $item1;
                 }

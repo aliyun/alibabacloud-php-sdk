@@ -12,23 +12,26 @@ class propertyDifferences extends Model
      * @var string
      */
     public $actualValue;
+
     /**
      * @var string
      */
     public $differenceType;
+
     /**
      * @var string
      */
     public $expectedValue;
+
     /**
      * @var string
      */
     public $propertyPath;
     protected $_name = [
-        'actualValue'    => 'ActualValue',
+        'actualValue' => 'ActualValue',
         'differenceType' => 'DifferenceType',
-        'expectedValue'  => 'ExpectedValue',
-        'propertyPath'   => 'PropertyPath',
+        'expectedValue' => 'ExpectedValue',
+        'propertyPath' => 'PropertyPath',
     ];
 
     public function validate()

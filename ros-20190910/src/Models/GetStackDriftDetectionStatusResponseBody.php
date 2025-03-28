@@ -12,43 +12,50 @@ class GetStackDriftDetectionStatusResponseBody extends Model
      * @var string
      */
     public $driftDetectionId;
+
     /**
      * @var string
      */
     public $driftDetectionStatus;
+
     /**
      * @var string
      */
     public $driftDetectionStatusReason;
+
     /**
      * @var string
      */
     public $driftDetectionTime;
+
     /**
      * @var int
      */
     public $driftedStackResourceCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $stackDriftStatus;
+
     /**
      * @var string
      */
     public $stackId;
     protected $_name = [
-        'driftDetectionId'           => 'DriftDetectionId',
-        'driftDetectionStatus'       => 'DriftDetectionStatus',
+        'driftDetectionId' => 'DriftDetectionId',
+        'driftDetectionStatus' => 'DriftDetectionStatus',
         'driftDetectionStatusReason' => 'DriftDetectionStatusReason',
-        'driftDetectionTime'         => 'DriftDetectionTime',
-        'driftedStackResourceCount'  => 'DriftedStackResourceCount',
-        'requestId'                  => 'RequestId',
-        'stackDriftStatus'           => 'StackDriftStatus',
-        'stackId'                    => 'StackId',
+        'driftDetectionTime' => 'DriftDetectionTime',
+        'driftedStackResourceCount' => 'DriftedStackResourceCount',
+        'requestId' => 'RequestId',
+        'stackDriftStatus' => 'StackDriftStatus',
+        'stackId' => 'StackId',
     ];
 
     public function validate()

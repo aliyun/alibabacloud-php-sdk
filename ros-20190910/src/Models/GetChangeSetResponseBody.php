@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\ROS\V20190910\Models;
 use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetChangeSetResponseBody\log;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetChangeSetResponseBody\parameters;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetChangeSetResponseBody\tags;
 
 class GetChangeSetResponseBody extends Model
 {
@@ -14,92 +15,121 @@ class GetChangeSetResponseBody extends Model
      * @var string
      */
     public $changeSetId;
+
     /**
      * @var string
      */
     public $changeSetName;
+
     /**
      * @var string
      */
     public $changeSetType;
+
     /**
      * @var mixed[][]
      */
     public $changes;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $disableRollback;
+
     /**
      * @var string
      */
     public $executionStatus;
+
     /**
      * @var log
      */
     public $log;
+
     /**
      * @var parameters[]
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $stackName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var int
      */
     public $timeoutInMinutes;
     protected $_name = [
-        'changeSetId'      => 'ChangeSetId',
-        'changeSetName'    => 'ChangeSetName',
-        'changeSetType'    => 'ChangeSetType',
-        'changes'          => 'Changes',
-        'createTime'       => 'CreateTime',
-        'description'      => 'Description',
-        'disableRollback'  => 'DisableRollback',
-        'executionStatus'  => 'ExecutionStatus',
-        'log'              => 'Log',
-        'parameters'       => 'Parameters',
-        'regionId'         => 'RegionId',
-        'requestId'        => 'RequestId',
-        'stackId'          => 'StackId',
-        'stackName'        => 'StackName',
-        'status'           => 'Status',
-        'statusReason'     => 'StatusReason',
-        'templateBody'     => 'TemplateBody',
+        'changeSetId' => 'ChangeSetId',
+        'changeSetName' => 'ChangeSetName',
+        'changeSetType' => 'ChangeSetType',
+        'changes' => 'Changes',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'disableRollback' => 'DisableRollback',
+        'executionStatus' => 'ExecutionStatus',
+        'log' => 'Log',
+        'parameters' => 'Parameters',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'stackId' => 'StackId',
+        'stackName' => 'StackName',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
+        'tags' => 'Tags',
+        'templateBody' => 'TemplateBody',
         'timeoutInMinutes' => 'TimeoutInMinutes',
     ];
 
@@ -113,6 +143,9 @@ class GetChangeSetResponseBody extends Model
         }
         if (\is_array($this->parameters)) {
             Model::validateArray($this->parameters);
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
         }
         parent::validate();
     }
@@ -135,7 +168,7 @@ class GetChangeSetResponseBody extends Model
         if (null !== $this->changes) {
             if (\is_array($this->changes)) {
                 $res['Changes'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->changes as $item1) {
                     if (\is_array($item1)) {
                         $res['Changes'][$n1++] = [];
@@ -170,7 +203,7 @@ class GetChangeSetResponseBody extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['Parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -183,6 +216,10 @@ class GetChangeSetResponseBody extends Model
 
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         if (null !== $this->stackId) {
@@ -199,6 +236,16 @@ class GetChangeSetResponseBody extends Model
 
         if (null !== $this->statusReason) {
             $res['StatusReason'] = $this->statusReason;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->templateBody) {
@@ -235,7 +282,7 @@ class GetChangeSetResponseBody extends Model
         if (isset($map['Changes'])) {
             if (!empty($map['Changes'])) {
                 $model->changes = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Changes'] as $item1) {
                     if (!empty($item1)) {
                         $model->changes[$n1++] = [];
@@ -270,7 +317,7 @@ class GetChangeSetResponseBody extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     $model->parameters[$n1++] = parameters::fromMap($item1);
                 }
@@ -283,6 +330,10 @@ class GetChangeSetResponseBody extends Model
 
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         if (isset($map['StackId'])) {
@@ -299,6 +350,16 @@ class GetChangeSetResponseBody extends Model
 
         if (isset($map['StatusReason'])) {
             $model->statusReason = $map['StatusReason'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['TemplateBody'])) {

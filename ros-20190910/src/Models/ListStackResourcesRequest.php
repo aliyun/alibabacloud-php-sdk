@@ -12,13 +12,14 @@ class ListStackResourcesRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackId;
     protected $_name = [
         'regionId' => 'RegionId',
-        'stackId'  => 'StackId',
+        'stackId' => 'StackId',
     ];
 
     public function validate()

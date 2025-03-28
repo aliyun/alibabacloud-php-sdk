@@ -12,17 +12,19 @@ class stacks extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $usageType;
     protected $_name = [
-        'regionId'  => 'RegionId',
-        'stackId'   => 'StackId',
+        'regionId' => 'RegionId',
+        'stackId' => 'StackId',
         'usageType' => 'UsageType',
     ];
 

@@ -13,27 +13,31 @@ class ListStacksResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var stacks[]
      */
     public $stacks;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'stacks'     => 'Stacks',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'stacks' => 'Stacks',
         'totalCount' => 'TotalCount',
     ];
 
@@ -63,7 +67,7 @@ class ListStacksResponseBody extends Model
         if (null !== $this->stacks) {
             if (\is_array($this->stacks)) {
                 $res['Stacks'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->stacks as $item1) {
                     $res['Stacks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class ListStacksResponseBody extends Model
         if (isset($map['Stacks'])) {
             if (!empty($map['Stacks'])) {
                 $model->stacks = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Stacks'] as $item1) {
                     $model->stacks[$n1++] = stacks::fromMap($item1);
                 }

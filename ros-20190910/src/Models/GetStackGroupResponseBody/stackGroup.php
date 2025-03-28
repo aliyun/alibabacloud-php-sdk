@@ -15,83 +15,98 @@ class stackGroup extends Model
      * @var string
      */
     public $administrationRoleName;
+
     /**
      * @var autoDeployment
      */
     public $autoDeployment;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $executionRoleName;
+
     /**
      * @var parameters[]
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $permissionModel;
+
     /**
      * @var string[]
      */
     public $rdFolderIds;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var stackGroupDriftDetectionDetail
      */
     public $stackGroupDriftDetectionDetail;
+
     /**
      * @var string
      */
     public $stackGroupId;
+
     /**
      * @var string
      */
     public $stackGroupName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var string
      */
     public $templateContent;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'administrationRoleName'         => 'AdministrationRoleName',
-        'autoDeployment'                 => 'AutoDeployment',
-        'createTime'                     => 'CreateTime',
-        'description'                    => 'Description',
-        'executionRoleName'              => 'ExecutionRoleName',
-        'parameters'                     => 'Parameters',
-        'permissionModel'                => 'PermissionModel',
-        'rdFolderIds'                    => 'RdFolderIds',
-        'resourceGroupId'                => 'ResourceGroupId',
+        'administrationRoleName' => 'AdministrationRoleName',
+        'autoDeployment' => 'AutoDeployment',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'executionRoleName' => 'ExecutionRoleName',
+        'parameters' => 'Parameters',
+        'permissionModel' => 'PermissionModel',
+        'rdFolderIds' => 'RdFolderIds',
+        'resourceGroupId' => 'ResourceGroupId',
         'stackGroupDriftDetectionDetail' => 'StackGroupDriftDetectionDetail',
-        'stackGroupId'                   => 'StackGroupId',
-        'stackGroupName'                 => 'StackGroupName',
-        'status'                         => 'Status',
-        'templateBody'                   => 'TemplateBody',
-        'templateContent'                => 'TemplateContent',
-        'updateTime'                     => 'UpdateTime',
+        'stackGroupId' => 'StackGroupId',
+        'stackGroupName' => 'StackGroupName',
+        'status' => 'Status',
+        'templateBody' => 'TemplateBody',
+        'templateContent' => 'TemplateContent',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -137,7 +152,7 @@ class stackGroup extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['Parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -151,7 +166,7 @@ class stackGroup extends Model
         if (null !== $this->rdFolderIds) {
             if (\is_array($this->rdFolderIds)) {
                 $res['RdFolderIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->rdFolderIds as $item1) {
                     $res['RdFolderIds'][$n1++] = $item1;
                 }
@@ -224,7 +239,7 @@ class stackGroup extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     $model->parameters[$n1++] = parameters::fromMap($item1);
                 }
@@ -238,7 +253,7 @@ class stackGroup extends Model
         if (isset($map['RdFolderIds'])) {
             if (!empty($map['RdFolderIds'])) {
                 $model->rdFolderIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['RdFolderIds'] as $item1) {
                     $model->rdFolderIds[$n1++] = $item1;
                 }

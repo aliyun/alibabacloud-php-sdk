@@ -12,12 +12,13 @@ class CreateTemplateScratchResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $templateScratchId;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'templateScratchId' => 'TemplateScratchId',
     ];
 

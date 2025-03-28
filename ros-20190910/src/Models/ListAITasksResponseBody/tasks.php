@@ -12,38 +12,44 @@ class tasks extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $prompt;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskType;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'   => 'CreateTime',
-        'prompt'       => 'Prompt',
-        'status'       => 'Status',
+        'createTime' => 'CreateTime',
+        'prompt' => 'Prompt',
+        'status' => 'Status',
         'statusReason' => 'StatusReason',
-        'taskId'       => 'TaskId',
-        'taskType'     => 'TaskType',
-        'updateTime'   => 'UpdateTime',
+        'taskId' => 'TaskId',
+        'taskType' => 'TaskType',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

@@ -13,43 +13,50 @@ class resourceProgress extends Model
      * @var int
      */
     public $failedResourceCount;
+
     /**
      * @var int
      */
     public $inProgressResourceCount;
+
     /**
      * @var inProgressResourceDetails[]
      */
     public $inProgressResourceDetails;
+
     /**
      * @var int
      */
     public $pendingResourceCount;
+
     /**
      * @var float
      */
     public $stackActionProgress;
+
     /**
      * @var float
      */
     public $stackOperationProgress;
+
     /**
      * @var int
      */
     public $successResourceCount;
+
     /**
      * @var int
      */
     public $totalResourceCount;
     protected $_name = [
-        'failedResourceCount'       => 'FailedResourceCount',
-        'inProgressResourceCount'   => 'InProgressResourceCount',
+        'failedResourceCount' => 'FailedResourceCount',
+        'inProgressResourceCount' => 'InProgressResourceCount',
         'inProgressResourceDetails' => 'InProgressResourceDetails',
-        'pendingResourceCount'      => 'PendingResourceCount',
-        'stackActionProgress'       => 'StackActionProgress',
-        'stackOperationProgress'    => 'StackOperationProgress',
-        'successResourceCount'      => 'SuccessResourceCount',
-        'totalResourceCount'        => 'TotalResourceCount',
+        'pendingResourceCount' => 'PendingResourceCount',
+        'stackActionProgress' => 'StackActionProgress',
+        'stackOperationProgress' => 'StackOperationProgress',
+        'successResourceCount' => 'SuccessResourceCount',
+        'totalResourceCount' => 'TotalResourceCount',
     ];
 
     public function validate()
@@ -74,7 +81,7 @@ class resourceProgress extends Model
         if (null !== $this->inProgressResourceDetails) {
             if (\is_array($this->inProgressResourceDetails)) {
                 $res['InProgressResourceDetails'] = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($this->inProgressResourceDetails as $item1) {
                     $res['InProgressResourceDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -123,7 +130,7 @@ class resourceProgress extends Model
         if (isset($map['InProgressResourceDetails'])) {
             if (!empty($map['InProgressResourceDetails'])) {
                 $model->inProgressResourceDetails = [];
-                $n1                               = 0;
+                $n1 = 0;
                 foreach ($map['InProgressResourceDetails'] as $item1) {
                     $model->inProgressResourceDetails[$n1++] = inProgressResourceDetails::fromMap($item1);
                 }

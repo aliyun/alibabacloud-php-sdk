@@ -12,43 +12,50 @@ class riskResources extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $logicalResourceId;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $physicalResourceId;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $riskType;
     protected $_name = [
-        'code'               => 'Code',
-        'logicalResourceId'  => 'LogicalResourceId',
-        'message'            => 'Message',
+        'code' => 'Code',
+        'logicalResourceId' => 'LogicalResourceId',
+        'message' => 'Message',
         'physicalResourceId' => 'PhysicalResourceId',
-        'reason'             => 'Reason',
-        'requestId'          => 'RequestId',
-        'resourceType'       => 'ResourceType',
-        'riskType'           => 'RiskType',
+        'reason' => 'Reason',
+        'requestId' => 'RequestId',
+        'resourceType' => 'ResourceType',
+        'riskType' => 'RiskType',
     ];
 
     public function validate()

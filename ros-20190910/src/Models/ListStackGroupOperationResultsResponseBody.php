@@ -13,28 +13,32 @@ class ListStackGroupOperationResultsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var stackGroupOperationResults[]
      */
     public $stackGroupOperationResults;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'                 => 'PageNumber',
-        'pageSize'                   => 'PageSize',
-        'requestId'                  => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'stackGroupOperationResults' => 'StackGroupOperationResults',
-        'totalCount'                 => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -63,7 +67,7 @@ class ListStackGroupOperationResultsResponseBody extends Model
         if (null !== $this->stackGroupOperationResults) {
             if (\is_array($this->stackGroupOperationResults)) {
                 $res['StackGroupOperationResults'] = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($this->stackGroupOperationResults as $item1) {
                     $res['StackGroupOperationResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class ListStackGroupOperationResultsResponseBody extends Model
         if (isset($map['StackGroupOperationResults'])) {
             if (!empty($map['StackGroupOperationResults'])) {
                 $model->stackGroupOperationResults = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($map['StackGroupOperationResults'] as $item1) {
                     $model->stackGroupOperationResults[$n1++] = stackGroupOperationResults::fromMap($item1);
                 }

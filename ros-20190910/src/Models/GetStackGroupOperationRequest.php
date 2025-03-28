@@ -12,13 +12,14 @@ class GetStackGroupOperationRequest extends Model
      * @var string
      */
     public $operationId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'operationId' => 'OperationId',
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

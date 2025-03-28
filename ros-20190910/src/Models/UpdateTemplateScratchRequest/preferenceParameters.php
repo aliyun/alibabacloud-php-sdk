@@ -12,12 +12,13 @@ class preferenceParameters extends Model
      * @var string
      */
     public $parameterKey;
+
     /**
      * @var string
      */
     public $parameterValue;
     protected $_name = [
-        'parameterKey'   => 'ParameterKey',
+        'parameterKey' => 'ParameterKey',
         'parameterValue' => 'ParameterValue',
     ];
 

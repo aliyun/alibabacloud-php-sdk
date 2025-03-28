@@ -12,6 +12,7 @@ class notSupportResources extends Model
      * @var string
      */
     public $propertyName;
+
     /**
      * @var string
      */

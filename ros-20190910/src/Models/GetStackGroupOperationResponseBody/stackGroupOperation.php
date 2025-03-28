@@ -15,73 +15,86 @@ class stackGroupOperation extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $administrationRoleName;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var deploymentTargets
      */
     public $deploymentTargets;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $executionRoleName;
+
     /**
      * @var string
      */
     public $operationDescription;
+
     /**
      * @var string
      */
     public $operationId;
+
     /**
      * @var operationPreferences
      */
     public $operationPreferences;
+
     /**
      * @var bool
      */
     public $retainStacks;
+
     /**
      * @var stackGroupDriftDetectionDetail
      */
     public $stackGroupDriftDetectionDetail;
+
     /**
      * @var string
      */
     public $stackGroupId;
+
     /**
      * @var string
      */
     public $stackGroupName;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'action'                         => 'Action',
-        'administrationRoleName'         => 'AdministrationRoleName',
-        'createTime'                     => 'CreateTime',
-        'deploymentTargets'              => 'DeploymentTargets',
-        'endTime'                        => 'EndTime',
-        'executionRoleName'              => 'ExecutionRoleName',
-        'operationDescription'           => 'OperationDescription',
-        'operationId'                    => 'OperationId',
-        'operationPreferences'           => 'OperationPreferences',
-        'retainStacks'                   => 'RetainStacks',
+        'action' => 'Action',
+        'administrationRoleName' => 'AdministrationRoleName',
+        'createTime' => 'CreateTime',
+        'deploymentTargets' => 'DeploymentTargets',
+        'endTime' => 'EndTime',
+        'executionRoleName' => 'ExecutionRoleName',
+        'operationDescription' => 'OperationDescription',
+        'operationId' => 'OperationId',
+        'operationPreferences' => 'OperationPreferences',
+        'retainStacks' => 'RetainStacks',
         'stackGroupDriftDetectionDetail' => 'StackGroupDriftDetectionDetail',
-        'stackGroupId'                   => 'StackGroupId',
-        'stackGroupName'                 => 'StackGroupName',
-        'status'                         => 'Status',
+        'stackGroupId' => 'StackGroupId',
+        'stackGroupName' => 'StackGroupName',
+        'status' => 'Status',
     ];
 
     public function validate()

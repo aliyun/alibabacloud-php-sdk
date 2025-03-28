@@ -12,10 +12,12 @@ class UpdateStackTemplateByResourcesResponseBody extends Model
      * @var string
      */
     public $newTemplateBody;
+
     /**
      * @var string
      */
     public $oldTemplateBody;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class UpdateStackTemplateByResourcesResponseBody extends Model
     protected $_name = [
         'newTemplateBody' => 'NewTemplateBody',
         'oldTemplateBody' => 'OldTemplateBody',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

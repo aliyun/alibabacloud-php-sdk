@@ -12,33 +12,38 @@ class RegisterResourceTypeRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $entityType;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var string
      */
     public $templateURL;
     protected $_name = [
-        'clientToken'  => 'ClientToken',
-        'description'  => 'Description',
-        'entityType'   => 'EntityType',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'entityType' => 'EntityType',
         'resourceType' => 'ResourceType',
         'templateBody' => 'TemplateBody',
-        'templateURL'  => 'TemplateURL',
+        'templateURL' => 'TemplateURL',
     ];
 
     public function validate()

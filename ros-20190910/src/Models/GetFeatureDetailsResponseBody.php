@@ -18,38 +18,44 @@ class GetFeatureDetailsResponseBody extends Model
      * @var driftDetection
      */
     public $driftDetection;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceCleaner
      */
     public $resourceCleaner;
+
     /**
      * @var resourceImport
      */
     public $resourceImport;
+
     /**
      * @var templateParameterConstraints
      */
     public $templateParameterConstraints;
+
     /**
      * @var templateScratch
      */
     public $templateScratch;
+
     /**
      * @var terraform
      */
     public $terraform;
     protected $_name = [
-        'driftDetection'               => 'DriftDetection',
-        'requestId'                    => 'RequestId',
-        'resourceCleaner'              => 'ResourceCleaner',
-        'resourceImport'               => 'ResourceImport',
+        'driftDetection' => 'DriftDetection',
+        'requestId' => 'RequestId',
+        'resourceCleaner' => 'ResourceCleaner',
+        'resourceImport' => 'ResourceImport',
         'templateParameterConstraints' => 'TemplateParameterConstraints',
-        'templateScratch'              => 'TemplateScratch',
-        'terraform'                    => 'Terraform',
+        'templateScratch' => 'TemplateScratch',
+        'terraform' => 'Terraform',
     ];
 
     public function validate()

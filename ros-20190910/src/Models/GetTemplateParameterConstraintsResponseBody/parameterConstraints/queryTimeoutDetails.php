@@ -12,10 +12,12 @@ class queryTimeoutDetails extends Model
      * @var string
      */
     public $errorMessage;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */

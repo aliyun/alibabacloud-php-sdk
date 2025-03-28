@@ -12,10 +12,12 @@ class terraformLogs extends Model
      * @var string
      */
     public $command;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class terraformLogs extends Model
     protected $_name = [
         'command' => 'Command',
         'content' => 'Content',
-        'stream'  => 'Stream',
+        'stream' => 'Stream',
     ];
 
     public function validate()

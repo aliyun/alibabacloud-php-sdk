@@ -12,33 +12,38 @@ class operationInfo extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $logicalResourceId;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'action'            => 'Action',
-        'code'              => 'Code',
+        'action' => 'Action',
+        'code' => 'Code',
         'logicalResourceId' => 'LogicalResourceId',
-        'message'           => 'Message',
-        'requestId'         => 'RequestId',
-        'resourceType'      => 'ResourceType',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

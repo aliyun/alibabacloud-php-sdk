@@ -12,33 +12,38 @@ class GetStackRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $logOption;
+
     /**
      * @var string
      */
     public $outputOption;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $showResourceProgress;
+
     /**
      * @var string
      */
     public $stackId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'logOption'            => 'LogOption',
-        'outputOption'         => 'OutputOption',
-        'regionId'             => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'logOption' => 'LogOption',
+        'outputOption' => 'OutputOption',
+        'regionId' => 'RegionId',
         'showResourceProgress' => 'ShowResourceProgress',
-        'stackId'              => 'StackId',
+        'stackId' => 'StackId',
     ];
 
     public function validate()

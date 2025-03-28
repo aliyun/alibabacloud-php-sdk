@@ -17,78 +17,92 @@ class templateScratches extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $failedCode;
+
     /**
      * @var string
      */
     public $logicalIdStrategy;
+
     /**
      * @var preferenceParameters[]
      */
     public $preferenceParameters;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var sourceResourceGroup
      */
     public $sourceResourceGroup;
+
     /**
      * @var sourceResources[]
      */
     public $sourceResources;
+
     /**
      * @var sourceTag
      */
     public $sourceTag;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $templateScratchId;
+
     /**
      * @var string
      */
     public $templateScratchType;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'           => 'CreateTime',
-        'description'          => 'Description',
-        'failedCode'           => 'FailedCode',
-        'logicalIdStrategy'    => 'LogicalIdStrategy',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'failedCode' => 'FailedCode',
+        'logicalIdStrategy' => 'LogicalIdStrategy',
         'preferenceParameters' => 'PreferenceParameters',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'sourceResourceGroup'  => 'SourceResourceGroup',
-        'sourceResources'      => 'SourceResources',
-        'sourceTag'            => 'SourceTag',
-        'status'               => 'Status',
-        'statusReason'         => 'StatusReason',
-        'tags'                 => 'Tags',
-        'templateScratchId'    => 'TemplateScratchId',
-        'templateScratchType'  => 'TemplateScratchType',
-        'updateTime'           => 'UpdateTime',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceResourceGroup' => 'SourceResourceGroup',
+        'sourceResources' => 'SourceResources',
+        'sourceTag' => 'SourceTag',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
+        'tags' => 'Tags',
+        'templateScratchId' => 'TemplateScratchId',
+        'templateScratchType' => 'TemplateScratchType',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -133,7 +147,7 @@ class templateScratches extends Model
         if (null !== $this->preferenceParameters) {
             if (\is_array($this->preferenceParameters)) {
                 $res['PreferenceParameters'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->preferenceParameters as $item1) {
                     $res['PreferenceParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -151,7 +165,7 @@ class templateScratches extends Model
         if (null !== $this->sourceResources) {
             if (\is_array($this->sourceResources)) {
                 $res['SourceResources'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->sourceResources as $item1) {
                     $res['SourceResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -173,7 +187,7 @@ class templateScratches extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -222,7 +236,7 @@ class templateScratches extends Model
         if (isset($map['PreferenceParameters'])) {
             if (!empty($map['PreferenceParameters'])) {
                 $model->preferenceParameters = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['PreferenceParameters'] as $item1) {
                     $model->preferenceParameters[$n1++] = preferenceParameters::fromMap($item1);
                 }
@@ -240,7 +254,7 @@ class templateScratches extends Model
         if (isset($map['SourceResources'])) {
             if (!empty($map['SourceResources'])) {
                 $model->sourceResources = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['SourceResources'] as $item1) {
                     $model->sourceResources[$n1++] = sourceResources::fromMap($item1);
                 }
@@ -262,7 +276,7 @@ class templateScratches extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

@@ -12,13 +12,14 @@ class moduleInfo extends Model
      * @var string
      */
     public $logicalIdHierarchy;
+
     /**
      * @var string
      */
     public $typeHierarchy;
     protected $_name = [
         'logicalIdHierarchy' => 'LogicalIdHierarchy',
-        'typeHierarchy'      => 'TypeHierarchy',
+        'typeHierarchy' => 'TypeHierarchy',
     ];
 
     public function validate()

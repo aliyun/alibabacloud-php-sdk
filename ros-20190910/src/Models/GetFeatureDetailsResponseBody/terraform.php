@@ -14,13 +14,14 @@ class terraform extends Model
      * @var supportedResourceTypes
      */
     public $supportedResourceTypes;
+
     /**
      * @var supportedVersions[]
      */
     public $supportedVersions;
     protected $_name = [
         'supportedResourceTypes' => 'SupportedResourceTypes',
-        'supportedVersions'      => 'SupportedVersions',
+        'supportedVersions' => 'SupportedVersions',
     ];
 
     public function validate()
@@ -44,7 +45,7 @@ class terraform extends Model
         if (null !== $this->supportedVersions) {
             if (\is_array($this->supportedVersions)) {
                 $res['SupportedVersions'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->supportedVersions as $item1) {
                     $res['SupportedVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -69,7 +70,7 @@ class terraform extends Model
         if (isset($map['SupportedVersions'])) {
             if (!empty($map['SupportedVersions'])) {
                 $model->supportedVersions = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['SupportedVersions'] as $item1) {
                     $model->supportedVersions[$n1++] = supportedVersions::fromMap($item1);
                 }

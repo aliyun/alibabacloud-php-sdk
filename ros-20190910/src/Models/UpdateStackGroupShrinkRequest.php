@@ -13,103 +13,122 @@ class UpdateStackGroupShrinkRequest extends Model
      * @var string
      */
     public $accountIdsShrink;
+
     /**
      * @var string
      */
     public $administrationRoleName;
+
     /**
      * @var string
      */
     public $autoDeploymentShrink;
+
     /**
      * @var string[]
      */
     public $capabilities;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string[]
      */
     public $deploymentOptions;
+
     /**
      * @var string
      */
     public $deploymentTargetsShrink;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $executionRoleName;
+
     /**
      * @var string
      */
     public $operationDescription;
+
     /**
      * @var string
      */
     public $operationPreferencesShrink;
+
     /**
      * @var parameters[]
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $permissionModel;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $regionIdsShrink;
+
     /**
      * @var string
      */
     public $stackGroupName;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateURL;
+
     /**
      * @var string
      */
     public $templateVersion;
     protected $_name = [
-        'accountIdsShrink'           => 'AccountIds',
-        'administrationRoleName'     => 'AdministrationRoleName',
-        'autoDeploymentShrink'       => 'AutoDeployment',
-        'capabilities'               => 'Capabilities',
-        'clientToken'                => 'ClientToken',
-        'deploymentOptions'          => 'DeploymentOptions',
-        'deploymentTargetsShrink'    => 'DeploymentTargets',
-        'description'                => 'Description',
-        'executionRoleName'          => 'ExecutionRoleName',
-        'operationDescription'       => 'OperationDescription',
+        'accountIdsShrink' => 'AccountIds',
+        'administrationRoleName' => 'AdministrationRoleName',
+        'autoDeploymentShrink' => 'AutoDeployment',
+        'capabilities' => 'Capabilities',
+        'clientToken' => 'ClientToken',
+        'deploymentOptions' => 'DeploymentOptions',
+        'deploymentTargetsShrink' => 'DeploymentTargets',
+        'description' => 'Description',
+        'executionRoleName' => 'ExecutionRoleName',
+        'operationDescription' => 'OperationDescription',
         'operationPreferencesShrink' => 'OperationPreferences',
-        'parameters'                 => 'Parameters',
-        'permissionModel'            => 'PermissionModel',
-        'regionId'                   => 'RegionId',
-        'regionIdsShrink'            => 'RegionIds',
-        'stackGroupName'             => 'StackGroupName',
-        'templateBody'               => 'TemplateBody',
-        'templateId'                 => 'TemplateId',
-        'templateURL'                => 'TemplateURL',
-        'templateVersion'            => 'TemplateVersion',
+        'parameters' => 'Parameters',
+        'permissionModel' => 'PermissionModel',
+        'regionId' => 'RegionId',
+        'regionIdsShrink' => 'RegionIds',
+        'stackGroupName' => 'StackGroupName',
+        'templateBody' => 'TemplateBody',
+        'templateId' => 'TemplateId',
+        'templateURL' => 'TemplateURL',
+        'templateVersion' => 'TemplateVersion',
     ];
 
     public function validate()
@@ -144,7 +163,7 @@ class UpdateStackGroupShrinkRequest extends Model
         if (null !== $this->capabilities) {
             if (\is_array($this->capabilities)) {
                 $res['Capabilities'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->capabilities as $item1) {
                     $res['Capabilities'][$n1++] = $item1;
                 }
@@ -158,7 +177,7 @@ class UpdateStackGroupShrinkRequest extends Model
         if (null !== $this->deploymentOptions) {
             if (\is_array($this->deploymentOptions)) {
                 $res['DeploymentOptions'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->deploymentOptions as $item1) {
                     $res['DeploymentOptions'][$n1++] = $item1;
                 }
@@ -188,7 +207,7 @@ class UpdateStackGroupShrinkRequest extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['Parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -253,7 +272,7 @@ class UpdateStackGroupShrinkRequest extends Model
         if (isset($map['Capabilities'])) {
             if (!empty($map['Capabilities'])) {
                 $model->capabilities = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['Capabilities'] as $item1) {
                     $model->capabilities[$n1++] = $item1;
                 }
@@ -267,7 +286,7 @@ class UpdateStackGroupShrinkRequest extends Model
         if (isset($map['DeploymentOptions'])) {
             if (!empty($map['DeploymentOptions'])) {
                 $model->deploymentOptions = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['DeploymentOptions'] as $item1) {
                     $model->deploymentOptions[$n1++] = $item1;
                 }
@@ -297,7 +316,7 @@ class UpdateStackGroupShrinkRequest extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     $model->parameters[$n1++] = parameters::fromMap($item1);
                 }

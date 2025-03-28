@@ -12,23 +12,26 @@ class CreateDiagnosticRequest extends Model
      * @var string
      */
     public $diagnosticKey;
+
     /**
      * @var string
      */
     public $diagnosticType;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $product;
     protected $_name = [
-        'diagnosticKey'  => 'DiagnosticKey',
+        'diagnosticKey' => 'DiagnosticKey',
         'diagnosticType' => 'DiagnosticType',
-        'lang'           => 'Lang',
-        'product'        => 'Product',
+        'lang' => 'Lang',
+        'product' => 'Product',
     ];
 
     public function validate()

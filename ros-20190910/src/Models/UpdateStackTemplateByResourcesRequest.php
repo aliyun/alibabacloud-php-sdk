@@ -12,33 +12,38 @@ class UpdateStackTemplateByResourcesRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $dryRun;
+
     /**
      * @var string[]
      */
     public $logicalResourceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $templateFormat;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
-        'dryRun'            => 'DryRun',
+        'clientToken' => 'ClientToken',
+        'dryRun' => 'DryRun',
         'logicalResourceId' => 'LogicalResourceId',
-        'regionId'          => 'RegionId',
-        'stackId'           => 'StackId',
-        'templateFormat'    => 'TemplateFormat',
+        'regionId' => 'RegionId',
+        'stackId' => 'StackId',
+        'templateFormat' => 'TemplateFormat',
     ];
 
     public function validate()
@@ -63,7 +68,7 @@ class UpdateStackTemplateByResourcesRequest extends Model
         if (null !== $this->logicalResourceId) {
             if (\is_array($this->logicalResourceId)) {
                 $res['LogicalResourceId'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->logicalResourceId as $item1) {
                     $res['LogicalResourceId'][$n1++] = $item1;
                 }
@@ -104,7 +109,7 @@ class UpdateStackTemplateByResourcesRequest extends Model
         if (isset($map['LogicalResourceId'])) {
             if (!empty($map['LogicalResourceId'])) {
                 $model->logicalResourceId = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['LogicalResourceId'] as $item1) {
                     $model->logicalResourceId[$n1++] = $item1;
                 }

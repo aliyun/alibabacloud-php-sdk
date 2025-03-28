@@ -12,18 +12,20 @@ class ListAITaskEventsRequest extends Model
      * @var string
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'taskId'     => 'TaskId',
+        'nextToken' => 'NextToken',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

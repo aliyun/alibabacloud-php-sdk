@@ -13,63 +13,74 @@ class resources extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $driftDetectionTime;
+
     /**
      * @var string
      */
     public $logicalResourceId;
+
     /**
      * @var moduleInfo
      */
     public $moduleInfo;
+
     /**
      * @var string
      */
     public $physicalResourceId;
+
     /**
      * @var string
      */
     public $resourceDriftStatus;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $stackName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'          => 'CreateTime',
-        'driftDetectionTime'  => 'DriftDetectionTime',
-        'logicalResourceId'   => 'LogicalResourceId',
-        'moduleInfo'          => 'ModuleInfo',
-        'physicalResourceId'  => 'PhysicalResourceId',
+        'createTime' => 'CreateTime',
+        'driftDetectionTime' => 'DriftDetectionTime',
+        'logicalResourceId' => 'LogicalResourceId',
+        'moduleInfo' => 'ModuleInfo',
+        'physicalResourceId' => 'PhysicalResourceId',
         'resourceDriftStatus' => 'ResourceDriftStatus',
-        'resourceType'        => 'ResourceType',
-        'stackId'             => 'StackId',
-        'stackName'           => 'StackName',
-        'status'              => 'Status',
-        'statusReason'        => 'StatusReason',
-        'updateTime'          => 'UpdateTime',
+        'resourceType' => 'ResourceType',
+        'stackId' => 'StackId',
+        'stackName' => 'StackName',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

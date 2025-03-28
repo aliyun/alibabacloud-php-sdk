@@ -12,38 +12,44 @@ class ImportStacksToStackGroupRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $operationDescription;
+
     /**
      * @var mixed[]
      */
     public $operationPreferences;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $resourceDirectoryFolderIds;
+
     /**
      * @var string[]
      */
     public $stackArns;
+
     /**
      * @var string
      */
     public $stackGroupName;
     protected $_name = [
-        'clientToken'                => 'ClientToken',
-        'operationDescription'       => 'OperationDescription',
-        'operationPreferences'       => 'OperationPreferences',
-        'regionId'                   => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'operationDescription' => 'OperationDescription',
+        'operationPreferences' => 'OperationPreferences',
+        'regionId' => 'RegionId',
         'resourceDirectoryFolderIds' => 'ResourceDirectoryFolderIds',
-        'stackArns'                  => 'StackArns',
-        'stackGroupName'             => 'StackGroupName',
+        'stackArns' => 'StackArns',
+        'stackGroupName' => 'StackGroupName',
     ];
 
     public function validate()
@@ -87,7 +93,7 @@ class ImportStacksToStackGroupRequest extends Model
         if (null !== $this->resourceDirectoryFolderIds) {
             if (\is_array($this->resourceDirectoryFolderIds)) {
                 $res['ResourceDirectoryFolderIds'] = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($this->resourceDirectoryFolderIds as $item1) {
                     $res['ResourceDirectoryFolderIds'][$n1++] = $item1;
                 }
@@ -97,7 +103,7 @@ class ImportStacksToStackGroupRequest extends Model
         if (null !== $this->stackArns) {
             if (\is_array($this->stackArns)) {
                 $res['StackArns'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->stackArns as $item1) {
                     $res['StackArns'][$n1++] = $item1;
                 }
@@ -143,7 +149,7 @@ class ImportStacksToStackGroupRequest extends Model
         if (isset($map['ResourceDirectoryFolderIds'])) {
             if (!empty($map['ResourceDirectoryFolderIds'])) {
                 $model->resourceDirectoryFolderIds = [];
-                $n1                                = 0;
+                $n1 = 0;
                 foreach ($map['ResourceDirectoryFolderIds'] as $item1) {
                     $model->resourceDirectoryFolderIds[$n1++] = $item1;
                 }
@@ -153,7 +159,7 @@ class ImportStacksToStackGroupRequest extends Model
         if (isset($map['StackArns'])) {
             if (!empty($map['StackArns'])) {
                 $model->stackArns = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['StackArns'] as $item1) {
                     $model->stackArns[$n1++] = $item1;
                 }

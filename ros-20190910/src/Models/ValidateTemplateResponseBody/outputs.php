@@ -12,18 +12,20 @@ class outputs extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $label;
+
     /**
      * @var string
      */
     public $outputKey;
     protected $_name = [
         'description' => 'Description',
-        'label'       => 'Label',
-        'outputKey'   => 'OutputKey',
+        'label' => 'Label',
+        'outputKey' => 'OutputKey',
     ];
 
     public function validate()

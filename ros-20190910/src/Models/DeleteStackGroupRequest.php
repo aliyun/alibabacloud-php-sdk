@@ -12,12 +12,13 @@ class DeleteStackGroupRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackGroupName;
     protected $_name = [
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
         'stackGroupName' => 'StackGroupName',
     ];
 

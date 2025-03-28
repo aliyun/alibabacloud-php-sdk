@@ -13,27 +13,31 @@ class ListStackEventsResponseBody extends Model
      * @var events[]
      */
     public $events;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'events'     => 'Events',
+        'events' => 'Events',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -51,7 +55,7 @@ class ListStackEventsResponseBody extends Model
         if (null !== $this->events) {
             if (\is_array($this->events)) {
                 $res['Events'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->events as $item1) {
                     $res['Events'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class ListStackEventsResponseBody extends Model
         if (isset($map['Events'])) {
             if (!empty($map['Events'])) {
                 $model->events = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Events'] as $item1) {
                     $model->events[$n1++] = events::fromMap($item1);
                 }

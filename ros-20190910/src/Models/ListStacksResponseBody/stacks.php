@@ -14,98 +14,116 @@ class stacks extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $deletionProtection;
+
     /**
      * @var bool
      */
     public $disableRollback;
+
     /**
      * @var string
      */
     public $driftDetectionTime;
+
     /**
      * @var operationInfo
      */
     public $operationInfo;
+
     /**
      * @var string
      */
     public $parentStackId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $serviceManaged;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $stackDriftStatus;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $stackName;
+
     /**
      * @var string
      */
     public $stackType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var int
      */
     public $timeoutInMinutes;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'         => 'CreateTime',
+        'createTime' => 'CreateTime',
         'deletionProtection' => 'DeletionProtection',
-        'disableRollback'    => 'DisableRollback',
+        'disableRollback' => 'DisableRollback',
         'driftDetectionTime' => 'DriftDetectionTime',
-        'operationInfo'      => 'OperationInfo',
-        'parentStackId'      => 'ParentStackId',
-        'regionId'           => 'RegionId',
-        'resourceGroupId'    => 'ResourceGroupId',
-        'serviceManaged'     => 'ServiceManaged',
-        'serviceName'        => 'ServiceName',
-        'stackDriftStatus'   => 'StackDriftStatus',
-        'stackId'            => 'StackId',
-        'stackName'          => 'StackName',
-        'stackType'          => 'StackType',
-        'status'             => 'Status',
-        'statusReason'       => 'StatusReason',
-        'tags'               => 'Tags',
-        'timeoutInMinutes'   => 'TimeoutInMinutes',
-        'updateTime'         => 'UpdateTime',
+        'operationInfo' => 'OperationInfo',
+        'parentStackId' => 'ParentStackId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'serviceManaged' => 'ServiceManaged',
+        'serviceName' => 'ServiceName',
+        'stackDriftStatus' => 'StackDriftStatus',
+        'stackId' => 'StackId',
+        'stackName' => 'StackName',
+        'stackType' => 'StackType',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
+        'tags' => 'Tags',
+        'timeoutInMinutes' => 'TimeoutInMinutes',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -189,7 +207,7 @@ class stacks extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -282,7 +300,7 @@ class stacks extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

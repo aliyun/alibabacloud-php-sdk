@@ -16,58 +16,68 @@ class UpdateTemplateScratchRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $executionMode;
+
     /**
      * @var string
      */
     public $logicalIdStrategy;
+
     /**
      * @var preferenceParameters[]
      */
     public $preferenceParameters;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var sourceResourceGroup
      */
     public $sourceResourceGroup;
+
     /**
      * @var sourceResources[]
      */
     public $sourceResources;
+
     /**
      * @var sourceTag
      */
     public $sourceTag;
+
     /**
      * @var string
      */
     public $templateScratchId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'description'          => 'Description',
-        'executionMode'        => 'ExecutionMode',
-        'logicalIdStrategy'    => 'LogicalIdStrategy',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'executionMode' => 'ExecutionMode',
+        'logicalIdStrategy' => 'LogicalIdStrategy',
         'preferenceParameters' => 'PreferenceParameters',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'sourceResourceGroup'  => 'SourceResourceGroup',
-        'sourceResources'      => 'SourceResources',
-        'sourceTag'            => 'SourceTag',
-        'templateScratchId'    => 'TemplateScratchId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceResourceGroup' => 'SourceResourceGroup',
+        'sourceResources' => 'SourceResources',
+        'sourceTag' => 'SourceTag',
+        'templateScratchId' => 'TemplateScratchId',
     ];
 
     public function validate()
@@ -109,7 +119,7 @@ class UpdateTemplateScratchRequest extends Model
         if (null !== $this->preferenceParameters) {
             if (\is_array($this->preferenceParameters)) {
                 $res['PreferenceParameters'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->preferenceParameters as $item1) {
                     $res['PreferenceParameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -131,7 +141,7 @@ class UpdateTemplateScratchRequest extends Model
         if (null !== $this->sourceResources) {
             if (\is_array($this->sourceResources)) {
                 $res['SourceResources'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->sourceResources as $item1) {
                     $res['SourceResources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -176,7 +186,7 @@ class UpdateTemplateScratchRequest extends Model
         if (isset($map['PreferenceParameters'])) {
             if (!empty($map['PreferenceParameters'])) {
                 $model->preferenceParameters = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['PreferenceParameters'] as $item1) {
                     $model->preferenceParameters[$n1++] = preferenceParameters::fromMap($item1);
                 }
@@ -198,7 +208,7 @@ class UpdateTemplateScratchRequest extends Model
         if (isset($map['SourceResources'])) {
             if (!empty($map['SourceResources'])) {
                 $model->sourceResources = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['SourceResources'] as $item1) {
                     $model->sourceResources[$n1++] = sourceResources::fromMap($item1);
                 }

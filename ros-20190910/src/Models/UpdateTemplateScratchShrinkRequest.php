@@ -12,58 +12,68 @@ class UpdateTemplateScratchShrinkRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $executionMode;
+
     /**
      * @var string
      */
     public $logicalIdStrategy;
+
     /**
      * @var string
      */
     public $preferenceParametersShrink;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $sourceResourceGroupShrink;
+
     /**
      * @var string
      */
     public $sourceResourcesShrink;
+
     /**
      * @var string
      */
     public $sourceTagShrink;
+
     /**
      * @var string
      */
     public $templateScratchId;
     protected $_name = [
-        'clientToken'                => 'ClientToken',
-        'description'                => 'Description',
-        'executionMode'              => 'ExecutionMode',
-        'logicalIdStrategy'          => 'LogicalIdStrategy',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'executionMode' => 'ExecutionMode',
+        'logicalIdStrategy' => 'LogicalIdStrategy',
         'preferenceParametersShrink' => 'PreferenceParameters',
-        'regionId'                   => 'RegionId',
-        'resourceGroupId'            => 'ResourceGroupId',
-        'sourceResourceGroupShrink'  => 'SourceResourceGroup',
-        'sourceResourcesShrink'      => 'SourceResources',
-        'sourceTagShrink'            => 'SourceTag',
-        'templateScratchId'          => 'TemplateScratchId',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceResourceGroupShrink' => 'SourceResourceGroup',
+        'sourceResourcesShrink' => 'SourceResources',
+        'sourceTagShrink' => 'SourceTag',
+        'templateScratchId' => 'TemplateScratchId',
     ];
 
     public function validate()

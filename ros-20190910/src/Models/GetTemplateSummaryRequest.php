@@ -13,52 +13,61 @@ class GetTemplateSummaryRequest extends Model
      * @var string
      */
     public $changeSetId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var parameters[]
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackGroupName;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateURL;
+
     /**
      * @var string
      */
     public $templateVersion;
     protected $_name = [
-        'changeSetId'     => 'ChangeSetId',
-        'clientToken'     => 'ClientToken',
-        'parameters'      => 'Parameters',
-        'regionId'        => 'RegionId',
-        'stackGroupName'  => 'StackGroupName',
-        'stackId'         => 'StackId',
-        'templateBody'    => 'TemplateBody',
-        'templateId'      => 'TemplateId',
-        'templateURL'     => 'TemplateURL',
+        'changeSetId' => 'ChangeSetId',
+        'clientToken' => 'ClientToken',
+        'parameters' => 'Parameters',
+        'regionId' => 'RegionId',
+        'stackGroupName' => 'StackGroupName',
+        'stackId' => 'StackId',
+        'templateBody' => 'TemplateBody',
+        'templateId' => 'TemplateId',
+        'templateURL' => 'TemplateURL',
         'templateVersion' => 'TemplateVersion',
     ];
 
@@ -84,7 +93,7 @@ class GetTemplateSummaryRequest extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['Parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -141,7 +150,7 @@ class GetTemplateSummaryRequest extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     $model->parameters[$n1++] = parameters::fromMap($item1);
                 }

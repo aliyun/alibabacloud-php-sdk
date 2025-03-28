@@ -12,10 +12,12 @@ class ExecuteChangeSetRequest extends Model
      * @var string
      */
     public $changeSetId;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class ExecuteChangeSetRequest extends Model
     protected $_name = [
         'changeSetId' => 'ChangeSetId',
         'clientToken' => 'ClientToken',
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

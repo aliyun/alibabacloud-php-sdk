@@ -12,27 +12,31 @@ class stackGroupOperationResults extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $rdFolderId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
     protected $_name = [
-        'accountId'    => 'AccountId',
-        'rdFolderId'   => 'RdFolderId',
-        'regionId'     => 'RegionId',
-        'status'       => 'Status',
+        'accountId' => 'AccountId',
+        'rdFolderId' => 'RdFolderId',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
         'statusReason' => 'StatusReason',
     ];
 

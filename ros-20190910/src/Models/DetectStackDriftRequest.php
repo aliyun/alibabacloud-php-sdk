@@ -12,23 +12,26 @@ class DetectStackDriftRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string[]
      */
     public $logicalResourceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackId;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'logicalResourceId' => 'LogicalResourceId',
-        'regionId'          => 'RegionId',
-        'stackId'           => 'StackId',
+        'regionId' => 'RegionId',
+        'stackId' => 'StackId',
     ];
 
     public function validate()
@@ -49,7 +52,7 @@ class DetectStackDriftRequest extends Model
         if (null !== $this->logicalResourceId) {
             if (\is_array($this->logicalResourceId)) {
                 $res['LogicalResourceId'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->logicalResourceId as $item1) {
                     $res['LogicalResourceId'][$n1++] = $item1;
                 }
@@ -82,7 +85,7 @@ class DetectStackDriftRequest extends Model
         if (isset($map['LogicalResourceId'])) {
             if (!empty($map['LogicalResourceId'])) {
                 $model->logicalResourceId = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['LogicalResourceId'] as $item1) {
                     $model->logicalResourceId[$n1++] = $item1;
                 }

@@ -14,113 +14,134 @@ class CreateStackRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $createOption;
+
     /**
      * @var string[]
      */
     public $createOptions;
+
     /**
      * @var string
      */
     public $deletionProtection;
+
     /**
      * @var bool
      */
     public $disableRollback;
+
     /**
      * @var string[]
      */
     public $notificationURLs;
+
     /**
      * @var int
      */
     public $parallelism;
+
     /**
      * @var parameters[]
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $ramRoleName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $stackName;
+
     /**
      * @var string
      */
     public $stackPolicyBody;
+
     /**
      * @var string
      */
     public $stackPolicyURL;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateScratchId;
+
     /**
      * @var string
      */
     public $templateScratchRegionId;
+
     /**
      * @var string
      */
     public $templateURL;
+
     /**
      * @var string
      */
     public $templateVersion;
+
     /**
      * @var int
      */
     public $timeoutInMinutes;
     protected $_name = [
-        'clientToken'             => 'ClientToken',
-        'createOption'            => 'CreateOption',
-        'createOptions'           => 'CreateOptions',
-        'deletionProtection'      => 'DeletionProtection',
-        'disableRollback'         => 'DisableRollback',
-        'notificationURLs'        => 'NotificationURLs',
-        'parallelism'             => 'Parallelism',
-        'parameters'              => 'Parameters',
-        'ramRoleName'             => 'RamRoleName',
-        'regionId'                => 'RegionId',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'stackName'               => 'StackName',
-        'stackPolicyBody'         => 'StackPolicyBody',
-        'stackPolicyURL'          => 'StackPolicyURL',
-        'tags'                    => 'Tags',
-        'templateBody'            => 'TemplateBody',
-        'templateId'              => 'TemplateId',
-        'templateScratchId'       => 'TemplateScratchId',
+        'clientToken' => 'ClientToken',
+        'createOption' => 'CreateOption',
+        'createOptions' => 'CreateOptions',
+        'deletionProtection' => 'DeletionProtection',
+        'disableRollback' => 'DisableRollback',
+        'notificationURLs' => 'NotificationURLs',
+        'parallelism' => 'Parallelism',
+        'parameters' => 'Parameters',
+        'ramRoleName' => 'RamRoleName',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'stackName' => 'StackName',
+        'stackPolicyBody' => 'StackPolicyBody',
+        'stackPolicyURL' => 'StackPolicyURL',
+        'tags' => 'Tags',
+        'templateBody' => 'TemplateBody',
+        'templateId' => 'TemplateId',
+        'templateScratchId' => 'TemplateScratchId',
         'templateScratchRegionId' => 'TemplateScratchRegionId',
-        'templateURL'             => 'TemplateURL',
-        'templateVersion'         => 'TemplateVersion',
-        'timeoutInMinutes'        => 'TimeoutInMinutes',
+        'templateURL' => 'TemplateURL',
+        'templateVersion' => 'TemplateVersion',
+        'timeoutInMinutes' => 'TimeoutInMinutes',
     ];
 
     public function validate()
@@ -154,7 +175,7 @@ class CreateStackRequest extends Model
         if (null !== $this->createOptions) {
             if (\is_array($this->createOptions)) {
                 $res['CreateOptions'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->createOptions as $item1) {
                     $res['CreateOptions'][$n1++] = $item1;
                 }
@@ -172,7 +193,7 @@ class CreateStackRequest extends Model
         if (null !== $this->notificationURLs) {
             if (\is_array($this->notificationURLs)) {
                 $res['NotificationURLs'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->notificationURLs as $item1) {
                     $res['NotificationURLs'][$n1++] = $item1;
                 }
@@ -186,7 +207,7 @@ class CreateStackRequest extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['Parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -220,7 +241,7 @@ class CreateStackRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -277,7 +298,7 @@ class CreateStackRequest extends Model
         if (isset($map['CreateOptions'])) {
             if (!empty($map['CreateOptions'])) {
                 $model->createOptions = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['CreateOptions'] as $item1) {
                     $model->createOptions[$n1++] = $item1;
                 }
@@ -295,7 +316,7 @@ class CreateStackRequest extends Model
         if (isset($map['NotificationURLs'])) {
             if (!empty($map['NotificationURLs'])) {
                 $model->notificationURLs = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['NotificationURLs'] as $item1) {
                     $model->notificationURLs[$n1++] = $item1;
                 }
@@ -309,7 +330,7 @@ class CreateStackRequest extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     $model->parameters[$n1++] = parameters::fromMap($item1);
                 }
@@ -343,7 +364,7 @@ class CreateStackRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

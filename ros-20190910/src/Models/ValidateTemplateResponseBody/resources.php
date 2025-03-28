@@ -12,18 +12,20 @@ class resources extends Model
      * @var string
      */
     public $logicalResourceIdPattern;
+
     /**
      * @var string
      */
     public $resourcePath;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
         'logicalResourceIdPattern' => 'LogicalResourceIdPattern',
-        'resourcePath'             => 'ResourcePath',
-        'resourceType'             => 'ResourceType',
+        'resourcePath' => 'ResourcePath',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

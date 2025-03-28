@@ -12,38 +12,44 @@ class DeleteStackRequest extends Model
      * @var string[]
      */
     public $deleteOptions;
+
     /**
      * @var int
      */
     public $parallelism;
+
     /**
      * @var string
      */
     public $ramRoleName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var bool
      */
     public $retainAllResources;
+
     /**
      * @var string[]
      */
     public $retainResources;
+
     /**
      * @var string
      */
     public $stackId;
     protected $_name = [
-        'deleteOptions'      => 'DeleteOptions',
-        'parallelism'        => 'Parallelism',
-        'ramRoleName'        => 'RamRoleName',
-        'regionId'           => 'RegionId',
+        'deleteOptions' => 'DeleteOptions',
+        'parallelism' => 'Parallelism',
+        'ramRoleName' => 'RamRoleName',
+        'regionId' => 'RegionId',
         'retainAllResources' => 'RetainAllResources',
-        'retainResources'    => 'RetainResources',
-        'stackId'            => 'StackId',
+        'retainResources' => 'RetainResources',
+        'stackId' => 'StackId',
     ];
 
     public function validate()
@@ -63,7 +69,7 @@ class DeleteStackRequest extends Model
         if (null !== $this->deleteOptions) {
             if (\is_array($this->deleteOptions)) {
                 $res['DeleteOptions'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->deleteOptions as $item1) {
                     $res['DeleteOptions'][$n1++] = $item1;
                 }
@@ -89,7 +95,7 @@ class DeleteStackRequest extends Model
         if (null !== $this->retainResources) {
             if (\is_array($this->retainResources)) {
                 $res['RetainResources'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->retainResources as $item1) {
                     $res['RetainResources'][$n1++] = $item1;
                 }
@@ -114,7 +120,7 @@ class DeleteStackRequest extends Model
         if (isset($map['DeleteOptions'])) {
             if (!empty($map['DeleteOptions'])) {
                 $model->deleteOptions = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['DeleteOptions'] as $item1) {
                     $model->deleteOptions[$n1++] = $item1;
                 }
@@ -140,7 +146,7 @@ class DeleteStackRequest extends Model
         if (isset($map['RetainResources'])) {
             if (!empty($map['RetainResources'])) {
                 $model->retainResources = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['RetainResources'] as $item1) {
                     $model->retainResources[$n1++] = $item1;
                 }

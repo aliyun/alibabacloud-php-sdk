@@ -13,18 +13,20 @@ class GenerateTemplateByScratchResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourcesToImport[]
      */
     public $resourcesToImport;
+
     /**
      * @var string
      */
     public $templateBody;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'resourcesToImport' => 'ResourcesToImport',
-        'templateBody'      => 'TemplateBody',
+        'templateBody' => 'TemplateBody',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class GenerateTemplateByScratchResponseBody extends Model
         if (null !== $this->resourcesToImport) {
             if (\is_array($this->resourcesToImport)) {
                 $res['ResourcesToImport'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->resourcesToImport as $item1) {
                     $res['ResourcesToImport'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class GenerateTemplateByScratchResponseBody extends Model
         if (isset($map['ResourcesToImport'])) {
             if (!empty($map['ResourcesToImport'])) {
                 $model->resourcesToImport = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ResourcesToImport'] as $item1) {
                     $model->resourcesToImport[$n1++] = resourcesToImport::fromMap($item1);
                 }

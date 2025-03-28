@@ -12,13 +12,14 @@ class GetAITaskRequest extends Model
      * @var string
      */
     public $outputOption;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
         'outputOption' => 'OutputOption',
-        'taskId'       => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

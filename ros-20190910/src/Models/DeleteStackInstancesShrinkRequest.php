@@ -12,48 +12,56 @@ class DeleteStackInstancesShrinkRequest extends Model
      * @var string
      */
     public $accountIdsShrink;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $deploymentTargetsShrink;
+
     /**
      * @var string
      */
     public $operationDescription;
+
     /**
      * @var string
      */
     public $operationPreferencesShrink;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $regionIdsShrink;
+
     /**
      * @var bool
      */
     public $retainStacks;
+
     /**
      * @var string
      */
     public $stackGroupName;
     protected $_name = [
-        'accountIdsShrink'           => 'AccountIds',
-        'clientToken'                => 'ClientToken',
-        'deploymentTargetsShrink'    => 'DeploymentTargets',
-        'operationDescription'       => 'OperationDescription',
+        'accountIdsShrink' => 'AccountIds',
+        'clientToken' => 'ClientToken',
+        'deploymentTargetsShrink' => 'DeploymentTargets',
+        'operationDescription' => 'OperationDescription',
         'operationPreferencesShrink' => 'OperationPreferences',
-        'regionId'                   => 'RegionId',
-        'regionIdsShrink'            => 'RegionIds',
-        'retainStacks'               => 'RetainStacks',
-        'stackGroupName'             => 'StackGroupName',
+        'regionId' => 'RegionId',
+        'regionIdsShrink' => 'RegionIds',
+        'retainStacks' => 'RetainStacks',
+        'stackGroupName' => 'StackGroupName',
     ];
 
     public function validate()

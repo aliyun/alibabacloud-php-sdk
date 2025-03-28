@@ -13,10 +13,12 @@ class ListTemplateVersionsResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var versions[]
      */
@@ -24,7 +26,7 @@ class ListTemplateVersionsResponseBody extends Model
     protected $_name = [
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
-        'versions'  => 'Versions',
+        'versions' => 'Versions',
     ];
 
     public function validate()
@@ -49,7 +51,7 @@ class ListTemplateVersionsResponseBody extends Model
         if (null !== $this->versions) {
             if (\is_array($this->versions)) {
                 $res['Versions'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->versions as $item1) {
                     $res['Versions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class ListTemplateVersionsResponseBody extends Model
         if (isset($map['Versions'])) {
             if (!empty($map['Versions'])) {
                 $model->versions = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Versions'] as $item1) {
                     $model->versions[$n1++] = versions::fromMap($item1);
                 }

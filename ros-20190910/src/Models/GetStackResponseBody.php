@@ -17,193 +17,230 @@ class GetStackResponseBody extends Model
      * @var int
      */
     public $checkedStackResourceCount;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $deletionProtection;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $disableRollback;
+
     /**
      * @var string
      */
     public $driftDetectionTime;
+
     /**
      * @var string
      */
     public $interface;
+
     /**
      * @var log
      */
     public $log;
+
     /**
      * @var int
      */
     public $notCheckedStackResourceCount;
+
     /**
      * @var string[]
      */
     public $notificationURLs;
+
     /**
      * @var operationInfo
      */
     public $operationInfo;
+
     /**
      * @var string[]
      */
     public $orderIds;
+
     /**
      * @var mixed[][]
      */
     public $outputs;
+
     /**
      * @var parameters[]
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $parentStackId;
+
     /**
      * @var string
      */
     public $ramRoleName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var resourceProgress
      */
     public $resourceProgress;
+
     /**
      * @var string
      */
     public $rollbackFailedRootReason;
+
     /**
      * @var string
      */
     public $rootStackId;
+
     /**
      * @var bool
      */
     public $serviceManaged;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $stackDriftStatus;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $stackName;
+
     /**
      * @var string
      */
     public $stackType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $templateDescription;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateScratchId;
+
     /**
      * @var string
      */
     public $templateURL;
+
     /**
      * @var string
      */
     public $templateVersion;
+
     /**
      * @var int
      */
     public $timeoutInMinutes;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'checkedStackResourceCount'    => 'CheckedStackResourceCount',
-        'createTime'                   => 'CreateTime',
-        'deletionProtection'           => 'DeletionProtection',
-        'description'                  => 'Description',
-        'disableRollback'              => 'DisableRollback',
-        'driftDetectionTime'           => 'DriftDetectionTime',
-        'interface'                    => 'Interface',
-        'log'                          => 'Log',
+        'checkedStackResourceCount' => 'CheckedStackResourceCount',
+        'createTime' => 'CreateTime',
+        'deletionProtection' => 'DeletionProtection',
+        'description' => 'Description',
+        'disableRollback' => 'DisableRollback',
+        'driftDetectionTime' => 'DriftDetectionTime',
+        'interface' => 'Interface',
+        'log' => 'Log',
         'notCheckedStackResourceCount' => 'NotCheckedStackResourceCount',
-        'notificationURLs'             => 'NotificationURLs',
-        'operationInfo'                => 'OperationInfo',
-        'orderIds'                     => 'OrderIds',
-        'outputs'                      => 'Outputs',
-        'parameters'                   => 'Parameters',
-        'parentStackId'                => 'ParentStackId',
-        'ramRoleName'                  => 'RamRoleName',
-        'regionId'                     => 'RegionId',
-        'requestId'                    => 'RequestId',
-        'resourceGroupId'              => 'ResourceGroupId',
-        'resourceProgress'             => 'ResourceProgress',
-        'rollbackFailedRootReason'     => 'RollbackFailedRootReason',
-        'rootStackId'                  => 'RootStackId',
-        'serviceManaged'               => 'ServiceManaged',
-        'serviceName'                  => 'ServiceName',
-        'stackDriftStatus'             => 'StackDriftStatus',
-        'stackId'                      => 'StackId',
-        'stackName'                    => 'StackName',
-        'stackType'                    => 'StackType',
-        'status'                       => 'Status',
-        'statusReason'                 => 'StatusReason',
-        'tags'                         => 'Tags',
-        'templateDescription'          => 'TemplateDescription',
-        'templateId'                   => 'TemplateId',
-        'templateScratchId'            => 'TemplateScratchId',
-        'templateURL'                  => 'TemplateURL',
-        'templateVersion'              => 'TemplateVersion',
-        'timeoutInMinutes'             => 'TimeoutInMinutes',
-        'updateTime'                   => 'UpdateTime',
+        'notificationURLs' => 'NotificationURLs',
+        'operationInfo' => 'OperationInfo',
+        'orderIds' => 'OrderIds',
+        'outputs' => 'Outputs',
+        'parameters' => 'Parameters',
+        'parentStackId' => 'ParentStackId',
+        'ramRoleName' => 'RamRoleName',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceProgress' => 'ResourceProgress',
+        'rollbackFailedRootReason' => 'RollbackFailedRootReason',
+        'rootStackId' => 'RootStackId',
+        'serviceManaged' => 'ServiceManaged',
+        'serviceName' => 'ServiceName',
+        'stackDriftStatus' => 'StackDriftStatus',
+        'stackId' => 'StackId',
+        'stackName' => 'StackName',
+        'stackType' => 'StackType',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
+        'tags' => 'Tags',
+        'templateDescription' => 'TemplateDescription',
+        'templateId' => 'TemplateId',
+        'templateScratchId' => 'TemplateScratchId',
+        'templateURL' => 'TemplateURL',
+        'templateVersion' => 'TemplateVersion',
+        'timeoutInMinutes' => 'TimeoutInMinutes',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -277,7 +314,7 @@ class GetStackResponseBody extends Model
         if (null !== $this->notificationURLs) {
             if (\is_array($this->notificationURLs)) {
                 $res['NotificationURLs'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->notificationURLs as $item1) {
                     $res['NotificationURLs'][$n1++] = $item1;
                 }
@@ -291,7 +328,7 @@ class GetStackResponseBody extends Model
         if (null !== $this->orderIds) {
             if (\is_array($this->orderIds)) {
                 $res['OrderIds'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->orderIds as $item1) {
                     $res['OrderIds'][$n1++] = $item1;
                 }
@@ -301,7 +338,7 @@ class GetStackResponseBody extends Model
         if (null !== $this->outputs) {
             if (\is_array($this->outputs)) {
                 $res['Outputs'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->outputs as $item1) {
                     if (\is_array($item1)) {
                         $res['Outputs'][$n1++] = [];
@@ -316,7 +353,7 @@ class GetStackResponseBody extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['Parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -390,7 +427,7 @@ class GetStackResponseBody extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -475,7 +512,7 @@ class GetStackResponseBody extends Model
         if (isset($map['NotificationURLs'])) {
             if (!empty($map['NotificationURLs'])) {
                 $model->notificationURLs = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['NotificationURLs'] as $item1) {
                     $model->notificationURLs[$n1++] = $item1;
                 }
@@ -489,7 +526,7 @@ class GetStackResponseBody extends Model
         if (isset($map['OrderIds'])) {
             if (!empty($map['OrderIds'])) {
                 $model->orderIds = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['OrderIds'] as $item1) {
                     $model->orderIds[$n1++] = $item1;
                 }
@@ -499,7 +536,7 @@ class GetStackResponseBody extends Model
         if (isset($map['Outputs'])) {
             if (!empty($map['Outputs'])) {
                 $model->outputs = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Outputs'] as $item1) {
                     if (!empty($item1)) {
                         $model->outputs[$n1++] = [];
@@ -514,7 +551,7 @@ class GetStackResponseBody extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     $model->parameters[$n1++] = parameters::fromMap($item1);
                 }
@@ -588,7 +625,7 @@ class GetStackResponseBody extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

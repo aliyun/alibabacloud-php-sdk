@@ -12,12 +12,13 @@ class stackProvision extends Model
      * @var bool
      */
     public $creatable;
+
     /**
      * @var bool
      */
     public $importable;
     protected $_name = [
-        'creatable'  => 'Creatable',
+        'creatable' => 'Creatable',
         'importable' => 'Importable',
     ];
 

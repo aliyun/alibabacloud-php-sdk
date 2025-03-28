@@ -13,28 +13,32 @@ class ListStackInstancesResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var stackInstances[]
      */
     public $stackInstances;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'stackInstances' => 'StackInstances',
-        'totalCount'     => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -63,7 +67,7 @@ class ListStackInstancesResponseBody extends Model
         if (null !== $this->stackInstances) {
             if (\is_array($this->stackInstances)) {
                 $res['StackInstances'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->stackInstances as $item1) {
                     $res['StackInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class ListStackInstancesResponseBody extends Model
         if (isset($map['StackInstances'])) {
             if (!empty($map['StackInstances'])) {
                 $model->stackInstances = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['StackInstances'] as $item1) {
                     $model->stackInstances[$n1++] = stackInstances::fromMap($item1);
                 }

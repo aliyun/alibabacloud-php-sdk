@@ -14,103 +14,122 @@ class GetTemplateResponseBody extends Model
      * @var mixed[]
      */
     public $additionalInfo;
+
     /**
      * @var string
      */
     public $changeSetId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $interface;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var permissions[]
      */
     public $permissions;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $shareType;
+
     /**
      * @var string
      */
     public $stackGroupName;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $templateARN;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateName;
+
     /**
      * @var string
      */
     public $templateVersion;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'additionalInfo'  => 'AdditionalInfo',
-        'changeSetId'     => 'ChangeSetId',
-        'createTime'      => 'CreateTime',
-        'description'     => 'Description',
-        'interface'       => 'Interface',
-        'ownerId'         => 'OwnerId',
-        'permissions'     => 'Permissions',
-        'regionId'        => 'RegionId',
-        'requestId'       => 'RequestId',
+        'additionalInfo' => 'AdditionalInfo',
+        'changeSetId' => 'ChangeSetId',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'interface' => 'Interface',
+        'ownerId' => 'OwnerId',
+        'permissions' => 'Permissions',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
-        'shareType'       => 'ShareType',
-        'stackGroupName'  => 'StackGroupName',
-        'stackId'         => 'StackId',
-        'tags'            => 'Tags',
-        'templateARN'     => 'TemplateARN',
-        'templateBody'    => 'TemplateBody',
-        'templateId'      => 'TemplateId',
-        'templateName'    => 'TemplateName',
+        'shareType' => 'ShareType',
+        'stackGroupName' => 'StackGroupName',
+        'stackId' => 'StackId',
+        'tags' => 'Tags',
+        'templateARN' => 'TemplateARN',
+        'templateBody' => 'TemplateBody',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
         'templateVersion' => 'TemplateVersion',
-        'updateTime'      => 'UpdateTime',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -162,7 +181,7 @@ class GetTemplateResponseBody extends Model
         if (null !== $this->permissions) {
             if (\is_array($this->permissions)) {
                 $res['Permissions'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->permissions as $item1) {
                     $res['Permissions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -196,7 +215,7 @@ class GetTemplateResponseBody extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -270,7 +289,7 @@ class GetTemplateResponseBody extends Model
         if (isset($map['Permissions'])) {
             if (!empty($map['Permissions'])) {
                 $model->permissions = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Permissions'] as $item1) {
                     $model->permissions[$n1++] = permissions::fromMap($item1);
                 }
@@ -304,7 +323,7 @@ class GetTemplateResponseBody extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

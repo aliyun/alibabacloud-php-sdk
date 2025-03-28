@@ -13,13 +13,14 @@ class PreviewStackResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var stack
      */
     public $stack;
     protected $_name = [
         'requestId' => 'RequestId',
-        'stack'     => 'Stack',
+        'stack' => 'Stack',
     ];
 
     public function validate()

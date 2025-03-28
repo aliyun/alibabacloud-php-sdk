@@ -12,23 +12,26 @@ class SetStackPolicyRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $stackPolicyBody;
+
     /**
      * @var string
      */
     public $stackPolicyURL;
     protected $_name = [
-        'regionId'        => 'RegionId',
-        'stackId'         => 'StackId',
+        'regionId' => 'RegionId',
+        'stackId' => 'StackId',
         'stackPolicyBody' => 'StackPolicyBody',
-        'stackPolicyURL'  => 'StackPolicyURL',
+        'stackPolicyURL' => 'StackPolicyURL',
     ];
 
     public function validate()

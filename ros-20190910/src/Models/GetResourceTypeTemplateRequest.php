@@ -12,13 +12,14 @@ class GetResourceTypeTemplateRequest extends Model
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $versionId;
     protected $_name = [
         'resourceType' => 'ResourceType',
-        'versionId'    => 'VersionId',
+        'versionId' => 'VersionId',
     ];
 
     public function validate()

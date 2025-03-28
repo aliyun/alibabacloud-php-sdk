@@ -12,33 +12,38 @@ class ListStackInstancesRequest extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackGroupName;
+
     /**
      * @var string
      */
     public $stackInstanceAccountId;
+
     /**
      * @var string
      */
     public $stackInstanceRegionId;
     protected $_name = [
-        'pageNumber'             => 'PageNumber',
-        'pageSize'               => 'PageSize',
-        'regionId'               => 'RegionId',
-        'stackGroupName'         => 'StackGroupName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'stackGroupName' => 'StackGroupName',
         'stackInstanceAccountId' => 'StackInstanceAccountId',
-        'stackInstanceRegionId'  => 'StackInstanceRegionId',
+        'stackInstanceRegionId' => 'StackInstanceRegionId',
     ];
 
     public function validate()

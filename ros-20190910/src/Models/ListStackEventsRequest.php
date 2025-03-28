@@ -12,38 +12,44 @@ class ListStackEventsRequest extends Model
      * @var string[]
      */
     public $logicalResourceId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string[]
      */
     public $status;
     protected $_name = [
         'logicalResourceId' => 'LogicalResourceId',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'regionId'          => 'RegionId',
-        'resourceType'      => 'ResourceType',
-        'stackId'           => 'StackId',
-        'status'            => 'Status',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceType' => 'ResourceType',
+        'stackId' => 'StackId',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -66,7 +72,7 @@ class ListStackEventsRequest extends Model
         if (null !== $this->logicalResourceId) {
             if (\is_array($this->logicalResourceId)) {
                 $res['LogicalResourceId'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->logicalResourceId as $item1) {
                     $res['LogicalResourceId'][$n1++] = $item1;
                 }
@@ -88,7 +94,7 @@ class ListStackEventsRequest extends Model
         if (null !== $this->resourceType) {
             if (\is_array($this->resourceType)) {
                 $res['ResourceType'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->resourceType as $item1) {
                     $res['ResourceType'][$n1++] = $item1;
                 }
@@ -102,7 +108,7 @@ class ListStackEventsRequest extends Model
         if (null !== $this->status) {
             if (\is_array($this->status)) {
                 $res['Status'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->status as $item1) {
                     $res['Status'][$n1++] = $item1;
                 }
@@ -123,7 +129,7 @@ class ListStackEventsRequest extends Model
         if (isset($map['LogicalResourceId'])) {
             if (!empty($map['LogicalResourceId'])) {
                 $model->logicalResourceId = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['LogicalResourceId'] as $item1) {
                     $model->logicalResourceId[$n1++] = $item1;
                 }
@@ -145,7 +151,7 @@ class ListStackEventsRequest extends Model
         if (isset($map['ResourceType'])) {
             if (!empty($map['ResourceType'])) {
                 $model->resourceType = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ResourceType'] as $item1) {
                     $model->resourceType[$n1++] = $item1;
                 }
@@ -159,7 +165,7 @@ class ListStackEventsRequest extends Model
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {
                 $model->status = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Status'] as $item1) {
                     $model->status[$n1++] = $item1;
                 }

@@ -15,53 +15,62 @@ class stack extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $disableRollback;
+
     /**
      * @var log
      */
     public $log;
+
     /**
      * @var parameters[]
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var resources[]
      */
     public $resources;
+
     /**
      * @var string
      */
     public $stackName;
+
     /**
      * @var mixed[]
      */
     public $stackPolicyBody;
+
     /**
      * @var string
      */
     public $templateDescription;
+
     /**
      * @var int
      */
     public $timeoutInMinutes;
     protected $_name = [
-        'description'         => 'Description',
-        'disableRollback'     => 'DisableRollback',
-        'log'                 => 'Log',
-        'parameters'          => 'Parameters',
-        'regionId'            => 'RegionId',
-        'resources'           => 'Resources',
-        'stackName'           => 'StackName',
-        'stackPolicyBody'     => 'StackPolicyBody',
+        'description' => 'Description',
+        'disableRollback' => 'DisableRollback',
+        'log' => 'Log',
+        'parameters' => 'Parameters',
+        'regionId' => 'RegionId',
+        'resources' => 'Resources',
+        'stackName' => 'StackName',
+        'stackPolicyBody' => 'StackPolicyBody',
         'templateDescription' => 'TemplateDescription',
-        'timeoutInMinutes'    => 'TimeoutInMinutes',
+        'timeoutInMinutes' => 'TimeoutInMinutes',
     ];
 
     public function validate()
@@ -99,7 +108,7 @@ class stack extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['Parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -113,7 +122,7 @@ class stack extends Model
         if (null !== $this->resources) {
             if (\is_array($this->resources)) {
                 $res['Resources'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->resources as $item1) {
                     $res['Resources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -167,7 +176,7 @@ class stack extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     $model->parameters[$n1++] = parameters::fromMap($item1);
                 }
@@ -181,7 +190,7 @@ class stack extends Model
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Resources'] as $item1) {
                     $model->resources[$n1++] = resources::fromMap($item1);
                 }

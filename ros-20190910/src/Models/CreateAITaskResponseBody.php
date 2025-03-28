@@ -12,33 +12,38 @@ class CreateAITaskResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'code'           => 'Code',
+        'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
-        'taskId'         => 'TaskId',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

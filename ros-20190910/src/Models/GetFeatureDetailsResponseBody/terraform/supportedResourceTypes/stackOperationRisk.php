@@ -30,7 +30,7 @@ class stackOperationRisk extends Model
         if (null !== $this->deleteStack) {
             if (\is_array($this->deleteStack)) {
                 $res['DeleteStack'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->deleteStack as $item1) {
                     $res['DeleteStack'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class stackOperationRisk extends Model
         if (isset($map['DeleteStack'])) {
             if (!empty($map['DeleteStack'])) {
                 $model->deleteStack = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DeleteStack'] as $item1) {
                     $model->deleteStack[$n1++] = $item1;
                 }

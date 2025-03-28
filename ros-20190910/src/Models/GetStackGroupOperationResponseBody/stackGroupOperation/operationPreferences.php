@@ -12,28 +12,32 @@ class operationPreferences extends Model
      * @var int
      */
     public $failureToleranceCount;
+
     /**
      * @var int
      */
     public $failureTolerancePercentage;
+
     /**
      * @var int
      */
     public $maxConcurrentCount;
+
     /**
      * @var int
      */
     public $maxConcurrentPercentage;
+
     /**
      * @var string[]
      */
     public $regionIdsOrder;
     protected $_name = [
-        'failureToleranceCount'      => 'FailureToleranceCount',
+        'failureToleranceCount' => 'FailureToleranceCount',
         'failureTolerancePercentage' => 'FailureTolerancePercentage',
-        'maxConcurrentCount'         => 'MaxConcurrentCount',
-        'maxConcurrentPercentage'    => 'MaxConcurrentPercentage',
-        'regionIdsOrder'             => 'RegionIdsOrder',
+        'maxConcurrentCount' => 'MaxConcurrentCount',
+        'maxConcurrentPercentage' => 'MaxConcurrentPercentage',
+        'regionIdsOrder' => 'RegionIdsOrder',
     ];
 
     public function validate()
@@ -66,7 +70,7 @@ class operationPreferences extends Model
         if (null !== $this->regionIdsOrder) {
             if (\is_array($this->regionIdsOrder)) {
                 $res['RegionIdsOrder'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->regionIdsOrder as $item1) {
                     $res['RegionIdsOrder'][$n1++] = $item1;
                 }
@@ -103,7 +107,7 @@ class operationPreferences extends Model
         if (isset($map['RegionIdsOrder'])) {
             if (!empty($map['RegionIdsOrder'])) {
                 $model->regionIdsOrder = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['RegionIdsOrder'] as $item1) {
                     $model->regionIdsOrder[$n1++] = $item1;
                 }

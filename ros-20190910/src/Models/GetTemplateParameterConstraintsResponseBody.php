@@ -13,13 +13,14 @@ class GetTemplateParameterConstraintsResponseBody extends Model
      * @var parameterConstraints[]
      */
     public $parameterConstraints;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'parameterConstraints' => 'ParameterConstraints',
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class GetTemplateParameterConstraintsResponseBody extends Model
         if (null !== $this->parameterConstraints) {
             if (\is_array($this->parameterConstraints)) {
                 $res['ParameterConstraints'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->parameterConstraints as $item1) {
                     $res['ParameterConstraints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class GetTemplateParameterConstraintsResponseBody extends Model
         if (isset($map['ParameterConstraints'])) {
             if (!empty($map['ParameterConstraints'])) {
                 $model->parameterConstraints = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['ParameterConstraints'] as $item1) {
                     $model->parameterConstraints[$n1++] = parameterConstraints::fromMap($item1);
                 }

@@ -12,38 +12,44 @@ class registrations extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $entityType;
+
     /**
      * @var string
      */
     public $registrationId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
+
     /**
      * @var string
      */
     public $versionId;
     protected $_name = [
-        'createTime'     => 'CreateTime',
-        'entityType'     => 'EntityType',
+        'createTime' => 'CreateTime',
+        'entityType' => 'EntityType',
         'registrationId' => 'RegistrationId',
-        'resourceType'   => 'ResourceType',
-        'status'         => 'Status',
-        'statusReason'   => 'StatusReason',
-        'versionId'      => 'VersionId',
+        'resourceType' => 'ResourceType',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
+        'versionId' => 'VersionId',
     ];
 
     public function validate()

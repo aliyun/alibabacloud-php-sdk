@@ -12,17 +12,19 @@ class ListResourceTypesRequest extends Model
      * @var string
      */
     public $entityType;
+
     /**
      * @var string
      */
     public $provider;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'entityType'   => 'EntityType',
-        'provider'     => 'Provider',
+        'entityType' => 'EntityType',
+        'provider' => 'Provider',
         'resourceType' => 'ResourceType',
     ];
 

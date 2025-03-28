@@ -12,13 +12,14 @@ class GetStackDriftDetectionStatusRequest extends Model
      * @var string
      */
     public $driftDetectionId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'driftDetectionId' => 'DriftDetectionId',
-        'regionId'         => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

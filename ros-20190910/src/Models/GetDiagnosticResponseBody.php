@@ -13,73 +13,86 @@ class GetDiagnosticResponseBody extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $diagnosticKey;
+
     /**
      * @var string
      */
     public $diagnosticProduct;
+
     /**
      * @var diagnosticResult
      */
     public $diagnosticResult;
+
     /**
      * @var string
      */
     public $diagnosticTime;
+
     /**
      * @var string
      */
     public $httpCode;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var mixed[]
      */
     public $recommends;
+
     /**
      * @var string
      */
     public $reportId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'code'              => 'Code',
-        'diagnosticKey'     => 'DiagnosticKey',
+        'code' => 'Code',
+        'diagnosticKey' => 'DiagnosticKey',
         'diagnosticProduct' => 'DiagnosticProduct',
-        'diagnosticResult'  => 'DiagnosticResult',
-        'diagnosticTime'    => 'DiagnosticTime',
-        'httpCode'          => 'HttpCode',
-        'httpStatusCode'    => 'HttpStatusCode',
-        'message'           => 'Message',
-        'recommends'        => 'Recommends',
-        'reportId'          => 'ReportId',
-        'requestId'         => 'RequestId',
-        'status'            => 'Status',
-        'statusReason'      => 'StatusReason',
-        'success'           => 'Success',
+        'diagnosticResult' => 'DiagnosticResult',
+        'diagnosticTime' => 'DiagnosticTime',
+        'httpCode' => 'HttpCode',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message' => 'Message',
+        'recommends' => 'Recommends',
+        'reportId' => 'ReportId',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
+        'success' => 'Success',
     ];
 
     public function validate()

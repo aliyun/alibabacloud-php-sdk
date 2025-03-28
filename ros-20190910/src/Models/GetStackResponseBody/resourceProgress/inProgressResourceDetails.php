@@ -12,23 +12,26 @@ class inProgressResourceDetails extends Model
      * @var float
      */
     public $progressTargetValue;
+
     /**
      * @var float
      */
     public $progressValue;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
         'progressTargetValue' => 'ProgressTargetValue',
-        'progressValue'       => 'ProgressValue',
-        'resourceName'        => 'ResourceName',
-        'resourceType'        => 'ResourceType',
+        'progressValue' => 'ProgressValue',
+        'resourceName' => 'ResourceName',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

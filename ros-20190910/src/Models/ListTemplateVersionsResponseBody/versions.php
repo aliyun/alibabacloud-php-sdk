@@ -12,33 +12,38 @@ class versions extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateName;
+
     /**
      * @var string
      */
     public $templateVersion;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'      => 'CreateTime',
-        'description'     => 'Description',
-        'templateId'      => 'TemplateId',
-        'templateName'    => 'TemplateName',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'templateId' => 'TemplateId',
+        'templateName' => 'TemplateName',
         'templateVersion' => 'TemplateVersion',
-        'updateTime'      => 'UpdateTime',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class GetStackGroupRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackGroupId;
+
     /**
      * @var string
      */
     public $stackGroupName;
     protected $_name = [
-        'regionId'       => 'RegionId',
-        'stackGroupId'   => 'StackGroupId',
+        'regionId' => 'RegionId',
+        'stackGroupId' => 'StackGroupId',
         'stackGroupName' => 'StackGroupName',
     ];
 

@@ -12,12 +12,13 @@ class sourceResources extends Model
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'resourceId'   => 'ResourceId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
     ];
 

@@ -13,12 +13,13 @@ class ListResourceTypeVersionsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceTypeVersions[]
      */
     public $resourceTypeVersions;
     protected $_name = [
-        'requestId'            => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceTypeVersions' => 'ResourceTypeVersions',
     ];
 
@@ -40,7 +41,7 @@ class ListResourceTypeVersionsResponseBody extends Model
         if (null !== $this->resourceTypeVersions) {
             if (\is_array($this->resourceTypeVersions)) {
                 $res['ResourceTypeVersions'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->resourceTypeVersions as $item1) {
                     $res['ResourceTypeVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class ListResourceTypeVersionsResponseBody extends Model
         if (isset($map['ResourceTypeVersions'])) {
             if (!empty($map['ResourceTypeVersions'])) {
                 $model->resourceTypeVersions = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['ResourceTypeVersions'] as $item1) {
                     $model->resourceTypeVersions[$n1++] = resourceTypeVersions::fromMap($item1);
                 }

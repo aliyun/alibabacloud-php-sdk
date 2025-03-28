@@ -12,32 +12,37 @@ class supportedResourceTypes extends Model
      * @var string
      */
     public $resourceType;
+
     /**
      * @var bool
      */
     public $sourceResourceGroupSupported;
+
     /**
      * @var bool
      */
     public $sourceResourcesSupported;
+
     /**
      * @var bool
      */
     public $sourceSupported;
+
     /**
      * @var bool
      */
     public $sourceTagSupported;
+
     /**
      * @var string[]
      */
     public $supportedTemplateScratchTypes;
     protected $_name = [
-        'resourceType'                  => 'ResourceType',
-        'sourceResourceGroupSupported'  => 'SourceResourceGroupSupported',
-        'sourceResourcesSupported'      => 'SourceResourcesSupported',
-        'sourceSupported'               => 'SourceSupported',
-        'sourceTagSupported'            => 'SourceTagSupported',
+        'resourceType' => 'ResourceType',
+        'sourceResourceGroupSupported' => 'SourceResourceGroupSupported',
+        'sourceResourcesSupported' => 'SourceResourcesSupported',
+        'sourceSupported' => 'SourceSupported',
+        'sourceTagSupported' => 'SourceTagSupported',
         'supportedTemplateScratchTypes' => 'SupportedTemplateScratchTypes',
     ];
 
@@ -75,7 +80,7 @@ class supportedResourceTypes extends Model
         if (null !== $this->supportedTemplateScratchTypes) {
             if (\is_array($this->supportedTemplateScratchTypes)) {
                 $res['SupportedTemplateScratchTypes'] = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($this->supportedTemplateScratchTypes as $item1) {
                     $res['SupportedTemplateScratchTypes'][$n1++] = $item1;
                 }
@@ -116,7 +121,7 @@ class supportedResourceTypes extends Model
         if (isset($map['SupportedTemplateScratchTypes'])) {
             if (!empty($map['SupportedTemplateScratchTypes'])) {
                 $model->supportedTemplateScratchTypes = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($map['SupportedTemplateScratchTypes'] as $item1) {
                     $model->supportedTemplateScratchTypes[$n1++] = $item1;
                 }

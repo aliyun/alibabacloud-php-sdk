@@ -12,33 +12,38 @@ class ValidateTemplateRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var string
      */
     public $templateURL;
+
     /**
      * @var string[]
      */
     public $updateInfoOptions;
+
     /**
      * @var string
      */
     public $validationOption;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
-        'regionId'          => 'RegionId',
-        'templateBody'      => 'TemplateBody',
-        'templateURL'       => 'TemplateURL',
+        'clientToken' => 'ClientToken',
+        'regionId' => 'RegionId',
+        'templateBody' => 'TemplateBody',
+        'templateURL' => 'TemplateURL',
         'updateInfoOptions' => 'UpdateInfoOptions',
-        'validationOption'  => 'ValidationOption',
+        'validationOption' => 'ValidationOption',
     ];
 
     public function validate()
@@ -71,7 +76,7 @@ class ValidateTemplateRequest extends Model
         if (null !== $this->updateInfoOptions) {
             if (\is_array($this->updateInfoOptions)) {
                 $res['UpdateInfoOptions'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->updateInfoOptions as $item1) {
                     $res['UpdateInfoOptions'][$n1++] = $item1;
                 }
@@ -112,7 +117,7 @@ class ValidateTemplateRequest extends Model
         if (isset($map['UpdateInfoOptions'])) {
             if (!empty($map['UpdateInfoOptions'])) {
                 $model->updateInfoOptions = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['UpdateInfoOptions'] as $item1) {
                     $model->updateInfoOptions[$n1++] = $item1;
                 }

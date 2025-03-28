@@ -13,63 +13,74 @@ class CreateStackInstancesShrinkRequest extends Model
      * @var string
      */
     public $accountIdsShrink;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string[]
      */
     public $deploymentOptions;
+
     /**
      * @var string
      */
     public $deploymentTargetsShrink;
+
     /**
      * @var bool
      */
     public $disableRollback;
+
     /**
      * @var string
      */
     public $operationDescription;
+
     /**
      * @var string
      */
     public $operationPreferencesShrink;
+
     /**
      * @var parameterOverrides[]
      */
     public $parameterOverrides;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $regionIdsShrink;
+
     /**
      * @var string
      */
     public $stackGroupName;
+
     /**
      * @var int
      */
     public $timeoutInMinutes;
     protected $_name = [
-        'accountIdsShrink'           => 'AccountIds',
-        'clientToken'                => 'ClientToken',
-        'deploymentOptions'          => 'DeploymentOptions',
-        'deploymentTargetsShrink'    => 'DeploymentTargets',
-        'disableRollback'            => 'DisableRollback',
-        'operationDescription'       => 'OperationDescription',
+        'accountIdsShrink' => 'AccountIds',
+        'clientToken' => 'ClientToken',
+        'deploymentOptions' => 'DeploymentOptions',
+        'deploymentTargetsShrink' => 'DeploymentTargets',
+        'disableRollback' => 'DisableRollback',
+        'operationDescription' => 'OperationDescription',
         'operationPreferencesShrink' => 'OperationPreferences',
-        'parameterOverrides'         => 'ParameterOverrides',
-        'regionId'                   => 'RegionId',
-        'regionIdsShrink'            => 'RegionIds',
-        'stackGroupName'             => 'StackGroupName',
-        'timeoutInMinutes'           => 'TimeoutInMinutes',
+        'parameterOverrides' => 'ParameterOverrides',
+        'regionId' => 'RegionId',
+        'regionIdsShrink' => 'RegionIds',
+        'stackGroupName' => 'StackGroupName',
+        'timeoutInMinutes' => 'TimeoutInMinutes',
     ];
 
     public function validate()
@@ -97,7 +108,7 @@ class CreateStackInstancesShrinkRequest extends Model
         if (null !== $this->deploymentOptions) {
             if (\is_array($this->deploymentOptions)) {
                 $res['DeploymentOptions'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->deploymentOptions as $item1) {
                     $res['DeploymentOptions'][$n1++] = $item1;
                 }
@@ -123,7 +134,7 @@ class CreateStackInstancesShrinkRequest extends Model
         if (null !== $this->parameterOverrides) {
             if (\is_array($this->parameterOverrides)) {
                 $res['ParameterOverrides'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->parameterOverrides as $item1) {
                     $res['ParameterOverrides'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -168,7 +179,7 @@ class CreateStackInstancesShrinkRequest extends Model
         if (isset($map['DeploymentOptions'])) {
             if (!empty($map['DeploymentOptions'])) {
                 $model->deploymentOptions = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['DeploymentOptions'] as $item1) {
                     $model->deploymentOptions[$n1++] = $item1;
                 }
@@ -194,7 +205,7 @@ class CreateStackInstancesShrinkRequest extends Model
         if (isset($map['ParameterOverrides'])) {
             if (!empty($map['ParameterOverrides'])) {
                 $model->parameterOverrides = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ParameterOverrides'] as $item1) {
                     $model->parameterOverrides[$n1++] = parameterOverrides::fromMap($item1);
                 }

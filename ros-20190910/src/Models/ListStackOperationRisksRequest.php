@@ -12,58 +12,68 @@ class ListStackOperationRisksRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $operationType;
+
     /**
      * @var string
      */
     public $ramRoleName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var bool
      */
     public $retainAllResources;
+
     /**
      * @var string[]
      */
     public $retainResources;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateURL;
+
     /**
      * @var string
      */
     public $templateVersion;
     protected $_name = [
-        'clientToken'        => 'ClientToken',
-        'operationType'      => 'OperationType',
-        'ramRoleName'        => 'RamRoleName',
-        'regionId'           => 'RegionId',
+        'clientToken' => 'ClientToken',
+        'operationType' => 'OperationType',
+        'ramRoleName' => 'RamRoleName',
+        'regionId' => 'RegionId',
         'retainAllResources' => 'RetainAllResources',
-        'retainResources'    => 'RetainResources',
-        'stackId'            => 'StackId',
-        'templateBody'       => 'TemplateBody',
-        'templateId'         => 'TemplateId',
-        'templateURL'        => 'TemplateURL',
-        'templateVersion'    => 'TemplateVersion',
+        'retainResources' => 'RetainResources',
+        'stackId' => 'StackId',
+        'templateBody' => 'TemplateBody',
+        'templateId' => 'TemplateId',
+        'templateURL' => 'TemplateURL',
+        'templateVersion' => 'TemplateVersion',
     ];
 
     public function validate()
@@ -100,7 +110,7 @@ class ListStackOperationRisksRequest extends Model
         if (null !== $this->retainResources) {
             if (\is_array($this->retainResources)) {
                 $res['RetainResources'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->retainResources as $item1) {
                     $res['RetainResources'][$n1++] = $item1;
                 }
@@ -161,7 +171,7 @@ class ListStackOperationRisksRequest extends Model
         if (isset($map['RetainResources'])) {
             if (!empty($map['RetainResources'])) {
                 $model->retainResources = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['RetainResources'] as $item1) {
                     $model->retainResources[$n1++] = $item1;
                 }

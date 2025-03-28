@@ -13,68 +13,80 @@ class ListStacksRequest extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $parentStackId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $showNestedStack;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string[]
      */
     public $stackIds;
+
     /**
      * @var string[]
      */
     public $stackName;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string[]
      */
     public $status;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'endTime'         => 'EndTime',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'parentStackId'   => 'ParentStackId',
-        'regionId'        => 'RegionId',
+        'endTime' => 'EndTime',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'parentStackId' => 'ParentStackId',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
         'showNestedStack' => 'ShowNestedStack',
-        'stackId'         => 'StackId',
-        'stackIds'        => 'StackIds',
-        'stackName'       => 'StackName',
-        'startTime'       => 'StartTime',
-        'status'          => 'Status',
-        'tag'             => 'Tag',
+        'stackId' => 'StackId',
+        'stackIds' => 'StackIds',
+        'stackName' => 'StackName',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -132,7 +144,7 @@ class ListStacksRequest extends Model
         if (null !== $this->stackIds) {
             if (\is_array($this->stackIds)) {
                 $res['StackIds'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->stackIds as $item1) {
                     $res['StackIds'][$n1++] = $item1;
                 }
@@ -142,7 +154,7 @@ class ListStacksRequest extends Model
         if (null !== $this->stackName) {
             if (\is_array($this->stackName)) {
                 $res['StackName'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->stackName as $item1) {
                     $res['StackName'][$n1++] = $item1;
                 }
@@ -156,7 +168,7 @@ class ListStacksRequest extends Model
         if (null !== $this->status) {
             if (\is_array($this->status)) {
                 $res['Status'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->status as $item1) {
                     $res['Status'][$n1++] = $item1;
                 }
@@ -166,7 +178,7 @@ class ListStacksRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -219,7 +231,7 @@ class ListStacksRequest extends Model
         if (isset($map['StackIds'])) {
             if (!empty($map['StackIds'])) {
                 $model->stackIds = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['StackIds'] as $item1) {
                     $model->stackIds[$n1++] = $item1;
                 }
@@ -229,7 +241,7 @@ class ListStacksRequest extends Model
         if (isset($map['StackName'])) {
             if (!empty($map['StackName'])) {
                 $model->stackName = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['StackName'] as $item1) {
                     $model->stackName[$n1++] = $item1;
                 }
@@ -243,7 +255,7 @@ class ListStacksRequest extends Model
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {
                 $model->status = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Status'] as $item1) {
                     $model->status[$n1++] = $item1;
                 }
@@ -253,7 +265,7 @@ class ListStacksRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

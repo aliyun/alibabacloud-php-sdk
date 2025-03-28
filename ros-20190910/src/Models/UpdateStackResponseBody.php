@@ -13,18 +13,20 @@ class UpdateStackResponseBody extends Model
      * @var dryRunResult
      */
     public $dryRunResult;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $stackId;
     protected $_name = [
         'dryRunResult' => 'DryRunResult',
-        'requestId'    => 'RequestId',
-        'stackId'      => 'StackId',
+        'requestId' => 'RequestId',
+        'stackId' => 'StackId',
     ];
 
     public function validate()

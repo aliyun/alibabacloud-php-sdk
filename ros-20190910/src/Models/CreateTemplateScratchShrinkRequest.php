@@ -13,63 +13,74 @@ class CreateTemplateScratchShrinkRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $executionMode;
+
     /**
      * @var string
      */
     public $logicalIdStrategy;
+
     /**
      * @var string
      */
     public $preferenceParametersShrink;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $sourceResourceGroupShrink;
+
     /**
      * @var string
      */
     public $sourceResourcesShrink;
+
     /**
      * @var string
      */
     public $sourceTagShrink;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $templateScratchType;
     protected $_name = [
-        'clientToken'                => 'ClientToken',
-        'description'                => 'Description',
-        'executionMode'              => 'ExecutionMode',
-        'logicalIdStrategy'          => 'LogicalIdStrategy',
+        'clientToken' => 'ClientToken',
+        'description' => 'Description',
+        'executionMode' => 'ExecutionMode',
+        'logicalIdStrategy' => 'LogicalIdStrategy',
         'preferenceParametersShrink' => 'PreferenceParameters',
-        'regionId'                   => 'RegionId',
-        'resourceGroupId'            => 'ResourceGroupId',
-        'sourceResourceGroupShrink'  => 'SourceResourceGroup',
-        'sourceResourcesShrink'      => 'SourceResources',
-        'sourceTagShrink'            => 'SourceTag',
-        'tags'                       => 'Tags',
-        'templateScratchType'        => 'TemplateScratchType',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'sourceResourceGroupShrink' => 'SourceResourceGroup',
+        'sourceResourcesShrink' => 'SourceResources',
+        'sourceTagShrink' => 'SourceTag',
+        'tags' => 'Tags',
+        'templateScratchType' => 'TemplateScratchType',
     ];
 
     public function validate()
@@ -126,7 +137,7 @@ class CreateTemplateScratchShrinkRequest extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -191,7 +202,7 @@ class CreateTemplateScratchShrinkRequest extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

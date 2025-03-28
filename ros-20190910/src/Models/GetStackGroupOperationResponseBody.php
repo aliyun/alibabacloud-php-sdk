@@ -13,12 +13,13 @@ class GetStackGroupOperationResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var stackGroupOperation
      */
     public $stackGroupOperation;
     protected $_name = [
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
         'stackGroupOperation' => 'StackGroupOperation',
     ];
 

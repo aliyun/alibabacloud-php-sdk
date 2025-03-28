@@ -13,28 +13,32 @@ class ListStackGroupsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var stackGroups[]
      */
     public $stackGroups;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'stackGroups' => 'StackGroups',
-        'totalCount'  => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -63,7 +67,7 @@ class ListStackGroupsResponseBody extends Model
         if (null !== $this->stackGroups) {
             if (\is_array($this->stackGroups)) {
                 $res['StackGroups'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->stackGroups as $item1) {
                     $res['StackGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class ListStackGroupsResponseBody extends Model
         if (isset($map['StackGroups'])) {
             if (!empty($map['StackGroups'])) {
                 $model->stackGroups = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['StackGroups'] as $item1) {
                     $model->stackGroups[$n1++] = stackGroups::fromMap($item1);
                 }

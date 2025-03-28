@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\ListChangeSetsResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ROS\V20190910\Models\ListChangeSetsResponseBody\changeSets\tags;
 
 class changeSets extends Model
 {
@@ -12,62 +13,87 @@ class changeSets extends Model
      * @var string
      */
     public $changeSetId;
+
     /**
      * @var string
      */
     public $changeSetName;
+
     /**
      * @var string
      */
     public $changeSetType;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $executionStatus;
+
     /**
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $stackName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
-        'changeSetId'     => 'ChangeSetId',
-        'changeSetName'   => 'ChangeSetName',
-        'changeSetType'   => 'ChangeSetType',
-        'createTime'      => 'CreateTime',
-        'description'     => 'Description',
+        'changeSetId' => 'ChangeSetId',
+        'changeSetName' => 'ChangeSetName',
+        'changeSetType' => 'ChangeSetType',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
         'executionStatus' => 'ExecutionStatus',
-        'regionId'        => 'RegionId',
-        'stackId'         => 'StackId',
-        'stackName'       => 'StackName',
-        'status'          => 'Status',
-        'statusReason'    => 'StatusReason',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'stackId' => 'StackId',
+        'stackName' => 'StackName',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
         parent::validate();
     }
 
@@ -102,6 +128,10 @@ class changeSets extends Model
             $res['RegionId'] = $this->regionId;
         }
 
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
         if (null !== $this->stackId) {
             $res['StackId'] = $this->stackId;
         }
@@ -116,6 +146,16 @@ class changeSets extends Model
 
         if (null !== $this->statusReason) {
             $res['StatusReason'] = $this->statusReason;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['Tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         return $res;
@@ -157,6 +197,10 @@ class changeSets extends Model
             $model->regionId = $map['RegionId'];
         }
 
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
         if (isset($map['StackId'])) {
             $model->stackId = $map['StackId'];
         }
@@ -171,6 +215,16 @@ class changeSets extends Model
 
         if (isset($map['StatusReason'])) {
             $model->statusReason = $map['StatusReason'];
+        }
+
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['Tags'] as $item1) {
+                    $model->tags[$n1++] = tags::fromMap($item1);
+                }
+            }
         }
 
         return $model;

@@ -12,18 +12,20 @@ class SetDeletionProtectionRequest extends Model
      * @var string
      */
     public $deletionProtection;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackId;
     protected $_name = [
         'deletionProtection' => 'DeletionProtection',
-        'regionId'           => 'RegionId',
-        'stackId'            => 'StackId',
+        'regionId' => 'RegionId',
+        'stackId' => 'StackId',
     ];
 
     public function validate()

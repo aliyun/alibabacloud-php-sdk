@@ -15,103 +15,122 @@ class UpdateStackGroupRequest extends Model
      * @var string[]
      */
     public $accountIds;
+
     /**
      * @var string
      */
     public $administrationRoleName;
+
     /**
      * @var autoDeployment
      */
     public $autoDeployment;
+
     /**
      * @var string[]
      */
     public $capabilities;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string[]
      */
     public $deploymentOptions;
+
     /**
      * @var deploymentTargets
      */
     public $deploymentTargets;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $executionRoleName;
+
     /**
      * @var string
      */
     public $operationDescription;
+
     /**
      * @var mixed[]
      */
     public $operationPreferences;
+
     /**
      * @var parameters[]
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $permissionModel;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $regionIds;
+
     /**
      * @var string
      */
     public $stackGroupName;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateURL;
+
     /**
      * @var string
      */
     public $templateVersion;
     protected $_name = [
-        'accountIds'             => 'AccountIds',
+        'accountIds' => 'AccountIds',
         'administrationRoleName' => 'AdministrationRoleName',
-        'autoDeployment'         => 'AutoDeployment',
-        'capabilities'           => 'Capabilities',
-        'clientToken'            => 'ClientToken',
-        'deploymentOptions'      => 'DeploymentOptions',
-        'deploymentTargets'      => 'DeploymentTargets',
-        'description'            => 'Description',
-        'executionRoleName'      => 'ExecutionRoleName',
-        'operationDescription'   => 'OperationDescription',
-        'operationPreferences'   => 'OperationPreferences',
-        'parameters'             => 'Parameters',
-        'permissionModel'        => 'PermissionModel',
-        'regionId'               => 'RegionId',
-        'regionIds'              => 'RegionIds',
-        'stackGroupName'         => 'StackGroupName',
-        'templateBody'           => 'TemplateBody',
-        'templateId'             => 'TemplateId',
-        'templateURL'            => 'TemplateURL',
-        'templateVersion'        => 'TemplateVersion',
+        'autoDeployment' => 'AutoDeployment',
+        'capabilities' => 'Capabilities',
+        'clientToken' => 'ClientToken',
+        'deploymentOptions' => 'DeploymentOptions',
+        'deploymentTargets' => 'DeploymentTargets',
+        'description' => 'Description',
+        'executionRoleName' => 'ExecutionRoleName',
+        'operationDescription' => 'OperationDescription',
+        'operationPreferences' => 'OperationPreferences',
+        'parameters' => 'Parameters',
+        'permissionModel' => 'PermissionModel',
+        'regionId' => 'RegionId',
+        'regionIds' => 'RegionIds',
+        'stackGroupName' => 'StackGroupName',
+        'templateBody' => 'TemplateBody',
+        'templateId' => 'TemplateId',
+        'templateURL' => 'TemplateURL',
+        'templateVersion' => 'TemplateVersion',
     ];
 
     public function validate()
@@ -149,7 +168,7 @@ class UpdateStackGroupRequest extends Model
         if (null !== $this->accountIds) {
             if (\is_array($this->accountIds)) {
                 $res['AccountIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->accountIds as $item1) {
                     $res['AccountIds'][$n1++] = $item1;
                 }
@@ -167,7 +186,7 @@ class UpdateStackGroupRequest extends Model
         if (null !== $this->capabilities) {
             if (\is_array($this->capabilities)) {
                 $res['Capabilities'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->capabilities as $item1) {
                     $res['Capabilities'][$n1++] = $item1;
                 }
@@ -181,7 +200,7 @@ class UpdateStackGroupRequest extends Model
         if (null !== $this->deploymentOptions) {
             if (\is_array($this->deploymentOptions)) {
                 $res['DeploymentOptions'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->deploymentOptions as $item1) {
                     $res['DeploymentOptions'][$n1++] = $item1;
                 }
@@ -216,7 +235,7 @@ class UpdateStackGroupRequest extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['Parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -234,7 +253,7 @@ class UpdateStackGroupRequest extends Model
         if (null !== $this->regionIds) {
             if (\is_array($this->regionIds)) {
                 $res['RegionIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->regionIds as $item1) {
                     $res['RegionIds'][$n1++] = $item1;
                 }
@@ -275,7 +294,7 @@ class UpdateStackGroupRequest extends Model
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
                 $model->accountIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['AccountIds'] as $item1) {
                     $model->accountIds[$n1++] = $item1;
                 }
@@ -293,7 +312,7 @@ class UpdateStackGroupRequest extends Model
         if (isset($map['Capabilities'])) {
             if (!empty($map['Capabilities'])) {
                 $model->capabilities = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['Capabilities'] as $item1) {
                     $model->capabilities[$n1++] = $item1;
                 }
@@ -307,7 +326,7 @@ class UpdateStackGroupRequest extends Model
         if (isset($map['DeploymentOptions'])) {
             if (!empty($map['DeploymentOptions'])) {
                 $model->deploymentOptions = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['DeploymentOptions'] as $item1) {
                     $model->deploymentOptions[$n1++] = $item1;
                 }
@@ -342,7 +361,7 @@ class UpdateStackGroupRequest extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     $model->parameters[$n1++] = parameters::fromMap($item1);
                 }
@@ -360,7 +379,7 @@ class UpdateStackGroupRequest extends Model
         if (isset($map['RegionIds'])) {
             if (!empty($map['RegionIds'])) {
                 $model->regionIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['RegionIds'] as $item1) {
                     $model->regionIds[$n1++] = $item1;
                 }

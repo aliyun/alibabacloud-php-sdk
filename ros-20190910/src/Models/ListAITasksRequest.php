@@ -12,23 +12,26 @@ class ListAITasksRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskType;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'taskId'     => 'TaskId',
-        'taskType'   => 'TaskType',
+        'nextToken' => 'NextToken',
+        'taskId' => 'TaskId',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

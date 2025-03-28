@@ -13,23 +13,26 @@ class ListResourceTypeRegistrationsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var registrations[]
      */
     public $registrations;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'    => 'PageNumber',
+        'pageNumber' => 'PageNumber',
         'registrations' => 'Registrations',
-        'requestId'     => 'RequestId',
-        'totalCount'    => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -50,7 +53,7 @@ class ListResourceTypeRegistrationsResponseBody extends Model
         if (null !== $this->registrations) {
             if (\is_array($this->registrations)) {
                 $res['Registrations'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->registrations as $item1) {
                     $res['Registrations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -83,7 +86,7 @@ class ListResourceTypeRegistrationsResponseBody extends Model
         if (isset($map['Registrations'])) {
             if (!empty($map['Registrations'])) {
                 $model->registrations = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['Registrations'] as $item1) {
                     $model->registrations[$n1++] = registrations::fromMap($item1);
                 }

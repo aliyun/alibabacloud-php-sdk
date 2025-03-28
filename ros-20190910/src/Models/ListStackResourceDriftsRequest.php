@@ -12,28 +12,32 @@ class ListStackResourceDriftsRequest extends Model
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $resourceDriftStatus;
+
     /**
      * @var string
      */
     public $stackId;
     protected $_name = [
-        'maxResults'          => 'MaxResults',
-        'nextToken'           => 'NextToken',
-        'regionId'            => 'RegionId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'regionId' => 'RegionId',
         'resourceDriftStatus' => 'ResourceDriftStatus',
-        'stackId'             => 'StackId',
+        'stackId' => 'StackId',
     ];
 
     public function validate()
@@ -62,7 +66,7 @@ class ListStackResourceDriftsRequest extends Model
         if (null !== $this->resourceDriftStatus) {
             if (\is_array($this->resourceDriftStatus)) {
                 $res['ResourceDriftStatus'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->resourceDriftStatus as $item1) {
                     $res['ResourceDriftStatus'][$n1++] = $item1;
                 }
@@ -99,7 +103,7 @@ class ListStackResourceDriftsRequest extends Model
         if (isset($map['ResourceDriftStatus'])) {
             if (!empty($map['ResourceDriftStatus'])) {
                 $model->resourceDriftStatus = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['ResourceDriftStatus'] as $item1) {
                     $model->resourceDriftStatus[$n1++] = $item1;
                 }

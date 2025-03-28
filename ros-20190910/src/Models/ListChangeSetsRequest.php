@@ -12,43 +12,50 @@ class ListChangeSetsRequest extends Model
      * @var string
      */
     public $changeSetId;
+
     /**
      * @var string[]
      */
     public $changeSetName;
+
     /**
      * @var string[]
      */
     public $executionStatus;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string[]
      */
     public $status;
     protected $_name = [
-        'changeSetId'     => 'ChangeSetId',
-        'changeSetName'   => 'ChangeSetName',
+        'changeSetId' => 'ChangeSetId',
+        'changeSetName' => 'ChangeSetName',
         'executionStatus' => 'ExecutionStatus',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
-        'stackId'         => 'StackId',
-        'status'          => 'Status',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'stackId' => 'StackId',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -75,7 +82,7 @@ class ListChangeSetsRequest extends Model
         if (null !== $this->changeSetName) {
             if (\is_array($this->changeSetName)) {
                 $res['ChangeSetName'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->changeSetName as $item1) {
                     $res['ChangeSetName'][$n1++] = $item1;
                 }
@@ -85,7 +92,7 @@ class ListChangeSetsRequest extends Model
         if (null !== $this->executionStatus) {
             if (\is_array($this->executionStatus)) {
                 $res['ExecutionStatus'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->executionStatus as $item1) {
                     $res['ExecutionStatus'][$n1++] = $item1;
                 }
@@ -111,7 +118,7 @@ class ListChangeSetsRequest extends Model
         if (null !== $this->status) {
             if (\is_array($this->status)) {
                 $res['Status'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->status as $item1) {
                     $res['Status'][$n1++] = $item1;
                 }
@@ -136,7 +143,7 @@ class ListChangeSetsRequest extends Model
         if (isset($map['ChangeSetName'])) {
             if (!empty($map['ChangeSetName'])) {
                 $model->changeSetName = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ChangeSetName'] as $item1) {
                     $model->changeSetName[$n1++] = $item1;
                 }
@@ -146,7 +153,7 @@ class ListChangeSetsRequest extends Model
         if (isset($map['ExecutionStatus'])) {
             if (!empty($map['ExecutionStatus'])) {
                 $model->executionStatus = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ExecutionStatus'] as $item1) {
                     $model->executionStatus[$n1++] = $item1;
                 }
@@ -172,7 +179,7 @@ class ListChangeSetsRequest extends Model
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {
                 $model->status = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Status'] as $item1) {
                     $model->status[$n1++] = $item1;
                 }

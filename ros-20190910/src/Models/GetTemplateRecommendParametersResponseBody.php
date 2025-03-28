@@ -13,13 +13,14 @@ class GetTemplateRecommendParametersResponseBody extends Model
      * @var recommendParameterValues[]
      */
     public $recommendParameterValues;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'recommendParameterValues' => 'RecommendParameterValues',
-        'requestId'                => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class GetTemplateRecommendParametersResponseBody extends Model
         if (null !== $this->recommendParameterValues) {
             if (\is_array($this->recommendParameterValues)) {
                 $res['RecommendParameterValues'] = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($this->recommendParameterValues as $item1) {
                     $res['RecommendParameterValues'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class GetTemplateRecommendParametersResponseBody extends Model
         if (isset($map['RecommendParameterValues'])) {
             if (!empty($map['RecommendParameterValues'])) {
                 $model->recommendParameterValues = [];
-                $n1                              = 0;
+                $n1 = 0;
                 foreach ($map['RecommendParameterValues'] as $item1) {
                     $model->recommendParameterValues[$n1++] = recommendParameterValues::fromMap($item1);
                 }

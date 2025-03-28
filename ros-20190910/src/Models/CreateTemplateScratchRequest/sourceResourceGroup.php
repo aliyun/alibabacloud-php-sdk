@@ -12,12 +12,13 @@ class sourceResourceGroup extends Model
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string[]
      */
     public $resourceTypeFilter;
     protected $_name = [
-        'resourceGroupId'    => 'ResourceGroupId',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceTypeFilter' => 'ResourceTypeFilter',
     ];
 
@@ -39,7 +40,7 @@ class sourceResourceGroup extends Model
         if (null !== $this->resourceTypeFilter) {
             if (\is_array($this->resourceTypeFilter)) {
                 $res['ResourceTypeFilter'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->resourceTypeFilter as $item1) {
                     $res['ResourceTypeFilter'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class sourceResourceGroup extends Model
         if (isset($map['ResourceTypeFilter'])) {
             if (!empty($map['ResourceTypeFilter'])) {
                 $model->resourceTypeFilter = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ResourceTypeFilter'] as $item1) {
                     $model->resourceTypeFilter[$n1++] = $item1;
                 }

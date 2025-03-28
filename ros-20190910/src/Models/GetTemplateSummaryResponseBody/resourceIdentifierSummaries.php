@@ -12,18 +12,20 @@ class resourceIdentifierSummaries extends Model
      * @var string[]
      */
     public $logicalResourceIds;
+
     /**
      * @var string[]
      */
     public $resourceIdentifiers;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'logicalResourceIds'  => 'LogicalResourceIds',
+        'logicalResourceIds' => 'LogicalResourceIds',
         'resourceIdentifiers' => 'ResourceIdentifiers',
-        'resourceType'        => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -43,7 +45,7 @@ class resourceIdentifierSummaries extends Model
         if (null !== $this->logicalResourceIds) {
             if (\is_array($this->logicalResourceIds)) {
                 $res['LogicalResourceIds'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->logicalResourceIds as $item1) {
                     $res['LogicalResourceIds'][$n1++] = $item1;
                 }
@@ -53,7 +55,7 @@ class resourceIdentifierSummaries extends Model
         if (null !== $this->resourceIdentifiers) {
             if (\is_array($this->resourceIdentifiers)) {
                 $res['ResourceIdentifiers'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->resourceIdentifiers as $item1) {
                     $res['ResourceIdentifiers'][$n1++] = $item1;
                 }
@@ -78,7 +80,7 @@ class resourceIdentifierSummaries extends Model
         if (isset($map['LogicalResourceIds'])) {
             if (!empty($map['LogicalResourceIds'])) {
                 $model->logicalResourceIds = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['LogicalResourceIds'] as $item1) {
                     $model->logicalResourceIds[$n1++] = $item1;
                 }
@@ -88,7 +90,7 @@ class resourceIdentifierSummaries extends Model
         if (isset($map['ResourceIdentifiers'])) {
             if (!empty($map['ResourceIdentifiers'])) {
                 $model->resourceIdentifiers = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['ResourceIdentifiers'] as $item1) {
                     $model->resourceIdentifiers[$n1++] = $item1;
                 }

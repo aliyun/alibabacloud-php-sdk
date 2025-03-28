@@ -13,33 +13,38 @@ class ListDiagnosticsResponseBody extends Model
      * @var diagnostics[]
      */
     public $diagnostics;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
-        'diagnostics'    => 'Diagnostics',
+        'diagnostics' => 'Diagnostics',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'nextToken'      => 'NextToken',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'message' => 'Message',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class ListDiagnosticsResponseBody extends Model
         if (null !== $this->diagnostics) {
             if (\is_array($this->diagnostics)) {
                 $res['Diagnostics'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->diagnostics as $item1) {
                     $res['Diagnostics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class ListDiagnosticsResponseBody extends Model
         if (isset($map['Diagnostics'])) {
             if (!empty($map['Diagnostics'])) {
                 $model->diagnostics = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Diagnostics'] as $item1) {
                     $model->diagnostics[$n1++] = diagnostics::fromMap($item1);
                 }

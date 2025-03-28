@@ -12,13 +12,14 @@ class resourceTypes extends Model
      * @var string[]
      */
     public $dataSources;
+
     /**
      * @var string[]
      */
     public $resources;
     protected $_name = [
         'dataSources' => 'DataSources',
-        'resources'   => 'Resources',
+        'resources' => 'Resources',
     ];
 
     public function validate()
@@ -38,7 +39,7 @@ class resourceTypes extends Model
         if (null !== $this->dataSources) {
             if (\is_array($this->dataSources)) {
                 $res['DataSources'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->dataSources as $item1) {
                     $res['DataSources'][$n1++] = $item1;
                 }
@@ -48,7 +49,7 @@ class resourceTypes extends Model
         if (null !== $this->resources) {
             if (\is_array($this->resources)) {
                 $res['Resources'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->resources as $item1) {
                     $res['Resources'][$n1++] = $item1;
                 }
@@ -69,7 +70,7 @@ class resourceTypes extends Model
         if (isset($map['DataSources'])) {
             if (!empty($map['DataSources'])) {
                 $model->dataSources = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DataSources'] as $item1) {
                     $model->dataSources[$n1++] = $item1;
                 }
@@ -79,7 +80,7 @@ class resourceTypes extends Model
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Resources'] as $item1) {
                     $model->resources[$n1++] = $item1;
                 }

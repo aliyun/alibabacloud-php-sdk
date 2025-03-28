@@ -12,23 +12,26 @@ class GenerateTemplateByScratchRequest extends Model
      * @var string
      */
     public $provisionRegionId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $templateScratchId;
+
     /**
      * @var string
      */
     public $templateType;
     protected $_name = [
         'provisionRegionId' => 'ProvisionRegionId',
-        'regionId'          => 'RegionId',
+        'regionId' => 'RegionId',
         'templateScratchId' => 'TemplateScratchId',
-        'templateType'      => 'TemplateType',
+        'templateType' => 'TemplateType',
     ];
 
     public function validate()

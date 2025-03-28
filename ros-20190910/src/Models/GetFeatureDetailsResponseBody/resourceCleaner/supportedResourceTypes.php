@@ -12,17 +12,19 @@ class supportedResourceTypes extends Model
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string[]
      */
     public $sideEffects;
+
     /**
      * @var string[]
      */
     public $supportedFilters;
     protected $_name = [
-        'resourceType'     => 'ResourceType',
-        'sideEffects'      => 'SideEffects',
+        'resourceType' => 'ResourceType',
+        'sideEffects' => 'SideEffects',
         'supportedFilters' => 'SupportedFilters',
     ];
 
@@ -47,7 +49,7 @@ class supportedResourceTypes extends Model
         if (null !== $this->sideEffects) {
             if (\is_array($this->sideEffects)) {
                 $res['SideEffects'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->sideEffects as $item1) {
                     $res['SideEffects'][$n1++] = $item1;
                 }
@@ -57,7 +59,7 @@ class supportedResourceTypes extends Model
         if (null !== $this->supportedFilters) {
             if (\is_array($this->supportedFilters)) {
                 $res['SupportedFilters'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->supportedFilters as $item1) {
                     $res['SupportedFilters'][$n1++] = $item1;
                 }
@@ -82,7 +84,7 @@ class supportedResourceTypes extends Model
         if (isset($map['SideEffects'])) {
             if (!empty($map['SideEffects'])) {
                 $model->sideEffects = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['SideEffects'] as $item1) {
                     $model->sideEffects[$n1++] = $item1;
                 }
@@ -92,7 +94,7 @@ class supportedResourceTypes extends Model
         if (isset($map['SupportedFilters'])) {
             if (!empty($map['SupportedFilters'])) {
                 $model->supportedFilters = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['SupportedFilters'] as $item1) {
                     $model->supportedFilters[$n1++] = $item1;
                 }

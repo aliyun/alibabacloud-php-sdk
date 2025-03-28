@@ -12,17 +12,19 @@ class GetTemplateScratchRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $showDataOption;
+
     /**
      * @var string
      */
     public $templateScratchId;
     protected $_name = [
-        'regionId'          => 'RegionId',
-        'showDataOption'    => 'ShowDataOption',
+        'regionId' => 'RegionId',
+        'showDataOption' => 'ShowDataOption',
         'templateScratchId' => 'TemplateScratchId',
     ];
 

@@ -13,28 +13,32 @@ class ListTemplateScratchesResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var templateScratches[]
      */
     public $templateScratches;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'requestId'         => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'templateScratches' => 'TemplateScratches',
-        'totalCount'        => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -63,7 +67,7 @@ class ListTemplateScratchesResponseBody extends Model
         if (null !== $this->templateScratches) {
             if (\is_array($this->templateScratches)) {
                 $res['TemplateScratches'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->templateScratches as $item1) {
                     $res['TemplateScratches'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class ListTemplateScratchesResponseBody extends Model
         if (isset($map['TemplateScratches'])) {
             if (!empty($map['TemplateScratches'])) {
                 $model->templateScratches = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['TemplateScratches'] as $item1) {
                     $model->templateScratches[$n1++] = templateScratches::fromMap($item1);
                 }

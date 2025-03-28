@@ -12,28 +12,32 @@ class permissions extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $shareOption;
+
     /**
      * @var string
      */
     public $shareSource;
+
     /**
      * @var string
      */
     public $templateVersion;
+
     /**
      * @var string
      */
     public $versionOption;
     protected $_name = [
-        'accountId'       => 'AccountId',
-        'shareOption'     => 'ShareOption',
-        'shareSource'     => 'ShareSource',
+        'accountId' => 'AccountId',
+        'shareOption' => 'ShareOption',
+        'shareSource' => 'ShareSource',
         'templateVersion' => 'TemplateVersion',
-        'versionOption'   => 'VersionOption',
+        'versionOption' => 'VersionOption',
     ];
 
     public function validate()

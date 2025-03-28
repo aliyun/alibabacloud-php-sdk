@@ -12,13 +12,14 @@ class CreateStackResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $stackId;
     protected $_name = [
         'requestId' => 'RequestId',
-        'stackId'   => 'StackId',
+        'stackId' => 'StackId',
     ];
 
     public function validate()

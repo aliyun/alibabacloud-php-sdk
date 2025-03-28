@@ -12,53 +12,62 @@ class resources extends Model
      * @var string
      */
     public $acsResourceType;
+
     /**
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $logicalResourceId;
+
     /**
      * @var string
      */
     public $physicalResourceId;
+
     /**
      * @var mixed[]
      */
     public $properties;
+
     /**
      * @var string
      */
     public $replacement;
+
     /**
      * @var string[]
      */
     public $requiredBy;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var mixed[]
      */
     public $stack;
     protected $_name = [
-        'acsResourceType'    => 'AcsResourceType',
-        'action'             => 'Action',
-        'description'        => 'Description',
-        'logicalResourceId'  => 'LogicalResourceId',
+        'acsResourceType' => 'AcsResourceType',
+        'action' => 'Action',
+        'description' => 'Description',
+        'logicalResourceId' => 'LogicalResourceId',
         'physicalResourceId' => 'PhysicalResourceId',
-        'properties'         => 'Properties',
-        'replacement'        => 'Replacement',
-        'requiredBy'         => 'RequiredBy',
-        'resourceType'       => 'ResourceType',
-        'stack'              => 'Stack',
+        'properties' => 'Properties',
+        'replacement' => 'Replacement',
+        'requiredBy' => 'RequiredBy',
+        'resourceType' => 'ResourceType',
+        'stack' => 'Stack',
     ];
 
     public function validate()
@@ -114,7 +123,7 @@ class resources extends Model
         if (null !== $this->requiredBy) {
             if (\is_array($this->requiredBy)) {
                 $res['RequiredBy'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->requiredBy as $item1) {
                     $res['RequiredBy'][$n1++] = $item1;
                 }
@@ -181,7 +190,7 @@ class resources extends Model
         if (isset($map['RequiredBy'])) {
             if (!empty($map['RequiredBy'])) {
                 $model->requiredBy = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['RequiredBy'] as $item1) {
                     $model->requiredBy[$n1++] = $item1;
                 }

@@ -12,27 +12,31 @@ class GenerateTemplatePolicyRequest extends Model
      * @var string[]
      */
     public $operationTypes;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateURL;
+
     /**
      * @var string
      */
     public $templateVersion;
     protected $_name = [
-        'operationTypes'  => 'OperationTypes',
-        'templateBody'    => 'TemplateBody',
-        'templateId'      => 'TemplateId',
-        'templateURL'     => 'TemplateURL',
+        'operationTypes' => 'OperationTypes',
+        'templateBody' => 'TemplateBody',
+        'templateId' => 'TemplateId',
+        'templateURL' => 'TemplateURL',
         'templateVersion' => 'TemplateVersion',
     ];
 
@@ -50,7 +54,7 @@ class GenerateTemplatePolicyRequest extends Model
         if (null !== $this->operationTypes) {
             if (\is_array($this->operationTypes)) {
                 $res['OperationTypes'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->operationTypes as $item1) {
                     $res['OperationTypes'][$n1++] = $item1;
                 }
@@ -87,7 +91,7 @@ class GenerateTemplatePolicyRequest extends Model
         if (isset($map['OperationTypes'])) {
             if (!empty($map['OperationTypes'])) {
                 $model->operationTypes = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['OperationTypes'] as $item1) {
                     $model->operationTypes[$n1++] = $item1;
                 }

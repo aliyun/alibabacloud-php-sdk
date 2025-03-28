@@ -12,33 +12,38 @@ class GetStackResourceRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $logicalResourceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $resourceAttributes;
+
     /**
      * @var bool
      */
     public $showResourceAttributes;
+
     /**
      * @var string
      */
     public $stackId;
     protected $_name = [
-        'clientToken'            => 'ClientToken',
-        'logicalResourceId'      => 'LogicalResourceId',
-        'regionId'               => 'RegionId',
-        'resourceAttributes'     => 'ResourceAttributes',
+        'clientToken' => 'ClientToken',
+        'logicalResourceId' => 'LogicalResourceId',
+        'regionId' => 'RegionId',
+        'resourceAttributes' => 'ResourceAttributes',
         'showResourceAttributes' => 'ShowResourceAttributes',
-        'stackId'                => 'StackId',
+        'stackId' => 'StackId',
     ];
 
     public function validate()
@@ -67,7 +72,7 @@ class GetStackResourceRequest extends Model
         if (null !== $this->resourceAttributes) {
             if (\is_array($this->resourceAttributes)) {
                 $res['ResourceAttributes'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->resourceAttributes as $item1) {
                     $res['ResourceAttributes'][$n1++] = $item1;
                 }
@@ -108,7 +113,7 @@ class GetStackResourceRequest extends Model
         if (isset($map['ResourceAttributes'])) {
             if (!empty($map['ResourceAttributes'])) {
                 $model->resourceAttributes = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ResourceAttributes'] as $item1) {
                     $model->resourceAttributes[$n1++] = $item1;
                 }

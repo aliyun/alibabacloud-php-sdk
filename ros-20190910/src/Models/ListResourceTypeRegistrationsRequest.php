@@ -12,33 +12,38 @@ class ListResourceTypeRegistrationsRequest extends Model
      * @var string
      */
     public $entityType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $registrationId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'entityType'     => 'EntityType',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
+        'entityType' => 'EntityType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'registrationId' => 'RegistrationId',
-        'resourceType'   => 'ResourceType',
-        'status'         => 'Status',
+        'resourceType' => 'ResourceType',
+        'status' => 'Status',
     ];
 
     public function validate()

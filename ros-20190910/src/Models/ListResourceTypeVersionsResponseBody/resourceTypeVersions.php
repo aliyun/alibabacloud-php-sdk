@@ -12,43 +12,50 @@ class resourceTypeVersions extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $entityType;
+
     /**
      * @var bool
      */
     public $isDefaultVersion;
+
     /**
      * @var string
      */
     public $provider;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var string
      */
     public $versionId;
     protected $_name = [
-        'createTime'       => 'CreateTime',
-        'description'      => 'Description',
-        'entityType'       => 'EntityType',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'entityType' => 'EntityType',
         'isDefaultVersion' => 'IsDefaultVersion',
-        'provider'         => 'Provider',
-        'resourceType'     => 'ResourceType',
-        'updateTime'       => 'UpdateTime',
-        'versionId'        => 'VersionId',
+        'provider' => 'Provider',
+        'resourceType' => 'ResourceType',
+        'updateTime' => 'UpdateTime',
+        'versionId' => 'VersionId',
     ];
 
     public function validate()

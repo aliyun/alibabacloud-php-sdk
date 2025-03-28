@@ -13,12 +13,13 @@ class GetStackInstanceResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var stackInstance
      */
     public $stackInstance;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'stackInstance' => 'StackInstance',
     ];
 

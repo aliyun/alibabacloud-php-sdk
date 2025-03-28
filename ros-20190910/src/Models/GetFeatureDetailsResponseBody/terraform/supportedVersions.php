@@ -13,22 +13,25 @@ class supportedVersions extends Model
      * @var providerVersions[]
      */
     public $providerVersions;
+
     /**
      * @var string
      */
     public $terraformVersion;
+
     /**
      * @var string
      */
     public $transform;
+
     /**
      * @var string[]
      */
     public $updateAllowedTransforms;
     protected $_name = [
-        'providerVersions'        => 'ProviderVersions',
-        'terraformVersion'        => 'TerraformVersion',
-        'transform'               => 'Transform',
+        'providerVersions' => 'ProviderVersions',
+        'terraformVersion' => 'TerraformVersion',
+        'transform' => 'Transform',
         'updateAllowedTransforms' => 'UpdateAllowedTransforms',
     ];
 
@@ -49,7 +52,7 @@ class supportedVersions extends Model
         if (null !== $this->providerVersions) {
             if (\is_array($this->providerVersions)) {
                 $res['ProviderVersions'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->providerVersions as $item1) {
                     $res['ProviderVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -67,7 +70,7 @@ class supportedVersions extends Model
         if (null !== $this->updateAllowedTransforms) {
             if (\is_array($this->updateAllowedTransforms)) {
                 $res['UpdateAllowedTransforms'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->updateAllowedTransforms as $item1) {
                     $res['UpdateAllowedTransforms'][$n1++] = $item1;
                 }
@@ -88,7 +91,7 @@ class supportedVersions extends Model
         if (isset($map['ProviderVersions'])) {
             if (!empty($map['ProviderVersions'])) {
                 $model->providerVersions = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ProviderVersions'] as $item1) {
                     $model->providerVersions[$n1++] = providerVersions::fromMap($item1);
                 }
@@ -106,7 +109,7 @@ class supportedVersions extends Model
         if (isset($map['UpdateAllowedTransforms'])) {
             if (!empty($map['UpdateAllowedTransforms'])) {
                 $model->updateAllowedTransforms = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['UpdateAllowedTransforms'] as $item1) {
                     $model->updateAllowedTransforms[$n1++] = $item1;
                 }

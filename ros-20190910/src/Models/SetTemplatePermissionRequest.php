@@ -12,28 +12,32 @@ class SetTemplatePermissionRequest extends Model
      * @var string[]
      */
     public $accountIds;
+
     /**
      * @var string
      */
     public $shareOption;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateVersion;
+
     /**
      * @var string
      */
     public $versionOption;
     protected $_name = [
-        'accountIds'      => 'AccountIds',
-        'shareOption'     => 'ShareOption',
-        'templateId'      => 'TemplateId',
+        'accountIds' => 'AccountIds',
+        'shareOption' => 'ShareOption',
+        'templateId' => 'TemplateId',
         'templateVersion' => 'TemplateVersion',
-        'versionOption'   => 'VersionOption',
+        'versionOption' => 'VersionOption',
     ];
 
     public function validate()
@@ -50,7 +54,7 @@ class SetTemplatePermissionRequest extends Model
         if (null !== $this->accountIds) {
             if (\is_array($this->accountIds)) {
                 $res['AccountIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->accountIds as $item1) {
                     $res['AccountIds'][$n1++] = $item1;
                 }
@@ -87,7 +91,7 @@ class SetTemplatePermissionRequest extends Model
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
                 $model->accountIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['AccountIds'] as $item1) {
                     $model->accountIds[$n1++] = $item1;
                 }

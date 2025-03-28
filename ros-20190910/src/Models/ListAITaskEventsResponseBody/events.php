@@ -12,33 +12,38 @@ class events extends Model
      * @var string
      */
     public $agentType;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $estimatedProcessingTime;
+
     /**
      * @var string
      */
     public $eventData;
+
     /**
      * @var string
      */
     public $handlerProcessStatus;
+
     /**
      * @var string
      */
     public $handlerType;
     protected $_name = [
-        'agentType'               => 'AgentType',
-        'createTime'              => 'CreateTime',
+        'agentType' => 'AgentType',
+        'createTime' => 'CreateTime',
         'estimatedProcessingTime' => 'EstimatedProcessingTime',
-        'eventData'               => 'EventData',
-        'handlerProcessStatus'    => 'HandlerProcessStatus',
-        'handlerType'             => 'HandlerType',
+        'eventData' => 'EventData',
+        'handlerProcessStatus' => 'HandlerProcessStatus',
+        'handlerType' => 'HandlerType',
     ];
 
     public function validate()

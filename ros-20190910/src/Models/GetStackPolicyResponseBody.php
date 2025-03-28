@@ -12,12 +12,13 @@ class GetStackPolicyResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var mixed[]
      */
     public $stackPolicyBody;
     protected $_name = [
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
         'stackPolicyBody' => 'StackPolicyBody',
     ];
 

@@ -12,23 +12,26 @@ class CancelStackOperationRequest extends Model
      * @var string[]
      */
     public $allowedStackOperations;
+
     /**
      * @var string
      */
     public $cancelType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackId;
     protected $_name = [
         'allowedStackOperations' => 'AllowedStackOperations',
-        'cancelType'             => 'CancelType',
-        'regionId'               => 'RegionId',
-        'stackId'                => 'StackId',
+        'cancelType' => 'CancelType',
+        'regionId' => 'RegionId',
+        'stackId' => 'StackId',
     ];
 
     public function validate()
@@ -45,7 +48,7 @@ class CancelStackOperationRequest extends Model
         if (null !== $this->allowedStackOperations) {
             if (\is_array($this->allowedStackOperations)) {
                 $res['AllowedStackOperations'] = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($this->allowedStackOperations as $item1) {
                     $res['AllowedStackOperations'][$n1++] = $item1;
                 }
@@ -78,7 +81,7 @@ class CancelStackOperationRequest extends Model
         if (isset($map['AllowedStackOperations'])) {
             if (!empty($map['AllowedStackOperations'])) {
                 $model->allowedStackOperations = [];
-                $n1                            = 0;
+                $n1 = 0;
                 foreach ($map['AllowedStackOperations'] as $item1) {
                     $model->allowedStackOperations[$n1++] = $item1;
                 }

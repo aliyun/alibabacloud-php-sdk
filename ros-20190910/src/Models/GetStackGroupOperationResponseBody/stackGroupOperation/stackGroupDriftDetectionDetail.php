@@ -12,48 +12,56 @@ class stackGroupDriftDetectionDetail extends Model
      * @var int
      */
     public $cancelledStackInstancesCount;
+
     /**
      * @var string
      */
     public $driftDetectionStatus;
+
     /**
      * @var string
      */
     public $driftDetectionTime;
+
     /**
      * @var int
      */
     public $driftedStackInstancesCount;
+
     /**
      * @var int
      */
     public $failedStackInstancesCount;
+
     /**
      * @var int
      */
     public $inProgressStackInstancesCount;
+
     /**
      * @var int
      */
     public $inSyncStackInstancesCount;
+
     /**
      * @var string
      */
     public $stackGroupDriftStatus;
+
     /**
      * @var int
      */
     public $totalStackInstancesCount;
     protected $_name = [
-        'cancelledStackInstancesCount'  => 'CancelledStackInstancesCount',
-        'driftDetectionStatus'          => 'DriftDetectionStatus',
-        'driftDetectionTime'            => 'DriftDetectionTime',
-        'driftedStackInstancesCount'    => 'DriftedStackInstancesCount',
-        'failedStackInstancesCount'     => 'FailedStackInstancesCount',
+        'cancelledStackInstancesCount' => 'CancelledStackInstancesCount',
+        'driftDetectionStatus' => 'DriftDetectionStatus',
+        'driftDetectionTime' => 'DriftDetectionTime',
+        'driftedStackInstancesCount' => 'DriftedStackInstancesCount',
+        'failedStackInstancesCount' => 'FailedStackInstancesCount',
         'inProgressStackInstancesCount' => 'InProgressStackInstancesCount',
-        'inSyncStackInstancesCount'     => 'InSyncStackInstancesCount',
-        'stackGroupDriftStatus'         => 'StackGroupDriftStatus',
-        'totalStackInstancesCount'      => 'TotalStackInstancesCount',
+        'inSyncStackInstancesCount' => 'InSyncStackInstancesCount',
+        'stackGroupDriftStatus' => 'StackGroupDriftStatus',
+        'totalStackInstancesCount' => 'TotalStackInstancesCount',
     ];
 
     public function validate()

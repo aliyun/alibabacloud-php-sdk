@@ -12,28 +12,32 @@ class ListDiagnosticsRequest extends Model
      * @var string
      */
     public $diagnosticKey;
+
     /**
      * @var string
      */
     public $diagnosticProduct;
+
     /**
      * @var string
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'diagnosticKey'     => 'DiagnosticKey',
+        'diagnosticKey' => 'DiagnosticKey',
         'diagnosticProduct' => 'DiagnosticProduct',
-        'maxResults'        => 'MaxResults',
-        'nextToken'         => 'NextToken',
-        'status'            => 'Status',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'status' => 'Status',
     ];
 
     public function validate()

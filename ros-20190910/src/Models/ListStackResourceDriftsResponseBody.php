@@ -13,17 +13,19 @@ class ListStackResourceDriftsResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceDrifts[]
      */
     public $resourceDrifts;
     protected $_name = [
-        'nextToken'      => 'NextToken',
-        'requestId'      => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'resourceDrifts' => 'ResourceDrifts',
     ];
 
@@ -49,7 +51,7 @@ class ListStackResourceDriftsResponseBody extends Model
         if (null !== $this->resourceDrifts) {
             if (\is_array($this->resourceDrifts)) {
                 $res['ResourceDrifts'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->resourceDrifts as $item1) {
                     $res['ResourceDrifts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class ListStackResourceDriftsResponseBody extends Model
         if (isset($map['ResourceDrifts'])) {
             if (!empty($map['ResourceDrifts'])) {
                 $model->resourceDrifts = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ResourceDrifts'] as $item1) {
                     $model->resourceDrifts[$n1++] = resourceDrifts::fromMap($item1);
                 }

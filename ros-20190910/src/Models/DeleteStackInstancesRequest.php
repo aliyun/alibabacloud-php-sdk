@@ -13,48 +13,56 @@ class DeleteStackInstancesRequest extends Model
      * @var string[]
      */
     public $accountIds;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var deploymentTargets
      */
     public $deploymentTargets;
+
     /**
      * @var string
      */
     public $operationDescription;
+
     /**
      * @var mixed[]
      */
     public $operationPreferences;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $regionIds;
+
     /**
      * @var bool
      */
     public $retainStacks;
+
     /**
      * @var string
      */
     public $stackGroupName;
     protected $_name = [
-        'accountIds'           => 'AccountIds',
-        'clientToken'          => 'ClientToken',
-        'deploymentTargets'    => 'DeploymentTargets',
+        'accountIds' => 'AccountIds',
+        'clientToken' => 'ClientToken',
+        'deploymentTargets' => 'DeploymentTargets',
         'operationDescription' => 'OperationDescription',
         'operationPreferences' => 'OperationPreferences',
-        'regionId'             => 'RegionId',
-        'regionIds'            => 'RegionIds',
-        'retainStacks'         => 'RetainStacks',
-        'stackGroupName'       => 'StackGroupName',
+        'regionId' => 'RegionId',
+        'regionIds' => 'RegionIds',
+        'retainStacks' => 'RetainStacks',
+        'stackGroupName' => 'StackGroupName',
     ];
 
     public function validate()
@@ -80,7 +88,7 @@ class DeleteStackInstancesRequest extends Model
         if (null !== $this->accountIds) {
             if (\is_array($this->accountIds)) {
                 $res['AccountIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->accountIds as $item1) {
                     $res['AccountIds'][$n1++] = $item1;
                 }
@@ -115,7 +123,7 @@ class DeleteStackInstancesRequest extends Model
         if (null !== $this->regionIds) {
             if (\is_array($this->regionIds)) {
                 $res['RegionIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->regionIds as $item1) {
                     $res['RegionIds'][$n1++] = $item1;
                 }
@@ -144,7 +152,7 @@ class DeleteStackInstancesRequest extends Model
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
                 $model->accountIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['AccountIds'] as $item1) {
                     $model->accountIds[$n1++] = $item1;
                 }
@@ -179,7 +187,7 @@ class DeleteStackInstancesRequest extends Model
         if (isset($map['RegionIds'])) {
             if (!empty($map['RegionIds'])) {
                 $model->regionIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['RegionIds'] as $item1) {
                     $model->regionIds[$n1++] = $item1;
                 }

@@ -13,38 +13,44 @@ class serviceProvisions extends Model
      * @var bool
      */
     public $autoEnableService;
+
     /**
      * @var string[]
      */
     public $dependentServiceNames;
+
     /**
      * @var string
      */
     public $enableURL;
+
     /**
      * @var roleProvision
      */
     public $roleProvision;
+
     /**
      * @var string
      */
     public $serviceName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
     protected $_name = [
-        'autoEnableService'     => 'AutoEnableService',
+        'autoEnableService' => 'AutoEnableService',
         'dependentServiceNames' => 'DependentServiceNames',
-        'enableURL'             => 'EnableURL',
-        'roleProvision'         => 'RoleProvision',
-        'serviceName'           => 'ServiceName',
-        'status'                => 'Status',
-        'statusReason'          => 'StatusReason',
+        'enableURL' => 'EnableURL',
+        'roleProvision' => 'RoleProvision',
+        'serviceName' => 'ServiceName',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
     ];
 
     public function validate()
@@ -68,7 +74,7 @@ class serviceProvisions extends Model
         if (null !== $this->dependentServiceNames) {
             if (\is_array($this->dependentServiceNames)) {
                 $res['DependentServiceNames'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->dependentServiceNames as $item1) {
                     $res['DependentServiceNames'][$n1++] = $item1;
                 }
@@ -113,7 +119,7 @@ class serviceProvisions extends Model
         if (isset($map['DependentServiceNames'])) {
             if (!empty($map['DependentServiceNames'])) {
                 $model->dependentServiceNames = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['DependentServiceNames'] as $item1) {
                     $model->dependentServiceNames[$n1++] = $item1;
                 }

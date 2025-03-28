@@ -12,12 +12,13 @@ class DeleteTemplateScratchRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $templateScratchId;
     protected $_name = [
-        'regionId'          => 'RegionId',
+        'regionId' => 'RegionId',
         'templateScratchId' => 'TemplateScratchId',
     ];
 

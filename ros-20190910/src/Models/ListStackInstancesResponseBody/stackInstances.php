@@ -12,53 +12,62 @@ class stackInstances extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $driftDetectionTime;
+
     /**
      * @var string
      */
     public $rdFolderId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackDriftStatus;
+
     /**
      * @var string
      */
     public $stackGroupId;
+
     /**
      * @var string
      */
     public $stackGroupName;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
     protected $_name = [
-        'accountId'          => 'AccountId',
+        'accountId' => 'AccountId',
         'driftDetectionTime' => 'DriftDetectionTime',
-        'rdFolderId'         => 'RdFolderId',
-        'regionId'           => 'RegionId',
-        'stackDriftStatus'   => 'StackDriftStatus',
-        'stackGroupId'       => 'StackGroupId',
-        'stackGroupName'     => 'StackGroupName',
-        'stackId'            => 'StackId',
-        'status'             => 'Status',
-        'statusReason'       => 'StatusReason',
+        'rdFolderId' => 'RdFolderId',
+        'regionId' => 'RegionId',
+        'stackDriftStatus' => 'StackDriftStatus',
+        'stackGroupId' => 'StackGroupId',
+        'stackGroupName' => 'StackGroupName',
+        'stackId' => 'StackId',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
     ];
 
     public function validate()

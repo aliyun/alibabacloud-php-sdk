@@ -233,6 +233,7 @@ class ROS extends OpenApiClient
      *
      * @param request - CancelStackOperationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelStackOperationResponse
      *
      * @param CancelStackOperationRequest $request
@@ -264,24 +265,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelStackOperation',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelStackOperation',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelStackOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelStackOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelStackOperationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Cancels operations on a stack.
      *
      * @param request - CancelStackOperationRequest
+     *
      * @returns CancelStackOperationResponse
      *
      * @param CancelStackOperationRequest $request
@@ -300,6 +305,7 @@ class ROS extends OpenApiClient
      *
      * @param request - CancelUpdateStackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelUpdateStackResponse
      *
      * @param CancelUpdateStackRequest $request
@@ -327,24 +333,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelUpdateStack',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelUpdateStack',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelUpdateStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelUpdateStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelUpdateStackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Cancels an update operation on a stack. You can call this operation to cancel an update operation on a stack when the stack is being updated or created.
      *
      * @param request - CancelUpdateStackRequest
+     *
      * @returns CancelUpdateStackResponse
      *
      * @param CancelUpdateStackRequest $request
@@ -366,6 +376,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ContinueCreateStackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ContinueCreateStackResponse
      *
      * @param ContinueCreateStackRequest $request
@@ -433,18 +444,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ContinueCreateStack',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ContinueCreateStack',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ContinueCreateStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ContinueCreateStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ContinueCreateStackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -454,6 +468,7 @@ class ROS extends OpenApiClient
      * This topic provides an example on how to continue to create a stack after the stack fails to be created. In this example, the stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is created in the China (Hangzhou) region.
      *
      * @param request - ContinueCreateStackRequest
+     *
      * @returns ContinueCreateStackResponse
      *
      * @param ContinueCreateStackRequest $request
@@ -472,6 +487,7 @@ class ROS extends OpenApiClient
      *
      * @param request - CreateAITaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAITaskResponse
      *
      * @param CreateAITaskRequest $request
@@ -502,27 +518,31 @@ class ROS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAITask',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAITask',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateAITaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateAITaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateAITaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * 创建AI任务
      *
      * @param request - CreateAITaskRequest
+     *
      * @returns CreateAITaskResponse
      *
      * @param CreateAITaskRequest $request
@@ -558,6 +578,7 @@ class ROS extends OpenApiClient
      *
      * @param request - CreateChangeSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateChangeSetResponse
      *
      * @param CreateChangeSetRequest $request
@@ -613,6 +634,10 @@ class ROS extends OpenApiClient
             @$query['ReplacementOption'] = $request->replacementOption;
         }
 
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
         if (null !== $request->resourcesToImport) {
             @$query['ResourcesToImport'] = $request->resourcesToImport;
         }
@@ -639,6 +664,10 @@ class ROS extends OpenApiClient
 
         if (null !== $request->stackPolicyURL) {
             @$query['StackPolicyURL'] = $request->stackPolicyURL;
+        }
+
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
         }
 
         if (null !== $request->templateId) {
@@ -672,21 +701,24 @@ class ROS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateChangeSet',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateChangeSet',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateChangeSetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -710,6 +742,7 @@ class ROS extends OpenApiClient
      * This topic provides an example on how to use a change set to update a stack. In this example, a change set named `MyChangeSet` is created in the `China (Hangzhou)` region. The template of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is updated to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
      *
      * @param request - CreateChangeSetRequest
+     *
      * @returns CreateChangeSetResponse
      *
      * @param CreateChangeSetRequest $request
@@ -728,6 +761,7 @@ class ROS extends OpenApiClient
      *
      * @param request - CreateDiagnosticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDiagnosticResponse
      *
      * @param CreateDiagnosticRequest $request
@@ -759,24 +793,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDiagnostic',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDiagnostic',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateDiagnosticResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateDiagnosticResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDiagnosticResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Creates a dignosis task.
      *
      * @param request - CreateDiagnosticRequest
+     *
      * @returns CreateDiagnosticResponse
      *
      * @param CreateDiagnosticRequest $request
@@ -802,6 +840,7 @@ class ROS extends OpenApiClient
      *
      * @param request - CreateStackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateStackResponse
      *
      * @param CreateStackRequest $request
@@ -904,21 +943,24 @@ class ROS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateStack',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateStack',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateStackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -932,6 +974,7 @@ class ROS extends OpenApiClient
      * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template. In this example, `TemplateBody` is set to `{"ROSTemplateFormatVersion":"2015-09-01"}`.
      *
      * @param request - CreateStackRequest
+     *
      * @returns CreateStackResponse
      *
      * @param CreateStackRequest $request
@@ -958,6 +1001,7 @@ class ROS extends OpenApiClient
      *
      * @param tmpReq - CreateStackGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateStackGroupResponse
      *
      * @param CreateStackGroupRequest $tmpReq
@@ -1046,21 +1090,24 @@ class ROS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateStackGroup',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateStackGroup',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateStackGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1075,6 +1122,7 @@ class ROS extends OpenApiClient
      * In this topic, a stack group named `MyStackGroup` is created in the `China (Hangzhou)` region and granted the self-managed permissions. In this example, the template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is used.
      *
      * @param request - CreateStackGroupRequest
+     *
      * @returns CreateStackGroupResponse
      *
      * @param CreateStackGroupRequest $request
@@ -1097,6 +1145,7 @@ class ROS extends OpenApiClient
      *
      * @param tmpReq - CreateStackInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateStackInstancesResponse
      *
      * @param CreateStackInstancesRequest $tmpReq
@@ -1178,18 +1227,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateStackInstances',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateStackInstances',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateStackInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1200,6 +1252,7 @@ class ROS extends OpenApiClient
      * In this topic, the stack group named `MyStackGroup` is used. The stack group is created in the China (Hangzhou) region and granted the self-managed permissions. In this example, stacks are created by using Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
      *
      * @param request - CreateStackInstancesRequest
+     *
      * @returns CreateStackInstancesResponse
      *
      * @param CreateStackInstancesRequest $request
@@ -1221,6 +1274,7 @@ class ROS extends OpenApiClient
      *
      * @param request - CreateTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTemplateResponse
      *
      * @param CreateTemplateRequest $request
@@ -1263,21 +1317,24 @@ class ROS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateTemplate',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTemplate',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1287,6 +1344,7 @@ class ROS extends OpenApiClient
      * In this topic, a custom template named `MyTemplate` is created in the `cn-hangzhou` region. The `TemplateBody` parameter of the template is set to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
      *
      * @param request - CreateTemplateRequest
+     *
      * @returns CreateTemplateResponse
      *
      * @param CreateTemplateRequest $request
@@ -1320,6 +1378,7 @@ class ROS extends OpenApiClient
      *
      * @param tmpReq - CreateTemplateScratchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateTemplateScratchResponse
      *
      * @param CreateTemplateScratchRequest $tmpReq
@@ -1401,18 +1460,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateTemplateScratch',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateTemplateScratch',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTemplateScratchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1434,6 +1496,7 @@ class ROS extends OpenApiClient
      * This topic provides an example on how to create a resource replication scenario in the China (Hangzhou) region to replicate a resource. In this example, a virtual private cloud (VPC) whose ID is `vpc-bp1m6fww66xbntjyc****` is replicated.
      *
      * @param request - CreateTemplateScratchRequest
+     *
      * @returns CreateTemplateScratchResponse
      *
      * @param CreateTemplateScratchRequest $request
@@ -1461,6 +1524,7 @@ class ROS extends OpenApiClient
      *
      * @param request - DeleteChangeSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteChangeSetResponse
      *
      * @param DeleteChangeSetRequest $request
@@ -1484,18 +1548,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteChangeSet',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteChangeSet',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteChangeSetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1511,6 +1578,7 @@ class ROS extends OpenApiClient
      * In this example, a change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is deleted. The change set is created in the China (Hangzhou) region.
      *
      * @param request - DeleteChangeSetRequest
+     *
      * @returns DeleteChangeSetResponse
      *
      * @param DeleteChangeSetRequest $request
@@ -1529,6 +1597,7 @@ class ROS extends OpenApiClient
      *
      * @param request - DeleteDiagnosticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDiagnosticResponse
      *
      * @param DeleteDiagnosticRequest $request
@@ -1548,24 +1617,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDiagnostic',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDiagnostic',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteDiagnosticResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteDiagnosticResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDiagnosticResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Deletes a diagnostic record.
      *
      * @param request - DeleteDiagnosticRequest
+     *
      * @returns DeleteDiagnosticResponse
      *
      * @param DeleteDiagnosticRequest $request
@@ -1584,6 +1657,7 @@ class ROS extends OpenApiClient
      *
      * @param request - DeleteStackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteStackResponse
      *
      * @param DeleteStackRequest $request
@@ -1627,24 +1701,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteStack',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteStack',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteStackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Deletes a stack. You can specify whether to retain resources.
      *
      * @param request - DeleteStackRequest
+     *
      * @returns DeleteStackResponse
      *
      * @param DeleteStackRequest $request
@@ -1667,6 +1745,7 @@ class ROS extends OpenApiClient
      *
      * @param request - DeleteStackGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteStackGroupResponse
      *
      * @param DeleteStackGroupRequest $request
@@ -1690,18 +1769,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteStackGroup',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteStackGroup',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteStackGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1712,6 +1794,7 @@ class ROS extends OpenApiClient
      * This topic provides an example on how to delete a stack group. In this example, a stack group named `MyStackGroup` in the China (Hangzhou) region is deleted.
      *
      * @param request - DeleteStackGroupRequest
+     *
      * @returns DeleteStackGroupResponse
      *
      * @param DeleteStackGroupRequest $request
@@ -1733,6 +1816,7 @@ class ROS extends OpenApiClient
      *
      * @param tmpReq - DeleteStackInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteStackInstancesResponse
      *
      * @param DeleteStackInstancesRequest $tmpReq
@@ -1802,18 +1886,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteStackInstances',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteStackInstances',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteStackInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1823,6 +1910,7 @@ class ROS extends OpenApiClient
      * In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. In this example, the stacks of the stack group that are deployed in the China (Beijing) region by using the Alibaba Cloud account whose ID is `151266687691****` are deleted.
      *
      * @param request - DeleteStackInstancesRequest
+     *
      * @returns DeleteStackInstancesResponse
      *
      * @param DeleteStackInstancesRequest $request
@@ -1844,6 +1932,7 @@ class ROS extends OpenApiClient
      *
      * @param request - DeleteTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTemplateResponse
      *
      * @param DeleteTemplateRequest $request
@@ -1863,18 +1952,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTemplate',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTemplate',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1884,6 +1976,7 @@ class ROS extends OpenApiClient
      * If a template is shared with other Alibaba Cloud accounts, you must unshare the template before you delete it.
      *
      * @param request - DeleteTemplateRequest
+     *
      * @returns DeleteTemplateResponse
      *
      * @param DeleteTemplateRequest $request
@@ -1905,6 +1998,7 @@ class ROS extends OpenApiClient
      *
      * @param request - DeleteTemplateScratchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteTemplateScratchResponse
      *
      * @param DeleteTemplateScratchRequest $request
@@ -1928,18 +2022,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteTemplateScratch',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteTemplateScratch',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTemplateScratchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -1949,6 +2046,7 @@ class ROS extends OpenApiClient
      * In this topic, a scenario whose ID is `ts-4f83704400994409****` is deleted in the China (Hangzhou) region.
      *
      * @param request - DeleteTemplateScratchRequest
+     *
      * @returns DeleteTemplateScratchResponse
      *
      * @param DeleteTemplateScratchRequest $request
@@ -1974,6 +2072,7 @@ class ROS extends OpenApiClient
      *
      * @param request - DeregisterResourceTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeregisterResourceTypeResponse
      *
      * @param DeregisterResourceTypeRequest $request
@@ -1997,18 +2096,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeregisterResourceType',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeregisterResourceType',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeregisterResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeregisterResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeregisterResourceTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2022,6 +2124,7 @@ class ROS extends OpenApiClient
      * *   When a resource type has only one version, you can delete the resource type and the version by calling the operation.
      *
      * @param request - DeregisterResourceTypeRequest
+     *
      * @returns DeregisterResourceTypeResponse
      *
      * @param DeregisterResourceTypeRequest $request
@@ -2040,6 +2143,7 @@ class ROS extends OpenApiClient
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -2059,24 +2163,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeRegionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries a list of available regions.
      *
      * @param request - DescribeRegionsRequest
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -2095,6 +2203,7 @@ class ROS extends OpenApiClient
      *
      * @param request - DetectStackDriftRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetectStackDriftResponse
      *
      * @param DetectStackDriftRequest $request
@@ -2126,24 +2235,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetectStackDrift',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetectStackDrift',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetectStackDriftResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetectStackDriftResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetectStackDriftResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * You can call this operation to detect drift on a stack.
      *
      * @param request - DetectStackDriftRequest
+     *
      * @returns DetectStackDriftResponse
      *
      * @param DetectStackDriftRequest $request
@@ -2160,6 +2273,7 @@ class ROS extends OpenApiClient
     /**
      * @param tmpReq - DetectStackGroupDriftRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetectStackGroupDriftResponse
      *
      * @param DetectStackGroupDriftRequest $tmpReq
@@ -2197,22 +2311,26 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetectStackGroupDrift',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetectStackGroupDrift',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetectStackGroupDriftResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetectStackGroupDriftResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetectStackGroupDriftResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * @param request - DetectStackGroupDriftRequest
+     *
      * @returns DetectStackGroupDriftResponse
      *
      * @param DetectStackGroupDriftRequest $request
@@ -2231,6 +2349,7 @@ class ROS extends OpenApiClient
      *
      * @param request - DetectStackResourceDriftRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetectStackResourceDriftResponse
      *
      * @param DetectStackResourceDriftRequest $request
@@ -2262,24 +2381,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetectStackResourceDrift',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetectStackResourceDrift',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DetectStackResourceDriftResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DetectStackResourceDriftResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetectStackResourceDriftResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Performs drift detection on resources in a stack to determine whether the resources have drifted from the expected configurations.
      *
      * @param request - DetectStackResourceDriftRequest
+     *
      * @returns DetectStackResourceDriftResponse
      *
      * @param DetectStackResourceDriftRequest $request
@@ -2301,6 +2424,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ExecuteChangeSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExecuteChangeSetResponse
      *
      * @param ExecuteChangeSetRequest $request
@@ -2328,18 +2452,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExecuteChangeSet',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExecuteChangeSet',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ExecuteChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ExecuteChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ExecuteChangeSetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2349,6 +2476,7 @@ class ROS extends OpenApiClient
      * In this example, the change set whose ID is `1f6521a4-05af-4975-afe9-bc4b45ad****` is executed. The change set is created in the `China (Hangzhou)` region.
      *
      * @param request - ExecuteChangeSetRequest
+     *
      * @returns ExecuteChangeSetResponse
      *
      * @param ExecuteChangeSetRequest $request
@@ -2371,6 +2499,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GenerateTemplateByScratchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenerateTemplateByScratchResponse
      *
      * @param GenerateTemplateByScratchRequest $request
@@ -2402,18 +2531,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateTemplateByScratch',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateTemplateByScratch',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateTemplateByScratchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateTemplateByScratchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateTemplateByScratchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2424,6 +2556,7 @@ class ROS extends OpenApiClient
      * >  You cannot generate a template for a resource detection scenario.
      *
      * @param request - GenerateTemplateByScratchRequest
+     *
      * @returns GenerateTemplateByScratchResponse
      *
      * @param GenerateTemplateByScratchRequest $request
@@ -2446,6 +2579,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GenerateTemplatePolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenerateTemplatePolicyResponse
      *
      * @param GenerateTemplatePolicyRequest $request
@@ -2481,18 +2615,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenerateTemplatePolicy',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GenerateTemplatePolicy',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GenerateTemplatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GenerateTemplatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateTemplatePolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2503,6 +2640,7 @@ class ROS extends OpenApiClient
      * In this example, a policy is generated for a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****`.
      *
      * @param request - GenerateTemplatePolicyRequest
+     *
      * @returns GenerateTemplatePolicyResponse
      *
      * @param GenerateTemplatePolicyRequest $request
@@ -2521,6 +2659,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetAITaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAITaskResponse
      *
      * @param GetAITaskRequest $request
@@ -2544,24 +2683,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAITask',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAITask',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAITaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAITaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetAITaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * 查询指定AI任务信息.
      *
      * @param request - GetAITaskRequest
+     *
      * @returns GetAITaskResponse
      *
      * @param GetAITaskRequest $request
@@ -2583,6 +2726,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetChangeSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetChangeSetResponse
      *
      * @param GetChangeSetRequest $request
@@ -2610,18 +2754,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetChangeSet',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetChangeSet',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetChangeSetResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetChangeSetResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2631,6 +2778,7 @@ class ROS extends OpenApiClient
      * In this example, the details of a change set whose ID is `4c11658d-bd47-4dd0-ba64-727edc62****` is queried. The change set is created in the China (Hangzhou) region.
      *
      * @param request - GetChangeSetRequest
+     *
      * @returns GetChangeSetResponse
      *
      * @param GetChangeSetRequest $request
@@ -2649,6 +2797,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetDiagnosticRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDiagnosticResponse
      *
      * @param GetDiagnosticRequest $request
@@ -2668,24 +2817,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDiagnostic',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDiagnostic',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetDiagnosticResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetDiagnosticResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDiagnosticResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Obtains the diagnosis details based on a specified diagnostic report ID.
      *
      * @param request - GetDiagnosticRequest
+     *
      * @returns GetDiagnosticResponse
      *
      * @param GetDiagnosticRequest $request
@@ -2709,6 +2862,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetFeatureDetailsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetFeatureDetailsResponse
      *
      * @param GetFeatureDetailsRequest $request
@@ -2732,18 +2886,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetFeatureDetails',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetFeatureDetails',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetFeatureDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetFeatureDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetFeatureDetailsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2755,6 +2912,7 @@ class ROS extends OpenApiClient
      * >  In the Examples section, only part of the sample code is provided.
      *
      * @param request - GetFeatureDetailsRequest
+     *
      * @returns GetFeatureDetailsResponse
      *
      * @param GetFeatureDetailsRequest $request
@@ -2776,6 +2934,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetResourceTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResourceTypeResponse
      *
      * @param GetResourceTypeRequest $request
@@ -2799,18 +2958,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResourceType',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourceType',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2820,6 +2982,7 @@ class ROS extends OpenApiClient
      * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
      *
      * @param request - GetResourceTypeRequest
+     *
      * @returns GetResourceTypeResponse
      *
      * @param GetResourceTypeRequest $request
@@ -2838,6 +3001,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetResourceTypeTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResourceTypeTemplateResponse
      *
      * @param GetResourceTypeTemplateRequest $request
@@ -2861,24 +3025,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResourceTypeTemplate',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourceTypeTemplate',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetResourceTypeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetResourceTypeTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetResourceTypeTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Generates a sample template based on a resource type.
      *
      * @param request - GetResourceTypeTemplateRequest
+     *
      * @returns GetResourceTypeTemplateResponse
      *
      * @param GetResourceTypeTemplateRequest $request
@@ -2902,6 +3070,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetServiceProvisionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetServiceProvisionsResponse
      *
      * @param GetServiceProvisionsRequest $request
@@ -2944,21 +3113,24 @@ class ROS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetServiceProvisions',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetServiceProvisions',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetServiceProvisionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetServiceProvisionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetServiceProvisionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -2970,6 +3142,7 @@ class ROS extends OpenApiClient
      * > Make sure that you have the permissions to call the [GetRole](https://help.aliyun.com/document_detail/28711.html) operation.
      *
      * @param request - GetServiceProvisionsRequest
+     *
      * @returns GetServiceProvisionsResponse
      *
      * @param GetServiceProvisionsRequest $request
@@ -2991,6 +3164,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetStackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetStackResponse
      *
      * @param GetStackRequest $request
@@ -3030,18 +3204,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetStack',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetStack',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3051,6 +3228,7 @@ class ROS extends OpenApiClient
      * In this example, the information about a stack whose ID is `c754d2a4-28f1-46df-b557-9586173a****` in the China (Hangzhou) region is queried.
      *
      * @param request - GetStackRequest
+     *
      * @returns GetStackResponse
      *
      * @param GetStackRequest $request
@@ -3072,6 +3250,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetStackDriftDetectionStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetStackDriftDetectionStatusResponse
      *
      * @param GetStackDriftDetectionStatusRequest $request
@@ -3095,18 +3274,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetStackDriftDetectionStatus',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetStackDriftDetectionStatus',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetStackDriftDetectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetStackDriftDetectionStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStackDriftDetectionStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3116,6 +3298,7 @@ class ROS extends OpenApiClient
      * In this topic, the status of a drift detection operation whose ID is `a7044f0d-6f2e-4128-a307-4524ef88****` is queried. The operation is performed in the China (Hangzhou) region.
      *
      * @param request - GetStackDriftDetectionStatusRequest
+     *
      * @returns GetStackDriftDetectionStatusResponse
      *
      * @param GetStackDriftDetectionStatusRequest $request
@@ -3137,6 +3320,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetStackGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetStackGroupResponse
      *
      * @param GetStackGroupRequest $request
@@ -3164,18 +3348,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetStackGroup',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetStackGroup',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStackGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3185,6 +3372,7 @@ class ROS extends OpenApiClient
      * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
      *
      * @param request - GetStackGroupRequest
+     *
      * @returns GetStackGroupResponse
      *
      * @param GetStackGroupRequest $request
@@ -3206,6 +3394,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetStackGroupOperationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetStackGroupOperationResponse
      *
      * @param GetStackGroupOperationRequest $request
@@ -3229,18 +3418,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetStackGroupOperation',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetStackGroupOperation',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetStackGroupOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetStackGroupOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStackGroupOperationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3250,6 +3442,7 @@ class ROS extends OpenApiClient
      * In this example, the information about the stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863d****` is queried. The stack group named `MyStackGroup` is granted self-managed permissions and deployed in the China (Hangzhou) region.
      *
      * @param request - GetStackGroupOperationRequest
+     *
      * @returns GetStackGroupOperationResponse
      *
      * @param GetStackGroupOperationRequest $request
@@ -3271,6 +3464,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetStackInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetStackInstanceResponse
      *
      * @param GetStackInstanceRequest $request
@@ -3306,18 +3500,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetStackInstance',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetStackInstance',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetStackInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetStackInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStackInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3327,6 +3524,7 @@ class ROS extends OpenApiClient
      * In this example, the information about a stack instance associated with a stack group named `MyStackGroup` is queried. The stack instance is deployed in the China (Beijing) region within the `151266687691****` Alibaba Cloud account. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
      *
      * @param request - GetStackInstanceRequest
+     *
      * @returns GetStackInstanceResponse
      *
      * @param GetStackInstanceRequest $request
@@ -3348,6 +3546,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetStackPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetStackPolicyResponse
      *
      * @param GetStackPolicyRequest $request
@@ -3371,18 +3570,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetStackPolicy',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetStackPolicy',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetStackPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetStackPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStackPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3392,6 +3594,7 @@ class ROS extends OpenApiClient
      * In this example, the stack policy of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` is queried. The stack is deployed in the China (Hangzhou) region.
      *
      * @param request - GetStackPolicyRequest
+     *
      * @returns GetStackPolicyResponse
      *
      * @param GetStackPolicyRequest $request
@@ -3416,6 +3619,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetStackResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetStackResourceResponse
      *
      * @param GetStackResourceRequest $request
@@ -3455,18 +3659,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetStackResource',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetStackResource',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetStackResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetStackResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStackResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3479,6 +3686,7 @@ class ROS extends OpenApiClient
      * | 404 | StackNotFound | The Stack ({name}) could not be found. | The error message returned because the stack does not exist. name indicates the name or ID of the stack. |
      *
      * @param request - GetStackResourceRequest
+     *
      * @returns GetStackResourceResponse
      *
      * @param GetStackResourceRequest $request
@@ -3500,6 +3708,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTemplateResponse
      *
      * @param GetTemplateRequest $request
@@ -3551,18 +3760,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTemplate',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTemplate',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3572,6 +3784,7 @@ class ROS extends OpenApiClient
      * In this example, the details of a template whose ID is `5ecd1e10-b0e9-4389-a565-e4c15efc****` is queried. The region ID of the template is `cn-hangzhou`.
      *
      * @param request - GetTemplateRequest
+     *
      * @returns GetTemplateResponse
      *
      * @param GetTemplateRequest $request
@@ -3642,6 +3855,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetTemplateEstimateCostRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTemplateEstimateCostResponse
      *
      * @param GetTemplateEstimateCostRequest $request
@@ -3696,21 +3910,24 @@ class ROS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetTemplateEstimateCost',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTemplateEstimateCost',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTemplateEstimateCostResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTemplateEstimateCostResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTemplateEstimateCostResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3769,6 +3986,7 @@ class ROS extends OpenApiClient
      *     }
      *
      * @param request - GetTemplateEstimateCostRequest
+     *
      * @returns GetTemplateEstimateCostResponse
      *
      * @param GetTemplateEstimateCostRequest $request
@@ -3791,6 +4009,7 @@ class ROS extends OpenApiClient
      *
      * @param tmpReq - GetTemplateParameterConstraintsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTemplateParameterConstraintsResponse
      *
      * @param GetTemplateParameterConstraintsRequest $tmpReq
@@ -3855,21 +4074,24 @@ class ROS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetTemplateParameterConstraints',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTemplateParameterConstraints',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTemplateParameterConstraintsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTemplateParameterConstraintsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTemplateParameterConstraintsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -3880,6 +4102,7 @@ class ROS extends OpenApiClient
      * For more information about the template parameters whose values you can query by calling this operation and the sample code of the template, see [Query the constraints of parameters](https://help.aliyun.com/document_detail/432820.html).
      *
      * @param request - GetTemplateParameterConstraintsRequest
+     *
      * @returns GetTemplateParameterConstraintsResponse
      *
      * @param GetTemplateParameterConstraintsRequest $request
@@ -3898,6 +4121,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetTemplateRecommendParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTemplateRecommendParametersResponse
      *
      * @param GetTemplateRecommendParametersRequest $request
@@ -3941,24 +4165,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTemplateRecommendParameters',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTemplateRecommendParameters',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTemplateRecommendParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTemplateRecommendParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTemplateRecommendParametersResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * 推荐参数.
      *
      * @param request - GetTemplateRecommendParametersRequest
+     *
      * @returns GetTemplateRecommendParametersResponse
      *
      * @param GetTemplateRecommendParametersRequest $request
@@ -3980,6 +4208,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetTemplateScratchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTemplateScratchResponse
      *
      * @param GetTemplateScratchRequest $request
@@ -4007,18 +4236,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTemplateScratch',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTemplateScratch',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTemplateScratchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4028,6 +4260,7 @@ class ROS extends OpenApiClient
      * In this example, the details of the resource scenario whose ID is `ts-7f7a704cf71c49a6****` is queried. In the response, the source node data is displayed.
      *
      * @param request - GetTemplateScratchRequest
+     *
      * @returns GetTemplateScratchResponse
      *
      * @param GetTemplateScratchRequest $request
@@ -4046,6 +4279,7 @@ class ROS extends OpenApiClient
      *
      * @param request - GetTemplateSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTemplateSummaryResponse
      *
      * @param GetTemplateSummaryRequest $request
@@ -4101,24 +4335,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTemplateSummary',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTemplateSummary',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetTemplateSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetTemplateSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetTemplateSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries the information about a template resource by using the relevant template, stack, stack group, or change set.
      *
      * @param request - GetTemplateSummaryRequest
+     *
      * @returns GetTemplateSummaryResponse
      *
      * @param GetTemplateSummaryRequest $request
@@ -4137,6 +4375,7 @@ class ROS extends OpenApiClient
      *
      * @param tmpReq - ImportStacksToStackGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ImportStacksToStackGroupResponse
      *
      * @param ImportStacksToStackGroupRequest $tmpReq
@@ -4194,24 +4433,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ImportStacksToStackGroup',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ImportStacksToStackGroup',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ImportStacksToStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ImportStacksToStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImportStacksToStackGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Import stacks from multiple different accounts into a stack group.
      *
      * @param request - ImportStacksToStackGroupRequest
+     *
      * @returns ImportStacksToStackGroupResponse
      *
      * @param ImportStacksToStackGroupRequest $request
@@ -4230,6 +4473,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListAITaskEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAITaskEventsResponse
      *
      * @param ListAITaskEventsRequest $request
@@ -4257,24 +4501,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAITaskEvents',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAITaskEvents',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAITaskEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAITaskEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAITaskEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * 获取指定AITask事件列表.
      *
      * @param request - ListAITaskEventsRequest
+     *
      * @returns ListAITaskEventsResponse
      *
      * @param ListAITaskEventsRequest $request
@@ -4293,6 +4541,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListAITasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListAITasksResponse
      *
      * @param ListAITasksRequest $request
@@ -4324,24 +4573,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListAITasks',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListAITasks',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListAITasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListAITasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAITasksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * 查询AI任务列表.
      *
      * @param request - ListAITasksRequest
+     *
      * @returns ListAITasksResponse
      *
      * @param ListAITasksRequest $request
@@ -4360,6 +4613,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListChangeSetsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListChangeSetsResponse
      *
      * @param ListChangeSetsRequest $request
@@ -4407,24 +4661,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListChangeSets',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListChangeSets',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListChangeSetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListChangeSetsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListChangeSetsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries change sets.
      *
      * @param request - ListChangeSetsRequest
+     *
      * @returns ListChangeSetsResponse
      *
      * @param ListChangeSetsRequest $request
@@ -4443,6 +4701,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListDiagnosticsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDiagnosticsResponse
      *
      * @param ListDiagnosticsRequest $request
@@ -4478,24 +4737,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDiagnostics',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDiagnostics',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListDiagnosticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListDiagnosticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDiagnosticsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries a diagnostic report.
      *
      * @param request - ListDiagnosticsRequest
+     *
      * @returns ListDiagnosticsResponse
      *
      * @param ListDiagnosticsRequest $request
@@ -4514,6 +4777,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListResourceTypeRegistrationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResourceTypeRegistrationsResponse
      *
      * @param ListResourceTypeRegistrationsRequest $request
@@ -4553,24 +4817,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceTypeRegistrations',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResourceTypeRegistrations',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListResourceTypeRegistrationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListResourceTypeRegistrationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListResourceTypeRegistrationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries the registration records of a resource.
      *
      * @param request - ListResourceTypeRegistrationsRequest
+     *
      * @returns ListResourceTypeRegistrationsResponse
      *
      * @param ListResourceTypeRegistrationsRequest $request
@@ -4589,6 +4857,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListResourceTypeVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResourceTypeVersionsResponse
      *
      * @param ListResourceTypeVersionsRequest $request
@@ -4608,24 +4877,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceTypeVersions',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResourceTypeVersions',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListResourceTypeVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListResourceTypeVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListResourceTypeVersionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries the versions of resource types, including the resource types created by you and provided by Resource Orchestration Service (ROS).
      *
      * @param request - ListResourceTypeVersionsRequest
+     *
      * @returns ListResourceTypeVersionsResponse
      *
      * @param ListResourceTypeVersionsRequest $request
@@ -4647,6 +4920,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListResourceTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResourceTypesResponse
      *
      * @param ListResourceTypesRequest $request
@@ -4674,18 +4948,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceTypes',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResourceTypes',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListResourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListResourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListResourceTypesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4695,6 +4972,7 @@ class ROS extends OpenApiClient
      * For more information about errors common to all operations, see [Common error codes](/help/en/resource-orchestration-service/latest/common-error-codes).
      *
      * @param request - ListResourceTypesRequest
+     *
      * @returns ListResourceTypesResponse
      *
      * @param ListResourceTypesRequest $request
@@ -4713,6 +4991,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListStackEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListStackEventsResponse
      *
      * @param ListStackEventsRequest $request
@@ -4756,24 +5035,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListStackEvents',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListStackEvents',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListStackEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListStackEventsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListStackEventsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries a stack and the resource events of the stack.
      *
      * @param request - ListStackEventsRequest
+     *
      * @returns ListStackEventsResponse
      *
      * @param ListStackEventsRequest $request
@@ -4795,6 +5078,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListStackGroupOperationResultsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListStackGroupOperationResultsResponse
      *
      * @param ListStackGroupOperationResultsRequest $request
@@ -4826,18 +5110,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListStackGroupOperationResults',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListStackGroupOperationResults',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListStackGroupOperationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListStackGroupOperationResultsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListStackGroupOperationResultsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4847,6 +5134,7 @@ class ROS extends OpenApiClient
      * In this example, the operation ID `6da106ca-1784-4a6f-a7e1-e723863d∗∗∗∗` is set to query the results of an operation on a stack group named `MyStackGroup`. The stack group is granted self-managed permissions and created in the China (Hangzhou) region.
      *
      * @param request - ListStackGroupOperationResultsRequest
+     *
      * @returns ListStackGroupOperationResultsResponse
      *
      * @param ListStackGroupOperationResultsRequest $request
@@ -4865,6 +5153,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListStackGroupOperationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListStackGroupOperationsResponse
      *
      * @param ListStackGroupOperationsRequest $request
@@ -4896,24 +5185,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListStackGroupOperations',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListStackGroupOperations',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListStackGroupOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListStackGroupOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListStackGroupOperationsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries the information about stack group operations in an Alibaba Cloud region.
      *
      * @param request - ListStackGroupOperationsRequest
+     *
      * @returns ListStackGroupOperationsResponse
      *
      * @param ListStackGroupOperationsRequest $request
@@ -4935,6 +5228,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListStackGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListStackGroupsResponse
      *
      * @param ListStackGroupsRequest $request
@@ -4974,18 +5268,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListStackGroups',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListStackGroups',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListStackGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListStackGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListStackGroupsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -4995,6 +5292,7 @@ class ROS extends OpenApiClient
      * In this example, the list of stack groups that are in the ACTIVE state and deployed in the China (Hangzhou) region is queried.
      *
      * @param request - ListStackGroupsRequest
+     *
      * @returns ListStackGroupsResponse
      *
      * @param ListStackGroupsRequest $request
@@ -5016,6 +5314,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListStackInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListStackInstancesResponse
      *
      * @param ListStackInstancesRequest $request
@@ -5055,18 +5354,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListStackInstances',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListStackInstances',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListStackInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5076,6 +5378,7 @@ class ROS extends OpenApiClient
      * In this example, the list of stack instances that are associated with a stack group named `MyStackGroup` is queried. The stack group is granted self-managed permissions and deployed in the China (Hangzhou) region.
      *
      * @param request - ListStackInstancesRequest
+     *
      * @returns ListStackInstancesResponse
      *
      * @param ListStackInstancesRequest $request
@@ -5099,6 +5402,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListStackOperationRisksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListStackOperationRisksResponse
      *
      * @param ListStackOperationRisksRequest $request
@@ -5157,21 +5461,24 @@ class ROS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListStackOperationRisks',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListStackOperationRisks',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListStackOperationRisksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListStackOperationRisksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListStackOperationRisksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5183,6 +5490,7 @@ class ROS extends OpenApiClient
      * *   When you create a stack, the creation may fail. In this case, you can call this operation to check which types of permissions that are required to create stacks are missing.
      *
      * @param request - ListStackOperationRisksRequest
+     *
      * @returns ListStackOperationRisksResponse
      *
      * @param ListStackOperationRisksRequest $request
@@ -5201,6 +5509,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListStackResourceDriftsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListStackResourceDriftsResponse
      *
      * @param ListStackResourceDriftsRequest $request
@@ -5236,24 +5545,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListStackResourceDrifts',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListStackResourceDrifts',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListStackResourceDriftsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListStackResourceDriftsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListStackResourceDriftsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * The query token. Set this parameter to the NextToken value returned in the last API call.
      *
      * @param request - ListStackResourceDriftsRequest
+     *
      * @returns ListStackResourceDriftsResponse
      *
      * @param ListStackResourceDriftsRequest $request
@@ -5275,6 +5588,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListStackResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListStackResourcesResponse
      *
      * @param ListStackResourcesRequest $request
@@ -5298,18 +5612,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListStackResources',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListStackResources',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListStackResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListStackResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListStackResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5319,6 +5636,7 @@ class ROS extends OpenApiClient
      * For more information about common request parameters, see [Common parameters](https://help.aliyun.com/document_detail/131957.html).
      *
      * @param request - ListStackResourcesRequest
+     *
      * @returns ListStackResourcesResponse
      *
      * @param ListStackResourcesRequest $request
@@ -5341,6 +5659,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListStacksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListStacksResponse
      *
      * @param ListStacksRequest $request
@@ -5408,18 +5727,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListStacks',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListStacks',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListStacksResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListStacksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListStacksResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5430,6 +5752,7 @@ class ROS extends OpenApiClient
      * This topic provides an example on how to query a list of stacks. In this example, the stacks that are deployed in the China (Hangzhou) region are queried.
      *
      * @param request - ListStacksRequest
+     *
      * @returns ListStacksResponse
      *
      * @param ListStacksRequest $request
@@ -5451,6 +5774,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagKeysResponse
      *
      * @param ListTagKeysRequest $request
@@ -5478,18 +5802,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagKeys',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagKeys',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagKeysResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5499,6 +5826,7 @@ class ROS extends OpenApiClient
      * In this example, the tag keys that are added to a stack in the China (Hangzhou) region are queried.
      *
      * @param request - ListTagKeysRequest
+     *
      * @returns ListTagKeysResponse
      *
      * @param ListTagKeysRequest $request
@@ -5523,6 +5851,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -5558,18 +5887,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5582,6 +5914,7 @@ class ROS extends OpenApiClient
      * This topic provides an example on how to query the tags that are added to a stack. In this example, the stack ID is `6bc589b5-9c02-4944-8fc3-f3624234****`. The stack is deployed in the China (Hangzhou) region.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -5603,6 +5936,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListTagValuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagValuesResponse
      *
      * @param ListTagValuesRequest $request
@@ -5634,18 +5968,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagValues',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagValues',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagValuesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5655,6 +5992,7 @@ class ROS extends OpenApiClient
      * In this example, the tag values of `TagKey1` that is added to a stack in the China (Hangzhou) region are queried.
      *
      * @param request - ListTagValuesRequest
+     *
      * @returns ListTagValuesResponse
      *
      * @param ListTagValuesRequest $request
@@ -5676,6 +6014,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListTemplateScratchesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTemplateScratchesResponse
      *
      * @param ListTemplateScratchesRequest $request
@@ -5723,18 +6062,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTemplateScratches',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTemplateScratches',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTemplateScratchesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTemplateScratchesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTemplateScratchesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5744,6 +6086,7 @@ class ROS extends OpenApiClient
      * In this example, the scenarios that are created in the China (Hangzhou) region are queried. In the response, a scenario of the Resource Management and a scenario of the Resource Replication type are returned.
      *
      * @param request - ListTemplateScratchesRequest
+     *
      * @returns ListTemplateScratchesResponse
      *
      * @param ListTemplateScratchesRequest $request
@@ -5762,6 +6105,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ListTemplateVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTemplateVersionsResponse
      *
      * @param ListTemplateVersionsRequest $request
@@ -5789,24 +6133,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTemplateVersions',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTemplateVersions',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTemplateVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTemplateVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTemplateVersionsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Queries the list of versions of a template.
      *
      * @param request - ListTemplateVersionsRequest
+     *
      * @returns ListTemplateVersionsResponse
      *
      * @param ListTemplateVersionsRequest $request
@@ -5821,10 +6169,11 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * Queries a list of private or shared templates.
+     * List Templates.
      *
      * @param request - ListTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTemplatesResponse
      *
      * @param ListTemplatesRequest $request
@@ -5872,24 +6221,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTemplates',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTemplates',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTemplatesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * Queries a list of private or shared templates.
+     * List Templates.
      *
      * @param request - ListTemplatesRequest
+     *
      * @returns ListTemplatesResponse
      *
      * @param ListTemplatesRequest $request
@@ -5911,6 +6264,7 @@ class ROS extends OpenApiClient
      *
      * @param request - MoveResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns MoveResourceGroupResponse
      *
      * @param MoveResourceGroupRequest $request
@@ -5942,18 +6296,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'MoveResourceGroup',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'MoveResourceGroup',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return MoveResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return MoveResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -5963,6 +6320,7 @@ class ROS extends OpenApiClient
      * In this example, a stack deployed in the `China (Hangzhou)` region is moved to a specific resource group. The ID of the stack is `4e8611cb-251e-42b7-b9cb-3496362c****` and the ID of the resource group is `rg-acfm3peow3k****`.
      *
      * @param request - MoveResourceGroupRequest
+     *
      * @returns MoveResourceGroupResponse
      *
      * @param MoveResourceGroupRequest $request
@@ -5984,6 +6342,7 @@ class ROS extends OpenApiClient
      *
      * @param request - PreviewStackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PreviewStackResponse
      *
      * @param PreviewStackRequest $request
@@ -6066,21 +6425,24 @@ class ROS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PreviewStack',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PreviewStack',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PreviewStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return PreviewStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PreviewStackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6090,6 +6452,7 @@ class ROS extends OpenApiClient
      * This topic provides an example on how to create a stack named `MyStack` in the China (Hangzhou) region by using a template and preview the information about the stack. In this example, the `template body` is `{"ROSTemplateFormatVersion":"2015-09-01"}`.
      *
      * @param request - PreviewStackRequest
+     *
      * @returns PreviewStackResponse
      *
      * @param PreviewStackRequest $request
@@ -6112,6 +6475,7 @@ class ROS extends OpenApiClient
      *
      * @param request - RegisterResourceTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RegisterResourceTypeResponse
      *
      * @param RegisterResourceTypeRequest $request
@@ -6150,21 +6514,24 @@ class ROS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'RegisterResourceType',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RegisterResourceType',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RegisterResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return RegisterResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RegisterResourceTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6175,6 +6542,7 @@ class ROS extends OpenApiClient
      * *   If you create a new resource type, v1 is used as the default version of the resource type. You can call the SetResourceType operation to change the default version of a resource type.
      *
      * @param request - RegisterResourceTypeRequest
+     *
      * @returns RegisterResourceTypeResponse
      *
      * @param RegisterResourceTypeRequest $request
@@ -6191,6 +6559,7 @@ class ROS extends OpenApiClient
     /**
      * @param request - SetDeletionProtectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetDeletionProtectionResponse
      *
      * @param SetDeletionProtectionRequest $request
@@ -6218,22 +6587,26 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetDeletionProtection',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetDeletionProtection',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetDeletionProtectionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDeletionProtectionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * @param request - SetDeletionProtectionRequest
+     *
      * @returns SetDeletionProtectionResponse
      *
      * @param SetDeletionProtectionRequest $request
@@ -6252,6 +6625,7 @@ class ROS extends OpenApiClient
      *
      * @param request - SetResourceTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetResourceTypeResponse
      *
      * @param SetResourceTypeRequest $request
@@ -6283,24 +6657,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetResourceType',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetResourceType',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetResourceTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetResourceTypeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Modifies a resource type or a version of a resource type.
      *
      * @param request - SetResourceTypeRequest
+     *
      * @returns SetResourceTypeResponse
      *
      * @param SetResourceTypeRequest $request
@@ -6322,6 +6700,7 @@ class ROS extends OpenApiClient
      *
      * @param request - SetStackPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetStackPolicyResponse
      *
      * @param SetStackPolicyRequest $request
@@ -6353,18 +6732,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetStackPolicy',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetStackPolicy',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetStackPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetStackPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetStackPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6374,6 +6756,7 @@ class ROS extends OpenApiClient
      * In this example, a stack policy is configured for a stack deployed in the `China (Hangzhou)` region whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The URL to the stack policy body is `oss://ros/stack-policy/demo`.
      *
      * @param request - SetStackPolicyRequest
+     *
      * @returns SetStackPolicyResponse
      *
      * @param SetStackPolicyRequest $request
@@ -6396,6 +6779,7 @@ class ROS extends OpenApiClient
      *
      * @param request - SetTemplatePermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetTemplatePermissionResponse
      *
      * @param SetTemplatePermissionRequest $request
@@ -6431,18 +6815,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetTemplatePermission',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetTemplatePermission',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SetTemplatePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SetTemplatePermissionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetTemplatePermissionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6453,6 +6840,7 @@ class ROS extends OpenApiClient
      * > The recipient Alibaba Cloud account (ID: `151266687691****`) can authorize RAM users to use the shared template.
      *
      * @param request - SetTemplatePermissionRequest
+     *
      * @returns SetTemplatePermissionResponse
      *
      * @param SetTemplatePermissionRequest $request
@@ -6471,6 +6859,7 @@ class ROS extends OpenApiClient
      *
      * @param request - SignalResourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SignalResourceResponse
      *
      * @param SignalResourceRequest $request
@@ -6510,24 +6899,28 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SignalResource',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SignalResource',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return SignalResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return SignalResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SignalResourceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
      * Sends a signal to a resource in a stack.
      *
      * @param request - SignalResourceRequest
+     *
      * @returns SignalResourceResponse
      *
      * @param SignalResourceRequest $request
@@ -6549,6 +6942,7 @@ class ROS extends OpenApiClient
      *
      * @param request - StopStackGroupOperationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopStackGroupOperationResponse
      *
      * @param StopStackGroupOperationRequest $request
@@ -6572,18 +6966,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StopStackGroupOperation',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StopStackGroupOperation',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return StopStackGroupOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return StopStackGroupOperationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopStackGroupOperationResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6593,6 +6990,7 @@ class ROS extends OpenApiClient
      * This topic provides an example on how to stop a stack group operation whose ID is `6da106ca-1784-4a6f-a7e1-e723863****` in the China (Hangzhou) region.
      *
      * @param request - StopStackGroupOperationRequest
+     *
      * @returns StopStackGroupOperationResponse
      *
      * @param StopStackGroupOperationRequest $request
@@ -6614,6 +7012,7 @@ class ROS extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -6645,18 +7044,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6666,6 +7068,7 @@ class ROS extends OpenApiClient
      * This topic provides an example on how to create a tag and add the tag to a stack. In this example, the stack ID is `7fee80e1-8c48-4c2f-8300-0f6dc40b****`, the tag key is `FinanceDept`, and the tag value is `FinanceJoshua`.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -6687,6 +7090,7 @@ class ROS extends OpenApiClient
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -6722,18 +7126,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6743,6 +7150,7 @@ class ROS extends OpenApiClient
      * This topic provides an example on how to remove all tags from a stack that is deployed in the China (Hangzhou) region. In this example, the stack ID is `46ec7b78-9d5e-4b21-aefd-448c90aa****`.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -6767,6 +7175,7 @@ class ROS extends OpenApiClient
      *
      * @param request - UpdateStackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateStackResponse
      *
      * @param UpdateStackRequest $request
@@ -6869,21 +7278,24 @@ class ROS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateStack',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateStack',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateStackResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateStackResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -6896,6 +7308,7 @@ class ROS extends OpenApiClient
      * This topic describes how to update a stack. In this example, the template body of a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****` in the China (Beijing) region is updated to `{"ROSTemplateFormatVersion": "2015-09-01"}`.
      *
      * @param request - UpdateStackRequest
+     *
      * @returns UpdateStackResponse
      *
      * @param UpdateStackRequest $request
@@ -6918,6 +7331,7 @@ class ROS extends OpenApiClient
      *
      * @param tmpReq - UpdateStackGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateStackGroupResponse
      *
      * @param UpdateStackGroupRequest $tmpReq
@@ -7034,21 +7448,24 @@ class ROS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateStackGroup',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateStackGroup',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateStackGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateStackGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7059,6 +7476,7 @@ class ROS extends OpenApiClient
      * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (_). The name must start with a digit or a letter.
      *
      * @param request - UpdateStackGroupRequest
+     *
      * @returns UpdateStackGroupResponse
      *
      * @param UpdateStackGroupRequest $request
@@ -7080,6 +7498,7 @@ class ROS extends OpenApiClient
      *
      * @param tmpReq - UpdateStackInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateStackInstancesResponse
      *
      * @param UpdateStackInstancesRequest $tmpReq
@@ -7153,18 +7572,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateStackInstances',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateStackInstances',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateStackInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateStackInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7174,6 +7596,7 @@ class ROS extends OpenApiClient
      * In this topic, the stack group named `MyStackGroup` that is created in the China (Hangzhou) region is used. The stack group is granted the self-managed permissions. In this example, stacks of the stack group are updated by using the Alibaba Cloud accounts whose IDs are `151266687691****` and `141261387191****` in the China (Hangzhou) region and China (Beijing) region.
      *
      * @param request - UpdateStackInstancesRequest
+     *
      * @returns UpdateStackInstancesResponse
      *
      * @param UpdateStackInstancesRequest $request
@@ -7196,6 +7619,7 @@ class ROS extends OpenApiClient
      *
      * @param request - UpdateStackTemplateByResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateStackTemplateByResourcesResponse
      *
      * @param UpdateStackTemplateByResourcesRequest $request
@@ -7235,18 +7659,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateStackTemplateByResources',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateStackTemplateByResources',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateStackTemplateByResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateStackTemplateByResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateStackTemplateByResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7257,6 +7684,7 @@ class ROS extends OpenApiClient
      * In this topic, drift is eliminated for a stack whose ID is `4a6c9851-3b0f-4f5f-b4ca-a14bf691****`. The stack is deployed in the China (Hangzhou) region.
      *
      * @param request - UpdateStackTemplateByResourcesRequest
+     *
      * @returns UpdateStackTemplateByResourcesResponse
      *
      * @param UpdateStackTemplateByResourcesRequest $request
@@ -7271,16 +7699,17 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * Updates a template by specifying the template URL or template details.
+     * Update Template.
      *
      * @remarks
-     * When you update a template, take note of the following items:
-     * *   If you specify TemplateBody or TemplateURL, the existing version number is automatically incremented by 1 after the template is updated. For example, the version is changed from v1 to v2.
-     * *   If you do not specify TemplateBody or TemplateURL, the version number remains unchanged.
-     * *   A template can have up to 100 versions. If the number of templates reaches the upper limit, the template fails to be updated. You must create another template.
+     * When updating a template, please note:
+     * - If you specify `TemplateBody` or `TemplateURL`, the template version will be incremented by 1 after a successful update. For example, the version changes from v1 to v2.
+     * - If neither `TemplateBody` nor `TemplateURL` is specified, the template version remains unchanged.
+     * - A template can have up to 100 versions. If the version limit is reached, the template update will fail, and you need to recreate the template.
      *
      * @param request - UpdateTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTemplateResponse
      *
      * @param UpdateTemplateRequest $request
@@ -7327,33 +7756,37 @@ class ROS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTemplate',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTemplate',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * Updates a template by specifying the template URL or template details.
+     * Update Template.
      *
      * @remarks
-     * When you update a template, take note of the following items:
-     * *   If you specify TemplateBody or TemplateURL, the existing version number is automatically incremented by 1 after the template is updated. For example, the version is changed from v1 to v2.
-     * *   If you do not specify TemplateBody or TemplateURL, the version number remains unchanged.
-     * *   A template can have up to 100 versions. If the number of templates reaches the upper limit, the template fails to be updated. You must create another template.
+     * When updating a template, please note:
+     * - If you specify `TemplateBody` or `TemplateURL`, the template version will be incremented by 1 after a successful update. For example, the version changes from v1 to v2.
+     * - If neither `TemplateBody` nor `TemplateURL` is specified, the template version remains unchanged.
+     * - A template can have up to 100 versions. If the version limit is reached, the template update will fail, and you need to recreate the template.
      *
      * @param request - UpdateTemplateRequest
+     *
      * @returns UpdateTemplateResponse
      *
      * @param UpdateTemplateRequest $request
@@ -7386,6 +7819,7 @@ class ROS extends OpenApiClient
      *
      * @param tmpReq - UpdateTemplateScratchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateTemplateScratchResponse
      *
      * @param UpdateTemplateScratchRequest $tmpReq
@@ -7463,18 +7897,21 @@ class ROS extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateTemplateScratch',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateTemplateScratch',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateTemplateScratchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTemplateScratchResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7495,6 +7932,7 @@ class ROS extends OpenApiClient
      * This topic provides an example on how to update a resource scenario. In this example, the ID of a virtual private cloud (VPC) in a resource scenario whose ID is `ts-7f7a704cf71c49a6****` is updated to `vpc-bp1m6fww66xbntjyc****`.
      *
      * @param request - UpdateTemplateScratchRequest
+     *
      * @returns UpdateTemplateScratchResponse
      *
      * @param UpdateTemplateScratchRequest $request
@@ -7516,6 +7954,7 @@ class ROS extends OpenApiClient
      *
      * @param request - ValidateTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ValidateTemplateResponse
      *
      * @param ValidateTemplateRequest $request
@@ -7554,21 +7993,24 @@ class ROS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ValidateTemplate',
-            'version'     => '2019-09-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ValidateTemplate',
+            'version' => '2019-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ValidateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ValidateTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ValidateTemplateResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
@@ -7578,6 +8020,7 @@ class ROS extends OpenApiClient
      * In this example, a template that you want to use to create a stack is validated. `TemplateURL` is set to `oss://ros/template/demo`.
      *
      * @param request - ValidateTemplateRequest
+     *
      * @returns ValidateTemplateResponse
      *
      * @param ValidateTemplateRequest $request

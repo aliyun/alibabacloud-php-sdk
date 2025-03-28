@@ -13,63 +13,74 @@ class stackInstance extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $driftDetectionTime;
+
     /**
      * @var mixed[][]
      */
     public $outputs;
+
     /**
      * @var parameterOverrides[]
      */
     public $parameterOverrides;
+
     /**
      * @var string
      */
     public $rdFolderId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackDriftStatus;
+
     /**
      * @var string
      */
     public $stackGroupId;
+
     /**
      * @var string
      */
     public $stackGroupName;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
     protected $_name = [
-        'accountId'          => 'AccountId',
+        'accountId' => 'AccountId',
         'driftDetectionTime' => 'DriftDetectionTime',
-        'outputs'            => 'Outputs',
+        'outputs' => 'Outputs',
         'parameterOverrides' => 'ParameterOverrides',
-        'rdFolderId'         => 'RdFolderId',
-        'regionId'           => 'RegionId',
-        'stackDriftStatus'   => 'StackDriftStatus',
-        'stackGroupId'       => 'StackGroupId',
-        'stackGroupName'     => 'StackGroupName',
-        'stackId'            => 'StackId',
-        'status'             => 'Status',
-        'statusReason'       => 'StatusReason',
+        'rdFolderId' => 'RdFolderId',
+        'regionId' => 'RegionId',
+        'stackDriftStatus' => 'StackDriftStatus',
+        'stackGroupId' => 'StackGroupId',
+        'stackGroupName' => 'StackGroupName',
+        'stackId' => 'StackId',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
     ];
 
     public function validate()
@@ -97,7 +108,7 @@ class stackInstance extends Model
         if (null !== $this->outputs) {
             if (\is_array($this->outputs)) {
                 $res['Outputs'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->outputs as $item1) {
                     if (\is_array($item1)) {
                         $res['Outputs'][$n1++] = [];
@@ -112,7 +123,7 @@ class stackInstance extends Model
         if (null !== $this->parameterOverrides) {
             if (\is_array($this->parameterOverrides)) {
                 $res['ParameterOverrides'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->parameterOverrides as $item1) {
                     $res['ParameterOverrides'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -173,7 +184,7 @@ class stackInstance extends Model
         if (isset($map['Outputs'])) {
             if (!empty($map['Outputs'])) {
                 $model->outputs = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Outputs'] as $item1) {
                     if (!empty($item1)) {
                         $model->outputs[$n1++] = [];
@@ -188,7 +199,7 @@ class stackInstance extends Model
         if (isset($map['ParameterOverrides'])) {
             if (!empty($map['ParameterOverrides'])) {
                 $model->parameterOverrides = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ParameterOverrides'] as $item1) {
                     $model->parameterOverrides[$n1++] = parameterOverrides::fromMap($item1);
                 }

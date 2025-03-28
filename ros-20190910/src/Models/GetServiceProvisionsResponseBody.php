@@ -13,12 +13,13 @@ class GetServiceProvisionsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var serviceProvisions[]
      */
     public $serviceProvisions;
     protected $_name = [
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
         'serviceProvisions' => 'ServiceProvisions',
     ];
 
@@ -40,7 +41,7 @@ class GetServiceProvisionsResponseBody extends Model
         if (null !== $this->serviceProvisions) {
             if (\is_array($this->serviceProvisions)) {
                 $res['ServiceProvisions'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->serviceProvisions as $item1) {
                     $res['ServiceProvisions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class GetServiceProvisionsResponseBody extends Model
         if (isset($map['ServiceProvisions'])) {
             if (!empty($map['ServiceProvisions'])) {
                 $model->serviceProvisions = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ServiceProvisions'] as $item1) {
                     $model->serviceProvisions[$n1++] = serviceProvisions::fromMap($item1);
                 }

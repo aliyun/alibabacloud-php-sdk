@@ -12,18 +12,20 @@ class resourcesToImport extends Model
      * @var string
      */
     public $logicalResourceId;
+
     /**
      * @var string
      */
     public $resourceIdentifier;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'logicalResourceId'  => 'LogicalResourceId',
+        'logicalResourceId' => 'LogicalResourceId',
         'resourceIdentifier' => 'ResourceIdentifier',
-        'resourceType'       => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

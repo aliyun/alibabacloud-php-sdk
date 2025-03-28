@@ -12,23 +12,26 @@ class statement extends Model
      * @var string[]
      */
     public $action;
+
     /**
      * @var mixed[]
      */
     public $condition;
+
     /**
      * @var string
      */
     public $effect;
+
     /**
      * @var string
      */
     public $resource;
     protected $_name = [
-        'action'    => 'Action',
+        'action' => 'Action',
         'condition' => 'Condition',
-        'effect'    => 'Effect',
-        'resource'  => 'Resource',
+        'effect' => 'Effect',
+        'resource' => 'Resource',
     ];
 
     public function validate()
@@ -48,7 +51,7 @@ class statement extends Model
         if (null !== $this->action) {
             if (\is_array($this->action)) {
                 $res['Action'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->action as $item1) {
                     $res['Action'][$n1++] = $item1;
                 }
@@ -86,7 +89,7 @@ class statement extends Model
         if (isset($map['Action'])) {
             if (!empty($map['Action'])) {
                 $model->action = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Action'] as $item1) {
                     $model->action[$n1++] = $item1;
                 }

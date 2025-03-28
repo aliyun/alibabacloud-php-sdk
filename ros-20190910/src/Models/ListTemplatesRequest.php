@@ -14,43 +14,50 @@ class ListTemplatesRequest extends Model
      * @var filters[]
      */
     public $filters;
+
     /**
      * @var string
      */
     public $includeTags;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $shareType;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $templateName;
     protected $_name = [
-        'filters'         => 'Filters',
-        'includeTags'     => 'IncludeTags',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'filters' => 'Filters',
+        'includeTags' => 'IncludeTags',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
-        'shareType'       => 'ShareType',
-        'tag'             => 'Tag',
-        'templateName'    => 'TemplateName',
+        'shareType' => 'ShareType',
+        'tag' => 'Tag',
+        'templateName' => 'TemplateName',
     ];
 
     public function validate()
@@ -70,7 +77,7 @@ class ListTemplatesRequest extends Model
         if (null !== $this->filters) {
             if (\is_array($this->filters)) {
                 $res['Filters'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->filters as $item1) {
                     $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +107,7 @@ class ListTemplatesRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -125,7 +132,7 @@ class ListTemplatesRequest extends Model
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
                     $model->filters[$n1++] = filters::fromMap($item1);
                 }
@@ -155,7 +162,7 @@ class ListTemplatesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

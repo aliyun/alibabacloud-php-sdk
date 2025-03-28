@@ -12,13 +12,14 @@ class supportedResourceTypes extends Model
      * @var string[]
      */
     public $resourceIdentifiers;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
         'resourceIdentifiers' => 'ResourceIdentifiers',
-        'resourceType'        => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class supportedResourceTypes extends Model
         if (null !== $this->resourceIdentifiers) {
             if (\is_array($this->resourceIdentifiers)) {
                 $res['ResourceIdentifiers'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->resourceIdentifiers as $item1) {
                     $res['ResourceIdentifiers'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class supportedResourceTypes extends Model
         if (isset($map['ResourceIdentifiers'])) {
             if (!empty($map['ResourceIdentifiers'])) {
                 $model->resourceIdentifiers = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['ResourceIdentifiers'] as $item1) {
                     $model->resourceIdentifiers[$n1++] = $item1;
                 }

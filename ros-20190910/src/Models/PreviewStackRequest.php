@@ -13,88 +13,104 @@ class PreviewStackRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var bool
      */
     public $disableRollback;
+
     /**
      * @var bool
      */
     public $enablePreConfig;
+
     /**
      * @var int
      */
     public $parallelism;
+
     /**
      * @var parameters[]
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $stackName;
+
     /**
      * @var string
      */
     public $stackPolicyBody;
+
     /**
      * @var string
      */
     public $stackPolicyURL;
+
     /**
      * @var string
      */
     public $templateBody;
+
     /**
      * @var string
      */
     public $templateId;
+
     /**
      * @var string
      */
     public $templateScratchId;
+
     /**
      * @var string
      */
     public $templateScratchRegionId;
+
     /**
      * @var string
      */
     public $templateURL;
+
     /**
      * @var string
      */
     public $templateVersion;
+
     /**
      * @var int
      */
     public $timeoutInMinutes;
     protected $_name = [
-        'clientToken'             => 'ClientToken',
-        'disableRollback'         => 'DisableRollback',
-        'enablePreConfig'         => 'EnablePreConfig',
-        'parallelism'             => 'Parallelism',
-        'parameters'              => 'Parameters',
-        'regionId'                => 'RegionId',
-        'stackId'                 => 'StackId',
-        'stackName'               => 'StackName',
-        'stackPolicyBody'         => 'StackPolicyBody',
-        'stackPolicyURL'          => 'StackPolicyURL',
-        'templateBody'            => 'TemplateBody',
-        'templateId'              => 'TemplateId',
-        'templateScratchId'       => 'TemplateScratchId',
+        'clientToken' => 'ClientToken',
+        'disableRollback' => 'DisableRollback',
+        'enablePreConfig' => 'EnablePreConfig',
+        'parallelism' => 'Parallelism',
+        'parameters' => 'Parameters',
+        'regionId' => 'RegionId',
+        'stackId' => 'StackId',
+        'stackName' => 'StackName',
+        'stackPolicyBody' => 'StackPolicyBody',
+        'stackPolicyURL' => 'StackPolicyURL',
+        'templateBody' => 'TemplateBody',
+        'templateId' => 'TemplateId',
+        'templateScratchId' => 'TemplateScratchId',
         'templateScratchRegionId' => 'TemplateScratchRegionId',
-        'templateURL'             => 'TemplateURL',
-        'templateVersion'         => 'TemplateVersion',
-        'timeoutInMinutes'        => 'TimeoutInMinutes',
+        'templateURL' => 'TemplateURL',
+        'templateVersion' => 'TemplateVersion',
+        'timeoutInMinutes' => 'TimeoutInMinutes',
     ];
 
     public function validate()
@@ -127,7 +143,7 @@ class PreviewStackRequest extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['Parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -212,7 +228,7 @@ class PreviewStackRequest extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     $model->parameters[$n1++] = parameters::fromMap($item1);
                 }

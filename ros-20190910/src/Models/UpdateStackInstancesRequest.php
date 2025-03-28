@@ -14,53 +14,62 @@ class UpdateStackInstancesRequest extends Model
      * @var string[]
      */
     public $accountIds;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var deploymentTargets
      */
     public $deploymentTargets;
+
     /**
      * @var string
      */
     public $operationDescription;
+
     /**
      * @var mixed[]
      */
     public $operationPreferences;
+
     /**
      * @var parameterOverrides[]
      */
     public $parameterOverrides;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $regionIds;
+
     /**
      * @var string
      */
     public $stackGroupName;
+
     /**
      * @var int
      */
     public $timeoutInMinutes;
     protected $_name = [
-        'accountIds'           => 'AccountIds',
-        'clientToken'          => 'ClientToken',
-        'deploymentTargets'    => 'DeploymentTargets',
+        'accountIds' => 'AccountIds',
+        'clientToken' => 'ClientToken',
+        'deploymentTargets' => 'DeploymentTargets',
         'operationDescription' => 'OperationDescription',
         'operationPreferences' => 'OperationPreferences',
-        'parameterOverrides'   => 'ParameterOverrides',
-        'regionId'             => 'RegionId',
-        'regionIds'            => 'RegionIds',
-        'stackGroupName'       => 'StackGroupName',
-        'timeoutInMinutes'     => 'TimeoutInMinutes',
+        'parameterOverrides' => 'ParameterOverrides',
+        'regionId' => 'RegionId',
+        'regionIds' => 'RegionIds',
+        'stackGroupName' => 'StackGroupName',
+        'timeoutInMinutes' => 'TimeoutInMinutes',
     ];
 
     public function validate()
@@ -89,7 +98,7 @@ class UpdateStackInstancesRequest extends Model
         if (null !== $this->accountIds) {
             if (\is_array($this->accountIds)) {
                 $res['AccountIds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->accountIds as $item1) {
                     $res['AccountIds'][$n1++] = $item1;
                 }
@@ -120,7 +129,7 @@ class UpdateStackInstancesRequest extends Model
         if (null !== $this->parameterOverrides) {
             if (\is_array($this->parameterOverrides)) {
                 $res['ParameterOverrides'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->parameterOverrides as $item1) {
                     $res['ParameterOverrides'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -134,7 +143,7 @@ class UpdateStackInstancesRequest extends Model
         if (null !== $this->regionIds) {
             if (\is_array($this->regionIds)) {
                 $res['RegionIds'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->regionIds as $item1) {
                     $res['RegionIds'][$n1++] = $item1;
                 }
@@ -163,7 +172,7 @@ class UpdateStackInstancesRequest extends Model
         if (isset($map['AccountIds'])) {
             if (!empty($map['AccountIds'])) {
                 $model->accountIds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['AccountIds'] as $item1) {
                     $model->accountIds[$n1++] = $item1;
                 }
@@ -194,7 +203,7 @@ class UpdateStackInstancesRequest extends Model
         if (isset($map['ParameterOverrides'])) {
             if (!empty($map['ParameterOverrides'])) {
                 $model->parameterOverrides = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ParameterOverrides'] as $item1) {
                     $model->parameterOverrides[$n1++] = parameterOverrides::fromMap($item1);
                 }
@@ -208,7 +217,7 @@ class UpdateStackInstancesRequest extends Model
         if (isset($map['RegionIds'])) {
             if (!empty($map['RegionIds'])) {
                 $model->regionIds = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['RegionIds'] as $item1) {
                     $model->regionIds[$n1++] = $item1;
                 }

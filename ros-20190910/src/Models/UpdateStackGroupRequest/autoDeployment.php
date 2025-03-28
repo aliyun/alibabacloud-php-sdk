@@ -12,12 +12,13 @@ class autoDeployment extends Model
      * @var bool
      */
     public $enabled;
+
     /**
      * @var bool
      */
     public $retainStacksOnAccountRemoval;
     protected $_name = [
-        'enabled'                      => 'Enabled',
+        'enabled' => 'Enabled',
         'retainStacksOnAccountRemoval' => 'RetainStacksOnAccountRemoval',
     ];
 

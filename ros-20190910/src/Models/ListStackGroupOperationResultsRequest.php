@@ -12,23 +12,26 @@ class ListStackGroupOperationResultsRequest extends Model
      * @var string
      */
     public $operationId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'operationId' => 'OperationId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class DetectStackGroupDriftShrinkRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $operationPreferencesShrink;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackGroupName;
     protected $_name = [
-        'clientToken'                => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'operationPreferencesShrink' => 'OperationPreferences',
-        'regionId'                   => 'RegionId',
-        'stackGroupName'             => 'StackGroupName',
+        'regionId' => 'RegionId',
+        'stackGroupName' => 'StackGroupName',
     ];
 
     public function validate()

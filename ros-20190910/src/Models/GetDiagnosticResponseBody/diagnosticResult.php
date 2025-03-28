@@ -12,18 +12,20 @@ class diagnosticResult extends Model
      * @var mixed[]
      */
     public $failedResources;
+
     /**
      * @var mixed[]
      */
     public $rosActionMessages;
+
     /**
      * @var mixed[]
      */
     public $stackMessages;
     protected $_name = [
-        'failedResources'   => 'FailedResources',
+        'failedResources' => 'FailedResources',
         'rosActionMessages' => 'RosActionMessages',
-        'stackMessages'     => 'StackMessages',
+        'stackMessages' => 'StackMessages',
     ];
 
     public function validate()

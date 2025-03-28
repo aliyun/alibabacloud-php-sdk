@@ -12,33 +12,38 @@ class originalConstraints extends Model
      * @var mixed[]
      */
     public $allowedValues;
+
     /**
      * @var string
      */
     public $behavior;
+
     /**
      * @var string
      */
     public $behaviorReason;
+
     /**
      * @var string
      */
     public $propertyName;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'allowedValues'  => 'AllowedValues',
-        'behavior'       => 'Behavior',
+        'allowedValues' => 'AllowedValues',
+        'behavior' => 'Behavior',
         'behaviorReason' => 'BehaviorReason',
-        'propertyName'   => 'PropertyName',
-        'resourceName'   => 'ResourceName',
-        'resourceType'   => 'ResourceType',
+        'propertyName' => 'PropertyName',
+        'resourceName' => 'ResourceName',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -55,7 +60,7 @@ class originalConstraints extends Model
         if (null !== $this->allowedValues) {
             if (\is_array($this->allowedValues)) {
                 $res['AllowedValues'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->allowedValues as $item1) {
                     $res['AllowedValues'][$n1++] = $item1;
                 }
@@ -96,7 +101,7 @@ class originalConstraints extends Model
         if (isset($map['AllowedValues'])) {
             if (!empty($map['AllowedValues'])) {
                 $model->allowedValues = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['AllowedValues'] as $item1) {
                     $model->allowedValues[$n1++] = $item1;
                 }

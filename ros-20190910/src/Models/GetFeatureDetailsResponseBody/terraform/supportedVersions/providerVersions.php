@@ -12,12 +12,13 @@ class providerVersions extends Model
      * @var string
      */
     public $providerName;
+
     /**
      * @var string[]
      */
     public $supportedVersions;
     protected $_name = [
-        'providerName'      => 'ProviderName',
+        'providerName' => 'ProviderName',
         'supportedVersions' => 'SupportedVersions',
     ];
 
@@ -39,7 +40,7 @@ class providerVersions extends Model
         if (null !== $this->supportedVersions) {
             if (\is_array($this->supportedVersions)) {
                 $res['SupportedVersions'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->supportedVersions as $item1) {
                     $res['SupportedVersions'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class providerVersions extends Model
         if (isset($map['SupportedVersions'])) {
             if (!empty($map['SupportedVersions'])) {
                 $model->supportedVersions = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['SupportedVersions'] as $item1) {
                     $model->supportedVersions[$n1++] = $item1;
                 }

@@ -12,18 +12,20 @@ class CreateChangeSetResponseBody extends Model
      * @var string
      */
     public $changeSetId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $stackId;
     protected $_name = [
         'changeSetId' => 'ChangeSetId',
-        'requestId'   => 'RequestId',
-        'stackId'     => 'StackId',
+        'requestId' => 'RequestId',
+        'stackId' => 'StackId',
     ];
 
     public function validate()

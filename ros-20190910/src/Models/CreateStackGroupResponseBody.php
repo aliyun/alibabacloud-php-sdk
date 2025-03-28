@@ -12,12 +12,13 @@ class CreateStackGroupResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $stackGroupId;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'stackGroupId' => 'StackGroupId',
     ];
 

@@ -12,23 +12,26 @@ class SetResourceTypeRequest extends Model
      * @var string
      */
     public $defaultVersionId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $versionId;
     protected $_name = [
         'defaultVersionId' => 'DefaultVersionId',
-        'description'      => 'Description',
-        'resourceType'     => 'ResourceType',
-        'versionId'        => 'VersionId',
+        'description' => 'Description',
+        'resourceType' => 'ResourceType',
+        'versionId' => 'VersionId',
     ];
 
     public function validate()

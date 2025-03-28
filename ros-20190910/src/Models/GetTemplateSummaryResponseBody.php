@@ -13,38 +13,44 @@ class GetTemplateSummaryResponseBody extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var mixed[]
      */
     public $metadata;
+
     /**
      * @var mixed[][]
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceIdentifierSummaries[]
      */
     public $resourceIdentifierSummaries;
+
     /**
      * @var string[]
      */
     public $resourceTypes;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'description'                 => 'Description',
-        'metadata'                    => 'Metadata',
-        'parameters'                  => 'Parameters',
-        'requestId'                   => 'RequestId',
+        'description' => 'Description',
+        'metadata' => 'Metadata',
+        'parameters' => 'Parameters',
+        'requestId' => 'RequestId',
         'resourceIdentifierSummaries' => 'ResourceIdentifierSummaries',
-        'resourceTypes'               => 'ResourceTypes',
-        'version'                     => 'Version',
+        'resourceTypes' => 'ResourceTypes',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -83,7 +89,7 @@ class GetTemplateSummaryResponseBody extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['Parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     if (\is_array($item1)) {
                         $res['Parameters'][$n1++] = [];
@@ -102,7 +108,7 @@ class GetTemplateSummaryResponseBody extends Model
         if (null !== $this->resourceIdentifierSummaries) {
             if (\is_array($this->resourceIdentifierSummaries)) {
                 $res['ResourceIdentifierSummaries'] = [];
-                $n1                                 = 0;
+                $n1 = 0;
                 foreach ($this->resourceIdentifierSummaries as $item1) {
                     $res['ResourceIdentifierSummaries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -112,7 +118,7 @@ class GetTemplateSummaryResponseBody extends Model
         if (null !== $this->resourceTypes) {
             if (\is_array($this->resourceTypes)) {
                 $res['ResourceTypes'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->resourceTypes as $item1) {
                     $res['ResourceTypes'][$n1++] = $item1;
                 }
@@ -150,7 +156,7 @@ class GetTemplateSummaryResponseBody extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     if (!empty($item1)) {
                         $model->parameters[$n1++] = [];
@@ -169,7 +175,7 @@ class GetTemplateSummaryResponseBody extends Model
         if (isset($map['ResourceIdentifierSummaries'])) {
             if (!empty($map['ResourceIdentifierSummaries'])) {
                 $model->resourceIdentifierSummaries = [];
-                $n1                                 = 0;
+                $n1 = 0;
                 foreach ($map['ResourceIdentifierSummaries'] as $item1) {
                     $model->resourceIdentifierSummaries[$n1++] = resourceIdentifierSummaries::fromMap($item1);
                 }
@@ -179,7 +185,7 @@ class GetTemplateSummaryResponseBody extends Model
         if (isset($map['ResourceTypes'])) {
             if (!empty($map['ResourceTypes'])) {
                 $model->resourceTypes = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ResourceTypes'] as $item1) {
                     $model->resourceTypes[$n1++] = $item1;
                 }

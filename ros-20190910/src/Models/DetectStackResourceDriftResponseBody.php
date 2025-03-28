@@ -13,53 +13,62 @@ class DetectStackResourceDriftResponseBody extends Model
      * @var string
      */
     public $actualProperties;
+
     /**
      * @var string
      */
     public $driftDetectionTime;
+
     /**
      * @var string
      */
     public $expectedProperties;
+
     /**
      * @var string
      */
     public $logicalResourceId;
+
     /**
      * @var string
      */
     public $physicalResourceId;
+
     /**
      * @var propertyDifferences[]
      */
     public $propertyDifferences;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceDriftStatus;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $stackId;
     protected $_name = [
-        'actualProperties'    => 'ActualProperties',
-        'driftDetectionTime'  => 'DriftDetectionTime',
-        'expectedProperties'  => 'ExpectedProperties',
-        'logicalResourceId'   => 'LogicalResourceId',
-        'physicalResourceId'  => 'PhysicalResourceId',
+        'actualProperties' => 'ActualProperties',
+        'driftDetectionTime' => 'DriftDetectionTime',
+        'expectedProperties' => 'ExpectedProperties',
+        'logicalResourceId' => 'LogicalResourceId',
+        'physicalResourceId' => 'PhysicalResourceId',
         'propertyDifferences' => 'PropertyDifferences',
-        'requestId'           => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceDriftStatus' => 'ResourceDriftStatus',
-        'resourceType'        => 'ResourceType',
-        'stackId'             => 'StackId',
+        'resourceType' => 'ResourceType',
+        'stackId' => 'StackId',
     ];
 
     public function validate()
@@ -96,7 +105,7 @@ class DetectStackResourceDriftResponseBody extends Model
         if (null !== $this->propertyDifferences) {
             if (\is_array($this->propertyDifferences)) {
                 $res['PropertyDifferences'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->propertyDifferences as $item1) {
                     $res['PropertyDifferences'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -153,7 +162,7 @@ class DetectStackResourceDriftResponseBody extends Model
         if (isset($map['PropertyDifferences'])) {
             if (!empty($map['PropertyDifferences'])) {
                 $model->propertyDifferences = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['PropertyDifferences'] as $item1) {
                     $model->propertyDifferences[$n1++] = propertyDifferences::fromMap($item1);
                 }

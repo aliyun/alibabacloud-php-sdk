@@ -13,83 +13,98 @@ class GetStackResourceResponseBody extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $driftDetectionTime;
+
     /**
      * @var string
      */
     public $logicalResourceId;
+
     /**
      * @var mixed[]
      */
     public $metadata;
+
     /**
      * @var moduleInfo
      */
     public $moduleInfo;
+
     /**
      * @var string
      */
     public $physicalResourceId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var mixed[][]
      */
     public $resourceAttributes;
+
     /**
      * @var string
      */
     public $resourceDriftStatus;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $stackName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'          => 'CreateTime',
-        'description'         => 'Description',
-        'driftDetectionTime'  => 'DriftDetectionTime',
-        'logicalResourceId'   => 'LogicalResourceId',
-        'metadata'            => 'Metadata',
-        'moduleInfo'          => 'ModuleInfo',
-        'physicalResourceId'  => 'PhysicalResourceId',
-        'requestId'           => 'RequestId',
-        'resourceAttributes'  => 'ResourceAttributes',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'driftDetectionTime' => 'DriftDetectionTime',
+        'logicalResourceId' => 'LogicalResourceId',
+        'metadata' => 'Metadata',
+        'moduleInfo' => 'ModuleInfo',
+        'physicalResourceId' => 'PhysicalResourceId',
+        'requestId' => 'RequestId',
+        'resourceAttributes' => 'ResourceAttributes',
         'resourceDriftStatus' => 'ResourceDriftStatus',
-        'resourceType'        => 'ResourceType',
-        'stackId'             => 'StackId',
-        'stackName'           => 'StackName',
-        'status'              => 'Status',
-        'statusReason'        => 'StatusReason',
-        'updateTime'          => 'UpdateTime',
+        'resourceType' => 'ResourceType',
+        'stackId' => 'StackId',
+        'stackName' => 'StackName',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -149,7 +164,7 @@ class GetStackResourceResponseBody extends Model
         if (null !== $this->resourceAttributes) {
             if (\is_array($this->resourceAttributes)) {
                 $res['ResourceAttributes'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->resourceAttributes as $item1) {
                     if (\is_array($item1)) {
                         $res['ResourceAttributes'][$n1++] = [];
@@ -240,7 +255,7 @@ class GetStackResourceResponseBody extends Model
         if (isset($map['ResourceAttributes'])) {
             if (!empty($map['ResourceAttributes'])) {
                 $model->resourceAttributes = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['ResourceAttributes'] as $item1) {
                     if (!empty($item1)) {
                         $model->resourceAttributes[$n1++] = [];

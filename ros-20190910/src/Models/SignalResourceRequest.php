@@ -12,33 +12,38 @@ class SignalResourceRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $logicalResourceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $uniqueId;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'logicalResourceId' => 'LogicalResourceId',
-        'regionId'          => 'RegionId',
-        'stackId'           => 'StackId',
-        'status'            => 'Status',
-        'uniqueId'          => 'UniqueId',
+        'regionId' => 'RegionId',
+        'stackId' => 'StackId',
+        'status' => 'Status',
+        'uniqueId' => 'UniqueId',
     ];
 
     public function validate()

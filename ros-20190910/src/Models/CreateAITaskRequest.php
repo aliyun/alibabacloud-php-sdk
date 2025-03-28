@@ -12,22 +12,25 @@ class CreateAITaskRequest extends Model
      * @var string
      */
     public $prompt;
+
     /**
      * @var string
      */
     public $taskType;
+
     /**
      * @var string
      */
     public $template;
+
     /**
      * @var string
      */
     public $templateType;
     protected $_name = [
-        'prompt'       => 'Prompt',
-        'taskType'     => 'TaskType',
-        'template'     => 'Template',
+        'prompt' => 'Prompt',
+        'taskType' => 'TaskType',
+        'template' => 'Template',
         'templateType' => 'TemplateType',
     ];
 

@@ -12,23 +12,26 @@ class DetectStackResourceDriftRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $logicalResourceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $stackId;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
+        'clientToken' => 'ClientToken',
         'logicalResourceId' => 'LogicalResourceId',
-        'regionId'          => 'RegionId',
-        'stackId'           => 'StackId',
+        'regionId' => 'RegionId',
+        'stackId' => 'StackId',
     ];
 
     public function validate()
