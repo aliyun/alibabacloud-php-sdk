@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreateEssOptJobResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class response extends Model
 {
     /**
-     * @example {}
-     *
      * @var mixed
      */
     public $debugInfo;
 
     /**
-     * @example LoadForecast
-     *
      * @var string
      */
     public $jobType;
 
     /**
-     * @example {}
-     *
      * @var mixed
      */
     public $result;
@@ -34,17 +28,22 @@ class response extends Model
         'result' => 'Result',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->debugInfo) {
             $res['DebugInfo'] = $this->debugInfo;
         }
+
         if (null !== $this->jobType) {
             $res['JobType'] = $this->jobType;
         }
+
         if (null !== $this->result) {
             $res['Result'] = $this->result;
         }
@@ -52,20 +51,22 @@ class response extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return response
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DebugInfo'])) {
             $model->debugInfo = $map['DebugInfo'];
         }
+
         if (isset($map['JobType'])) {
             $model->jobType = $map['JobType'];
         }
+
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
         }

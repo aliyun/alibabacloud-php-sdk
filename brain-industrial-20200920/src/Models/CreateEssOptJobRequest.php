@@ -4,17 +4,15 @@
 
 namespace AlibabaCloud\SDK\Brainindustrial\V20200920\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreateEssOptJobRequest\elecPrice;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreateEssOptJobRequest\genPrice;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreateEssOptJobRequest\location;
 use AlibabaCloud\SDK\Brainindustrial\V20200920\Models\CreateEssOptJobRequest\systemData;
-use AlibabaCloud\Tea\Model;
 
 class CreateEssOptJobRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $duration;
@@ -25,8 +23,6 @@ class CreateEssOptJobRequest extends Model
     public $elecPrice;
 
     /**
-     * @example FIFTEEN_MIN
-     *
      * @var string
      */
     public $freq;
@@ -42,15 +38,11 @@ class CreateEssOptJobRequest extends Model
     public $location;
 
     /**
-     * @example latest
-     *
      * @var string
      */
     public $modelVersion;
 
     /**
-     * @example 2025-02-12
-     *
      * @var string
      */
     public $runDate;
@@ -61,15 +53,11 @@ class CreateEssOptJobRequest extends Model
     public $systemData;
 
     /**
-     * @example Asia/Shanghai
-     *
      * @var string
      */
     public $timeZone;
 
     /**
-     * @example LOAD_ESS_SOLAR
-     *
      * @var string
      */
     public $topoType;
@@ -86,56 +74,80 @@ class CreateEssOptJobRequest extends Model
         'topoType' => 'TopoType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->elecPrice)) {
+            Model::validateArray($this->elecPrice);
+        }
+        if (\is_array($this->genPrice)) {
+            Model::validateArray($this->genPrice);
+        }
+        if (null !== $this->location) {
+            $this->location->validate();
+        }
+        if (\is_array($this->systemData)) {
+            Model::validateArray($this->systemData);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
         }
+
         if (null !== $this->elecPrice) {
-            $res['ElecPrice'] = [];
-            if (null !== $this->elecPrice && \is_array($this->elecPrice)) {
-                $n = 0;
-                foreach ($this->elecPrice as $item) {
-                    $res['ElecPrice'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->elecPrice)) {
+                $res['ElecPrice'] = [];
+                $n1 = 0;
+                foreach ($this->elecPrice as $item1) {
+                    $res['ElecPrice'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->freq) {
             $res['Freq'] = $this->freq;
         }
+
         if (null !== $this->genPrice) {
-            $res['GenPrice'] = [];
-            if (null !== $this->genPrice && \is_array($this->genPrice)) {
-                $n = 0;
-                foreach ($this->genPrice as $item) {
-                    $res['GenPrice'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->genPrice)) {
+                $res['GenPrice'] = [];
+                $n1 = 0;
+                foreach ($this->genPrice as $item1) {
+                    $res['GenPrice'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->location) {
-            $res['Location'] = null !== $this->location ? $this->location->toMap() : null;
+            $res['Location'] = null !== $this->location ? $this->location->toArray($noStream) : $this->location;
         }
+
         if (null !== $this->modelVersion) {
             $res['ModelVersion'] = $this->modelVersion;
         }
+
         if (null !== $this->runDate) {
             $res['RunDate'] = $this->runDate;
         }
+
         if (null !== $this->systemData) {
-            $res['SystemData'] = [];
-            if (null !== $this->systemData && \is_array($this->systemData)) {
-                $n = 0;
-                foreach ($this->systemData as $item) {
-                    $res['SystemData'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->systemData)) {
+                $res['SystemData'] = [];
+                $n1 = 0;
+                foreach ($this->systemData as $item1) {
+                    $res['SystemData'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->timeZone) {
             $res['TimeZone'] = $this->timeZone;
         }
+
         if (null !== $this->topoType) {
             $res['TopoType'] = $this->topoType;
         }
@@ -143,59 +155,68 @@ class CreateEssOptJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateEssOptJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
         }
+
         if (isset($map['ElecPrice'])) {
             if (!empty($map['ElecPrice'])) {
                 $model->elecPrice = [];
-                $n = 0;
-                foreach ($map['ElecPrice'] as $item) {
-                    $model->elecPrice[$n++] = null !== $item ? elecPrice::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ElecPrice'] as $item1) {
+                    $model->elecPrice[$n1++] = elecPrice::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Freq'])) {
             $model->freq = $map['Freq'];
         }
+
         if (isset($map['GenPrice'])) {
             if (!empty($map['GenPrice'])) {
                 $model->genPrice = [];
-                $n = 0;
-                foreach ($map['GenPrice'] as $item) {
-                    $model->genPrice[$n++] = null !== $item ? genPrice::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['GenPrice'] as $item1) {
+                    $model->genPrice[$n1++] = genPrice::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Location'])) {
             $model->location = location::fromMap($map['Location']);
         }
+
         if (isset($map['ModelVersion'])) {
             $model->modelVersion = $map['ModelVersion'];
         }
+
         if (isset($map['RunDate'])) {
             $model->runDate = $map['RunDate'];
         }
+
         if (isset($map['SystemData'])) {
             if (!empty($map['SystemData'])) {
                 $model->systemData = [];
-                $n = 0;
-                foreach ($map['SystemData'] as $item) {
-                    $model->systemData[$n++] = null !== $item ? systemData::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SystemData'] as $item1) {
+                    $model->systemData[$n1++] = systemData::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TimeZone'])) {
             $model->timeZone = $map['TimeZone'];
         }
+
         if (isset($map['TopoType'])) {
             $model->topoType = $map['TopoType'];
         }

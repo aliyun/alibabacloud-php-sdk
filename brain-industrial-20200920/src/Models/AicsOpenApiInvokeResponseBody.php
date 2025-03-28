@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Brainindustrial\V20200920\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class OpenApiInvokeResponseBody extends Model
+class AicsOpenApiInvokeResponseBody extends Model
 {
     /**
      * @var string
@@ -14,7 +14,7 @@ class OpenApiInvokeResponseBody extends Model
     public $code;
 
     /**
-     * @var string
+     * @var mixed
      */
     public $data;
 

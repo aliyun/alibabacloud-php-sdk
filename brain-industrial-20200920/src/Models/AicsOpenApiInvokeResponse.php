@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Brainindustrial\V20200920\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class GetLicenseResponse extends Model
+class AicsOpenApiInvokeResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetLicenseResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetLicenseResponseBody
+     * @var AicsOpenApiInvokeResponseBody
      */
     public $body;
     protected $_name = [
@@ -84,7 +84,7 @@ class GetLicenseResponse extends Model
         }
 
         if (isset($map['body'])) {
-            $model->body = GetLicenseResponseBody::fromMap($map['body']);
+            $model->body = AicsOpenApiInvokeResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Brainindustrial\V20200920\Models;
 
 use AlibabaCloud\Dara\Model;
 
-class OpenApiInvokeRequest extends Model
+class AicsOpenApiInvokeRequest extends Model
 {
     /**
      * @var string
@@ -14,7 +14,7 @@ class OpenApiInvokeRequest extends Model
     public $nodeId;
 
     /**
-     * @var string
+     * @var mixed[]
      */
     public $param;
 
@@ -22,14 +22,23 @@ class OpenApiInvokeRequest extends Model
      * @var string
      */
     public $serviceId;
+
+    /**
+     * @var string
+     */
+    public $type;
     protected $_name = [
         'nodeId' => 'NodeId',
         'param' => 'Param',
         'serviceId' => 'ServiceId',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->param)) {
+            Model::validateArray($this->param);
+        }
         parent::validate();
     }
 
@@ -41,11 +50,20 @@ class OpenApiInvokeRequest extends Model
         }
 
         if (null !== $this->param) {
-            $res['Param'] = $this->param;
+            if (\is_array($this->param)) {
+                $res['Param'] = [];
+                foreach ($this->param as $key1 => $value1) {
+                    $res['Param'][$key1] = $value1;
+                }
+            }
         }
 
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
+        }
+
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -64,11 +82,20 @@ class OpenApiInvokeRequest extends Model
         }
 
         if (isset($map['Param'])) {
-            $model->param = $map['Param'];
+            if (!empty($map['Param'])) {
+                $model->param = [];
+                foreach ($map['Param'] as $key1 => $value1) {
+                    $model->param[$key1] = $value1;
+                }
+            }
         }
 
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
+        }
+
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;
