@@ -4,43 +4,21 @@
 
 namespace AlibabaCloud\SDK\Yundundbaudit\V20191209;
 
-use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\ClearInstanceStorageRequest;
 use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\ClearInstanceStorageResponse;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\ConfigInstanceWhiteListRequest;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\ConfigInstanceWhiteListResponse;
 use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\DescribeInstanceAttributeRequest;
 use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\DescribeInstanceAttributeResponse;
 use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\DescribeInstancesRequest;
 use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\DescribeInstancesResponse;
 use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\DescribeInstanceStorageRequest;
 use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\DescribeInstanceStorageResponse;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\DescribeRegionsRequest;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\DescribeRegionsResponse;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\DisableInstancePublicAccessRequest;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\DisableInstancePublicAccessResponse;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\EnableInstancePublicAccessRequest;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\EnableInstancePublicAccessResponse;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\ListTagKeysRequest;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\ListTagKeysResponse;
 use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\ListTagResourcesResponse;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\ModifyInstanceAttributeRequest;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\ModifyInstanceAttributeResponse;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\ModifyInstanceStorageRequest;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\ModifyInstanceStorageResponse;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\MoveResourceGroupRequest;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\MoveResourceGroupResponse;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\StartInstanceRequest;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\StartInstanceResponse;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\TagResourcesRequest;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\TagResourcesResponse;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\UntagResourcesRequest;
-use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\UntagResourcesResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Yundundbaudit extends OpenApiClient
 {
@@ -65,17 +43,25 @@ class Yundundbaudit extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * 清理SLS存储空间.
+     *
+     * @param request - ClearInstanceStorageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ClearInstanceStorageResponse
+     *
      * @param ClearInstanceStorageRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -83,15 +69,56 @@ class Yundundbaudit extends OpenApiClient
      */
     public function clearInstanceStorageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
 
-        return ClearInstanceStorageResponse::fromMap($this->doRPCRequest('ClearInstanceStorage', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->storageCategory) {
+            @$query['StorageCategory'] = $request->storageCategory;
+        }
+
+        if (null !== $request->storageSpace) {
+            @$query['StorageSpace'] = $request->storageSpace;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ClearInstanceStorage',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ClearInstanceStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ClearInstanceStorageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 清理SLS存储空间.
+     *
+     * @param request - ClearInstanceStorageRequest
+     *
+     * @returns ClearInstanceStorageResponse
+     *
      * @param ClearInstanceStorageRequest $request
      *
      * @return ClearInstanceStorageResponse
@@ -104,34 +131,13 @@ class Yundundbaudit extends OpenApiClient
     }
 
     /**
-     * @param ConfigInstanceWhiteListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * 获取实例属性.
      *
-     * @return ConfigInstanceWhiteListResponse
-     */
-    public function configInstanceWhiteListWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ConfigInstanceWhiteListResponse::fromMap($this->doRPCRequest('ConfigInstanceWhiteList', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ConfigInstanceWhiteListRequest $request
+     * @param request - DescribeInstanceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ConfigInstanceWhiteListResponse
-     */
-    public function configInstanceWhiteList($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->configInstanceWhiteListWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns DescribeInstanceAttributeResponse
+     *
      * @param DescribeInstanceAttributeRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -139,15 +145,48 @@ class Yundundbaudit extends OpenApiClient
      */
     public function describeInstanceAttributeWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
 
-        return DescribeInstanceAttributeResponse::fromMap($this->doRPCRequest('DescribeInstanceAttribute', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstanceAttribute',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeInstanceAttributeResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 获取实例属性.
+     *
+     * @param request - DescribeInstanceAttributeRequest
+     *
+     * @returns DescribeInstanceAttributeResponse
+     *
      * @param DescribeInstanceAttributeRequest $request
      *
      * @return DescribeInstanceAttributeResponse
@@ -160,34 +199,13 @@ class Yundundbaudit extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesRequest $request
-     * @param RuntimeOptions           $runtime
+     * 获取存储大小.
      *
-     * @return DescribeInstancesResponse
-     */
-    public function describeInstancesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DescribeInstancesResponse::fromMap($this->doRPCRequest('DescribeInstances', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DescribeInstancesRequest $request
+     * @param request - DescribeInstanceStorageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstancesResponse
-     */
-    public function describeInstances($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeInstancesWithOptions($request, $runtime);
-    }
-
-    /**
+     * @returns DescribeInstanceStorageResponse
+     *
      * @param DescribeInstanceStorageRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -195,15 +213,48 @@ class Yundundbaudit extends OpenApiClient
      */
     public function describeInstanceStorageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
 
-        return DescribeInstanceStorageResponse::fromMap($this->doRPCRequest('DescribeInstanceStorage', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstanceStorage',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstanceStorageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeInstanceStorageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * 获取存储大小.
+     *
+     * @param request - DescribeInstanceStorageRequest
+     *
+     * @returns DescribeInstanceStorageResponse
+     *
      * @param DescribeInstanceStorageRequest $request
      *
      * @return DescribeInstanceStorageResponse
@@ -216,118 +267,103 @@ class Yundundbaudit extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * 获取实例列表.
      *
-     * @return DescribeRegionsResponse
+     * @param request - DescribeInstancesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeInstancesResponse
+     *
+     * @param DescribeInstancesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeInstancesResponse
      */
-    public function describeRegionsWithOptions($request, $runtime)
+    public function describeInstancesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $request->validate();
+        $query = [];
+        if (null !== $request->getCenterInstance) {
+            @$query['GetCenterInstance'] = $request->getCenterInstance;
+        }
 
-        return DescribeRegionsResponse::fromMap($this->doRPCRequest('DescribeRegions', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->instanceStatus) {
+            @$query['InstanceStatus'] = $request->instanceStatus;
+        }
+
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['PageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeInstances',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeInstancesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * 获取实例列表.
      *
-     * @return DescribeRegionsResponse
+     * @param request - DescribeInstancesRequest
+     *
+     * @returns DescribeInstancesResponse
+     *
+     * @param DescribeInstancesRequest $request
+     *
+     * @return DescribeInstancesResponse
      */
-    public function describeRegions($request)
+    public function describeInstances($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeRegionsWithOptions($request, $runtime);
+        return $this->describeInstancesWithOptions($request, $runtime);
     }
 
     /**
-     * @param DisableInstancePublicAccessRequest $request
-     * @param RuntimeOptions                     $runtime
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return DisableInstancePublicAccessResponse
-     */
-    public function disableInstancePublicAccessWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return DisableInstancePublicAccessResponse::fromMap($this->doRPCRequest('DisableInstancePublicAccess', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param DisableInstancePublicAccessRequest $request
+     * @returns ListTagResourcesResponse
      *
-     * @return DisableInstancePublicAccessResponse
-     */
-    public function disableInstancePublicAccess($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->disableInstancePublicAccessWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param EnableInstancePublicAccessRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return EnableInstancePublicAccessResponse
-     */
-    public function enableInstancePublicAccessWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return EnableInstancePublicAccessResponse::fromMap($this->doRPCRequest('EnableInstancePublicAccess', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param EnableInstancePublicAccessRequest $request
-     *
-     * @return EnableInstancePublicAccessResponse
-     */
-    public function enableInstancePublicAccess($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->enableInstancePublicAccessWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ListTagKeysRequest $request
-     * @param RuntimeOptions     $runtime
-     *
-     * @return ListTagKeysResponse
-     */
-    public function listTagKeysWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ListTagKeysResponse::fromMap($this->doRPCRequest('ListTagKeys', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ListTagKeysRequest $request
-     *
-     * @return ListTagKeysResponse
-     */
-    public function listTagKeys($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->listTagKeysWithOptions($request, $runtime);
-    }
-
-    /**
      * @param ListTagResourcesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -335,15 +371,54 @@ class Yundundbaudit extends OpenApiClient
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
+        $request->validate();
+        $query = [];
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
 
-        return ListTagResourcesResponse::fromMap($this->doRPCRequest('ListTagResources', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListTagResources',
+            'version' => '2019-12-09',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
      * @param ListTagResourcesRequest $request
      *
      * @return ListTagResourcesResponse
@@ -353,173 +428,5 @@ class Yundundbaudit extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyInstanceAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return ModifyInstanceAttributeResponse
-     */
-    public function modifyInstanceAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyInstanceAttributeResponse::fromMap($this->doRPCRequest('ModifyInstanceAttribute', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyInstanceAttributeRequest $request
-     *
-     * @return ModifyInstanceAttributeResponse
-     */
-    public function modifyInstanceAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyInstanceAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyInstanceStorageRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return ModifyInstanceStorageResponse
-     */
-    public function modifyInstanceStorageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return ModifyInstanceStorageResponse::fromMap($this->doRPCRequest('ModifyInstanceStorage', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param ModifyInstanceStorageRequest $request
-     *
-     * @return ModifyInstanceStorageResponse
-     */
-    public function modifyInstanceStorage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyInstanceStorageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param MoveResourceGroupRequest $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return MoveResourceGroupResponse
-     */
-    public function moveResourceGroupWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return MoveResourceGroupResponse::fromMap($this->doRPCRequest('MoveResourceGroup', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param MoveResourceGroupRequest $request
-     *
-     * @return MoveResourceGroupResponse
-     */
-    public function moveResourceGroup($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->moveResourceGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param StartInstanceRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return StartInstanceResponse
-     */
-    public function startInstanceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return StartInstanceResponse::fromMap($this->doRPCRequest('StartInstance', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param StartInstanceRequest $request
-     *
-     * @return StartInstanceResponse
-     */
-    public function startInstance($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->startInstanceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
-     *
-     * @return TagResourcesResponse
-     */
-    public function tagResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return TagResourcesResponse::fromMap($this->doRPCRequest('TagResources', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param TagResourcesRequest $request
-     *
-     * @return TagResourcesResponse
-     */
-    public function tagResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->tagResourcesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UntagResourcesResponse
-     */
-    public function untagResourcesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
-        ]);
-
-        return UntagResourcesResponse::fromMap($this->doRPCRequest('UntagResources', '2019-12-09', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
-    }
-
-    /**
-     * @param UntagResourcesRequest $request
-     *
-     * @return UntagResourcesResponse
-     */
-    public function untagResources($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->untagResourcesWithOptions($request, $runtime);
     }
 }

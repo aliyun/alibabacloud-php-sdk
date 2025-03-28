@@ -4,15 +4,15 @@
 
 namespace AlibabaCloud\SDK\Yundundbaudit\V20191209\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Yundundbaudit\V20191209\Models\DescribeInstancesResponseBody\instances;
-use AlibabaCloud\Tea\Model;
 
 class DescribeInstancesResponseBody extends Model
 {
     /**
-     * @var int
+     * @var instances[]
      */
-    public $totalCount;
+    public $instances;
 
     /**
      * @var string
@@ -20,63 +20,71 @@ class DescribeInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @var instances[]
+     * @var int
      */
-    public $instances;
+    public $totalCount;
     protected $_name = [
+        'instances' => 'Instances',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
-        'requestId'  => 'RequestId',
-        'instances'  => 'Instances',
     ];
 
     public function validate()
     {
+        if (\is_array($this->instances)) {
+            Model::validateArray($this->instances);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->instances) {
+            if (\is_array($this->instances)) {
+                $res['Instances'] = [];
+                $n1 = 0;
+                foreach ($this->instances as $item1) {
+                    $res['Instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->instances) {
-            $res['Instances'] = [];
-            if (null !== $this->instances && \is_array($this->instances)) {
-                $n = 0;
-                foreach ($this->instances as $item) {
-                    $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstancesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n                = 0;
-                foreach ($map['Instances'] as $item) {
-                    $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Instances'] as $item1) {
+                    $model->instances[$n1++] = instances::fromMap($item1);
                 }
             }
+        }
+
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;
