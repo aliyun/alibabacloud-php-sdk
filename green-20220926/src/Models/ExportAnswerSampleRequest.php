@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ExportAnswerSampleRequest extends Model
 {
     /**
-     * @example alxxx
-     *
      * @var string
      */
     public $libId;
 
     /**
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
@@ -26,14 +22,18 @@ class ExportAnswerSampleRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->libId) {
             $res['LibId'] = $this->libId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -41,17 +41,18 @@ class ExportAnswerSampleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ExportAnswerSampleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LibId'])) {
             $model->libId = $map['LibId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

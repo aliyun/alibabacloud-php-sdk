@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetImageSceneLabelConfResponseBody extends Model
 {
     /**
-     * @example 200
-     *
      * @var int
      */
     public $code;
@@ -21,29 +19,21 @@ class GetImageSceneLabelConfResponseBody extends Model
     public $data;
 
     /**
-     * @example 200
-     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @example OK
-     *
      * @var string
      */
     public $msg;
 
     /**
-     * @example AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example True
-     *
      * @var bool
      */
     public $success;
@@ -56,26 +46,48 @@ class GetImageSceneLabelConfResponseBody extends Model
         'success' => 'Success',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            if (\is_array($this->data)) {
+                $res['Data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    if (\is_array($item1)) {
+                        $res['Data'][$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $res['Data'][$n1++][$key2] = $value2;
+                        }
+                    }
+                }
+            }
         }
+
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
+
         if (null !== $this->msg) {
             $res['Msg'] = $this->msg;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -83,31 +95,45 @@ class GetImageSceneLabelConfResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetImageSceneLabelConfResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
-                $model->data = $map['Data'];
+                $model->data = [];
+                $n1 = 0;
+                foreach ($map['Data'] as $item1) {
+                    if (!empty($item1)) {
+                        $model->data[$n1++] = [];
+                        foreach ($item1 as $key2 => $value2) {
+                            $model->data[$n1++][$key2] = $value2;
+                        }
+                    }
+                }
             }
         }
+
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }
+
         if (isset($map['Msg'])) {
             $model->msg = $map['Msg'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

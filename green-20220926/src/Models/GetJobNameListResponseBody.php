@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetJobNameListResponseBody extends Model
 {
@@ -14,8 +14,6 @@ class GetJobNameListResponseBody extends Model
     public $data;
 
     /**
-     * @example AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-     *
      * @var string
      */
     public $requestId;
@@ -24,14 +22,27 @@ class GetJobNameListResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            if (\is_array($this->data)) {
+                $res['Data'] = [];
+                $n1 = 0;
+                foreach ($this->data as $item1) {
+                    $res['Data'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -39,19 +50,24 @@ class GetJobNameListResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetJobNameListResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
-                $model->data = $map['Data'];
+                $model->data = [];
+                $n1 = 0;
+                foreach ($map['Data'] as $item1) {
+                    $model->data[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

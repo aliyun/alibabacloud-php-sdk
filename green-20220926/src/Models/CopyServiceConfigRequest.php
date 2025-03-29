@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CopyServiceConfigRequest extends Model
 {
     /**
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @example text
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @example nickname_detection
-     *
      * @var string
      */
     public $serviceCode;
@@ -46,23 +40,30 @@ class CopyServiceConfigRequest extends Model
         'serviceName' => 'ServiceName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->serviceCode) {
             $res['ServiceCode'] = $this->serviceCode;
         }
+
         if (null !== $this->serviceDesc) {
             $res['ServiceDesc'] = $this->serviceDesc;
         }
+
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
         }
@@ -70,26 +71,30 @@ class CopyServiceConfigRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CopyServiceConfigRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['ServiceCode'])) {
             $model->serviceCode = $map['ServiceCode'];
         }
+
         if (isset($map['ServiceDesc'])) {
             $model->serviceDesc = $map['ServiceDesc'];
         }
+
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
         }

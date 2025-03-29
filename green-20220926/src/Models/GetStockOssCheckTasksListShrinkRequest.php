@@ -4,48 +4,36 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetStockOssCheckTasksListShrinkRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example 2023-06-18 02:08:00
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $isInc;
 
     /**
-     * @example image
-     *
      * @var int
      */
     public $mediaType;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
@@ -56,15 +44,11 @@ class GetStockOssCheckTasksListShrinkRequest extends Model
     public $sortShrink;
 
     /**
-     * @example 2023-06-17 02:08:00
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @example batch
-     *
      * @var string
      */
     public $taskType;
@@ -80,35 +64,46 @@ class GetStockOssCheckTasksListShrinkRequest extends Model
         'taskType' => 'TaskType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->isInc) {
             $res['IsInc'] = $this->isInc;
         }
+
         if (null !== $this->mediaType) {
             $res['MediaType'] = $this->mediaType;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->sortShrink) {
             $res['Sort'] = $this->sortShrink;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
         }
@@ -116,38 +111,46 @@ class GetStockOssCheckTasksListShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetStockOssCheckTasksListShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['IsInc'])) {
             $model->isInc = $map['IsInc'];
         }
+
         if (isset($map['MediaType'])) {
             $model->mediaType = $map['MediaType'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Sort'])) {
             $model->sortShrink = $map['Sort'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
         }

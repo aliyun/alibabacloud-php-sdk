@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data\labelStatChart;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class treeChart extends Model
 {
@@ -14,15 +14,11 @@ class treeChart extends Model
     public $description;
 
     /**
-     * @example nickNameDetection
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example 99.91
-     *
      * @var string
      */
     public $value;
@@ -32,17 +28,22 @@ class treeChart extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -50,20 +51,22 @@ class treeChart extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return treeChart
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\ListKeywordLibsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @example 2022-11-30 16:30:29
-     *
      * @var string
      */
     public $gmtModified;
 
     /**
-     * @example 10
-     *
      * @var string
      */
     public $keywordCount;
 
     /**
-     * @example custom_xxxxx
-     *
      * @var string
      */
     public $libId;
@@ -40,10 +34,6 @@ class data extends Model
     public $serviceCodes;
 
     /**
-     * @description UID。
-     *
-     * @example 19964*****086772
-     *
      * @var string
      */
     public $uid;
@@ -56,26 +46,34 @@ class data extends Model
         'uid' => 'Uid',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
         }
+
         if (null !== $this->keywordCount) {
             $res['KeywordCount'] = $this->keywordCount;
         }
+
         if (null !== $this->libId) {
             $res['LibId'] = $this->libId;
         }
+
         if (null !== $this->libName) {
             $res['LibName'] = $this->libName;
         }
+
         if (null !== $this->serviceCodes) {
             $res['ServiceCodes'] = $this->serviceCodes;
         }
+
         if (null !== $this->uid) {
             $res['Uid'] = $this->uid;
         }
@@ -83,29 +81,34 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
         }
+
         if (isset($map['KeywordCount'])) {
             $model->keywordCount = $map['KeywordCount'];
         }
+
         if (isset($map['LibId'])) {
             $model->libId = $map['LibId'];
         }
+
         if (isset($map['LibName'])) {
             $model->libName = $map['LibName'];
         }
+
         if (isset($map['ServiceCodes'])) {
             $model->serviceCodes = $map['ServiceCodes'];
         }
+
         if (isset($map['Uid'])) {
             $model->uid = $map['Uid'];
         }

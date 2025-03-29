@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data\labelStatChart;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data\y;
 use AlibabaCloud\SDK\Green\V20220926\Models\GetCipStatsResponseBody\data\z;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -49,44 +49,87 @@ class data extends Model
         'z' => 'Z',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->labelStatChart)) {
+            Model::validateArray($this->labelStatChart);
+        }
+        if (\is_array($this->totalStat)) {
+            Model::validateArray($this->totalStat);
+        }
+        if (\is_array($this->uids)) {
+            Model::validateArray($this->uids);
+        }
+        if (\is_array($this->x)) {
+            Model::validateArray($this->x);
+        }
+        if (\is_array($this->y)) {
+            Model::validateArray($this->y);
+        }
+        if (\is_array($this->z)) {
+            Model::validateArray($this->z);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->labelStatChart) {
-            $res['LabelStatChart'] = [];
-            if (null !== $this->labelStatChart && \is_array($this->labelStatChart)) {
-                $n = 0;
-                foreach ($this->labelStatChart as $item) {
-                    $res['LabelStatChart'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->labelStatChart)) {
+                $res['LabelStatChart'] = [];
+                $n1 = 0;
+                foreach ($this->labelStatChart as $item1) {
+                    $res['LabelStatChart'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalStat) {
-            $res['TotalStat'] = $this->totalStat;
-        }
-        if (null !== $this->uids) {
-            $res['Uids'] = $this->uids;
-        }
-        if (null !== $this->x) {
-            $res['X'] = $this->x;
-        }
-        if (null !== $this->y) {
-            $res['Y'] = [];
-            if (null !== $this->y && \is_array($this->y)) {
-                $n = 0;
-                foreach ($this->y as $item) {
-                    $res['Y'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->totalStat)) {
+                $res['TotalStat'] = [];
+                foreach ($this->totalStat as $key1 => $value1) {
+                    $res['TotalStat'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->uids) {
+            if (\is_array($this->uids)) {
+                $res['Uids'] = [];
+                $n1 = 0;
+                foreach ($this->uids as $item1) {
+                    $res['Uids'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->x) {
+            if (\is_array($this->x)) {
+                $res['X'] = [];
+                $n1 = 0;
+                foreach ($this->x as $item1) {
+                    $res['X'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->y) {
+            if (\is_array($this->y)) {
+                $res['Y'] = [];
+                $n1 = 0;
+                foreach ($this->y as $item1) {
+                    $res['Y'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->z) {
-            $res['Z'] = [];
-            if (null !== $this->z && \is_array($this->z)) {
-                $n = 0;
-                foreach ($this->z as $item) {
-                    $res['Z'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->z)) {
+                $res['Z'] = [];
+                $n1 = 0;
+                foreach ($this->z as $item1) {
+                    $res['Z'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -94,51 +137,69 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LabelStatChart'])) {
             if (!empty($map['LabelStatChart'])) {
                 $model->labelStatChart = [];
-                $n = 0;
-                foreach ($map['LabelStatChart'] as $item) {
-                    $model->labelStatChart[$n++] = null !== $item ? labelStatChart::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LabelStatChart'] as $item1) {
+                    $model->labelStatChart[$n1++] = labelStatChart::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalStat'])) {
-            $model->totalStat = $map['TotalStat'];
+            if (!empty($map['TotalStat'])) {
+                $model->totalStat = [];
+                foreach ($map['TotalStat'] as $key1 => $value1) {
+                    $model->totalStat[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Uids'])) {
             if (!empty($map['Uids'])) {
-                $model->uids = $map['Uids'];
+                $model->uids = [];
+                $n1 = 0;
+                foreach ($map['Uids'] as $item1) {
+                    $model->uids[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['X'])) {
             if (!empty($map['X'])) {
-                $model->x = $map['X'];
+                $model->x = [];
+                $n1 = 0;
+                foreach ($map['X'] as $item1) {
+                    $model->x[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Y'])) {
             if (!empty($map['Y'])) {
                 $model->y = [];
-                $n = 0;
-                foreach ($map['Y'] as $item) {
-                    $model->y[$n++] = null !== $item ? y::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Y'] as $item1) {
+                    $model->y[$n1++] = y::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Z'])) {
             if (!empty($map['Z'])) {
                 $model->z = [];
-                $n = 0;
-                foreach ($map['Z'] as $item) {
-                    $model->z[$n++] = null !== $item ? z::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Z'] as $item1) {
+                    $model->z[$n1++] = z::fromMap($item1);
                 }
             }
         }

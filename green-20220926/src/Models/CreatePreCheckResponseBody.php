@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreatePreCheckResponseBody extends Model
 {
@@ -14,8 +14,6 @@ class CreatePreCheckResponseBody extends Model
     public $data;
 
     /**
-     * @example AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
-     *
      * @var string
      */
     public $requestId;
@@ -24,14 +22,26 @@ class CreatePreCheckResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
+            if (\is_array($this->data)) {
+                $res['Data'] = [];
+                foreach ($this->data as $key1 => $value1) {
+                    $res['Data'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -39,17 +49,23 @@ class CreatePreCheckResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreatePreCheckResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                foreach ($map['Data'] as $key1 => $value1) {
+                    $model->data[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

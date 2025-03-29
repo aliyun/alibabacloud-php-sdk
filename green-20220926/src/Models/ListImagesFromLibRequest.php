@@ -4,48 +4,36 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListImagesFromLibRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example 2023-08-24 10:01:55
-     *
      * @var string
      */
     public $endDate;
 
     /**
-     * @example 112
-     *
      * @var string
      */
     public $imgId;
 
     /**
-     * @example custom_xxxx
-     *
      * @var string
      */
     public $libId;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
@@ -56,8 +44,6 @@ class ListImagesFromLibRequest extends Model
     public $sort;
 
     /**
-     * @example 2023-08-11 09:00:19
-     *
      * @var string
      */
     public $startDate;
@@ -72,32 +58,50 @@ class ListImagesFromLibRequest extends Model
         'startDate' => 'StartDate',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->sort)) {
+            Model::validateArray($this->sort);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
         }
+
         if (null !== $this->imgId) {
             $res['ImgId'] = $this->imgId;
         }
+
         if (null !== $this->libId) {
             $res['LibId'] = $this->libId;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->sort) {
-            $res['Sort'] = $this->sort;
+            if (\is_array($this->sort)) {
+                $res['Sort'] = [];
+                foreach ($this->sort as $key1 => $value1) {
+                    $res['Sort'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->startDate) {
             $res['StartDate'] = $this->startDate;
         }
@@ -105,35 +109,47 @@ class ListImagesFromLibRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListImagesFromLibRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
         }
+
         if (isset($map['ImgId'])) {
             $model->imgId = $map['ImgId'];
         }
+
         if (isset($map['LibId'])) {
             $model->libId = $map['LibId'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['Sort'])) {
-            $model->sort = $map['Sort'];
+            if (!empty($map['Sort'])) {
+                $model->sort = [];
+                foreach ($map['Sort'] as $key1 => $value1) {
+                    $model->sort[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['StartDate'])) {
             $model->startDate = $map['StartDate'];
         }

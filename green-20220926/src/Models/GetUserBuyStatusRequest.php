@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Green\V20220926\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUserBuyStatusRequest extends Model
 {
@@ -14,8 +14,6 @@ class GetUserBuyStatusRequest extends Model
     public $commodityCode;
 
     /**
-     * @example cn-shanghai
-     *
      * @var string
      */
     public $regionId;
@@ -24,14 +22,18 @@ class GetUserBuyStatusRequest extends Model
         'regionId' => 'RegionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -39,17 +41,18 @@ class GetUserBuyStatusRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUserBuyStatusRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
