@@ -56,6 +56,7 @@ class IQS extends OpenApiClient
      * @param request - AiSearchRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AiSearchResponse
      *
      * @param AiSearchRequest $request
@@ -90,18 +91,18 @@ class IQS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AiSearch',
-            'version'     => '2024-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/linked-retrieval/linked-retrieval-entry/v3/linkedRetrieval/commands/aiSearch',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AiSearch',
+            'version' => '2024-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-entry/v3/linkedRetrieval/commands/aiSearch',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AiSearchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -114,6 +115,7 @@ class IQS extends OpenApiClient
      * AI搜索流式接口.
      *
      * @param request - AiSearchRequest
+     *
      * @returns AiSearchResponse
      *
      * @param AiSearchRequest $request
@@ -134,6 +136,7 @@ class IQS extends OpenApiClient
      * @param request - GenericAdvancedSearchRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenericAdvancedSearchResponse
      *
      * @param GenericAdvancedSearchRequest $request
@@ -164,18 +167,18 @@ class IQS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenericAdvancedSearch',
-            'version'     => '2024-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/linked-retrieval/linked-retrieval-entry/v2/linkedRetrieval/commands/genericAdvancedSearch',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GenericAdvancedSearch',
+            'version' => '2024-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-entry/v2/linkedRetrieval/commands/genericAdvancedSearch',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GenericAdvancedSearchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -188,6 +191,7 @@ class IQS extends OpenApiClient
      * 增强版通用搜索.
      *
      * @param request - GenericAdvancedSearchRequest
+     *
      * @returns GenericAdvancedSearchResponse
      *
      * @param GenericAdvancedSearchRequest $request
@@ -208,6 +212,7 @@ class IQS extends OpenApiClient
      * @param request - GenericSearchRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GenericSearchResponse
      *
      * @param GenericSearchRequest $request
@@ -220,6 +225,10 @@ class IQS extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->enableRerank) {
+            @$query['enableRerank'] = $request->enableRerank;
+        }
+
         if (null !== $request->industry) {
             @$query['industry'] = $request->industry;
         }
@@ -232,6 +241,18 @@ class IQS extends OpenApiClient
             @$query['query'] = $request->query;
         }
 
+        if (null !== $request->returnMainText) {
+            @$query['returnMainText'] = $request->returnMainText;
+        }
+
+        if (null !== $request->returnMarkdownText) {
+            @$query['returnMarkdownText'] = $request->returnMarkdownText;
+        }
+
+        if (null !== $request->returnSummary) {
+            @$query['returnSummary'] = $request->returnSummary;
+        }
+
         if (null !== $request->sessionId) {
             @$query['sessionId'] = $request->sessionId;
         }
@@ -242,18 +263,18 @@ class IQS extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GenericSearch',
-            'version'     => '2024-11-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/linked-retrieval/linked-retrieval-entry/v2/linkedRetrieval/commands/genericSearch',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GenericSearch',
+            'version' => '2024-11-11',
+            'protocol' => 'HTTPS',
+            'pathname' => '/linked-retrieval/linked-retrieval-entry/v2/linkedRetrieval/commands/genericSearch',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GenericSearchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -266,6 +287,7 @@ class IQS extends OpenApiClient
      * 通用搜索.
      *
      * @param request - GenericSearchRequest
+     *
      * @returns GenericSearchResponse
      *
      * @param GenericSearchRequest $request

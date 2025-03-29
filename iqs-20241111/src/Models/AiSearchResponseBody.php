@@ -13,17 +13,19 @@ class AiSearchResponseBody extends Model
      * @var header
      */
     public $header;
+
     /**
      * @var string
      */
     public $payload;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'header'    => 'header',
-        'payload'   => 'payload',
+        'header' => 'header',
+        'payload' => 'payload',
         'requestId' => 'requestId',
     ];
 

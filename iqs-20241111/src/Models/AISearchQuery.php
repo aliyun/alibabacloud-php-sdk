@@ -12,43 +12,50 @@ class AISearchQuery extends Model
      * @var string
      */
     public $card;
+
     /**
      * @var string
      */
     public $cardQuery;
+
     /**
      * @var int
      */
     public $page;
+
     /**
      * @var string
      */
     public $query;
+
     /**
      * @var string
      */
     public $searchEngine;
+
     /**
      * @var string
      */
     public $searchPlan;
+
     /**
      * @var string
      */
     public $sessionId;
+
     /**
      * @var string
      */
     public $timeRange;
     protected $_name = [
-        'card'         => 'card',
-        'cardQuery'    => 'cardQuery',
-        'page'         => 'page',
-        'query'        => 'query',
+        'card' => 'card',
+        'cardQuery' => 'cardQuery',
+        'page' => 'page',
+        'query' => 'query',
         'searchEngine' => 'searchEngine',
-        'searchPlan'   => 'searchPlan',
-        'sessionId'    => 'sessionId',
-        'timeRange'    => 'timeRange',
+        'searchPlan' => 'searchPlan',
+        'sessionId' => 'sessionId',
+        'timeRange' => 'timeRange',
     ];
 
     public function validate()

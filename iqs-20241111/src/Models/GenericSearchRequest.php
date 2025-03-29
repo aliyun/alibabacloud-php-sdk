@@ -9,29 +9,57 @@ use AlibabaCloud\Dara\Model;
 class GenericSearchRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $enableRerank;
+
+    /**
      * @var string
      */
     public $industry;
+
     /**
      * @var int
      */
     public $page;
+
     /**
      * @var string
      */
     public $query;
+
+    /**
+     * @var bool
+     */
+    public $returnMainText;
+
+    /**
+     * @var bool
+     */
+    public $returnMarkdownText;
+
+    /**
+     * @var bool
+     */
+    public $returnSummary;
+
     /**
      * @var string
      */
     public $sessionId;
+
     /**
      * @var string
      */
     public $timeRange;
     protected $_name = [
-        'industry'  => 'industry',
-        'page'      => 'page',
-        'query'     => 'query',
+        'enableRerank' => 'enableRerank',
+        'industry' => 'industry',
+        'page' => 'page',
+        'query' => 'query',
+        'returnMainText' => 'returnMainText',
+        'returnMarkdownText' => 'returnMarkdownText',
+        'returnSummary' => 'returnSummary',
         'sessionId' => 'sessionId',
         'timeRange' => 'timeRange',
     ];
@@ -44,6 +72,10 @@ class GenericSearchRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->enableRerank) {
+            $res['enableRerank'] = $this->enableRerank;
+        }
+
         if (null !== $this->industry) {
             $res['industry'] = $this->industry;
         }
@@ -54,6 +86,18 @@ class GenericSearchRequest extends Model
 
         if (null !== $this->query) {
             $res['query'] = $this->query;
+        }
+
+        if (null !== $this->returnMainText) {
+            $res['returnMainText'] = $this->returnMainText;
+        }
+
+        if (null !== $this->returnMarkdownText) {
+            $res['returnMarkdownText'] = $this->returnMarkdownText;
+        }
+
+        if (null !== $this->returnSummary) {
+            $res['returnSummary'] = $this->returnSummary;
         }
 
         if (null !== $this->sessionId) {
@@ -75,6 +119,10 @@ class GenericSearchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['enableRerank'])) {
+            $model->enableRerank = $map['enableRerank'];
+        }
+
         if (isset($map['industry'])) {
             $model->industry = $map['industry'];
         }
@@ -85,6 +133,18 @@ class GenericSearchRequest extends Model
 
         if (isset($map['query'])) {
             $model->query = $map['query'];
+        }
+
+        if (isset($map['returnMainText'])) {
+            $model->returnMainText = $map['returnMainText'];
+        }
+
+        if (isset($map['returnMarkdownText'])) {
+            $model->returnMarkdownText = $map['returnMarkdownText'];
+        }
+
+        if (isset($map['returnSummary'])) {
+            $model->returnSummary = $map['returnSummary'];
         }
 
         if (isset($map['sessionId'])) {

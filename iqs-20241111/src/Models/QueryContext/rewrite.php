@@ -12,12 +12,13 @@ class rewrite extends Model
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $timeRange;
     protected $_name = [
-        'enabled'   => 'enabled',
+        'enabled' => 'enabled',
         'timeRange' => 'timeRange',
     ];
 

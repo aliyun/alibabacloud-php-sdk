@@ -12,38 +12,44 @@ class WeiboItem extends Model
      * @var string
      */
     public $cardType;
+
     /**
      * @var string
      */
     public $homepageLink;
+
     /**
      * @var string
      */
     public $htmlSnippet;
+
     /**
      * @var string[]
      */
     public $images;
+
     /**
      * @var string
      */
     public $link;
+
     /**
      * @var string
      */
     public $publishDisplayTime;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'cardType'           => 'cardType',
-        'homepageLink'       => 'homepageLink',
-        'htmlSnippet'        => 'htmlSnippet',
-        'images'             => 'images',
-        'link'               => 'link',
+        'cardType' => 'cardType',
+        'homepageLink' => 'homepageLink',
+        'htmlSnippet' => 'htmlSnippet',
+        'images' => 'images',
+        'link' => 'link',
         'publishDisplayTime' => 'publishDisplayTime',
-        'username'           => 'username',
+        'username' => 'username',
     ];
 
     public function validate()
@@ -72,7 +78,7 @@ class WeiboItem extends Model
         if (null !== $this->images) {
             if (\is_array($this->images)) {
                 $res['images'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->images as $item1) {
                     $res['images'][$n1++] = $item1;
                 }
@@ -117,7 +123,7 @@ class WeiboItem extends Model
         if (isset($map['images'])) {
             if (!empty($map['images'])) {
                 $model->images = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['images'] as $item1) {
                     $model->images[$n1++] = $item1;
                 }

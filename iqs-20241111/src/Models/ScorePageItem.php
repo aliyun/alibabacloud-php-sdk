@@ -12,88 +12,110 @@ class ScorePageItem extends Model
      * @var string
      */
     public $cardType;
+
     /**
      * @var string
      */
     public $displayLink;
+
     /**
      * @var string
      */
     public $hostLogo;
+
     /**
      * @var string
      */
     public $hostname;
+
     /**
      * @var string
      */
     public $htmlSnippet;
+
     /**
      * @var string
      */
     public $htmlTitle;
+
     /**
      * @var IncludeImage[]
      */
     public $images;
+
     /**
      * @var string
      */
     public $link;
+
     /**
      * @var string
      */
     public $mainText;
+
     /**
      * @var string
      */
     public $markdownText;
+
     /**
      * @var string
      */
     public $mime;
+
     /**
      * @var string[]
      */
     public $pageMap;
+
     /**
      * @var int
      */
     public $publishTime;
+
     /**
      * @var float
      */
     public $score;
+
     /**
      * @var string
      */
     public $siteLabel;
+
     /**
      * @var string
      */
     public $snippet;
+
+    /**
+     * @var string
+     */
+    public $summary;
+
     /**
      * @var string
      */
     public $title;
     protected $_name = [
-        'cardType'     => 'cardType',
-        'displayLink'  => 'displayLink',
-        'hostLogo'     => 'hostLogo',
-        'hostname'     => 'hostname',
-        'htmlSnippet'  => 'htmlSnippet',
-        'htmlTitle'    => 'htmlTitle',
-        'images'       => 'images',
-        'link'         => 'link',
-        'mainText'     => 'mainText',
+        'cardType' => 'cardType',
+        'displayLink' => 'displayLink',
+        'hostLogo' => 'hostLogo',
+        'hostname' => 'hostname',
+        'htmlSnippet' => 'htmlSnippet',
+        'htmlTitle' => 'htmlTitle',
+        'images' => 'images',
+        'link' => 'link',
+        'mainText' => 'mainText',
         'markdownText' => 'markdownText',
-        'mime'         => 'mime',
-        'pageMap'      => 'pageMap',
-        'publishTime'  => 'publishTime',
-        'score'        => 'score',
-        'siteLabel'    => 'siteLabel',
-        'snippet'      => 'snippet',
-        'title'        => 'title',
+        'mime' => 'mime',
+        'pageMap' => 'pageMap',
+        'publishTime' => 'publishTime',
+        'score' => 'score',
+        'siteLabel' => 'siteLabel',
+        'snippet' => 'snippet',
+        'summary' => 'summary',
+        'title' => 'title',
     ];
 
     public function validate()
@@ -137,7 +159,7 @@ class ScorePageItem extends Model
         if (null !== $this->images) {
             if (\is_array($this->images)) {
                 $res['images'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->images as $item1) {
                     $res['images'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -185,6 +207,10 @@ class ScorePageItem extends Model
             $res['snippet'] = $this->snippet;
         }
 
+        if (null !== $this->summary) {
+            $res['summary'] = $this->summary;
+        }
+
         if (null !== $this->title) {
             $res['title'] = $this->title;
         }
@@ -227,7 +253,7 @@ class ScorePageItem extends Model
         if (isset($map['images'])) {
             if (!empty($map['images'])) {
                 $model->images = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['images'] as $item1) {
                     $model->images[$n1++] = IncludeImage::fromMap($item1);
                 }
@@ -273,6 +299,10 @@ class ScorePageItem extends Model
 
         if (isset($map['snippet'])) {
             $model->snippet = $map['snippet'];
+        }
+
+        if (isset($map['summary'])) {
+            $model->summary = $map['summary'];
         }
 
         if (isset($map['title'])) {

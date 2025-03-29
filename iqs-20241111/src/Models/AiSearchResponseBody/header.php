@@ -13,21 +13,24 @@ class header extends Model
      * @var string
      */
     public $event;
+
     /**
      * @var string
      */
     public $eventId;
+
     /**
      * @var queryContext
      */
     public $queryContext;
+
     /**
      * @var int
      */
     public $responseTime;
     protected $_name = [
-        'event'        => 'event',
-        'eventId'      => 'eventId',
+        'event' => 'event',
+        'eventId' => 'eventId',
         'queryContext' => 'queryContext',
         'responseTime' => 'responseTime',
     ];

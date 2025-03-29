@@ -14,13 +14,14 @@ class QueryContext extends Model
      * @var originalQuery
      */
     public $originalQuery;
+
     /**
      * @var rewrite
      */
     public $rewrite;
     protected $_name = [
         'originalQuery' => 'originalQuery',
-        'rewrite'       => 'rewrite',
+        'rewrite' => 'rewrite',
     ];
 
     public function validate()

@@ -12,21 +12,24 @@ class GenericAdvancedSearchRequest extends Model
      * @var string
      */
     public $industry;
+
     /**
      * @var string
      */
     public $query;
+
     /**
      * @var string
      */
     public $sessionId;
+
     /**
      * @var string
      */
     public $timeRange;
     protected $_name = [
-        'industry'  => 'industry',
-        'query'     => 'query',
+        'industry' => 'industry',
+        'query' => 'query',
         'sessionId' => 'sessionId',
         'timeRange' => 'timeRange',
     ];

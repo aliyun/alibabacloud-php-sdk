@@ -12,18 +12,20 @@ class IncludeImage extends Model
      * @var int
      */
     public $height;
+
     /**
      * @var string
      */
     public $imageLink;
+
     /**
      * @var int
      */
     public $width;
     protected $_name = [
-        'height'    => 'height',
+        'height' => 'height',
         'imageLink' => 'imageLink',
-        'width'     => 'width',
+        'width' => 'width',
     ];
 
     public function validate()

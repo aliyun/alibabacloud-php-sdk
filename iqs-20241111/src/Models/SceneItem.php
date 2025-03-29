@@ -12,13 +12,14 @@ class SceneItem extends Model
      * @var string
      */
     public $detail;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'detail' => 'detail',
-        'type'   => 'type',
+        'type' => 'type',
     ];
 
     public function validate()

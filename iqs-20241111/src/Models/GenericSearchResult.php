@@ -12,33 +12,38 @@ class GenericSearchResult extends Model
      * @var ScorePageItem[]
      */
     public $pageItems;
+
     /**
      * @var QueryContext
      */
     public $queryContext;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var SceneItem[]
      */
     public $sceneItems;
+
     /**
      * @var SearchInformation
      */
     public $searchInformation;
+
     /**
      * @var WeiboItem[]
      */
     public $weiboItems;
     protected $_name = [
-        'pageItems'         => 'pageItems',
-        'queryContext'      => 'queryContext',
-        'requestId'         => 'requestId',
-        'sceneItems'        => 'sceneItems',
+        'pageItems' => 'pageItems',
+        'queryContext' => 'queryContext',
+        'requestId' => 'requestId',
+        'sceneItems' => 'sceneItems',
         'searchInformation' => 'searchInformation',
-        'weiboItems'        => 'weiboItems',
+        'weiboItems' => 'weiboItems',
     ];
 
     public function validate()
@@ -67,7 +72,7 @@ class GenericSearchResult extends Model
         if (null !== $this->pageItems) {
             if (\is_array($this->pageItems)) {
                 $res['pageItems'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->pageItems as $item1) {
                     $res['pageItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -85,7 +90,7 @@ class GenericSearchResult extends Model
         if (null !== $this->sceneItems) {
             if (\is_array($this->sceneItems)) {
                 $res['sceneItems'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->sceneItems as $item1) {
                     $res['sceneItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -99,7 +104,7 @@ class GenericSearchResult extends Model
         if (null !== $this->weiboItems) {
             if (\is_array($this->weiboItems)) {
                 $res['weiboItems'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->weiboItems as $item1) {
                     $res['weiboItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -120,7 +125,7 @@ class GenericSearchResult extends Model
         if (isset($map['pageItems'])) {
             if (!empty($map['pageItems'])) {
                 $model->pageItems = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['pageItems'] as $item1) {
                     $model->pageItems[$n1++] = ScorePageItem::fromMap($item1);
                 }
@@ -138,7 +143,7 @@ class GenericSearchResult extends Model
         if (isset($map['sceneItems'])) {
             if (!empty($map['sceneItems'])) {
                 $model->sceneItems = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['sceneItems'] as $item1) {
                     $model->sceneItems[$n1++] = SceneItem::fromMap($item1);
                 }
@@ -152,7 +157,7 @@ class GenericSearchResult extends Model
         if (isset($map['weiboItems'])) {
             if (!empty($map['weiboItems'])) {
                 $model->weiboItems = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['weiboItems'] as $item1) {
                     $model->weiboItems[$n1++] = WeiboItem::fromMap($item1);
                 }

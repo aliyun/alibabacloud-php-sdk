@@ -12,13 +12,14 @@ class SearchInformation extends Model
      * @var int
      */
     public $searchTime;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
         'searchTime' => 'searchTime',
-        'total'      => 'total',
+        'total' => 'total',
     ];
 
     public function validate()

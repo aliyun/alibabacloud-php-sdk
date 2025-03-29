@@ -12,22 +12,25 @@ class originalQuery extends Model
      * @var string
      */
     public $industry;
+
     /**
      * @var string
      */
     public $page;
+
     /**
      * @var string
      */
     public $query;
+
     /**
      * @var string
      */
     public $timeRange;
     protected $_name = [
-        'industry'  => 'industry',
-        'page'      => 'page',
-        'query'     => 'query',
+        'industry' => 'industry',
+        'page' => 'page',
+        'query' => 'query',
         'timeRange' => 'timeRange',
     ];
 
