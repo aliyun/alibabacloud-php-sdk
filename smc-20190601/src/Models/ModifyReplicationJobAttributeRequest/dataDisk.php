@@ -4,62 +4,56 @@
 
 namespace AlibabaCloud\SDK\Smc\V20190601\Models\ModifyReplicationJobAttributeRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smc\V20190601\Models\ModifyReplicationJobAttributeRequest\dataDisk\part;
-use AlibabaCloud\Tea\Model;
 
 class dataDisk extends Model
 {
     /**
-     * @description The index of data disk N on the destination ECS instance. Valid values of N: 1 to 16.
-     *
-     * >  You can create a destination data disk only for a source server that has data disks.
-     * @example 1
-     *
      * @var int
      */
     public $index;
 
     /**
-     * @description The information about partitions.
-     *
      * @var part[]
      */
     public $part;
 
     /**
-     * @description The size of the data disk on the destination ECS instance. Unit: GiB. Valid values: 20 to 32768.
-     *
-     * >  The size of a destination data disk must be greater than the size of data in the source data disk. For example, if the source data disk has 500 GiB of storage space and 100 GiB of data, you must set this parameter to a value greater than 100.
-     * @example 100
-     *
      * @var int
      */
     public $size;
     protected $_name = [
         'index' => 'Index',
-        'part'  => 'Part',
-        'size'  => 'Size',
+        'part' => 'Part',
+        'size' => 'Size',
     ];
 
     public function validate()
     {
+        if (\is_array($this->part)) {
+            Model::validateArray($this->part);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->index) {
             $res['Index'] = $this->index;
         }
+
         if (null !== $this->part) {
-            $res['Part'] = [];
-            if (null !== $this->part && \is_array($this->part)) {
-                $n = 0;
-                foreach ($this->part as $item) {
-                    $res['Part'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->part)) {
+                $res['Part'] = [];
+                $n1 = 0;
+                foreach ($this->part as $item1) {
+                    $res['Part'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -67,26 +61,28 @@ class dataDisk extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataDisk
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Index'])) {
             $model->index = $map['Index'];
         }
+
         if (isset($map['Part'])) {
             if (!empty($map['Part'])) {
                 $model->part = [];
-                $n           = 0;
-                foreach ($map['Part'] as $item) {
-                    $model->part[$n++] = null !== $item ? part::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Part'] as $item1) {
+                    $model->part[$n1++] = part::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Smc\V20190601\Models\DescribeReplicationJobsResponseBody\replicationJobs\replicationJob;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smc\V20190601\Models\DescribeReplicationJobsResponseBody\replicationJobs\replicationJob\replicationJobRuns\replicationJobRun;
-use AlibabaCloud\Tea\Model;
 
 class replicationJobRuns extends Model
 {
@@ -19,17 +19,21 @@ class replicationJobRuns extends Model
 
     public function validate()
     {
+        if (\is_array($this->replicationJobRun)) {
+            Model::validateArray($this->replicationJobRun);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->replicationJobRun) {
-            $res['ReplicationJobRun'] = [];
-            if (null !== $this->replicationJobRun && \is_array($this->replicationJobRun)) {
-                $n = 0;
-                foreach ($this->replicationJobRun as $item) {
-                    $res['ReplicationJobRun'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->replicationJobRun)) {
+                $res['ReplicationJobRun'] = [];
+                $n1 = 0;
+                foreach ($this->replicationJobRun as $item1) {
+                    $res['ReplicationJobRun'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class replicationJobRuns extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return replicationJobRuns
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReplicationJobRun'])) {
             if (!empty($map['ReplicationJobRun'])) {
                 $model->replicationJobRun = [];
-                $n                        = 0;
-                foreach ($map['ReplicationJobRun'] as $item) {
-                    $model->replicationJobRun[$n++] = null !== $item ? replicationJobRun::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ReplicationJobRun'] as $item1) {
+                    $model->replicationJobRun[$n1++] = replicationJobRun::fromMap($item1);
                 }
             }
         }

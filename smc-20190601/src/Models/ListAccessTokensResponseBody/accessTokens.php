@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Smc\V20190601\Models\ListAccessTokensResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smc\V20190601\Models\ListAccessTokensResponseBody\accessTokens\accessToken;
-use AlibabaCloud\Tea\Model;
 
 class accessTokens extends Model
 {
@@ -19,17 +19,21 @@ class accessTokens extends Model
 
     public function validate()
     {
+        if (\is_array($this->accessToken)) {
+            Model::validateArray($this->accessToken);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessToken) {
-            $res['AccessToken'] = [];
-            if (null !== $this->accessToken && \is_array($this->accessToken)) {
-                $n = 0;
-                foreach ($this->accessToken as $item) {
-                    $res['AccessToken'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->accessToken)) {
+                $res['AccessToken'] = [];
+                $n1 = 0;
+                foreach ($this->accessToken as $item1) {
+                    $res['AccessToken'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class accessTokens extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accessTokens
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessToken'])) {
             if (!empty($map['AccessToken'])) {
                 $model->accessToken = [];
-                $n                  = 0;
-                foreach ($map['AccessToken'] as $item) {
-                    $model->accessToken[$n++] = null !== $item ? accessToken::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AccessToken'] as $item1) {
+                    $model->accessToken[$n1++] = accessToken::fromMap($item1);
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Smc\V20190601\Models\DescribeSourceServersResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smc\V20190601\Models\DescribeSourceServersResponseBody\sourceServers\sourceServer;
-use AlibabaCloud\Tea\Model;
 
 class sourceServers extends Model
 {
@@ -19,17 +19,21 @@ class sourceServers extends Model
 
     public function validate()
     {
+        if (\is_array($this->sourceServer)) {
+            Model::validateArray($this->sourceServer);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sourceServer) {
-            $res['SourceServer'] = [];
-            if (null !== $this->sourceServer && \is_array($this->sourceServer)) {
-                $n = 0;
-                foreach ($this->sourceServer as $item) {
-                    $res['SourceServer'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->sourceServer)) {
+                $res['SourceServer'] = [];
+                $n1 = 0;
+                foreach ($this->sourceServer as $item1) {
+                    $res['SourceServer'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class sourceServers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sourceServers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SourceServer'])) {
             if (!empty($map['SourceServer'])) {
                 $model->sourceServer = [];
-                $n                   = 0;
-                foreach ($map['SourceServer'] as $item) {
-                    $model->sourceServer[$n++] = null !== $item ? sourceServer::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SourceServer'] as $item1) {
+                    $model->sourceServer[$n1++] = sourceServer::fromMap($item1);
                 }
             }
         }

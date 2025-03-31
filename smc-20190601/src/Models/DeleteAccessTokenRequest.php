@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Smc\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteAccessTokenRequest extends Model
 {
     /**
-     * @description The ID of the activation code.
-     *
-     * @example at-bp1akz2zp67r0k6r****
-     *
      * @var string
      */
     public $accessTokenId;
@@ -27,24 +23,27 @@ class DeleteAccessTokenRequest extends Model
      */
     public $resourceOwnerAccount;
     protected $_name = [
-        'accessTokenId'        => 'AccessTokenId',
-        'ownerId'              => 'OwnerId',
+        'accessTokenId' => 'AccessTokenId',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessTokenId) {
             $res['AccessTokenId'] = $this->accessTokenId;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -52,20 +51,22 @@ class DeleteAccessTokenRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteAccessTokenRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessTokenId'])) {
             $model->accessTokenId = $map['AccessTokenId'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Smc\V20190601\Models\DescribeReplicationJobsResponseBody\replicationJobs\replicationJob\dataDisks\dataDisk;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Smc\V20190601\Models\DescribeReplicationJobsResponseBody\replicationJobs\replicationJob\dataDisks\dataDisk\parts\part;
-use AlibabaCloud\Tea\Model;
 
 class parts extends Model
 {
@@ -19,17 +19,21 @@ class parts extends Model
 
     public function validate()
     {
+        if (\is_array($this->part)) {
+            Model::validateArray($this->part);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->part) {
-            $res['Part'] = [];
-            if (null !== $this->part && \is_array($this->part)) {
-                $n = 0;
-                foreach ($this->part as $item) {
-                    $res['Part'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->part)) {
+                $res['Part'] = [];
+                $n1 = 0;
+                foreach ($this->part as $item1) {
+                    $res['Part'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class parts extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return parts
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Part'])) {
             if (!empty($map['Part'])) {
                 $model->part = [];
-                $n           = 0;
-                foreach ($map['Part'] as $item) {
-                    $model->part[$n++] = null !== $item ? part::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Part'] as $item1) {
+                    $model->part[$n1++] = part::fromMap($item1);
                 }
             }
         }

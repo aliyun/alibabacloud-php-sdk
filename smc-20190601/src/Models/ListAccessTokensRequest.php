@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Smc\V20190601\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAccessTokensRequest extends Model
 {
     /**
-     * @description The information about activation codes.
-     *
      * @var string[]
      */
     public $accessTokenId;
 
     /**
-     * @description The name of the activation code.
-     *
-     * @example test_name
-     *
      * @var string
      */
     public $name;
@@ -35,44 +29,50 @@ class ListAccessTokensRequest extends Model
     public $resourceOwnerAccount;
 
     /**
-     * @description The status of the activation code. Valid values:
-     *
-     *   activated
-     *   unactivated
-     *   expired
-     *
-     * @example activated
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'accessTokenId'        => 'AccessTokenId',
-        'name'                 => 'Name',
-        'ownerId'              => 'OwnerId',
+        'accessTokenId' => 'AccessTokenId',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'status'               => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        if (\is_array($this->accessTokenId)) {
+            Model::validateArray($this->accessTokenId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessTokenId) {
-            $res['AccessTokenId'] = $this->accessTokenId;
+            if (\is_array($this->accessTokenId)) {
+                $res['AccessTokenId'] = [];
+                $n1 = 0;
+                foreach ($this->accessTokenId as $item1) {
+                    $res['AccessTokenId'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -80,28 +80,36 @@ class ListAccessTokensRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAccessTokensRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessTokenId'])) {
             if (!empty($map['AccessTokenId'])) {
-                $model->accessTokenId = $map['AccessTokenId'];
+                $model->accessTokenId = [];
+                $n1 = 0;
+                foreach ($map['AccessTokenId'] as $item1) {
+                    $model->accessTokenId[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
