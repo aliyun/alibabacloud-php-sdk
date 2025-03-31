@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CustomContainerConfig extends Model
 {
@@ -14,15 +14,11 @@ class CustomContainerConfig extends Model
     public $accelerationInfo;
 
     /**
-     * @example deprecated
-     *
      * @var string
      */
     public $accelerationType;
 
     /**
-     * @example deprecated
-     *
      * @var string
      */
     public $acrInstanceId;
@@ -43,15 +39,11 @@ class CustomContainerConfig extends Model
     public $healthCheckConfig;
 
     /**
-     * @example registry-vpc.cn-hangzhou.aliyuncs.com/fc-demo/helloworld:v1
-     *
      * @var string
      */
     public $image;
 
     /**
-     * @example 9000
-     *
      * @var int
      */
     public $port;
@@ -62,8 +54,6 @@ class CustomContainerConfig extends Model
     public $registryConfig;
 
     /**
-     * @example stand-sh-registry-vpc.cn-shanghai.cr.aliyuncs.com/fc-demo2/springboot-helloworld@sha256:68d1****0d64d6
-     *
      * @var string
      */
     public $resolvedImageUri;
@@ -80,38 +70,77 @@ class CustomContainerConfig extends Model
         'resolvedImageUri' => 'resolvedImageUri',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->accelerationInfo) {
+            $this->accelerationInfo->validate();
+        }
+        if (\is_array($this->command)) {
+            Model::validateArray($this->command);
+        }
+        if (\is_array($this->entrypoint)) {
+            Model::validateArray($this->entrypoint);
+        }
+        if (null !== $this->healthCheckConfig) {
+            $this->healthCheckConfig->validate();
+        }
+        if (null !== $this->registryConfig) {
+            $this->registryConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accelerationInfo) {
-            $res['accelerationInfo'] = null !== $this->accelerationInfo ? $this->accelerationInfo->toMap() : null;
+            $res['accelerationInfo'] = null !== $this->accelerationInfo ? $this->accelerationInfo->toArray($noStream) : $this->accelerationInfo;
         }
+
         if (null !== $this->accelerationType) {
             $res['accelerationType'] = $this->accelerationType;
         }
+
         if (null !== $this->acrInstanceId) {
             $res['acrInstanceId'] = $this->acrInstanceId;
         }
+
         if (null !== $this->command) {
-            $res['command'] = $this->command;
+            if (\is_array($this->command)) {
+                $res['command'] = [];
+                $n1 = 0;
+                foreach ($this->command as $item1) {
+                    $res['command'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->entrypoint) {
-            $res['entrypoint'] = $this->entrypoint;
+            if (\is_array($this->entrypoint)) {
+                $res['entrypoint'] = [];
+                $n1 = 0;
+                foreach ($this->entrypoint as $item1) {
+                    $res['entrypoint'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->healthCheckConfig) {
-            $res['healthCheckConfig'] = null !== $this->healthCheckConfig ? $this->healthCheckConfig->toMap() : null;
+            $res['healthCheckConfig'] = null !== $this->healthCheckConfig ? $this->healthCheckConfig->toArray($noStream) : $this->healthCheckConfig;
         }
+
         if (null !== $this->image) {
             $res['image'] = $this->image;
         }
+
         if (null !== $this->port) {
             $res['port'] = $this->port;
         }
+
         if (null !== $this->registryConfig) {
-            $res['registryConfig'] = null !== $this->registryConfig ? $this->registryConfig->toMap() : null;
+            $res['registryConfig'] = null !== $this->registryConfig ? $this->registryConfig->toArray($noStream) : $this->registryConfig;
         }
+
         if (null !== $this->resolvedImageUri) {
             $res['resolvedImageUri'] = $this->resolvedImageUri;
         }
@@ -119,45 +148,62 @@ class CustomContainerConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CustomContainerConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['accelerationInfo'])) {
             $model->accelerationInfo = AccelerationInfo::fromMap($map['accelerationInfo']);
         }
+
         if (isset($map['accelerationType'])) {
             $model->accelerationType = $map['accelerationType'];
         }
+
         if (isset($map['acrInstanceId'])) {
             $model->acrInstanceId = $map['acrInstanceId'];
         }
+
         if (isset($map['command'])) {
             if (!empty($map['command'])) {
-                $model->command = $map['command'];
+                $model->command = [];
+                $n1 = 0;
+                foreach ($map['command'] as $item1) {
+                    $model->command[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['entrypoint'])) {
             if (!empty($map['entrypoint'])) {
-                $model->entrypoint = $map['entrypoint'];
+                $model->entrypoint = [];
+                $n1 = 0;
+                foreach ($map['entrypoint'] as $item1) {
+                    $model->entrypoint[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['healthCheckConfig'])) {
             $model->healthCheckConfig = CustomHealthCheckConfig::fromMap($map['healthCheckConfig']);
         }
+
         if (isset($map['image'])) {
             $model->image = $map['image'];
         }
+
         if (isset($map['port'])) {
             $model->port = $map['port'];
         }
+
         if (isset($map['registryConfig'])) {
             $model->registryConfig = RegistryConfig::fromMap($map['registryConfig']);
         }
+
         if (isset($map['resolvedImageUri'])) {
             $model->resolvedImageUri = $map['resolvedImageUri'];
         }

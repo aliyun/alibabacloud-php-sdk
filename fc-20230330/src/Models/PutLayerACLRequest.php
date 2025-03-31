@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PutLayerACLRequest extends Model
 {
     /**
-     * @description Specify the access permission of the layer. A value of 1 indicates public and a value of 0 indicates private. The default value is 0.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $acl;
 
     /**
-     * @description Specify whether the layer is a public layer. Valid values: true and false.
-     *
-     * @example true
-     *
-     * @deprecated
-     *
      * @var string
      */
     public $public;
@@ -32,14 +22,18 @@ class PutLayerACLRequest extends Model
         'public' => 'public',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acl) {
             $res['acl'] = $this->acl;
         }
+
         if (null !== $this->public) {
             $res['public'] = $this->public;
         }
@@ -47,17 +41,18 @@ class PutLayerACLRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PutLayerACLRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['acl'])) {
             $model->acl = $map['acl'];
         }
+
         if (isset($map['public'])) {
             $model->public = $map['public'];
         }

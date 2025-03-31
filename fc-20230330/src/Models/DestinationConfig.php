@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DestinationConfig extends Model
 {
@@ -22,32 +22,43 @@ class DestinationConfig extends Model
         'onSuccess' => 'onSuccess',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->onFailure) {
+            $this->onFailure->validate();
+        }
+        if (null !== $this->onSuccess) {
+            $this->onSuccess->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->onFailure) {
-            $res['onFailure'] = null !== $this->onFailure ? $this->onFailure->toMap() : null;
+            $res['onFailure'] = null !== $this->onFailure ? $this->onFailure->toArray($noStream) : $this->onFailure;
         }
+
         if (null !== $this->onSuccess) {
-            $res['onSuccess'] = null !== $this->onSuccess ? $this->onSuccess->toMap() : null;
+            $res['onSuccess'] = null !== $this->onSuccess ? $this->onSuccess->toArray($noStream) : $this->onSuccess;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DestinationConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['onFailure'])) {
             $model->onFailure = Destination::fromMap($map['onFailure']);
         }
+
         if (isset($map['onSuccess'])) {
             $model->onSuccess = Destination::fromMap($map['onSuccess']);
         }

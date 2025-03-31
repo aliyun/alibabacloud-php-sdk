@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListFunctionsOutput extends Model
 {
@@ -14,8 +14,6 @@ class ListFunctionsOutput extends Model
     public $functions;
 
     /**
-     * @example next_function_name
-     *
      * @var string
      */
     public $nextToken;
@@ -24,20 +22,27 @@ class ListFunctionsOutput extends Model
         'nextToken' => 'nextToken',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->functions)) {
+            Model::validateArray($this->functions);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->functions) {
-            $res['functions'] = [];
-            if (null !== $this->functions && \is_array($this->functions)) {
-                $n = 0;
-                foreach ($this->functions as $item) {
-                    $res['functions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->functions)) {
+                $res['functions'] = [];
+                $n1 = 0;
+                foreach ($this->functions as $item1) {
+                    $res['functions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
@@ -45,23 +50,24 @@ class ListFunctionsOutput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFunctionsOutput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['functions'])) {
             if (!empty($map['functions'])) {
                 $model->functions = [];
-                $n = 0;
-                foreach ($map['functions'] as $item) {
-                    $model->functions[$n++] = null !== $item ? Function_::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['functions'] as $item1) {
+                    $model->functions[$n1++] = Function_::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }

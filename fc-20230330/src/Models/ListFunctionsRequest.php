@@ -4,81 +4,105 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListFunctionsRequest extends Model
 {
     /**
-     * @description The version of Function Compute to which the functions belong. Valid values: v3 and v2. v3: only lists functions of Function Compute 3.0. v2: only lists functions of Function Compute 2.0. By default, this parameter is left empty and functions in both Function Compute 3.0 and Function Compute 2.0 are listed.
-     *
-     * @example v3
-     *
+     * @var string
+     */
+    public $description;
+
+    /**
      * @var string
      */
     public $fcVersion;
 
     /**
-     * @description The number of functions to return. The minimum value is 1 and the maximum value is 100.
-     *
-     * @example 10
-     *
+     * @var string
+     */
+    public $gpuType;
+
+    /**
      * @var int
      */
     public $limit;
 
     /**
-     * @description The pagination token.
-     *
-     * @example MTIzNCNhYmM=
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The prefix of the function name.
-     *
-     * @example my-func
-     *
      * @var string
      */
     public $prefix;
+
+    /**
+     * @var string
+     */
+    public $runtime;
 
     /**
      * @var Tag[]
      */
     public $tags;
     protected $_name = [
+        'description' => 'description',
         'fcVersion' => 'fcVersion',
+        'gpuType' => 'gpuType',
         'limit' => 'limit',
         'nextToken' => 'nextToken',
         'prefix' => 'prefix',
+        'runtime' => 'runtime',
         'tags' => 'tags',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->description) {
+            $res['description'] = $this->description;
+        }
+
         if (null !== $this->fcVersion) {
             $res['fcVersion'] = $this->fcVersion;
         }
+
+        if (null !== $this->gpuType) {
+            $res['gpuType'] = $this->gpuType;
+        }
+
         if (null !== $this->limit) {
             $res['limit'] = $this->limit;
         }
+
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->prefix) {
             $res['prefix'] = $this->prefix;
         }
+
+        if (null !== $this->runtime) {
+            $res['runtime'] = $this->runtime;
+        }
+
         if (null !== $this->tags) {
-            $res['tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -86,32 +110,48 @@ class ListFunctionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListFunctionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['description'])) {
+            $model->description = $map['description'];
+        }
+
         if (isset($map['fcVersion'])) {
             $model->fcVersion = $map['fcVersion'];
         }
+
+        if (isset($map['gpuType'])) {
+            $model->gpuType = $map['gpuType'];
+        }
+
         if (isset($map['limit'])) {
             $model->limit = $map['limit'];
         }
+
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['prefix'])) {
             $model->prefix = $map['prefix'];
         }
+
+        if (isset($map['runtime'])) {
+            $model->runtime = $map['runtime'];
+        }
+
         if (isset($map['tags'])) {
             if (!empty($map['tags'])) {
                 $model->tags = [];
-                $n = 0;
-                foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1++] = Tag::fromMap($item1);
                 }
             }
         }

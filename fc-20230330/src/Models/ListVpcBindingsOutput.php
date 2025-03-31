@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListVpcBindingsOutput extends Model
 {
@@ -16,29 +16,45 @@ class ListVpcBindingsOutput extends Model
         'vpcIds' => 'vpcIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->vpcIds)) {
+            Model::validateArray($this->vpcIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vpcIds) {
-            $res['vpcIds'] = $this->vpcIds;
+            if (\is_array($this->vpcIds)) {
+                $res['vpcIds'] = [];
+                $n1 = 0;
+                foreach ($this->vpcIds as $item1) {
+                    $res['vpcIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListVpcBindingsOutput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['vpcIds'])) {
             if (!empty($map['vpcIds'])) {
-                $model->vpcIds = $map['vpcIds'];
+                $model->vpcIds = [];
+                $n1 = 0;
+                foreach ($map['vpcIds'] as $item1) {
+                    $model->vpcIds[$n1++] = $item1;
+                }
             }
         }
 

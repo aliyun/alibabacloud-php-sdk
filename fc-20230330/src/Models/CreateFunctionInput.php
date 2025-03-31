@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateFunctionInput extends Model
 {
@@ -14,8 +14,6 @@ class CreateFunctionInput extends Model
     public $code;
 
     /**
-     * @example 1
-     *
      * @var float
      */
     public $cpu;
@@ -36,8 +34,6 @@ class CreateFunctionInput extends Model
     public $customRuntimeConfig;
 
     /**
-     * @example my function
-     *
      * @var string
      */
     public $description;
@@ -48,8 +44,6 @@ class CreateFunctionInput extends Model
     public $disableOndemand;
 
     /**
-     * @example 512
-     *
      * @var int
      */
     public $diskSize;
@@ -60,10 +54,6 @@ class CreateFunctionInput extends Model
     public $environmentVariables;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example my-function-1
-     *
      * @var string
      */
     public $functionName;
@@ -74,17 +64,11 @@ class CreateFunctionInput extends Model
     public $gpuConfig;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example index.handler
-     *
      * @var string
      */
     public $handler;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $instanceConcurrency;
@@ -95,8 +79,6 @@ class CreateFunctionInput extends Model
     public $instanceLifecycleConfig;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $internetAccess;
@@ -112,8 +94,6 @@ class CreateFunctionInput extends Model
     public $logConfig;
 
     /**
-     * @example 512
-     *
      * @var int
      */
     public $memorySize;
@@ -129,17 +109,11 @@ class CreateFunctionInput extends Model
     public $ossMountConfig;
 
     /**
-     * @example acs:ram::188077086902****:role/fc-test
-     *
      * @var string
      */
     public $role;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example python3.10
-     *
      * @var string
      */
     public $runtime;
@@ -150,8 +124,6 @@ class CreateFunctionInput extends Model
     public $tags;
 
     /**
-     * @example 60
-     *
      * @var int
      */
     public $timeout;
@@ -194,190 +166,305 @@ class CreateFunctionInput extends Model
         'vpcConfig' => 'vpcConfig',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->code) {
+            $this->code->validate();
+        }
+        if (null !== $this->customContainerConfig) {
+            $this->customContainerConfig->validate();
+        }
+        if (null !== $this->customDNS) {
+            $this->customDNS->validate();
+        }
+        if (null !== $this->customRuntimeConfig) {
+            $this->customRuntimeConfig->validate();
+        }
+        if (\is_array($this->environmentVariables)) {
+            Model::validateArray($this->environmentVariables);
+        }
+        if (null !== $this->gpuConfig) {
+            $this->gpuConfig->validate();
+        }
+        if (null !== $this->instanceLifecycleConfig) {
+            $this->instanceLifecycleConfig->validate();
+        }
+        if (\is_array($this->layers)) {
+            Model::validateArray($this->layers);
+        }
+        if (null !== $this->logConfig) {
+            $this->logConfig->validate();
+        }
+        if (null !== $this->nasConfig) {
+            $this->nasConfig->validate();
+        }
+        if (null !== $this->ossMountConfig) {
+            $this->ossMountConfig->validate();
+        }
+        if (\is_array($this->tags)) {
+            Model::validateArray($this->tags);
+        }
+        if (null !== $this->tracingConfig) {
+            $this->tracingConfig->validate();
+        }
+        if (null !== $this->vpcConfig) {
+            $this->vpcConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
-            $res['code'] = null !== $this->code ? $this->code->toMap() : null;
+            $res['code'] = null !== $this->code ? $this->code->toArray($noStream) : $this->code;
         }
+
         if (null !== $this->cpu) {
             $res['cpu'] = $this->cpu;
         }
+
         if (null !== $this->customContainerConfig) {
-            $res['customContainerConfig'] = null !== $this->customContainerConfig ? $this->customContainerConfig->toMap() : null;
+            $res['customContainerConfig'] = null !== $this->customContainerConfig ? $this->customContainerConfig->toArray($noStream) : $this->customContainerConfig;
         }
+
         if (null !== $this->customDNS) {
-            $res['customDNS'] = null !== $this->customDNS ? $this->customDNS->toMap() : null;
+            $res['customDNS'] = null !== $this->customDNS ? $this->customDNS->toArray($noStream) : $this->customDNS;
         }
+
         if (null !== $this->customRuntimeConfig) {
-            $res['customRuntimeConfig'] = null !== $this->customRuntimeConfig ? $this->customRuntimeConfig->toMap() : null;
+            $res['customRuntimeConfig'] = null !== $this->customRuntimeConfig ? $this->customRuntimeConfig->toArray($noStream) : $this->customRuntimeConfig;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->disableOndemand) {
             $res['disableOndemand'] = $this->disableOndemand;
         }
+
         if (null !== $this->diskSize) {
             $res['diskSize'] = $this->diskSize;
         }
+
         if (null !== $this->environmentVariables) {
-            $res['environmentVariables'] = $this->environmentVariables;
-        }
-        if (null !== $this->functionName) {
-            $res['functionName'] = $this->functionName;
-        }
-        if (null !== $this->gpuConfig) {
-            $res['gpuConfig'] = null !== $this->gpuConfig ? $this->gpuConfig->toMap() : null;
-        }
-        if (null !== $this->handler) {
-            $res['handler'] = $this->handler;
-        }
-        if (null !== $this->instanceConcurrency) {
-            $res['instanceConcurrency'] = $this->instanceConcurrency;
-        }
-        if (null !== $this->instanceLifecycleConfig) {
-            $res['instanceLifecycleConfig'] = null !== $this->instanceLifecycleConfig ? $this->instanceLifecycleConfig->toMap() : null;
-        }
-        if (null !== $this->internetAccess) {
-            $res['internetAccess'] = $this->internetAccess;
-        }
-        if (null !== $this->layers) {
-            $res['layers'] = $this->layers;
-        }
-        if (null !== $this->logConfig) {
-            $res['logConfig'] = null !== $this->logConfig ? $this->logConfig->toMap() : null;
-        }
-        if (null !== $this->memorySize) {
-            $res['memorySize'] = $this->memorySize;
-        }
-        if (null !== $this->nasConfig) {
-            $res['nasConfig'] = null !== $this->nasConfig ? $this->nasConfig->toMap() : null;
-        }
-        if (null !== $this->ossMountConfig) {
-            $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toMap() : null;
-        }
-        if (null !== $this->role) {
-            $res['role'] = $this->role;
-        }
-        if (null !== $this->runtime) {
-            $res['runtime'] = $this->runtime;
-        }
-        if (null !== $this->tags) {
-            $res['tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
-                $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['tags'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->environmentVariables)) {
+                $res['environmentVariables'] = [];
+                foreach ($this->environmentVariables as $key1 => $value1) {
+                    $res['environmentVariables'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->functionName) {
+            $res['functionName'] = $this->functionName;
+        }
+
+        if (null !== $this->gpuConfig) {
+            $res['gpuConfig'] = null !== $this->gpuConfig ? $this->gpuConfig->toArray($noStream) : $this->gpuConfig;
+        }
+
+        if (null !== $this->handler) {
+            $res['handler'] = $this->handler;
+        }
+
+        if (null !== $this->instanceConcurrency) {
+            $res['instanceConcurrency'] = $this->instanceConcurrency;
+        }
+
+        if (null !== $this->instanceLifecycleConfig) {
+            $res['instanceLifecycleConfig'] = null !== $this->instanceLifecycleConfig ? $this->instanceLifecycleConfig->toArray($noStream) : $this->instanceLifecycleConfig;
+        }
+
+        if (null !== $this->internetAccess) {
+            $res['internetAccess'] = $this->internetAccess;
+        }
+
+        if (null !== $this->layers) {
+            if (\is_array($this->layers)) {
+                $res['layers'] = [];
+                $n1 = 0;
+                foreach ($this->layers as $item1) {
+                    $res['layers'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->logConfig) {
+            $res['logConfig'] = null !== $this->logConfig ? $this->logConfig->toArray($noStream) : $this->logConfig;
+        }
+
+        if (null !== $this->memorySize) {
+            $res['memorySize'] = $this->memorySize;
+        }
+
+        if (null !== $this->nasConfig) {
+            $res['nasConfig'] = null !== $this->nasConfig ? $this->nasConfig->toArray($noStream) : $this->nasConfig;
+        }
+
+        if (null !== $this->ossMountConfig) {
+            $res['ossMountConfig'] = null !== $this->ossMountConfig ? $this->ossMountConfig->toArray($noStream) : $this->ossMountConfig;
+        }
+
+        if (null !== $this->role) {
+            $res['role'] = $this->role;
+        }
+
+        if (null !== $this->runtime) {
+            $res['runtime'] = $this->runtime;
+        }
+
+        if (null !== $this->tags) {
+            if (\is_array($this->tags)) {
+                $res['tags'] = [];
+                $n1 = 0;
+                foreach ($this->tags as $item1) {
+                    $res['tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->timeout) {
             $res['timeout'] = $this->timeout;
         }
+
         if (null !== $this->tracingConfig) {
-            $res['tracingConfig'] = null !== $this->tracingConfig ? $this->tracingConfig->toMap() : null;
+            $res['tracingConfig'] = null !== $this->tracingConfig ? $this->tracingConfig->toArray($noStream) : $this->tracingConfig;
         }
+
         if (null !== $this->vpcConfig) {
-            $res['vpcConfig'] = null !== $this->vpcConfig ? $this->vpcConfig->toMap() : null;
+            $res['vpcConfig'] = null !== $this->vpcConfig ? $this->vpcConfig->toArray($noStream) : $this->vpcConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateFunctionInput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['code'])) {
             $model->code = InputCodeLocation::fromMap($map['code']);
         }
+
         if (isset($map['cpu'])) {
             $model->cpu = $map['cpu'];
         }
+
         if (isset($map['customContainerConfig'])) {
             $model->customContainerConfig = CustomContainerConfig::fromMap($map['customContainerConfig']);
         }
+
         if (isset($map['customDNS'])) {
             $model->customDNS = CustomDNS::fromMap($map['customDNS']);
         }
+
         if (isset($map['customRuntimeConfig'])) {
             $model->customRuntimeConfig = CustomRuntimeConfig::fromMap($map['customRuntimeConfig']);
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['disableOndemand'])) {
             $model->disableOndemand = $map['disableOndemand'];
         }
+
         if (isset($map['diskSize'])) {
             $model->diskSize = $map['diskSize'];
         }
+
         if (isset($map['environmentVariables'])) {
-            $model->environmentVariables = $map['environmentVariables'];
-        }
-        if (isset($map['functionName'])) {
-            $model->functionName = $map['functionName'];
-        }
-        if (isset($map['gpuConfig'])) {
-            $model->gpuConfig = GPUConfig::fromMap($map['gpuConfig']);
-        }
-        if (isset($map['handler'])) {
-            $model->handler = $map['handler'];
-        }
-        if (isset($map['instanceConcurrency'])) {
-            $model->instanceConcurrency = $map['instanceConcurrency'];
-        }
-        if (isset($map['instanceLifecycleConfig'])) {
-            $model->instanceLifecycleConfig = InstanceLifecycleConfig::fromMap($map['instanceLifecycleConfig']);
-        }
-        if (isset($map['internetAccess'])) {
-            $model->internetAccess = $map['internetAccess'];
-        }
-        if (isset($map['layers'])) {
-            if (!empty($map['layers'])) {
-                $model->layers = $map['layers'];
-            }
-        }
-        if (isset($map['logConfig'])) {
-            $model->logConfig = LogConfig::fromMap($map['logConfig']);
-        }
-        if (isset($map['memorySize'])) {
-            $model->memorySize = $map['memorySize'];
-        }
-        if (isset($map['nasConfig'])) {
-            $model->nasConfig = NASConfig::fromMap($map['nasConfig']);
-        }
-        if (isset($map['ossMountConfig'])) {
-            $model->ossMountConfig = OSSMountConfig::fromMap($map['ossMountConfig']);
-        }
-        if (isset($map['role'])) {
-            $model->role = $map['role'];
-        }
-        if (isset($map['runtime'])) {
-            $model->runtime = $map['runtime'];
-        }
-        if (isset($map['tags'])) {
-            if (!empty($map['tags'])) {
-                $model->tags = [];
-                $n = 0;
-                foreach ($map['tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
+            if (!empty($map['environmentVariables'])) {
+                $model->environmentVariables = [];
+                foreach ($map['environmentVariables'] as $key1 => $value1) {
+                    $model->environmentVariables[$key1] = $value1;
                 }
             }
         }
+
+        if (isset($map['functionName'])) {
+            $model->functionName = $map['functionName'];
+        }
+
+        if (isset($map['gpuConfig'])) {
+            $model->gpuConfig = GPUConfig::fromMap($map['gpuConfig']);
+        }
+
+        if (isset($map['handler'])) {
+            $model->handler = $map['handler'];
+        }
+
+        if (isset($map['instanceConcurrency'])) {
+            $model->instanceConcurrency = $map['instanceConcurrency'];
+        }
+
+        if (isset($map['instanceLifecycleConfig'])) {
+            $model->instanceLifecycleConfig = InstanceLifecycleConfig::fromMap($map['instanceLifecycleConfig']);
+        }
+
+        if (isset($map['internetAccess'])) {
+            $model->internetAccess = $map['internetAccess'];
+        }
+
+        if (isset($map['layers'])) {
+            if (!empty($map['layers'])) {
+                $model->layers = [];
+                $n1 = 0;
+                foreach ($map['layers'] as $item1) {
+                    $model->layers[$n1++] = $item1;
+                }
+            }
+        }
+
+        if (isset($map['logConfig'])) {
+            $model->logConfig = LogConfig::fromMap($map['logConfig']);
+        }
+
+        if (isset($map['memorySize'])) {
+            $model->memorySize = $map['memorySize'];
+        }
+
+        if (isset($map['nasConfig'])) {
+            $model->nasConfig = NASConfig::fromMap($map['nasConfig']);
+        }
+
+        if (isset($map['ossMountConfig'])) {
+            $model->ossMountConfig = OSSMountConfig::fromMap($map['ossMountConfig']);
+        }
+
+        if (isset($map['role'])) {
+            $model->role = $map['role'];
+        }
+
+        if (isset($map['runtime'])) {
+            $model->runtime = $map['runtime'];
+        }
+
+        if (isset($map['tags'])) {
+            if (!empty($map['tags'])) {
+                $model->tags = [];
+                $n1 = 0;
+                foreach ($map['tags'] as $item1) {
+                    $model->tags[$n1++] = Tag::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['timeout'])) {
             $model->timeout = $map['timeout'];
         }
+
         if (isset($map['tracingConfig'])) {
             $model->tracingConfig = TracingConfig::fromMap($map['tracingConfig']);
         }
+
         if (isset($map['vpcConfig'])) {
             $model->vpcConfig = VPCConfig::fromMap($map['vpcConfig']);
         }

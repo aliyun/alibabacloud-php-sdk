@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RegistryCertConfig extends Model
 {
@@ -14,8 +14,6 @@ class RegistryCertConfig extends Model
     public $insecure;
 
     /**
-     * @example cm9vdF9jYV9jZXJ0
-     *
      * @var string
      */
     public $rootCaCertBase64;
@@ -24,14 +22,18 @@ class RegistryCertConfig extends Model
         'rootCaCertBase64' => 'rootCaCertBase64',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->insecure) {
             $res['insecure'] = $this->insecure;
         }
+
         if (null !== $this->rootCaCertBase64) {
             $res['rootCaCertBase64'] = $this->rootCaCertBase64;
         }
@@ -39,17 +41,18 @@ class RegistryCertConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RegistryCertConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['insecure'])) {
             $model->insecure = $map['insecure'];
         }
+
         if (isset($map['rootCaCertBase64'])) {
             $model->rootCaCertBase64 = $map['rootCaCertBase64'];
         }

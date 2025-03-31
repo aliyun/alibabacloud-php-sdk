@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListLayerVersionsRequest extends Model
 {
     /**
-     * @description The number of versions to be returned.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $limit;
 
     /**
-     * @description The initial version of the layer.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $startVersion;
@@ -30,14 +22,18 @@ class ListLayerVersionsRequest extends Model
         'startVersion' => 'startVersion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->limit) {
             $res['limit'] = $this->limit;
         }
+
         if (null !== $this->startVersion) {
             $res['startVersion'] = $this->startVersion;
         }
@@ -45,17 +41,18 @@ class ListLayerVersionsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListLayerVersionsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['limit'])) {
             $model->limit = $map['limit'];
         }
+
         if (isset($map['startVersion'])) {
             $model->startVersion = $map['startVersion'];
         }

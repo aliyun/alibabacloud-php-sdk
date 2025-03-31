@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MNSTopicTriggerConfig extends Model
 {
     /**
-     * @example serverless
-     *
      * @var string
      */
     public $filterTag;
 
     /**
-     * @example JSON
-     *
      * @var string
      */
     public $notifyContentFormat;
 
     /**
-     * @example BACKOFF_RETRY
-     *
      * @var string
      */
     public $notifyStrategy;
@@ -34,17 +28,22 @@ class MNSTopicTriggerConfig extends Model
         'notifyStrategy' => 'notifyStrategy',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->filterTag) {
             $res['filterTag'] = $this->filterTag;
         }
+
         if (null !== $this->notifyContentFormat) {
             $res['notifyContentFormat'] = $this->notifyContentFormat;
         }
+
         if (null !== $this->notifyStrategy) {
             $res['notifyStrategy'] = $this->notifyStrategy;
         }
@@ -52,20 +51,22 @@ class MNSTopicTriggerConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MNSTopicTriggerConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['filterTag'])) {
             $model->filterTag = $map['filterTag'];
         }
+
         if (isset($map['notifyContentFormat'])) {
             $model->notifyContentFormat = $map['notifyContentFormat'];
         }
+
         if (isset($map['notifyStrategy'])) {
             $model->notifyStrategy = $map['notifyStrategy'];
         }

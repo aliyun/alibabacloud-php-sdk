@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CertConfig extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example my-cert
-     *
      * @var string
      */
     public $certName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example PEM format
-     *
      * @var string
      */
     public $certificate;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example PEM format
-     *
      * @var string
      */
     public $privateKey;
@@ -40,17 +28,22 @@ class CertConfig extends Model
         'privateKey' => 'privateKey',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->certName) {
             $res['certName'] = $this->certName;
         }
+
         if (null !== $this->certificate) {
             $res['certificate'] = $this->certificate;
         }
+
         if (null !== $this->privateKey) {
             $res['privateKey'] = $this->privateKey;
         }
@@ -58,20 +51,22 @@ class CertConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CertConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['certName'])) {
             $model->certName = $map['certName'];
         }
+
         if (isset($map['certificate'])) {
             $model->certificate = $map['certificate'];
         }
+
         if (isset($map['privateKey'])) {
             $model->privateKey = $map['privateKey'];
         }

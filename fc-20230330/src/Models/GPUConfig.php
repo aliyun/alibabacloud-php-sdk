@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GPUConfig extends Model
 {
     /**
-     * @example 2048
-     *
      * @var int
      */
     public $gpuMemorySize;
 
     /**
-     * @example fc.gpu.tesla.1
-     *
      * @var string
      */
     public $gpuType;
@@ -26,14 +22,18 @@ class GPUConfig extends Model
         'gpuType' => 'gpuType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->gpuMemorySize) {
             $res['gpuMemorySize'] = $this->gpuMemorySize;
         }
+
         if (null !== $this->gpuType) {
             $res['gpuType'] = $this->gpuType;
         }
@@ -41,17 +41,18 @@ class GPUConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GPUConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['gpuMemorySize'])) {
             $model->gpuMemorySize = $map['gpuMemorySize'];
         }
+
         if (isset($map['gpuType'])) {
             $model->gpuType = $map['gpuType'];
         }

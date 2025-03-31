@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RouteConfig extends Model
 {
@@ -16,17 +16,23 @@ class RouteConfig extends Model
         'routes' => 'routes',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->routes)) {
+            Model::validateArray($this->routes);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->routes) {
-            $res['routes'] = [];
-            if (null !== $this->routes && \is_array($this->routes)) {
-                $n = 0;
-                foreach ($this->routes as $item) {
-                    $res['routes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->routes)) {
+                $res['routes'] = [];
+                $n1 = 0;
+                foreach ($this->routes as $item1) {
+                    $res['routes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -34,20 +40,20 @@ class RouteConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RouteConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['routes'])) {
             if (!empty($map['routes'])) {
                 $model->routes = [];
-                $n = 0;
-                foreach ($map['routes'] as $item) {
-                    $model->routes[$n++] = null !== $item ? PathConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['routes'] as $item1) {
+                    $model->routes[$n1++] = PathConfig::fromMap($item1);
                 }
             }
         }

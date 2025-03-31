@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListTriggersOutput extends Model
 {
     /**
-     * @example next_token
-     *
      * @var string
      */
     public $nextToken;
@@ -24,20 +22,27 @@ class ListTriggersOutput extends Model
         'triggers' => 'triggers',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->triggers)) {
+            Model::validateArray($this->triggers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nextToken) {
             $res['nextToken'] = $this->nextToken;
         }
+
         if (null !== $this->triggers) {
-            $res['triggers'] = [];
-            if (null !== $this->triggers && \is_array($this->triggers)) {
-                $n = 0;
-                foreach ($this->triggers as $item) {
-                    $res['triggers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->triggers)) {
+                $res['triggers'] = [];
+                $n1 = 0;
+                foreach ($this->triggers as $item1) {
+                    $res['triggers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -45,23 +50,24 @@ class ListTriggersOutput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListTriggersOutput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['nextToken'])) {
             $model->nextToken = $map['nextToken'];
         }
+
         if (isset($map['triggers'])) {
             if (!empty($map['triggers'])) {
                 $model->triggers = [];
-                $n = 0;
-                foreach ($map['triggers'] as $item) {
-                    $model->triggers[$n++] = null !== $item ? Trigger::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['triggers'] as $item1) {
+                    $model->triggers[$n1++] = Trigger::fromMap($item1);
                 }
             }
         }

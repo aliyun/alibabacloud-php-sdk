@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AsyncConfig extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $asyncTask;
 
     /**
-     * @example 2006-01-02T15:04:05Z07:00
-     *
      * @var string
      */
     public $createdTime;
@@ -28,29 +24,21 @@ class AsyncConfig extends Model
     public $destinationConfig;
 
     /**
-     * @example acs:fc:cn-shanghai:1234/functions/my-func
-     *
      * @var string
      */
     public $functionArn;
 
     /**
-     * @example 2006-01-02T15:04:05Z07:00
-     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
-     * @example 3600
-     *
      * @var int
      */
     public $maxAsyncEventAgeInSeconds;
 
     /**
-     * @example 3
-     *
      * @var int
      */
     public $maxAsyncRetryAttempts;
@@ -64,29 +52,41 @@ class AsyncConfig extends Model
         'maxAsyncRetryAttempts' => 'maxAsyncRetryAttempts',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->destinationConfig) {
+            $this->destinationConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->asyncTask) {
             $res['asyncTask'] = $this->asyncTask;
         }
+
         if (null !== $this->createdTime) {
             $res['createdTime'] = $this->createdTime;
         }
+
         if (null !== $this->destinationConfig) {
-            $res['destinationConfig'] = null !== $this->destinationConfig ? $this->destinationConfig->toMap() : null;
+            $res['destinationConfig'] = null !== $this->destinationConfig ? $this->destinationConfig->toArray($noStream) : $this->destinationConfig;
         }
+
         if (null !== $this->functionArn) {
             $res['functionArn'] = $this->functionArn;
         }
+
         if (null !== $this->lastModifiedTime) {
             $res['lastModifiedTime'] = $this->lastModifiedTime;
         }
+
         if (null !== $this->maxAsyncEventAgeInSeconds) {
             $res['maxAsyncEventAgeInSeconds'] = $this->maxAsyncEventAgeInSeconds;
         }
+
         if (null !== $this->maxAsyncRetryAttempts) {
             $res['maxAsyncRetryAttempts'] = $this->maxAsyncRetryAttempts;
         }
@@ -94,32 +94,38 @@ class AsyncConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AsyncConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['asyncTask'])) {
             $model->asyncTask = $map['asyncTask'];
         }
+
         if (isset($map['createdTime'])) {
             $model->createdTime = $map['createdTime'];
         }
+
         if (isset($map['destinationConfig'])) {
             $model->destinationConfig = DestinationConfig::fromMap($map['destinationConfig']);
         }
+
         if (isset($map['functionArn'])) {
             $model->functionArn = $map['functionArn'];
         }
+
         if (isset($map['lastModifiedTime'])) {
             $model->lastModifiedTime = $map['lastModifiedTime'];
         }
+
         if (isset($map['maxAsyncEventAgeInSeconds'])) {
             $model->maxAsyncEventAgeInSeconds = $map['maxAsyncEventAgeInSeconds'];
         }
+
         if (isset($map['maxAsyncRetryAttempts'])) {
             $model->maxAsyncRetryAttempts = $map['maxAsyncRetryAttempts'];
         }

@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetFunctionRequest extends Model
 {
     /**
-     * @description 2023-03-10T10:10:10Z
-     *
-     * @example LATEST
-     *
      * @var string
      */
     public $qualifier;
@@ -20,9 +16,12 @@ class GetFunctionRequest extends Model
         'qualifier' => 'qualifier',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->qualifier) {
@@ -32,11 +31,11 @@ class GetFunctionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetFunctionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

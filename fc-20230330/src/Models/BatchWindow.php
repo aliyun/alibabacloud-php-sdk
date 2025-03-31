@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class BatchWindow extends Model
 {
     /**
-     * @example 100
-     *
      * @var int
      */
     public $countBasedWindow;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $timeBasedWindow;
@@ -26,14 +22,18 @@ class BatchWindow extends Model
         'timeBasedWindow' => 'TimeBasedWindow',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->countBasedWindow) {
             $res['CountBasedWindow'] = $this->countBasedWindow;
         }
+
         if (null !== $this->timeBasedWindow) {
             $res['TimeBasedWindow'] = $this->timeBasedWindow;
         }
@@ -41,17 +41,18 @@ class BatchWindow extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchWindow
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CountBasedWindow'])) {
             $model->countBasedWindow = $map['CountBasedWindow'];
         }
+
         if (isset($map['TimeBasedWindow'])) {
             $model->timeBasedWindow = $map['TimeBasedWindow'];
         }

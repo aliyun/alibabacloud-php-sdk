@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SourceConfig extends Model
 {
     /**
-     * @example my-sls-logstore-name
-     *
      * @var string
      */
     public $logstore;
 
     /**
-     * @example 1704790317
-     *
      * @var int
      */
     public $startTime;
@@ -26,14 +22,18 @@ class SourceConfig extends Model
         'startTime' => 'startTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logstore) {
             $res['logstore'] = $this->logstore;
         }
+
         if (null !== $this->startTime) {
             $res['startTime'] = $this->startTime;
         }
@@ -41,17 +41,18 @@ class SourceConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SourceConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['logstore'])) {
             $model->logstore = $map['logstore'];
         }
+
         if (isset($map['startTime'])) {
             $model->startTime = $map['startTime'];
         }
