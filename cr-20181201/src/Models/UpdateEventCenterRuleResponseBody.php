@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateEventCenterRuleResponseBody extends Model
 {
     /**
-     * @description The status code.
-     *
-     * @example 200
-     *
      * @var int
      */
     public $code;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 031572FA-7D8F-4C05-B790-1071E0E05DE6
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The ID of the event notification rule.
-     *
-     * @example crecr-n6pbhgjxt*****
-     *
      * @var string
      */
     public $ruleId;
     protected $_name = [
-        'code'      => 'Code',
+        'code' => 'Code',
         'requestId' => 'RequestId',
-        'ruleId'    => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -60,20 +51,22 @@ class UpdateEventCenterRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateEventCenterRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

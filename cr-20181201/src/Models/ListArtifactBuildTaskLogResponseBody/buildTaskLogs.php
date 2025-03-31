@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactBuildTaskLogResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class buildTaskLogs extends Model
 {
     /**
-     * @description The row number of the log entry.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $lineNumber;
 
     /**
-     * @description The content of the log entry.
-     *
-     * @example Start Build
-     *
      * @var string
      */
     public $message;
     protected $_name = [
         'lineNumber' => 'LineNumber',
-        'message'    => 'Message',
+        'message' => 'Message',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lineNumber) {
             $res['LineNumber'] = $this->lineNumber;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -47,17 +41,18 @@ class buildTaskLogs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return buildTaskLogs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['LineNumber'])) {
             $model->lineNumber = $map['LineNumber'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

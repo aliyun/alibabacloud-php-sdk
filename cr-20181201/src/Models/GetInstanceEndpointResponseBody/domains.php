@@ -4,45 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models\GetInstanceEndpointResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class domains extends Model
 {
     /**
-     * @description The domain name that is used to access the Container Registry Enterprise Edition instance.
-     *
-     * @example shanghai-instance1-registry.cn-shanghai.cr.aliyuncs.com
-     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description The type of the domain name. Valid values:
-     *
-     *   `SYSTEM`: a system domain name.
-     *   `USER`: a user domain name.
-     *
-     * @example SYSTEM
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'domain' => 'Domain',
-        'type'   => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->domain) {
             $res['Domain'] = $this->domain;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -50,17 +41,18 @@ class domains extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return domains
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Domain'])) {
             $model->domain = $map['Domain'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

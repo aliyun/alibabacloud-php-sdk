@@ -4,71 +4,56 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateRepoBuildRuleResponseBody extends Model
 {
     /**
-     * @description The ID of the building rule.
-     *
-     * @example crbr-ly77w5i3t31f****
-     *
      * @var string
      */
     public $buildRuleId;
 
     /**
-     * @description The return value.
-     *
-     * @example success
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   `true`: The request is successful.
-     *   `false`: The request fails.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isSuccess;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 4CE1F661-75DD-4EBD-A4AD-057B26834ABB
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'buildRuleId' => 'BuildRuleId',
-        'code'        => 'Code',
-        'isSuccess'   => 'IsSuccess',
-        'requestId'   => 'RequestId',
+        'code' => 'Code',
+        'isSuccess' => 'IsSuccess',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildRuleId) {
             $res['BuildRuleId'] = $this->buildRuleId;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -76,23 +61,26 @@ class CreateRepoBuildRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRepoBuildRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BuildRuleId'])) {
             $model->buildRuleId = $map['BuildRuleId'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

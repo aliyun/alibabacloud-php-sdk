@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListNamespaceResponseBody\namespaces;
-use AlibabaCloud\Tea\Model;
 
 class ListNamespaceResponseBody extends Model
 {
     /**
-     * @example success
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $isSuccess;
@@ -29,73 +25,75 @@ class ListNamespaceResponseBody extends Model
     public $namespaces;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @example 30
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example B7E5FCA5-55ED-451C-9649-0BB2B93387D0
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $totalCount;
     protected $_name = [
-        'code'       => 'Code',
-        'isSuccess'  => 'IsSuccess',
+        'code' => 'Code',
+        'isSuccess' => 'IsSuccess',
         'namespaces' => 'Namespaces',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->namespaces)) {
+            Model::validateArray($this->namespaces);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
+
         if (null !== $this->namespaces) {
-            $res['Namespaces'] = [];
-            if (null !== $this->namespaces && \is_array($this->namespaces)) {
-                $n = 0;
-                foreach ($this->namespaces as $item) {
-                    $res['Namespaces'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->namespaces)) {
+                $res['Namespaces'] = [];
+                $n1 = 0;
+                foreach ($this->namespaces as $item1) {
+                    $res['Namespaces'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -103,38 +101,44 @@ class ListNamespaceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListNamespaceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
+
         if (isset($map['Namespaces'])) {
             if (!empty($map['Namespaces'])) {
                 $model->namespaces = [];
-                $n                 = 0;
-                foreach ($map['Namespaces'] as $item) {
-                    $model->namespaces[$n++] = null !== $item ? namespaces::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Namespaces'] as $item1) {
+                    $model->namespaces[$n1++] = namespaces::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

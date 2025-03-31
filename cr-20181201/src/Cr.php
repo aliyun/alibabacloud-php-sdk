@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CancelArtifactBuildTaskRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CancelArtifactBuildTaskResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CancelRepoBuildRecordRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CancelRepoBuildRecordResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CancelRepoSyncTaskRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CancelRepoSyncTaskResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactBuildRuleRequest;
@@ -17,6 +18,10 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactBuildRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactBuildRuleShrinkRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactLifecycleRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactLifecycleRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactSubscriptionRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactSubscriptionRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactSubscriptionTaskRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactSubscriptionTaskResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRecordRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRecordResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRuleRequest;
@@ -53,6 +58,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoTriggerRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateRepoTriggerResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteArtifactLifecycleRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteArtifactLifecycleRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteArtifactSubscriptionRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteArtifactSubscriptionRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteChainRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteChainResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\DeleteChartNamespaceRequest;
@@ -85,6 +92,12 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildTaskRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactBuildTaskResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactLifecycleRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactLifecycleRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactSubscriptionRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactSubscriptionRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactSubscriptionTaskRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactSubscriptionTaskResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactSubscriptionTaskResultRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\GetArtifactSubscriptionTaskResultResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetAuthorizationTokenRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetAuthorizationTokenResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetChainRequest;
@@ -114,10 +127,6 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoSourceCodeRepoRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoSourceCodeRepoResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoSyncTaskRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoSyncTaskResponse;
-use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagLayersRequest;
-use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagLayersResponse;
-use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagManifestRequest;
-use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagManifestResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoTagScanStatusRequest;
@@ -128,6 +137,10 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactBuildTaskLogRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactBuildTaskLogResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactLifecycleRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactLifecycleRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactSubscriptionRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactSubscriptionRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactSubscriptionTaskRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\ListArtifactSubscriptionTaskResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListChainInstanceRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListChainInstanceResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListChainRequest;
@@ -182,6 +195,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateArtifactLifecycleRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateArtifactLifecycleRuleResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateArtifactSubscriptionRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateArtifactSubscriptionRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateChainRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateChainResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateChartNamespaceRequest;
@@ -203,11 +218,10 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepoSourceCodeRepoRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepoSourceCodeRepoResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepoTriggerRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\UpdateRepoTriggerResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class Cr extends OpenApiClient
 {
@@ -232,17 +246,25 @@ class Cr extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
+     * Cancels an artifact building task.
+     *
+     * @param request - CancelArtifactBuildTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelArtifactBuildTaskResponse
+     *
      * @param CancelArtifactBuildTaskRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -250,33 +272,44 @@ class Cr extends OpenApiClient
      */
     public function cancelArtifactBuildTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->buildTaskId)) {
-            $query['BuildTaskId'] = $request->buildTaskId;
+        if (null !== $request->buildTaskId) {
+            @$query['BuildTaskId'] = $request->buildTaskId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelArtifactBuildTask',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelArtifactBuildTask',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelArtifactBuildTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelArtifactBuildTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelArtifactBuildTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Cancels an artifact building task.
+     *
+     * @param request - CancelArtifactBuildTaskRequest
+     *
+     * @returns CancelArtifactBuildTaskResponse
+     *
      * @param CancelArtifactBuildTaskRequest $request
      *
      * @return CancelArtifactBuildTaskResponse
@@ -289,6 +322,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Cancels an image building task of a repository.
+     *
+     * @param request - CancelRepoBuildRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelRepoBuildRecordResponse
+     *
      * @param CancelRepoBuildRecordRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -296,36 +336,48 @@ class Cr extends OpenApiClient
      */
     public function cancelRepoBuildRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->buildRecordId)) {
-            $query['BuildRecordId'] = $request->buildRecordId;
+        if (null !== $request->buildRecordId) {
+            @$query['BuildRecordId'] = $request->buildRecordId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelRepoBuildRecord',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelRepoBuildRecord',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelRepoBuildRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CancelRepoBuildRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelRepoBuildRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Cancels an image building task of a repository.
+     *
+     * @param request - CancelRepoBuildRecordRequest
+     *
+     * @returns CancelRepoBuildRecordResponse
+     *
      * @param CancelRepoBuildRecordRequest $request
      *
      * @return CancelRepoBuildRecordResponse
@@ -338,6 +390,77 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Cancels a single replication task.
+     *
+     * @param request - CancelRepoSyncTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CancelRepoSyncTaskResponse
+     *
+     * @param CancelRepoSyncTaskRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CancelRepoSyncTaskResponse
+     */
+    public function cancelRepoSyncTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->syncTaskId) {
+            @$query['SyncTaskId'] = $request->syncTaskId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CancelRepoSyncTask',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CancelRepoSyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CancelRepoSyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Cancels a single replication task.
+     *
+     * @param request - CancelRepoSyncTaskRequest
+     *
+     * @returns CancelRepoSyncTaskResponse
+     *
+     * @param CancelRepoSyncTaskRequest $request
+     *
+     * @return CancelRepoSyncTaskResponse
+     */
+    public function cancelRepoSyncTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelRepoSyncTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Changes the resource group to which a resource belongs.
+     *
+     * @param request - ChangeResourceGroupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
      * @param ChangeResourceGroupRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -345,36 +468,48 @@ class Cr extends OpenApiClient
      */
     public function changeResourceGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceRegionId)) {
-            $query['ResourceRegionId'] = $request->resourceRegionId;
+
+        if (null !== $request->resourceRegionId) {
+            @$query['ResourceRegionId'] = $request->resourceRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ChangeResourceGroupResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Changes the resource group to which a resource belongs.
+     *
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
      * @param ChangeResourceGroupRequest $request
      *
      * @return ChangeResourceGroupResponse
@@ -387,63 +522,87 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * You can create building rules of accelerated images only for image repositories of Container Registry Advanced Edition instances. You cannot create building rules of accelerated images for image repositories of Container Registry Basic Edition instances. For more information, see [Specifications of different editions](https://www.alibabacloud.com/help/zh/container-registry/latest/what-is-container-registry#section-go7-lhg-qbc).
-     *   * Accelerated images can be built in the following regions: China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Guangzhou), China (Zhangjiakou), China (Hong Kong), US (Virginia), US (Silicon Valley), Singapore, Japan (Tokyo), and Malaysia (Kuala Lumpur).
-     *   *
-     * @param CreateArtifactBuildRuleRequest $tmpReq  CreateArtifactBuildRuleRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * Create image repository acceleration rules for image building.
      *
-     * @return CreateArtifactBuildRuleResponse CreateArtifactBuildRuleResponse
+     * @remarks
+     * You can create building rules of accelerated images only for image repositories of Container Registry Advanced Edition instances. You cannot create building rules of accelerated images for image repositories of Container Registry Basic Edition instances. For more information, see [Specifications of different editions](https://www.alibabacloud.com/help/en/acr/product-overview/what-is-container-registry?spm=openapi-amp.newDocPublishment.0.0.bf82281fRj7rmV#section-n3q-ps7-x6k).
+     * Accelerated images are not supported in Alibaba Finance Cloud regions or Alibaba Gov Cloud regions.
+     *
+     * @param tmpReq - CreateArtifactBuildRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateArtifactBuildRuleResponse
+     *
+     * @param CreateArtifactBuildRuleRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateArtifactBuildRuleResponse
      */
     public function createArtifactBuildRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new CreateArtifactBuildRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->parameters)) {
-            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->parameters) {
+            $request->parametersShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->artifactType)) {
-            $query['ArtifactType'] = $request->artifactType;
+        if (null !== $request->artifactType) {
+            @$query['ArtifactType'] = $request->artifactType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->parametersShrink)) {
-            $query['Parameters'] = $request->parametersShrink;
+
+        if (null !== $request->parametersShrink) {
+            @$query['Parameters'] = $request->parametersShrink;
         }
-        if (!Utils::isUnset($request->scopeId)) {
-            $query['ScopeId'] = $request->scopeId;
+
+        if (null !== $request->scopeId) {
+            @$query['ScopeId'] = $request->scopeId;
         }
-        if (!Utils::isUnset($request->scopeType)) {
-            $query['ScopeType'] = $request->scopeType;
+
+        if (null !== $request->scopeType) {
+            @$query['ScopeType'] = $request->scopeType;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateArtifactBuildRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateArtifactBuildRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateArtifactBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateArtifactBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateArtifactBuildRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * You can create building rules of accelerated images only for image repositories of Container Registry Advanced Edition instances. You cannot create building rules of accelerated images for image repositories of Container Registry Basic Edition instances. For more information, see [Specifications of different editions](https://www.alibabacloud.com/help/zh/container-registry/latest/what-is-container-registry#section-go7-lhg-qbc).
-     *   * Accelerated images can be built in the following regions: China (Hangzhou), China (Shanghai), China (Beijing), China (Shenzhen), China (Guangzhou), China (Zhangjiakou), China (Hong Kong), US (Virginia), US (Silicon Valley), Singapore, Japan (Tokyo), and Malaysia (Kuala Lumpur).
-     *   *
-     * @param CreateArtifactBuildRuleRequest $request CreateArtifactBuildRuleRequest
+     * Create image repository acceleration rules for image building.
      *
-     * @return CreateArtifactBuildRuleResponse CreateArtifactBuildRuleResponse
+     * @remarks
+     * You can create building rules of accelerated images only for image repositories of Container Registry Advanced Edition instances. You cannot create building rules of accelerated images for image repositories of Container Registry Basic Edition instances. For more information, see [Specifications of different editions](https://www.alibabacloud.com/help/en/acr/product-overview/what-is-container-registry?spm=openapi-amp.newDocPublishment.0.0.bf82281fRj7rmV#section-n3q-ps7-x6k).
+     * Accelerated images are not supported in Alibaba Finance Cloud regions or Alibaba Gov Cloud regions.
+     *
+     * @param request - CreateArtifactBuildRuleRequest
+     *
+     * @returns CreateArtifactBuildRuleResponse
+     *
+     * @param CreateArtifactBuildRuleRequest $request
+     *
+     * @return CreateArtifactBuildRuleResponse
      */
     public function createArtifactBuildRule($request)
     {
@@ -453,6 +612,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Creates a lifecycle management rule for an artifact.
+     *
+     * @param request - CreateArtifactLifecycleRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateArtifactLifecycleRuleResponse
+     *
      * @param CreateArtifactLifecycleRuleRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -460,54 +626,72 @@ class Cr extends OpenApiClient
      */
     public function createArtifactLifecycleRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auto)) {
-            $query['Auto'] = $request->auto;
+        if (null !== $request->auto) {
+            @$query['Auto'] = $request->auto;
         }
-        if (!Utils::isUnset($request->enableDeleteTag)) {
-            $query['EnableDeleteTag'] = $request->enableDeleteTag;
+
+        if (null !== $request->enableDeleteTag) {
+            @$query['EnableDeleteTag'] = $request->enableDeleteTag;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespaceName)) {
-            $query['NamespaceName'] = $request->namespaceName;
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->retentionTagCount)) {
-            $query['RetentionTagCount'] = $request->retentionTagCount;
+
+        if (null !== $request->retentionTagCount) {
+            @$query['RetentionTagCount'] = $request->retentionTagCount;
         }
-        if (!Utils::isUnset($request->scheduleTime)) {
-            $query['ScheduleTime'] = $request->scheduleTime;
+
+        if (null !== $request->scheduleTime) {
+            @$query['ScheduleTime'] = $request->scheduleTime;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->tagRegexp)) {
-            $query['TagRegexp'] = $request->tagRegexp;
+
+        if (null !== $request->tagRegexp) {
+            @$query['TagRegexp'] = $request->tagRegexp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateArtifactLifecycleRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateArtifactLifecycleRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateArtifactLifecycleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateArtifactLifecycleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateArtifactLifecycleRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Creates a lifecycle management rule for an artifact.
+     *
+     * @param request - CreateArtifactLifecycleRuleRequest
+     *
+     * @returns CreateArtifactLifecycleRuleResponse
+     *
      * @param CreateArtifactLifecycleRuleRequest $request
      *
      * @return CreateArtifactLifecycleRuleResponse
@@ -520,6 +704,177 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Creates an artifact subscription rule.
+     *
+     * @param request - CreateArtifactSubscriptionRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateArtifactSubscriptionRuleResponse
+     *
+     * @param CreateArtifactSubscriptionRuleRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateArtifactSubscriptionRuleResponse
+     */
+    public function createArtifactSubscriptionRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accelerate) {
+            @$query['Accelerate'] = $request->accelerate;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
+        }
+
+        if (null !== $request->override) {
+            @$query['Override'] = $request->override;
+        }
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
+        }
+
+        if (null !== $request->sourceNamespaceName) {
+            @$query['SourceNamespaceName'] = $request->sourceNamespaceName;
+        }
+
+        if (null !== $request->sourceProvider) {
+            @$query['SourceProvider'] = $request->sourceProvider;
+        }
+
+        if (null !== $request->sourceRepoName) {
+            @$query['SourceRepoName'] = $request->sourceRepoName;
+        }
+
+        if (null !== $request->tagCount) {
+            @$query['TagCount'] = $request->tagCount;
+        }
+
+        if (null !== $request->tagRegexp) {
+            @$query['TagRegexp'] = $request->tagRegexp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateArtifactSubscriptionRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateArtifactSubscriptionRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateArtifactSubscriptionRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an artifact subscription rule.
+     *
+     * @param request - CreateArtifactSubscriptionRuleRequest
+     *
+     * @returns CreateArtifactSubscriptionRuleResponse
+     *
+     * @param CreateArtifactSubscriptionRuleRequest $request
+     *
+     * @return CreateArtifactSubscriptionRuleResponse
+     */
+    public function createArtifactSubscriptionRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createArtifactSubscriptionRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an artifact subscription task.
+     *
+     * @param request - CreateArtifactSubscriptionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateArtifactSubscriptionTaskResponse
+     *
+     * @param CreateArtifactSubscriptionTaskRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateArtifactSubscriptionTaskResponse
+     */
+    public function createArtifactSubscriptionTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'CreateArtifactSubscriptionTask',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateArtifactSubscriptionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateArtifactSubscriptionTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Creates an artifact subscription task.
+     *
+     * @param request - CreateArtifactSubscriptionTaskRequest
+     *
+     * @returns CreateArtifactSubscriptionTaskResponse
+     *
+     * @param CreateArtifactSubscriptionTaskRequest $request
+     *
+     * @return CreateArtifactSubscriptionTaskResponse
+     */
+    public function createArtifactSubscriptionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createArtifactSubscriptionTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Creates an image building record based on an existing record.
+     *
+     * @param request - CreateBuildRecordByRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBuildRecordByRecordResponse
+     *
      * @param CreateBuildRecordByRecordRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -527,36 +882,48 @@ class Cr extends OpenApiClient
      */
     public function createBuildRecordByRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->buildRecordId)) {
-            $query['BuildRecordId'] = $request->buildRecordId;
+        if (null !== $request->buildRecordId) {
+            @$query['BuildRecordId'] = $request->buildRecordId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateBuildRecordByRecord',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateBuildRecordByRecord',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateBuildRecordByRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateBuildRecordByRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateBuildRecordByRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Creates an image building record based on an existing record.
+     *
+     * @param request - CreateBuildRecordByRecordRequest
+     *
+     * @returns CreateBuildRecordByRecordResponse
+     *
      * @param CreateBuildRecordByRecordRequest $request
      *
      * @return CreateBuildRecordByRecordResponse
@@ -569,6 +936,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Creates an image building record based on a rule.
+     *
+     * @param request - CreateBuildRecordByRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateBuildRecordByRuleResponse
+     *
      * @param CreateBuildRecordByRuleRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -576,36 +950,48 @@ class Cr extends OpenApiClient
      */
     public function createBuildRecordByRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->buildRuleId)) {
-            $query['BuildRuleId'] = $request->buildRuleId;
+        if (null !== $request->buildRuleId) {
+            @$query['BuildRuleId'] = $request->buildRuleId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateBuildRecordByRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateBuildRecordByRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateBuildRecordByRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateBuildRecordByRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateBuildRecordByRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Creates an image building record based on a rule.
+     *
+     * @param request - CreateBuildRecordByRuleRequest
+     *
+     * @returns CreateBuildRecordByRuleResponse
+     *
      * @param CreateBuildRecordByRuleRequest $request
      *
      * @return CreateBuildRecordByRuleResponse
@@ -618,6 +1004,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Creates a delivery chain.
+     *
+     * @param request - CreateChainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateChainResponse
+     *
      * @param CreateChainRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -625,48 +1018,64 @@ class Cr extends OpenApiClient
      */
     public function createChainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->chainConfig)) {
-            $query['ChainConfig'] = $request->chainConfig;
+        if (null !== $request->chainConfig) {
+            @$query['ChainConfig'] = $request->chainConfig;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+
+        if (null !== $request->repoNamespaceName) {
+            @$query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
-        if (!Utils::isUnset($request->scopeExclude)) {
-            $query['ScopeExclude'] = $request->scopeExclude;
+
+        if (null !== $request->scopeExclude) {
+            @$query['ScopeExclude'] = $request->scopeExclude;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateChain',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateChain',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateChainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateChainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateChainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Creates a delivery chain.
+     *
+     * @param request - CreateChainRequest
+     *
+     * @returns CreateChainResponse
+     *
      * @param CreateChainRequest $request
      *
      * @return CreateChainResponse
@@ -679,6 +1088,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Creates a chart namespace in an instance.
+     *
+     * @param request - CreateChartNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateChartNamespaceResponse
+     *
      * @param CreateChartNamespaceRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -686,39 +1102,52 @@ class Cr extends OpenApiClient
      */
     public function createChartNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoCreateRepo)) {
-            $query['AutoCreateRepo'] = $request->autoCreateRepo;
+        if (null !== $request->autoCreateRepo) {
+            @$query['AutoCreateRepo'] = $request->autoCreateRepo;
         }
-        if (!Utils::isUnset($request->defaultRepoType)) {
-            $query['DefaultRepoType'] = $request->defaultRepoType;
+
+        if (null !== $request->defaultRepoType) {
+            @$query['DefaultRepoType'] = $request->defaultRepoType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespaceName)) {
-            $query['NamespaceName'] = $request->namespaceName;
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateChartNamespace',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateChartNamespace',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateChartNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateChartNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateChartNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Creates a chart namespace in an instance.
+     *
+     * @param request - CreateChartNamespaceRequest
+     *
+     * @returns CreateChartNamespaceResponse
+     *
      * @param CreateChartNamespaceRequest $request
      *
      * @return CreateChartNamespaceResponse
@@ -731,6 +1160,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Creates a chart repository.
+     *
+     * @param request - CreateChartRepositoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateChartRepositoryResponse
+     *
      * @param CreateChartRepositoryRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -738,42 +1174,56 @@ class Cr extends OpenApiClient
      */
     public function createChartRepositoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+
+        if (null !== $request->repoNamespaceName) {
+            @$query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
-        if (!Utils::isUnset($request->repoType)) {
-            $query['RepoType'] = $request->repoType;
+
+        if (null !== $request->repoType) {
+            @$query['RepoType'] = $request->repoType;
         }
-        if (!Utils::isUnset($request->summary)) {
-            $query['Summary'] = $request->summary;
+
+        if (null !== $request->summary) {
+            @$query['Summary'] = $request->summary;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateChartRepository',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateChartRepository',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateChartRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateChartRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateChartRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Creates a chart repository.
+     *
+     * @param request - CreateChartRepositoryRequest
+     *
+     * @returns CreateChartRepositoryResponse
+     *
      * @param CreateChartRepositoryRequest $request
      *
      * @return CreateChartRepositoryResponse
@@ -786,6 +1236,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Creates a whitelist policy for the public endpoint of the instance.
+     *
+     * @param request - CreateInstanceEndpointAclPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceEndpointAclPolicyResponse
+     *
      * @param CreateInstanceEndpointAclPolicyRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -793,42 +1250,56 @@ class Cr extends OpenApiClient
      */
     public function createInstanceEndpointAclPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->comment)) {
-            $query['Comment'] = $request->comment;
+        if (null !== $request->comment) {
+            @$query['Comment'] = $request->comment;
         }
-        if (!Utils::isUnset($request->endpointType)) {
-            $query['EndpointType'] = $request->endpointType;
+
+        if (null !== $request->endpointType) {
+            @$query['EndpointType'] = $request->endpointType;
         }
-        if (!Utils::isUnset($request->entry)) {
-            $query['Entry'] = $request->entry;
+
+        if (null !== $request->entry) {
+            @$query['Entry'] = $request->entry;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->moduleName)) {
-            $query['ModuleName'] = $request->moduleName;
+
+        if (null !== $request->moduleName) {
+            @$query['ModuleName'] = $request->moduleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstanceEndpointAclPolicy',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateInstanceEndpointAclPolicy',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateInstanceEndpointAclPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateInstanceEndpointAclPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateInstanceEndpointAclPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Creates a whitelist policy for the public endpoint of the instance.
+     *
+     * @param request - CreateInstanceEndpointAclPolicyRequest
+     *
+     * @returns CreateInstanceEndpointAclPolicyResponse
+     *
      * @param CreateInstanceEndpointAclPolicyRequest $request
      *
      * @return CreateInstanceEndpointAclPolicyResponse
@@ -841,56 +1312,79 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * A maximum of three VPCs can be associated with a Container Registry instance. If you want to associate more VPCs, contact Alibaba Cloud technical support.
-     *   *
-     * @param CreateInstanceVpcEndpointLinkedVpcRequest $request CreateInstanceVpcEndpointLinkedVpcRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * Associates a virtual private cloud (VPC) with a Container Registry instance.
      *
-     * @return CreateInstanceVpcEndpointLinkedVpcResponse CreateInstanceVpcEndpointLinkedVpcResponse
+     * @remarks
+     * The VPC quota must be purchased separately.
+     *
+     * @param request - CreateInstanceVpcEndpointLinkedVpcRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateInstanceVpcEndpointLinkedVpcResponse
+     *
+     * @param CreateInstanceVpcEndpointLinkedVpcRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return CreateInstanceVpcEndpointLinkedVpcResponse
      */
     public function createInstanceVpcEndpointLinkedVpcWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->enableCreateDNSRecordInPvzt)) {
-            $query['EnableCreateDNSRecordInPvzt'] = $request->enableCreateDNSRecordInPvzt;
+        if (null !== $request->enableCreateDNSRecordInPvzt) {
+            @$query['EnableCreateDNSRecordInPvzt'] = $request->enableCreateDNSRecordInPvzt;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->moduleName)) {
-            $query['ModuleName'] = $request->moduleName;
+
+        if (null !== $request->moduleName) {
+            @$query['ModuleName'] = $request->moduleName;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->vswitchId)) {
-            $query['VswitchId'] = $request->vswitchId;
+
+        if (null !== $request->vswitchId) {
+            @$query['VswitchId'] = $request->vswitchId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstanceVpcEndpointLinkedVpc',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateInstanceVpcEndpointLinkedVpc',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateInstanceVpcEndpointLinkedVpcResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateInstanceVpcEndpointLinkedVpcResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateInstanceVpcEndpointLinkedVpcResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * A maximum of three VPCs can be associated with a Container Registry instance. If you want to associate more VPCs, contact Alibaba Cloud technical support.
-     *   *
-     * @param CreateInstanceVpcEndpointLinkedVpcRequest $request CreateInstanceVpcEndpointLinkedVpcRequest
+     * Associates a virtual private cloud (VPC) with a Container Registry instance.
      *
-     * @return CreateInstanceVpcEndpointLinkedVpcResponse CreateInstanceVpcEndpointLinkedVpcResponse
+     * @remarks
+     * The VPC quota must be purchased separately.
+     *
+     * @param request - CreateInstanceVpcEndpointLinkedVpcRequest
+     *
+     * @returns CreateInstanceVpcEndpointLinkedVpcResponse
+     *
+     * @param CreateInstanceVpcEndpointLinkedVpcRequest $request
+     *
+     * @return CreateInstanceVpcEndpointLinkedVpcResponse
      */
     public function createInstanceVpcEndpointLinkedVpc($request)
     {
@@ -900,6 +1394,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Creates a namespace of image repositories.
+     *
+     * @param request - CreateNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateNamespaceResponse
+     *
      * @param CreateNamespaceRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -907,39 +1408,52 @@ class Cr extends OpenApiClient
      */
     public function createNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoCreateRepo)) {
-            $query['AutoCreateRepo'] = $request->autoCreateRepo;
+        if (null !== $request->autoCreateRepo) {
+            @$query['AutoCreateRepo'] = $request->autoCreateRepo;
         }
-        if (!Utils::isUnset($request->defaultRepoType)) {
-            $query['DefaultRepoType'] = $request->defaultRepoType;
+
+        if (null !== $request->defaultRepoType) {
+            @$query['DefaultRepoType'] = $request->defaultRepoType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespaceName)) {
-            $query['NamespaceName'] = $request->namespaceName;
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateNamespace',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateNamespace',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Creates a namespace of image repositories.
+     *
+     * @param request - CreateNamespaceRequest
+     *
+     * @returns CreateNamespaceResponse
+     *
      * @param CreateNamespaceRequest $request
      *
      * @return CreateNamespaceResponse
@@ -952,6 +1466,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Creates an image building rule for a repository.
+     *
+     * @param request - CreateRepoBuildRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRepoBuildRuleResponse
+     *
      * @param CreateRepoBuildRuleRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -959,54 +1480,72 @@ class Cr extends OpenApiClient
      */
     public function createRepoBuildRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->buildArgs)) {
-            $query['BuildArgs'] = $request->buildArgs;
+        if (null !== $request->buildArgs) {
+            @$query['BuildArgs'] = $request->buildArgs;
         }
-        if (!Utils::isUnset($request->dockerfileLocation)) {
-            $query['DockerfileLocation'] = $request->dockerfileLocation;
+
+        if (null !== $request->dockerfileLocation) {
+            @$query['DockerfileLocation'] = $request->dockerfileLocation;
         }
-        if (!Utils::isUnset($request->dockerfileName)) {
-            $query['DockerfileName'] = $request->dockerfileName;
+
+        if (null !== $request->dockerfileName) {
+            @$query['DockerfileName'] = $request->dockerfileName;
         }
-        if (!Utils::isUnset($request->imageTag)) {
-            $query['ImageTag'] = $request->imageTag;
+
+        if (null !== $request->imageTag) {
+            @$query['ImageTag'] = $request->imageTag;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->platforms)) {
-            $query['Platforms'] = $request->platforms;
+
+        if (null !== $request->platforms) {
+            @$query['Platforms'] = $request->platforms;
         }
-        if (!Utils::isUnset($request->pushName)) {
-            $query['PushName'] = $request->pushName;
+
+        if (null !== $request->pushName) {
+            @$query['PushName'] = $request->pushName;
         }
-        if (!Utils::isUnset($request->pushType)) {
-            $query['PushType'] = $request->pushType;
+
+        if (null !== $request->pushType) {
+            @$query['PushType'] = $request->pushType;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRepoBuildRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRepoBuildRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRepoBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRepoBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRepoBuildRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Creates an image building rule for a repository.
+     *
+     * @param request - CreateRepoBuildRuleRequest
+     *
+     * @returns CreateRepoBuildRuleResponse
+     *
      * @param CreateRepoBuildRuleRequest $request
      *
      * @return CreateRepoBuildRuleResponse
@@ -1019,6 +1558,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Binds a source code repository to an image repository.
+     *
+     * @param request - CreateRepoSourceCodeRepoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRepoSourceCodeRepoResponse
+     *
      * @param CreateRepoSourceCodeRepoRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1026,51 +1572,68 @@ class Cr extends OpenApiClient
      */
     public function createRepoSourceCodeRepoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoBuild)) {
-            $query['AutoBuild'] = $request->autoBuild;
+        if (null !== $request->autoBuild) {
+            @$query['AutoBuild'] = $request->autoBuild;
         }
-        if (!Utils::isUnset($request->codeRepoName)) {
-            $query['CodeRepoName'] = $request->codeRepoName;
+
+        if (null !== $request->codeRepoName) {
+            @$query['CodeRepoName'] = $request->codeRepoName;
         }
-        if (!Utils::isUnset($request->codeRepoNamespaceName)) {
-            $query['CodeRepoNamespaceName'] = $request->codeRepoNamespaceName;
+
+        if (null !== $request->codeRepoNamespaceName) {
+            @$query['CodeRepoNamespaceName'] = $request->codeRepoNamespaceName;
         }
-        if (!Utils::isUnset($request->codeRepoType)) {
-            $query['CodeRepoType'] = $request->codeRepoType;
+
+        if (null !== $request->codeRepoType) {
+            @$query['CodeRepoType'] = $request->codeRepoType;
         }
-        if (!Utils::isUnset($request->disableCacheBuild)) {
-            $query['DisableCacheBuild'] = $request->disableCacheBuild;
+
+        if (null !== $request->disableCacheBuild) {
+            @$query['DisableCacheBuild'] = $request->disableCacheBuild;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->overseaBuild)) {
-            $query['OverseaBuild'] = $request->overseaBuild;
+
+        if (null !== $request->overseaBuild) {
+            @$query['OverseaBuild'] = $request->overseaBuild;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRepoSourceCodeRepo',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRepoSourceCodeRepo',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRepoSourceCodeRepoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRepoSourceCodeRepoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRepoSourceCodeRepoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Binds a source code repository to an image repository.
+     *
+     * @param request - CreateRepoSourceCodeRepoRequest
+     *
+     * @returns CreateRepoSourceCodeRepoResponse
+     *
      * @param CreateRepoSourceCodeRepoRequest $request
      *
      * @return CreateRepoSourceCodeRepoResponse
@@ -1083,6 +1646,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Creates an image synchronization rule for an image repository.
+     *
+     * @param request - CreateRepoSyncRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRepoSyncRuleResponse
+     *
      * @param CreateRepoSyncRuleRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1090,63 +1660,88 @@ class Cr extends OpenApiClient
      */
     public function createRepoSyncRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespaceName)) {
-            $query['NamespaceName'] = $request->namespaceName;
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->syncRuleName)) {
-            $query['SyncRuleName'] = $request->syncRuleName;
+
+        if (null !== $request->repoNameFilter) {
+            @$query['RepoNameFilter'] = $request->repoNameFilter;
         }
-        if (!Utils::isUnset($request->syncScope)) {
-            $query['SyncScope'] = $request->syncScope;
+
+        if (null !== $request->syncRuleName) {
+            @$query['SyncRuleName'] = $request->syncRuleName;
         }
-        if (!Utils::isUnset($request->syncTrigger)) {
-            $query['SyncTrigger'] = $request->syncTrigger;
+
+        if (null !== $request->syncScope) {
+            @$query['SyncScope'] = $request->syncScope;
         }
-        if (!Utils::isUnset($request->tagFilter)) {
-            $query['TagFilter'] = $request->tagFilter;
+
+        if (null !== $request->syncTrigger) {
+            @$query['SyncTrigger'] = $request->syncTrigger;
         }
-        if (!Utils::isUnset($request->targetInstanceId)) {
-            $query['TargetInstanceId'] = $request->targetInstanceId;
+
+        if (null !== $request->tagFilter) {
+            @$query['TagFilter'] = $request->tagFilter;
         }
-        if (!Utils::isUnset($request->targetNamespaceName)) {
-            $query['TargetNamespaceName'] = $request->targetNamespaceName;
+
+        if (null !== $request->targetInstanceId) {
+            @$query['TargetInstanceId'] = $request->targetInstanceId;
         }
-        if (!Utils::isUnset($request->targetRegionId)) {
-            $query['TargetRegionId'] = $request->targetRegionId;
+
+        if (null !== $request->targetNamespaceName) {
+            @$query['TargetNamespaceName'] = $request->targetNamespaceName;
         }
-        if (!Utils::isUnset($request->targetRepoName)) {
-            $query['TargetRepoName'] = $request->targetRepoName;
+
+        if (null !== $request->targetRegionId) {
+            @$query['TargetRegionId'] = $request->targetRegionId;
         }
-        if (!Utils::isUnset($request->targetUserId)) {
-            $query['TargetUserId'] = $request->targetUserId;
+
+        if (null !== $request->targetRepoName) {
+            @$query['TargetRepoName'] = $request->targetRepoName;
         }
+
+        if (null !== $request->targetUserId) {
+            @$query['TargetUserId'] = $request->targetUserId;
+        }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRepoSyncRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRepoSyncRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRepoSyncRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRepoSyncRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRepoSyncRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Creates an image synchronization rule for an image repository.
+     *
+     * @param request - CreateRepoSyncRuleRequest
+     *
+     * @returns CreateRepoSyncRuleResponse
+     *
      * @param CreateRepoSyncRuleRequest $request
      *
      * @return CreateRepoSyncRuleResponse
@@ -1159,6 +1754,11 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * @param request - CreateRepoSyncTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRepoSyncTaskResponse
+     *
      * @param CreateRepoSyncTaskRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1166,57 +1766,74 @@ class Cr extends OpenApiClient
      */
     public function createRepoSyncTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->override)) {
-            $query['Override'] = $request->override;
+
+        if (null !== $request->override) {
+            @$query['Override'] = $request->override;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->targetInstanceId)) {
-            $query['TargetInstanceId'] = $request->targetInstanceId;
+
+        if (null !== $request->targetInstanceId) {
+            @$query['TargetInstanceId'] = $request->targetInstanceId;
         }
-        if (!Utils::isUnset($request->targetNamespace)) {
-            $query['TargetNamespace'] = $request->targetNamespace;
+
+        if (null !== $request->targetNamespace) {
+            @$query['TargetNamespace'] = $request->targetNamespace;
         }
-        if (!Utils::isUnset($request->targetRegionId)) {
-            $query['TargetRegionId'] = $request->targetRegionId;
+
+        if (null !== $request->targetRegionId) {
+            @$query['TargetRegionId'] = $request->targetRegionId;
         }
-        if (!Utils::isUnset($request->targetRepoName)) {
-            $query['TargetRepoName'] = $request->targetRepoName;
+
+        if (null !== $request->targetRepoName) {
+            @$query['TargetRepoName'] = $request->targetRepoName;
         }
-        if (!Utils::isUnset($request->targetTag)) {
-            $query['TargetTag'] = $request->targetTag;
+
+        if (null !== $request->targetTag) {
+            @$query['TargetTag'] = $request->targetTag;
         }
-        if (!Utils::isUnset($request->targetUserId)) {
-            $query['TargetUserId'] = $request->targetUserId;
+
+        if (null !== $request->targetUserId) {
+            @$query['TargetUserId'] = $request->targetUserId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRepoSyncTask',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRepoSyncTask',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRepoSyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRepoSyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRepoSyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @param request - CreateRepoSyncTaskRequest
+     *
+     * @returns CreateRepoSyncTaskResponse
+     *
      * @param CreateRepoSyncTaskRequest $request
      *
      * @return CreateRepoSyncTaskResponse
@@ -1229,6 +1846,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Creates an image replication task based on a manual replication rule.
+     *
+     * @param request - CreateRepoSyncTaskByRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRepoSyncTaskByRuleResponse
+     *
      * @param CreateRepoSyncTaskByRuleRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1236,39 +1860,52 @@ class Cr extends OpenApiClient
      */
     public function createRepoSyncTaskByRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
-        if (!Utils::isUnset($request->syncRuleId)) {
-            $query['SyncRuleId'] = $request->syncRuleId;
+
+        if (null !== $request->syncRuleId) {
+            @$query['SyncRuleId'] = $request->syncRuleId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRepoSyncTaskByRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRepoSyncTaskByRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRepoSyncTaskByRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRepoSyncTaskByRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRepoSyncTaskByRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Creates an image replication task based on a manual replication rule.
+     *
+     * @param request - CreateRepoSyncTaskByRuleRequest
+     *
+     * @returns CreateRepoSyncTaskByRuleResponse
+     *
      * @param CreateRepoSyncTaskByRuleRequest $request
      *
      * @return CreateRepoSyncTaskByRuleResponse
@@ -1281,6 +1918,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Creates an image tag based on an existing image tag in an image repository.
+     *
+     * @param request - CreateRepoTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRepoTagResponse
+     *
      * @param CreateRepoTagRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -1288,42 +1932,56 @@ class Cr extends OpenApiClient
      */
     public function createRepoTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->fromTag)) {
-            $query['FromTag'] = $request->fromTag;
+        if (null !== $request->fromTag) {
+            @$query['FromTag'] = $request->fromTag;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespaceName)) {
-            $query['NamespaceName'] = $request->namespaceName;
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->toTag)) {
-            $query['ToTag'] = $request->toTag;
+
+        if (null !== $request->toTag) {
+            @$query['ToTag'] = $request->toTag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRepoTag',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRepoTag',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRepoTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRepoTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRepoTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Creates an image tag based on an existing image tag in an image repository.
+     *
+     * @param request - CreateRepoTagRequest
+     *
+     * @returns CreateRepoTagResponse
+     *
      * @param CreateRepoTagRequest $request
      *
      * @return CreateRepoTagResponse
@@ -1336,6 +1994,11 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * @param request - CreateRepoTagScanTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRepoTagScanTaskResponse
+     *
      * @param CreateRepoTagScanTaskRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1343,42 +2006,54 @@ class Cr extends OpenApiClient
      */
     public function createRepoTagScanTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->digest)) {
-            $query['Digest'] = $request->digest;
+        if (null !== $request->digest) {
+            @$query['Digest'] = $request->digest;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
-        if (!Utils::isUnset($request->scanService)) {
-            $query['ScanService'] = $request->scanService;
+
+        if (null !== $request->scanService) {
+            @$query['ScanService'] = $request->scanService;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRepoTagScanTask',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRepoTagScanTask',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRepoTagScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRepoTagScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRepoTagScanTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @param request - CreateRepoTagScanTaskRequest
+     *
+     * @returns CreateRepoTagScanTaskResponse
+     *
      * @param CreateRepoTagScanTaskRequest $request
      *
      * @return CreateRepoTagScanTaskResponse
@@ -1391,6 +2066,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Creates a trigger for a repository.
+     *
+     * @param request - CreateRepoTriggerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRepoTriggerResponse
+     *
      * @param CreateRepoTriggerRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1398,45 +2080,60 @@ class Cr extends OpenApiClient
      */
     public function createRepoTriggerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
-        if (!Utils::isUnset($request->triggerName)) {
-            $query['TriggerName'] = $request->triggerName;
+
+        if (null !== $request->triggerName) {
+            @$query['TriggerName'] = $request->triggerName;
         }
-        if (!Utils::isUnset($request->triggerTag)) {
-            $query['TriggerTag'] = $request->triggerTag;
+
+        if (null !== $request->triggerTag) {
+            @$query['TriggerTag'] = $request->triggerTag;
         }
-        if (!Utils::isUnset($request->triggerType)) {
-            $query['TriggerType'] = $request->triggerType;
+
+        if (null !== $request->triggerType) {
+            @$query['TriggerType'] = $request->triggerType;
         }
-        if (!Utils::isUnset($request->triggerUrl)) {
-            $query['TriggerUrl'] = $request->triggerUrl;
+
+        if (null !== $request->triggerUrl) {
+            @$query['TriggerUrl'] = $request->triggerUrl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRepoTrigger',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRepoTrigger',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRepoTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRepoTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRepoTriggerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Creates a trigger for a repository.
+     *
+     * @param request - CreateRepoTriggerRequest
+     *
+     * @returns CreateRepoTriggerResponse
+     *
      * @param CreateRepoTriggerRequest $request
      *
      * @return CreateRepoTriggerResponse
@@ -1449,6 +2146,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Creates an image repository.
+     *
+     * @param request - CreateRepositoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateRepositoryResponse
+     *
      * @param CreateRepositoryRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1456,48 +2160,64 @@ class Cr extends OpenApiClient
      */
     public function createRepositoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->detail)) {
-            $query['Detail'] = $request->detail;
+        if (null !== $request->detail) {
+            @$query['Detail'] = $request->detail;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+
+        if (null !== $request->repoNamespaceName) {
+            @$query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
-        if (!Utils::isUnset($request->repoType)) {
-            $query['RepoType'] = $request->repoType;
+
+        if (null !== $request->repoType) {
+            @$query['RepoType'] = $request->repoType;
         }
-        if (!Utils::isUnset($request->summary)) {
-            $query['Summary'] = $request->summary;
+
+        if (null !== $request->summary) {
+            @$query['Summary'] = $request->summary;
         }
-        if (!Utils::isUnset($request->tagImmutability)) {
-            $query['TagImmutability'] = $request->tagImmutability;
+
+        if (null !== $request->tagImmutability) {
+            @$query['TagImmutability'] = $request->tagImmutability;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateRepository',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateRepository',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return CreateRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Creates an image repository.
+     *
+     * @param request - CreateRepositoryRequest
+     *
+     * @returns CreateRepositoryResponse
+     *
      * @param CreateRepositoryRequest $request
      *
      * @return CreateRepositoryResponse
@@ -1510,6 +2230,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Deletes an artifact lifecycle management rule.
+     *
+     * @param request - DeleteArtifactLifecycleRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteArtifactLifecycleRuleResponse
+     *
      * @param DeleteArtifactLifecycleRuleRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -1517,33 +2244,44 @@ class Cr extends OpenApiClient
      */
     public function deleteArtifactLifecycleRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteArtifactLifecycleRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteArtifactLifecycleRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteArtifactLifecycleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteArtifactLifecycleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteArtifactLifecycleRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Deletes an artifact lifecycle management rule.
+     *
+     * @param request - DeleteArtifactLifecycleRuleRequest
+     *
+     * @returns DeleteArtifactLifecycleRuleResponse
+     *
      * @param DeleteArtifactLifecycleRuleRequest $request
      *
      * @return DeleteArtifactLifecycleRuleResponse
@@ -1556,6 +2294,77 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Deletes an artifact subscription rule.
+     *
+     * @param request - DeleteArtifactSubscriptionRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteArtifactSubscriptionRuleResponse
+     *
+     * @param DeleteArtifactSubscriptionRuleRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteArtifactSubscriptionRuleResponse
+     */
+    public function deleteArtifactSubscriptionRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DeleteArtifactSubscriptionRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteArtifactSubscriptionRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteArtifactSubscriptionRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Deletes an artifact subscription rule.
+     *
+     * @param request - DeleteArtifactSubscriptionRuleRequest
+     *
+     * @returns DeleteArtifactSubscriptionRuleResponse
+     *
+     * @param DeleteArtifactSubscriptionRuleRequest $request
+     *
+     * @return DeleteArtifactSubscriptionRuleResponse
+     */
+    public function deleteArtifactSubscriptionRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteArtifactSubscriptionRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Deletes a delivery pipeline.
+     *
+     * @param request - DeleteChainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteChainResponse
+     *
      * @param DeleteChainRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1563,33 +2372,44 @@ class Cr extends OpenApiClient
      */
     public function deleteChainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->chainId)) {
-            $query['ChainId'] = $request->chainId;
+        if (null !== $request->chainId) {
+            @$query['ChainId'] = $request->chainId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteChain',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteChain',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteChainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteChainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteChainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Deletes a delivery pipeline.
+     *
+     * @param request - DeleteChainRequest
+     *
+     * @returns DeleteChainResponse
+     *
      * @param DeleteChainRequest $request
      *
      * @return DeleteChainResponse
@@ -1602,47 +2422,67 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * >  If you delete a chart namespace, all repositories in the namespace and the charts in all repositories are deleted.
-     *   *
-     * @param DeleteChartNamespaceRequest $request DeleteChartNamespaceRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * Deletes a chart namespace from an instance.
      *
-     * @return DeleteChartNamespaceResponse DeleteChartNamespaceResponse
+     * @remarks
+     * >  If you delete a chart namespace, all repositories in the namespace and the charts in all repositories are deleted.
+     *
+     * @param request - DeleteChartNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteChartNamespaceResponse
+     *
+     * @param DeleteChartNamespaceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteChartNamespaceResponse
      */
     public function deleteChartNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespaceName)) {
-            $query['NamespaceName'] = $request->namespaceName;
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteChartNamespace',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteChartNamespace',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteChartNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteChartNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteChartNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * >  If you delete a chart namespace, all repositories in the namespace and the charts in all repositories are deleted.
-     *   *
-     * @param DeleteChartNamespaceRequest $request DeleteChartNamespaceRequest
+     * Deletes a chart namespace from an instance.
      *
-     * @return DeleteChartNamespaceResponse DeleteChartNamespaceResponse
+     * @remarks
+     * >  If you delete a chart namespace, all repositories in the namespace and the charts in all repositories are deleted.
+     *
+     * @param request - DeleteChartNamespaceRequest
+     *
+     * @returns DeleteChartNamespaceResponse
+     *
+     * @param DeleteChartNamespaceRequest $request
+     *
+     * @return DeleteChartNamespaceResponse
      */
     public function deleteChartNamespace($request)
     {
@@ -1652,6 +2492,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Deletes a chart version from a chart repository.
+     *
+     * @param request - DeleteChartReleaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteChartReleaseResponse
+     *
      * @param DeleteChartReleaseRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1659,42 +2506,56 @@ class Cr extends OpenApiClient
      */
     public function deleteChartReleaseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->chart)) {
-            $query['Chart'] = $request->chart;
+        if (null !== $request->chart) {
+            @$query['Chart'] = $request->chart;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->release)) {
-            $query['Release'] = $request->release;
+
+        if (null !== $request->release) {
+            @$query['Release'] = $request->release;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+
+        if (null !== $request->repoNamespaceName) {
+            @$query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteChartRelease',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteChartRelease',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteChartReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteChartReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteChartReleaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Deletes a chart version from a chart repository.
+     *
+     * @param request - DeleteChartReleaseRequest
+     *
+     * @returns DeleteChartReleaseResponse
+     *
      * @param DeleteChartReleaseRequest $request
      *
      * @return DeleteChartReleaseResponse
@@ -1707,6 +2568,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Deletes a chart repository from an instance.
+     *
+     * @param request - DeleteChartRepositoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteChartRepositoryResponse
+     *
      * @param DeleteChartRepositoryRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1714,36 +2582,48 @@ class Cr extends OpenApiClient
      */
     public function deleteChartRepositoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+
+        if (null !== $request->repoNamespaceName) {
+            @$query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteChartRepository',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteChartRepository',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteChartRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteChartRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteChartRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Deletes a chart repository from an instance.
+     *
+     * @param request - DeleteChartRepositoryRequest
+     *
+     * @returns DeleteChartRepositoryResponse
+     *
      * @param DeleteChartRepositoryRequest $request
      *
      * @return DeleteChartRepositoryResponse
@@ -1756,6 +2636,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Deletes an event notification rule.
+     *
+     * @param request - DeleteEventCenterRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEventCenterRuleResponse
+     *
      * @param DeleteEventCenterRuleRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -1763,33 +2650,44 @@ class Cr extends OpenApiClient
      */
     public function deleteEventCenterRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteEventCenterRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteEventCenterRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteEventCenterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteEventCenterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEventCenterRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Deletes an event notification rule.
+     *
+     * @param request - DeleteEventCenterRuleRequest
+     *
+     * @returns DeleteEventCenterRuleResponse
+     *
      * @param DeleteEventCenterRuleRequest $request
      *
      * @return DeleteEventCenterRuleResponse
@@ -1802,6 +2700,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Deletes a whitelist policy for the public endpoint of an instance.
+     *
+     * @param request - DeleteInstanceEndpointAclPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstanceEndpointAclPolicyResponse
+     *
      * @param DeleteInstanceEndpointAclPolicyRequest $request
      * @param RuntimeOptions                         $runtime
      *
@@ -1809,39 +2714,52 @@ class Cr extends OpenApiClient
      */
     public function deleteInstanceEndpointAclPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpointType)) {
-            $query['EndpointType'] = $request->endpointType;
+        if (null !== $request->endpointType) {
+            @$query['EndpointType'] = $request->endpointType;
         }
-        if (!Utils::isUnset($request->entry)) {
-            $query['Entry'] = $request->entry;
+
+        if (null !== $request->entry) {
+            @$query['Entry'] = $request->entry;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->moduleName)) {
-            $query['ModuleName'] = $request->moduleName;
+
+        if (null !== $request->moduleName) {
+            @$query['ModuleName'] = $request->moduleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstanceEndpointAclPolicy',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteInstanceEndpointAclPolicy',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteInstanceEndpointAclPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteInstanceEndpointAclPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteInstanceEndpointAclPolicyResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Deletes a whitelist policy for the public endpoint of an instance.
+     *
+     * @param request - DeleteInstanceEndpointAclPolicyRequest
+     *
+     * @returns DeleteInstanceEndpointAclPolicyResponse
+     *
      * @param DeleteInstanceEndpointAclPolicyRequest $request
      *
      * @return DeleteInstanceEndpointAclPolicyResponse
@@ -1854,6 +2772,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Disassociates a virtual private cloud (VPC) from an instance.
+     *
+     * @param request - DeleteInstanceVpcEndpointLinkedVpcRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteInstanceVpcEndpointLinkedVpcResponse
+     *
      * @param DeleteInstanceVpcEndpointLinkedVpcRequest $request
      * @param RuntimeOptions                            $runtime
      *
@@ -1861,39 +2786,52 @@ class Cr extends OpenApiClient
      */
     public function deleteInstanceVpcEndpointLinkedVpcWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->moduleName)) {
-            $query['ModuleName'] = $request->moduleName;
+
+        if (null !== $request->moduleName) {
+            @$query['ModuleName'] = $request->moduleName;
         }
-        if (!Utils::isUnset($request->vpcId)) {
-            $query['VpcId'] = $request->vpcId;
+
+        if (null !== $request->vpcId) {
+            @$query['VpcId'] = $request->vpcId;
         }
-        if (!Utils::isUnset($request->vswitchId)) {
-            $query['VswitchId'] = $request->vswitchId;
+
+        if (null !== $request->vswitchId) {
+            @$query['VswitchId'] = $request->vswitchId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstanceVpcEndpointLinkedVpc',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteInstanceVpcEndpointLinkedVpc',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteInstanceVpcEndpointLinkedVpcResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteInstanceVpcEndpointLinkedVpcResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteInstanceVpcEndpointLinkedVpcResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Disassociates a virtual private cloud (VPC) from an instance.
+     *
+     * @param request - DeleteInstanceVpcEndpointLinkedVpcRequest
+     *
+     * @returns DeleteInstanceVpcEndpointLinkedVpcResponse
+     *
      * @param DeleteInstanceVpcEndpointLinkedVpcRequest $request
      *
      * @return DeleteInstanceVpcEndpointLinkedVpcResponse
@@ -1906,47 +2844,67 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * > After you delete a namespace, all repositories in the namespace and all images in these repositories are deleted as well.
-     *   *
-     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * Deletes a namespace.
      *
-     * @return DeleteNamespaceResponse DeleteNamespaceResponse
+     * @remarks
+     * > After you delete a namespace, all repositories in the namespace and all images in these repositories are deleted as well.
+     *
+     * @param request - DeleteNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteNamespaceResponse
+     *
+     * @param DeleteNamespaceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteNamespaceResponse
      */
     public function deleteNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespaceName)) {
-            $query['NamespaceName'] = $request->namespaceName;
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteNamespace',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteNamespace',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * > After you delete a namespace, all repositories in the namespace and all images in these repositories are deleted as well.
-     *   *
-     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
+     * Deletes a namespace.
      *
-     * @return DeleteNamespaceResponse DeleteNamespaceResponse
+     * @remarks
+     * > After you delete a namespace, all repositories in the namespace and all images in these repositories are deleted as well.
+     *
+     * @param request - DeleteNamespaceRequest
+     *
+     * @returns DeleteNamespaceResponse
+     *
+     * @param DeleteNamespaceRequest $request
+     *
+     * @return DeleteNamespaceResponse
      */
     public function deleteNamespace($request)
     {
@@ -1956,6 +2914,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Deletes an image building rule of a repository.
+     *
+     * @param request - DeleteRepoBuildRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRepoBuildRuleResponse
+     *
      * @param DeleteRepoBuildRuleRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1963,36 +2928,48 @@ class Cr extends OpenApiClient
      */
     public function deleteRepoBuildRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->buildRuleId)) {
-            $query['BuildRuleId'] = $request->buildRuleId;
+        if (null !== $request->buildRuleId) {
+            @$query['BuildRuleId'] = $request->buildRuleId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRepoBuildRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRepoBuildRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRepoBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRepoBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRepoBuildRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Deletes an image building rule of a repository.
+     *
+     * @param request - DeleteRepoBuildRuleRequest
+     *
+     * @returns DeleteRepoBuildRuleResponse
+     *
      * @param DeleteRepoBuildRuleRequest $request
      *
      * @return DeleteRepoBuildRuleResponse
@@ -2005,6 +2982,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Deletes an image replication rule of an image repository.
+     *
+     * @param request - DeleteRepoSyncRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRepoSyncRuleResponse
+     *
      * @param DeleteRepoSyncRuleRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2012,33 +2996,44 @@ class Cr extends OpenApiClient
      */
     public function deleteRepoSyncRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->syncRuleId)) {
-            $query['SyncRuleId'] = $request->syncRuleId;
+
+        if (null !== $request->syncRuleId) {
+            @$query['SyncRuleId'] = $request->syncRuleId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRepoSyncRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRepoSyncRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRepoSyncRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRepoSyncRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRepoSyncRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Deletes an image replication rule of an image repository.
+     *
+     * @param request - DeleteRepoSyncRuleRequest
+     *
+     * @returns DeleteRepoSyncRuleResponse
+     *
      * @param DeleteRepoSyncRuleRequest $request
      *
      * @return DeleteRepoSyncRuleResponse
@@ -2051,6 +3046,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Deletes an image tag.
+     *
+     * @param request - DeleteRepoTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRepoTagResponse
+     *
      * @param DeleteRepoTagRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -2058,36 +3060,48 @@ class Cr extends OpenApiClient
      */
     public function deleteRepoTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRepoTag',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRepoTag',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRepoTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRepoTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRepoTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Deletes an image tag.
+     *
+     * @param request - DeleteRepoTagRequest
+     *
+     * @returns DeleteRepoTagResponse
+     *
      * @param DeleteRepoTagRequest $request
      *
      * @return DeleteRepoTagResponse
@@ -2100,6 +3114,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Deletes a trigger of an image repository.
+     *
+     * @param request - DeleteRepoTriggerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRepoTriggerResponse
+     *
      * @param DeleteRepoTriggerRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2107,36 +3128,48 @@ class Cr extends OpenApiClient
      */
     public function deleteRepoTriggerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
-        if (!Utils::isUnset($request->triggerId)) {
-            $query['TriggerId'] = $request->triggerId;
+
+        if (null !== $request->triggerId) {
+            @$query['TriggerId'] = $request->triggerId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRepoTrigger',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRepoTrigger',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRepoTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRepoTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRepoTriggerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Deletes a trigger of an image repository.
+     *
+     * @param request - DeleteRepoTriggerRequest
+     *
+     * @returns DeleteRepoTriggerResponse
+     *
      * @param DeleteRepoTriggerRequest $request
      *
      * @return DeleteRepoTriggerResponse
@@ -2149,53 +3182,75 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * If you delete a repository, all images in the repository are also deleted.
-     *   *
-     * @param DeleteRepositoryRequest $request DeleteRepositoryRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * Deletes an image repository.
      *
-     * @return DeleteRepositoryResponse DeleteRepositoryResponse
+     * @remarks
+     * If you delete a repository, all images in the repository are also deleted.
+     *
+     * @param request - DeleteRepositoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteRepositoryResponse
+     *
+     * @param DeleteRepositoryRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DeleteRepositoryResponse
      */
     public function deleteRepositoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+
+        if (null !== $request->repoNamespaceName) {
+            @$query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteRepository',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteRepository',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return DeleteRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * If you delete a repository, all images in the repository are also deleted.
-     *   *
-     * @param DeleteRepositoryRequest $request DeleteRepositoryRequest
+     * Deletes an image repository.
      *
-     * @return DeleteRepositoryResponse DeleteRepositoryResponse
+     * @remarks
+     * If you delete a repository, all images in the repository are also deleted.
+     *
+     * @param request - DeleteRepositoryRequest
+     *
+     * @returns DeleteRepositoryResponse
+     *
+     * @param DeleteRepositoryRequest $request
+     *
+     * @return DeleteRepositoryResponse
      */
     public function deleteRepository($request)
     {
@@ -2205,6 +3260,11 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * @param request - GetArtifactBuildRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetArtifactBuildRuleResponse
+     *
      * @param GetArtifactBuildRuleRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -2212,27 +3272,34 @@ class Cr extends OpenApiClient
      */
     public function getArtifactBuildRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetArtifactBuildRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetArtifactBuildRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetArtifactBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetArtifactBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetArtifactBuildRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetArtifactBuildRuleRequest
+     *
+     * @returns GetArtifactBuildRuleResponse
+     *
      * @param GetArtifactBuildRuleRequest $request
      *
      * @return GetArtifactBuildRuleResponse
@@ -2245,6 +3312,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the details of an artifact building task.
+     *
+     * @param request - GetArtifactBuildTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetArtifactBuildTaskResponse
+     *
      * @param GetArtifactBuildTaskRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -2252,27 +3326,36 @@ class Cr extends OpenApiClient
      */
     public function getArtifactBuildTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetArtifactBuildTask',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetArtifactBuildTask',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetArtifactBuildTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetArtifactBuildTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetArtifactBuildTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the details of an artifact building task.
+     *
+     * @param request - GetArtifactBuildTaskRequest
+     *
+     * @returns GetArtifactBuildTaskResponse
+     *
      * @param GetArtifactBuildTaskRequest $request
      *
      * @return GetArtifactBuildTaskResponse
@@ -2285,6 +3368,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the lifecycle management rules of an artifact.
+     *
+     * @param request - GetArtifactLifecycleRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetArtifactLifecycleRuleResponse
+     *
      * @param GetArtifactLifecycleRuleRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -2292,27 +3382,36 @@ class Cr extends OpenApiClient
      */
     public function getArtifactLifecycleRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetArtifactLifecycleRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetArtifactLifecycleRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetArtifactLifecycleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetArtifactLifecycleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetArtifactLifecycleRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the lifecycle management rules of an artifact.
+     *
+     * @param request - GetArtifactLifecycleRuleRequest
+     *
+     * @returns GetArtifactLifecycleRuleResponse
+     *
      * @param GetArtifactLifecycleRuleRequest $request
      *
      * @return GetArtifactLifecycleRuleResponse
@@ -2325,44 +3424,231 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * The ID of the Container Registry instance.
-     *   *
-     * @param GetAuthorizationTokenRequest $request GetAuthorizationTokenRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * Queries the information about an artifact subscription rule.
      *
-     * @return GetAuthorizationTokenResponse GetAuthorizationTokenResponse
+     * @param request - GetArtifactSubscriptionRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetArtifactSubscriptionRuleResponse
+     *
+     * @param GetArtifactSubscriptionRuleRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetArtifactSubscriptionRuleResponse
      */
-    public function getAuthorizationTokenWithOptions($request, $runtime)
+    public function getArtifactSubscriptionRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
+        $request->validate();
+        $query = Utils::query($request->toMap());
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAuthorizationToken',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetArtifactSubscriptionRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetArtifactSubscriptionRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetAuthorizationTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetArtifactSubscriptionRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * The ID of the Container Registry instance.
-     *   *
-     * @param GetAuthorizationTokenRequest $request GetAuthorizationTokenRequest
+     * Queries the information about an artifact subscription rule.
      *
-     * @return GetAuthorizationTokenResponse GetAuthorizationTokenResponse
+     * @param request - GetArtifactSubscriptionRuleRequest
+     *
+     * @returns GetArtifactSubscriptionRuleResponse
+     *
+     * @param GetArtifactSubscriptionRuleRequest $request
+     *
+     * @return GetArtifactSubscriptionRuleResponse
+     */
+    public function getArtifactSubscriptionRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getArtifactSubscriptionRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries an artifact subscription task.
+     *
+     * @param request - GetArtifactSubscriptionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetArtifactSubscriptionTaskResponse
+     *
+     * @param GetArtifactSubscriptionTaskRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetArtifactSubscriptionTaskResponse
+     */
+    public function getArtifactSubscriptionTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetArtifactSubscriptionTask',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetArtifactSubscriptionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetArtifactSubscriptionTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries an artifact subscription task.
+     *
+     * @param request - GetArtifactSubscriptionTaskRequest
+     *
+     * @returns GetArtifactSubscriptionTaskResponse
+     *
+     * @param GetArtifactSubscriptionTaskRequest $request
+     *
+     * @return GetArtifactSubscriptionTaskResponse
+     */
+    public function getArtifactSubscriptionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getArtifactSubscriptionTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the details of an artifact subscription task.
+     *
+     * @param request - GetArtifactSubscriptionTaskResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetArtifactSubscriptionTaskResultResponse
+     *
+     * @param GetArtifactSubscriptionTaskResultRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetArtifactSubscriptionTaskResultResponse
+     */
+    public function getArtifactSubscriptionTaskResultWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetArtifactSubscriptionTaskResult',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetArtifactSubscriptionTaskResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetArtifactSubscriptionTaskResultResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries the details of an artifact subscription task.
+     *
+     * @param request - GetArtifactSubscriptionTaskResultRequest
+     *
+     * @returns GetArtifactSubscriptionTaskResultResponse
+     *
+     * @param GetArtifactSubscriptionTaskResultRequest $request
+     *
+     * @return GetArtifactSubscriptionTaskResultResponse
+     */
+    public function getArtifactSubscriptionTaskResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getArtifactSubscriptionTaskResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries a temporary username and a token that you can use to log on to a Container Registry instance.
+     *
+     * @remarks
+     * The ID of the Container Registry instance.
+     *
+     * @param request - GetAuthorizationTokenRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetAuthorizationTokenResponse
+     *
+     * @param GetAuthorizationTokenRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetAuthorizationTokenResponse
+     */
+    public function getAuthorizationTokenWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetAuthorizationToken',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetAuthorizationTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetAuthorizationTokenResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Queries a temporary username and a token that you can use to log on to a Container Registry instance.
+     *
+     * @remarks
+     * The ID of the Container Registry instance.
+     *
+     * @param request - GetAuthorizationTokenRequest
+     *
+     * @returns GetAuthorizationTokenResponse
+     *
+     * @param GetAuthorizationTokenRequest $request
+     *
+     * @return GetAuthorizationTokenResponse
      */
     public function getAuthorizationToken($request)
     {
@@ -2372,6 +3658,11 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * @param request - GetChainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetChainResponse
+     *
      * @param GetChainRequest $request
      * @param RuntimeOptions  $runtime
      *
@@ -2379,33 +3670,42 @@ class Cr extends OpenApiClient
      */
     public function getChainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->chainId)) {
-            $query['ChainId'] = $request->chainId;
+        if (null !== $request->chainId) {
+            @$query['ChainId'] = $request->chainId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetChain',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetChain',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetChainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetChainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetChainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetChainRequest
+     *
+     * @returns GetChainResponse
+     *
      * @param GetChainRequest $request
      *
      * @return GetChainResponse
@@ -2418,6 +3718,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries a chart namespace in an instance.
+     *
+     * @param request - GetChartNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetChartNamespaceResponse
+     *
      * @param GetChartNamespaceRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2425,33 +3732,44 @@ class Cr extends OpenApiClient
      */
     public function getChartNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespaceName)) {
-            $query['NamespaceName'] = $request->namespaceName;
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetChartNamespace',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetChartNamespace',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetChartNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetChartNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetChartNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries a chart namespace in an instance.
+     *
+     * @param request - GetChartNamespaceRequest
+     *
+     * @returns GetChartNamespaceResponse
+     *
      * @param GetChartNamespaceRequest $request
      *
      * @return GetChartNamespaceResponse
@@ -2464,6 +3782,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the information about a chart repository.
+     *
+     * @param request - GetChartRepositoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetChartRepositoryResponse
+     *
      * @param GetChartRepositoryRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -2471,36 +3796,48 @@ class Cr extends OpenApiClient
      */
     public function getChartRepositoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+
+        if (null !== $request->repoNamespaceName) {
+            @$query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetChartRepository',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetChartRepository',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetChartRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetChartRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetChartRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the information about a chart repository.
+     *
+     * @param request - GetChartRepositoryRequest
+     *
+     * @returns GetChartRepositoryResponse
+     *
      * @param GetChartRepositoryRequest $request
      *
      * @return GetChartRepositoryResponse
@@ -2513,6 +3850,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * The ID of the resource group to which the instance belongs.
+     *
+     * @param request - GetInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceResponse
+     *
      * @param GetInstanceRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -2520,30 +3864,40 @@ class Cr extends OpenApiClient
      */
     public function getInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstance',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstance',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * The ID of the resource group to which the instance belongs.
+     *
+     * @param request - GetInstanceRequest
+     *
+     * @returns GetInstanceResponse
+     *
      * @param GetInstanceRequest $request
      *
      * @return GetInstanceResponse
@@ -2556,29 +3910,43 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the number of instances.
+     *
+     * @param request - GetInstanceCountRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceCountResponse
+     *
      * @param RuntimeOptions $runtime
      *
      * @return GetInstanceCountResponse
      */
     public function getInstanceCountWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetInstanceCount',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceCount',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetInstanceCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceCountResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceCountResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the number of instances.
+     *
+     * @returns GetInstanceCountResponse
+     *
      * @return GetInstanceCountResponse
      */
     public function getInstanceCount()
@@ -2589,6 +3957,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the endpoint of an instance.
+     *
+     * @param request - GetInstanceEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceEndpointResponse
+     *
      * @param GetInstanceEndpointRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -2596,36 +3971,48 @@ class Cr extends OpenApiClient
      */
     public function getInstanceEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->endpointType)) {
-            $query['EndpointType'] = $request->endpointType;
+        if (null !== $request->endpointType) {
+            @$query['EndpointType'] = $request->endpointType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->moduleName)) {
-            $query['ModuleName'] = $request->moduleName;
+
+        if (null !== $request->moduleName) {
+            @$query['ModuleName'] = $request->moduleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceEndpoint',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceEndpoint',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetInstanceEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the endpoint of an instance.
+     *
+     * @param request - GetInstanceEndpointRequest
+     *
+     * @returns GetInstanceEndpointResponse
+     *
      * @param GetInstanceEndpointRequest $request
      *
      * @return GetInstanceEndpointResponse
@@ -2638,6 +4025,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the quota usage of an instance.
+     *
+     * @param request - GetInstanceUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceUsageResponse
+     *
      * @param GetInstanceUsageRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2645,30 +4039,40 @@ class Cr extends OpenApiClient
      */
     public function getInstanceUsageWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceUsage',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceUsage',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetInstanceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceUsageResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the quota usage of an instance.
+     *
+     * @param request - GetInstanceUsageRequest
+     *
+     * @returns GetInstanceUsageResponse
+     *
      * @param GetInstanceUsageRequest $request
      *
      * @return GetInstanceUsageResponse
@@ -2681,6 +4085,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the endpoints of the virtual private clouds (VPCs) in which a Container Registry instance is deployed.
+     *
+     * @param request - GetInstanceVpcEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetInstanceVpcEndpointResponse
+     *
      * @param GetInstanceVpcEndpointRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -2688,33 +4099,44 @@ class Cr extends OpenApiClient
      */
     public function getInstanceVpcEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->moduleName)) {
-            $query['ModuleName'] = $request->moduleName;
+
+        if (null !== $request->moduleName) {
+            @$query['ModuleName'] = $request->moduleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceVpcEndpoint',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetInstanceVpcEndpoint',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetInstanceVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetInstanceVpcEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceVpcEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the endpoints of the virtual private clouds (VPCs) in which a Container Registry instance is deployed.
+     *
+     * @param request - GetInstanceVpcEndpointRequest
+     *
+     * @returns GetInstanceVpcEndpointResponse
+     *
      * @param GetInstanceVpcEndpointRequest $request
      *
      * @return GetInstanceVpcEndpointResponse
@@ -2727,6 +4149,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the information about a namespace.
+     *
+     * @param request - GetNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetNamespaceResponse
+     *
      * @param GetNamespaceRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -2734,36 +4163,48 @@ class Cr extends OpenApiClient
      */
     public function getNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespaceId)) {
-            $query['NamespaceId'] = $request->namespaceId;
+
+        if (null !== $request->namespaceId) {
+            @$query['NamespaceId'] = $request->namespaceId;
         }
-        if (!Utils::isUnset($request->namespaceName)) {
-            $query['NamespaceName'] = $request->namespaceName;
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetNamespace',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetNamespace',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the information about a namespace.
+     *
+     * @param request - GetNamespaceRequest
+     *
+     * @returns GetNamespaceResponse
+     *
      * @param GetNamespaceRequest $request
      *
      * @return GetNamespaceResponse
@@ -2776,47 +4217,65 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
-     * @param GetRepoBuildRecordRequest $request GetRepoBuildRecordRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * Queries the information about image building records of a repository.
      *
-     * @return GetRepoBuildRecordResponse GetRepoBuildRecordResponse
+     * @remarks
+     *
+     * @param request - GetRepoBuildRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRepoBuildRecordResponse
+     *
+     * @param GetRepoBuildRecordRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetRepoBuildRecordResponse
      */
     public function getRepoBuildRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->buildRecordId)) {
-            $query['BuildRecordId'] = $request->buildRecordId;
+        if (null !== $request->buildRecordId) {
+            @$query['BuildRecordId'] = $request->buildRecordId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRepoBuildRecord',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRepoBuildRecord',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRepoBuildRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRepoBuildRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRepoBuildRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
-     * ****
-     *   *
-     * @param GetRepoBuildRecordRequest $request GetRepoBuildRecordRequest
+     * Queries the information about image building records of a repository.
      *
-     * @return GetRepoBuildRecordResponse GetRepoBuildRecordResponse
+     * @remarks
+     *
+     * @param request - GetRepoBuildRecordRequest
+     *
+     * @returns GetRepoBuildRecordResponse
+     *
+     * @param GetRepoBuildRecordRequest $request
+     *
+     * @return GetRepoBuildRecordResponse
      */
     public function getRepoBuildRecord($request)
     {
@@ -2826,6 +4285,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the status of an image building task.
+     *
+     * @param request - GetRepoBuildRecordStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRepoBuildRecordStatusResponse
+     *
      * @param GetRepoBuildRecordStatusRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -2833,36 +4299,48 @@ class Cr extends OpenApiClient
      */
     public function getRepoBuildRecordStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->buildRecordId)) {
-            $query['BuildRecordId'] = $request->buildRecordId;
+        if (null !== $request->buildRecordId) {
+            @$query['BuildRecordId'] = $request->buildRecordId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRepoBuildRecordStatus',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRepoBuildRecordStatus',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRepoBuildRecordStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRepoBuildRecordStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRepoBuildRecordStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the status of an image building task.
+     *
+     * @param request - GetRepoBuildRecordStatusRequest
+     *
+     * @returns GetRepoBuildRecordStatusResponse
+     *
      * @param GetRepoBuildRecordStatusRequest $request
      *
      * @return GetRepoBuildRecordStatusResponse
@@ -2875,6 +4353,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the information about the source code repository that is bound to an image repository.
+     *
+     * @param request - GetRepoSourceCodeRepoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRepoSourceCodeRepoResponse
+     *
      * @param GetRepoSourceCodeRepoRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -2882,33 +4367,44 @@ class Cr extends OpenApiClient
      */
     public function getRepoSourceCodeRepoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRepoSourceCodeRepo',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRepoSourceCodeRepo',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRepoSourceCodeRepoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRepoSourceCodeRepoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRepoSourceCodeRepoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the information about the source code repository that is bound to an image repository.
+     *
+     * @param request - GetRepoSourceCodeRepoRequest
+     *
+     * @returns GetRepoSourceCodeRepoResponse
+     *
      * @param GetRepoSourceCodeRepoRequest $request
      *
      * @return GetRepoSourceCodeRepoResponse
@@ -2921,6 +4417,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries an image synchronization task in an instance.
+     *
+     * @param request - GetRepoSyncTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRepoSyncTaskResponse
+     *
      * @param GetRepoSyncTaskRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2928,33 +4431,44 @@ class Cr extends OpenApiClient
      */
     public function getRepoSyncTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->syncTaskId)) {
-            $query['SyncTaskId'] = $request->syncTaskId;
+
+        if (null !== $request->syncTaskId) {
+            @$query['SyncTaskId'] = $request->syncTaskId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRepoSyncTask',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRepoSyncTask',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRepoSyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRepoSyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRepoSyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries an image synchronization task in an instance.
+     *
+     * @param request - GetRepoSyncTaskRequest
+     *
+     * @returns GetRepoSyncTaskResponse
+     *
      * @param GetRepoSyncTaskRequest $request
      *
      * @return GetRepoSyncTaskResponse
@@ -2967,6 +4481,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * The version of the repository.
+     *
+     * @param request - GetRepoTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRepoTagResponse
+     *
      * @param GetRepoTagRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -2974,27 +4495,36 @@ class Cr extends OpenApiClient
      */
     public function getRepoTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRepoTag',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRepoTag',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRepoTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRepoTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRepoTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * The version of the repository.
+     *
+     * @param request - GetRepoTagRequest
+     *
+     * @returns GetRepoTagResponse
+     *
      * @param GetRepoTagRequest $request
      *
      * @return GetRepoTagResponse
@@ -3007,110 +4537,11 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param GetRepoTagLayersRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param request - GetRepoTagScanStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return GetRepoTagLayersResponse
-     */
-    public function getRepoTagLayersWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->digest)) {
-            $query['Digest'] = $request->digest;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetRepoTagLayers',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetRepoTagLayersResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetRepoTagLayersRequest $request
+     * @returns GetRepoTagScanStatusResponse
      *
-     * @return GetRepoTagLayersResponse
-     */
-    public function getRepoTagLayers($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getRepoTagLayersWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetRepoTagManifestRequest $request
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetRepoTagManifestResponse
-     */
-    public function getRepoTagManifestWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
-        }
-        if (!Utils::isUnset($request->schemaVersion)) {
-            $query['SchemaVersion'] = $request->schemaVersion;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetRepoTagManifest',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetRepoTagManifestResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetRepoTagManifestRequest $request
-     *
-     * @return GetRepoTagManifestResponse
-     */
-    public function getRepoTagManifest($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getRepoTagManifestWithOptions($request, $runtime);
-    }
-
-    /**
      * @param GetRepoTagScanStatusRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -3118,42 +4549,54 @@ class Cr extends OpenApiClient
      */
     public function getRepoTagScanStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->digest)) {
-            $query['Digest'] = $request->digest;
+        if (null !== $request->digest) {
+            @$query['Digest'] = $request->digest;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
-        if (!Utils::isUnset($request->scanTaskId)) {
-            $query['ScanTaskId'] = $request->scanTaskId;
+
+        if (null !== $request->scanTaskId) {
+            @$query['ScanTaskId'] = $request->scanTaskId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRepoTagScanStatus',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRepoTagScanStatus',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRepoTagScanStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRepoTagScanStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRepoTagScanStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetRepoTagScanStatusRequest
+     *
+     * @returns GetRepoTagScanStatusResponse
+     *
      * @param GetRepoTagScanStatusRequest $request
      *
      * @return GetRepoTagScanStatusResponse
@@ -3166,6 +4609,11 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * @param request - GetRepoTagScanSummaryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRepoTagScanSummaryResponse
+     *
      * @param GetRepoTagScanSummaryRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3173,42 +4621,54 @@ class Cr extends OpenApiClient
      */
     public function getRepoTagScanSummaryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->digest)) {
-            $query['Digest'] = $request->digest;
+        if (null !== $request->digest) {
+            @$query['Digest'] = $request->digest;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
-        if (!Utils::isUnset($request->scanTaskId)) {
-            $query['ScanTaskId'] = $request->scanTaskId;
+
+        if (null !== $request->scanTaskId) {
+            @$query['ScanTaskId'] = $request->scanTaskId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRepoTagScanSummary',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRepoTagScanSummary',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRepoTagScanSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRepoTagScanSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRepoTagScanSummaryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * @param request - GetRepoTagScanSummaryRequest
+     *
+     * @returns GetRepoTagScanSummaryResponse
+     *
      * @param GetRepoTagScanSummaryRequest $request
      *
      * @return GetRepoTagScanSummaryResponse
@@ -3221,6 +4681,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries details about an image repository.
+     *
+     * @param request - GetRepositoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetRepositoryResponse
+     *
      * @param GetRepositoryRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -3228,39 +4695,52 @@ class Cr extends OpenApiClient
      */
     public function getRepositoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+
+        if (null !== $request->repoNamespaceName) {
+            @$query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRepository',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRepository',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return GetRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries details about an image repository.
+     *
+     * @param request - GetRepositoryRequest
+     *
+     * @returns GetRepositoryResponse
+     *
      * @param GetRepositoryRequest $request
      *
      * @return GetRepositoryResponse
@@ -3273,6 +4753,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the log entries of an artifact building task.
+     *
+     * @param request - ListArtifactBuildTaskLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListArtifactBuildTaskLogResponse
+     *
      * @param ListArtifactBuildTaskLogRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -3280,27 +4767,36 @@ class Cr extends OpenApiClient
      */
     public function listArtifactBuildTaskLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListArtifactBuildTaskLog',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListArtifactBuildTaskLog',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListArtifactBuildTaskLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListArtifactBuildTaskLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListArtifactBuildTaskLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the log entries of an artifact building task.
+     *
+     * @param request - ListArtifactBuildTaskLogRequest
+     *
+     * @returns ListArtifactBuildTaskLogResponse
+     *
      * @param ListArtifactBuildTaskLogRequest $request
      *
      * @return ListArtifactBuildTaskLogResponse
@@ -3313,6 +4809,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the lifecycle management rules of an artifact.
+     *
+     * @param request - ListArtifactLifecycleRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListArtifactLifecycleRuleResponse
+     *
      * @param ListArtifactLifecycleRuleRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -3320,27 +4823,36 @@ class Cr extends OpenApiClient
      */
     public function listArtifactLifecycleRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListArtifactLifecycleRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListArtifactLifecycleRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListArtifactLifecycleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListArtifactLifecycleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListArtifactLifecycleRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the lifecycle management rules of an artifact.
+     *
+     * @param request - ListArtifactLifecycleRuleRequest
+     *
+     * @returns ListArtifactLifecycleRuleResponse
+     *
      * @param ListArtifactLifecycleRuleRequest $request
      *
      * @return ListArtifactLifecycleRuleResponse
@@ -3353,6 +4865,125 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Lists the subscription rules of artifacts.
+     *
+     * @param request - ListArtifactSubscriptionRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListArtifactSubscriptionRuleResponse
+     *
+     * @param ListArtifactSubscriptionRuleRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListArtifactSubscriptionRuleResponse
+     */
+    public function listArtifactSubscriptionRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListArtifactSubscriptionRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListArtifactSubscriptionRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListArtifactSubscriptionRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Lists the subscription rules of artifacts.
+     *
+     * @param request - ListArtifactSubscriptionRuleRequest
+     *
+     * @returns ListArtifactSubscriptionRuleResponse
+     *
+     * @param ListArtifactSubscriptionRuleRequest $request
+     *
+     * @return ListArtifactSubscriptionRuleResponse
+     */
+    public function listArtifactSubscriptionRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listArtifactSubscriptionRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Lists artifact subscription tasks.
+     *
+     * @param request - ListArtifactSubscriptionTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListArtifactSubscriptionTaskResponse
+     *
+     * @param ListArtifactSubscriptionTaskRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListArtifactSubscriptionTaskResponse
+     */
+    public function listArtifactSubscriptionTaskWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListArtifactSubscriptionTask',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListArtifactSubscriptionTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListArtifactSubscriptionTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Lists artifact subscription tasks.
+     *
+     * @param request - ListArtifactSubscriptionTaskRequest
+     *
+     * @returns ListArtifactSubscriptionTaskResponse
+     *
+     * @param ListArtifactSubscriptionTaskRequest $request
+     *
+     * @return ListArtifactSubscriptionTaskResponse
+     */
+    public function listArtifactSubscriptionTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listArtifactSubscriptionTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries delivery chains.
+     *
+     * @param request - ListChainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListChainResponse
+     *
      * @param ListChainRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -3360,42 +4991,56 @@ class Cr extends OpenApiClient
      */
     public function listChainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+
+        if (null !== $request->repoNamespaceName) {
+            @$query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListChain',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListChain',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListChainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListChainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListChainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries delivery chains.
+     *
+     * @param request - ListChainRequest
+     *
+     * @returns ListChainResponse
+     *
      * @param ListChainRequest $request
      *
      * @return ListChainResponse
@@ -3408,6 +5053,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * The response code.
+     *
+     * @param request - ListChainInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListChainInstanceResponse
+     *
      * @param ListChainInstanceRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -3415,42 +5067,56 @@ class Cr extends OpenApiClient
      */
     public function listChainInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+
+        if (null !== $request->repoNamespaceName) {
+            @$query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListChainInstance',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListChainInstance',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListChainInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListChainInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListChainInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * The response code.
+     *
+     * @param request - ListChainInstanceRequest
+     *
+     * @returns ListChainInstanceResponse
+     *
      * @param ListChainInstanceRequest $request
      *
      * @return ListChainInstanceResponse
@@ -3463,6 +5129,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the chart namespaces of a Container Registry instance.
+     *
+     * @param request - ListChartNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListChartNamespaceResponse
+     *
      * @param ListChartNamespaceRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -3470,42 +5143,56 @@ class Cr extends OpenApiClient
      */
     public function listChartNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespaceName)) {
-            $query['NamespaceName'] = $request->namespaceName;
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
         }
-        if (!Utils::isUnset($request->namespaceStatus)) {
-            $query['NamespaceStatus'] = $request->namespaceStatus;
+
+        if (null !== $request->namespaceStatus) {
+            @$query['NamespaceStatus'] = $request->namespaceStatus;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListChartNamespace',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListChartNamespace',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListChartNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListChartNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListChartNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the chart namespaces of a Container Registry instance.
+     *
+     * @param request - ListChartNamespaceRequest
+     *
+     * @returns ListChartNamespaceResponse
+     *
      * @param ListChartNamespaceRequest $request
      *
      * @return ListChartNamespaceResponse
@@ -3518,6 +5205,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the versions of a chart in a chart repository.
+     *
+     * @param request - ListChartReleaseRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListChartReleaseResponse
+     *
      * @param ListChartReleaseRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -3525,45 +5219,60 @@ class Cr extends OpenApiClient
      */
     public function listChartReleaseWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->chart)) {
-            $query['Chart'] = $request->chart;
+        if (null !== $request->chart) {
+            @$query['Chart'] = $request->chart;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+
+        if (null !== $request->repoNamespaceName) {
+            @$query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListChartRelease',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListChartRelease',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListChartReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListChartReleaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListChartReleaseResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the versions of a chart in a chart repository.
+     *
+     * @param request - ListChartReleaseRequest
+     *
+     * @returns ListChartReleaseResponse
+     *
      * @param ListChartReleaseRequest $request
      *
      * @return ListChartReleaseResponse
@@ -3576,6 +5285,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the chart repositories of a Container Registry instance.
+     *
+     * @param request - ListChartRepositoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListChartRepositoryResponse
+     *
      * @param ListChartRepositoryRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -3583,45 +5299,60 @@ class Cr extends OpenApiClient
      */
     public function listChartRepositoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+
+        if (null !== $request->repoNamespaceName) {
+            @$query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
-        if (!Utils::isUnset($request->repoStatus)) {
-            $query['RepoStatus'] = $request->repoStatus;
+
+        if (null !== $request->repoStatus) {
+            @$query['RepoStatus'] = $request->repoStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListChartRepository',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListChartRepository',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListChartRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListChartRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListChartRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the chart repositories of a Container Registry instance.
+     *
+     * @param request - ListChartRepositoryRequest
+     *
+     * @returns ListChartRepositoryResponse
+     *
      * @param ListChartRepositoryRequest $request
      *
      * @return ListChartRepositoryResponse
@@ -3634,6 +5365,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the historical events of an event rule.
+     *
+     * @param request - ListEventCenterRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEventCenterRecordResponse
+     *
      * @param ListEventCenterRecordRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -3641,27 +5379,36 @@ class Cr extends OpenApiClient
      */
     public function listEventCenterRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEventCenterRecord',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListEventCenterRecord',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEventCenterRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEventCenterRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEventCenterRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the historical events of an event rule.
+     *
+     * @param request - ListEventCenterRecordRequest
+     *
+     * @returns ListEventCenterRecordResponse
+     *
      * @param ListEventCenterRecordRequest $request
      *
      * @return ListEventCenterRecordResponse
@@ -3674,6 +5421,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the names of event notification rules.
+     *
+     * @param request - ListEventCenterRuleNameRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListEventCenterRuleNameResponse
+     *
      * @param ListEventCenterRuleNameRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -3681,27 +5435,36 @@ class Cr extends OpenApiClient
      */
     public function listEventCenterRuleNameWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListEventCenterRuleName',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListEventCenterRuleName',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListEventCenterRuleNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListEventCenterRuleNameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListEventCenterRuleNameResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the names of event notification rules.
+     *
+     * @param request - ListEventCenterRuleNameRequest
+     *
+     * @returns ListEventCenterRuleNameResponse
+     *
      * @param ListEventCenterRuleNameRequest $request
      *
      * @return ListEventCenterRuleNameResponse
@@ -3714,6 +5477,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries Container Registry instances.
+     *
+     * @param request - ListInstanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceResponse
+     *
      * @param ListInstanceRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -3721,42 +5491,56 @@ class Cr extends OpenApiClient
      */
     public function listInstanceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceName)) {
-            $query['InstanceName'] = $request->instanceName;
+        if (null !== $request->instanceName) {
+            @$query['InstanceName'] = $request->instanceName;
         }
-        if (!Utils::isUnset($request->instanceStatus)) {
-            $query['InstanceStatus'] = $request->instanceStatus;
+
+        if (null !== $request->instanceStatus) {
+            @$query['InstanceStatus'] = $request->instanceStatus;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstance',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstance',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstanceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries Container Registry instances.
+     *
+     * @param request - ListInstanceRequest
+     *
+     * @returns ListInstanceResponse
+     *
      * @param ListInstanceRequest $request
      *
      * @return ListInstanceResponse
@@ -3769,6 +5553,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the endpoints of a Container Registry instance.
+     *
+     * @param request - ListInstanceEndpointRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceEndpointResponse
+     *
      * @param ListInstanceEndpointRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -3776,36 +5567,48 @@ class Cr extends OpenApiClient
      */
     public function listInstanceEndpointWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->moduleName)) {
-            $query['ModuleName'] = $request->moduleName;
+
+        if (null !== $request->moduleName) {
+            @$query['ModuleName'] = $request->moduleName;
         }
-        if (!Utils::isUnset($request->summary)) {
-            $query['Summary'] = $request->summary;
+
+        if (null !== $request->summary) {
+            @$query['Summary'] = $request->summary;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstanceEndpoint',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstanceEndpoint',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstanceEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstanceEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstanceEndpointResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the endpoints of a Container Registry instance.
+     *
+     * @param request - ListInstanceEndpointRequest
+     *
+     * @returns ListInstanceEndpointResponse
+     *
      * @param ListInstanceEndpointRequest $request
      *
      * @return ListInstanceEndpointResponse
@@ -3818,6 +5621,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries regions in which you can create Container Registry instances.
+     *
+     * @param request - ListInstanceRegionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListInstanceRegionResponse
+     *
      * @param ListInstanceRegionRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -3825,30 +5635,40 @@ class Cr extends OpenApiClient
      */
     public function listInstanceRegionWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->lang)) {
-            $query['Lang'] = $request->lang;
+        if (null !== $request->lang) {
+            @$query['Lang'] = $request->lang;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstanceRegion',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstanceRegion',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListInstanceRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListInstanceRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListInstanceRegionResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries regions in which you can create Container Registry instances.
+     *
+     * @param request - ListInstanceRegionRequest
+     *
+     * @returns ListInstanceRegionResponse
+     *
      * @param ListInstanceRegionRequest $request
      *
      * @return ListInstanceRegionResponse
@@ -3861,6 +5681,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * cri-94klsruryslx****.
+     *
+     * @param request - ListNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListNamespaceResponse
+     *
      * @param ListNamespaceRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -3868,42 +5695,56 @@ class Cr extends OpenApiClient
      */
     public function listNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespaceName)) {
-            $query['NamespaceName'] = $request->namespaceName;
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
         }
-        if (!Utils::isUnset($request->namespaceStatus)) {
-            $query['NamespaceStatus'] = $request->namespaceStatus;
+
+        if (null !== $request->namespaceStatus) {
+            @$query['NamespaceStatus'] = $request->namespaceStatus;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListNamespace',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListNamespace',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * cri-94klsruryslx****.
+     *
+     * @param request - ListNamespaceRequest
+     *
+     * @returns ListNamespaceResponse
+     *
      * @param ListNamespaceRequest $request
      *
      * @return ListNamespaceResponse
@@ -3916,6 +5757,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries image building records of an image repository.
+     *
+     * @param request - ListRepoBuildRecordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRepoBuildRecordResponse
+     *
      * @param ListRepoBuildRecordRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -3923,39 +5771,52 @@ class Cr extends OpenApiClient
      */
     public function listRepoBuildRecordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRepoBuildRecord',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRepoBuildRecord',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepoBuildRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepoBuildRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepoBuildRecordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries image building records of an image repository.
+     *
+     * @param request - ListRepoBuildRecordRequest
+     *
+     * @returns ListRepoBuildRecordResponse
+     *
      * @param ListRepoBuildRecordRequest $request
      *
      * @return ListRepoBuildRecordResponse
@@ -3968,6 +5829,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the log of an image building record.
+     *
+     * @param request - ListRepoBuildRecordLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRepoBuildRecordLogResponse
+     *
      * @param ListRepoBuildRecordLogRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -3975,39 +5843,52 @@ class Cr extends OpenApiClient
      */
     public function listRepoBuildRecordLogWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->buildRecordId)) {
-            $query['BuildRecordId'] = $request->buildRecordId;
+        if (null !== $request->buildRecordId) {
+            @$query['BuildRecordId'] = $request->buildRecordId;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->offset)) {
-            $query['Offset'] = $request->offset;
+
+        if (null !== $request->offset) {
+            @$query['Offset'] = $request->offset;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRepoBuildRecordLog',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRepoBuildRecordLog',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepoBuildRecordLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepoBuildRecordLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepoBuildRecordLogResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the log of an image building record.
+     *
+     * @param request - ListRepoBuildRecordLogRequest
+     *
+     * @returns ListRepoBuildRecordLogResponse
+     *
      * @param ListRepoBuildRecordLogRequest $request
      *
      * @return ListRepoBuildRecordLogResponse
@@ -4020,6 +5901,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries image building rules of a repository.
+     *
+     * @param request - ListRepoBuildRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRepoBuildRuleResponse
+     *
      * @param ListRepoBuildRuleRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -4027,39 +5915,52 @@ class Cr extends OpenApiClient
      */
     public function listRepoBuildRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRepoBuildRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRepoBuildRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepoBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepoBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepoBuildRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries image building rules of a repository.
+     *
+     * @param request - ListRepoBuildRuleRequest
+     *
+     * @returns ListRepoBuildRuleResponse
+     *
      * @param ListRepoBuildRuleRequest $request
      *
      * @return ListRepoBuildRuleResponse
@@ -4072,6 +5973,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries image synchronization rules of a repository.
+     *
+     * @param request - ListRepoSyncRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRepoSyncRuleResponse
+     *
      * @param ListRepoSyncRuleRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -4079,48 +5987,64 @@ class Cr extends OpenApiClient
      */
     public function listRepoSyncRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespaceName)) {
-            $query['NamespaceName'] = $request->namespaceName;
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->targetInstanceId)) {
-            $query['TargetInstanceId'] = $request->targetInstanceId;
+
+        if (null !== $request->targetInstanceId) {
+            @$query['TargetInstanceId'] = $request->targetInstanceId;
         }
-        if (!Utils::isUnset($request->targetRegionId)) {
-            $query['TargetRegionId'] = $request->targetRegionId;
+
+        if (null !== $request->targetRegionId) {
+            @$query['TargetRegionId'] = $request->targetRegionId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRepoSyncRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRepoSyncRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepoSyncRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepoSyncRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepoSyncRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries image synchronization rules of a repository.
+     *
+     * @param request - ListRepoSyncRuleRequest
+     *
+     * @returns ListRepoSyncRuleResponse
+     *
      * @param ListRepoSyncRuleRequest $request
      *
      * @return ListRepoSyncRuleResponse
@@ -4133,6 +6057,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Indicates whether automatic link is used.
+     *
+     * @param request - ListRepoSyncTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRepoSyncTaskResponse
+     *
      * @param ListRepoSyncTaskRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -4140,48 +6071,64 @@ class Cr extends OpenApiClient
      */
     public function listRepoSyncTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+
+        if (null !== $request->repoNamespaceName) {
+            @$query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
-        if (!Utils::isUnset($request->syncRecordId)) {
-            $query['SyncRecordId'] = $request->syncRecordId;
+
+        if (null !== $request->syncRecordId) {
+            @$query['SyncRecordId'] = $request->syncRecordId;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRepoSyncTask',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRepoSyncTask',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepoSyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepoSyncTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepoSyncTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Indicates whether automatic link is used.
+     *
+     * @param request - ListRepoSyncTaskRequest
+     *
+     * @returns ListRepoSyncTaskResponse
+     *
      * @param ListRepoSyncTaskRequest $request
      *
      * @return ListRepoSyncTaskResponse
@@ -4194,6 +6141,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries image tags in a repository.
+     *
+     * @param request - ListRepoTagRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRepoTagResponse
+     *
      * @param ListRepoTagRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -4201,39 +6155,52 @@ class Cr extends OpenApiClient
      */
     public function listRepoTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRepoTag',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRepoTag',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepoTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepoTagResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepoTagResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries image tags in a repository.
+     *
+     * @param request - ListRepoTagRequest
+     *
+     * @returns ListRepoTagResponse
+     *
      * @param ListRepoTagRequest $request
      *
      * @return ListRepoTagResponse
@@ -4246,6 +6213,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the results of a security scan that is created for an image tag.
+     *
+     * @param request - ListRepoTagScanResultRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRepoTagScanResultResponse
+     *
      * @param ListRepoTagScanResultRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -4253,60 +6227,80 @@ class Cr extends OpenApiClient
      */
     public function listRepoTagScanResultWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->digest)) {
-            $query['Digest'] = $request->digest;
+        if (null !== $request->digest) {
+            @$query['Digest'] = $request->digest;
         }
-        if (!Utils::isUnset($request->filterValue)) {
-            $query['FilterValue'] = $request->filterValue;
+
+        if (null !== $request->filterValue) {
+            @$query['FilterValue'] = $request->filterValue;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
-        if (!Utils::isUnset($request->scanTaskId)) {
-            $query['ScanTaskId'] = $request->scanTaskId;
+
+        if (null !== $request->scanTaskId) {
+            @$query['ScanTaskId'] = $request->scanTaskId;
         }
-        if (!Utils::isUnset($request->scanType)) {
-            $query['ScanType'] = $request->scanType;
+
+        if (null !== $request->scanType) {
+            @$query['ScanType'] = $request->scanType;
         }
-        if (!Utils::isUnset($request->severity)) {
-            $query['Severity'] = $request->severity;
+
+        if (null !== $request->severity) {
+            @$query['Severity'] = $request->severity;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->vulQueryKey)) {
-            $query['VulQueryKey'] = $request->vulQueryKey;
+
+        if (null !== $request->vulQueryKey) {
+            @$query['VulQueryKey'] = $request->vulQueryKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRepoTagScanResult',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRepoTagScanResult',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepoTagScanResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepoTagScanResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepoTagScanResultResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the results of a security scan that is created for an image tag.
+     *
+     * @param request - ListRepoTagScanResultRequest
+     *
+     * @returns ListRepoTagScanResultResponse
+     *
      * @param ListRepoTagScanResultRequest $request
      *
      * @return ListRepoTagScanResultResponse
@@ -4319,6 +6313,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the triggers of a repository.
+     *
+     * @param request - ListRepoTriggerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRepoTriggerResponse
+     *
      * @param ListRepoTriggerRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -4326,33 +6327,44 @@ class Cr extends OpenApiClient
      */
     public function listRepoTriggerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRepoTrigger',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRepoTrigger',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepoTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepoTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepoTriggerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the triggers of a repository.
+     *
+     * @param request - ListRepoTriggerRequest
+     *
+     * @returns ListRepoTriggerResponse
+     *
      * @param ListRepoTriggerRequest $request
      *
      * @return ListRepoTriggerResponse
@@ -4365,6 +6377,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries image repositories.
+     *
+     * @param request - ListRepositoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListRepositoryResponse
+     *
      * @param ListRepositoryRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -4372,45 +6391,60 @@ class Cr extends OpenApiClient
      */
     public function listRepositoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
+
+        if (null !== $request->pageNo) {
+            @$query['PageNo'] = $request->pageNo;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+
+        if (null !== $request->repoNamespaceName) {
+            @$query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
-        if (!Utils::isUnset($request->repoStatus)) {
-            $query['RepoStatus'] = $request->repoStatus;
+
+        if (null !== $request->repoStatus) {
+            @$query['RepoStatus'] = $request->repoStatus;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRepository',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListRepository',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries image repositories.
+     *
+     * @param request - ListRepositoryRequest
+     *
+     * @returns ListRepositoryResponse
+     *
      * @param ListRepositoryRequest $request
      *
      * @return ListRepositoryResponse
@@ -4423,6 +6457,16 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the baseline risks of a scan task by page.
+     *
+     * @remarks
+     * Before you call this operation, use a Security Center scan engine to scan the image.
+     *
+     * @param request - ListScanBaselineByTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListScanBaselineByTaskResponse
+     *
      * @param ListScanBaselineByTaskRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -4430,27 +6474,39 @@ class Cr extends OpenApiClient
      */
     public function listScanBaselineByTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListScanBaselineByTask',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListScanBaselineByTask',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListScanBaselineByTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListScanBaselineByTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListScanBaselineByTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the baseline risks of a scan task by page.
+     *
+     * @remarks
+     * Before you call this operation, use a Security Center scan engine to scan the image.
+     *
+     * @param request - ListScanBaselineByTaskRequest
+     *
+     * @returns ListScanBaselineByTaskResponse
+     *
      * @param ListScanBaselineByTaskRequest $request
      *
      * @return ListScanBaselineByTaskResponse
@@ -4463,6 +6519,16 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the malicious files of a scan task by page.
+     *
+     * @remarks
+     * Before you call this operation, use a Security Center scan engine to scan the image.
+     *
+     * @param request - ListScanMaliciousFileByTaskRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListScanMaliciousFileByTaskResponse
+     *
      * @param ListScanMaliciousFileByTaskRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -4470,27 +6536,39 @@ class Cr extends OpenApiClient
      */
     public function listScanMaliciousFileByTaskWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+        $request->validate();
+        $query = Utils::query($request->toMap());
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListScanMaliciousFileByTask',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListScanMaliciousFileByTask',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListScanMaliciousFileByTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListScanMaliciousFileByTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListScanMaliciousFileByTaskResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the malicious files of a scan task by page.
+     *
+     * @remarks
+     * Before you call this operation, use a Security Center scan engine to scan the image.
+     *
+     * @param request - ListScanMaliciousFileByTaskRequest
+     *
+     * @returns ListScanMaliciousFileByTaskResponse
+     *
      * @param ListScanMaliciousFileByTaskRequest $request
      *
      * @return ListScanMaliciousFileByTaskResponse
@@ -4503,6 +6581,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Queries the tags that are added to cloud resources. Instance resources are supported.
+     *
+     * @param request - ListTagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListTagResourcesResponse
+     *
      * @param ListTagResourcesRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -4510,42 +6595,56 @@ class Cr extends OpenApiClient
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Queries the tags that are added to cloud resources. Instance resources are supported.
+     *
+     * @param request - ListTagResourcesRequest
+     *
+     * @returns ListTagResourcesResponse
+     *
      * @param ListTagResourcesRequest $request
      *
      * @return ListTagResourcesResponse
@@ -4558,6 +6657,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Resets the logon password of a Container Registry instance.
+     *
+     * @param request - ResetLoginPasswordRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ResetLoginPasswordResponse
+     *
      * @param ResetLoginPasswordRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -4565,33 +6671,44 @@ class Cr extends OpenApiClient
      */
     public function resetLoginPasswordWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->password)) {
-            $query['Password'] = $request->password;
+
+        if (null !== $request->password) {
+            @$query['Password'] = $request->password;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetLoginPassword',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetLoginPassword',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ResetLoginPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return ResetLoginPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetLoginPasswordResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Resets the logon password of a Container Registry instance.
+     *
+     * @param request - ResetLoginPasswordRequest
+     *
+     * @returns ResetLoginPasswordResponse
+     *
      * @param ResetLoginPasswordRequest $request
      *
      * @return ResetLoginPasswordResponse
@@ -4604,6 +6721,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Adds tags to resources. Instance resources are supported.
+     *
+     * @param request - TagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns TagResourcesResponse
+     *
      * @param TagResourcesRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -4611,39 +6735,52 @@ class Cr extends OpenApiClient
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
+
+        if (null !== $request->tag) {
+            @$query['Tag'] = $request->tag;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Adds tags to resources. Instance resources are supported.
+     *
+     * @param request - TagResourcesRequest
+     *
+     * @returns TagResourcesResponse
+     *
      * @param TagResourcesRequest $request
      *
      * @return TagResourcesResponse
@@ -4656,6 +6793,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Removes tags from resources. Instance resources are supported.
+     *
+     * @param request - UntagResourcesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UntagResourcesResponse
+     *
      * @param UntagResourcesRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -4663,42 +6807,56 @@ class Cr extends OpenApiClient
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->all)) {
-            $query['All'] = $request->all;
+        if (null !== $request->all) {
+            @$query['All'] = $request->all;
         }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKey)) {
-            $query['TagKey'] = $request->tagKey;
+
+        if (null !== $request->tagKey) {
+            @$query['TagKey'] = $request->tagKey;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UntagResourcesResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Removes tags from resources. Instance resources are supported.
+     *
+     * @param request - UntagResourcesRequest
+     *
+     * @returns UntagResourcesResponse
+     *
      * @param UntagResourcesRequest $request
      *
      * @return UntagResourcesResponse
@@ -4711,6 +6869,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Updates a lifecycle management rule of an artifact.
+     *
+     * @param request - UpdateArtifactLifecycleRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateArtifactLifecycleRuleResponse
+     *
      * @param UpdateArtifactLifecycleRuleRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -4718,57 +6883,76 @@ class Cr extends OpenApiClient
      */
     public function updateArtifactLifecycleRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->auto)) {
-            $query['Auto'] = $request->auto;
+        if (null !== $request->auto) {
+            @$query['Auto'] = $request->auto;
         }
-        if (!Utils::isUnset($request->enableDeleteTag)) {
-            $query['EnableDeleteTag'] = $request->enableDeleteTag;
+
+        if (null !== $request->enableDeleteTag) {
+            @$query['EnableDeleteTag'] = $request->enableDeleteTag;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespaceName)) {
-            $query['NamespaceName'] = $request->namespaceName;
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->retentionTagCount)) {
-            $query['RetentionTagCount'] = $request->retentionTagCount;
+
+        if (null !== $request->retentionTagCount) {
+            @$query['RetentionTagCount'] = $request->retentionTagCount;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->scheduleTime)) {
-            $query['ScheduleTime'] = $request->scheduleTime;
+
+        if (null !== $request->scheduleTime) {
+            @$query['ScheduleTime'] = $request->scheduleTime;
         }
-        if (!Utils::isUnset($request->scope)) {
-            $query['Scope'] = $request->scope;
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
         }
-        if (!Utils::isUnset($request->tagRegexp)) {
-            $query['TagRegexp'] = $request->tagRegexp;
+
+        if (null !== $request->tagRegexp) {
+            @$query['TagRegexp'] = $request->tagRegexp;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateArtifactLifecycleRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateArtifactLifecycleRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateArtifactLifecycleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateArtifactLifecycleRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateArtifactLifecycleRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Updates a lifecycle management rule of an artifact.
+     *
+     * @param request - UpdateArtifactLifecycleRuleRequest
+     *
+     * @returns UpdateArtifactLifecycleRuleResponse
+     *
      * @param UpdateArtifactLifecycleRuleRequest $request
      *
      * @return UpdateArtifactLifecycleRuleResponse
@@ -4781,6 +6965,117 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Updates an artifact subscription rule.
+     *
+     * @param request - UpdateArtifactSubscriptionRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateArtifactSubscriptionRuleResponse
+     *
+     * @param UpdateArtifactSubscriptionRuleRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateArtifactSubscriptionRuleResponse
+     */
+    public function updateArtifactSubscriptionRuleWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->accelerate) {
+            @$query['Accelerate'] = $request->accelerate;
+        }
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
+        }
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
+        }
+
+        if (null !== $request->override) {
+            @$query['Override'] = $request->override;
+        }
+
+        if (null !== $request->platform) {
+            @$query['Platform'] = $request->platform;
+        }
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
+        }
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
+        }
+
+        if (null !== $request->sourceNamespaceName) {
+            @$query['SourceNamespaceName'] = $request->sourceNamespaceName;
+        }
+
+        if (null !== $request->sourceProvider) {
+            @$query['SourceProvider'] = $request->sourceProvider;
+        }
+
+        if (null !== $request->sourceRepoName) {
+            @$query['SourceRepoName'] = $request->sourceRepoName;
+        }
+
+        if (null !== $request->tagCount) {
+            @$query['TagCount'] = $request->tagCount;
+        }
+
+        if (null !== $request->tagRegexp) {
+            @$query['TagRegexp'] = $request->tagRegexp;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateArtifactSubscriptionRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateArtifactSubscriptionRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateArtifactSubscriptionRuleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Updates an artifact subscription rule.
+     *
+     * @param request - UpdateArtifactSubscriptionRuleRequest
+     *
+     * @returns UpdateArtifactSubscriptionRuleResponse
+     *
+     * @param UpdateArtifactSubscriptionRuleRequest $request
+     *
+     * @return UpdateArtifactSubscriptionRuleResponse
+     */
+    public function updateArtifactSubscriptionRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateArtifactSubscriptionRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the information about a delivery chain, such as the node execution sequence of the delivery chain.
+     *
+     * @param request - UpdateChainRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateChainResponse
+     *
      * @param UpdateChainRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -4788,45 +7083,60 @@ class Cr extends OpenApiClient
      */
     public function updateChainWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->chainConfig)) {
-            $query['ChainConfig'] = $request->chainConfig;
+        if (null !== $request->chainConfig) {
+            @$query['ChainConfig'] = $request->chainConfig;
         }
-        if (!Utils::isUnset($request->chainId)) {
-            $query['ChainId'] = $request->chainId;
+
+        if (null !== $request->chainId) {
+            @$query['ChainId'] = $request->chainId;
         }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$query['Description'] = $request->description;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->scopeExclude)) {
-            $query['ScopeExclude'] = $request->scopeExclude;
+
+        if (null !== $request->scopeExclude) {
+            @$query['ScopeExclude'] = $request->scopeExclude;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateChain',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateChain',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateChainResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateChainResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateChainResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Updates the information about a delivery chain, such as the node execution sequence of the delivery chain.
+     *
+     * @param request - UpdateChainRequest
+     *
+     * @returns UpdateChainResponse
+     *
      * @param UpdateChainRequest $request
      *
      * @return UpdateChainResponse
@@ -4839,6 +7149,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Updates a chart namespace.
+     *
+     * @param request - UpdateChartNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateChartNamespaceResponse
+     *
      * @param UpdateChartNamespaceRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -4846,39 +7163,52 @@ class Cr extends OpenApiClient
      */
     public function updateChartNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoCreateRepo)) {
-            $query['AutoCreateRepo'] = $request->autoCreateRepo;
+        if (null !== $request->autoCreateRepo) {
+            @$query['AutoCreateRepo'] = $request->autoCreateRepo;
         }
-        if (!Utils::isUnset($request->defaultRepoType)) {
-            $query['DefaultRepoType'] = $request->defaultRepoType;
+
+        if (null !== $request->defaultRepoType) {
+            @$query['DefaultRepoType'] = $request->defaultRepoType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespaceName)) {
-            $query['NamespaceName'] = $request->namespaceName;
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateChartNamespace',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateChartNamespace',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateChartNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateChartNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateChartNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Updates a chart namespace.
+     *
+     * @param request - UpdateChartNamespaceRequest
+     *
+     * @returns UpdateChartNamespaceResponse
+     *
      * @param UpdateChartNamespaceRequest $request
      *
      * @return UpdateChartNamespaceResponse
@@ -4891,6 +7221,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Updates a chart repository of a Container Registry instance.
+     *
+     * @param request - UpdateChartRepositoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateChartRepositoryResponse
+     *
      * @param UpdateChartRepositoryRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -4898,42 +7235,56 @@ class Cr extends OpenApiClient
      */
     public function updateChartRepositoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+
+        if (null !== $request->repoNamespaceName) {
+            @$query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
-        if (!Utils::isUnset($request->repoType)) {
-            $query['RepoType'] = $request->repoType;
+
+        if (null !== $request->repoType) {
+            @$query['RepoType'] = $request->repoType;
         }
-        if (!Utils::isUnset($request->summary)) {
-            $query['Summary'] = $request->summary;
+
+        if (null !== $request->summary) {
+            @$query['Summary'] = $request->summary;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateChartRepository',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateChartRepository',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateChartRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateChartRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateChartRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Updates a chart repository of a Container Registry instance.
+     *
+     * @param request - UpdateChartRepositoryRequest
+     *
+     * @returns UpdateChartRepositoryResponse
+     *
      * @param UpdateChartRepositoryRequest $request
      *
      * @return UpdateChartRepositoryResponse
@@ -4946,6 +7297,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Updates an event notification rule.
+     *
+     * @param tmpReq - UpdateEventCenterRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEventCenterRuleResponse
+     *
      * @param UpdateEventCenterRuleRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
@@ -4953,65 +7311,86 @@ class Cr extends OpenApiClient
      */
     public function updateEventCenterRuleWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new UpdateEventCenterRuleShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->namespaces)) {
-            $request->namespacesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->namespaces, 'Namespaces', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->namespaces) {
+            $request->namespacesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->namespaces, 'Namespaces', 'json');
         }
-        if (!Utils::isUnset($tmpReq->repoNames)) {
-            $request->repoNamesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->repoNames, 'RepoNames', 'json');
+
+        if (null !== $tmpReq->repoNames) {
+            $request->repoNamesShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->repoNames, 'RepoNames', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->eventChannel)) {
-            $query['EventChannel'] = $request->eventChannel;
+        if (null !== $request->eventChannel) {
+            @$query['EventChannel'] = $request->eventChannel;
         }
-        if (!Utils::isUnset($request->eventConfig)) {
-            $query['EventConfig'] = $request->eventConfig;
+
+        if (null !== $request->eventConfig) {
+            @$query['EventConfig'] = $request->eventConfig;
         }
-        if (!Utils::isUnset($request->eventScope)) {
-            $query['EventScope'] = $request->eventScope;
+
+        if (null !== $request->eventScope) {
+            @$query['EventScope'] = $request->eventScope;
         }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
+
+        if (null !== $request->eventType) {
+            @$query['EventType'] = $request->eventType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespacesShrink)) {
-            $query['Namespaces'] = $request->namespacesShrink;
+
+        if (null !== $request->namespacesShrink) {
+            @$query['Namespaces'] = $request->namespacesShrink;
         }
-        if (!Utils::isUnset($request->repoNamesShrink)) {
-            $query['RepoNames'] = $request->repoNamesShrink;
+
+        if (null !== $request->repoNamesShrink) {
+            @$query['RepoNames'] = $request->repoNamesShrink;
         }
-        if (!Utils::isUnset($request->repoTagFilterPattern)) {
-            $query['RepoTagFilterPattern'] = $request->repoTagFilterPattern;
+
+        if (null !== $request->repoTagFilterPattern) {
+            @$query['RepoTagFilterPattern'] = $request->repoTagFilterPattern;
         }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
+
+        if (null !== $request->ruleId) {
+            @$query['RuleId'] = $request->ruleId;
         }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
+
+        if (null !== $request->ruleName) {
+            @$query['RuleName'] = $request->ruleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateEventCenterRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateEventCenterRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateEventCenterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateEventCenterRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateEventCenterRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Updates an event notification rule.
+     *
+     * @param request - UpdateEventCenterRuleRequest
+     *
+     * @returns UpdateEventCenterRuleResponse
+     *
      * @param UpdateEventCenterRuleRequest $request
      *
      * @return UpdateEventCenterRuleResponse
@@ -5024,6 +7403,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Updates the status of an instance endpoint.
+     *
+     * @param request - UpdateInstanceEndpointStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateInstanceEndpointStatusResponse
+     *
      * @param UpdateInstanceEndpointStatusRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -5031,39 +7417,52 @@ class Cr extends OpenApiClient
      */
     public function updateInstanceEndpointStatusWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
+        if (null !== $request->enable) {
+            @$query['Enable'] = $request->enable;
         }
-        if (!Utils::isUnset($request->endpointType)) {
-            $query['EndpointType'] = $request->endpointType;
+
+        if (null !== $request->endpointType) {
+            @$query['EndpointType'] = $request->endpointType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->moduleName)) {
-            $query['ModuleName'] = $request->moduleName;
+
+        if (null !== $request->moduleName) {
+            @$query['ModuleName'] = $request->moduleName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateInstanceEndpointStatus',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateInstanceEndpointStatus',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateInstanceEndpointStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateInstanceEndpointStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateInstanceEndpointStatusResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Updates the status of an instance endpoint.
+     *
+     * @param request - UpdateInstanceEndpointStatusRequest
+     *
+     * @returns UpdateInstanceEndpointStatusResponse
+     *
      * @param UpdateInstanceEndpointStatusRequest $request
      *
      * @return UpdateInstanceEndpointStatusResponse
@@ -5076,6 +7475,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Updates a namespace.
+     *
+     * @param request - UpdateNamespaceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateNamespaceResponse
+     *
      * @param UpdateNamespaceRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -5083,39 +7489,52 @@ class Cr extends OpenApiClient
      */
     public function updateNamespaceWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoCreateRepo)) {
-            $query['AutoCreateRepo'] = $request->autoCreateRepo;
+        if (null !== $request->autoCreateRepo) {
+            @$query['AutoCreateRepo'] = $request->autoCreateRepo;
         }
-        if (!Utils::isUnset($request->defaultRepoType)) {
-            $query['DefaultRepoType'] = $request->defaultRepoType;
+
+        if (null !== $request->defaultRepoType) {
+            @$query['DefaultRepoType'] = $request->defaultRepoType;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->namespaceName)) {
-            $query['NamespaceName'] = $request->namespaceName;
+
+        if (null !== $request->namespaceName) {
+            @$query['NamespaceName'] = $request->namespaceName;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateNamespace',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateNamespace',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateNamespaceResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Updates a namespace.
+     *
+     * @param request - UpdateNamespaceRequest
+     *
+     * @returns UpdateNamespaceResponse
+     *
      * @param UpdateNamespaceRequest $request
      *
      * @return UpdateNamespaceResponse
@@ -5128,6 +7547,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Updates an image building rule for a repository.
+     *
+     * @param request - UpdateRepoBuildRuleRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRepoBuildRuleResponse
+     *
      * @param UpdateRepoBuildRuleRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -5135,57 +7561,76 @@ class Cr extends OpenApiClient
      */
     public function updateRepoBuildRuleWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->buildArgs)) {
-            $query['BuildArgs'] = $request->buildArgs;
+        if (null !== $request->buildArgs) {
+            @$query['BuildArgs'] = $request->buildArgs;
         }
-        if (!Utils::isUnset($request->buildRuleId)) {
-            $query['BuildRuleId'] = $request->buildRuleId;
+
+        if (null !== $request->buildRuleId) {
+            @$query['BuildRuleId'] = $request->buildRuleId;
         }
-        if (!Utils::isUnset($request->dockerfileLocation)) {
-            $query['DockerfileLocation'] = $request->dockerfileLocation;
+
+        if (null !== $request->dockerfileLocation) {
+            @$query['DockerfileLocation'] = $request->dockerfileLocation;
         }
-        if (!Utils::isUnset($request->dockerfileName)) {
-            $query['DockerfileName'] = $request->dockerfileName;
+
+        if (null !== $request->dockerfileName) {
+            @$query['DockerfileName'] = $request->dockerfileName;
         }
-        if (!Utils::isUnset($request->imageTag)) {
-            $query['ImageTag'] = $request->imageTag;
+
+        if (null !== $request->imageTag) {
+            @$query['ImageTag'] = $request->imageTag;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->platforms)) {
-            $query['Platforms'] = $request->platforms;
+
+        if (null !== $request->platforms) {
+            @$query['Platforms'] = $request->platforms;
         }
-        if (!Utils::isUnset($request->pushName)) {
-            $query['PushName'] = $request->pushName;
+
+        if (null !== $request->pushName) {
+            @$query['PushName'] = $request->pushName;
         }
-        if (!Utils::isUnset($request->pushType)) {
-            $query['PushType'] = $request->pushType;
+
+        if (null !== $request->pushType) {
+            @$query['PushType'] = $request->pushType;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRepoBuildRule',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRepoBuildRule',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRepoBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateRepoBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRepoBuildRuleResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Updates an image building rule for a repository.
+     *
+     * @param request - UpdateRepoBuildRuleRequest
+     *
+     * @returns UpdateRepoBuildRuleResponse
+     *
      * @param UpdateRepoBuildRuleRequest $request
      *
      * @return UpdateRepoBuildRuleResponse
@@ -5198,6 +7643,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Updates the URL of the source code repository that is bound to an image repository.
+     *
+     * @param request - UpdateRepoSourceCodeRepoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRepoSourceCodeRepoResponse
+     *
      * @param UpdateRepoSourceCodeRepoRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -5205,54 +7657,72 @@ class Cr extends OpenApiClient
      */
     public function updateRepoSourceCodeRepoWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->autoBuild)) {
-            $query['AutoBuild'] = $request->autoBuild;
+        if (null !== $request->autoBuild) {
+            @$query['AutoBuild'] = $request->autoBuild;
         }
-        if (!Utils::isUnset($request->codeRepoId)) {
-            $query['CodeRepoId'] = $request->codeRepoId;
+
+        if (null !== $request->codeRepoId) {
+            @$query['CodeRepoId'] = $request->codeRepoId;
         }
-        if (!Utils::isUnset($request->codeRepoName)) {
-            $query['CodeRepoName'] = $request->codeRepoName;
+
+        if (null !== $request->codeRepoName) {
+            @$query['CodeRepoName'] = $request->codeRepoName;
         }
-        if (!Utils::isUnset($request->codeRepoNamespaceName)) {
-            $query['CodeRepoNamespaceName'] = $request->codeRepoNamespaceName;
+
+        if (null !== $request->codeRepoNamespaceName) {
+            @$query['CodeRepoNamespaceName'] = $request->codeRepoNamespaceName;
         }
-        if (!Utils::isUnset($request->codeRepoType)) {
-            $query['CodeRepoType'] = $request->codeRepoType;
+
+        if (null !== $request->codeRepoType) {
+            @$query['CodeRepoType'] = $request->codeRepoType;
         }
-        if (!Utils::isUnset($request->disableCacheBuild)) {
-            $query['DisableCacheBuild'] = $request->disableCacheBuild;
+
+        if (null !== $request->disableCacheBuild) {
+            @$query['DisableCacheBuild'] = $request->disableCacheBuild;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->overseaBuild)) {
-            $query['OverseaBuild'] = $request->overseaBuild;
+
+        if (null !== $request->overseaBuild) {
+            @$query['OverseaBuild'] = $request->overseaBuild;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRepoSourceCodeRepo',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRepoSourceCodeRepo',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRepoSourceCodeRepoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateRepoSourceCodeRepoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRepoSourceCodeRepoResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Updates the URL of the source code repository that is bound to an image repository.
+     *
+     * @param request - UpdateRepoSourceCodeRepoRequest
+     *
+     * @returns UpdateRepoSourceCodeRepoResponse
+     *
      * @param UpdateRepoSourceCodeRepoRequest $request
      *
      * @return UpdateRepoSourceCodeRepoResponse
@@ -5265,6 +7735,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * Updates a trigger of an image repository.
+     *
+     * @param request - UpdateRepoTriggerRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRepoTriggerResponse
+     *
      * @param UpdateRepoTriggerRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -5272,48 +7749,64 @@ class Cr extends OpenApiClient
      */
     public function updateRepoTriggerWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
-        if (!Utils::isUnset($request->triggerId)) {
-            $query['TriggerId'] = $request->triggerId;
+
+        if (null !== $request->triggerId) {
+            @$query['TriggerId'] = $request->triggerId;
         }
-        if (!Utils::isUnset($request->triggerName)) {
-            $query['TriggerName'] = $request->triggerName;
+
+        if (null !== $request->triggerName) {
+            @$query['TriggerName'] = $request->triggerName;
         }
-        if (!Utils::isUnset($request->triggerTag)) {
-            $query['TriggerTag'] = $request->triggerTag;
+
+        if (null !== $request->triggerTag) {
+            @$query['TriggerTag'] = $request->triggerTag;
         }
-        if (!Utils::isUnset($request->triggerType)) {
-            $query['TriggerType'] = $request->triggerType;
+
+        if (null !== $request->triggerType) {
+            @$query['TriggerType'] = $request->triggerType;
         }
-        if (!Utils::isUnset($request->triggerUrl)) {
-            $query['TriggerUrl'] = $request->triggerUrl;
+
+        if (null !== $request->triggerUrl) {
+            @$query['TriggerUrl'] = $request->triggerUrl;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRepoTrigger',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRepoTrigger',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRepoTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateRepoTriggerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRepoTriggerResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * Updates a trigger of an image repository.
+     *
+     * @param request - UpdateRepoTriggerRequest
+     *
+     * @returns UpdateRepoTriggerResponse
+     *
      * @param UpdateRepoTriggerRequest $request
      *
      * @return UpdateRepoTriggerResponse
@@ -5326,6 +7819,13 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * The ID of the request.
+     *
+     * @param request - UpdateRepositoryRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateRepositoryResponse
+     *
      * @param UpdateRepositoryRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -5333,51 +7833,68 @@ class Cr extends OpenApiClient
      */
     public function updateRepositoryWithOptions($request, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->detail)) {
-            $query['Detail'] = $request->detail;
+        if (null !== $request->detail) {
+            @$query['Detail'] = $request->detail;
         }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
+
+        if (null !== $request->instanceId) {
+            @$query['InstanceId'] = $request->instanceId;
         }
-        if (!Utils::isUnset($request->repoId)) {
-            $query['RepoId'] = $request->repoId;
+
+        if (null !== $request->repoId) {
+            @$query['RepoId'] = $request->repoId;
         }
-        if (!Utils::isUnset($request->repoName)) {
-            $query['RepoName'] = $request->repoName;
+
+        if (null !== $request->repoName) {
+            @$query['RepoName'] = $request->repoName;
         }
-        if (!Utils::isUnset($request->repoNamespaceName)) {
-            $query['RepoNamespaceName'] = $request->repoNamespaceName;
+
+        if (null !== $request->repoNamespaceName) {
+            @$query['RepoNamespaceName'] = $request->repoNamespaceName;
         }
-        if (!Utils::isUnset($request->repoType)) {
-            $query['RepoType'] = $request->repoType;
+
+        if (null !== $request->repoType) {
+            @$query['RepoType'] = $request->repoType;
         }
-        if (!Utils::isUnset($request->summary)) {
-            $query['Summary'] = $request->summary;
+
+        if (null !== $request->summary) {
+            @$query['Summary'] = $request->summary;
         }
-        if (!Utils::isUnset($request->tagImmutability)) {
-            $query['TagImmutability'] = $request->tagImmutability;
+
+        if (null !== $request->tagImmutability) {
+            @$query['TagImmutability'] = $request->tagImmutability;
         }
+
         $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRepository',
-            'version'     => '2018-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateRepository',
+            'version' => '2018-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
 
-        return UpdateRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRepositoryResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
     /**
+     * The ID of the request.
+     *
+     * @param request - UpdateRepositoryRequest
+     *
+     * @returns UpdateRepositoryResponse
+     *
      * @param UpdateRepositoryRequest $request
      *
      * @return UpdateRepositoryResponse

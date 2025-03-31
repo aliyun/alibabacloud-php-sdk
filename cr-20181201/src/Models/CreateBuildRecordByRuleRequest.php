@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateBuildRecordByRuleRequest extends Model
 {
     /**
-     * @description The ID of the image building rule.
-     *
-     * @example crbr-1j95g4bu2s1i****
-     *
      * @var string
      */
     public $buildRuleId;
 
     /**
-     * @description The ID of the instance.
-     *
-     * @example cri-asd6vujuhay0****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the image repository.
-     *
-     * @example crr-8dz3aedjqlmk****
-     *
      * @var string
      */
     public $repoId;
     protected $_name = [
         'buildRuleId' => 'BuildRuleId',
-        'instanceId'  => 'InstanceId',
-        'repoId'      => 'RepoId',
+        'instanceId' => 'InstanceId',
+        'repoId' => 'RepoId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildRuleId) {
             $res['BuildRuleId'] = $this->buildRuleId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
         }
@@ -60,20 +51,22 @@ class CreateBuildRecordByRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateBuildRecordByRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BuildRuleId'])) {
             $model->buildRuleId = $map['BuildRuleId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
         }

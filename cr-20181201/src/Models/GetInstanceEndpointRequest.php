@@ -4,58 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInstanceEndpointRequest extends Model
 {
     /**
-     * @description The type of the endpoint. Set the value to Internet.
-     *
-     * @example internet
-     *
      * @var string
      */
     public $endpointType;
 
     /**
-     * @description The ID of the instance.
-     *
-     * @example cri-xkx6vujuhay0****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the module that you want to access. Valid values:
-     *
-     *   `Registry`: the image repository.
-     *   `Chart`: a Helm chart.
-     *
-     * @example Registry
-     *
      * @var string
      */
     public $moduleName;
     protected $_name = [
         'endpointType' => 'EndpointType',
-        'instanceId'   => 'InstanceId',
-        'moduleName'   => 'ModuleName',
+        'instanceId' => 'InstanceId',
+        'moduleName' => 'ModuleName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
         }
@@ -63,20 +51,22 @@ class GetInstanceEndpointRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceEndpointRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
         }

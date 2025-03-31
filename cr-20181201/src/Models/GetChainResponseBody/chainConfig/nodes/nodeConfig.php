@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models\GetChainResponseBody\chainConfig\nodes;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetChainResponseBody\chainConfig\nodes\nodeConfig\denyPolicy;
-use AlibabaCloud\Tea\Model;
 
 class nodeConfig extends Model
 {
@@ -15,15 +15,11 @@ class nodeConfig extends Model
     public $denyPolicy;
 
     /**
-     * @example 3
-     *
      * @var int
      */
     public $retry;
 
     /**
-     * @example ACR_SCAN_SERVICE
-     *
      * @var string
      */
     public $scanEngine;
@@ -34,27 +30,34 @@ class nodeConfig extends Model
     public $timeout;
     protected $_name = [
         'denyPolicy' => 'DenyPolicy',
-        'retry'      => 'Retry',
+        'retry' => 'Retry',
         'scanEngine' => 'ScanEngine',
-        'timeout'    => 'Timeout',
+        'timeout' => 'Timeout',
     ];
 
     public function validate()
     {
+        if (null !== $this->denyPolicy) {
+            $this->denyPolicy->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->denyPolicy) {
-            $res['DenyPolicy'] = null !== $this->denyPolicy ? $this->denyPolicy->toMap() : null;
+            $res['DenyPolicy'] = null !== $this->denyPolicy ? $this->denyPolicy->toArray($noStream) : $this->denyPolicy;
         }
+
         if (null !== $this->retry) {
             $res['Retry'] = $this->retry;
         }
+
         if (null !== $this->scanEngine) {
             $res['ScanEngine'] = $this->scanEngine;
         }
+
         if (null !== $this->timeout) {
             $res['Timeout'] = $this->timeout;
         }
@@ -62,23 +65,26 @@ class nodeConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DenyPolicy'])) {
             $model->denyPolicy = denyPolicy::fromMap($map['DenyPolicy']);
         }
+
         if (isset($map['Retry'])) {
             $model->retry = $map['Retry'];
         }
+
         if (isset($map['ScanEngine'])) {
             $model->scanEngine = $map['ScanEngine'];
         }
+
         if (isset($map['Timeout'])) {
             $model->timeout = $map['Timeout'];
         }

@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListRepoTagRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example cri-kmsiwlxxdcva****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the repository.
-     *
-     * @example crr-tquyps22md8p****
-     *
      * @var string
      */
     public $repoId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'repoId'     => 'RepoId',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'repoId' => 'RepoId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
         }
@@ -73,23 +61,26 @@ class ListRepoTagRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRepoTagRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
         }

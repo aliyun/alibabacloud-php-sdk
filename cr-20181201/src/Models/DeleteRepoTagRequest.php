@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRepoTagRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example cri-xkx6vujuhay****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the image repository.
-     *
-     * @example crr-xwvi3osiy4ff****
-     *
      * @var string
      */
     public $repoId;
 
     /**
-     * @description The tag of the image.
-     *
-     * @example 1.24
-     *
      * @var string
      */
     public $tag;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'repoId'     => 'RepoId',
-        'tag'        => 'Tag',
+        'repoId' => 'RepoId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
         }
+
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
@@ -60,20 +51,22 @@ class DeleteRepoTagRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRepoTagRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
         }
+
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }

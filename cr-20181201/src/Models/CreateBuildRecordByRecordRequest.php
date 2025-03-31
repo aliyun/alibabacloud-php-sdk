@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateBuildRecordByRecordRequest extends Model
 {
     /**
-     * @example 0A311FC5-B8C6-4332-80E4-539EB73****
-     *
      * @var string
      */
     public $buildRecordId;
 
     /**
-     * @example cri-hpdfkc6utbaq****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example crr-hnoq7j93or3k****
-     *
      * @var string
      */
     public $repoId;
     protected $_name = [
         'buildRecordId' => 'BuildRecordId',
-        'instanceId'    => 'InstanceId',
-        'repoId'        => 'RepoId',
+        'instanceId' => 'InstanceId',
+        'repoId' => 'RepoId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildRecordId) {
             $res['BuildRecordId'] = $this->buildRecordId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
         }
@@ -54,20 +51,22 @@ class CreateBuildRecordByRecordRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateBuildRecordByRecordRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BuildRecordId'])) {
             $model->buildRecordId = $map['BuildRecordId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
         }

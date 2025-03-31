@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRepositoryRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example cri-kmsiwlxxdcva****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the repository.
-     *
-     * @example crr-03cuozrsqhkw****
-     *
      * @var string
      */
     public $repoId;
 
     /**
-     * @description The name of the repository.
-     *
-     * @example test
-     *
      * @var string
      */
     public $repoName;
 
     /**
-     * @description The name of the namespace to which the repository belongs.
-     *
-     * @example test
-     *
      * @var string
      */
     public $repoNamespaceName;
     protected $_name = [
-        'instanceId'        => 'InstanceId',
-        'repoId'            => 'RepoId',
-        'repoName'          => 'RepoName',
+        'instanceId' => 'InstanceId',
+        'repoId' => 'RepoId',
+        'repoName' => 'RepoName',
         'repoNamespaceName' => 'RepoNamespaceName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->repoId) {
             $res['RepoId'] = $this->repoId;
         }
+
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
         }
+
         if (null !== $this->repoNamespaceName) {
             $res['RepoNamespaceName'] = $this->repoNamespaceName;
         }
@@ -73,23 +61,26 @@ class GetRepositoryRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRepositoryRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RepoId'])) {
             $model->repoId = $map['RepoId'];
         }
+
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
         }
+
         if (isset($map['RepoNamespaceName'])) {
             $model->repoNamespaceName = $map['RepoNamespaceName'];
         }

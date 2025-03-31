@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models\ListInstanceEndpointResponseBody\endpoints;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class aclEntries extends Model
 {
     /**
-     * @description Details about the ACL.
-     *
-     * @example null
-     *
      * @var string
      */
     public $entry;
@@ -22,9 +18,10 @@ class aclEntries extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entry) {
@@ -34,11 +31,11 @@ class aclEntries extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return aclEntries
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

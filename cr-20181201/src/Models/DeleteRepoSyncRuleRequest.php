@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRepoSyncRuleRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example cri-hpdfkc6utbaq****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the synchronization rule.
-     *
-     * @example crsr-gk5p2ns1kzns****
-     *
      * @var string
      */
     public $syncRuleId;
@@ -32,14 +24,16 @@ class DeleteRepoSyncRuleRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->syncRuleId) {
             $res['SyncRuleId'] = $this->syncRuleId;
         }
@@ -47,17 +41,18 @@ class DeleteRepoSyncRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRepoSyncRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['SyncRuleId'])) {
             $model->syncRuleId = $map['SyncRuleId'];
         }

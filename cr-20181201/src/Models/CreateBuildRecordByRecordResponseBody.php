@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateBuildRecordByRecordResponseBody extends Model
 {
     /**
-     * @example crbr-ly77w5i3t31f****
-     *
      * @var string
      */
     public $buildRecordId;
 
     /**
-     * @example success
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $isSuccess;
 
     /**
-     * @example 4CE1F661-75DD-4EBD-A4AD-057B26834ABB
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'buildRecordId' => 'BuildRecordId',
-        'code'          => 'Code',
-        'isSuccess'     => 'IsSuccess',
-        'requestId'     => 'RequestId',
+        'code' => 'Code',
+        'isSuccess' => 'IsSuccess',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildRecordId) {
             $res['BuildRecordId'] = $this->buildRecordId;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -65,23 +61,26 @@ class CreateBuildRecordByRecordResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateBuildRecordByRecordResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BuildRecordId'])) {
             $model->buildRecordId = $map['BuildRecordId'];
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetRepoSyncTaskRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example cri-sgedpenzw80e****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the synchronization task.
-     *
-     * @example rst-zxjkiv5oil6f****
-     *
      * @var string
      */
     public $syncTaskId;
@@ -32,14 +24,16 @@ class GetRepoSyncTaskRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->syncTaskId) {
             $res['SyncTaskId'] = $this->syncTaskId;
         }
@@ -47,17 +41,18 @@ class GetRepoSyncTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRepoSyncTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['SyncTaskId'])) {
             $model->syncTaskId = $map['SyncTaskId'];
         }

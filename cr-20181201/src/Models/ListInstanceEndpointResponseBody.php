@@ -4,46 +4,32 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListInstanceEndpointResponseBody\endpoints;
-use AlibabaCloud\Tea\Model;
 
 class ListInstanceEndpointResponseBody extends Model
 {
     /**
-     * @description The return value.
-     *
-     * @example success
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The endpoints of the instance.
-     *
      * @var endpoints[]
      */
     public $endpoints;
 
     /**
-     * @description Indicates whether the request is successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isSuccess;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 1B21A877-66A2-4095-90EB-20A7781A4A67
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
+        'code' => 'Code',
         'endpoints' => 'Endpoints',
         'isSuccess' => 'IsSuccess',
         'requestId' => 'RequestId',
@@ -51,26 +37,33 @@ class ListInstanceEndpointResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->endpoints)) {
+            Model::validateArray($this->endpoints);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->endpoints) {
-            $res['Endpoints'] = [];
-            if (null !== $this->endpoints && \is_array($this->endpoints)) {
-                $n = 0;
-                foreach ($this->endpoints as $item) {
-                    $res['Endpoints'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->endpoints)) {
+                $res['Endpoints'] = [];
+                $n1 = 0;
+                foreach ($this->endpoints as $item1) {
+                    $res['Endpoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -78,29 +71,32 @@ class ListInstanceEndpointResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstanceEndpointResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Endpoints'])) {
             if (!empty($map['Endpoints'])) {
                 $model->endpoints = [];
-                $n                = 0;
-                foreach ($map['Endpoints'] as $item) {
-                    $model->endpoints[$n++] = null !== $item ? endpoints::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Endpoints'] as $item1) {
+                    $model->endpoints[$n1++] = endpoints::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

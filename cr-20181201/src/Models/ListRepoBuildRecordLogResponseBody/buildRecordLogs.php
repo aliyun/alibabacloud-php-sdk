@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models\ListRepoBuildRecordLogResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class buildRecordLogs extends Model
 {
     /**
-     * @description The stage of the building that is recorded in the log entry.
-     *
-     * @example GIT_CLONE
-     *
      * @var string
      */
     public $buildStage;
 
     /**
-     * @description The line number of the log entry.
-     *
-     * @example 2
-     *
      * @var int
      */
     public $lineNumber;
 
     /**
-     * @description The content of the log.
-     *
-     * @example fetch stage begin
-     *
      * @var string
      */
     public $message;
     protected $_name = [
         'buildStage' => 'BuildStage',
         'lineNumber' => 'LineNumber',
-        'message'    => 'Message',
+        'message' => 'Message',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildStage) {
             $res['BuildStage'] = $this->buildStage;
         }
+
         if (null !== $this->lineNumber) {
             $res['LineNumber'] = $this->lineNumber;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -60,20 +51,22 @@ class buildRecordLogs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return buildRecordLogs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BuildStage'])) {
             $model->buildStage = $map['BuildStage'];
         }
+
         if (isset($map['LineNumber'])) {
             $model->lineNumber = $map['LineNumber'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

@@ -4,76 +4,66 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListInstanceRegionResponseBody\regions;
-use AlibabaCloud\Tea\Model;
 
 class ListInstanceRegionResponseBody extends Model
 {
     /**
-     * @description The return value.
-     *
-     * @example success
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   `true`: The request is successful.
-     *   `false`: The request fails.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isSuccess;
 
     /**
-     * @description The list of regions.
-     *
      * @var regions[]
      */
     public $regions;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 11F182E1-0F84-4F5B-8D3B-61E991482727
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
+        'code' => 'Code',
         'isSuccess' => 'IsSuccess',
-        'regions'   => 'Regions',
+        'regions' => 'Regions',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->regions)) {
+            Model::validateArray($this->regions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
+
         if (null !== $this->regions) {
-            $res['Regions'] = [];
-            if (null !== $this->regions && \is_array($this->regions)) {
-                $n = 0;
-                foreach ($this->regions as $item) {
-                    $res['Regions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->regions)) {
+                $res['Regions'] = [];
+                $n1 = 0;
+                foreach ($this->regions as $item1) {
+                    $res['Regions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -81,29 +71,32 @@ class ListInstanceRegionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstanceRegionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
+
         if (isset($map['Regions'])) {
             if (!empty($map['Regions'])) {
                 $model->regions = [];
-                $n              = 0;
-                foreach ($map['Regions'] as $item) {
-                    $model->regions[$n++] = null !== $item ? regions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Regions'] as $item1) {
+                    $model->regions[$n1++] = regions::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

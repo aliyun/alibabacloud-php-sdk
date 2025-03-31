@@ -4,42 +4,32 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListRepoSyncTaskResponseBody\syncTasks;
-use AlibabaCloud\Tea\Model;
 
 class ListRepoSyncTaskResponseBody extends Model
 {
     /**
-     * @example success
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $isSuccess;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @example 30
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 7640819A-FB5B-4E25-A227-97717F62****
-     *
      * @var string
      */
     public $requestId;
@@ -50,52 +40,60 @@ class ListRepoSyncTaskResponseBody extends Model
     public $syncTasks;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $totalCount;
     protected $_name = [
-        'code'       => 'Code',
-        'isSuccess'  => 'IsSuccess',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'syncTasks'  => 'SyncTasks',
+        'code' => 'Code',
+        'isSuccess' => 'IsSuccess',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'syncTasks' => 'SyncTasks',
         'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->syncTasks)) {
+            Model::validateArray($this->syncTasks);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->syncTasks) {
-            $res['SyncTasks'] = [];
-            if (null !== $this->syncTasks && \is_array($this->syncTasks)) {
-                $n = 0;
-                foreach ($this->syncTasks as $item) {
-                    $res['SyncTasks'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->syncTasks)) {
+                $res['SyncTasks'] = [];
+                $n1 = 0;
+                foreach ($this->syncTasks as $item1) {
+                    $res['SyncTasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -103,38 +101,44 @@ class ListRepoSyncTaskResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRepoSyncTaskResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SyncTasks'])) {
             if (!empty($map['SyncTasks'])) {
                 $model->syncTasks = [];
-                $n                = 0;
-                foreach ($map['SyncTasks'] as $item) {
-                    $model->syncTasks[$n++] = null !== $item ? syncTasks::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SyncTasks'] as $item1) {
+                    $model->syncTasks[$n1++] = syncTasks::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

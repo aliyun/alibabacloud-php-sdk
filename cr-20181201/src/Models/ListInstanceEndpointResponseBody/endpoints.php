@@ -4,122 +4,116 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models\ListInstanceEndpointResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListInstanceEndpointResponseBody\endpoints\aclEntries;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListInstanceEndpointResponseBody\endpoints\domains;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListInstanceEndpointResponseBody\endpoints\linkedVpcs;
-use AlibabaCloud\Tea\Model;
 
 class endpoints extends Model
 {
     /**
-     * @description Indicates whether the access control list (ACL) feature is enabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $aclEnable;
 
     /**
-     * @description The ACL configured for the instance.
-     *
      * @var aclEntries[]
      */
     public $aclEntries;
 
     /**
-     * @description Domain names.
-     *
      * @var domains[]
      */
     public $domains;
 
     /**
-     * @description Indicates whether the ACL feature is enabled.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description The type of the endpoint.
-     *
-     * @example internet
-     *
      * @var string
      */
     public $endpointType;
 
     /**
-     * @description The virtual private clouds (VPCs) that are associated with the instance.
-     *
      * @var linkedVpcs[]
      */
     public $linkedVpcs;
 
     /**
-     * @description The status of the instance.
-     *
-     * @example RUNNING
-     *
      * @var string
      */
     public $status;
     protected $_name = [
-        'aclEnable'    => 'AclEnable',
-        'aclEntries'   => 'AclEntries',
-        'domains'      => 'Domains',
-        'enable'       => 'Enable',
+        'aclEnable' => 'AclEnable',
+        'aclEntries' => 'AclEntries',
+        'domains' => 'Domains',
+        'enable' => 'Enable',
         'endpointType' => 'EndpointType',
-        'linkedVpcs'   => 'LinkedVpcs',
-        'status'       => 'Status',
+        'linkedVpcs' => 'LinkedVpcs',
+        'status' => 'Status',
     ];
 
     public function validate()
     {
+        if (\is_array($this->aclEntries)) {
+            Model::validateArray($this->aclEntries);
+        }
+        if (\is_array($this->domains)) {
+            Model::validateArray($this->domains);
+        }
+        if (\is_array($this->linkedVpcs)) {
+            Model::validateArray($this->linkedVpcs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->aclEnable) {
             $res['AclEnable'] = $this->aclEnable;
         }
+
         if (null !== $this->aclEntries) {
-            $res['AclEntries'] = [];
-            if (null !== $this->aclEntries && \is_array($this->aclEntries)) {
-                $n = 0;
-                foreach ($this->aclEntries as $item) {
-                    $res['AclEntries'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->aclEntries)) {
+                $res['AclEntries'] = [];
+                $n1 = 0;
+                foreach ($this->aclEntries as $item1) {
+                    $res['AclEntries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->domains) {
-            $res['Domains'] = [];
-            if (null !== $this->domains && \is_array($this->domains)) {
-                $n = 0;
-                foreach ($this->domains as $item) {
-                    $res['Domains'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->domains)) {
+                $res['Domains'] = [];
+                $n1 = 0;
+                foreach ($this->domains as $item1) {
+                    $res['Domains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+
         if (null !== $this->endpointType) {
             $res['EndpointType'] = $this->endpointType;
         }
+
         if (null !== $this->linkedVpcs) {
-            $res['LinkedVpcs'] = [];
-            if (null !== $this->linkedVpcs && \is_array($this->linkedVpcs)) {
-                $n = 0;
-                foreach ($this->linkedVpcs as $item) {
-                    $res['LinkedVpcs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->linkedVpcs)) {
+                $res['LinkedVpcs'] = [];
+                $n1 = 0;
+                foreach ($this->linkedVpcs as $item1) {
+                    $res['LinkedVpcs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -127,50 +121,56 @@ class endpoints extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return endpoints
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AclEnable'])) {
             $model->aclEnable = $map['AclEnable'];
         }
+
         if (isset($map['AclEntries'])) {
             if (!empty($map['AclEntries'])) {
                 $model->aclEntries = [];
-                $n                 = 0;
-                foreach ($map['AclEntries'] as $item) {
-                    $model->aclEntries[$n++] = null !== $item ? aclEntries::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AclEntries'] as $item1) {
+                    $model->aclEntries[$n1++] = aclEntries::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Domains'])) {
             if (!empty($map['Domains'])) {
                 $model->domains = [];
-                $n              = 0;
-                foreach ($map['Domains'] as $item) {
-                    $model->domains[$n++] = null !== $item ? domains::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Domains'] as $item1) {
+                    $model->domains[$n1++] = domains::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+
         if (isset($map['EndpointType'])) {
             $model->endpointType = $map['EndpointType'];
         }
+
         if (isset($map['LinkedVpcs'])) {
             if (!empty($map['LinkedVpcs'])) {
                 $model->linkedVpcs = [];
-                $n                 = 0;
-                foreach ($map['LinkedVpcs'] as $item) {
-                    $model->linkedVpcs[$n++] = null !== $item ? linkedVpcs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['LinkedVpcs'] as $item1) {
+                    $model->linkedVpcs[$n1++] = linkedVpcs::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }

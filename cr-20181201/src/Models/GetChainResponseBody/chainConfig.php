@@ -4,22 +4,18 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models\GetChainResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetChainResponseBody\chainConfig\nodes;
 use AlibabaCloud\SDK\Cr\V20181201\Models\GetChainResponseBody\chainConfig\routers;
-use AlibabaCloud\Tea\Model;
 
 class chainConfig extends Model
 {
     /**
-     * @example cci-lz3ycgo69ukt****
-     *
      * @var string
      */
     public $chainConfigId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $isActive;
@@ -35,50 +31,59 @@ class chainConfig extends Model
     public $routers;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $version;
     protected $_name = [
         'chainConfigId' => 'ChainConfigId',
-        'isActive'      => 'IsActive',
-        'nodes'         => 'Nodes',
-        'routers'       => 'Routers',
-        'version'       => 'Version',
+        'isActive' => 'IsActive',
+        'nodes' => 'Nodes',
+        'routers' => 'Routers',
+        'version' => 'Version',
     ];
 
     public function validate()
     {
+        if (\is_array($this->nodes)) {
+            Model::validateArray($this->nodes);
+        }
+        if (\is_array($this->routers)) {
+            Model::validateArray($this->routers);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->chainConfigId) {
             $res['ChainConfigId'] = $this->chainConfigId;
         }
+
         if (null !== $this->isActive) {
             $res['IsActive'] = $this->isActive;
         }
+
         if (null !== $this->nodes) {
-            $res['Nodes'] = [];
-            if (null !== $this->nodes && \is_array($this->nodes)) {
-                $n = 0;
-                foreach ($this->nodes as $item) {
-                    $res['Nodes'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->nodes)) {
+                $res['Nodes'] = [];
+                $n1 = 0;
+                foreach ($this->nodes as $item1) {
+                    $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->routers) {
-            $res['Routers'] = [];
-            if (null !== $this->routers && \is_array($this->routers)) {
-                $n = 0;
-                foreach ($this->routers as $item) {
-                    $res['Routers'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->routers)) {
+                $res['Routers'] = [];
+                $n1 = 0;
+                foreach ($this->routers as $item1) {
+                    $res['Routers'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -86,38 +91,42 @@ class chainConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return chainConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChainConfigId'])) {
             $model->chainConfigId = $map['ChainConfigId'];
         }
+
         if (isset($map['IsActive'])) {
             $model->isActive = $map['IsActive'];
         }
+
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n            = 0;
-                foreach ($map['Nodes'] as $item) {
-                    $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Nodes'] as $item1) {
+                    $model->nodes[$n1++] = nodes::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Routers'])) {
             if (!empty($map['Routers'])) {
                 $model->routers = [];
-                $n              = 0;
-                foreach ($map['Routers'] as $item) {
-                    $model->routers[$n++] = null !== $item ? routers::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Routers'] as $item1) {
+                    $model->routers[$n1++] = routers::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

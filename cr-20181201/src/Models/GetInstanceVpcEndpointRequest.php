@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetInstanceVpcEndpointRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example cri-kmsiwlxxdcva****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the module that you want to access. Valid values:
-     *
-     *   `Registry`: the image repository.
-     *   `Chart`: a Helm chart.
-     *
-     * @example Chart
-     *
      * @var string
      */
     public $moduleName;
@@ -35,14 +24,16 @@ class GetInstanceVpcEndpointRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->moduleName) {
             $res['ModuleName'] = $this->moduleName;
         }
@@ -50,17 +41,18 @@ class GetInstanceVpcEndpointRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetInstanceVpcEndpointRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['ModuleName'])) {
             $model->moduleName = $map['ModuleName'];
         }

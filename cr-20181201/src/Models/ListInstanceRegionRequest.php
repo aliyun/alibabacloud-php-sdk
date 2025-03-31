@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListInstanceRegionRequest extends Model
 {
     /**
-     * @description The language used for response parameters. Set this parameter to `zh-CN`.
-     *
-     * @example zh-CN
-     *
      * @var string
      */
     public $lang;
@@ -22,9 +18,10 @@ class ListInstanceRegionRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->lang) {
@@ -34,11 +31,11 @@ class ListInstanceRegionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListInstanceRegionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

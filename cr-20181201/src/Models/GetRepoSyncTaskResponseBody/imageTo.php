@@ -4,81 +4,66 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoSyncTaskResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class imageTo extends Model
 {
     /**
-     * @description The tag of the image.
-     *
-     * @example master
-     *
      * @var string
      */
     public $imageTag;
 
     /**
-     * @description The ID of the instance.
-     *
-     * @example cri-leqzomz5vijc****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The region ID.
-     *
-     * @example eu-west-1
-     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description The name of the image repository.
-     *
-     * @example test
-     *
      * @var string
      */
     public $repoName;
 
     /**
-     * @description The name of the namespace.
-     *
-     * @example test
-     *
      * @var string
      */
     public $repoNamespaceName;
     protected $_name = [
-        'imageTag'          => 'ImageTag',
-        'instanceId'        => 'InstanceId',
-        'regionId'          => 'RegionId',
-        'repoName'          => 'RepoName',
+        'imageTag' => 'ImageTag',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
+        'repoName' => 'RepoName',
         'repoNamespaceName' => 'RepoNamespaceName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageTag) {
             $res['ImageTag'] = $this->imageTag;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
         }
+
         if (null !== $this->repoNamespaceName) {
             $res['RepoNamespaceName'] = $this->repoNamespaceName;
         }
@@ -86,26 +71,30 @@ class imageTo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return imageTo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageTag'])) {
             $model->imageTag = $map['ImageTag'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
         }
+
         if (isset($map['RepoNamespaceName'])) {
             $model->repoNamespaceName = $map['RepoNamespaceName'];
         }

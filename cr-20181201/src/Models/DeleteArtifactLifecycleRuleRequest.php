@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteArtifactLifecycleRuleRequest extends Model
 {
     /**
-     * @example cri-brlg4cbj2ylkrqqq
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example cralr-3v8pao9k7chb8q62
-     *
      * @var string
      */
     public $ruleId;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'ruleId'     => 'RuleId',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->ruleId) {
             $res['RuleId'] = $this->ruleId;
         }
@@ -43,17 +41,18 @@ class DeleteArtifactLifecycleRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteArtifactLifecycleRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RuleId'])) {
             $model->ruleId = $map['RuleId'];
         }

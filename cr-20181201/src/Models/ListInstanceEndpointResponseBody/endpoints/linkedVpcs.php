@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models\ListInstanceEndpointResponseBody\endpoints;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class linkedVpcs extends Model
 {
     /**
-     * @description VPC ID
-     *
-     * @example null
-     *
      * @var string
      */
     public $vpcId;
@@ -22,9 +18,10 @@ class linkedVpcs extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vpcId) {
@@ -34,11 +31,11 @@ class linkedVpcs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return linkedVpcs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

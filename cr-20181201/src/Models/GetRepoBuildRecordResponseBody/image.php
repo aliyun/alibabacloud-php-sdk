@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models\GetRepoBuildRecordResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class image extends Model
 {
     /**
-     * @description The tag of the image.
-     *
-     * @example master
-     *
      * @var string
      */
     public $imageTag;
 
     /**
-     * @description The name of the image repository.
-     *
-     * @example test
-     *
      * @var string
      */
     public $repoName;
 
     /**
-     * @description The name of the namespace to which the image repository belongs.
-     *
-     * @example test
-     *
      * @var string
      */
     public $repoNamespaceName;
     protected $_name = [
-        'imageTag'          => 'ImageTag',
-        'repoName'          => 'RepoName',
+        'imageTag' => 'ImageTag',
+        'repoName' => 'RepoName',
         'repoNamespaceName' => 'RepoNamespaceName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->imageTag) {
             $res['ImageTag'] = $this->imageTag;
         }
+
         if (null !== $this->repoName) {
             $res['RepoName'] = $this->repoName;
         }
+
         if (null !== $this->repoNamespaceName) {
             $res['RepoNamespaceName'] = $this->repoNamespaceName;
         }
@@ -60,20 +51,22 @@ class image extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return image
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ImageTag'])) {
             $model->imageTag = $map['ImageTag'];
         }
+
         if (isset($map['RepoName'])) {
             $model->repoName = $map['RepoName'];
         }
+
         if (isset($map['RepoNamespaceName'])) {
             $model->repoNamespaceName = $map['RepoNamespaceName'];
         }

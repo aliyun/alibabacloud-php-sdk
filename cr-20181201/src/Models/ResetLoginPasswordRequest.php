@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ResetLoginPasswordRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * @example cri-kmsiwlxxdcva****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The new password that you specify to log on to the instance. The password must be 8 to 32 bits in length, and must contain at least two of the following character types: letters, special characters, and digits.
-     *
-     * @example test
-     *
      * @var string
      */
     public $password;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'password'   => 'Password',
+        'password' => 'Password',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
@@ -47,17 +41,18 @@ class ResetLoginPasswordRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ResetLoginPasswordRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }

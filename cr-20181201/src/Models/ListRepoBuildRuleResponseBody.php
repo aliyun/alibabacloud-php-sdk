@@ -4,115 +4,96 @@
 
 namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ListRepoBuildRuleResponseBody\buildRules;
-use AlibabaCloud\Tea\Model;
 
 class ListRepoBuildRuleResponseBody extends Model
 {
     /**
-     * @description The list of image building rules.
-     *
      * @var buildRules[]
      */
     public $buildRules;
 
     /**
-     * @description The return value.
-     *
-     * @example success
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   `true`: The request is successful.
-     *   `false`: The request fails.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isSuccess;
 
     /**
-     * @description The page number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @description The number of entries returned per page.
-     *
-     * @example 30
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 42D782C8-E8F6-4A32-BEA0-6A6AC854C22A
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of returned entries.
-     *
-     * @example 1
-     *
      * @var string
      */
     public $totalCount;
     protected $_name = [
         'buildRules' => 'BuildRules',
-        'code'       => 'Code',
-        'isSuccess'  => 'IsSuccess',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'code' => 'Code',
+        'isSuccess' => 'IsSuccess',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->buildRules)) {
+            Model::validateArray($this->buildRules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->buildRules) {
-            $res['BuildRules'] = [];
-            if (null !== $this->buildRules && \is_array($this->buildRules)) {
-                $n = 0;
-                foreach ($this->buildRules as $item) {
-                    $res['BuildRules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->buildRules)) {
+                $res['BuildRules'] = [];
+                $n1 = 0;
+                foreach ($this->buildRules as $item1) {
+                    $res['BuildRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->isSuccess) {
             $res['IsSuccess'] = $this->isSuccess;
         }
+
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -120,38 +101,44 @@ class ListRepoBuildRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListRepoBuildRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BuildRules'])) {
             if (!empty($map['BuildRules'])) {
                 $model->buildRules = [];
-                $n                 = 0;
-                foreach ($map['BuildRules'] as $item) {
-                    $model->buildRules[$n++] = null !== $item ? buildRules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['BuildRules'] as $item1) {
+                    $model->buildRules[$n1++] = buildRules::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['IsSuccess'])) {
             $model->isSuccess = $map['IsSuccess'];
         }
+
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
