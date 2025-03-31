@@ -4,22 +4,16 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopAndroidInstanceRequest extends Model
 {
     /**
-     * @description The IDs of the cloud phone instances.
-     *
      * @var string[]
      */
     public $androidInstanceIds;
 
     /**
-     * @description Specifies whether to enforce a stop operation. If a cloud phone instance fails to stop due to system or network issues, a forced stop can be triggered, though it may result in data loss.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $forceStop;
@@ -28,14 +22,27 @@ class StopAndroidInstanceRequest extends Model
         'forceStop' => 'ForceStop',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->androidInstanceIds)) {
+            Model::validateArray($this->androidInstanceIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->androidInstanceIds) {
-            $res['AndroidInstanceIds'] = $this->androidInstanceIds;
+            if (\is_array($this->androidInstanceIds)) {
+                $res['AndroidInstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->androidInstanceIds as $item1) {
+                    $res['AndroidInstanceIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->forceStop) {
             $res['ForceStop'] = $this->forceStop;
         }
@@ -43,19 +50,24 @@ class StopAndroidInstanceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopAndroidInstanceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AndroidInstanceIds'])) {
             if (!empty($map['AndroidInstanceIds'])) {
-                $model->androidInstanceIds = $map['AndroidInstanceIds'];
+                $model->androidInstanceIds = [];
+                $n1 = 0;
+                foreach ($map['AndroidInstanceIds'] as $item1) {
+                    $model->androidInstanceIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ForceStop'])) {
             $model->forceStop = $map['ForceStop'];
         }

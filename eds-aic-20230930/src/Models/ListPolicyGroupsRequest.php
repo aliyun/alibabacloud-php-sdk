@@ -4,40 +4,26 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListPolicyGroupsRequest extends Model
 {
     /**
-     * @description The maximum number of entries per page. Value range: 1 to 100. Default value: 20.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the request to retrieve a new page of results. If the parameter is left empty, the data is queried from the first entry.
-     *
-     * @example AAAAAV3MpHK1AP0pfERHZN5pu6kU+SQXzm0H9mu/FiSc****
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description The IDs of the policies.
-     *
      * @var string[]
      */
     public $policyGroupIds;
 
     /**
-     * @description The name of the policy.
-     *
-     * @example defaultPolicyGroup
-     *
      * @var string
      */
     public $policyGroupName;
@@ -48,20 +34,35 @@ class ListPolicyGroupsRequest extends Model
         'policyGroupName' => 'PolicyGroupName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->policyGroupIds)) {
+            Model::validateArray($this->policyGroupIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
+
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
+
         if (null !== $this->policyGroupIds) {
-            $res['PolicyGroupIds'] = $this->policyGroupIds;
+            if (\is_array($this->policyGroupIds)) {
+                $res['PolicyGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->policyGroupIds as $item1) {
+                    $res['PolicyGroupIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->policyGroupName) {
             $res['PolicyGroupName'] = $this->policyGroupName;
         }
@@ -69,25 +70,32 @@ class ListPolicyGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListPolicyGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }
+
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
+
         if (isset($map['PolicyGroupIds'])) {
             if (!empty($map['PolicyGroupIds'])) {
-                $model->policyGroupIds = $map['PolicyGroupIds'];
+                $model->policyGroupIds = [];
+                $n1 = 0;
+                foreach ($map['PolicyGroupIds'] as $item1) {
+                    $model->policyGroupIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['PolicyGroupName'])) {
             $model->policyGroupName = $map['PolicyGroupName'];
         }

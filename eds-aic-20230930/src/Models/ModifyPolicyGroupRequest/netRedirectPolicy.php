@@ -4,83 +4,41 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\ModifyPolicyGroupRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class netRedirectPolicy extends Model
 {
     /**
-     * @description Specifies whether to manually configure a custom proxy.
-     *
-     * Valid values:
-     *
-     *   off
-     *   on
-     *
-     * @example off
-     *
      * @var string
      */
     public $customProxy;
 
     /**
-     * @description The IPv4 address of the custom proxy.
-     *
-     * @example 47.100.XX.XX
-     *
      * @var string
      */
     public $hostAddr;
 
     /**
-     * @description Specifies whether to enable network redirection.
-     *
-     * Valid values:
-     *
-     *   off
-     *   on
-     *
-     * @example off
-     *
      * @var string
      */
     public $netRedirect;
 
     /**
-     * @description The port of the custom proxy. Valid values: 1 to 65535.
-     *
-     * @example 1145
-     *
      * @var string
      */
     public $port;
 
     /**
-     * @description The password of the proxy. The password must be 1 to 256 in length and cannot contain Chinese character or space characters.
-     *
-     * @example password
-     *
      * @var string
      */
     public $proxyPassword;
 
     /**
-     * @description The type of the proxy protocol.
-     *
-     * Valid values:
-     *
-     *   socks5.
-     *
-     * @example socks5
-     *
      * @var string
      */
     public $proxyType;
 
     /**
-     * @description The username of the proxy. The name must be 1 to 256 in length and cannot contain Chinese character or space characters.
-     *
-     * @example username
-     *
      * @var string
      */
     public $proxyUserName;
@@ -94,29 +52,38 @@ class netRedirectPolicy extends Model
         'proxyUserName' => 'ProxyUserName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->customProxy) {
             $res['CustomProxy'] = $this->customProxy;
         }
+
         if (null !== $this->hostAddr) {
             $res['HostAddr'] = $this->hostAddr;
         }
+
         if (null !== $this->netRedirect) {
             $res['NetRedirect'] = $this->netRedirect;
         }
+
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
+
         if (null !== $this->proxyPassword) {
             $res['ProxyPassword'] = $this->proxyPassword;
         }
+
         if (null !== $this->proxyType) {
             $res['ProxyType'] = $this->proxyType;
         }
+
         if (null !== $this->proxyUserName) {
             $res['ProxyUserName'] = $this->proxyUserName;
         }
@@ -124,32 +91,38 @@ class netRedirectPolicy extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return netRedirectPolicy
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CustomProxy'])) {
             $model->customProxy = $map['CustomProxy'];
         }
+
         if (isset($map['HostAddr'])) {
             $model->hostAddr = $map['HostAddr'];
         }
+
         if (isset($map['NetRedirect'])) {
             $model->netRedirect = $map['NetRedirect'];
         }
+
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
+
         if (isset($map['ProxyPassword'])) {
             $model->proxyPassword = $map['ProxyPassword'];
         }
+
         if (isset($map['ProxyType'])) {
             $model->proxyType = $map['ProxyType'];
         }
+
         if (isset($map['ProxyUserName'])) {
             $model->proxyUserName = $map['ProxyUserName'];
         }

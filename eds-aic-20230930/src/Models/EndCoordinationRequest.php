@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class EndCoordinationRequest extends Model
 {
     /**
-     * @example lina
-     *
      * @var string
      */
     public $coordinatorUserId;
 
     /**
-     * @example acp-2zecay9ponatdc4m****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example xiaoming
-     *
      * @var string
      */
     public $ownerUserId;
@@ -34,17 +28,22 @@ class EndCoordinationRequest extends Model
         'ownerUserId' => 'OwnerUserId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->coordinatorUserId) {
             $res['CoordinatorUserId'] = $this->coordinatorUserId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->ownerUserId) {
             $res['OwnerUserId'] = $this->ownerUserId;
         }
@@ -52,20 +51,22 @@ class EndCoordinationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return EndCoordinationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CoordinatorUserId'])) {
             $model->coordinatorUserId = $map['CoordinatorUserId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['OwnerUserId'])) {
             $model->ownerUserId = $map['OwnerUserId'];
         }

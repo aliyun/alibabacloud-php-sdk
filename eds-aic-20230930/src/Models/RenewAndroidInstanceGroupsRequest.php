@@ -4,50 +4,26 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RenewAndroidInstanceGroupsRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the auto-payment feature.
-     *
-     * Valid values:
-     *
-     *   true: enables the auto-payment feature. Ensure your account has sufficient balance to use this feature.
-     *   false: disables the auto-payment feature. You need to manually complete the payment process.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoPay;
 
     /**
-     * @description The IDs of the instance groups.
-     *
      * @var string[]
      */
     public $instanceGroupIds;
 
     /**
-     * @description The duration of the renewal, measured in units defined by PeriodUnit.
-     *
-     * @example 6
-     *
      * @var int
      */
     public $period;
 
     /**
-     * @description The unit of the renewal duration. Default value: Month.
-     *
-     * Valid values:
-     *
-     *   Month
-     *   Year
-     *
-     * @example Month
-     *
      * @var string
      */
     public $periodUnit;
@@ -58,20 +34,35 @@ class RenewAndroidInstanceGroupsRequest extends Model
         'periodUnit' => 'PeriodUnit',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->instanceGroupIds)) {
+            Model::validateArray($this->instanceGroupIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
+
         if (null !== $this->instanceGroupIds) {
-            $res['InstanceGroupIds'] = $this->instanceGroupIds;
+            if (\is_array($this->instanceGroupIds)) {
+                $res['InstanceGroupIds'] = [];
+                $n1 = 0;
+                foreach ($this->instanceGroupIds as $item1) {
+                    $res['InstanceGroupIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->period) {
             $res['Period'] = $this->period;
         }
+
         if (null !== $this->periodUnit) {
             $res['PeriodUnit'] = $this->periodUnit;
         }
@@ -79,25 +70,32 @@ class RenewAndroidInstanceGroupsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RenewAndroidInstanceGroupsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
+
         if (isset($map['InstanceGroupIds'])) {
             if (!empty($map['InstanceGroupIds'])) {
-                $model->instanceGroupIds = $map['InstanceGroupIds'];
+                $model->instanceGroupIds = [];
+                $n1 = 0;
+                foreach ($map['InstanceGroupIds'] as $item1) {
+                    $model->instanceGroupIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
         }
+
         if (isset($map['PeriodUnit'])) {
             $model->periodUnit = $map['PeriodUnit'];
         }

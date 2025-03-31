@@ -4,68 +4,36 @@
 
 namespace AlibabaCloud\SDK\Edsaic\V20230930\Models\DescribeInvocationsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The end time of the command execution.
-     *
-     * @example 2022-08-11 17:45:03
-     *
      * @var string
      */
     public $finishTime;
 
     /**
-     * @description The ID of the cloud phone instance on which the command is executed.
-     *
-     * @example acp-uto81vfd8t8z****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the execution.
-     *
-     * @example t-15775dc8****
-     *
      * @var string
      */
     public $invocationId;
 
     /**
-     * @description The execution state of the command.
-     *
-     * Valid values:
-     *
-     *   SUCCESS: The command is successfully executed.
-     *   FAILED: The command failed to be executed.
-     *   RUNNING: The command is being executed.
-     *   PENDING: The command is pending execution.
-     *   TIMEOUT: The command execution timed out.
-     *
-     * @example RUNNING
-     *
      * @var string
      */
     public $invocationStatus;
 
     /**
-     * @description The output of the command execution.
-     *
-     * @example success
-     *
      * @var string
      */
     public $output;
 
     /**
-     * @description The start time of the command execution.
-     *
-     * @example 2022-08-11 17:45:03
-     *
      * @var string
      */
     public $startTime;
@@ -78,26 +46,34 @@ class data extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->finishTime) {
             $res['FinishTime'] = $this->finishTime;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->invocationId) {
             $res['InvocationId'] = $this->invocationId;
         }
+
         if (null !== $this->invocationStatus) {
             $res['InvocationStatus'] = $this->invocationStatus;
         }
+
         if (null !== $this->output) {
             $res['Output'] = $this->output;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -105,29 +81,34 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FinishTime'])) {
             $model->finishTime = $map['FinishTime'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InvocationId'])) {
             $model->invocationId = $map['InvocationId'];
         }
+
         if (isset($map['InvocationStatus'])) {
             $model->invocationStatus = $map['InvocationStatus'];
         }
+
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
