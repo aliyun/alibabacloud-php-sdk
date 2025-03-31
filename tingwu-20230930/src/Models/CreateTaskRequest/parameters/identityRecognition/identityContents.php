@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\ListTranscriptionPhrasesResponseBody\data;
+namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\identityRecognition;
 
 use AlibabaCloud\Dara\Model;
 
-class phrases extends Model
+class identityContents extends Model
 {
     /**
      * @var string
@@ -17,15 +17,9 @@ class phrases extends Model
      * @var string
      */
     public $name;
-
-    /**
-     * @var string
-     */
-    public $phraseId;
     protected $_name = [
         'description' => 'Description',
         'name' => 'Name',
-        'phraseId' => 'PhraseId',
     ];
 
     public function validate()
@@ -42,10 +36,6 @@ class phrases extends Model
 
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-
-        if (null !== $this->phraseId) {
-            $res['PhraseId'] = $this->phraseId;
         }
 
         return $res;
@@ -65,10 +55,6 @@ class phrases extends Model
 
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-
-        if (isset($map['PhraseId'])) {
-            $model->phraseId = $map['PhraseId'];
         }
 
         return $model;

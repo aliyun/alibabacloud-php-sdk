@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\customPrompt\contents;
-use AlibabaCloud\Tea\Model;
 
 class customPrompt extends Model
 {
@@ -19,17 +19,21 @@ class customPrompt extends Model
 
     public function validate()
     {
+        if (\is_array($this->contents)) {
+            Model::validateArray($this->contents);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->contents) {
-            $res['Contents'] = [];
-            if (null !== $this->contents && \is_array($this->contents)) {
-                $n = 0;
-                foreach ($this->contents as $item) {
-                    $res['Contents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->contents)) {
+                $res['Contents'] = [];
+                $n1 = 0;
+                foreach ($this->contents as $item1) {
+                    $res['Contents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class customPrompt extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customPrompt
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Contents'])) {
             if (!empty($map['Contents'])) {
                 $model->contents = [];
-                $n               = 0;
-                foreach ($map['Contents'] as $item) {
-                    $model->contents[$n++] = null !== $item ? contents::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Contents'] as $item1) {
+                    $model->contents[$n1++] = contents::fromMap($item1);
                 }
             }
         }

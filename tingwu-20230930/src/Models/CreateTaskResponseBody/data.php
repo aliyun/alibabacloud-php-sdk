@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -14,15 +14,11 @@ class data extends Model
     public $meetingJoinUrl;
 
     /**
-     * @example c5394c6ee0fb474899d42215a3925c7e
-     *
      * @var string
      */
     public $taskId;
 
     /**
-     * @example task_tingwu_123
-     *
      * @var string
      */
     public $taskKey;
@@ -33,27 +29,31 @@ class data extends Model
     public $taskStatus;
     protected $_name = [
         'meetingJoinUrl' => 'MeetingJoinUrl',
-        'taskId'         => 'TaskId',
-        'taskKey'        => 'TaskKey',
-        'taskStatus'     => 'TaskStatus',
+        'taskId' => 'TaskId',
+        'taskKey' => 'TaskKey',
+        'taskStatus' => 'TaskStatus',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->meetingJoinUrl) {
             $res['MeetingJoinUrl'] = $this->meetingJoinUrl;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
+
         if (null !== $this->taskKey) {
             $res['TaskKey'] = $this->taskKey;
         }
+
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
         }
@@ -61,23 +61,26 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MeetingJoinUrl'])) {
             $model->meetingJoinUrl = $map['MeetingJoinUrl'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }
+
         if (isset($map['TaskKey'])) {
             $model->taskKey = $map['TaskKey'];
         }
+
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
         }

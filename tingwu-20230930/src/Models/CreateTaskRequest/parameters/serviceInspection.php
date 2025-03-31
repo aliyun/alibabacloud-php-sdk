@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\serviceInspection\inspectionContents;
-use AlibabaCloud\Tea\Model;
 
 class serviceInspection extends Model
 {
@@ -29,66 +29,89 @@ class serviceInspection extends Model
      */
     public $speakerMap;
     protected $_name = [
-        'inspectionContents'     => 'InspectionContents',
+        'inspectionContents' => 'InspectionContents',
         'inspectionIntroduction' => 'InspectionIntroduction',
-        'sceneIntroduction'      => 'SceneIntroduction',
-        'speakerMap'             => 'SpeakerMap',
+        'sceneIntroduction' => 'SceneIntroduction',
+        'speakerMap' => 'SpeakerMap',
     ];
 
     public function validate()
     {
+        if (\is_array($this->inspectionContents)) {
+            Model::validateArray($this->inspectionContents);
+        }
+        if (\is_array($this->speakerMap)) {
+            Model::validateArray($this->speakerMap);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->inspectionContents) {
-            $res['InspectionContents'] = [];
-            if (null !== $this->inspectionContents && \is_array($this->inspectionContents)) {
-                $n = 0;
-                foreach ($this->inspectionContents as $item) {
-                    $res['InspectionContents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->inspectionContents)) {
+                $res['InspectionContents'] = [];
+                $n1 = 0;
+                foreach ($this->inspectionContents as $item1) {
+                    $res['InspectionContents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->inspectionIntroduction) {
             $res['InspectionIntroduction'] = $this->inspectionIntroduction;
         }
+
         if (null !== $this->sceneIntroduction) {
             $res['SceneIntroduction'] = $this->sceneIntroduction;
         }
+
         if (null !== $this->speakerMap) {
-            $res['SpeakerMap'] = $this->speakerMap;
+            if (\is_array($this->speakerMap)) {
+                $res['SpeakerMap'] = [];
+                foreach ($this->speakerMap as $key1 => $value1) {
+                    $res['SpeakerMap'][$key1] = $value1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return serviceInspection
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InspectionContents'])) {
             if (!empty($map['InspectionContents'])) {
                 $model->inspectionContents = [];
-                $n                         = 0;
-                foreach ($map['InspectionContents'] as $item) {
-                    $model->inspectionContents[$n++] = null !== $item ? inspectionContents::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['InspectionContents'] as $item1) {
+                    $model->inspectionContents[$n1++] = inspectionContents::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['InspectionIntroduction'])) {
             $model->inspectionIntroduction = $map['InspectionIntroduction'];
         }
+
         if (isset($map['SceneIntroduction'])) {
             $model->sceneIntroduction = $map['SceneIntroduction'];
         }
+
         if (isset($map['SpeakerMap'])) {
-            $model->speakerMap = $map['SpeakerMap'];
+            if (!empty($map['SpeakerMap'])) {
+                $model->speakerMap = [];
+                foreach ($map['SpeakerMap'] as $key1 => $value1) {
+                    $model->speakerMap[$key1] = $value1;
+                }
+            }
         }
 
         return $model;

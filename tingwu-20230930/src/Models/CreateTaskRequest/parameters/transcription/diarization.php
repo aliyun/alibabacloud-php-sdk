@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Tingwu\V20230930\Models\CreateTaskRequest\parameters\transcription;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class diarization extends Model
 {
     /**
-     * @example 2
-     *
      * @var int
      */
     public $speakerCount;
@@ -20,9 +18,10 @@ class diarization extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->speakerCount) {
@@ -32,11 +31,11 @@ class diarization extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return diarization
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
