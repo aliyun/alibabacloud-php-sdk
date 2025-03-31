@@ -12,33 +12,38 @@ class messageOfClientList extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $actionCode;
+
     /**
      * @var string
      */
     public $actionInfo;
+
     /**
      * @var string
      */
     public $clientId;
+
     /**
      * @var string
      */
     public $msgId;
+
     /**
      * @var string
      */
     public $time;
     protected $_name = [
-        'action'     => 'Action',
+        'action' => 'Action',
         'actionCode' => 'ActionCode',
         'actionInfo' => 'ActionInfo',
-        'clientId'   => 'ClientId',
-        'msgId'      => 'MsgId',
-        'time'       => 'Time',
+        'clientId' => 'ClientId',
+        'msgId' => 'MsgId',
+        'time' => 'Time',
     ];
 
     public function validate()

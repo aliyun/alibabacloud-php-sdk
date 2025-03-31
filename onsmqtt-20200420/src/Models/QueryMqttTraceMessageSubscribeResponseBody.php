@@ -13,28 +13,32 @@ class QueryMqttTraceMessageSubscribeResponseBody extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var messageTraceLists[]
      */
     public $messageTraceLists;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'currentPage'       => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'messageTraceLists' => 'MessageTraceLists',
-        'pageSize'          => 'PageSize',
-        'requestId'         => 'RequestId',
-        'total'             => 'Total',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -55,7 +59,7 @@ class QueryMqttTraceMessageSubscribeResponseBody extends Model
         if (null !== $this->messageTraceLists) {
             if (\is_array($this->messageTraceLists)) {
                 $res['MessageTraceLists'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->messageTraceLists as $item1) {
                     $res['MessageTraceLists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -92,7 +96,7 @@ class QueryMqttTraceMessageSubscribeResponseBody extends Model
         if (isset($map['MessageTraceLists'])) {
             if (!empty($map['MessageTraceLists'])) {
                 $model->messageTraceLists = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['MessageTraceLists'] as $item1) {
                     $model->messageTraceLists[$n1++] = messageTraceLists::fromMap($item1);
                 }

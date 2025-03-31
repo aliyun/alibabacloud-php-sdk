@@ -12,33 +12,38 @@ class QueryCustomAuthPermissionRequest extends Model
      * @var string
      */
     public $identity;
+
     /**
      * @var string
      */
     public $identityType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var string
      */
     public $topic;
     protected $_name = [
-        'identity'     => 'Identity',
+        'identity' => 'Identity',
         'identityType' => 'IdentityType',
-        'instanceId'   => 'InstanceId',
-        'nextToken'    => 'NextToken',
-        'size'         => 'Size',
-        'topic'        => 'Topic',
+        'instanceId' => 'InstanceId',
+        'nextToken' => 'NextToken',
+        'size' => 'Size',
+        'topic' => 'Topic',
     ];
 
     public function validate()

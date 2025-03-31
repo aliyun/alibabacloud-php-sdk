@@ -12,13 +12,14 @@ class BatchQuerySessionByClientIdsRequest extends Model
      * @var string[]
      */
     public $clientIdList;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'clientIdList' => 'ClientIdList',
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class BatchQuerySessionByClientIdsRequest extends Model
         if (null !== $this->clientIdList) {
             if (\is_array($this->clientIdList)) {
                 $res['ClientIdList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->clientIdList as $item1) {
                     $res['ClientIdList'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class BatchQuerySessionByClientIdsRequest extends Model
         if (isset($map['ClientIdList'])) {
             if (!empty($map['ClientIdList'])) {
                 $model->clientIdList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ClientIdList'] as $item1) {
                     $model->clientIdList[$n1++] = $item1;
                 }

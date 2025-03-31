@@ -12,17 +12,19 @@ class results extends Model
      * @var string
      */
     public $clientId;
+
     /**
      * @var string
      */
     public $effect;
+
     /**
      * @var string
      */
     public $permitAction;
     protected $_name = [
-        'clientId'     => 'ClientId',
-        'effect'       => 'Effect',
+        'clientId' => 'ClientId',
+        'effect' => 'Effect',
         'permitAction' => 'PermitAction',
     ];
 

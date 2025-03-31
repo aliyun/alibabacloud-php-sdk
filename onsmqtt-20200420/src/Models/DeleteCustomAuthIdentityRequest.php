@@ -12,23 +12,26 @@ class DeleteCustomAuthIdentityRequest extends Model
      * @var string
      */
     public $clientId;
+
     /**
      * @var string
      */
     public $identityType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'clientId'     => 'ClientId',
+        'clientId' => 'ClientId',
         'identityType' => 'IdentityType',
-        'instanceId'   => 'InstanceId',
-        'username'     => 'Username',
+        'instanceId' => 'InstanceId',
+        'username' => 'Username',
     ];
 
     public function validate()

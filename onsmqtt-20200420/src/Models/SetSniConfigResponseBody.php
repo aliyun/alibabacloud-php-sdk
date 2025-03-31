@@ -13,18 +13,20 @@ class SetSniConfigResponseBody extends Model
      * @var accessDeniedDetail
      */
     public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $success;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'requestId'          => 'RequestId',
-        'success'            => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

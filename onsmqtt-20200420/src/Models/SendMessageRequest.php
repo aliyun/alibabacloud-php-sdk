@@ -12,18 +12,20 @@ class SendMessageRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mqttTopic;
+
     /**
      * @var string
      */
     public $payload;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'mqttTopic'  => 'MqttTopic',
-        'payload'    => 'Payload',
+        'mqttTopic' => 'MqttTopic',
+        'payload' => 'Payload',
     ];
 
     public function validate()

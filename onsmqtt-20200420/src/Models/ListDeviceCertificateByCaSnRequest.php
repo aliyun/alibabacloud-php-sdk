@@ -12,23 +12,26 @@ class ListDeviceCertificateByCaSnRequest extends Model
      * @var string
      */
     public $caSn;
+
     /**
      * @var string
      */
     public $mqttInstanceId;
+
     /**
      * @var string
      */
     public $pageNo;
+
     /**
      * @var string
      */
     public $pageSize;
     protected $_name = [
-        'caSn'           => 'CaSn',
+        'caSn' => 'CaSn',
         'mqttInstanceId' => 'MqttInstanceId',
-        'pageNo'         => 'PageNo',
-        'pageSize'       => 'PageSize',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class ActiveDeviceCertificateResponseBody extends Model
      * @var string
      */
     public $deviceSn;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'deviceSn'  => 'DeviceSn',
+        'deviceSn' => 'DeviceSn',
         'requestId' => 'RequestId',
     ];
 

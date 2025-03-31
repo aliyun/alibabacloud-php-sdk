@@ -12,12 +12,13 @@ class DeleteCustomAuthConnectBlackRequest extends Model
      * @var string
      */
     public $clientId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'clientId'   => 'ClientId',
+        'clientId' => 'ClientId',
         'instanceId' => 'InstanceId',
     ];
 

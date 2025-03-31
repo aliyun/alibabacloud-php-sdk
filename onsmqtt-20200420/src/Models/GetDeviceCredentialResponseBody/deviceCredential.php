@@ -12,33 +12,38 @@ class deviceCredential extends Model
      * @var string
      */
     public $clientId;
+
     /**
      * @var int
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $deviceAccessKeyId;
+
     /**
      * @var string
      */
     public $deviceAccessKeySecret;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var int
      */
     public $updateTime;
     protected $_name = [
-        'clientId'              => 'ClientId',
-        'createTime'            => 'CreateTime',
-        'deviceAccessKeyId'     => 'DeviceAccessKeyId',
+        'clientId' => 'ClientId',
+        'createTime' => 'CreateTime',
+        'deviceAccessKeyId' => 'DeviceAccessKeyId',
         'deviceAccessKeySecret' => 'DeviceAccessKeySecret',
-        'instanceId'            => 'InstanceId',
-        'updateTime'            => 'UpdateTime',
+        'instanceId' => 'InstanceId',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

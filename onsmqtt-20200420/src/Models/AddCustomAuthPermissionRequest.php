@@ -12,33 +12,38 @@ class AddCustomAuthPermissionRequest extends Model
      * @var string
      */
     public $effect;
+
     /**
      * @var string
      */
     public $identity;
+
     /**
      * @var string
      */
     public $identityType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $permitAction;
+
     /**
      * @var string
      */
     public $topic;
     protected $_name = [
-        'effect'       => 'Effect',
-        'identity'     => 'Identity',
+        'effect' => 'Effect',
+        'identity' => 'Identity',
         'identityType' => 'IdentityType',
-        'instanceId'   => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'permitAction' => 'PermitAction',
-        'topic'        => 'Topic',
+        'topic' => 'Topic',
     ];
 
     public function validate()

@@ -12,17 +12,19 @@ class GetDeviceCertificateRequest extends Model
      * @var string
      */
     public $caSn;
+
     /**
      * @var string
      */
     public $deviceSn;
+
     /**
      * @var string
      */
     public $mqttInstanceId;
     protected $_name = [
-        'caSn'           => 'CaSn',
-        'deviceSn'       => 'DeviceSn',
+        'caSn' => 'CaSn',
+        'deviceSn' => 'DeviceSn',
         'mqttInstanceId' => 'MqttInstanceId',
     ];
 

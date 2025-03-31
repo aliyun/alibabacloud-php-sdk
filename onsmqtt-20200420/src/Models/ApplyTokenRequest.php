@@ -12,23 +12,26 @@ class ApplyTokenRequest extends Model
      * @var string
      */
     public $actions;
+
     /**
      * @var int
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $resources;
     protected $_name = [
-        'actions'    => 'Actions',
+        'actions' => 'Actions',
         'expireTime' => 'ExpireTime',
         'instanceId' => 'InstanceId',
-        'resources'  => 'Resources',
+        'resources' => 'Resources',
     ];
 
     public function validate()

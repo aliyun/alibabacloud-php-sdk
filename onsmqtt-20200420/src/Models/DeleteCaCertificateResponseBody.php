@@ -12,13 +12,14 @@ class DeleteCaCertificateResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $sn;
     protected $_name = [
         'requestId' => 'RequestId',
-        'sn'        => 'Sn',
+        'sn' => 'Sn',
     ];
 
     public function validate()

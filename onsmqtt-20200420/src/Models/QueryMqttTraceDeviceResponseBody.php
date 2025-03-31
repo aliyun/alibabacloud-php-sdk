@@ -13,28 +13,32 @@ class QueryMqttTraceDeviceResponseBody extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var deviceInfoList[]
      */
     public $deviceInfoList;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'currentPage'    => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'deviceInfoList' => 'DeviceInfoList',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'total'          => 'Total',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -55,7 +59,7 @@ class QueryMqttTraceDeviceResponseBody extends Model
         if (null !== $this->deviceInfoList) {
             if (\is_array($this->deviceInfoList)) {
                 $res['DeviceInfoList'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->deviceInfoList as $item1) {
                     $res['DeviceInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -92,7 +96,7 @@ class QueryMqttTraceDeviceResponseBody extends Model
         if (isset($map['DeviceInfoList'])) {
             if (!empty($map['DeviceInfoList'])) {
                 $model->deviceInfoList = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['DeviceInfoList'] as $item1) {
                     $model->deviceInfoList[$n1++] = deviceInfoList::fromMap($item1);
                 }

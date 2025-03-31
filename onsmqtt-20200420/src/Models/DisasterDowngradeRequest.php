@@ -12,13 +12,14 @@ class DisasterDowngradeRequest extends Model
      * @var string
      */
     public $downgradeInstanceId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'downgradeInstanceId' => 'DowngradeInstanceId',
-        'instanceId'          => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()

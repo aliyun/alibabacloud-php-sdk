@@ -12,12 +12,13 @@ class QueryTokenResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $tokenStatus;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'tokenStatus' => 'TokenStatus',
     ];
 

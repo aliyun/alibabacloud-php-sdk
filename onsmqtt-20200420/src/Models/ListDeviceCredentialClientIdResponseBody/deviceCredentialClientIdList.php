@@ -12,28 +12,32 @@ class deviceCredentialClientIdList extends Model
      * @var string[]
      */
     public $clientIdList;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $pageNo;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $total;
     protected $_name = [
         'clientIdList' => 'ClientIdList',
-        'nextToken'    => 'NextToken',
-        'pageNo'       => 'PageNo',
-        'pageSize'     => 'PageSize',
-        'total'        => 'Total',
+        'nextToken' => 'NextToken',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -50,7 +54,7 @@ class deviceCredentialClientIdList extends Model
         if (null !== $this->clientIdList) {
             if (\is_array($this->clientIdList)) {
                 $res['ClientIdList'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->clientIdList as $item1) {
                     $res['ClientIdList'][$n1++] = $item1;
                 }
@@ -87,7 +91,7 @@ class deviceCredentialClientIdList extends Model
         if (isset($map['ClientIdList'])) {
             if (!empty($map['ClientIdList'])) {
                 $model->clientIdList = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ClientIdList'] as $item1) {
                     $model->clientIdList[$n1++] = $item1;
                 }

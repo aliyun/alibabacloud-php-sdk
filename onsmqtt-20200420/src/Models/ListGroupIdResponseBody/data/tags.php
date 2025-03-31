@@ -2,24 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models;
+namespace AlibabaCloud\SDK\OnsMqtt\V20200420\Models\ListGroupIdResponseBody\data;
 
 use AlibabaCloud\Dara\Model;
 
-class ListGroupIdRequest extends Model
+class tags extends Model
 {
     /**
      * @var string
      */
-    public $instanceId;
+    public $tagKey;
 
     /**
      * @var string
      */
-    public $tags;
+    public $tagValue;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'tags' => 'Tags',
+        'tagKey' => 'TagKey',
+        'tagValue' => 'TagValue',
     ];
 
     public function validate()
@@ -30,12 +30,12 @@ class ListGroupIdRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
-        if (null !== $this->instanceId) {
-            $res['InstanceId'] = $this->instanceId;
+        if (null !== $this->tagKey) {
+            $res['TagKey'] = $this->tagKey;
         }
 
-        if (null !== $this->tags) {
-            $res['Tags'] = $this->tags;
+        if (null !== $this->tagValue) {
+            $res['TagValue'] = $this->tagValue;
         }
 
         return $res;
@@ -49,12 +49,12 @@ class ListGroupIdRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['InstanceId'])) {
-            $model->instanceId = $map['InstanceId'];
+        if (isset($map['TagKey'])) {
+            $model->tagKey = $map['TagKey'];
         }
 
-        if (isset($map['Tags'])) {
-            $model->tags = $map['Tags'];
+        if (isset($map['TagValue'])) {
+            $model->tagValue = $map['TagValue'];
         }
 
         return $model;

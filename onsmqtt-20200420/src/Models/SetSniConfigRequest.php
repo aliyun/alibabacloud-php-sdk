@@ -12,18 +12,20 @@ class SetSniConfigRequest extends Model
      * @var string
      */
     public $defaultCertificate;
+
     /**
      * @var string
      */
     public $mqttInstanceId;
+
     /**
      * @var string
      */
     public $sniConfig;
     protected $_name = [
         'defaultCertificate' => 'DefaultCertificate',
-        'mqttInstanceId'     => 'MqttInstanceId',
-        'sniConfig'          => 'SniConfig',
+        'mqttInstanceId' => 'MqttInstanceId',
+        'sniConfig' => 'SniConfig',
     ];
 
     public function validate()

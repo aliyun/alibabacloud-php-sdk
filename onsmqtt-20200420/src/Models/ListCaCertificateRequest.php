@@ -12,18 +12,20 @@ class ListCaCertificateRequest extends Model
      * @var string
      */
     public $mqttInstanceId;
+
     /**
      * @var string
      */
     public $pageNo;
+
     /**
      * @var string
      */
     public $pageSize;
     protected $_name = [
         'mqttInstanceId' => 'MqttInstanceId',
-        'pageNo'         => 'PageNo',
-        'pageSize'       => 'PageSize',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

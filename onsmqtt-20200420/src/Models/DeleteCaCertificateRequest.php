@@ -12,13 +12,14 @@ class DeleteCaCertificateRequest extends Model
      * @var string
      */
     public $mqttInstanceId;
+
     /**
      * @var string
      */
     public $sn;
     protected $_name = [
         'mqttInstanceId' => 'MqttInstanceId',
-        'sn'             => 'Sn',
+        'sn' => 'Sn',
     ];
 
     public function validate()

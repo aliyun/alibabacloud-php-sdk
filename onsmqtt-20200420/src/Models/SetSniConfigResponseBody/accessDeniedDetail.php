@@ -12,38 +12,44 @@ class accessDeniedDetail extends Model
      * @var string
      */
     public $authAction;
+
     /**
      * @var string
      */
     public $authPrincipalDisplayName;
+
     /**
      * @var string
      */
     public $authPrincipalOwnerId;
+
     /**
      * @var string
      */
     public $authPrincipalType;
+
     /**
      * @var string
      */
     public $encodedDiagnosticMessage;
+
     /**
      * @var string
      */
     public $noPermissionType;
+
     /**
      * @var string
      */
     public $policyType;
     protected $_name = [
-        'authAction'               => 'AuthAction',
+        'authAction' => 'AuthAction',
         'authPrincipalDisplayName' => 'AuthPrincipalDisplayName',
-        'authPrincipalOwnerId'     => 'AuthPrincipalOwnerId',
-        'authPrincipalType'        => 'AuthPrincipalType',
+        'authPrincipalOwnerId' => 'AuthPrincipalOwnerId',
+        'authPrincipalType' => 'AuthPrincipalType',
         'encodedDiagnosticMessage' => 'EncodedDiagnosticMessage',
-        'noPermissionType'         => 'NoPermissionType',
-        'policyType'               => 'PolicyType',
+        'noPermissionType' => 'NoPermissionType',
+        'policyType' => 'PolicyType',
     ];
 
     public function validate()

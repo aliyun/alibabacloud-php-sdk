@@ -13,13 +13,14 @@ class ListDeviceCredentialClientIdResponseBody extends Model
      * @var deviceCredentialClientIdList
      */
     public $deviceCredentialClientIdList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'deviceCredentialClientIdList' => 'DeviceCredentialClientIdList',
-        'requestId'                    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

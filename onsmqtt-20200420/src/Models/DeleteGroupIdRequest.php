@@ -12,12 +12,13 @@ class DeleteGroupIdRequest extends Model
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'groupId'    => 'GroupId',
+        'groupId' => 'GroupId',
         'instanceId' => 'InstanceId',
     ];
 

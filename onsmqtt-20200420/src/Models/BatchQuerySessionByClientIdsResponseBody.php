@@ -13,13 +13,14 @@ class BatchQuerySessionByClientIdsResponseBody extends Model
      * @var onlineStatusList[]
      */
     public $onlineStatusList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'onlineStatusList' => 'OnlineStatusList',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class BatchQuerySessionByClientIdsResponseBody extends Model
         if (null !== $this->onlineStatusList) {
             if (\is_array($this->onlineStatusList)) {
                 $res['OnlineStatusList'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->onlineStatusList as $item1) {
                     $res['OnlineStatusList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class BatchQuerySessionByClientIdsResponseBody extends Model
         if (isset($map['OnlineStatusList'])) {
             if (!empty($map['OnlineStatusList'])) {
                 $model->onlineStatusList = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['OnlineStatusList'] as $item1) {
                     $model->onlineStatusList[$n1++] = onlineStatusList::fromMap($item1);
                 }

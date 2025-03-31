@@ -12,13 +12,14 @@ class ApplyTokenResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $token;
     protected $_name = [
         'requestId' => 'RequestId',
-        'token'     => 'Token',
+        'token' => 'Token',
     ];
 
     public function validate()

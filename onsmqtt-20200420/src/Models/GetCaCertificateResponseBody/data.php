@@ -12,42 +12,49 @@ class data extends Model
      * @var string
      */
     public $caContent;
+
     /**
      * @var string
      */
     public $caName;
+
     /**
      * @var string
      */
     public $registrationCode;
+
     /**
      * @var string
      */
     public $sn;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $validBegin;
+
     /**
      * @var string
      */
     public $validEnd;
+
     /**
      * @var string
      */
     public $verificationContent;
     protected $_name = [
-        'caContent'           => 'CaContent',
-        'caName'              => 'CaName',
-        'registrationCode'    => 'RegistrationCode',
-        'sn'                  => 'Sn',
-        'status'              => 'Status',
-        'validBegin'          => 'ValidBegin',
-        'validEnd'            => 'ValidEnd',
+        'caContent' => 'CaContent',
+        'caName' => 'CaName',
+        'registrationCode' => 'RegistrationCode',
+        'sn' => 'Sn',
+        'status' => 'Status',
+        'validBegin' => 'ValidBegin',
+        'validEnd' => 'ValidEnd',
         'verificationContent' => 'VerificationContent',
     ];
 

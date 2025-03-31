@@ -12,28 +12,32 @@ class QueryMqttTraceMessagePublishRequest extends Model
      * @var int
      */
     public $beginTime;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mqttRegionId;
+
     /**
      * @var string
      */
     public $msgId;
     protected $_name = [
-        'beginTime'    => 'BeginTime',
-        'endTime'      => 'EndTime',
-        'instanceId'   => 'InstanceId',
+        'beginTime' => 'BeginTime',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
         'mqttRegionId' => 'MqttRegionId',
-        'msgId'        => 'MsgId',
+        'msgId' => 'MsgId',
     ];
 
     public function validate()

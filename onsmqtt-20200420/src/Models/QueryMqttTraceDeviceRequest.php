@@ -12,43 +12,50 @@ class QueryMqttTraceDeviceRequest extends Model
      * @var int
      */
     public $beginTime;
+
     /**
      * @var string
      */
     public $clientId;
+
     /**
      * @var int
      */
     public $currentPage;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $mqttRegionId;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var bool
      */
     public $reverse;
     protected $_name = [
-        'beginTime'    => 'BeginTime',
-        'clientId'     => 'ClientId',
-        'currentPage'  => 'CurrentPage',
-        'endTime'      => 'EndTime',
-        'instanceId'   => 'InstanceId',
+        'beginTime' => 'BeginTime',
+        'clientId' => 'ClientId',
+        'currentPage' => 'CurrentPage',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
         'mqttRegionId' => 'MqttRegionId',
-        'pageSize'     => 'PageSize',
-        'reverse'      => 'Reverse',
+        'pageSize' => 'PageSize',
+        'reverse' => 'Reverse',
     ];
 
     public function validate()

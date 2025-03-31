@@ -12,28 +12,32 @@ class deviceInfoList extends Model
      * @var string
      */
     public $action;
+
     /**
      * @var string
      */
     public $actionCode;
+
     /**
      * @var string
      */
     public $actionInfo;
+
     /**
      * @var string
      */
     public $channelId;
+
     /**
      * @var string
      */
     public $time;
     protected $_name = [
-        'action'     => 'Action',
+        'action' => 'Action',
         'actionCode' => 'ActionCode',
         'actionInfo' => 'ActionInfo',
-        'channelId'  => 'ChannelId',
-        'time'       => 'Time',
+        'channelId' => 'ChannelId',
+        'time' => 'Time',
     ];
 
     public function validate()

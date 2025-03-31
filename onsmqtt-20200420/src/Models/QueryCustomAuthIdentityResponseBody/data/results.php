@@ -12,28 +12,32 @@ class results extends Model
      * @var string
      */
     public $clientId;
+
     /**
      * @var string
      */
     public $identityType;
+
     /**
      * @var string
      */
     public $secret;
+
     /**
      * @var string
      */
     public $signMode;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'clientId'     => 'ClientId',
+        'clientId' => 'ClientId',
         'identityType' => 'IdentityType',
-        'secret'       => 'Secret',
-        'signMode'     => 'SignMode',
-        'username'     => 'Username',
+        'secret' => 'Secret',
+        'signMode' => 'SignMode',
+        'username' => 'Username',
     ];
 
     public function validate()

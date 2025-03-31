@@ -12,12 +12,13 @@ class onlineStatusList extends Model
      * @var string
      */
     public $clientId;
+
     /**
      * @var bool
      */
     public $onlineStatus;
     protected $_name = [
-        'clientId'     => 'ClientId',
+        'clientId' => 'ClientId',
         'onlineStatus' => 'OnlineStatus',
     ];
 

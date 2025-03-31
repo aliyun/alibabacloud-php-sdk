@@ -13,28 +13,32 @@ class QueryMqttTraceMessageOfClientResponseBody extends Model
      * @var int
      */
     public $currentPage;
+
     /**
      * @var messageOfClientList[]
      */
     public $messageOfClientList;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'currentPage'         => 'CurrentPage',
+        'currentPage' => 'CurrentPage',
         'messageOfClientList' => 'MessageOfClientList',
-        'pageSize'            => 'PageSize',
-        'requestId'           => 'RequestId',
-        'total'               => 'Total',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -55,7 +59,7 @@ class QueryMqttTraceMessageOfClientResponseBody extends Model
         if (null !== $this->messageOfClientList) {
             if (\is_array($this->messageOfClientList)) {
                 $res['MessageOfClientList'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->messageOfClientList as $item1) {
                     $res['MessageOfClientList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -92,7 +96,7 @@ class QueryMqttTraceMessageOfClientResponseBody extends Model
         if (isset($map['MessageOfClientList'])) {
             if (!empty($map['MessageOfClientList'])) {
                 $model->messageOfClientList = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['MessageOfClientList'] as $item1) {
                     $model->messageOfClientList[$n1++] = messageOfClientList::fromMap($item1);
                 }

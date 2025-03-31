@@ -12,33 +12,38 @@ class QueryCustomAuthIdentityRequest extends Model
      * @var string
      */
     public $clientId;
+
     /**
      * @var string
      */
     public $identityType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $size;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'clientId'     => 'ClientId',
+        'clientId' => 'ClientId',
         'identityType' => 'IdentityType',
-        'instanceId'   => 'InstanceId',
-        'nextToken'    => 'NextToken',
-        'size'         => 'Size',
-        'username'     => 'Username',
+        'instanceId' => 'InstanceId',
+        'nextToken' => 'NextToken',
+        'size' => 'Size',
+        'username' => 'Username',
     ];
 
     public function validate()

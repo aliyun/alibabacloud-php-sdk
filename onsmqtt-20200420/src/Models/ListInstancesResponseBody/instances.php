@@ -13,58 +13,68 @@ class instances extends Model
      * @var int
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var int
      */
     public $instanceStatus;
+
     /**
      * @var int
      */
     public $instanceType;
+
     /**
      * @var string
      */
     public $kernelVersion;
+
     /**
      * @var mqttTags[]
      */
     public $mqttTags;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $specific;
     protected $_name = [
-        'createTime'     => 'CreateTime',
-        'expireTime'     => 'ExpireTime',
-        'instanceId'     => 'InstanceId',
-        'instanceName'   => 'InstanceName',
+        'createTime' => 'CreateTime',
+        'expireTime' => 'ExpireTime',
+        'instanceId' => 'InstanceId',
+        'instanceName' => 'InstanceName',
         'instanceStatus' => 'InstanceStatus',
-        'instanceType'   => 'InstanceType',
-        'kernelVersion'  => 'KernelVersion',
-        'mqttTags'       => 'MqttTags',
-        'orderId'        => 'OrderId',
-        'regionId'       => 'RegionId',
-        'specific'       => 'Specific',
+        'instanceType' => 'InstanceType',
+        'kernelVersion' => 'KernelVersion',
+        'mqttTags' => 'MqttTags',
+        'orderId' => 'OrderId',
+        'regionId' => 'RegionId',
+        'specific' => 'Specific',
     ];
 
     public function validate()
@@ -109,7 +119,7 @@ class instances extends Model
         if (null !== $this->mqttTags) {
             if (\is_array($this->mqttTags)) {
                 $res['MqttTags'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->mqttTags as $item1) {
                     $res['MqttTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -170,7 +180,7 @@ class instances extends Model
         if (isset($map['MqttTags'])) {
             if (!empty($map['MqttTags'])) {
                 $model->mqttTags = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['MqttTags'] as $item1) {
                     $model->mqttTags[$n1++] = mqttTags::fromMap($item1);
                 }

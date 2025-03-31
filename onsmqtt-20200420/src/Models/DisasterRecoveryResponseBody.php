@@ -12,28 +12,32 @@ class DisasterRecoveryResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'code'               => 'Code',
-        'message'            => 'Message',
-        'requestId'          => 'RequestId',
-        'success'            => 'Success',
+        'code' => 'Code',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

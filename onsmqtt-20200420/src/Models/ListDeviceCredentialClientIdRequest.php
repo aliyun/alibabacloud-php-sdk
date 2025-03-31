@@ -12,28 +12,32 @@ class ListDeviceCredentialClientIdRequest extends Model
      * @var string
      */
     public $groupId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $pageNo;
+
     /**
      * @var string
      */
     public $pageSize;
     protected $_name = [
-        'groupId'    => 'GroupId',
+        'groupId' => 'GroupId',
         'instanceId' => 'InstanceId',
-        'nextToken'  => 'NextToken',
-        'pageNo'     => 'PageNo',
-        'pageSize'   => 'PageSize',
+        'nextToken' => 'NextToken',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

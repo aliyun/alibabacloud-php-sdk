@@ -12,33 +12,38 @@ class UpdateCustomAuthIdentityRequest extends Model
      * @var string
      */
     public $clientId;
+
     /**
      * @var string
      */
     public $identityType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $secret;
+
     /**
      * @var string
      */
     public $signMode;
+
     /**
      * @var string
      */
     public $username;
     protected $_name = [
-        'clientId'     => 'ClientId',
+        'clientId' => 'ClientId',
         'identityType' => 'IdentityType',
-        'instanceId'   => 'InstanceId',
-        'secret'       => 'Secret',
-        'signMode'     => 'SignMode',
-        'username'     => 'Username',
+        'instanceId' => 'InstanceId',
+        'secret' => 'Secret',
+        'signMode' => 'SignMode',
+        'username' => 'Username',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class results extends Model
      * @var string
      */
     public $effect;
+
     /**
      * @var string
      */
     public $identity;
+
     /**
      * @var string
      */
     public $identityType;
+
     /**
      * @var string
      */
     public $permitAction;
+
     /**
      * @var string
      */
     public $topic;
     protected $_name = [
-        'effect'       => 'Effect',
-        'identity'     => 'Identity',
+        'effect' => 'Effect',
+        'identity' => 'Identity',
         'identityType' => 'IdentityType',
         'permitAction' => 'PermitAction',
-        'topic'        => 'Topic',
+        'topic' => 'Topic',
     ];
 
     public function validate()

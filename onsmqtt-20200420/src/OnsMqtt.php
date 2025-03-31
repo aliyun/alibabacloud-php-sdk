@@ -154,6 +154,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - ActiveCaCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ActiveCaCertificateResponse
      *
      * @param ActiveCaCertificateRequest $request
@@ -177,15 +178,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ActiveCaCertificate',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ActiveCaCertificate',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ActiveCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -203,6 +204,7 @@ class OnsMqtt extends OpenApiClient
      * *   You can call this operation to reactivate only CA certificates that are registered with ApsaraMQ for MQTT brokers. You can call the [ListCaCertificate](https://help.aliyun.com/document_detail/2604958.html) operation to query CA certificates that are registered with an ApsaraMQ for MQTT instance.
      *
      * @param request - ActiveCaCertificateRequest
+     *
      * @returns ActiveCaCertificateResponse
      *
      * @param ActiveCaCertificateRequest $request
@@ -225,6 +227,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - ActiveDeviceCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ActiveDeviceCertificateResponse
      *
      * @param ActiveDeviceCertificateRequest $request
@@ -252,15 +255,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ActiveDeviceCertificate',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ActiveDeviceCertificate',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ActiveDeviceCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -277,6 +280,7 @@ class OnsMqtt extends OpenApiClient
      * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group (ID: 35228338) to contact ApsaraMQ for MQTT technical support.
      *
      * @param request - ActiveDeviceCertificateRequest
+     *
      * @returns ActiveDeviceCertificateResponse
      *
      * @param ActiveDeviceCertificateRequest $request
@@ -295,6 +299,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - AddCustomAuthConnectBlackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddCustomAuthConnectBlackResponse
      *
      * @param AddCustomAuthConnectBlackRequest $request
@@ -318,15 +323,15 @@ class OnsMqtt extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddCustomAuthConnectBlack',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddCustomAuthConnectBlack',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddCustomAuthConnectBlackResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -339,6 +344,7 @@ class OnsMqtt extends OpenApiClient
      * Adds a device to the connection blacklist to disable connections from the device.
      *
      * @param request - AddCustomAuthConnectBlackRequest
+     *
      * @returns AddCustomAuthConnectBlackResponse
      *
      * @param AddCustomAuthConnectBlackRequest $request
@@ -357,6 +363,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - AddCustomAuthIdentityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddCustomAuthIdentityResponse
      *
      * @param AddCustomAuthIdentityRequest $request
@@ -396,15 +403,15 @@ class OnsMqtt extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddCustomAuthIdentity',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddCustomAuthIdentity',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddCustomAuthIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -417,6 +424,7 @@ class OnsMqtt extends OpenApiClient
      * Adds the information about identity authentication. The identity can be accurate to a client.
      *
      * @param request - AddCustomAuthIdentityRequest
+     *
      * @returns AddCustomAuthIdentityResponse
      *
      * @param AddCustomAuthIdentityRequest $request
@@ -435,6 +443,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - AddCustomAuthPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddCustomAuthPermissionResponse
      *
      * @param AddCustomAuthPermissionRequest $request
@@ -474,15 +483,15 @@ class OnsMqtt extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddCustomAuthPermission',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddCustomAuthPermission',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddCustomAuthPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -495,6 +504,7 @@ class OnsMqtt extends OpenApiClient
      * Grants permissions on topics. You must create a parent topic in the console before you call this API operation.
      *
      * @param request - AddCustomAuthPermissionRequest
+     *
      * @returns AddCustomAuthPermissionResponse
      *
      * @param AddCustomAuthPermissionRequest $request
@@ -517,6 +527,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - ApplyTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ApplyTokenResponse
      *
      * @param ApplyTokenRequest $request
@@ -548,15 +559,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ApplyToken',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ApplyToken',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ApplyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -573,6 +584,7 @@ class OnsMqtt extends OpenApiClient
      * *   Each successful call to the **ApplyToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
      *
      * @param request - ApplyTokenRequest
+     *
      * @returns ApplyTokenResponse
      *
      * @param ApplyTokenRequest $request
@@ -596,6 +608,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - BatchQuerySessionByClientIdsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BatchQuerySessionByClientIdsResponse
      *
      * @param BatchQuerySessionByClientIdsRequest $request
@@ -619,15 +632,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchQuerySessionByClientIds',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchQuerySessionByClientIds',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BatchQuerySessionByClientIdsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -645,6 +658,7 @@ class OnsMqtt extends OpenApiClient
      * *   Each successful call to the **BatchQuerySessionByClientIds** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
      *
      * @param request - BatchQuerySessionByClientIdsRequest
+     *
      * @returns BatchQuerySessionByClientIdsResponse
      *
      * @param BatchQuerySessionByClientIdsRequest $request
@@ -666,6 +680,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - CloseConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CloseConnectionResponse
      *
      * @param CloseConnectionRequest $request
@@ -689,15 +704,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CloseConnection',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CloseConnection',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CloseConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -713,6 +728,7 @@ class OnsMqtt extends OpenApiClient
      * This API is still in the testing phase and is only available for Professional Edition instances in the Shanghai region. Legacy instances are not supported at this time.
      *
      * @param request - CloseConnectionRequest
+     *
      * @returns CloseConnectionResponse
      *
      * @param CloseConnectionRequest $request
@@ -734,6 +750,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - CreateGroupIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateGroupIdResponse
      *
      * @param CreateGroupIdRequest $request
@@ -753,19 +770,23 @@ class OnsMqtt extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateGroupId',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateGroupId',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -781,6 +802,7 @@ class OnsMqtt extends OpenApiClient
      * Each successful call to the **CreateGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
      *
      * @param request - CreateGroupIdRequest
+     *
      * @returns CreateGroupIdResponse
      *
      * @param CreateGroupIdRequest $request
@@ -805,6 +827,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - DeleteCaCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCaCertificateResponse
      *
      * @param DeleteCaCertificateRequest $request
@@ -828,15 +851,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCaCertificate',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCaCertificate',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -855,6 +878,7 @@ class OnsMqtt extends OpenApiClient
      * *   If you delete a specific CA certificate from an ApsaraMQ for MQTT broker, all device certificates that are issued by the CA certificate and are registered with the ApsaraMQ for MQTT broker are automatically deleted.
      *
      * @param request - DeleteCaCertificateRequest
+     *
      * @returns DeleteCaCertificateResponse
      *
      * @param DeleteCaCertificateRequest $request
@@ -873,6 +897,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - DeleteCustomAuthConnectBlackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCustomAuthConnectBlackResponse
      *
      * @param DeleteCustomAuthConnectBlackRequest $request
@@ -896,15 +921,15 @@ class OnsMqtt extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCustomAuthConnectBlack',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCustomAuthConnectBlack',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCustomAuthConnectBlackResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -917,6 +942,7 @@ class OnsMqtt extends OpenApiClient
      * Deletes a connection blacklist.
      *
      * @param request - DeleteCustomAuthConnectBlackRequest
+     *
      * @returns DeleteCustomAuthConnectBlackResponse
      *
      * @param DeleteCustomAuthConnectBlackRequest $request
@@ -935,6 +961,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - DeleteCustomAuthIdentityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCustomAuthIdentityResponse
      *
      * @param DeleteCustomAuthIdentityRequest $request
@@ -966,15 +993,15 @@ class OnsMqtt extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCustomAuthIdentity',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCustomAuthIdentity',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCustomAuthIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -987,6 +1014,7 @@ class OnsMqtt extends OpenApiClient
      * Deletes an identity for custom authorization.
      *
      * @param request - DeleteCustomAuthIdentityRequest
+     *
      * @returns DeleteCustomAuthIdentityResponse
      *
      * @param DeleteCustomAuthIdentityRequest $request
@@ -1005,6 +1033,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - DeleteCustomAuthPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCustomAuthPermissionResponse
      *
      * @param DeleteCustomAuthPermissionRequest $request
@@ -1036,15 +1065,15 @@ class OnsMqtt extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteCustomAuthPermission',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteCustomAuthPermission',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCustomAuthPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1057,6 +1086,7 @@ class OnsMqtt extends OpenApiClient
      * Deletes permissions on a topic.
      *
      * @param request - DeleteCustomAuthPermissionRequest
+     *
      * @returns DeleteCustomAuthPermissionResponse
      *
      * @param DeleteCustomAuthPermissionRequest $request
@@ -1079,6 +1109,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - DeleteDeviceCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDeviceCertificateResponse
      *
      * @param DeleteDeviceCertificateRequest $request
@@ -1106,15 +1137,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDeviceCertificate',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDeviceCertificate',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDeviceCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1131,6 +1162,7 @@ class OnsMqtt extends OpenApiClient
      * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group (ID: 35228338) to contact ApsaraMQ for MQTT technical support.
      *
      * @param request - DeleteDeviceCertificateRequest
+     *
      * @returns DeleteDeviceCertificateResponse
      *
      * @param DeleteDeviceCertificateRequest $request
@@ -1152,6 +1184,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - DeleteGroupIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteGroupIdResponse
      *
      * @param DeleteGroupIdRequest $request
@@ -1175,15 +1208,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteGroupId',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteGroupId',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1199,6 +1232,7 @@ class OnsMqtt extends OpenApiClient
      * Each successful call to the **DeleteGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
      *
      * @param request - DeleteGroupIdRequest
+     *
      * @returns DeleteGroupIdResponse
      *
      * @param DeleteGroupIdRequest $request
@@ -1213,10 +1247,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * DisasterDowngrade.
+     * Downgrades the virtual IP address (VIP) access of a specific instance during the disaster recovery of multiple instances. Only Enterprise Platinum Edition instances support this operation. To call the operation, you must submit a ticket.
      *
      * @param request - DisasterDowngradeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisasterDowngradeResponse
      *
      * @param DisasterDowngradeRequest $request
@@ -1240,15 +1275,15 @@ class OnsMqtt extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DisasterDowngrade',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisasterDowngrade',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisasterDowngradeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1258,9 +1293,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * DisasterDowngrade.
+     * Downgrades the virtual IP address (VIP) access of a specific instance during the disaster recovery of multiple instances. Only Enterprise Platinum Edition instances support this operation. To call the operation, you must submit a ticket.
      *
      * @param request - DisasterDowngradeRequest
+     *
      * @returns DisasterDowngradeResponse
      *
      * @param DisasterDowngradeRequest $request
@@ -1275,10 +1311,11 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * DisasterRecovery.
+     * Recovers the public virtual IP address (VIP) access of a specific instance during the disaster recovery of multiple instances. Only Enterprise Platinum Edition instances support this operation. To call this operation, you must submit a ticket.
      *
      * @param request - DisasterRecoveryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisasterRecoveryResponse
      *
      * @param DisasterRecoveryRequest $request
@@ -1302,15 +1339,15 @@ class OnsMqtt extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DisasterRecovery',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisasterRecovery',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisasterRecoveryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1320,9 +1357,10 @@ class OnsMqtt extends OpenApiClient
     }
 
     /**
-     * DisasterRecovery.
+     * Recovers the public virtual IP address (VIP) access of a specific instance during the disaster recovery of multiple instances. Only Enterprise Platinum Edition instances support this operation. To call this operation, you must submit a ticket.
      *
      * @param request - DisasterRecoveryRequest
+     *
      * @returns DisasterRecoveryResponse
      *
      * @param DisasterRecoveryRequest $request
@@ -1345,6 +1383,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - GetCaCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCaCertificateResponse
      *
      * @param GetCaCertificateRequest $request
@@ -1356,19 +1395,19 @@ class OnsMqtt extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCaCertificate',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCaCertificate',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1385,6 +1424,7 @@ class OnsMqtt extends OpenApiClient
      * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group (ID: 35228338) to contact ApsaraMQ for MQTT technical support.
      *
      * @param request - GetCaCertificateRequest
+     *
      * @returns GetCaCertificateResponse
      *
      * @param GetCaCertificateRequest $request
@@ -1407,6 +1447,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - GetDeviceCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDeviceCertificateResponse
      *
      * @param GetDeviceCertificateRequest $request
@@ -1418,19 +1459,19 @@ class OnsMqtt extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDeviceCertificate',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDeviceCertificate',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDeviceCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1447,6 +1488,7 @@ class OnsMqtt extends OpenApiClient
      * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group (ID: 35228338) to contact ApsaraMQ for MQTT technical support.
      *
      * @param request - GetDeviceCertificateRequest
+     *
      * @returns GetDeviceCertificateResponse
      *
      * @param GetDeviceCertificateRequest $request
@@ -1469,6 +1511,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - GetDeviceCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDeviceCredentialResponse
      *
      * @param GetDeviceCredentialRequest $request
@@ -1492,15 +1535,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDeviceCredential',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDeviceCredential',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDeviceCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1517,6 +1560,7 @@ class OnsMqtt extends OpenApiClient
      * *   Each successful call to the **GetDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
      *
      * @param request - GetDeviceCredentialRequest
+     *
      * @returns GetDeviceCredentialResponse
      *
      * @param GetDeviceCredentialRequest $request
@@ -1539,6 +1583,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - GetRegisterCodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRegisterCodeResponse
      *
      * @param GetRegisterCodeRequest $request
@@ -1550,19 +1595,19 @@ class OnsMqtt extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRegisterCode',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetRegisterCode',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetRegisterCodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1579,6 +1624,7 @@ class OnsMqtt extends OpenApiClient
      * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group (ID: 35228338) to contact ApsaraMQ for MQTT technical support.
      *
      * @param request - GetRegisterCodeRequest
+     *
      * @returns GetRegisterCodeResponse
      *
      * @param GetRegisterCodeRequest $request
@@ -1602,6 +1648,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - InactivateCaCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InactivateCaCertificateResponse
      *
      * @param InactivateCaCertificateRequest $request
@@ -1625,15 +1672,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InactivateCaCertificate',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InactivateCaCertificate',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return InactivateCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1651,6 +1698,7 @@ class OnsMqtt extends OpenApiClient
      * *   You can call this operation to deregister only CA certificates that are registered with ApsaraMQ for MQTT brokers. You can call the [ListCaCertificate](https://help.aliyun.com/document_detail/2604958.html) operation to query CA certificates that are registered with an ApsaraMQ for MQTT instance.
      *
      * @param request - InactivateCaCertificateRequest
+     *
      * @returns InactivateCaCertificateResponse
      *
      * @param InactivateCaCertificateRequest $request
@@ -1673,6 +1721,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - InactivateDeviceCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns InactivateDeviceCertificateResponse
      *
      * @param InactivateDeviceCertificateRequest $request
@@ -1700,15 +1749,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'InactivateDeviceCertificate',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'InactivateDeviceCertificate',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return InactivateDeviceCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1725,6 +1774,7 @@ class OnsMqtt extends OpenApiClient
      * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group (ID: 35228338) to contact ApsaraMQ for MQTT technical support.
      *
      * @param request - InactivateDeviceCertificateRequest
+     *
      * @returns InactivateDeviceCertificateResponse
      *
      * @param InactivateDeviceCertificateRequest $request
@@ -1747,6 +1797,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - ListCaCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCaCertificateResponse
      *
      * @param ListCaCertificateRequest $request
@@ -1758,19 +1809,19 @@ class OnsMqtt extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCaCertificate',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListCaCertificate',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1787,6 +1838,7 @@ class OnsMqtt extends OpenApiClient
      * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group (ID: 35228338) to contact ApsaraMQ for MQTT technical support.
      *
      * @param request - ListCaCertificateRequest
+     *
      * @returns ListCaCertificateResponse
      *
      * @param ListCaCertificateRequest $request
@@ -1809,6 +1861,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - ListDeviceCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDeviceCertificateResponse
      *
      * @param ListDeviceCertificateRequest $request
@@ -1820,19 +1873,19 @@ class OnsMqtt extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDeviceCertificate',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDeviceCertificate',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDeviceCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1849,6 +1902,7 @@ class OnsMqtt extends OpenApiClient
      * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group (ID: 35228338) to contact ApsaraMQ for MQTT technical support.
      *
      * @param request - ListDeviceCertificateRequest
+     *
      * @returns ListDeviceCertificateResponse
      *
      * @param ListDeviceCertificateRequest $request
@@ -1871,6 +1925,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - ListDeviceCertificateByCaSnRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDeviceCertificateByCaSnResponse
      *
      * @param ListDeviceCertificateByCaSnRequest $request
@@ -1882,19 +1937,19 @@ class OnsMqtt extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDeviceCertificateByCaSn',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDeviceCertificateByCaSn',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDeviceCertificateByCaSnResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1911,6 +1966,7 @@ class OnsMqtt extends OpenApiClient
      * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group (ID: 35228338) to contact ApsaraMQ for MQTT technical support.
      *
      * @param request - ListDeviceCertificateByCaSnRequest
+     *
      * @returns ListDeviceCertificateByCaSnResponse
      *
      * @param ListDeviceCertificateByCaSnRequest $request
@@ -1929,6 +1985,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - ListDeviceCredentialClientIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDeviceCredentialClientIdResponse
      *
      * @param ListDeviceCredentialClientIdRequest $request
@@ -1964,15 +2021,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDeviceCredentialClientId',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListDeviceCredentialClientId',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDeviceCredentialClientIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1985,6 +2042,7 @@ class OnsMqtt extends OpenApiClient
      * Queries clients that have applied for access credentials in unique-certificate-per-device authentication mode in an ApsaraMQ for MQTT instance.
      *
      * @param request - ListDeviceCredentialClientIdRequest
+     *
      * @returns ListDeviceCredentialClientIdResponse
      *
      * @param ListDeviceCredentialClientIdRequest $request
@@ -2006,6 +2064,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - ListGroupIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListGroupIdResponse
      *
      * @param ListGroupIdRequest $request
@@ -2021,19 +2080,23 @@ class OnsMqtt extends OpenApiClient
             @$query['InstanceId'] = $request->instanceId;
         }
 
+        if (null !== $request->tags) {
+            @$query['Tags'] = $request->tags;
+        }
+
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListGroupId',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListGroupId',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2049,6 +2112,7 @@ class OnsMqtt extends OpenApiClient
      * Each successful call to the **ListGroupId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
      *
      * @param request - ListGroupIdRequest
+     *
      * @returns ListGroupIdResponse
      *
      * @param ListGroupIdRequest $request
@@ -2067,6 +2131,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - ListInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListInstancesResponse
      *
      * @param ListInstancesRequest $request
@@ -2086,15 +2151,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListInstances',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListInstances',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2107,6 +2172,7 @@ class OnsMqtt extends OpenApiClient
      * 查询实例列表.
      *
      * @param request - ListInstancesRequest
+     *
      * @returns ListInstancesResponse
      *
      * @param ListInstancesRequest $request
@@ -2125,6 +2191,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -2156,15 +2223,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2177,6 +2244,7 @@ class OnsMqtt extends OpenApiClient
      * 查询标签.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -2195,6 +2263,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - QueryCustomAuthConnectBlackRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryCustomAuthConnectBlackResponse
      *
      * @param QueryCustomAuthConnectBlackRequest $request
@@ -2206,19 +2275,19 @@ class OnsMqtt extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCustomAuthConnectBlack',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCustomAuthConnectBlack',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryCustomAuthConnectBlackResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2231,6 +2300,7 @@ class OnsMqtt extends OpenApiClient
      * Queries a client ID in a connection blacklist.
      *
      * @param request - QueryCustomAuthConnectBlackRequest
+     *
      * @returns QueryCustomAuthConnectBlackResponse
      *
      * @param QueryCustomAuthConnectBlackRequest $request
@@ -2249,6 +2319,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - QueryCustomAuthIdentityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryCustomAuthIdentityResponse
      *
      * @param QueryCustomAuthIdentityRequest $request
@@ -2260,19 +2331,19 @@ class OnsMqtt extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCustomAuthIdentity',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCustomAuthIdentity',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryCustomAuthIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2285,6 +2356,7 @@ class OnsMqtt extends OpenApiClient
      * Queries the information about custom identity authentication.
      *
      * @param request - QueryCustomAuthIdentityRequest
+     *
      * @returns QueryCustomAuthIdentityResponse
      *
      * @param QueryCustomAuthIdentityRequest $request
@@ -2303,6 +2375,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - QueryCustomAuthPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryCustomAuthPermissionResponse
      *
      * @param QueryCustomAuthPermissionRequest $request
@@ -2314,19 +2387,19 @@ class OnsMqtt extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryCustomAuthPermission',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryCustomAuthPermission',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryCustomAuthPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2339,6 +2412,7 @@ class OnsMqtt extends OpenApiClient
      * Queries the authorization information about a topic.
      *
      * @param request - QueryCustomAuthPermissionRequest
+     *
      * @returns QueryCustomAuthPermissionResponse
      *
      * @param QueryCustomAuthPermissionRequest $request
@@ -2361,6 +2435,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - QueryMqttTraceDeviceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryMqttTraceDeviceResponse
      *
      * @param QueryMqttTraceDeviceRequest $request
@@ -2408,15 +2483,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryMqttTraceDevice',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMqttTraceDevice',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryMqttTraceDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2433,6 +2508,7 @@ class OnsMqtt extends OpenApiClient
      * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
      *
      * @param request - QueryMqttTraceDeviceRequest
+     *
      * @returns QueryMqttTraceDeviceResponse
      *
      * @param QueryMqttTraceDeviceRequest $request
@@ -2455,6 +2531,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - QueryMqttTraceMessageOfClientRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryMqttTraceMessageOfClientResponse
      *
      * @param QueryMqttTraceMessageOfClientRequest $request
@@ -2502,15 +2579,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryMqttTraceMessageOfClient',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMqttTraceMessageOfClient',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryMqttTraceMessageOfClientResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2527,6 +2604,7 @@ class OnsMqtt extends OpenApiClient
      * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
      *
      * @param request - QueryMqttTraceMessageOfClientRequest
+     *
      * @returns QueryMqttTraceMessageOfClientResponse
      *
      * @param QueryMqttTraceMessageOfClientRequest $request
@@ -2549,6 +2627,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - QueryMqttTraceMessagePublishRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryMqttTraceMessagePublishResponse
      *
      * @param QueryMqttTraceMessagePublishRequest $request
@@ -2584,15 +2663,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryMqttTraceMessagePublish',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMqttTraceMessagePublish',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryMqttTraceMessagePublishResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2609,6 +2688,7 @@ class OnsMqtt extends OpenApiClient
      * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
      *
      * @param request - QueryMqttTraceMessagePublishRequest
+     *
      * @returns QueryMqttTraceMessagePublishResponse
      *
      * @param QueryMqttTraceMessagePublishRequest $request
@@ -2631,6 +2711,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - QueryMqttTraceMessageSubscribeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryMqttTraceMessageSubscribeResponse
      *
      * @param QueryMqttTraceMessageSubscribeRequest $request
@@ -2682,15 +2763,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryMqttTraceMessageSubscribe',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryMqttTraceMessageSubscribe',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryMqttTraceMessageSubscribeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2707,6 +2788,7 @@ class OnsMqtt extends OpenApiClient
      * *   You can call this operation up to 500 times per second per account. If the limit is exceeded, throttling is triggered. This may affect your business. We recommend that you take note of this limit when you call this operation. For more information, see [Limits on QPS](https://help.aliyun.com/document_detail/163047.html).
      *
      * @param request - QueryMqttTraceMessageSubscribeRequest
+     *
      * @returns QueryMqttTraceMessageSubscribeResponse
      *
      * @param QueryMqttTraceMessageSubscribeRequest $request
@@ -2729,6 +2811,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - QuerySessionByClientIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QuerySessionByClientIdResponse
      *
      * @param QuerySessionByClientIdRequest $request
@@ -2752,15 +2835,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QuerySessionByClientId',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QuerySessionByClientId',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QuerySessionByClientIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2777,6 +2860,7 @@ class OnsMqtt extends OpenApiClient
      * *   Each successful call to the **QuerySessionByClientId** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
      *
      * @param request - QuerySessionByClientIdRequest
+     *
      * @returns QuerySessionByClientIdResponse
      *
      * @param QuerySessionByClientIdRequest $request
@@ -2799,6 +2883,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - QueryTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns QueryTokenResponse
      *
      * @param QueryTokenRequest $request
@@ -2822,15 +2907,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'QueryToken',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'QueryToken',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return QueryTokenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2847,6 +2932,7 @@ class OnsMqtt extends OpenApiClient
      * *   Each successful call to the **QueryToken** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
      *
      * @param request - QueryTokenRequest
+     *
      * @returns QueryTokenResponse
      *
      * @param QueryTokenRequest $request
@@ -2870,6 +2956,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - RefreshDeviceCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RefreshDeviceCredentialResponse
      *
      * @param RefreshDeviceCredentialRequest $request
@@ -2893,15 +2980,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RefreshDeviceCredential',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RefreshDeviceCredential',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RefreshDeviceCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2919,6 +3006,7 @@ class OnsMqtt extends OpenApiClient
      * >  Each successful call to the **RefreshDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
      *
      * @param request - RefreshDeviceCredentialRequest
+     *
      * @returns RefreshDeviceCredentialResponse
      *
      * @param RefreshDeviceCredentialRequest $request
@@ -2941,6 +3029,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - RegisterCaCertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RegisterCaCertificateResponse
      *
      * @param RegisterCaCertificateRequest $request
@@ -2972,15 +3061,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RegisterCaCertificate',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RegisterCaCertificate',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RegisterCaCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2997,6 +3086,7 @@ class OnsMqtt extends OpenApiClient
      * *   You can call this operation up to 500 times per second per Alibaba Cloud account. If you want to increase the limit, join the DingTalk group (ID: 35228338) to contact ApsaraMQ for MQTT technical support.
      *
      * @param request - RegisterCaCertificateRequest
+     *
      * @returns RegisterCaCertificateResponse
      *
      * @param RegisterCaCertificateRequest $request
@@ -3019,6 +3109,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - RegisterDeviceCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RegisterDeviceCredentialResponse
      *
      * @param RegisterDeviceCredentialRequest $request
@@ -3042,15 +3133,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RegisterDeviceCredential',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RegisterDeviceCredential',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RegisterDeviceCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3067,6 +3158,7 @@ class OnsMqtt extends OpenApiClient
      * *   Each successful call to the **RegisterDeviceCredential** operation increases the messaging transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
      *
      * @param request - RegisterDeviceCredentialRequest
+     *
      * @returns RegisterDeviceCredentialResponse
      *
      * @param RegisterDeviceCredentialRequest $request
@@ -3089,6 +3181,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - RevokeTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RevokeTokenResponse
      *
      * @param RevokeTokenRequest $request
@@ -3112,15 +3205,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RevokeToken',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevokeToken',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RevokeTokenResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3137,6 +3230,7 @@ class OnsMqtt extends OpenApiClient
      * *   Each successful call to the **RevokeToken** operation increases the messaging transactions per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
      *
      * @param request - RevokeTokenRequest
+     *
      * @returns RevokeTokenResponse
      *
      * @param RevokeTokenRequest $request
@@ -3160,6 +3254,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - SendMessageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SendMessageResponse
      *
      * @param SendMessageRequest $request
@@ -3187,15 +3282,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SendMessage',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SendMessage',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SendMessageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3213,6 +3308,7 @@ class OnsMqtt extends OpenApiClient
      * *   Each successful call to the **SendMessage** operation is calculated as a message transaction per second (TPS). This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
      *
      * @param request - SendMessageRequest
+     *
      * @returns SendMessageResponse
      *
      * @param SendMessageRequest $request
@@ -3231,6 +3327,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - SetSniConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetSniConfigResponse
      *
      * @param SetSniConfigRequest $request
@@ -3258,15 +3355,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SetSniConfig',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetSniConfig',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SetSniConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3279,6 +3376,7 @@ class OnsMqtt extends OpenApiClient
      * Configures a multi-domain certificate.
      *
      * @param request - SetSniConfigRequest
+     *
      * @returns SetSniConfigResponse
      *
      * @param SetSniConfigRequest $request
@@ -3297,6 +3395,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -3324,15 +3423,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3345,6 +3444,7 @@ class OnsMqtt extends OpenApiClient
      * 新增tag.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -3367,6 +3467,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - UnRegisterDeviceCredentialRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnRegisterDeviceCredentialResponse
      *
      * @param UnRegisterDeviceCredentialRequest $request
@@ -3390,15 +3491,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnRegisterDeviceCredential',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnRegisterDeviceCredential',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnRegisterDeviceCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3415,6 +3516,7 @@ class OnsMqtt extends OpenApiClient
      * *   Each successful call to the **UnRegisterDeviceCredential** operation increases the number of transactions per second (TPS) by one. This affects the billing of your instance. For more information, see [Billing rules](https://help.aliyun.com/document_detail/52819.html).
      *
      * @param request - UnRegisterDeviceCredentialRequest
+     *
      * @returns UnRegisterDeviceCredentialResponse
      *
      * @param UnRegisterDeviceCredentialRequest $request
@@ -3433,6 +3535,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -3464,15 +3567,15 @@ class OnsMqtt extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3485,6 +3588,7 @@ class OnsMqtt extends OpenApiClient
      * 删除标签.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -3503,6 +3607,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - UpdateCustomAuthIdentityRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCustomAuthIdentityResponse
      *
      * @param UpdateCustomAuthIdentityRequest $request
@@ -3542,15 +3647,15 @@ class OnsMqtt extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCustomAuthIdentity',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCustomAuthIdentity',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateCustomAuthIdentityResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3563,6 +3668,7 @@ class OnsMqtt extends OpenApiClient
      * Updates the information about custom identity authentication.
      *
      * @param request - UpdateCustomAuthIdentityRequest
+     *
      * @returns UpdateCustomAuthIdentityResponse
      *
      * @param UpdateCustomAuthIdentityRequest $request
@@ -3581,6 +3687,7 @@ class OnsMqtt extends OpenApiClient
      *
      * @param request - UpdateCustomAuthPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCustomAuthPermissionResponse
      *
      * @param UpdateCustomAuthPermissionRequest $request
@@ -3620,15 +3727,15 @@ class OnsMqtt extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCustomAuthPermission',
-            'version'     => '2020-04-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateCustomAuthPermission',
+            'version' => '2020-04-20',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateCustomAuthPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3641,6 +3748,7 @@ class OnsMqtt extends OpenApiClient
      * Updates the permissions on a topic.
      *
      * @param request - UpdateCustomAuthPermissionRequest
+     *
      * @returns UpdateCustomAuthPermissionResponse
      *
      * @param UpdateCustomAuthPermissionRequest $request

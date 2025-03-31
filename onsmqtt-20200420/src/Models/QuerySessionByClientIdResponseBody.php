@@ -12,13 +12,14 @@ class QuerySessionByClientIdResponseBody extends Model
      * @var bool
      */
     public $onlineStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'onlineStatus' => 'OnlineStatus',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

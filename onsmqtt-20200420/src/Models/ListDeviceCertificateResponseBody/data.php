@@ -13,23 +13,26 @@ class data extends Model
      * @var deviceCertificateVOS[]
      */
     public $deviceCertificateVOS;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
         'deviceCertificateVOS' => 'DeviceCertificateVOS',
-        'pageNo'               => 'PageNo',
-        'pageSize'             => 'PageSize',
-        'total'                => 'Total',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->deviceCertificateVOS) {
             if (\is_array($this->deviceCertificateVOS)) {
                 $res['DeviceCertificateVOS'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->deviceCertificateVOS as $item1) {
                     $res['DeviceCertificateVOS'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['DeviceCertificateVOS'])) {
             if (!empty($map['DeviceCertificateVOS'])) {
                 $model->deviceCertificateVOS = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['DeviceCertificateVOS'] as $item1) {
                     $model->deviceCertificateVOS[$n1++] = deviceCertificateVOS::fromMap($item1);
                 }

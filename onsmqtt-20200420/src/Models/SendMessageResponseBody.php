@@ -12,12 +12,13 @@ class SendMessageResponseBody extends Model
      * @var string
      */
     public $msgId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'msgId'     => 'MsgId',
+        'msgId' => 'MsgId',
         'requestId' => 'RequestId',
     ];
 

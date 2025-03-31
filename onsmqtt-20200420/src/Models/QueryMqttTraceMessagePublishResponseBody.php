@@ -13,13 +13,14 @@ class QueryMqttTraceMessagePublishResponseBody extends Model
      * @var messageTraceLists[]
      */
     public $messageTraceLists;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'messageTraceLists' => 'MessageTraceLists',
-        'requestId'         => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class QueryMqttTraceMessagePublishResponseBody extends Model
         if (null !== $this->messageTraceLists) {
             if (\is_array($this->messageTraceLists)) {
                 $res['MessageTraceLists'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->messageTraceLists as $item1) {
                     $res['MessageTraceLists'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class QueryMqttTraceMessagePublishResponseBody extends Model
         if (isset($map['MessageTraceLists'])) {
             if (!empty($map['MessageTraceLists'])) {
                 $model->messageTraceLists = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['MessageTraceLists'] as $item1) {
                     $model->messageTraceLists[$n1++] = messageTraceLists::fromMap($item1);
                 }

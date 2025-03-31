@@ -12,13 +12,14 @@ class RevokeTokenRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $token;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'token'      => 'Token',
+        'token' => 'Token',
     ];
 
     public function validate()

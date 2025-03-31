@@ -12,22 +12,25 @@ class RegisterCaCertificateRequest extends Model
      * @var string
      */
     public $caContent;
+
     /**
      * @var string
      */
     public $caName;
+
     /**
      * @var string
      */
     public $mqttInstanceId;
+
     /**
      * @var string
      */
     public $verificationContent;
     protected $_name = [
-        'caContent'           => 'CaContent',
-        'caName'              => 'CaName',
-        'mqttInstanceId'      => 'MqttInstanceId',
+        'caContent' => 'CaContent',
+        'caName' => 'CaName',
+        'mqttInstanceId' => 'MqttInstanceId',
         'verificationContent' => 'VerificationContent',
     ];
 

@@ -12,38 +12,44 @@ class deviceCertificateVOS extends Model
      * @var string
      */
     public $caSn;
+
     /**
      * @var string
      */
     public $deviceContent;
+
     /**
      * @var string
      */
     public $deviceName;
+
     /**
      * @var string
      */
     public $deviceSn;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $validBegin;
+
     /**
      * @var string
      */
     public $validEnd;
     protected $_name = [
-        'caSn'          => 'CaSn',
+        'caSn' => 'CaSn',
         'deviceContent' => 'DeviceContent',
-        'deviceName'    => 'DeviceName',
-        'deviceSn'      => 'DeviceSn',
-        'status'        => 'Status',
-        'validBegin'    => 'ValidBegin',
-        'validEnd'      => 'ValidEnd',
+        'deviceName' => 'DeviceName',
+        'deviceSn' => 'DeviceSn',
+        'status' => 'Status',
+        'validBegin' => 'ValidBegin',
+        'validEnd' => 'ValidEnd',
     ];
 
     public function validate()

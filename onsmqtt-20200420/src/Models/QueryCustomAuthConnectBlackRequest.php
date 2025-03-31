@@ -12,23 +12,26 @@ class QueryCustomAuthConnectBlackRequest extends Model
      * @var string
      */
     public $clientId;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var int
      */
     public $size;
     protected $_name = [
-        'clientId'   => 'ClientId',
+        'clientId' => 'ClientId',
         'instanceId' => 'InstanceId',
-        'nextToken'  => 'NextToken',
-        'size'       => 'Size',
+        'nextToken' => 'NextToken',
+        'size' => 'Size',
     ];
 
     public function validate()

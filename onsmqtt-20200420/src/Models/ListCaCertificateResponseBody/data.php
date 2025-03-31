@@ -13,23 +13,26 @@ class data extends Model
      * @var caCertificateVOS[]
      */
     public $caCertificateVOS;
+
     /**
      * @var int
      */
     public $pageNo;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
         'caCertificateVOS' => 'CaCertificateVOS',
-        'pageNo'           => 'PageNo',
-        'pageSize'         => 'PageSize',
-        'total'            => 'Total',
+        'pageNo' => 'PageNo',
+        'pageSize' => 'PageSize',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->caCertificateVOS) {
             if (\is_array($this->caCertificateVOS)) {
                 $res['CaCertificateVOS'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->caCertificateVOS as $item1) {
                     $res['CaCertificateVOS'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['CaCertificateVOS'])) {
             if (!empty($map['CaCertificateVOS'])) {
                 $model->caCertificateVOS = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['CaCertificateVOS'] as $item1) {
                     $model->caCertificateVOS[$n1++] = caCertificateVOS::fromMap($item1);
                 }

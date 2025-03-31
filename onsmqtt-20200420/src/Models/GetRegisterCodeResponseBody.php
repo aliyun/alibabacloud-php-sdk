@@ -12,13 +12,14 @@ class GetRegisterCodeResponseBody extends Model
      * @var string
      */
     public $registerCode;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'registerCode' => 'RegisterCode',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class DisasterRecoveryRequest extends Model
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $recoveryInstanceId;
     protected $_name = [
-        'instanceId'         => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'recoveryInstanceId' => 'RecoveryInstanceId',
     ];
 

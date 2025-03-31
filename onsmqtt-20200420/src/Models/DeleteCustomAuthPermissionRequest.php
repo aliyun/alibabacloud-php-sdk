@@ -12,23 +12,26 @@ class DeleteCustomAuthPermissionRequest extends Model
      * @var string
      */
     public $identity;
+
     /**
      * @var string
      */
     public $identityType;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $topic;
     protected $_name = [
-        'identity'     => 'Identity',
+        'identity' => 'Identity',
         'identityType' => 'IdentityType',
-        'instanceId'   => 'InstanceId',
-        'topic'        => 'Topic',
+        'instanceId' => 'InstanceId',
+        'topic' => 'Topic',
     ];
 
     public function validate()

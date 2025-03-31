@@ -13,13 +13,14 @@ class GetDeviceCredentialResponseBody extends Model
      * @var deviceCredential
      */
     public $deviceCredential;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'deviceCredential' => 'DeviceCredential',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
