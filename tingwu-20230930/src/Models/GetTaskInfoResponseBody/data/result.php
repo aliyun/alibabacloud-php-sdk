@@ -16,7 +16,17 @@ class result extends Model
     /**
      * @var string
      */
+    public $contentExtraction;
+
+    /**
+     * @var string
+     */
     public $customPrompt;
+
+    /**
+     * @var string
+     */
+    public $identityRecognition;
 
     /**
      * @var string
@@ -54,7 +64,9 @@ class result extends Model
     public $translation;
     protected $_name = [
         'autoChapters' => 'AutoChapters',
+        'contentExtraction' => 'ContentExtraction',
         'customPrompt' => 'CustomPrompt',
+        'identityRecognition' => 'IdentityRecognition',
         'meetingAssistance' => 'MeetingAssistance',
         'pptExtraction' => 'PptExtraction',
         'serviceInspection' => 'ServiceInspection',
@@ -76,8 +88,16 @@ class result extends Model
             $res['AutoChapters'] = $this->autoChapters;
         }
 
+        if (null !== $this->contentExtraction) {
+            $res['ContentExtraction'] = $this->contentExtraction;
+        }
+
         if (null !== $this->customPrompt) {
             $res['CustomPrompt'] = $this->customPrompt;
+        }
+
+        if (null !== $this->identityRecognition) {
+            $res['IdentityRecognition'] = $this->identityRecognition;
         }
 
         if (null !== $this->meetingAssistance) {
@@ -123,8 +143,16 @@ class result extends Model
             $model->autoChapters = $map['AutoChapters'];
         }
 
+        if (isset($map['ContentExtraction'])) {
+            $model->contentExtraction = $map['ContentExtraction'];
+        }
+
         if (isset($map['CustomPrompt'])) {
             $model->customPrompt = $map['CustomPrompt'];
+        }
+
+        if (isset($map['IdentityRecognition'])) {
+            $model->identityRecognition = $map['IdentityRecognition'];
         }
 
         if (isset($map['MeetingAssistance'])) {
