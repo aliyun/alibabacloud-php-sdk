@@ -4,38 +4,21 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeHttpDDoSAttackProtectionResponseBody extends Model
 {
     /**
-     * @description The level of HTTP DDoS attack protection. Valid values:
-     *
-     *   **very weak**: very loose.
-     *   **weak**: loose.
-     *   **default**: normal.
-     *   **hard**: strict.
-     *
-     * @example default
-     *
      * @var string
      */
     public $globalMode;
 
     /**
-     * @description The request ID.
-     *
-     * @example 35C66C7B-671H-4297-9187-2C4477247A78
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The website ID.
-     *
-     * @example 123456****
-     *
      * @var int
      */
     public $siteId;
@@ -45,17 +28,22 @@ class DescribeHttpDDoSAttackProtectionResponseBody extends Model
         'siteId' => 'SiteId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->globalMode) {
             $res['GlobalMode'] = $this->globalMode;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -63,20 +51,22 @@ class DescribeHttpDDoSAttackProtectionResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeHttpDDoSAttackProtectionResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GlobalMode'])) {
             $model->globalMode = $map['GlobalMode'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

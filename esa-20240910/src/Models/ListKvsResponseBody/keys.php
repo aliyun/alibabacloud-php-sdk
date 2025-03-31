@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListKvsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class keys extends Model
 {
     /**
-     * @description The key name.
-     *
-     * @example Key1
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The time when the key was last updated.
-     *
-     * @example 2021-12-13T07:46:03Z
-     *
      * @var string
      */
     public $updateTime;
@@ -30,14 +22,18 @@ class keys extends Model
         'updateTime' => 'UpdateTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -45,17 +41,18 @@ class keys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return keys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

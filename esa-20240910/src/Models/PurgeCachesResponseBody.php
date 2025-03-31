@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PurgeCachesResponseBody extends Model
 {
     /**
-     * @description Request ID.
-     *
-     * @example ET5BF670-09D5-4D0B-BEBY-D96A2A528000
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Task ID, which is returned when you create a refresh or preheat task.
-     *
-     * @example 15940956620
-     *
      * @var string
      */
     public $taskId;
@@ -30,14 +22,18 @@ class PurgeCachesResponseBody extends Model
         'taskId' => 'TaskId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
         }
@@ -45,17 +41,18 @@ class PurgeCachesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PurgeCachesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
         }

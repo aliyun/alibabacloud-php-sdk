@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetDevelopmentModeResponseBody extends Model
 {
     /**
-     * @description Switch. Values:
-     *
-     * - **on**: Enabled.
-     * - **off**: Disabled.
-     *
-     * @example on
-     *
      * @var string
      */
     public $enable;
 
     /**
-     * @description Request ID.
-     *
-     * @example 156A6B-677B1A-4297B7-9187B7-2B44792
-     *
      * @var string
      */
     public $requestId;
@@ -33,14 +22,18 @@ class GetDevelopmentModeResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,17 +41,18 @@ class GetDevelopmentModeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetDevelopmentModeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

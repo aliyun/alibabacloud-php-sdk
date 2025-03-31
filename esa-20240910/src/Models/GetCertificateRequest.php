@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCertificateRequest extends Model
 {
     /**
-     * @description Certificate ID.
-     *
-     * This parameter is required.
-     *
-     * @example babaded901474b9693acf530e0fb1d95
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
-     *
-     * This parameter is required.
-     *
-     * @example 1234567890123
-     *
      * @var int
      */
     public $siteId;
@@ -34,14 +22,18 @@ class GetCertificateRequest extends Model
         'siteId' => 'SiteId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -49,17 +41,18 @@ class GetCertificateRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCertificateRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

@@ -4,42 +4,26 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\DescribeDDoSL7QpsListResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dataModule extends Model
 {
     /**
-     * @description Attack QPS.
-     *
-     * @example 5
-     *
      * @var int
      */
     public $attack;
 
     /**
-     * @description Normal QPS.
-     *
-     * @example 4
-     *
      * @var int
      */
     public $normal;
 
     /**
-     * @description Data time, following ISO8601 notation and using UTC+0, formatted as yyyy-MM-ddTHH:mm:ssZ.
-     *
-     * @example 2023-04-19T16:00:00Z
-     *
      * @var string
      */
     public $timeStamp;
 
     /**
-     * @description Total QPS.
-     *
-     * @example 9
-     *
      * @var int
      */
     public $total;
@@ -50,20 +34,26 @@ class dataModule extends Model
         'total' => 'Total',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->attack) {
             $res['Attack'] = $this->attack;
         }
+
         if (null !== $this->normal) {
             $res['Normal'] = $this->normal;
         }
+
         if (null !== $this->timeStamp) {
             $res['TimeStamp'] = $this->timeStamp;
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -71,23 +61,26 @@ class dataModule extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dataModule
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Attack'])) {
             $model->attack = $map['Attack'];
         }
+
         if (isset($map['Normal'])) {
             $model->normal = $map['Normal'];
         }
+
         if (isset($map['TimeStamp'])) {
             $model->timeStamp = $map['TimeStamp'];
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

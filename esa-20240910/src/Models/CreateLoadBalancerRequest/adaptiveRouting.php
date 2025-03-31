@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\CreateLoadBalancerRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class adaptiveRouting extends Model
 {
     /**
-     * @description Whether to failover across pools.
-     *
-     * - true: Yes.
-     * - false: No.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $failoverAcrossPools;
@@ -23,9 +16,12 @@ class adaptiveRouting extends Model
         'failoverAcrossPools' => 'FailoverAcrossPools',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failoverAcrossPools) {
@@ -35,11 +31,11 @@ class adaptiveRouting extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return adaptiveRouting
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

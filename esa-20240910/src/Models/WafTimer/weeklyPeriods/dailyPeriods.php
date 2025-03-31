@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\WafTimer\weeklyPeriods;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class dailyPeriods extends Model
 {
@@ -22,14 +22,18 @@ class dailyPeriods extends Model
         'start' => 'Start',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->end) {
             $res['End'] = $this->end;
         }
+
         if (null !== $this->start) {
             $res['Start'] = $this->start;
         }
@@ -37,17 +41,18 @@ class dailyPeriods extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dailyPeriods
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['End'])) {
             $model->end = $map['End'];
         }
+
         if (isset($map['Start'])) {
             $model->start = $map['Start'];
         }

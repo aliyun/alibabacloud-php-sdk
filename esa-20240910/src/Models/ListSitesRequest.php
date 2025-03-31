@@ -4,130 +4,67 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListSitesRequest\tagFilter;
-use AlibabaCloud\Tea\Model;
 
 class ListSitesRequest extends Model
 {
     /**
-     * @description Access type. Values:
-     *
-     * - **NS**: Access through NS hosting.
-     * - **CNAME**: Access through CNAME.
-     *
-     * @example NS
-     *
      * @var string
      */
     public $accessType;
 
     /**
-     * @description Acceleration region. Values:
-     * - **domestic**: China mainland only.
-     * - **global**: Global.
-     * - **overseas**: Global (excluding China mainland).
-     *
-     * @example global
-     *
      * @var string
      */
     public $coverage;
 
     /**
-     * @description Enterprise edition only. When set to **true**, it indicates that only enterprise edition sites are queried.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $onlyEnterprise;
 
     /**
-     * @description Sorting field, default sorted by creation time, supports:
-     * - gmtCreate: Site creation time
-     * - visitTime: Site access time
-     *
-     * @example visitTime
-     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description Page number. Default value: **1**.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description Page size. Default value: **500**.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description Plan subscription type. Values:
-     * - **basicplan**: Basic plan.
-     * - **standardplan**: Standard plan.
-     * - **advancedplan**: Advanced plan.
-     * - **enterpriseplan**: Enterprise plan.
-     *
-     * @example basicplan
-     *
      * @var string
      */
     public $planSubscribeType;
 
     /**
-     * @description Resource group ID. Used as a filter condition for the query.
-     *
-     * @example rg-aekzd3styujvyei
-     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description Site name. Used as a filter condition for the query.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $siteName;
 
     /**
-     * @description Search match pattern for the site name. The default is exact match, with values:
-     *
-     * - **prefix**: Prefix match.
-     * - **suffix**: Suffix match.
-     * - **exact**: Exact match.
-     * - **fuzzy**: Fuzzy match.
-     *
-     * @example fuzzy
-     *
      * @var string
      */
     public $siteSearchType;
 
     /**
-     * @description Site status. Used as a filter condition for the query.
-     *
-     * @example pending
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @description Tag filtering rules.
-     *
      * @var tagFilter[]
      */
     public $tagFilter;
@@ -146,50 +83,67 @@ class ListSitesRequest extends Model
         'tagFilter' => 'TagFilter',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->tagFilter)) {
+            Model::validateArray($this->tagFilter);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->accessType) {
             $res['AccessType'] = $this->accessType;
         }
+
         if (null !== $this->coverage) {
             $res['Coverage'] = $this->coverage;
         }
+
         if (null !== $this->onlyEnterprise) {
             $res['OnlyEnterprise'] = $this->onlyEnterprise;
         }
+
         if (null !== $this->orderBy) {
             $res['OrderBy'] = $this->orderBy;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->planSubscribeType) {
             $res['PlanSubscribeType'] = $this->planSubscribeType;
         }
+
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+
         if (null !== $this->siteName) {
             $res['SiteName'] = $this->siteName;
         }
+
         if (null !== $this->siteSearchType) {
             $res['SiteSearchType'] = $this->siteSearchType;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->tagFilter) {
-            $res['TagFilter'] = [];
-            if (null !== $this->tagFilter && \is_array($this->tagFilter)) {
-                $n = 0;
-                foreach ($this->tagFilter as $item) {
-                    $res['TagFilter'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tagFilter)) {
+                $res['TagFilter'] = [];
+                $n1 = 0;
+                foreach ($this->tagFilter as $item1) {
+                    $res['TagFilter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -197,53 +151,64 @@ class ListSitesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListSitesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AccessType'])) {
             $model->accessType = $map['AccessType'];
         }
+
         if (isset($map['Coverage'])) {
             $model->coverage = $map['Coverage'];
         }
+
         if (isset($map['OnlyEnterprise'])) {
             $model->onlyEnterprise = $map['OnlyEnterprise'];
         }
+
         if (isset($map['OrderBy'])) {
             $model->orderBy = $map['OrderBy'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['PlanSubscribeType'])) {
             $model->planSubscribeType = $map['PlanSubscribeType'];
         }
+
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+
         if (isset($map['SiteName'])) {
             $model->siteName = $map['SiteName'];
         }
+
         if (isset($map['SiteSearchType'])) {
             $model->siteSearchType = $map['SiteSearchType'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['TagFilter'])) {
             if (!empty($map['TagFilter'])) {
                 $model->tagFilter = [];
-                $n = 0;
-                foreach ($map['TagFilter'] as $item) {
-                    $model->tagFilter[$n++] = null !== $item ? tagFilter::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TagFilter'] as $item1) {
+                    $model->tagFilter[$n1++] = tagFilter::fromMap($item1);
                 }
             }
         }

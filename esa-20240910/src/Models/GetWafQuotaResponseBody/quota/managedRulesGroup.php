@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\GetWafQuotaResponseBody\quota;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\WafQuotaInteger;
-use AlibabaCloud\Tea\Model;
 
 class managedRulesGroup extends Model
 {
     /**
-     * @description Indicates whether the WAF managed rules group is enabled.
-     *
      * @var bool
      */
     public $enable;
 
     /**
-     * @description The total number quota allowed for the WAF managed rules group.
-     *
      * @var WafQuotaInteger
      */
     public $numberTotal;
@@ -27,32 +23,40 @@ class managedRulesGroup extends Model
         'numberTotal' => 'NumberTotal',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->numberTotal) {
+            $this->numberTotal->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+
         if (null !== $this->numberTotal) {
-            $res['NumberTotal'] = null !== $this->numberTotal ? $this->numberTotal->toMap() : null;
+            $res['NumberTotal'] = null !== $this->numberTotal ? $this->numberTotal->toArray($noStream) : $this->numberTotal;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return managedRulesGroup
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+
         if (isset($map['NumberTotal'])) {
             $model->numberTotal = WafQuotaInteger::fromMap($map['NumberTotal']);
         }

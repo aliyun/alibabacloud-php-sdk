@@ -4,41 +4,21 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeRatePlanInstanceStatusResponseBody extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * @example xcdn-91fknmb80f0g***
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The instance status. Valid values:
-     *
-     *   running: The instance is running.
-     *   renewing: The instance is being renewed.
-     *   upgrading: The configuration of the instance is being upgraded.
-     *   releasePrepaidService: The instance is released due to expiration.
-     *   creating: The instance is being created.
-     *   downgrading: The configuration of the instance is being downgraded.
-     *   ceasePrepaidService: The instance has expired.
-     *
-     * @example running
-     *
      * @var string
      */
     public $instanceStatus;
 
     /**
-     * @description The request ID.
-     *
-     * @example 60423A7F-A83D-1E24-B80E-86DD25790759
-     *
      * @var string
      */
     public $requestId;
@@ -48,17 +28,22 @@ class DescribeRatePlanInstanceStatusResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->instanceStatus) {
             $res['InstanceStatus'] = $this->instanceStatus;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -66,20 +51,22 @@ class DescribeRatePlanInstanceStatusResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeRatePlanInstanceStatusResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['InstanceStatus'])) {
             $model->instanceStatus = $map['InstanceStatus'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

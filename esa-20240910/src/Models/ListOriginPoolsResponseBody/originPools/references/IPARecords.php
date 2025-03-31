@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListOriginPoolsResponseBody\originPools\references;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class IPARecords extends Model
 {
     /**
-     * @description Record ID.
-     *
-     * @example 1042852886352704
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description Record name.
-     *
-     * @example ipa.example.com
-     *
      * @var string
      */
     public $name;
@@ -30,14 +22,18 @@ class IPARecords extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -45,17 +41,18 @@ class IPARecords extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return IPARecords
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

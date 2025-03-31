@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PurchaseRatePlanResponseBody extends Model
 {
     /**
-     * @description Instance ID.
-     *
-     * @example esa-site-ads11w
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Order ID.
-     *
-     * @example 123123
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description Request ID.
-     *
-     * @example 30423A7F-A83D-1E24-B80E-86DD25790758
-     *
      * @var string
      */
     public $requestId;
@@ -40,17 +28,22 @@ class PurchaseRatePlanResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,20 +51,22 @@ class PurchaseRatePlanResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PurchaseRatePlanResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

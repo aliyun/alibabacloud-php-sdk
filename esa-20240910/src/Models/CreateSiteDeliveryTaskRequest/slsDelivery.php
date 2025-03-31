@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\CreateSiteDeliveryTaskRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class slsDelivery extends Model
 {
     /**
-     * @description The name of the Logstore.
-     *
-     * @example accesslog-test
-     *
      * @var string
      */
     public $SLSLogStore;
 
     /**
-     * @description The name of the SLS project.
-     *
-     * @example dcdn-test20240417
-     *
      * @var string
      */
     public $SLSProject;
 
     /**
-     * @description The region in which the SLS project resides.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $SLSRegion;
@@ -40,17 +28,22 @@ class slsDelivery extends Model
         'SLSRegion' => 'SLSRegion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->SLSLogStore) {
             $res['SLSLogStore'] = $this->SLSLogStore;
         }
+
         if (null !== $this->SLSProject) {
             $res['SLSProject'] = $this->SLSProject;
         }
+
         if (null !== $this->SLSRegion) {
             $res['SLSRegion'] = $this->SLSRegion;
         }
@@ -58,20 +51,22 @@ class slsDelivery extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return slsDelivery
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SLSLogStore'])) {
             $model->SLSLogStore = $map['SLSLogStore'];
         }
+
         if (isset($map['SLSProject'])) {
             $model->SLSProject = $map['SLSProject'];
         }
+
         if (isset($map['SLSRegion'])) {
             $model->SLSRegion = $map['SLSRegion'];
         }

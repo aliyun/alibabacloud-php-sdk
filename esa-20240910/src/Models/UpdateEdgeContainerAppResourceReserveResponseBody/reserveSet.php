@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\UpdateEdgeContainerAppResourceReserveResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class reserveSet extends Model
 {
     /**
-     * @example cmcc
-     *
      * @var string
      */
     public $isp;
 
     /**
-     * @example huazhong
-     *
      * @var string
      */
     public $region;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $replicas;
@@ -34,17 +28,22 @@ class reserveSet extends Model
         'replicas' => 'Replicas',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isp) {
             $res['Isp'] = $this->isp;
         }
+
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
+
         if (null !== $this->replicas) {
             $res['Replicas'] = $this->replicas;
         }
@@ -52,20 +51,22 @@ class reserveSet extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return reserveSet
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Isp'])) {
             $model->isp = $map['Isp'];
         }
+
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
+
         if (isset($map['Replicas'])) {
             $model->replicas = $map['Replicas'];
         }

@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListRoutineOptionalSpecsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class specs extends Model
 {
     /**
-     * @description Indicates whether the specification is available. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * @example true
-     *
      * @var bool
      */
     public $isAvailable;
 
     /**
-     * @description The specification name.
-     *
-     * @example 5ms
-     *
      * @var string
      */
     public $specName;
@@ -33,14 +22,18 @@ class specs extends Model
         'specName' => 'SpecName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->isAvailable) {
             $res['IsAvailable'] = $this->isAvailable;
         }
+
         if (null !== $this->specName) {
             $res['SpecName'] = $this->specName;
         }
@@ -48,17 +41,18 @@ class specs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return specs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['IsAvailable'])) {
             $model->isAvailable = $map['IsAvailable'];
         }
+
         if (isset($map['SpecName'])) {
             $model->specName = $map['SpecName'];
         }

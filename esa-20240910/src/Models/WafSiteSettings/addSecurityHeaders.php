@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\WafSiteSettings;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class addSecurityHeaders extends Model
 {
@@ -16,9 +16,12 @@ class addSecurityHeaders extends Model
         'enable' => 'Enable',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enable) {
@@ -28,11 +31,11 @@ class addSecurityHeaders extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return addSecurityHeaders
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

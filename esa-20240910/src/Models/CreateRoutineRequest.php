@@ -4,35 +4,21 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateRoutineRequest extends Model
 {
     /**
-     * @description The routine description.
-     *
-     * @example the description of this routine
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The routine name, which must be unique in the same account.
-     *
-     * This parameter is required.
-     *
-     * @example test-routine1
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The specification of the routine.
-     *
-     * @example 5ms
-     *
      * @var string
      */
     public $specName;
@@ -42,17 +28,22 @@ class CreateRoutineRequest extends Model
         'specName' => 'SpecName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->specName) {
             $res['SpecName'] = $this->specName;
         }
@@ -60,20 +51,22 @@ class CreateRoutineRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateRoutineRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SpecName'])) {
             $model->specName = $map['SpecName'];
         }

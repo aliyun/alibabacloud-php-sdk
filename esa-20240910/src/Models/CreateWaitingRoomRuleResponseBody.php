@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateWaitingRoomRuleResponseBody extends Model
 {
     /**
-     * @description Request ID.
-     *
-     * @example EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Waiting room bypass rule ID.
-     *
-     * @example 420072638347264
-     *
      * @var int
      */
     public $waitingRoomRuleId;
@@ -30,14 +22,18 @@ class CreateWaitingRoomRuleResponseBody extends Model
         'waitingRoomRuleId' => 'WaitingRoomRuleId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->waitingRoomRuleId) {
             $res['WaitingRoomRuleId'] = $this->waitingRoomRuleId;
         }
@@ -45,17 +41,18 @@ class CreateWaitingRoomRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateWaitingRoomRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['WaitingRoomRuleId'])) {
             $model->waitingRoomRuleId = $map['WaitingRoomRuleId'];
         }

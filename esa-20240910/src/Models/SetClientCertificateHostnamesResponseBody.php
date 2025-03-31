@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SetClientCertificateHostnamesResponseBody extends Model
 {
@@ -14,37 +14,21 @@ class SetClientCertificateHostnamesResponseBody extends Model
     public $hostnames;
 
     /**
-     * @description The ID of the client CA certificate.
-     *
-     * @example babab9db65ee5efcca9f3d41d4b50d66
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @description The request ID.
-     *
-     * @example ET5BF670-09D5-4D0B-BEBY-D96A2A528000
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The website ID.
-     *
-     * @example 1234567890123
-     *
      * @var int
      */
     public $siteId;
 
     /**
-     * @description The website name.
-     *
-     * @example example.com
-     *
      * @var string
      */
     public $siteName;
@@ -56,23 +40,39 @@ class SetClientCertificateHostnamesResponseBody extends Model
         'siteName' => 'SiteName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->hostnames)) {
+            Model::validateArray($this->hostnames);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->hostnames) {
-            $res['Hostnames'] = $this->hostnames;
+            if (\is_array($this->hostnames)) {
+                $res['Hostnames'] = [];
+                $n1 = 0;
+                foreach ($this->hostnames as $item1) {
+                    $res['Hostnames'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
+
         if (null !== $this->siteName) {
             $res['SiteName'] = $this->siteName;
         }
@@ -80,28 +80,36 @@ class SetClientCertificateHostnamesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SetClientCertificateHostnamesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Hostnames'])) {
             if (!empty($map['Hostnames'])) {
-                $model->hostnames = $map['Hostnames'];
+                $model->hostnames = [];
+                $n1 = 0;
+                foreach ($map['Hostnames'] as $item1) {
+                    $model->hostnames[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }
+
         if (isset($map['SiteName'])) {
             $model->siteName = $map['SiteName'];
         }

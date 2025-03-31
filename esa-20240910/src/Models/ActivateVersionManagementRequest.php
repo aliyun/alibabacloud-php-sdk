@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ActivateVersionManagementRequest extends Model
 {
     /**
-     * @description Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) API.
-     *
-     * This parameter is required.
-     *
-     * @example 11223***
-     *
      * @var int
      */
     public $siteId;
@@ -22,9 +16,12 @@ class ActivateVersionManagementRequest extends Model
         'siteId' => 'SiteId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->siteId) {
@@ -34,11 +31,11 @@ class ActivateVersionManagementRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ActivateVersionManagementRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteCacheRuleRequest extends Model
 {
     /**
-     * @description ConfigId of the configuration, which can be obtained by calling the [ListCacheRules](https://help.aliyun.com/document_detail/2866985.html) interface.
-     *
-     * This parameter is required.
-     *
-     * @example 3528160*********
-     *
      * @var int
      */
     public $configId;
 
     /**
-     * @description Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
-     *
-     * This parameter is required.
-     *
-     * @example 3500241*********
-     *
      * @var int
      */
     public $siteId;
@@ -34,14 +22,18 @@ class DeleteCacheRuleRequest extends Model
         'siteId' => 'SiteId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configId) {
             $res['ConfigId'] = $this->configId;
         }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -49,17 +41,18 @@ class DeleteCacheRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteCacheRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigId'])) {
             $model->configId = $map['ConfigId'];
         }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

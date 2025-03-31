@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\DescribeEdgeContainerAppStatsResponseBody\points;
-use AlibabaCloud\Tea\Model;
 
 class DescribeEdgeContainerAppStatsResponseBody extends Model
 {
@@ -50,10 +50,6 @@ class DescribeEdgeContainerAppStatsResponseBody extends Model
     public $points;
 
     /**
-     * @description Id of the request
-     *
-     * @example 35C66C7B-671H-4297-9187-2C4477247A78
-     *
      * @var string
      */
     public $requestId;
@@ -69,41 +65,55 @@ class DescribeEdgeContainerAppStatsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->points)) {
+            Model::validateArray($this->points);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpuUsageSecondsQuotaRateAvg) {
             $res['CpuUsageSecondsQuotaRateAvg'] = $this->cpuUsageSecondsQuotaRateAvg;
         }
+
         if (null !== $this->cpuUsageSecondsTotalAvg) {
             $res['CpuUsageSecondsTotalAvg'] = $this->cpuUsageSecondsTotalAvg;
         }
+
         if (null !== $this->fsReadsBytesAvgAvg) {
             $res['FsReadsBytesAvgAvg'] = $this->fsReadsBytesAvgAvg;
         }
+
         if (null !== $this->fsWritesBytesAvgAvg) {
             $res['FsWritesBytesAvgAvg'] = $this->fsWritesBytesAvgAvg;
         }
+
         if (null !== $this->memoryRssAvg) {
             $res['MemoryRssAvg'] = $this->memoryRssAvg;
         }
+
         if (null !== $this->memoryRssQuotaRateAvg) {
             $res['MemoryRssQuotaRateAvg'] = $this->memoryRssQuotaRateAvg;
         }
+
         if (null !== $this->podReadyRateAvg) {
             $res['PodReadyRateAvg'] = $this->podReadyRateAvg;
         }
+
         if (null !== $this->points) {
-            $res['Points'] = [];
-            if (null !== $this->points && \is_array($this->points)) {
-                $n = 0;
-                foreach ($this->points as $item) {
-                    $res['Points'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->points)) {
+                $res['Points'] = [];
+                $n1 = 0;
+                foreach ($this->points as $item1) {
+                    $res['Points'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -111,44 +121,52 @@ class DescribeEdgeContainerAppStatsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeEdgeContainerAppStatsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CpuUsageSecondsQuotaRateAvg'])) {
             $model->cpuUsageSecondsQuotaRateAvg = $map['CpuUsageSecondsQuotaRateAvg'];
         }
+
         if (isset($map['CpuUsageSecondsTotalAvg'])) {
             $model->cpuUsageSecondsTotalAvg = $map['CpuUsageSecondsTotalAvg'];
         }
+
         if (isset($map['FsReadsBytesAvgAvg'])) {
             $model->fsReadsBytesAvgAvg = $map['FsReadsBytesAvgAvg'];
         }
+
         if (isset($map['FsWritesBytesAvgAvg'])) {
             $model->fsWritesBytesAvgAvg = $map['FsWritesBytesAvgAvg'];
         }
+
         if (isset($map['MemoryRssAvg'])) {
             $model->memoryRssAvg = $map['MemoryRssAvg'];
         }
+
         if (isset($map['MemoryRssQuotaRateAvg'])) {
             $model->memoryRssQuotaRateAvg = $map['MemoryRssQuotaRateAvg'];
         }
+
         if (isset($map['PodReadyRateAvg'])) {
             $model->podReadyRateAvg = $map['PodReadyRateAvg'];
         }
+
         if (isset($map['Points'])) {
             if (!empty($map['Points'])) {
                 $model->points = [];
-                $n = 0;
-                foreach ($map['Points'] as $item) {
-                    $model->points[$n++] = null !== $item ? points::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Points'] as $item1) {
+                    $model->points[$n1++] = points::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

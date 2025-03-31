@@ -4,30 +4,22 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetRoutineUserInfoResponseBody\routines;
-use AlibabaCloud\Tea\Model;
 
 class GetRoutineUserInfoResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example EDBD3EB3-97DA-5465-AEF5-8DCA5DC5E395
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The routines.
-     *
      * @var routines[]
      */
     public $routines;
 
     /**
-     * @description The subdomains.
-     *
      * @var string[]
      */
     public $subdomains;
@@ -37,53 +29,76 @@ class GetRoutineUserInfoResponseBody extends Model
         'subdomains' => 'Subdomains',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->routines)) {
+            Model::validateArray($this->routines);
+        }
+        if (\is_array($this->subdomains)) {
+            Model::validateArray($this->subdomains);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->routines) {
-            $res['Routines'] = [];
-            if (null !== $this->routines && \is_array($this->routines)) {
-                $n = 0;
-                foreach ($this->routines as $item) {
-                    $res['Routines'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->routines)) {
+                $res['Routines'] = [];
+                $n1 = 0;
+                foreach ($this->routines as $item1) {
+                    $res['Routines'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->subdomains) {
-            $res['Subdomains'] = $this->subdomains;
+            if (\is_array($this->subdomains)) {
+                $res['Subdomains'] = [];
+                $n1 = 0;
+                foreach ($this->subdomains as $item1) {
+                    $res['Subdomains'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetRoutineUserInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Routines'])) {
             if (!empty($map['Routines'])) {
                 $model->routines = [];
-                $n = 0;
-                foreach ($map['Routines'] as $item) {
-                    $model->routines[$n++] = null !== $item ? routines::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Routines'] as $item1) {
+                    $model->routines[$n1++] = routines::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Subdomains'])) {
             if (!empty($map['Subdomains'])) {
-                $model->subdomains = $map['Subdomains'];
+                $model->subdomains = [];
+                $n1 = 0;
+                foreach ($map['Subdomains'] as $item1) {
+                    $model->subdomains[$n1++] = $item1;
+                }
             }
         }
 

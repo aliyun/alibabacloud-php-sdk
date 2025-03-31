@@ -4,39 +4,21 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListInstanceQuotasResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class quotas extends Model
 {
     /**
-     * @description The quota name.
-     *
-     * @example customHttpCert
-     *
      * @var string
      */
     public $quotaName;
 
     /**
-     * @description The quota value.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $quotaValue;
 
     /**
-     * @description The threshold type of the quota. Valid values:
-     *
-     *   value: enumerates the values of the quota.
-     *   bool: specifies whether the quota is available.
-     *   num: the upper limit of the quota.
-     *   range: the value range for the quota.
-     *   custom: other types than the preceding four quota threshold types.
-     *
-     * @example bool
-     *
      * @var string
      */
     public $quotaValueType;
@@ -46,17 +28,22 @@ class quotas extends Model
         'quotaValueType' => 'QuotaValueType',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->quotaName) {
             $res['QuotaName'] = $this->quotaName;
         }
+
         if (null !== $this->quotaValue) {
             $res['QuotaValue'] = $this->quotaValue;
         }
+
         if (null !== $this->quotaValueType) {
             $res['QuotaValueType'] = $this->quotaValueType;
         }
@@ -64,20 +51,22 @@ class quotas extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return quotas
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['QuotaName'])) {
             $model->quotaName = $map['QuotaName'];
         }
+
         if (isset($map['QuotaValue'])) {
             $model->quotaValue = $map['QuotaValue'];
         }
+
         if (isset($map['QuotaValueType'])) {
             $model->quotaValueType = $map['QuotaValueType'];
         }

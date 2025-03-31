@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetCnameFlatteningResponseBody extends Model
 {
     /**
-     * @description The CNAME flattening mode. Valid values:
-     *
-     *   flatten_all: flattens all CNAMEs.
-     *   flatten_all (default): flattens only the root domain.
-     *
-     * @example flatten_all
-     *
      * @var string
      */
     public $flattenMode;
 
     /**
-     * @description The request ID.
-     *
-     * @example F61CDR30-E83C-4FDA-BF73-9A94CDD44229
-     *
      * @var string
      */
     public $requestId;
@@ -33,14 +22,18 @@ class GetCnameFlatteningResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->flattenMode) {
             $res['FlattenMode'] = $this->flattenMode;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,17 +41,18 @@ class GetCnameFlatteningResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetCnameFlatteningResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FlattenMode'])) {
             $model->flattenMode = $map['FlattenMode'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

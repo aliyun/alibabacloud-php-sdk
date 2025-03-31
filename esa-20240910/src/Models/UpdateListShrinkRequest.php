@@ -4,50 +4,26 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateListShrinkRequest extends Model
 {
     /**
-     * @description The new description of the list.
-     *
-     * This parameter is required.
-     *
-     * @example a custom list
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the custom list, which can be obtained by calling the [ListLists](https://help.aliyun.com/document_detail/2850217.html) operation.
-     *
-     * This parameter is required.
-     *
-     * @example 40000001
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The items in the updated list. The value is a JSON array.
-     *
-     * This parameter is required.
-     *
-     * @example a custom list
-     *
      * @var string
      */
     public $itemsShrink;
 
     /**
-     * @description The new name of the list.
-     *
-     * This parameter is required.
-     *
-     * @example example
-     *
      * @var string
      */
     public $name;
@@ -58,20 +34,26 @@ class UpdateListShrinkRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->itemsShrink) {
             $res['Items'] = $this->itemsShrink;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -79,23 +61,26 @@ class UpdateListShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateListShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['Items'])) {
             $model->itemsShrink = $map['Items'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

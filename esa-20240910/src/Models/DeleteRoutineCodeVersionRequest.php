@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteRoutineCodeVersionRequest extends Model
 {
     /**
-     * @description The code version.
-     *
-     * This parameter is required.
-     *
-     * @example 1710120201067203242
-     *
      * @var string
      */
     public $codeVersion;
 
     /**
-     * @description The routine name.
-     *
-     * This parameter is required.
-     *
-     * @example test-routine1
-     *
      * @var string
      */
     public $name;
@@ -34,14 +22,18 @@ class DeleteRoutineCodeVersionRequest extends Model
         'name' => 'Name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->codeVersion) {
             $res['CodeVersion'] = $this->codeVersion;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
@@ -49,17 +41,18 @@ class DeleteRoutineCodeVersionRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteRoutineCodeVersionRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CodeVersion'])) {
             $model->codeVersion = $map['CodeVersion'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }

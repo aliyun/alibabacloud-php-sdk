@@ -4,27 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetSeoBypassResponseBody extends Model
 {
     /**
-     * @description The status of the feature. Valid values:
-     *
-     *   **on**
-     *   **off**
-     *
-     * @example on
-     *
      * @var string
      */
     public $enable;
 
     /**
-     * @description The request ID.
-     *
-     * @example 15C66C7B-671A-4297-9187-2C4477247B78
-     *
      * @var string
      */
     public $requestId;
@@ -33,14 +22,18 @@ class GetSeoBypassResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -48,17 +41,18 @@ class GetSeoBypassResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetSeoBypassResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

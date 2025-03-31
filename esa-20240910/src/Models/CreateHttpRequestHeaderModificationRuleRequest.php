@@ -4,67 +4,42 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\CreateHttpRequestHeaderModificationRuleRequest\requestHeaderModification;
-use AlibabaCloud\Tea\Model;
 
 class CreateHttpRequestHeaderModificationRuleRequest extends Model
 {
     /**
-     * @description Modify request headers, supporting add, delete, and modify operations.
-     *
-     * This parameter is required.
-     *
      * @var requestHeaderModification[]
      */
     public $requestHeaderModification;
 
     /**
-     * @description Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-     * - To match all incoming requests: Set the value to true
-     * - To match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
-     *
-     * @example (http.host eq "video.example.com")
-     *
      * @var string
      */
     public $rule;
 
     /**
-     * @description Rule switch. This parameter is not required when adding a global configuration. Possible values:
-     * - on: Enable.
-     * - off: Disable.
-     *
-     * @example on
-     *
      * @var string
      */
     public $ruleEnable;
 
     /**
-     * @description Rule name. This parameter is not required when adding a global configuration.
-     *
-     * @example rule_example
-     *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description Site ID, which can be obtained by calling the [ListSites](~~ListSites~~) interface.
-     *
-     * This parameter is required.
-     *
-     * @example 5407498413****
-     *
+     * @var int
+     */
+    public $sequence;
+
+    /**
      * @var int
      */
     public $siteId;
 
     /**
-     * @description Version number of the site configuration. For sites with version management enabled, this parameter can specify the version to which the configuration applies, defaulting to version 0.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $siteVersion;
@@ -73,36 +48,52 @@ class CreateHttpRequestHeaderModificationRuleRequest extends Model
         'rule' => 'Rule',
         'ruleEnable' => 'RuleEnable',
         'ruleName' => 'RuleName',
+        'sequence' => 'Sequence',
         'siteId' => 'SiteId',
         'siteVersion' => 'SiteVersion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->requestHeaderModification)) {
+            Model::validateArray($this->requestHeaderModification);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestHeaderModification) {
-            $res['RequestHeaderModification'] = [];
-            if (null !== $this->requestHeaderModification && \is_array($this->requestHeaderModification)) {
-                $n = 0;
-                foreach ($this->requestHeaderModification as $item) {
-                    $res['RequestHeaderModification'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->requestHeaderModification)) {
+                $res['RequestHeaderModification'] = [];
+                $n1 = 0;
+                foreach ($this->requestHeaderModification as $item1) {
+                    $res['RequestHeaderModification'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->rule) {
             $res['Rule'] = $this->rule;
         }
+
         if (null !== $this->ruleEnable) {
             $res['RuleEnable'] = $this->ruleEnable;
         }
+
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
+
+        if (null !== $this->sequence) {
+            $res['Sequence'] = $this->sequence;
+        }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
+
         if (null !== $this->siteVersion) {
             $res['SiteVersion'] = $this->siteVersion;
         }
@@ -110,35 +101,44 @@ class CreateHttpRequestHeaderModificationRuleRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateHttpRequestHeaderModificationRuleRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestHeaderModification'])) {
             if (!empty($map['RequestHeaderModification'])) {
                 $model->requestHeaderModification = [];
-                $n = 0;
-                foreach ($map['RequestHeaderModification'] as $item) {
-                    $model->requestHeaderModification[$n++] = null !== $item ? requestHeaderModification::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RequestHeaderModification'] as $item1) {
+                    $model->requestHeaderModification[$n1++] = requestHeaderModification::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Rule'])) {
             $model->rule = $map['Rule'];
         }
+
         if (isset($map['RuleEnable'])) {
             $model->ruleEnable = $map['RuleEnable'];
         }
+
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
         }
+
+        if (isset($map['Sequence'])) {
+            $model->sequence = $map['Sequence'];
+        }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }
+
         if (isset($map['SiteVersion'])) {
             $model->siteVersion = $map['SiteVersion'];
         }

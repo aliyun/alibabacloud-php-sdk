@@ -4,47 +4,46 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateIPv6Request extends Model
 {
     /**
-     * @description Specifies whether to enable IPv6. Valid values:
-     *
-     *   **on**
-     *   **off**
-     *
-     * This parameter is required.
-     *
-     * @example on
-     *
      * @var string
      */
     public $enable;
 
     /**
-     * @description The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
-     *
-     * This parameter is required.
-     *
-     * @example 5407498413****
-     *
+     * @var string
+     */
+    public $region;
+
+    /**
      * @var int
      */
     public $siteId;
     protected $_name = [
         'enable' => 'Enable',
+        'region' => 'Region',
         'siteId' => 'SiteId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
+        }
+
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
@@ -52,17 +51,22 @@ class UpdateIPv6Request extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateIPv6Request
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
+        }
+
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }

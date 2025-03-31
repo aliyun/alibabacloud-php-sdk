@@ -4,33 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\PurgeCachesRequest\content;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cacheKeys extends Model
 {
     /**
-     * @description When refreshing, specify the header information corresponding to the cache key. When the custom cache key feature switch is enabled, the cache key will be generated based on the specified header for refreshing.
-     *
-     **UserGeo: Country/Region**
-     * - Country/region codes follow the ISO 3166-2 standard.
-     *
-     **UserDeviceType: Device Type, currently there are three enum values**
-     * - desktop
-     * - tablet
-     * - mobile
-     *
-     **UserLanguage: Language**
-     * - Language codes follow the ISO 639-1 or BCP47 standards. For example, input \\"zh\\" to refresh content in Chinese.
-     *
      * @var string[]
      */
     public $headers;
 
     /**
-     * @description URL address to be refreshed.
-     *
-     * @example http://a.com/1.jpg?b=1
-     *
      * @var string
      */
     public $url;
@@ -39,14 +22,26 @@ class cacheKeys extends Model
         'url' => 'Url',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->headers)) {
+            Model::validateArray($this->headers);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->headers) {
-            $res['Headers'] = $this->headers;
+            if (\is_array($this->headers)) {
+                $res['Headers'] = [];
+                foreach ($this->headers as $key1 => $value1) {
+                    $res['Headers'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -54,17 +49,23 @@ class cacheKeys extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cacheKeys
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Headers'])) {
-            $model->headers = $map['Headers'];
+            if (!empty($map['Headers'])) {
+                $model->headers = [];
+                foreach ($map['Headers'] as $key1 => $value1) {
+                    $model->headers[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

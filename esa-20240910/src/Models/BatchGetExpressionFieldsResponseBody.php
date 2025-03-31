@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\BatchGetExpressionFieldsResponseBody\fields;
-use AlibabaCloud\Tea\Model;
 
 class BatchGetExpressionFieldsResponseBody extends Model
 {
     /**
-     * @description The fields that match the regular expressions.
-     *
      * @var fields[]
      */
     public $fields;
 
     /**
-     * @description The request ID.
-     *
-     * @example 36af3fcc-43d0-441c-86b1-428951dc8225
-     *
      * @var string
      */
     public $requestId;
@@ -29,20 +23,27 @@ class BatchGetExpressionFieldsResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->fields)) {
+            Model::validateArray($this->fields);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fields) {
-            $res['Fields'] = [];
-            if (null !== $this->fields && \is_array($this->fields)) {
-                $n = 0;
-                foreach ($this->fields as $item) {
-                    $res['Fields'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fields)) {
+                $res['Fields'] = [];
+                $n1 = 0;
+                foreach ($this->fields as $item1) {
+                    $res['Fields'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -50,23 +51,24 @@ class BatchGetExpressionFieldsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return BatchGetExpressionFieldsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Fields'])) {
             if (!empty($map['Fields'])) {
                 $model->fields = [];
-                $n = 0;
-                foreach ($map['Fields'] as $item) {
-                    $model->fields[$n++] = null !== $item ? fields::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Fields'] as $item1) {
+                    $model->fields[$n1++] = fields::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

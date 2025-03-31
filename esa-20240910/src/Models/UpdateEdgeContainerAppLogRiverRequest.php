@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateEdgeContainerAppLogRiverRequest extends Model
 {
     /**
-     * @description The application ID, which can be obtained by calling the [ListEdgeContainerApps](https://help.aliyun.com/document_detail/2852396.html) operation.
-     *
-     * @example app-88068867578379****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The log path of the container.
-     *
-     * @example /root/hello.log
-     *
      * @var string
      */
     public $path;
 
     /**
-     * @description Specifies whether to collect the standard output of the container.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $stdout;
@@ -40,17 +28,22 @@ class UpdateEdgeContainerAppLogRiverRequest extends Model
         'stdout' => 'Stdout',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->path) {
             $res['Path'] = $this->path;
         }
+
         if (null !== $this->stdout) {
             $res['Stdout'] = $this->stdout;
         }
@@ -58,20 +51,22 @@ class UpdateEdgeContainerAppLogRiverRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateEdgeContainerAppLogRiverRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Path'])) {
             $model->path = $map['Path'];
         }
+
         if (isset($map['Stdout'])) {
             $model->stdout = $map['Stdout'];
         }

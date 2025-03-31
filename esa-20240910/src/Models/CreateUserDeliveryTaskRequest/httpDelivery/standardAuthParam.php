@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\CreateUserDeliveryTaskRequest\httpDelivery;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class standardAuthParam extends Model
 {
     /**
-     * @description The validity period of the signature.
-     *
-     * @example 300
-     *
      * @var int
      */
     public $expiredTime;
 
     /**
-     * @description The private key.
-     *
-     * @example xxxx
-     *
      * @var string
      */
     public $privateKey;
 
     /**
-     * @description The URL path.
-     *
-     * @example v1/log/upload
-     *
      * @var string
      */
     public $urlPath;
@@ -40,17 +28,22 @@ class standardAuthParam extends Model
         'urlPath' => 'UrlPath',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
+
         if (null !== $this->privateKey) {
             $res['PrivateKey'] = $this->privateKey;
         }
+
         if (null !== $this->urlPath) {
             $res['UrlPath'] = $this->urlPath;
         }
@@ -58,20 +51,22 @@ class standardAuthParam extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return standardAuthParam
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
+
         if (isset($map['PrivateKey'])) {
             $model->privateKey = $map['PrivateKey'];
         }
+
         if (isset($map['UrlPath'])) {
             $model->urlPath = $map['UrlPath'];
         }

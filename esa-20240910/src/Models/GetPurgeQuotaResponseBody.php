@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetPurgeQuotaResponseBody extends Model
 {
     /**
-     * @description The total quota.
-     *
-     * @example 100000
-     *
      * @var string
      */
     public $quota;
 
     /**
-     * @description The request ID.
-     *
-     * @example 15C66C7B-671A-4297-9187-2C4477247A74
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The quota usage.
-     *
-     * @example 10
-     *
      * @var string
      */
     public $usage;
@@ -40,17 +28,22 @@ class GetPurgeQuotaResponseBody extends Model
         'usage' => 'Usage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->quota) {
             $res['Quota'] = $this->quota;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->usage) {
             $res['Usage'] = $this->usage;
         }
@@ -58,20 +51,22 @@ class GetPurgeQuotaResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetPurgeQuotaResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Quota'])) {
             $model->quota = $map['Quota'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Usage'])) {
             $model->usage = $map['Usage'];
         }

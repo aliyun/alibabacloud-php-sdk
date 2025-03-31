@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListWaitingRoomEventsResponseBody\waitingRoomEvents;
-use AlibabaCloud\Tea\Model;
 
 class ListWaitingRoomEventsResponseBody extends Model
 {
     /**
-     * @description The request ID, which is used to trace a call.
-     *
-     * @example f3c3700a-4c0f-4a24-b576-fd7dbf9e7c55
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The details of the waiting room events.
-     *
      * @var waitingRoomEvents[]
      */
     public $waitingRoomEvents;
@@ -29,20 +23,27 @@ class ListWaitingRoomEventsResponseBody extends Model
         'waitingRoomEvents' => 'WaitingRoomEvents',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->waitingRoomEvents)) {
+            Model::validateArray($this->waitingRoomEvents);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->waitingRoomEvents) {
-            $res['WaitingRoomEvents'] = [];
-            if (null !== $this->waitingRoomEvents && \is_array($this->waitingRoomEvents)) {
-                $n = 0;
-                foreach ($this->waitingRoomEvents as $item) {
-                    $res['WaitingRoomEvents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->waitingRoomEvents)) {
+                $res['WaitingRoomEvents'] = [];
+                $n1 = 0;
+                foreach ($this->waitingRoomEvents as $item1) {
+                    $res['WaitingRoomEvents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -50,23 +51,24 @@ class ListWaitingRoomEventsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListWaitingRoomEventsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['WaitingRoomEvents'])) {
             if (!empty($map['WaitingRoomEvents'])) {
                 $model->waitingRoomEvents = [];
-                $n = 0;
-                foreach ($map['WaitingRoomEvents'] as $item) {
-                    $model->waitingRoomEvents[$n++] = null !== $item ? waitingRoomEvents::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['WaitingRoomEvents'] as $item1) {
+                    $model->waitingRoomEvents[$n1++] = waitingRoomEvents::fromMap($item1);
                 }
             }
         }

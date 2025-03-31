@@ -4,59 +4,37 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ESA\V20240910\Models\ListEdgeRoutinePlansResponseBody\planInfo;
-use AlibabaCloud\Tea\Model;
 
 class ListEdgeRoutinePlansResponseBody extends Model
 {
     /**
-     * @description The page number. Default value: 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 500.
-     *
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The plans.
-     *
      * @var planInfo[]
      */
     public $planInfo;
 
     /**
-     * @description The request ID.
-     *
-     * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 12
-     *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @description The total number of pages returned.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalPage;
@@ -69,32 +47,43 @@ class ListEdgeRoutinePlansResponseBody extends Model
         'totalPage' => 'TotalPage',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->planInfo)) {
+            Model::validateArray($this->planInfo);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->planInfo) {
-            $res['PlanInfo'] = [];
-            if (null !== $this->planInfo && \is_array($this->planInfo)) {
-                $n = 0;
-                foreach ($this->planInfo as $item) {
-                    $res['PlanInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->planInfo)) {
+                $res['PlanInfo'] = [];
+                $n1 = 0;
+                foreach ($this->planInfo as $item1) {
+                    $res['PlanInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
+
         if (null !== $this->totalPage) {
             $res['TotalPage'] = $this->totalPage;
         }
@@ -102,35 +91,40 @@ class ListEdgeRoutinePlansResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListEdgeRoutinePlansResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['PlanInfo'])) {
             if (!empty($map['PlanInfo'])) {
                 $model->planInfo = [];
-                $n = 0;
-                foreach ($map['PlanInfo'] as $item) {
-                    $model->planInfo[$n++] = null !== $item ? planInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['PlanInfo'] as $item1) {
+                    $model->planInfo[$n1++] = planInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }
+
         if (isset($map['TotalPage'])) {
             $model->totalPage = $map['TotalPage'];
         }

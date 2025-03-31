@@ -4,36 +4,21 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\ListHttpResponseHeaderModificationRulesResponseBody\configs;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class responseHeaderModification extends Model
 {
     /**
-     * @description Name of the response header.
-     *
-     * @example headerName
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description Operation type. The value range is as follows:
-     * - add: Add.
-     * - del: Delete
-     * - modify: Modify.
-     *
-     * @example add
-     *
      * @var string
      */
     public $operation;
 
     /**
-     * @description Response header value.
-     *
-     * @example headerValue
-     *
      * @var string
      */
     public $value;
@@ -43,17 +28,22 @@ class responseHeaderModification extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->operation) {
             $res['Operation'] = $this->operation;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -61,20 +51,22 @@ class responseHeaderModification extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return responseHeaderModification
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Operation'])) {
             $model->operation = $map['Operation'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

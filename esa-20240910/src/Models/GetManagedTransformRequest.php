@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetManagedTransformRequest extends Model
 {
     /**
-     * @description Site ID, which can be obtained by calling [ListSites](https://help.aliyun.com/document_detail/2850189.html).
-     *
-     * This parameter is required.
-     *
-     * @example 123456****
-     *
      * @var int
      */
     public $siteId;
 
     /**
-     * @description The version number of the site. For sites with version management enabled, you can use this parameter to specify the effective version of the configuration, defaulting to version 0.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $siteVersion;
@@ -32,14 +22,18 @@ class GetManagedTransformRequest extends Model
         'siteVersion' => 'SiteVersion',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->siteId) {
             $res['SiteId'] = $this->siteId;
         }
+
         if (null !== $this->siteVersion) {
             $res['SiteVersion'] = $this->siteVersion;
         }
@@ -47,17 +41,18 @@ class GetManagedTransformRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetManagedTransformRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SiteId'])) {
             $model->siteId = $map['SiteId'];
         }
+
         if (isset($map['SiteVersion'])) {
             $model->siteVersion = $map['SiteVersion'];
         }

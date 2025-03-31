@@ -4,29 +4,21 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CheckAssumeSlrRoleResponseBody extends Model
 {
     /**
-     * @example aliuid:xxx assumeOssRole not exist,serviceName:realtimelogpush.dcdnservices.aliyuncs.com
-     *
      * @var string
      */
     public $errorMsg;
 
     /**
-     * @example true
-     *
      * @var string
      */
     public $isExist;
 
     /**
-     * @description Id of the request
-     *
-     * @example 34DCBC8A-****-****-****-6DAA11D7DDBD
-     *
      * @var string
      */
     public $requestId;
@@ -36,17 +28,22 @@ class CheckAssumeSlrRoleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorMsg) {
             $res['ErrorMsg'] = $this->errorMsg;
         }
+
         if (null !== $this->isExist) {
             $res['IsExist'] = $this->isExist;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -54,20 +51,22 @@ class CheckAssumeSlrRoleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CheckAssumeSlrRoleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorMsg'])) {
             $model->errorMsg = $map['ErrorMsg'];
         }
+
         if (isset($map['IsExist'])) {
             $model->isExist = $map['IsExist'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

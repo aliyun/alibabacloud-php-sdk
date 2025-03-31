@@ -4,36 +4,26 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateCacheReserveSpecRequest extends Model
 {
     /**
-     * @description Specifies whether to enable auto payment.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $autoPay;
 
     /**
-     * @example PREPAY
-     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @example esa-cr-9tuv*********
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $targetQuotaGb;
@@ -44,20 +34,26 @@ class UpdateCacheReserveSpecRequest extends Model
         'targetQuotaGb' => 'TargetQuotaGb',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
+
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->targetQuotaGb) {
             $res['TargetQuotaGb'] = $this->targetQuotaGb;
         }
@@ -65,23 +61,26 @@ class UpdateCacheReserveSpecRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateCacheReserveSpecRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
+
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['TargetQuotaGb'])) {
             $model->targetQuotaGb = $map['TargetQuotaGb'];
         }

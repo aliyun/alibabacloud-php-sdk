@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetKvResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example EEEBE525-F576-1196-8DAF-2D70CA3F4D2F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The value of the key.
-     *
-     * @example test_value
-     *
      * @var string
      */
     public $value;
@@ -30,14 +22,18 @@ class GetKvResponseBody extends Model
         'value' => 'Value',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -45,17 +41,18 @@ class GetKvResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetKvResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

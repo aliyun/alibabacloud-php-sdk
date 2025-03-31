@@ -4,27 +4,21 @@
 
 namespace AlibabaCloud\SDK\ESA\V20240910\Models\GetSiteCustomLogResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class logCustomField extends Model
 {
     /**
-     * @description The cookie fields.
-     *
      * @var string[]
      */
     public $cookies;
 
     /**
-     * @description The request header fields.
-     *
      * @var string[]
      */
     public $requestHeaders;
 
     /**
-     * @description The response header fields.
-     *
      * @var string[]
      */
     public $responseHeaders;
@@ -34,45 +28,91 @@ class logCustomField extends Model
         'responseHeaders' => 'ResponseHeaders',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->cookies)) {
+            Model::validateArray($this->cookies);
+        }
+        if (\is_array($this->requestHeaders)) {
+            Model::validateArray($this->requestHeaders);
+        }
+        if (\is_array($this->responseHeaders)) {
+            Model::validateArray($this->responseHeaders);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cookies) {
-            $res['Cookies'] = $this->cookies;
+            if (\is_array($this->cookies)) {
+                $res['Cookies'] = [];
+                $n1 = 0;
+                foreach ($this->cookies as $item1) {
+                    $res['Cookies'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestHeaders) {
-            $res['RequestHeaders'] = $this->requestHeaders;
+            if (\is_array($this->requestHeaders)) {
+                $res['RequestHeaders'] = [];
+                $n1 = 0;
+                foreach ($this->requestHeaders as $item1) {
+                    $res['RequestHeaders'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->responseHeaders) {
-            $res['ResponseHeaders'] = $this->responseHeaders;
+            if (\is_array($this->responseHeaders)) {
+                $res['ResponseHeaders'] = [];
+                $n1 = 0;
+                foreach ($this->responseHeaders as $item1) {
+                    $res['ResponseHeaders'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logCustomField
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cookies'])) {
             if (!empty($map['Cookies'])) {
-                $model->cookies = $map['Cookies'];
+                $model->cookies = [];
+                $n1 = 0;
+                foreach ($map['Cookies'] as $item1) {
+                    $model->cookies[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestHeaders'])) {
             if (!empty($map['RequestHeaders'])) {
-                $model->requestHeaders = $map['RequestHeaders'];
+                $model->requestHeaders = [];
+                $n1 = 0;
+                foreach ($map['RequestHeaders'] as $item1) {
+                    $model->requestHeaders[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ResponseHeaders'])) {
             if (!empty($map['ResponseHeaders'])) {
-                $model->responseHeaders = $map['ResponseHeaders'];
+                $model->responseHeaders = [];
+                $n1 = 0;
+                foreach ($map['ResponseHeaders'] as $item1) {
+                    $model->responseHeaders[$n1++] = $item1;
+                }
             }
         }
 
