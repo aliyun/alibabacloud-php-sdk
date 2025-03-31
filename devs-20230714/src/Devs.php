@@ -19,6 +19,9 @@ use AlibabaCloud\SDK\Devs\V20230714\Models\CreateTaskResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteEnvironmentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteProjectResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeployEnvironmentRequest;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeployEnvironmentResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\GetEnvironmentDeploymentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetEnvironmentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetPipelineResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetProjectResponse;
@@ -556,6 +559,69 @@ class Devs extends OpenApiClient
     }
 
     /**
+     * 手动触发环境部署.
+     *
+     * @param request - DeployEnvironmentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeployEnvironmentResponse
+     *
+     * @param string                   $projectName
+     * @param string                   $name
+     * @param DeployEnvironmentRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeployEnvironmentResponse
+     */
+    public function deployEnvironmentWithOptions($projectName, $name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'DeployEnvironment',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/projects/' . Url::percentEncode($projectName) . '/environments/' . Url::percentEncode($name) . '/deploy',
+            'method' => 'PATCH',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeployEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeployEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 手动触发环境部署.
+     *
+     * @param request - DeployEnvironmentRequest
+     *
+     * @returns DeployEnvironmentResponse
+     *
+     * @param string                   $projectName
+     * @param string                   $name
+     * @param DeployEnvironmentRequest $request
+     *
+     * @return DeployEnvironmentResponse
+     */
+    public function deployEnvironment($projectName, $name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deployEnvironmentWithOptions($projectName, $name, $request, $headers, $runtime);
+    }
+
+    /**
      * 获取环境信息.
      *
      * @param headers - map
@@ -609,6 +675,60 @@ class Devs extends OpenApiClient
         $headers = [];
 
         return $this->getEnvironmentWithOptions($projectName, $name, $headers, $runtime);
+    }
+
+    /**
+     * 查询环境部署信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEnvironmentDeploymentResponse
+     *
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetEnvironmentDeploymentResponse
+     */
+    public function getEnvironmentDeploymentWithOptions($name, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetEnvironmentDeployment',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/environmentdeployments/' . Url::percentEncode($name) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEnvironmentDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetEnvironmentDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询环境部署信息.
+     *
+     * @returns GetEnvironmentDeploymentResponse
+     *
+     * @param string $name
+     *
+     * @return GetEnvironmentDeploymentResponse
+     */
+    public function getEnvironmentDeployment($name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getEnvironmentDeploymentWithOptions($name, $headers, $runtime);
     }
 
     /**
