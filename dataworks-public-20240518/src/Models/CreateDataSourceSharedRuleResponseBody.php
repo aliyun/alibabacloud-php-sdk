@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateDataSourceSharedRuleResponseBody extends Model
 {
     /**
-     * @description The sharing rule ID.
-     *
-     * @example 105412
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The ID of the request. It is used to locate logs and troubleshoot problems.
-     *
-     * @example 46F594E6-84AB-5FA5-8144-6F3D149961E1
-     *
      * @var string
      */
     public $requestId;
@@ -30,14 +22,18 @@ class CreateDataSourceSharedRuleResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -45,17 +41,18 @@ class CreateDataSourceSharedRuleResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateDataSourceSharedRuleResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

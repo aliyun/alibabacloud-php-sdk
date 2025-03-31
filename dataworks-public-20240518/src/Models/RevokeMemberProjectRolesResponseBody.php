@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RevokeMemberProjectRolesResponseBody extends Model
 {
     /**
-     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
-     *
-     * @example 676271D6-53B4-57BE-89FA-72F7AE1418DF
-     *
      * @var string
      */
     public $requestId;
@@ -20,9 +16,12 @@ class RevokeMemberProjectRolesResponseBody extends Model
         'requestId' => 'RequestId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -32,11 +31,11 @@ class RevokeMemberProjectRolesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RevokeMemberProjectRolesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

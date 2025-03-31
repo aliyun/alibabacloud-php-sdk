@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DataQualityRuleTemplate\checkingConfig;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\DataQualityRuleTemplate\samplingConfig;
-use AlibabaCloud\Tea\Model;
 
 class DataQualityRuleTemplate extends Model
 {
@@ -21,8 +21,6 @@ class DataQualityRuleTemplate extends Model
     public $code;
 
     /**
-     * @example /ods/订单数据
-     *
      * @var string
      */
     public $directoryPath;
@@ -48,8 +46,6 @@ class DataQualityRuleTemplate extends Model
     public $tenantId;
 
     /**
-     * @example Project
-     *
      * @var string
      */
     public $visibleScope;
@@ -64,32 +60,48 @@ class DataQualityRuleTemplate extends Model
         'visibleScope' => 'VisibleScope',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->checkingConfig) {
+            $this->checkingConfig->validate();
+        }
+        if (null !== $this->samplingConfig) {
+            $this->samplingConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->checkingConfig) {
-            $res['CheckingConfig'] = null !== $this->checkingConfig ? $this->checkingConfig->toMap() : null;
+            $res['CheckingConfig'] = null !== $this->checkingConfig ? $this->checkingConfig->toArray($noStream) : $this->checkingConfig;
         }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->directoryPath) {
             $res['DirectoryPath'] = $this->directoryPath;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
+
         if (null !== $this->samplingConfig) {
-            $res['SamplingConfig'] = null !== $this->samplingConfig ? $this->samplingConfig->toMap() : null;
+            $res['SamplingConfig'] = null !== $this->samplingConfig ? $this->samplingConfig->toArray($noStream) : $this->samplingConfig;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
+
         if (null !== $this->visibleScope) {
             $res['VisibleScope'] = $this->visibleScope;
         }
@@ -97,35 +109,42 @@ class DataQualityRuleTemplate extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DataQualityRuleTemplate
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CheckingConfig'])) {
             $model->checkingConfig = checkingConfig::fromMap($map['CheckingConfig']);
         }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['DirectoryPath'])) {
             $model->directoryPath = $map['DirectoryPath'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }
+
         if (isset($map['SamplingConfig'])) {
             $model->samplingConfig = samplingConfig::fromMap($map['SamplingConfig']);
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
+
         if (isset($map['VisibleScope'])) {
             $model->visibleScope = $map['VisibleScope'];
         }

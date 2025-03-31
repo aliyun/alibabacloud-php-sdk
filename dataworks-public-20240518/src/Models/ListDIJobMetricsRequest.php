@@ -4,46 +4,26 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDIJobMetricsRequest extends Model
 {
     /**
-     * @description The ID of the synchronization task.
-     *
-     * @example 11265
-     *
      * @var int
      */
     public $DIJobId;
 
     /**
-     * @description The end of the time range to query.
-     *
-     * This parameter is required.
-     *
-     * @example 1712205941
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The metrics that you want to query.
-     *
-     * This parameter is required.
-     *
      * @var string[]
      */
     public $metricName;
 
     /**
-     * @description The beginning of the time range to query.
-     *
-     * This parameter is required.
-     *
-     * @example 1586509407
-     *
      * @var int
      */
     public $startTime;
@@ -54,20 +34,35 @@ class ListDIJobMetricsRequest extends Model
         'startTime' => 'StartTime',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->metricName)) {
+            Model::validateArray($this->metricName);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->DIJobId) {
             $res['DIJobId'] = $this->DIJobId;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->metricName) {
-            $res['MetricName'] = $this->metricName;
+            if (\is_array($this->metricName)) {
+                $res['MetricName'] = [];
+                $n1 = 0;
+                foreach ($this->metricName as $item1) {
+                    $res['MetricName'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -75,25 +70,32 @@ class ListDIJobMetricsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDIJobMetricsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DIJobId'])) {
             $model->DIJobId = $map['DIJobId'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['MetricName'])) {
             if (!empty($map['MetricName'])) {
-                $model->metricName = $map['MetricName'];
+                $model->metricName = [];
+                $n1 = 0;
+                foreach ($map['MetricName'] as $item1) {
+                    $model->metricName[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }

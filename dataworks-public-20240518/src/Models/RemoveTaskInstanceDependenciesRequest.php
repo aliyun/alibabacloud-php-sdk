@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveTaskInstanceDependenciesRequest extends Model
 {
     /**
-     * @description The remarks.
-     *
-     * @example this is a comment
-     *
      * @var string
      */
     public $comment;
 
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The IDs of ancestor instances of the instance
-     *
      * @var int[]
      */
     public $upstreamTaskInstanceIds;
@@ -40,41 +28,61 @@ class RemoveTaskInstanceDependenciesRequest extends Model
         'upstreamTaskInstanceIds' => 'UpstreamTaskInstanceIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->upstreamTaskInstanceIds)) {
+            Model::validateArray($this->upstreamTaskInstanceIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->upstreamTaskInstanceIds) {
-            $res['UpstreamTaskInstanceIds'] = $this->upstreamTaskInstanceIds;
+            if (\is_array($this->upstreamTaskInstanceIds)) {
+                $res['UpstreamTaskInstanceIds'] = [];
+                $n1 = 0;
+                foreach ($this->upstreamTaskInstanceIds as $item1) {
+                    $res['UpstreamTaskInstanceIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveTaskInstanceDependenciesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['UpstreamTaskInstanceIds'])) {
             if (!empty($map['UpstreamTaskInstanceIds'])) {
-                $model->upstreamTaskInstanceIds = $map['UpstreamTaskInstanceIds'];
+                $model->upstreamTaskInstanceIds = [];
+                $n1 = 0;
+                foreach ($map['UpstreamTaskInstanceIds'] as $item1) {
+                    $model->upstreamTaskInstanceIds[$n1++] = $item1;
+                }
             }
         }
 

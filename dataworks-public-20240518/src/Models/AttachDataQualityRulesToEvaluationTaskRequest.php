@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AttachDataQualityRulesToEvaluationTaskRequest extends Model
 {
     /**
-     * @description The ID of the data quality monitoring task that is associated with the rule.
-     *
-     * This parameter is required.
-     *
-     * @example 200001
-     *
      * @var int
      */
     public $dataQualityEvaluationTaskId;
 
     /**
-     * @description The IDs of the monitoring rules.
-     *
-     * This parameter is required.
-     *
      * @var int[]
      */
     public $dataQualityRuleIds;
 
     /**
-     * @description The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the ID. You must configure this parameter to specify the DataWorks workspace to which the API operation is applied.
-     *
-     * This parameter is required.
-     *
-     * @example 10000
-     *
      * @var int
      */
     public $projectId;
@@ -44,17 +28,31 @@ class AttachDataQualityRulesToEvaluationTaskRequest extends Model
         'projectId' => 'ProjectId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->dataQualityRuleIds)) {
+            Model::validateArray($this->dataQualityRuleIds);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dataQualityEvaluationTaskId) {
             $res['DataQualityEvaluationTaskId'] = $this->dataQualityEvaluationTaskId;
         }
+
         if (null !== $this->dataQualityRuleIds) {
-            $res['DataQualityRuleIds'] = $this->dataQualityRuleIds;
+            if (\is_array($this->dataQualityRuleIds)) {
+                $res['DataQualityRuleIds'] = [];
+                $n1 = 0;
+                foreach ($this->dataQualityRuleIds as $item1) {
+                    $res['DataQualityRuleIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
         }
@@ -62,22 +60,28 @@ class AttachDataQualityRulesToEvaluationTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AttachDataQualityRulesToEvaluationTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DataQualityEvaluationTaskId'])) {
             $model->dataQualityEvaluationTaskId = $map['DataQualityEvaluationTaskId'];
         }
+
         if (isset($map['DataQualityRuleIds'])) {
             if (!empty($map['DataQualityRuleIds'])) {
-                $model->dataQualityRuleIds = $map['DataQualityRuleIds'];
+                $model->dataQualityRuleIds = [];
+                $n1 = 0;
+                foreach ($map['DataQualityRuleIds'] as $item1) {
+                    $model->dataQualityRuleIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
         }

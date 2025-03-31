@@ -4,65 +4,35 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobRequest\jobSettings\columnDataTypeSettings;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobRequest\jobSettings\cycleScheduleSettings;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobRequest\jobSettings\ddlHandlingSettings;
 use AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\CreateDIJobRequest\jobSettings\runtimeSettings;
-use AlibabaCloud\Tea\Model;
 
 class jobSettings extends Model
 {
     /**
-     * @description The channel control settings for the synchronization task. You can configure special channel control settings for the following synchronization links: data synchronization between Hologres data sources and data synchronization from Hologres to Kafka.
-     *
-     * 1.  Data synchronization from Hologres to Kafka
-     *
-     *   Example: {"destinationChannelSettings":{"kafkaClientProperties":[{"key":"linger.ms","value":"100"}],"keyColumns":["col3"],"writeMode":"canal"}}
-     *   kafkaClientProperties: the parameters related to a Kafka producer, which are used when you write data to a Kafka data source.
-     *   keyColumns: the names of Kafka columns to which you want to write data.
-     *   writeMode: the writing format. Valid values: json and canal.
-     *
-     * 2.  Data synchronization between Hologres data sources
-     *
-     *   Example: {"destinationChannelSettings":{"conflictMode":"replace","dynamicColumnAction":"replay","writeMode":"replay"}}
-     *   conflictMode: the policy used to handle a conflict that occurs during data writing to Hologres. Valid values: replace and ignore.
-     *   writeMode: the mode in which you want to write data to Hologres. Valid values: replay and insert.
-     *   dynamicColumnAction: the method used to write data to dynamic columns in a Hologres table. Valid values: replay, insert, and ignore.
-     *
-     * @example {"structInfo":"MANAGED","storageType":"TEXTFILE","writeMode":"APPEND","partitionColumns":[{"columnName":"pt","columnType":"STRING","comment":""}],"fieldDelimiter":""}
-     *
      * @var string
      */
     public $channelSettings;
 
     /**
-     * @description The data type mappings between source fields and destination fields.
-     *
-     * >  "ColumnDataTypeSettings":[ { "SourceDataType":"Bigint", "DestinationDataType":"Text" } ]
-     *
      * @var columnDataTypeSettings[]
      */
     public $columnDataTypeSettings;
 
     /**
-     * @description The settings for periodic scheduling.
-     *
      * @var cycleScheduleSettings
      */
     public $cycleScheduleSettings;
 
     /**
-     * @description The processing settings for DDL messages.
-     *
-     * >  "DDLHandlingSettings":[ { "Type":"Insert", "Action":"Normal" } ]
-     *
      * @var ddlHandlingSettings[]
      */
     public $ddlHandlingSettings;
 
     /**
-     * @description The runtime settings.
-     *
      * @var runtimeSettings[]
      */
     public $runtimeSettings;
@@ -74,41 +44,60 @@ class jobSettings extends Model
         'runtimeSettings' => 'RuntimeSettings',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->columnDataTypeSettings)) {
+            Model::validateArray($this->columnDataTypeSettings);
+        }
+        if (null !== $this->cycleScheduleSettings) {
+            $this->cycleScheduleSettings->validate();
+        }
+        if (\is_array($this->ddlHandlingSettings)) {
+            Model::validateArray($this->ddlHandlingSettings);
+        }
+        if (\is_array($this->runtimeSettings)) {
+            Model::validateArray($this->runtimeSettings);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->channelSettings) {
             $res['ChannelSettings'] = $this->channelSettings;
         }
+
         if (null !== $this->columnDataTypeSettings) {
-            $res['ColumnDataTypeSettings'] = [];
-            if (null !== $this->columnDataTypeSettings && \is_array($this->columnDataTypeSettings)) {
-                $n = 0;
-                foreach ($this->columnDataTypeSettings as $item) {
-                    $res['ColumnDataTypeSettings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->columnDataTypeSettings)) {
+                $res['ColumnDataTypeSettings'] = [];
+                $n1 = 0;
+                foreach ($this->columnDataTypeSettings as $item1) {
+                    $res['ColumnDataTypeSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->cycleScheduleSettings) {
-            $res['CycleScheduleSettings'] = null !== $this->cycleScheduleSettings ? $this->cycleScheduleSettings->toMap() : null;
+            $res['CycleScheduleSettings'] = null !== $this->cycleScheduleSettings ? $this->cycleScheduleSettings->toArray($noStream) : $this->cycleScheduleSettings;
         }
+
         if (null !== $this->ddlHandlingSettings) {
-            $res['DdlHandlingSettings'] = [];
-            if (null !== $this->ddlHandlingSettings && \is_array($this->ddlHandlingSettings)) {
-                $n = 0;
-                foreach ($this->ddlHandlingSettings as $item) {
-                    $res['DdlHandlingSettings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->ddlHandlingSettings)) {
+                $res['DdlHandlingSettings'] = [];
+                $n1 = 0;
+                foreach ($this->ddlHandlingSettings as $item1) {
+                    $res['DdlHandlingSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->runtimeSettings) {
-            $res['RuntimeSettings'] = [];
-            if (null !== $this->runtimeSettings && \is_array($this->runtimeSettings)) {
-                $n = 0;
-                foreach ($this->runtimeSettings as $item) {
-                    $res['RuntimeSettings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->runtimeSettings)) {
+                $res['RuntimeSettings'] = [];
+                $n1 = 0;
+                foreach ($this->runtimeSettings as $item1) {
+                    $res['RuntimeSettings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -116,44 +105,48 @@ class jobSettings extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return jobSettings
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ChannelSettings'])) {
             $model->channelSettings = $map['ChannelSettings'];
         }
+
         if (isset($map['ColumnDataTypeSettings'])) {
             if (!empty($map['ColumnDataTypeSettings'])) {
                 $model->columnDataTypeSettings = [];
-                $n = 0;
-                foreach ($map['ColumnDataTypeSettings'] as $item) {
-                    $model->columnDataTypeSettings[$n++] = null !== $item ? columnDataTypeSettings::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ColumnDataTypeSettings'] as $item1) {
+                    $model->columnDataTypeSettings[$n1++] = columnDataTypeSettings::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['CycleScheduleSettings'])) {
             $model->cycleScheduleSettings = cycleScheduleSettings::fromMap($map['CycleScheduleSettings']);
         }
+
         if (isset($map['DdlHandlingSettings'])) {
             if (!empty($map['DdlHandlingSettings'])) {
                 $model->ddlHandlingSettings = [];
-                $n = 0;
-                foreach ($map['DdlHandlingSettings'] as $item) {
-                    $model->ddlHandlingSettings[$n++] = null !== $item ? ddlHandlingSettings::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DdlHandlingSettings'] as $item1) {
+                    $model->ddlHandlingSettings[$n1++] = ddlHandlingSettings::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RuntimeSettings'])) {
             if (!empty($map['RuntimeSettings'])) {
                 $model->runtimeSettings = [];
-                $n = 0;
-                foreach ($map['RuntimeSettings'] as $item) {
-                    $model->runtimeSettings[$n++] = null !== $item ? runtimeSettings::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['RuntimeSettings'] as $item1) {
+                    $model->runtimeSettings[$n1++] = runtimeSettings::fromMap($item1);
                 }
             }
         }

@@ -4,30 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models\ListDataQualityRuleTemplatesResponseBody\pagingInfo\dataQualityRuleTemplates;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class checkingConfig extends Model
 {
     /**
-     * @description Some types of thresholds need to query some reference samples, and then summarize the values of the reference samples to obtain the threshold for comparison. Here, an expression is used to represent the query method of the reference samples.
-     *
-     * @example { "bizdate": [ "-1", "-7", "-1m" ] }
-     *
      * @var string
      */
     public $referencedSamplesFilter;
 
     /**
-     * @description Threshold Calculation method
-     * - Fixed
-     * - Fluctation
-     * - FluctationDiscreate
-     * - Auto
-     * - Average
-     * - Variance
-     *
-     * @example Fixed
-     *
      * @var string
      */
     public $type;
@@ -36,14 +22,18 @@ class checkingConfig extends Model
         'type' => 'Type',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->referencedSamplesFilter) {
             $res['ReferencedSamplesFilter'] = $this->referencedSamplesFilter;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -51,17 +41,18 @@ class checkingConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return checkingConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReferencedSamplesFilter'])) {
             $model->referencedSamplesFilter = $map['ReferencedSamplesFilter'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

@@ -4,28 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CloneDataSourceRequest extends Model
 {
     /**
-     * @description The name of the destination data source The name can contain letters, digits, and underscores (_), and must start with a letter. It cannot exceed 60 characters in length.
-     *
-     * This parameter is required.
-     *
-     * @example demo_holo_datasource
-     *
      * @var string
      */
     public $cloneDataSourceName;
 
     /**
-     * @description The data source ID.
-     *
-     * This parameter is required.
-     *
-     * @example 16036
-     *
      * @var int
      */
     public $id;
@@ -34,14 +22,18 @@ class CloneDataSourceRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cloneDataSourceName) {
             $res['CloneDataSourceName'] = $this->cloneDataSourceName;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
@@ -49,17 +41,18 @@ class CloneDataSourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CloneDataSourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CloneDataSourceName'])) {
             $model->cloneDataSourceName = $map['CloneDataSourceName'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }

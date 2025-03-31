@@ -4,33 +4,21 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RemoveTaskInstanceDependenciesShrinkRequest extends Model
 {
     /**
-     * @description The remarks.
-     *
-     * @example this is a comment
-     *
      * @var string
      */
     public $comment;
 
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The IDs of ancestor instances of the instance
-     *
      * @var string
      */
     public $upstreamTaskInstanceIdsShrink;
@@ -40,17 +28,22 @@ class RemoveTaskInstanceDependenciesShrinkRequest extends Model
         'upstreamTaskInstanceIdsShrink' => 'UpstreamTaskInstanceIds',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->upstreamTaskInstanceIdsShrink) {
             $res['UpstreamTaskInstanceIds'] = $this->upstreamTaskInstanceIdsShrink;
         }
@@ -58,20 +51,22 @@ class RemoveTaskInstanceDependenciesShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RemoveTaskInstanceDependenciesShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['UpstreamTaskInstanceIds'])) {
             $model->upstreamTaskInstanceIdsShrink = $map['UpstreamTaskInstanceIds'];
         }

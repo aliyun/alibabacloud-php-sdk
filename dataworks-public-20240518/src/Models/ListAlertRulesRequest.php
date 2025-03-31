@@ -4,69 +4,41 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListAlertRulesRequest extends Model
 {
     /**
-     * @description The name of the rule.
-     *
-     * @example error_rule
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The ID of the Alibaba Cloud account used by the owner of the rule.
-     *
-     * @example 1933790683****
-     *
      * @var string
      */
     public $owner;
 
     /**
-     * @description The page number. Pages start from page 1.
-     *
-     * This parameter is required.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Maximum value: 100.
-     *
-     * This parameter is required.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the Alibaba Cloud account used by the alert recipient.
-     *
-     * @example 1933790683****
-     *
      * @var string
      */
     public $receiver;
 
     /**
-     * @description The IDs of the scheduling tasks.
-     *
      * @var int[]
      */
     public $taskIds;
 
     /**
-     * @description The alert triggering condition.
-     *
      * @var string[]
      */
     public $types;
@@ -80,67 +52,108 @@ class ListAlertRulesRequest extends Model
         'types' => 'Types',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->taskIds)) {
+            Model::validateArray($this->taskIds);
+        }
+        if (\is_array($this->types)) {
+            Model::validateArray($this->types);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->owner) {
             $res['Owner'] = $this->owner;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->receiver) {
             $res['Receiver'] = $this->receiver;
         }
+
         if (null !== $this->taskIds) {
-            $res['TaskIds'] = $this->taskIds;
+            if (\is_array($this->taskIds)) {
+                $res['TaskIds'] = [];
+                $n1 = 0;
+                foreach ($this->taskIds as $item1) {
+                    $res['TaskIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->types) {
-            $res['Types'] = $this->types;
+            if (\is_array($this->types)) {
+                $res['Types'] = [];
+                $n1 = 0;
+                foreach ($this->types as $item1) {
+                    $res['Types'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListAlertRulesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Owner'])) {
             $model->owner = $map['Owner'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Receiver'])) {
             $model->receiver = $map['Receiver'];
         }
+
         if (isset($map['TaskIds'])) {
             if (!empty($map['TaskIds'])) {
-                $model->taskIds = $map['TaskIds'];
+                $model->taskIds = [];
+                $n1 = 0;
+                foreach ($map['TaskIds'] as $item1) {
+                    $model->taskIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Types'])) {
             if (!empty($map['Types'])) {
-                $model->types = $map['Types'];
+                $model->types = [];
+                $n1 = 0;
+                foreach ($map['Types'] as $item1) {
+                    $model->types[$n1++] = $item1;
+                }
             }
         }
 

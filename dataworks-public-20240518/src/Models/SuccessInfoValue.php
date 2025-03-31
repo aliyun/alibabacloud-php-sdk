@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SuccessInfoValue extends Model
 {
     /**
-     * @description Indicates whether the request was successful.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description The error message.
-     *
-     * @example The task does not exist.
-     *
      * @var string
      */
     public $message;
@@ -30,14 +22,18 @@ class SuccessInfoValue extends Model
         'message' => 'Message',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -45,17 +41,18 @@ class SuccessInfoValue extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SuccessInfoValue
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

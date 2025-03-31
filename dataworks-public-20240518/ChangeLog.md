@@ -1,3 +1,10 @@
+2025-03-31 Version: 5.1.1
+- Update API CreateDIJob: add request parameters JobType.
+- Update API GetDIJob: add response parameters Body.PagingInfo.JobType.
+- Update API GetDataQualityEvaluationTaskInstance: add response parameters Body.DataQualityEvaluationTaskInstance.Results.
+- Update API ListDataQualityEvaluationTasks: add response parameters Body.PagingInfo.DataQualityEvaluationTasks.$.DataSourceId.
+
+
 2025-03-20 Version: 5.1.0
 - Support API DeleteCertificate.
 - Support API GetCertificate.

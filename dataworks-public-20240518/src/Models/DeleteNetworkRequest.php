@@ -4,17 +4,11 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteNetworkRequest extends Model
 {
     /**
-     * @description The ID of the network that you want to delete.
-     *
-     * This parameter is required.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $id;
@@ -22,9 +16,12 @@ class DeleteNetworkRequest extends Model
         'id' => 'Id',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
@@ -34,11 +31,11 @@ class DeleteNetworkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteNetworkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

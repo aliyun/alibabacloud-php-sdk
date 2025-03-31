@@ -4,29 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTaskRequest extends Model
 {
     /**
-     * @description The task ID.
-     *
-     * This parameter is required.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The environment of the workspace. Valid values:
-     *
-     *   Prod: production environment
-     *   Dev: development environment
-     *
-     * @example Prod
-     *
      * @var string
      */
     public $projectEnv;
@@ -35,14 +22,18 @@ class GetTaskRequest extends Model
         'projectEnv' => 'ProjectEnv',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->projectEnv) {
             $res['ProjectEnv'] = $this->projectEnv;
         }
@@ -50,17 +41,18 @@ class GetTaskRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTaskRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['ProjectEnv'])) {
             $model->projectEnv = $map['ProjectEnv'];
         }

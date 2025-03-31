@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\Dataworkspublic\V20240518\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetTaskInstanceLogRequest extends Model
 {
     /**
-     * @description The instance ID.
-     *
-     * This parameter is required.
-     *
-     * @example 1234
-     *
      * @var int
      */
     public $id;
 
     /**
-     * @description The sequence number of an instance run. Minimum value: 1. By default, the latest run is used.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $runNumber;
@@ -32,14 +22,18 @@ class GetTaskInstanceLogRequest extends Model
         'runNumber' => 'RunNumber',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->runNumber) {
             $res['RunNumber'] = $this->runNumber;
         }
@@ -47,17 +41,18 @@ class GetTaskInstanceLogRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetTaskInstanceLogRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['RunNumber'])) {
             $model->runNumber = $map['RunNumber'];
         }
