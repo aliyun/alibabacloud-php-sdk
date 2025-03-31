@@ -13,18 +13,20 @@ class ListExecutorsRequest extends Model
      * @var filter
      */
     public $filter;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'filter'     => 'Filter',
+        'filter' => 'Filter',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class poolList extends Model
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var int
      */
     public $maxExectorNum;
+
     /**
      * @var string
      */
     public $poolName;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'isDefault'     => 'IsDefault',
+        'isDefault' => 'IsDefault',
         'maxExectorNum' => 'MaxExectorNum',
-        'poolName'      => 'PoolName',
-        'priority'      => 'Priority',
-        'status'        => 'Status',
+        'poolName' => 'PoolName',
+        'priority' => 'Priority',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -13,27 +13,31 @@ class ListExecutorsResponseBody extends Model
      * @var executors[]
      */
     public $executors;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
-        'executors'  => 'Executors',
+        'executors' => 'Executors',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -51,7 +55,7 @@ class ListExecutorsResponseBody extends Model
         if (null !== $this->executors) {
             if (\is_array($this->executors)) {
                 $res['Executors'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->executors as $item1) {
                     $res['Executors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class ListExecutorsResponseBody extends Model
         if (isset($map['Executors'])) {
             if (!empty($map['Executors'])) {
                 $model->executors = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Executors'] as $item1) {
                     $model->executors[$n1++] = executors::fromMap($item1);
                 }

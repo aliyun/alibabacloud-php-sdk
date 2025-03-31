@@ -12,17 +12,19 @@ class registryCredential extends Model
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $server;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
         'password' => 'Password',
-        'server'   => 'Server',
+        'server' => 'Server',
         'userName' => 'UserName',
     ];
 

@@ -12,22 +12,25 @@ class ListJobsShrinkRequest extends Model
      * @var string
      */
     public $filterShrink;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sortByShrink;
     protected $_name = [
         'filterShrink' => 'Filter',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'sortByShrink' => 'SortBy',
     ];
 

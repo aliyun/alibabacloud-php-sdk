@@ -12,18 +12,20 @@ class AddImageResponseBody extends Model
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'imageId'   => 'ImageId',
+        'imageId' => 'ImageId',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

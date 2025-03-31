@@ -13,28 +13,32 @@ class container extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string[]
      */
     public $command;
+
     /**
      * @var environmentVars[]
      */
     public $environmentVars;
+
     /**
      * @var string
      */
     public $image;
+
     /**
      * @var string
      */
     public $workingDir;
     protected $_name = [
-        'appId'           => 'AppId',
-        'command'         => 'Command',
+        'appId' => 'AppId',
+        'command' => 'Command',
         'environmentVars' => 'EnvironmentVars',
-        'image'           => 'Image',
-        'workingDir'      => 'WorkingDir',
+        'image' => 'Image',
+        'workingDir' => 'WorkingDir',
     ];
 
     public function validate()
@@ -58,7 +62,7 @@ class container extends Model
         if (null !== $this->command) {
             if (\is_array($this->command)) {
                 $res['Command'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->command as $item1) {
                     $res['Command'][$n1++] = $item1;
                 }
@@ -68,7 +72,7 @@ class container extends Model
         if (null !== $this->environmentVars) {
             if (\is_array($this->environmentVars)) {
                 $res['EnvironmentVars'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->environmentVars as $item1) {
                     $res['EnvironmentVars'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -101,7 +105,7 @@ class container extends Model
         if (isset($map['Command'])) {
             if (!empty($map['Command'])) {
                 $model->command = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Command'] as $item1) {
                     $model->command[$n1++] = $item1;
                 }
@@ -111,7 +115,7 @@ class container extends Model
         if (isset($map['EnvironmentVars'])) {
             if (!empty($map['EnvironmentVars'])) {
                 $model->environmentVars = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['EnvironmentVars'] as $item1) {
                     $model->environmentVars[$n1++] = environmentVars::fromMap($item1);
                 }

@@ -13,12 +13,13 @@ class DescribeJobMetricLastResponseBody extends Model
      * @var metrics[]
      */
     public $metrics;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'metrics'   => 'Metrics',
+        'metrics' => 'Metrics',
         'requestId' => 'RequestId',
     ];
 
@@ -36,7 +37,7 @@ class DescribeJobMetricLastResponseBody extends Model
         if (null !== $this->metrics) {
             if (\is_array($this->metrics)) {
                 $res['Metrics'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->metrics as $item1) {
                     $res['Metrics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeJobMetricLastResponseBody extends Model
         if (isset($map['Metrics'])) {
             if (!empty($map['Metrics'])) {
                 $model->metrics = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Metrics'] as $item1) {
                     $model->metrics[$n1++] = metrics::fromMap($item1);
                 }

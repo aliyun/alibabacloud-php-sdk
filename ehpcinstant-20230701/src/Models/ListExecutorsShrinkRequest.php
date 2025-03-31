@@ -12,18 +12,20 @@ class ListExecutorsShrinkRequest extends Model
      * @var string
      */
     public $filterShrink;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'filterShrink' => 'Filter',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

@@ -13,17 +13,19 @@ class UpdatePoolRequest extends Model
      * @var string
      */
     public $poolName;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var resourceLimits
      */
     public $resourceLimits;
     protected $_name = [
-        'poolName'       => 'PoolName',
-        'priority'       => 'Priority',
+        'poolName' => 'PoolName',
+        'priority' => 'Priority',
         'resourceLimits' => 'ResourceLimits',
     ];
 

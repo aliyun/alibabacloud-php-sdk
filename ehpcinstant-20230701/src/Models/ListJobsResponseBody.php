@@ -13,27 +13,31 @@ class ListJobsResponseBody extends Model
      * @var jobList[]
      */
     public $jobList;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'jobList'    => 'JobList',
+        'jobList' => 'JobList',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -51,7 +55,7 @@ class ListJobsResponseBody extends Model
         if (null !== $this->jobList) {
             if (\is_array($this->jobList)) {
                 $res['JobList'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->jobList as $item1) {
                     $res['JobList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class ListJobsResponseBody extends Model
         if (isset($map['JobList'])) {
             if (!empty($map['JobList'])) {
                 $model->jobList = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['JobList'] as $item1) {
                     $model->jobList[$n1++] = jobList::fromMap($item1);
                 }

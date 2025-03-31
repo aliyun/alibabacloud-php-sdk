@@ -12,37 +12,43 @@ class executorStatus extends Model
      * @var int
      */
     public $deleted;
+
     /**
      * @var int
      */
     public $exception;
+
     /**
      * @var int
      */
     public $failed;
+
     /**
      * @var int
      */
     public $initing;
+
     /**
      * @var int
      */
     public $pending;
+
     /**
      * @var int
      */
     public $running;
+
     /**
      * @var int
      */
     public $succeeded;
     protected $_name = [
-        'deleted'   => 'Deleted',
+        'deleted' => 'Deleted',
         'exception' => 'Exception',
-        'failed'    => 'Failed',
-        'initing'   => 'Initing',
-        'pending'   => 'Pending',
-        'running'   => 'Running',
+        'failed' => 'Failed',
+        'initing' => 'Initing',
+        'pending' => 'Pending',
+        'running' => 'Running',
         'succeeded' => 'Succeeded',
     ];
 

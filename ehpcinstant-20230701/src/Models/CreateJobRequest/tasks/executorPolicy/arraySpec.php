@@ -12,18 +12,20 @@ class arraySpec extends Model
      * @var int
      */
     public $indexEnd;
+
     /**
      * @var int
      */
     public $indexStart;
+
     /**
      * @var int
      */
     public $indexStep;
     protected $_name = [
-        'indexEnd'   => 'IndexEnd',
+        'indexEnd' => 'IndexEnd',
         'indexStart' => 'IndexStart',
-        'indexStep'  => 'IndexStep',
+        'indexStep' => 'IndexStep',
     ];
 
     public function validate()

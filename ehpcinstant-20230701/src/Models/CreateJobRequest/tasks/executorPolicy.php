@@ -13,13 +13,14 @@ class executorPolicy extends Model
      * @var arraySpec
      */
     public $arraySpec;
+
     /**
      * @var int
      */
     public $maxCount;
     protected $_name = [
         'arraySpec' => 'ArraySpec',
-        'maxCount'  => 'MaxCount',
+        'maxCount' => 'MaxCount',
     ];
 
     public function validate()

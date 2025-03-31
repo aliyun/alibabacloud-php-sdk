@@ -12,23 +12,26 @@ class ListJobExecutorsRequest extends Model
      * @var string
      */
     public $jobId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $taskName;
     protected $_name = [
-        'jobId'      => 'JobId',
+        'jobId' => 'JobId',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'taskName'   => 'TaskName',
+        'pageSize' => 'PageSize',
+        'taskName' => 'TaskName',
     ];
 
     public function validate()

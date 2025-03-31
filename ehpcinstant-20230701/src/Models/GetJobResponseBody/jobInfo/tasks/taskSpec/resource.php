@@ -13,17 +13,19 @@ class resource extends Model
      * @var float
      */
     public $cores;
+
     /**
      * @var disks[]
      */
     public $disks;
+
     /**
      * @var int
      */
     public $memory;
     protected $_name = [
-        'cores'  => 'Cores',
-        'disks'  => 'Disks',
+        'cores' => 'Cores',
+        'disks' => 'Disks',
         'memory' => 'Memory',
     ];
 
@@ -45,7 +47,7 @@ class resource extends Model
         if (null !== $this->disks) {
             if (\is_array($this->disks)) {
                 $res['Disks'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->disks as $item1) {
                     $res['Disks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class resource extends Model
         if (isset($map['Disks'])) {
             if (!empty($map['Disks'])) {
                 $model->disks = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Disks'] as $item1) {
                     $model->disks[$n1++] = disks::fromMap($item1);
                 }

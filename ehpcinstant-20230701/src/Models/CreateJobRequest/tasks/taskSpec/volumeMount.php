@@ -12,17 +12,19 @@ class volumeMount extends Model
      * @var string
      */
     public $mountOptions;
+
     /**
      * @var string
      */
     public $mountPath;
+
     /**
      * @var string
      */
     public $volumeDriver;
     protected $_name = [
         'mountOptions' => 'MountOptions',
-        'mountPath'    => 'MountPath',
+        'mountPath' => 'MountPath',
         'volumeDriver' => 'VolumeDriver',
     ];
 

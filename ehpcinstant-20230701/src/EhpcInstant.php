@@ -102,6 +102,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param tmpReq - AddImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddImageResponse
      *
      * @param AddImageRequest $tmpReq
@@ -151,15 +152,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AddImage',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AddImage',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddImageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -172,6 +173,7 @@ class EhpcInstant extends OpenApiClient
      * 添加托管侧用户自定义镜像.
      *
      * @param request - AddImageRequest
+     *
      * @returns AddImageResponse
      *
      * @param AddImageRequest $request
@@ -190,6 +192,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param tmpReq - CreateJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateJobResponse
      *
      * @param CreateJobRequest $tmpReq
@@ -243,15 +246,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateJob',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateJob',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -264,6 +267,7 @@ class EhpcInstant extends OpenApiClient
      * 提交任务
      *
      * @param request - CreateJobRequest
+     *
      * @returns CreateJobResponse
      *
      * @param CreateJobRequest $request
@@ -282,6 +286,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param tmpReq - CreatePoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePoolResponse
      *
      * @param CreatePoolRequest $tmpReq
@@ -315,15 +320,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePool',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePool',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePoolResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -336,6 +341,7 @@ class EhpcInstant extends OpenApiClient
      * 创建资源池.
      *
      * @param request - CreatePoolRequest
+     *
      * @returns CreatePoolResponse
      *
      * @param CreatePoolRequest $request
@@ -354,6 +360,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param tmpReq - DeleteJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteJobsResponse
      *
      * @param DeleteJobsRequest $tmpReq
@@ -387,15 +394,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteJobs',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteJobs',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -408,6 +415,7 @@ class EhpcInstant extends OpenApiClient
      * 删除作业.
      *
      * @param request - DeleteJobsRequest
+     *
      * @returns DeleteJobsResponse
      *
      * @param DeleteJobsRequest $request
@@ -426,6 +434,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param request - DeletePoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeletePoolResponse
      *
      * @param DeletePoolRequest $request
@@ -445,15 +454,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePool',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePool',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeletePoolResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -466,6 +475,7 @@ class EhpcInstant extends OpenApiClient
      * 删除资源池.
      *
      * @param request - DeletePoolRequest
+     *
      * @returns DeletePoolResponse
      *
      * @param DeletePoolRequest $request
@@ -484,6 +494,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param tmpReq - DescribeJobMetricDataRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeJobMetricDataResponse
      *
      * @param DescribeJobMetricDataRequest $tmpReq
@@ -521,15 +532,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeJobMetricData',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeJobMetricData',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeJobMetricDataResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -542,6 +553,7 @@ class EhpcInstant extends OpenApiClient
      * 查询作业性能数据.
      *
      * @param request - DescribeJobMetricDataRequest
+     *
      * @returns DescribeJobMetricDataResponse
      *
      * @param DescribeJobMetricDataRequest $request
@@ -560,6 +572,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param tmpReq - DescribeJobMetricLastRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeJobMetricLastResponse
      *
      * @param DescribeJobMetricLastRequest $tmpReq
@@ -593,15 +606,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeJobMetricLast',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeJobMetricLast',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeJobMetricLastResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -614,6 +627,7 @@ class EhpcInstant extends OpenApiClient
      * 查询作业即时监控项.
      *
      * @param request - DescribeJobMetricLastRequest
+     *
      * @returns DescribeJobMetricLastResponse
      *
      * @param DescribeJobMetricLastRequest $request
@@ -632,6 +646,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param request - GetAppVersionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetAppVersionsResponse
      *
      * @param GetAppVersionsRequest $request
@@ -667,15 +682,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetAppVersions',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetAppVersions',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetAppVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -688,6 +703,7 @@ class EhpcInstant extends OpenApiClient
      * 查看应用版本列表.
      *
      * @param request - GetAppVersionsRequest
+     *
      * @returns GetAppVersionsResponse
      *
      * @param GetAppVersionsRequest $request
@@ -706,6 +722,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param request - GetImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetImageResponse
      *
      * @param GetImageRequest $request
@@ -733,15 +750,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetImage',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetImage',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetImageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -754,6 +771,7 @@ class EhpcInstant extends OpenApiClient
      * 查询托管侧镜像详情。
      *
      * @param request - GetImageRequest
+     *
      * @returns GetImageResponse
      *
      * @param GetImageRequest $request
@@ -772,6 +790,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param request - GetJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetJobResponse
      *
      * @param GetJobRequest  $request
@@ -791,15 +810,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetJob',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetJob',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -812,6 +831,7 @@ class EhpcInstant extends OpenApiClient
      * 查询作业详情.
      *
      * @param request - GetJobRequest
+     *
      * @returns GetJobResponse
      *
      * @param GetJobRequest $request
@@ -830,6 +850,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param request - GetPoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPoolResponse
      *
      * @param GetPoolRequest $request
@@ -849,15 +870,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPool',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetPool',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetPoolResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -870,6 +891,7 @@ class EhpcInstant extends OpenApiClient
      * 查询队列详细信息.
      *
      * @param request - GetPoolRequest
+     *
      * @returns GetPoolResponse
      *
      * @param GetPoolRequest $request
@@ -888,6 +910,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param tmpReq - ListExecutorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListExecutorsResponse
      *
      * @param ListExecutorsRequest $tmpReq
@@ -921,15 +944,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListExecutors',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListExecutors',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -942,6 +965,7 @@ class EhpcInstant extends OpenApiClient
      * 查询全局Executor信息.
      *
      * @param request - ListExecutorsRequest
+     *
      * @returns ListExecutorsResponse
      *
      * @param ListExecutorsRequest $request
@@ -960,6 +984,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param tmpReq - ListImagesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListImagesResponse
      *
      * @param ListImagesRequest $tmpReq
@@ -1013,15 +1038,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListImages',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListImages',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1034,6 +1059,7 @@ class EhpcInstant extends OpenApiClient
      * 查看托管侧镜像列表.
      *
      * @param request - ListImagesRequest
+     *
      * @returns ListImagesResponse
      *
      * @param ListImagesRequest $request
@@ -1052,6 +1078,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param request - ListJobExecutorsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListJobExecutorsResponse
      *
      * @param ListJobExecutorsRequest $request
@@ -1083,15 +1110,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListJobExecutors',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListJobExecutors',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListJobExecutorsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1104,6 +1131,7 @@ class EhpcInstant extends OpenApiClient
      * 查询作业Executor信息.
      *
      * @param request - ListJobExecutorsRequest
+     *
      * @returns ListJobExecutorsResponse
      *
      * @param ListJobExecutorsRequest $request
@@ -1122,6 +1150,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param tmpReq - ListJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListJobsResponse
      *
      * @param ListJobsRequest $tmpReq
@@ -1163,15 +1192,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListJobs',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListJobs',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1184,6 +1213,7 @@ class EhpcInstant extends OpenApiClient
      * 查询作业列表.
      *
      * @param request - ListJobsRequest
+     *
      * @returns ListJobsResponse
      *
      * @param ListJobsRequest $request
@@ -1202,6 +1232,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param tmpReq - ListPoolsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPoolsResponse
      *
      * @param ListPoolsRequest $tmpReq
@@ -1235,15 +1266,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListPools',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListPools',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListPoolsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1256,6 +1287,7 @@ class EhpcInstant extends OpenApiClient
      * 查询资源池列表.
      *
      * @param request - ListPoolsRequest
+     *
      * @returns ListPoolsResponse
      *
      * @param ListPoolsRequest $request
@@ -1274,6 +1306,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -1309,15 +1342,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1330,6 +1363,7 @@ class EhpcInstant extends OpenApiClient
      * 查询一个或多个资源已经绑定的标签列表.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -1348,6 +1382,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param request - RemoveImageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveImageResponse
      *
      * @param RemoveImageRequest $request
@@ -1371,15 +1406,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RemoveImage',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RemoveImage',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveImageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1392,6 +1427,7 @@ class EhpcInstant extends OpenApiClient
      * 移除托管侧镜像信息。
      *
      * @param request - RemoveImageRequest
+     *
      * @returns RemoveImageResponse
      *
      * @param RemoveImageRequest $request
@@ -1410,6 +1446,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -1437,15 +1474,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1458,6 +1495,7 @@ class EhpcInstant extends OpenApiClient
      * 为指定的资源列表统一创建并绑定标签.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -1476,6 +1514,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param request - UnTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnTagResourcesResponse
      *
      * @param UnTagResourcesRequest $request
@@ -1507,15 +1546,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnTagResources',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnTagResources',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1528,6 +1567,7 @@ class EhpcInstant extends OpenApiClient
      * 为指定的ECS资源列表统一解绑标签.
      *
      * @param request - UnTagResourcesRequest
+     *
      * @returns UnTagResourcesResponse
      *
      * @param UnTagResourcesRequest $request
@@ -1546,6 +1586,7 @@ class EhpcInstant extends OpenApiClient
      *
      * @param tmpReq - UpdatePoolRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdatePoolResponse
      *
      * @param UpdatePoolRequest $tmpReq
@@ -1579,15 +1620,15 @@ class EhpcInstant extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePool',
-            'version'     => '2023-07-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdatePool',
+            'version' => '2023-07-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdatePoolResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1600,6 +1641,7 @@ class EhpcInstant extends OpenApiClient
      * 更新资源池.
      *
      * @param request - UpdatePoolRequest
+     *
      * @returns UpdatePoolResponse
      *
      * @param UpdatePoolRequest $request

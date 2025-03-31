@@ -14,33 +14,38 @@ class AddImageRequest extends Model
      * @var containerImageSpec
      */
     public $containerImageSpec;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $imageType;
+
     /**
      * @var string
      */
     public $imageVersion;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var VMImageSpec
      */
     public $VMImageSpec;
     protected $_name = [
         'containerImageSpec' => 'ContainerImageSpec',
-        'description'        => 'Description',
-        'imageType'          => 'ImageType',
-        'imageVersion'       => 'ImageVersion',
-        'name'               => 'Name',
-        'VMImageSpec'        => 'VMImageSpec',
+        'description' => 'Description',
+        'imageType' => 'ImageType',
+        'imageVersion' => 'ImageVersion',
+        'name' => 'Name',
+        'VMImageSpec' => 'VMImageSpec',
     ];
 
     public function validate()

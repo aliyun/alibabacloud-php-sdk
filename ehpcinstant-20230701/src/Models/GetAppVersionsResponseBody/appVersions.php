@@ -12,17 +12,19 @@ class appVersions extends Model
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
         'imageId' => 'ImageId',
-        'name'    => 'Name',
+        'name' => 'Name',
         'version' => 'Version',
     ];
 

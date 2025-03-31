@@ -15,58 +15,68 @@ class image extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var containerImageSpec
      */
     public $containerImageSpec;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var documentInfo
      */
     public $documentInfo;
+
     /**
      * @var string
      */
     public $imageType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $size;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var VMImageSpec
      */
     public $VMImageSpec;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'appId'              => 'AppId',
+        'appId' => 'AppId',
         'containerImageSpec' => 'ContainerImageSpec',
-        'createTime'         => 'CreateTime',
-        'description'        => 'Description',
-        'documentInfo'       => 'DocumentInfo',
-        'imageType'          => 'ImageType',
-        'name'               => 'Name',
-        'size'               => 'Size',
-        'status'             => 'Status',
-        'VMImageSpec'        => 'VMImageSpec',
-        'version'            => 'Version',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'documentInfo' => 'DocumentInfo',
+        'imageType' => 'ImageType',
+        'name' => 'Name',
+        'size' => 'Size',
+        'status' => 'Status',
+        'VMImageSpec' => 'VMImageSpec',
+        'version' => 'Version',
     ];
 
     public function validate()

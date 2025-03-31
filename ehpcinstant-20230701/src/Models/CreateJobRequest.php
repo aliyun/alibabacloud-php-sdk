@@ -15,33 +15,38 @@ class CreateJobRequest extends Model
      * @var deploymentPolicy
      */
     public $deploymentPolicy;
+
     /**
      * @var string
      */
     public $jobDescription;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var string
      */
     public $jobScheduler;
+
     /**
      * @var securityPolicy
      */
     public $securityPolicy;
+
     /**
      * @var tasks[]
      */
     public $tasks;
     protected $_name = [
         'deploymentPolicy' => 'DeploymentPolicy',
-        'jobDescription'   => 'JobDescription',
-        'jobName'          => 'JobName',
-        'jobScheduler'     => 'JobScheduler',
-        'securityPolicy'   => 'SecurityPolicy',
-        'tasks'            => 'Tasks',
+        'jobDescription' => 'JobDescription',
+        'jobName' => 'JobName',
+        'jobScheduler' => 'JobScheduler',
+        'securityPolicy' => 'SecurityPolicy',
+        'tasks' => 'Tasks',
     ];
 
     public function validate()
@@ -84,7 +89,7 @@ class CreateJobRequest extends Model
         if (null !== $this->tasks) {
             if (\is_array($this->tasks)) {
                 $res['Tasks'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->tasks as $item1) {
                     $res['Tasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -125,7 +130,7 @@ class CreateJobRequest extends Model
         if (isset($map['Tasks'])) {
             if (!empty($map['Tasks'])) {
                 $model->tasks = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Tasks'] as $item1) {
                     $model->tasks[$n1++] = tasks::fromMap($item1);
                 }

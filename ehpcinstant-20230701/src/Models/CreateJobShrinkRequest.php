@@ -12,33 +12,38 @@ class CreateJobShrinkRequest extends Model
      * @var string
      */
     public $deploymentPolicyShrink;
+
     /**
      * @var string
      */
     public $jobDescription;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var string
      */
     public $jobScheduler;
+
     /**
      * @var string
      */
     public $securityPolicyShrink;
+
     /**
      * @var string
      */
     public $tasksShrink;
     protected $_name = [
         'deploymentPolicyShrink' => 'DeploymentPolicy',
-        'jobDescription'         => 'JobDescription',
-        'jobName'                => 'JobName',
-        'jobScheduler'           => 'JobScheduler',
-        'securityPolicyShrink'   => 'SecurityPolicy',
-        'tasksShrink'            => 'Tasks',
+        'jobDescription' => 'JobDescription',
+        'jobName' => 'JobName',
+        'jobScheduler' => 'JobScheduler',
+        'securityPolicyShrink' => 'SecurityPolicy',
+        'tasksShrink' => 'Tasks',
     ];
 
     public function validate()

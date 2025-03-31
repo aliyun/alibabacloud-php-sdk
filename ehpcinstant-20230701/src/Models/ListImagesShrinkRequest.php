@@ -12,38 +12,44 @@ class ListImagesShrinkRequest extends Model
      * @var string
      */
     public $imageCategory;
+
     /**
      * @var string
      */
     public $imageIdsShrink;
+
     /**
      * @var string
      */
     public $imageNamesShrink;
+
     /**
      * @var string
      */
     public $imageType;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'imageCategory'    => 'ImageCategory',
-        'imageIdsShrink'   => 'ImageIds',
+        'imageCategory' => 'ImageCategory',
+        'imageIdsShrink' => 'ImageIds',
         'imageNamesShrink' => 'ImageNames',
-        'imageType'        => 'ImageType',
-        'mode'             => 'Mode',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
+        'imageType' => 'ImageType',
+        'mode' => 'Mode',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

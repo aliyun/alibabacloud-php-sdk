@@ -12,32 +12,37 @@ class executorStatus extends Model
      * @var int
      */
     public $arrayId;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
     protected $_name = [
-        'arrayId'      => 'ArrayId',
-        'createTime'   => 'CreateTime',
-        'endTime'      => 'EndTime',
-        'startTime'    => 'StartTime',
-        'status'       => 'Status',
+        'arrayId' => 'ArrayId',
+        'createTime' => 'CreateTime',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
         'statusReason' => 'StatusReason',
     ];
 

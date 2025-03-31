@@ -14,18 +14,26 @@ class deploymentPolicy extends Model
      * @var string
      */
     public $allocationSpec;
+
+    /**
+     * @var string
+     */
+    public $level;
+
     /**
      * @var network
      */
     public $network;
+
     /**
      * @var tags[]
      */
     public $tags;
     protected $_name = [
         'allocationSpec' => 'AllocationSpec',
-        'network'        => 'Network',
-        'tags'           => 'Tags',
+        'level' => 'Level',
+        'network' => 'Network',
+        'tags' => 'Tags',
     ];
 
     public function validate()
@@ -46,6 +54,10 @@ class deploymentPolicy extends Model
             $res['AllocationSpec'] = $this->allocationSpec;
         }
 
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
+        }
+
         if (null !== $this->network) {
             $res['Network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
         }
@@ -53,7 +65,7 @@ class deploymentPolicy extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -75,6 +87,10 @@ class deploymentPolicy extends Model
             $model->allocationSpec = $map['AllocationSpec'];
         }
 
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
+        }
+
         if (isset($map['Network'])) {
             $model->network = network::fromMap($map['Network']);
         }
@@ -82,7 +98,7 @@ class deploymentPolicy extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

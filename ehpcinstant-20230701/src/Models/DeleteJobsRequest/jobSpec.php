@@ -13,12 +13,13 @@ class jobSpec extends Model
      * @var string
      */
     public $jobId;
+
     /**
      * @var taskSpec[]
      */
     public $taskSpec;
     protected $_name = [
-        'jobId'    => 'JobId',
+        'jobId' => 'JobId',
         'taskSpec' => 'TaskSpec',
     ];
 
@@ -40,7 +41,7 @@ class jobSpec extends Model
         if (null !== $this->taskSpec) {
             if (\is_array($this->taskSpec)) {
                 $res['TaskSpec'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->taskSpec as $item1) {
                     $res['TaskSpec'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class jobSpec extends Model
         if (isset($map['TaskSpec'])) {
             if (!empty($map['TaskSpec'])) {
                 $model->taskSpec = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['TaskSpec'] as $item1) {
                     $model->taskSpec[$n1++] = taskSpec::fromMap($item1);
                 }

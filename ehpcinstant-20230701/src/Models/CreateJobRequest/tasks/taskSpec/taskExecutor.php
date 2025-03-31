@@ -14,13 +14,14 @@ class taskExecutor extends Model
      * @var container
      */
     public $container;
+
     /**
      * @var VM
      */
     public $VM;
     protected $_name = [
         'container' => 'Container',
-        'VM'        => 'VM',
+        'VM' => 'VM',
     ];
 
     public function validate()

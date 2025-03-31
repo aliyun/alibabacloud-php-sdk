@@ -12,6 +12,7 @@ class disks extends Model
      * @var int
      */
     public $size;
+
     /**
      * @var string
      */

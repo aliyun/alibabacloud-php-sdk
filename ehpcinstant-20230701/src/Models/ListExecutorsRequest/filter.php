@@ -12,32 +12,37 @@ class filter extends Model
      * @var string[]
      */
     public $executorIds;
+
     /**
      * @var string[]
      */
     public $ipAddresses;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var string[]
      */
     public $status;
+
     /**
      * @var int
      */
     public $timeCreatedAfter;
+
     /**
      * @var int
      */
     public $timeCreatedBefore;
     protected $_name = [
-        'executorIds'       => 'ExecutorIds',
-        'ipAddresses'       => 'IpAddresses',
-        'jobName'           => 'JobName',
-        'status'            => 'Status',
-        'timeCreatedAfter'  => 'TimeCreatedAfter',
+        'executorIds' => 'ExecutorIds',
+        'ipAddresses' => 'IpAddresses',
+        'jobName' => 'JobName',
+        'status' => 'Status',
+        'timeCreatedAfter' => 'TimeCreatedAfter',
         'timeCreatedBefore' => 'TimeCreatedBefore',
     ];
 
@@ -61,7 +66,7 @@ class filter extends Model
         if (null !== $this->executorIds) {
             if (\is_array($this->executorIds)) {
                 $res['ExecutorIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->executorIds as $item1) {
                     $res['ExecutorIds'][$n1++] = $item1;
                 }
@@ -71,7 +76,7 @@ class filter extends Model
         if (null !== $this->ipAddresses) {
             if (\is_array($this->ipAddresses)) {
                 $res['IpAddresses'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->ipAddresses as $item1) {
                     $res['IpAddresses'][$n1++] = $item1;
                 }
@@ -85,7 +90,7 @@ class filter extends Model
         if (null !== $this->status) {
             if (\is_array($this->status)) {
                 $res['Status'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->status as $item1) {
                     $res['Status'][$n1++] = $item1;
                 }
@@ -114,7 +119,7 @@ class filter extends Model
         if (isset($map['ExecutorIds'])) {
             if (!empty($map['ExecutorIds'])) {
                 $model->executorIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ExecutorIds'] as $item1) {
                     $model->executorIds[$n1++] = $item1;
                 }
@@ -124,7 +129,7 @@ class filter extends Model
         if (isset($map['IpAddresses'])) {
             if (!empty($map['IpAddresses'])) {
                 $model->ipAddresses = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['IpAddresses'] as $item1) {
                     $model->ipAddresses[$n1++] = $item1;
                 }
@@ -138,7 +143,7 @@ class filter extends Model
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {
                 $model->status = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Status'] as $item1) {
                     $model->status[$n1++] = $item1;
                 }

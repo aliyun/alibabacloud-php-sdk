@@ -13,12 +13,13 @@ class GetJobResponseBody extends Model
      * @var jobInfo
      */
     public $jobInfo;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'jobInfo'   => 'JobInfo',
+        'jobInfo' => 'JobInfo',
         'requestId' => 'RequestId',
     ];
 

@@ -12,18 +12,20 @@ class DescribeJobMetricLastShrinkRequest extends Model
      * @var string
      */
     public $arrayIndexShrink;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $taskName;
     protected $_name = [
         'arrayIndexShrink' => 'ArrayIndex',
-        'jobId'            => 'JobId',
-        'taskName'         => 'TaskName',
+        'jobId' => 'JobId',
+        'taskName' => 'TaskName',
     ];
 
     public function validate()

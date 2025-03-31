@@ -12,23 +12,26 @@ class DescribeJobMetricDataShrinkRequest extends Model
      * @var string
      */
     public $arrayIndexShrink;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $metricName;
+
     /**
      * @var string
      */
     public $taskName;
     protected $_name = [
         'arrayIndexShrink' => 'ArrayIndex',
-        'jobId'            => 'JobId',
-        'metricName'       => 'MetricName',
-        'taskName'         => 'TaskName',
+        'jobId' => 'JobId',
+        'metricName' => 'MetricName',
+        'taskName' => 'TaskName',
     ];
 
     public function validate()

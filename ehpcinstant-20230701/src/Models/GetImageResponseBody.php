@@ -13,22 +13,25 @@ class GetImageResponseBody extends Model
      * @var image
      */
     public $image;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'image'      => 'Image',
-        'requestId'  => 'RequestId',
-        'success'    => 'Success',
+        'image' => 'Image',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
         'totalCount' => 'TotalCount',
     ];
 

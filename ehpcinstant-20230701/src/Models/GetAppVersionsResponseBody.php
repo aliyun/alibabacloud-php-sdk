@@ -13,33 +13,38 @@ class GetAppVersionsResponseBody extends Model
      * @var appVersions[]
      */
     public $appVersions;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'appVersions' => 'AppVersions',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
-        'success'     => 'Success',
-        'totalCount'  => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class GetAppVersionsResponseBody extends Model
         if (null !== $this->appVersions) {
             if (\is_array($this->appVersions)) {
                 $res['AppVersions'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->appVersions as $item1) {
                     $res['AppVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class GetAppVersionsResponseBody extends Model
         if (isset($map['AppVersions'])) {
             if (!empty($map['AppVersions'])) {
                 $model->appVersions = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['AppVersions'] as $item1) {
                     $model->appVersions[$n1++] = appVersions::fromMap($item1);
                 }

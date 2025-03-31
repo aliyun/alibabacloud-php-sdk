@@ -12,13 +12,14 @@ class network extends Model
      * @var bool
      */
     public $enableExternalIpAddress;
+
     /**
      * @var string[]
      */
     public $vswitch;
     protected $_name = [
         'enableExternalIpAddress' => 'EnableExternalIpAddress',
-        'vswitch'                 => 'Vswitch',
+        'vswitch' => 'Vswitch',
     ];
 
     public function validate()
@@ -39,7 +40,7 @@ class network extends Model
         if (null !== $this->vswitch) {
             if (\is_array($this->vswitch)) {
                 $res['Vswitch'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->vswitch as $item1) {
                     $res['Vswitch'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class network extends Model
         if (isset($map['Vswitch'])) {
             if (!empty($map['Vswitch'])) {
                 $model->vswitch = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Vswitch'] as $item1) {
                     $model->vswitch[$n1++] = $item1;
                 }

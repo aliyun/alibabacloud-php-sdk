@@ -30,7 +30,7 @@ class securityGroup extends Model
         if (null !== $this->securityGroupIds) {
             if (\is_array($this->securityGroupIds)) {
                 $res['SecurityGroupIds'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->securityGroupIds as $item1) {
                     $res['SecurityGroupIds'][$n1++] = $item1;
                 }
@@ -51,7 +51,7 @@ class securityGroup extends Model
         if (isset($map['SecurityGroupIds'])) {
             if (!empty($map['SecurityGroupIds'])) {
                 $model->securityGroupIds = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['SecurityGroupIds'] as $item1) {
                     $model->securityGroupIds[$n1++] = $item1;
                 }

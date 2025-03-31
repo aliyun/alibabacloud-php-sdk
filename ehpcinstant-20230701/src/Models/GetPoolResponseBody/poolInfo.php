@@ -12,48 +12,56 @@ class poolInfo extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $exectorUsage;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var int
      */
     public $maxExectorNum;
+
     /**
      * @var string
      */
     public $poolName;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'    => 'CreateTime',
-        'exectorUsage'  => 'ExectorUsage',
-        'isDefault'     => 'IsDefault',
+        'createTime' => 'CreateTime',
+        'exectorUsage' => 'ExectorUsage',
+        'isDefault' => 'IsDefault',
         'maxExectorNum' => 'MaxExectorNum',
-        'poolName'      => 'PoolName',
-        'priority'      => 'Priority',
-        'reason'        => 'Reason',
-        'status'        => 'Status',
-        'updateTime'    => 'UpdateTime',
+        'poolName' => 'PoolName',
+        'priority' => 'Priority',
+        'reason' => 'Reason',
+        'status' => 'Status',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

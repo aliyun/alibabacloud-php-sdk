@@ -14,18 +14,26 @@ class deploymentPolicy extends Model
      * @var string
      */
     public $allocationSpec;
+
+    /**
+     * @var string
+     */
+    public $level;
+
     /**
      * @var network
      */
     public $network;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
         'allocationSpec' => 'AllocationSpec',
-        'network'        => 'Network',
-        'tag'            => 'Tag',
+        'level' => 'Level',
+        'network' => 'Network',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -46,6 +54,10 @@ class deploymentPolicy extends Model
             $res['AllocationSpec'] = $this->allocationSpec;
         }
 
+        if (null !== $this->level) {
+            $res['Level'] = $this->level;
+        }
+
         if (null !== $this->network) {
             $res['Network'] = null !== $this->network ? $this->network->toArray($noStream) : $this->network;
         }
@@ -53,7 +65,7 @@ class deploymentPolicy extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -75,6 +87,10 @@ class deploymentPolicy extends Model
             $model->allocationSpec = $map['AllocationSpec'];
         }
 
+        if (isset($map['Level'])) {
+            $model->level = $map['Level'];
+        }
+
         if (isset($map['Network'])) {
             $model->network = network::fromMap($map['Network']);
         }
@@ -82,7 +98,7 @@ class deploymentPolicy extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

@@ -12,6 +12,7 @@ class sortBy extends Model
      * @var string
      */
     public $label;
+
     /**
      * @var string
      */

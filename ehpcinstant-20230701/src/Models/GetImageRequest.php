@@ -12,18 +12,20 @@ class GetImageRequest extends Model
      * @var string
      */
     public $imageCategory;
+
     /**
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $imageType;
     protected $_name = [
         'imageCategory' => 'ImageCategory',
-        'imageId'       => 'ImageId',
-        'imageType'     => 'ImageType',
+        'imageId' => 'ImageId',
+        'imageType' => 'ImageType',
     ];
 
     public function validate()

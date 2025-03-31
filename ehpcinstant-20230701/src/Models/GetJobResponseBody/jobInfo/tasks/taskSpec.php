@@ -14,12 +14,13 @@ class taskSpec extends Model
      * @var resource
      */
     public $resource;
+
     /**
      * @var taskExecutor[]
      */
     public $taskExecutor;
     protected $_name = [
-        'resource'     => 'Resource',
+        'resource' => 'Resource',
         'taskExecutor' => 'TaskExecutor',
     ];
 
@@ -44,7 +45,7 @@ class taskSpec extends Model
         if (null !== $this->taskExecutor) {
             if (\is_array($this->taskExecutor)) {
                 $res['TaskExecutor'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->taskExecutor as $item1) {
                     $res['TaskExecutor'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -69,7 +70,7 @@ class taskSpec extends Model
         if (isset($map['TaskExecutor'])) {
             if (!empty($map['TaskExecutor'])) {
                 $model->taskExecutor = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['TaskExecutor'] as $item1) {
                     $model->taskExecutor[$n1++] = taskExecutor::fromMap($item1);
                 }

@@ -12,17 +12,19 @@ class CreatePoolShrinkRequest extends Model
      * @var string
      */
     public $poolName;
+
     /**
      * @var int
      */
     public $priority;
+
     /**
      * @var string
      */
     public $resourceLimitsShrink;
     protected $_name = [
-        'poolName'             => 'PoolName',
-        'priority'             => 'Priority',
+        'poolName' => 'PoolName',
+        'priority' => 'Priority',
         'resourceLimitsShrink' => 'ResourceLimits',
     ];
 

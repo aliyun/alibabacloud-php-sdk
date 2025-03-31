@@ -12,38 +12,44 @@ class ListImagesRequest extends Model
      * @var string
      */
     public $imageCategory;
+
     /**
      * @var string[]
      */
     public $imageIds;
+
     /**
      * @var string[]
      */
     public $imageNames;
+
     /**
      * @var string
      */
     public $imageType;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'imageCategory' => 'ImageCategory',
-        'imageIds'      => 'ImageIds',
-        'imageNames'    => 'ImageNames',
-        'imageType'     => 'ImageType',
-        'mode'          => 'Mode',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'imageIds' => 'ImageIds',
+        'imageNames' => 'ImageNames',
+        'imageType' => 'ImageType',
+        'mode' => 'Mode',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()
@@ -67,7 +73,7 @@ class ListImagesRequest extends Model
         if (null !== $this->imageIds) {
             if (\is_array($this->imageIds)) {
                 $res['ImageIds'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->imageIds as $item1) {
                     $res['ImageIds'][$n1++] = $item1;
                 }
@@ -77,7 +83,7 @@ class ListImagesRequest extends Model
         if (null !== $this->imageNames) {
             if (\is_array($this->imageNames)) {
                 $res['ImageNames'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->imageNames as $item1) {
                     $res['ImageNames'][$n1++] = $item1;
                 }
@@ -118,7 +124,7 @@ class ListImagesRequest extends Model
         if (isset($map['ImageIds'])) {
             if (!empty($map['ImageIds'])) {
                 $model->imageIds = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['ImageIds'] as $item1) {
                     $model->imageIds[$n1++] = $item1;
                 }
@@ -128,7 +134,7 @@ class ListImagesRequest extends Model
         if (isset($map['ImageNames'])) {
             if (!empty($map['ImageNames'])) {
                 $model->imageNames = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ImageNames'] as $item1) {
                     $model->imageNames[$n1++] = $item1;
                 }

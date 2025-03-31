@@ -14,22 +14,25 @@ class tasks extends Model
      * @var executorPolicy
      */
     public $executorPolicy;
+
     /**
      * @var string
      */
     public $taskName;
+
     /**
      * @var taskSpec
      */
     public $taskSpec;
+
     /**
      * @var bool
      */
     public $taskSustainable;
     protected $_name = [
-        'executorPolicy'  => 'ExecutorPolicy',
-        'taskName'        => 'TaskName',
-        'taskSpec'        => 'TaskSpec',
+        'executorPolicy' => 'ExecutorPolicy',
+        'taskName' => 'TaskName',
+        'taskSpec' => 'TaskSpec',
         'taskSustainable' => 'TaskSustainable',
     ];
 

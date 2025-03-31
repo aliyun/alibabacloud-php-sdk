@@ -12,17 +12,19 @@ class documentInfo extends Model
      * @var string
      */
     public $document;
+
     /**
      * @var string
      */
     public $documentId;
+
     /**
      * @var string
      */
     public $encodingMode;
     protected $_name = [
-        'document'     => 'Document',
-        'documentId'   => 'DocumentId',
+        'document' => 'Document',
+        'documentId' => 'DocumentId',
         'encodingMode' => 'EncodingMode',
     ];
 

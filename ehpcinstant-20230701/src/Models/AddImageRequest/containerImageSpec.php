@@ -13,28 +13,32 @@ class containerImageSpec extends Model
      * @var bool
      */
     public $isACREnterprise;
+
     /**
      * @var bool
      */
     public $isACRRegistry;
+
     /**
      * @var registryCredential
      */
     public $registryCredential;
+
     /**
      * @var string
      */
     public $registryCriId;
+
     /**
      * @var string
      */
     public $registryUrl;
     protected $_name = [
-        'isACREnterprise'    => 'IsACREnterprise',
-        'isACRRegistry'      => 'IsACRRegistry',
+        'isACREnterprise' => 'IsACREnterprise',
+        'isACRRegistry' => 'IsACRRegistry',
         'registryCredential' => 'RegistryCredential',
-        'registryCriId'      => 'RegistryCriId',
-        'registryUrl'        => 'RegistryUrl',
+        'registryCriId' => 'RegistryCriId',
+        'registryUrl' => 'RegistryUrl',
     ];
 
     public function validate()

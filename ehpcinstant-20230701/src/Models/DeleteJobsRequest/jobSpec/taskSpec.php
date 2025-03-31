@@ -12,13 +12,14 @@ class taskSpec extends Model
      * @var int[]
      */
     public $arrayIndex;
+
     /**
      * @var string
      */
     public $taskName;
     protected $_name = [
         'arrayIndex' => 'ArrayIndex',
-        'taskName'   => 'TaskName',
+        'taskName' => 'TaskName',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class taskSpec extends Model
         if (null !== $this->arrayIndex) {
             if (\is_array($this->arrayIndex)) {
                 $res['ArrayIndex'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->arrayIndex as $item1) {
                     $res['ArrayIndex'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class taskSpec extends Model
         if (isset($map['ArrayIndex'])) {
             if (!empty($map['ArrayIndex'])) {
                 $model->arrayIndex = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ArrayIndex'] as $item1) {
                     $model->arrayIndex[$n1++] = $item1;
                 }

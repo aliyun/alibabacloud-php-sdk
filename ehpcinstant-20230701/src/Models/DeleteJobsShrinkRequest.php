@@ -12,13 +12,14 @@ class DeleteJobsShrinkRequest extends Model
      * @var string
      */
     public $executorIdsShrink;
+
     /**
      * @var string
      */
     public $jobSpecShrink;
     protected $_name = [
         'executorIdsShrink' => 'ExecutorIds',
-        'jobSpecShrink'     => 'JobSpec',
+        'jobSpecShrink' => 'JobSpec',
     ];
 
     public function validate()

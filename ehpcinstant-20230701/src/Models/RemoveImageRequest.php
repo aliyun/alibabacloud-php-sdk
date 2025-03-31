@@ -12,12 +12,13 @@ class RemoveImageRequest extends Model
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $imageType;
     protected $_name = [
-        'imageId'   => 'ImageId',
+        'imageId' => 'ImageId',
         'imageType' => 'ImageType',
     ];
 

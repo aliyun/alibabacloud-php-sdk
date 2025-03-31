@@ -12,33 +12,38 @@ class AddImageShrinkRequest extends Model
      * @var string
      */
     public $containerImageSpecShrink;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $imageType;
+
     /**
      * @var string
      */
     public $imageVersion;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $VMImageSpecShrink;
     protected $_name = [
         'containerImageSpecShrink' => 'ContainerImageSpec',
-        'description'              => 'Description',
-        'imageType'                => 'ImageType',
-        'imageVersion'             => 'ImageVersion',
-        'name'                     => 'Name',
-        'VMImageSpecShrink'        => 'VMImageSpec',
+        'description' => 'Description',
+        'imageType' => 'ImageType',
+        'imageVersion' => 'ImageVersion',
+        'name' => 'Name',
+        'VMImageSpecShrink' => 'VMImageSpec',
     ];
 
     public function validate()

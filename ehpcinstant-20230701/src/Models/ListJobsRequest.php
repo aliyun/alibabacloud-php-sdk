@@ -14,23 +14,26 @@ class ListJobsRequest extends Model
      * @var filter
      */
     public $filter;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var sortBy
      */
     public $sortBy;
     protected $_name = [
-        'filter'     => 'Filter',
+        'filter' => 'Filter',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'sortBy'     => 'SortBy',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
     ];
 
     public function validate()

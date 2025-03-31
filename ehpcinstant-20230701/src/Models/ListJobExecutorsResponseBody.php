@@ -14,43 +14,50 @@ class ListJobExecutorsResponseBody extends Model
      * @var executorStatus
      */
     public $executorStatus;
+
     /**
      * @var executors[]
      */
     public $executors;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $taskName;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
         'executorStatus' => 'ExecutorStatus',
-        'executors'      => 'Executors',
-        'jobId'          => 'JobId',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'taskName'       => 'TaskName',
-        'totalCount'     => 'TotalCount',
+        'executors' => 'Executors',
+        'jobId' => 'JobId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'taskName' => 'TaskName',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -74,7 +81,7 @@ class ListJobExecutorsResponseBody extends Model
         if (null !== $this->executors) {
             if (\is_array($this->executors)) {
                 $res['Executors'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->executors as $item1) {
                     $res['Executors'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -123,7 +130,7 @@ class ListJobExecutorsResponseBody extends Model
         if (isset($map['Executors'])) {
             if (!empty($map['Executors'])) {
                 $model->executors = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Executors'] as $item1) {
                     $model->executors[$n1++] = executors::fromMap($item1);
                 }

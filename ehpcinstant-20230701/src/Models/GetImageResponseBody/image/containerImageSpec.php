@@ -13,43 +13,50 @@ class containerImageSpec extends Model
      * @var string
      */
     public $architecture;
+
     /**
      * @var bool
      */
     public $isACREnterprise;
+
     /**
      * @var bool
      */
     public $isACRRegistry;
+
     /**
      * @var string
      */
     public $osTag;
+
     /**
      * @var string
      */
     public $platform;
+
     /**
      * @var registryCredential
      */
     public $registryCredential;
+
     /**
      * @var string
      */
     public $registryCriId;
+
     /**
      * @var string
      */
     public $registryUrl;
     protected $_name = [
-        'architecture'       => 'Architecture',
-        'isACREnterprise'    => 'IsACREnterprise',
-        'isACRRegistry'      => 'IsACRRegistry',
-        'osTag'              => 'OsTag',
-        'platform'           => 'Platform',
+        'architecture' => 'Architecture',
+        'isACREnterprise' => 'IsACREnterprise',
+        'isACRRegistry' => 'IsACRRegistry',
+        'osTag' => 'OsTag',
+        'platform' => 'Platform',
         'registryCredential' => 'RegistryCredential',
-        'registryCriId'      => 'RegistryCriId',
-        'registryUrl'        => 'RegistryUrl',
+        'registryCriId' => 'RegistryCriId',
+        'registryUrl' => 'RegistryUrl',
     ];
 
     public function validate()

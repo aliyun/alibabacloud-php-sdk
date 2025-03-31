@@ -12,22 +12,25 @@ class filter extends Model
      * @var string[]
      */
     public $poolName;
+
     /**
      * @var string[]
      */
     public $status;
+
     /**
      * @var int
      */
     public $timeCreatedAfter;
+
     /**
      * @var int
      */
     public $timeCreatedBefore;
     protected $_name = [
-        'poolName'          => 'PoolName',
-        'status'            => 'Status',
-        'timeCreatedAfter'  => 'TimeCreatedAfter',
+        'poolName' => 'PoolName',
+        'status' => 'Status',
+        'timeCreatedAfter' => 'TimeCreatedAfter',
         'timeCreatedBefore' => 'TimeCreatedBefore',
     ];
 
@@ -48,7 +51,7 @@ class filter extends Model
         if (null !== $this->poolName) {
             if (\is_array($this->poolName)) {
                 $res['PoolName'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->poolName as $item1) {
                     $res['PoolName'][$n1++] = $item1;
                 }
@@ -58,7 +61,7 @@ class filter extends Model
         if (null !== $this->status) {
             if (\is_array($this->status)) {
                 $res['Status'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->status as $item1) {
                     $res['Status'][$n1++] = $item1;
                 }
@@ -87,7 +90,7 @@ class filter extends Model
         if (isset($map['PoolName'])) {
             if (!empty($map['PoolName'])) {
                 $model->poolName = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['PoolName'] as $item1) {
                     $model->poolName[$n1++] = $item1;
                 }
@@ -97,7 +100,7 @@ class filter extends Model
         if (isset($map['Status'])) {
             if (!empty($map['Status'])) {
                 $model->status = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Status'] as $item1) {
                     $model->status[$n1++] = $item1;
                 }

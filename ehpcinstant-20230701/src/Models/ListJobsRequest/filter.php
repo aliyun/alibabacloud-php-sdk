@@ -12,27 +12,31 @@ class filter extends Model
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $timeCreatedAfter;
+
     /**
      * @var int
      */
     public $timeCreatedBefore;
     protected $_name = [
-        'jobId'             => 'JobId',
-        'jobName'           => 'JobName',
-        'status'            => 'Status',
-        'timeCreatedAfter'  => 'TimeCreatedAfter',
+        'jobId' => 'JobId',
+        'jobName' => 'JobName',
+        'status' => 'Status',
+        'timeCreatedAfter' => 'TimeCreatedAfter',
         'timeCreatedBefore' => 'TimeCreatedBefore',
     ];
 

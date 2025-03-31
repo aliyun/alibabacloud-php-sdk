@@ -14,108 +14,128 @@ class executors extends Model
      * @var string
      */
     public $appName;
+
     /**
      * @var int
      */
     public $arrayIndex;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $executorId;
+
     /**
      * @var string
      */
     public $expirationTime;
+
     /**
      * @var string[]
      */
     public $externalIpAddress;
+
     /**
      * @var string[]
      */
     public $hostName;
+
     /**
      * @var string
      */
     public $image;
+
     /**
      * @var string[]
      */
     public $ipAddress;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var resource
      */
     public $resource;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $statusReason;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $taskName;
+
     /**
      * @var bool
      */
     public $taskSustainable;
+
     /**
      * @var string
      */
     public $vswitchId;
     protected $_name = [
-        'appName'           => 'AppName',
-        'arrayIndex'        => 'ArrayIndex',
-        'createTime'        => 'CreateTime',
-        'endTime'           => 'EndTime',
-        'executorId'        => 'ExecutorId',
-        'expirationTime'    => 'ExpirationTime',
+        'appName' => 'AppName',
+        'arrayIndex' => 'ArrayIndex',
+        'createTime' => 'CreateTime',
+        'endTime' => 'EndTime',
+        'executorId' => 'ExecutorId',
+        'expirationTime' => 'ExpirationTime',
         'externalIpAddress' => 'ExternalIpAddress',
-        'hostName'          => 'HostName',
-        'image'             => 'Image',
-        'ipAddress'         => 'IpAddress',
-        'jobId'             => 'JobId',
-        'jobName'           => 'JobName',
-        'resource'          => 'Resource',
-        'resourceType'      => 'ResourceType',
-        'startTime'         => 'StartTime',
-        'status'            => 'Status',
-        'statusReason'      => 'StatusReason',
-        'tags'              => 'Tags',
-        'taskName'          => 'TaskName',
-        'taskSustainable'   => 'TaskSustainable',
-        'vswitchId'         => 'VswitchId',
+        'hostName' => 'HostName',
+        'image' => 'Image',
+        'ipAddress' => 'IpAddress',
+        'jobId' => 'JobId',
+        'jobName' => 'JobName',
+        'resource' => 'Resource',
+        'resourceType' => 'ResourceType',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'statusReason' => 'StatusReason',
+        'tags' => 'Tags',
+        'taskName' => 'TaskName',
+        'taskSustainable' => 'TaskSustainable',
+        'vswitchId' => 'VswitchId',
     ];
 
     public function validate()
@@ -168,7 +188,7 @@ class executors extends Model
         if (null !== $this->externalIpAddress) {
             if (\is_array($this->externalIpAddress)) {
                 $res['ExternalIpAddress'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->externalIpAddress as $item1) {
                     $res['ExternalIpAddress'][$n1++] = $item1;
                 }
@@ -178,7 +198,7 @@ class executors extends Model
         if (null !== $this->hostName) {
             if (\is_array($this->hostName)) {
                 $res['HostName'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->hostName as $item1) {
                     $res['HostName'][$n1++] = $item1;
                 }
@@ -192,7 +212,7 @@ class executors extends Model
         if (null !== $this->ipAddress) {
             if (\is_array($this->ipAddress)) {
                 $res['IpAddress'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->ipAddress as $item1) {
                     $res['IpAddress'][$n1++] = $item1;
                 }
@@ -230,7 +250,7 @@ class executors extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -287,7 +307,7 @@ class executors extends Model
         if (isset($map['ExternalIpAddress'])) {
             if (!empty($map['ExternalIpAddress'])) {
                 $model->externalIpAddress = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ExternalIpAddress'] as $item1) {
                     $model->externalIpAddress[$n1++] = $item1;
                 }
@@ -297,7 +317,7 @@ class executors extends Model
         if (isset($map['HostName'])) {
             if (!empty($map['HostName'])) {
                 $model->hostName = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['HostName'] as $item1) {
                     $model->hostName[$n1++] = $item1;
                 }
@@ -311,7 +331,7 @@ class executors extends Model
         if (isset($map['IpAddress'])) {
             if (!empty($map['IpAddress'])) {
                 $model->ipAddress = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['IpAddress'] as $item1) {
                     $model->ipAddress[$n1++] = $item1;
                 }
@@ -349,7 +369,7 @@ class executors extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class DescribeJobMetricLastRequest extends Model
      * @var int[]
      */
     public $arrayIndex;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $taskName;
     protected $_name = [
         'arrayIndex' => 'ArrayIndex',
-        'jobId'      => 'JobId',
-        'taskName'   => 'TaskName',
+        'jobId' => 'JobId',
+        'taskName' => 'TaskName',
     ];
 
     public function validate()
@@ -40,7 +42,7 @@ class DescribeJobMetricLastRequest extends Model
         if (null !== $this->arrayIndex) {
             if (\is_array($this->arrayIndex)) {
                 $res['ArrayIndex'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->arrayIndex as $item1) {
                     $res['ArrayIndex'][$n1++] = $item1;
                 }
@@ -69,7 +71,7 @@ class DescribeJobMetricLastRequest extends Model
         if (isset($map['ArrayIndex'])) {
             if (!empty($map['ArrayIndex'])) {
                 $model->arrayIndex = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ArrayIndex'] as $item1) {
                     $model->arrayIndex[$n1++] = $item1;
                 }

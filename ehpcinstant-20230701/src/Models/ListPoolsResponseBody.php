@@ -13,27 +13,31 @@ class ListPoolsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var poolList[]
      */
     public $poolList;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'poolList'   => 'PoolList',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'poolList' => 'PoolList',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -59,7 +63,7 @@ class ListPoolsResponseBody extends Model
         if (null !== $this->poolList) {
             if (\is_array($this->poolList)) {
                 $res['PoolList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->poolList as $item1) {
                     $res['PoolList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class ListPoolsResponseBody extends Model
         if (isset($map['PoolList'])) {
             if (!empty($map['PoolList'])) {
                 $model->poolList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['PoolList'] as $item1) {
                     $model->poolList[$n1++] = poolList::fromMap($item1);
                 }

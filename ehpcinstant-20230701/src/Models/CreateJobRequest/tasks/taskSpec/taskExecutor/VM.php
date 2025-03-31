@@ -12,23 +12,26 @@ class VM extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $image;
+
     /**
      * @var string
      */
     public $prologScript;
+
     /**
      * @var string
      */
     public $script;
     protected $_name = [
-        'appId'        => 'AppId',
-        'image'        => 'Image',
+        'appId' => 'AppId',
+        'image' => 'Image',
         'prologScript' => 'PrologScript',
-        'script'       => 'Script',
+        'script' => 'Script',
     ];
 
     public function validate()

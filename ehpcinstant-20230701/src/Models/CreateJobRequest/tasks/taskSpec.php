@@ -15,18 +15,20 @@ class taskSpec extends Model
      * @var resource
      */
     public $resource;
+
     /**
      * @var taskExecutor[]
      */
     public $taskExecutor;
+
     /**
      * @var volumeMount[]
      */
     public $volumeMount;
     protected $_name = [
-        'resource'     => 'Resource',
+        'resource' => 'Resource',
         'taskExecutor' => 'TaskExecutor',
-        'volumeMount'  => 'VolumeMount',
+        'volumeMount' => 'VolumeMount',
     ];
 
     public function validate()
@@ -53,7 +55,7 @@ class taskSpec extends Model
         if (null !== $this->taskExecutor) {
             if (\is_array($this->taskExecutor)) {
                 $res['TaskExecutor'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->taskExecutor as $item1) {
                     $res['TaskExecutor'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -63,7 +65,7 @@ class taskSpec extends Model
         if (null !== $this->volumeMount) {
             if (\is_array($this->volumeMount)) {
                 $res['VolumeMount'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->volumeMount as $item1) {
                     $res['VolumeMount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +90,7 @@ class taskSpec extends Model
         if (isset($map['TaskExecutor'])) {
             if (!empty($map['TaskExecutor'])) {
                 $model->taskExecutor = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['TaskExecutor'] as $item1) {
                     $model->taskExecutor[$n1++] = taskExecutor::fromMap($item1);
                 }
@@ -98,7 +100,7 @@ class taskSpec extends Model
         if (isset($map['VolumeMount'])) {
             if (!empty($map['VolumeMount'])) {
                 $model->volumeMount = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['VolumeMount'] as $item1) {
                     $model->volumeMount[$n1++] = volumeMount::fromMap($item1);
                 }

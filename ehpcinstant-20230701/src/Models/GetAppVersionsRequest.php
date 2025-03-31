@@ -12,28 +12,32 @@ class GetAppVersionsRequest extends Model
      * @var string
      */
     public $appName;
+
     /**
      * @var string
      */
     public $imageCategory;
+
     /**
      * @var string
      */
     public $imageType;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'appName'       => 'AppName',
+        'appName' => 'AppName',
         'imageCategory' => 'ImageCategory',
-        'imageType'     => 'ImageType',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
+        'imageType' => 'ImageType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

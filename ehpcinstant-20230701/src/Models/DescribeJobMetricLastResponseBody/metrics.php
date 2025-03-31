@@ -12,13 +12,14 @@ class metrics extends Model
      * @var int
      */
     public $arrayIndex;
+
     /**
      * @var string
      */
     public $metric;
     protected $_name = [
         'arrayIndex' => 'ArrayIndex',
-        'metric'     => 'Metric',
+        'metric' => 'Metric',
     ];
 
     public function validate()

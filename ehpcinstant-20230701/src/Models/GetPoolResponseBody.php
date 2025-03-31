@@ -13,12 +13,13 @@ class GetPoolResponseBody extends Model
      * @var poolInfo
      */
     public $poolInfo;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'poolInfo'  => 'PoolInfo',
+        'poolInfo' => 'PoolInfo',
         'requestId' => 'RequestId',
     ];
 

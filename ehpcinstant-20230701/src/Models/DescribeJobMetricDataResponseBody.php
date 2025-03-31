@@ -12,18 +12,20 @@ class DescribeJobMetricDataResponseBody extends Model
      * @var string
      */
     public $dataPoints;
+
     /**
      * @var int
      */
     public $period;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'dataPoints' => 'DataPoints',
-        'period'     => 'Period',
-        'requestId'  => 'RequestId',
+        'period' => 'Period',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

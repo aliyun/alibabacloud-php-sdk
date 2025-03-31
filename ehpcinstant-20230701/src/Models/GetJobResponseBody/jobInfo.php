@@ -14,53 +14,62 @@ class jobInfo extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var deploymentPolicy
      */
     public $deploymentPolicy;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $jobDescription;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $jobName;
+
     /**
      * @var string
      */
     public $jobScheduler;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var tasks[]
      */
     public $tasks;
     protected $_name = [
-        'createTime'       => 'CreateTime',
+        'createTime' => 'CreateTime',
         'deploymentPolicy' => 'DeploymentPolicy',
-        'endTime'          => 'EndTime',
-        'jobDescription'   => 'JobDescription',
-        'jobId'            => 'JobId',
-        'jobName'          => 'JobName',
-        'jobScheduler'     => 'JobScheduler',
-        'startTime'        => 'StartTime',
-        'status'           => 'Status',
-        'tasks'            => 'Tasks',
+        'endTime' => 'EndTime',
+        'jobDescription' => 'JobDescription',
+        'jobId' => 'JobId',
+        'jobName' => 'JobName',
+        'jobScheduler' => 'JobScheduler',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'tasks' => 'Tasks',
     ];
 
     public function validate()
@@ -116,7 +125,7 @@ class jobInfo extends Model
         if (null !== $this->tasks) {
             if (\is_array($this->tasks)) {
                 $res['Tasks'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->tasks as $item1) {
                     $res['Tasks'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -173,7 +182,7 @@ class jobInfo extends Model
         if (isset($map['Tasks'])) {
             if (!empty($map['Tasks'])) {
                 $model->tasks = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Tasks'] as $item1) {
                     $model->tasks[$n1++] = tasks::fromMap($item1);
                 }

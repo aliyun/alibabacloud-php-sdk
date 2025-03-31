@@ -12,23 +12,26 @@ class VMImageSpec extends Model
      * @var string
      */
     public $architecture;
+
     /**
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $osTag;
+
     /**
      * @var string
      */
     public $platform;
     protected $_name = [
         'architecture' => 'Architecture',
-        'imageId'      => 'ImageId',
-        'osTag'        => 'OsTag',
-        'platform'     => 'Platform',
+        'imageId' => 'ImageId',
+        'osTag' => 'OsTag',
+        'platform' => 'Platform',
     ];
 
     public function validate()
