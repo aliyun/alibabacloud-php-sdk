@@ -12,18 +12,20 @@ class IPArray extends Model
      * @var string
      */
     public $DBClusterIPArrayAttribute;
+
     /**
      * @var string
      */
     public $DBClusterIPArrayName;
+
     /**
      * @var string
      */
     public $securityIPList;
     protected $_name = [
         'DBClusterIPArrayAttribute' => 'DBClusterIPArrayAttribute',
-        'DBClusterIPArrayName'      => 'DBClusterIPArrayName',
-        'securityIPList'            => 'SecurityIPList',
+        'DBClusterIPArrayName' => 'DBClusterIPArrayName',
+        'securityIPList' => 'SecurityIPList',
     ];
 
     public function validate()

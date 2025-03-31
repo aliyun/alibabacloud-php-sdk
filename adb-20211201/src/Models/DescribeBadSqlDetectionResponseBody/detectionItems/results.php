@@ -13,58 +13,68 @@ class results extends Model
      * @var int
      */
     public $cost;
+
     /**
      * @var diagnosisResults[]
      */
     public $diagnosisResults;
+
     /**
      * @var int
      */
     public $operatorCost;
+
     /**
      * @var int
      */
     public $outputDataSize;
+
     /**
      * @var string
      */
     public $patternId;
+
     /**
      * @var int
      */
     public $peakMemory;
+
     /**
      * @var string
      */
     public $processId;
+
     /**
      * @var string
      */
     public $SQL;
+
     /**
      * @var int
      */
     public $scanSize;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $totalStages;
     protected $_name = [
-        'cost'             => 'Cost',
+        'cost' => 'Cost',
         'diagnosisResults' => 'DiagnosisResults',
-        'operatorCost'     => 'OperatorCost',
-        'outputDataSize'   => 'OutputDataSize',
-        'patternId'        => 'PatternId',
-        'peakMemory'       => 'PeakMemory',
-        'processId'        => 'ProcessId',
-        'SQL'              => 'SQL',
-        'scanSize'         => 'ScanSize',
-        'startTime'        => 'StartTime',
-        'totalStages'      => 'TotalStages',
+        'operatorCost' => 'OperatorCost',
+        'outputDataSize' => 'OutputDataSize',
+        'patternId' => 'PatternId',
+        'peakMemory' => 'PeakMemory',
+        'processId' => 'ProcessId',
+        'SQL' => 'SQL',
+        'scanSize' => 'ScanSize',
+        'startTime' => 'StartTime',
+        'totalStages' => 'TotalStages',
     ];
 
     public function validate()
@@ -85,7 +95,7 @@ class results extends Model
         if (null !== $this->diagnosisResults) {
             if (\is_array($this->diagnosisResults)) {
                 $res['DiagnosisResults'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->diagnosisResults as $item1) {
                     $res['DiagnosisResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -146,7 +156,7 @@ class results extends Model
         if (isset($map['DiagnosisResults'])) {
             if (!empty($map['DiagnosisResults'])) {
                 $model->diagnosisResults = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['DiagnosisResults'] as $item1) {
                     $model->diagnosisResults[$n1++] = diagnosisResults::fromMap($item1);
                 }

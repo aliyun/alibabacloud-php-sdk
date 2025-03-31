@@ -13,23 +13,26 @@ class detectionItems extends Model
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var results
      */
     public $results;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'message' => 'Message',
-        'name'    => 'Name',
+        'name' => 'Name',
         'results' => 'Results',
-        'status'  => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

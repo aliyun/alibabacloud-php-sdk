@@ -12,53 +12,62 @@ class items extends Model
      * @var string
      */
     public $connId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $executeTime;
+
     /**
      * @var string
      */
     public $hostAddress;
+
     /**
      * @var string
      */
     public $processID;
+
     /**
      * @var string
      */
     public $SQLText;
+
     /**
      * @var string
      */
     public $SQLType;
+
     /**
      * @var string
      */
     public $succeed;
+
     /**
      * @var string
      */
     public $totalTime;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'connId'      => 'ConnId',
-        'DBName'      => 'DBName',
+        'connId' => 'ConnId',
+        'DBName' => 'DBName',
         'executeTime' => 'ExecuteTime',
         'hostAddress' => 'HostAddress',
-        'processID'   => 'ProcessID',
-        'SQLText'     => 'SQLText',
-        'SQLType'     => 'SQLType',
-        'succeed'     => 'Succeed',
-        'totalTime'   => 'TotalTime',
-        'user'        => 'User',
+        'processID' => 'ProcessID',
+        'SQLText' => 'SQLText',
+        'SQLType' => 'SQLType',
+        'succeed' => 'Succeed',
+        'totalTime' => 'TotalTime',
+        'user' => 'User',
     ];
 
     public function validate()

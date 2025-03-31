@@ -12,14 +12,17 @@ class DescribeAccountAllPrivilegesRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $marker;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class DescribeAccountAllPrivilegesRequest extends Model
     protected $_name = [
         'accountName' => 'AccountName',
         'DBClusterId' => 'DBClusterId',
-        'marker'      => 'Marker',
-        'regionId'    => 'RegionId',
+        'marker' => 'Marker',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

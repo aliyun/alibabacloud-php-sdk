@@ -12,23 +12,26 @@ class Adb4MysqlSparkDiagnosisInfo extends Model
      * @var string
      */
     public $diagnosisCode;
+
     /**
      * @var string
      */
     public $diagnosisCodeLabel;
+
     /**
      * @var string
      */
     public $diagnosisMsg;
+
     /**
      * @var string
      */
     public $diagnosisType;
     protected $_name = [
-        'diagnosisCode'      => 'DiagnosisCode',
+        'diagnosisCode' => 'DiagnosisCode',
         'diagnosisCodeLabel' => 'DiagnosisCodeLabel',
-        'diagnosisMsg'       => 'DiagnosisMsg',
-        'diagnosisType'      => 'DiagnosisType',
+        'diagnosisMsg' => 'DiagnosisMsg',
+        'diagnosisType' => 'DiagnosisType',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class GetSparkReplSessionRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $sessionId;
     protected $_name = [
-        'appId'     => 'AppId',
+        'appId' => 'AppId',
         'sessionId' => 'SessionId',
     ];
 

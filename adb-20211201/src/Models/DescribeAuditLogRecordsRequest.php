@@ -12,98 +12,116 @@ class DescribeAuditLogRecordsRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $hostAddress;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $proxyUser;
+
     /**
      * @var string
      */
     public $queryKeyword;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $sqlType;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $succeed;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'DBName'               => 'DBName',
-        'endTime'              => 'EndTime',
-        'hostAddress'          => 'HostAddress',
-        'order'                => 'Order',
-        'orderType'            => 'OrderType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'proxyUser'            => 'ProxyUser',
-        'queryKeyword'         => 'QueryKeyword',
-        'regionId'             => 'RegionId',
+        'DBClusterId' => 'DBClusterId',
+        'DBName' => 'DBName',
+        'endTime' => 'EndTime',
+        'hostAddress' => 'HostAddress',
+        'order' => 'Order',
+        'orderType' => 'OrderType',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'proxyUser' => 'ProxyUser',
+        'queryKeyword' => 'QueryKeyword',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'sqlType'              => 'SqlType',
-        'startTime'            => 'StartTime',
-        'succeed'              => 'Succeed',
-        'user'                 => 'User',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'sqlType' => 'SqlType',
+        'startTime' => 'StartTime',
+        'succeed' => 'Succeed',
+        'user' => 'User',
     ];
 
     public function validate()

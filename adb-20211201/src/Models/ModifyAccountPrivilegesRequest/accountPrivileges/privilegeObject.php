@@ -12,18 +12,20 @@ class privilegeObject extends Model
      * @var string
      */
     public $column;
+
     /**
      * @var string
      */
     public $database;
+
     /**
      * @var string
      */
     public $table;
     protected $_name = [
-        'column'   => 'Column',
+        'column' => 'Column',
         'database' => 'Database',
-        'table'    => 'Table',
+        'table' => 'Table',
     ];
 
     public function validate()

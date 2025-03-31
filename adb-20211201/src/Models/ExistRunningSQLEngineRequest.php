@@ -12,12 +12,13 @@ class ExistRunningSQLEngineRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $resourceGroupName;
     protected $_name = [
-        'DBClusterId'       => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'resourceGroupName' => 'ResourceGroupName',
     ];
 

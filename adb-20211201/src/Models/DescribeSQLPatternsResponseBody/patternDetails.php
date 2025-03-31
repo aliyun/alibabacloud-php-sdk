@@ -12,158 +12,188 @@ class patternDetails extends Model
      * @var string
      */
     public $accessIp;
+
     /**
      * @var float
      */
     public $averageExecutionTime;
+
     /**
      * @var float
      */
     public $averageOperatorCost;
+
     /**
      * @var float
      */
     public $averagePeakMemory;
+
     /**
      * @var float
      */
     public $averageQueryTime;
+
     /**
      * @var float
      */
     public $averageScanCost;
+
     /**
      * @var float
      */
     public $averageScanSize;
+
     /**
      * @var bool
      */
     public $blockable;
+
     /**
      * @var int
      */
     public $failedCount;
+
     /**
      * @var int
      */
     public $maxExecutionTime;
+
     /**
      * @var float
      */
     public $maxOperatorCost;
+
     /**
      * @var int
      */
     public $maxPeakMemory;
+
     /**
      * @var int
      */
     public $maxQueryTime;
+
     /**
      * @var float
      */
     public $maxScanCost;
+
     /**
      * @var int
      */
     public $maxScanSize;
+
     /**
      * @var float
      */
     public $operatorCostPercentage;
+
     /**
      * @var float
      */
     public $operatorCostSum;
+
     /**
      * @var string
      */
     public $patternCreationTime;
+
     /**
      * @var string
      */
     public $patternId;
+
     /**
      * @var float
      */
     public $peakMemoryPercentage;
+
     /**
      * @var float
      */
     public $peakMemorySum;
+
     /**
      * @var int
      */
     public $queryCount;
+
     /**
      * @var float
      */
     public $queryTimePercentage;
+
     /**
      * @var float
      */
     public $queryTimeSum;
+
     /**
      * @var string
      */
     public $SQLPattern;
+
     /**
      * @var float
      */
     public $scanCostPercentage;
+
     /**
      * @var float
      */
     public $scanCostSum;
+
     /**
      * @var float
      */
     public $scanSizePercentage;
+
     /**
      * @var float
      */
     public $scanSizeSum;
+
     /**
      * @var string
      */
     public $tables;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'accessIp'               => 'AccessIp',
-        'averageExecutionTime'   => 'AverageExecutionTime',
-        'averageOperatorCost'    => 'AverageOperatorCost',
-        'averagePeakMemory'      => 'AveragePeakMemory',
-        'averageQueryTime'       => 'AverageQueryTime',
-        'averageScanCost'        => 'AverageScanCost',
-        'averageScanSize'        => 'AverageScanSize',
-        'blockable'              => 'Blockable',
-        'failedCount'            => 'FailedCount',
-        'maxExecutionTime'       => 'MaxExecutionTime',
-        'maxOperatorCost'        => 'MaxOperatorCost',
-        'maxPeakMemory'          => 'MaxPeakMemory',
-        'maxQueryTime'           => 'MaxQueryTime',
-        'maxScanCost'            => 'MaxScanCost',
-        'maxScanSize'            => 'MaxScanSize',
+        'accessIp' => 'AccessIp',
+        'averageExecutionTime' => 'AverageExecutionTime',
+        'averageOperatorCost' => 'AverageOperatorCost',
+        'averagePeakMemory' => 'AveragePeakMemory',
+        'averageQueryTime' => 'AverageQueryTime',
+        'averageScanCost' => 'AverageScanCost',
+        'averageScanSize' => 'AverageScanSize',
+        'blockable' => 'Blockable',
+        'failedCount' => 'FailedCount',
+        'maxExecutionTime' => 'MaxExecutionTime',
+        'maxOperatorCost' => 'MaxOperatorCost',
+        'maxPeakMemory' => 'MaxPeakMemory',
+        'maxQueryTime' => 'MaxQueryTime',
+        'maxScanCost' => 'MaxScanCost',
+        'maxScanSize' => 'MaxScanSize',
         'operatorCostPercentage' => 'OperatorCostPercentage',
-        'operatorCostSum'        => 'OperatorCostSum',
-        'patternCreationTime'    => 'PatternCreationTime',
-        'patternId'              => 'PatternId',
-        'peakMemoryPercentage'   => 'PeakMemoryPercentage',
-        'peakMemorySum'          => 'PeakMemorySum',
-        'queryCount'             => 'QueryCount',
-        'queryTimePercentage'    => 'QueryTimePercentage',
-        'queryTimeSum'           => 'QueryTimeSum',
-        'SQLPattern'             => 'SQLPattern',
-        'scanCostPercentage'     => 'ScanCostPercentage',
-        'scanCostSum'            => 'ScanCostSum',
-        'scanSizePercentage'     => 'ScanSizePercentage',
-        'scanSizeSum'            => 'ScanSizeSum',
-        'tables'                 => 'Tables',
-        'user'                   => 'User',
+        'operatorCostSum' => 'OperatorCostSum',
+        'patternCreationTime' => 'PatternCreationTime',
+        'patternId' => 'PatternId',
+        'peakMemoryPercentage' => 'PeakMemoryPercentage',
+        'peakMemorySum' => 'PeakMemorySum',
+        'queryCount' => 'QueryCount',
+        'queryTimePercentage' => 'QueryTimePercentage',
+        'queryTimeSum' => 'QueryTimeSum',
+        'SQLPattern' => 'SQLPattern',
+        'scanCostPercentage' => 'ScanCostPercentage',
+        'scanCostSum' => 'ScanCostSum',
+        'scanSizePercentage' => 'ScanSizePercentage',
+        'scanSizeSum' => 'ScanSizeSum',
+        'tables' => 'Tables',
+        'user' => 'User',
     ];
 
     public function validate()

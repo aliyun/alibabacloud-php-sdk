@@ -12,38 +12,44 @@ class StatementInfo extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $completedTimeInMills;
+
     /**
      * @var string
      */
     public $output;
+
     /**
      * @var float
      */
     public $process;
+
     /**
      * @var int
      */
     public $startedTimeInMills;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $statementId;
     protected $_name = [
-        'code'                 => 'Code',
+        'code' => 'Code',
         'completedTimeInMills' => 'CompletedTimeInMills',
-        'output'               => 'Output',
-        'process'              => 'Process',
-        'startedTimeInMills'   => 'StartedTimeInMills',
-        'state'                => 'State',
-        'statementId'          => 'StatementId',
+        'output' => 'Output',
+        'process' => 'Process',
+        'startedTimeInMills' => 'StartedTimeInMills',
+        'state' => 'State',
+        'statementId' => 'StatementId',
     ];
 
     public function validate()

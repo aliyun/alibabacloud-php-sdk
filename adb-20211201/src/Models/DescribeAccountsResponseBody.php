@@ -13,13 +13,14 @@ class DescribeAccountsResponseBody extends Model
      * @var accountList
      */
     public $accountList;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accountList' => 'AccountList',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

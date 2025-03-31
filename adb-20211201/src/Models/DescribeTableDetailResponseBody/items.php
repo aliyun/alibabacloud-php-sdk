@@ -31,7 +31,7 @@ class items extends Model
         if (null !== $this->shard) {
             if (\is_array($this->shard)) {
                 $res['Shard'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->shard as $item1) {
                     $res['Shard'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class items extends Model
         if (isset($map['Shard'])) {
             if (!empty($map['Shard'])) {
                 $model->shard = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Shard'] as $item1) {
                     $model->shard[$n1++] = shard::fromMap($item1);
                 }

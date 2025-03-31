@@ -12,28 +12,32 @@ class DatabaseSummaryModel extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'  => 'CreateTime',
+        'createTime' => 'CreateTime',
         'description' => 'Description',
-        'owner'       => 'Owner',
-        'schemaName'  => 'SchemaName',
-        'updateTime'  => 'UpdateTime',
+        'owner' => 'Owner',
+        'schemaName' => 'SchemaName',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

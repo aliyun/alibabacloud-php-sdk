@@ -13,33 +13,38 @@ class data extends Model
      * @var acuInfo[]
      */
     public $acuInfo;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $resourceGroupName;
+
     /**
      * @var string
      */
     public $resourceGroupType;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'acuInfo'           => 'AcuInfo',
-        'DBClusterId'       => 'DBClusterId',
-        'endTime'           => 'EndTime',
+        'acuInfo' => 'AcuInfo',
+        'DBClusterId' => 'DBClusterId',
+        'endTime' => 'EndTime',
         'resourceGroupName' => 'ResourceGroupName',
         'resourceGroupType' => 'ResourceGroupType',
-        'startTime'         => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -56,7 +61,7 @@ class data extends Model
         if (null !== $this->acuInfo) {
             if (\is_array($this->acuInfo)) {
                 $res['AcuInfo'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->acuInfo as $item1) {
                     $res['AcuInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -97,7 +102,7 @@ class data extends Model
         if (isset($map['AcuInfo'])) {
             if (!empty($map['AcuInfo'])) {
                 $model->acuInfo = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['AcuInfo'] as $item1) {
                     $model->acuInfo[$n1++] = acuInfo::fromMap($item1);
                 }

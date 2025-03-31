@@ -12,33 +12,38 @@ class ModifyElasticPlanRequest extends Model
      * @var string
      */
     public $cronExpression;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $elasticPlanName;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $targetSize;
     protected $_name = [
-        'cronExpression'  => 'CronExpression',
-        'DBClusterId'     => 'DBClusterId',
+        'cronExpression' => 'CronExpression',
+        'DBClusterId' => 'DBClusterId',
         'elasticPlanName' => 'ElasticPlanName',
-        'endTime'         => 'EndTime',
-        'startTime'       => 'StartTime',
-        'targetSize'      => 'TargetSize',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
+        'targetSize' => 'TargetSize',
     ];
 
     public function validate()

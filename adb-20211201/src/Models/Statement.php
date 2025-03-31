@@ -12,68 +12,80 @@ class Statement extends Model
      * @var int
      */
     public $aliyunUid;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $codeState;
+
     /**
      * @var string
      */
     public $codeType;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $error;
+
     /**
      * @var bool
      */
     public $haveRows;
+
     /**
      * @var string
      */
     public $output;
+
     /**
      * @var string
      */
     public $resourceGroup;
+
     /**
      * @var int
      */
     public $sessionId;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $statementId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'aliyunUid'     => 'AliyunUid',
-        'code'          => 'Code',
-        'codeState'     => 'CodeState',
-        'codeType'      => 'CodeType',
-        'endTime'       => 'EndTime',
-        'error'         => 'Error',
-        'haveRows'      => 'HaveRows',
-        'output'        => 'Output',
+        'aliyunUid' => 'AliyunUid',
+        'code' => 'Code',
+        'codeState' => 'CodeState',
+        'codeType' => 'CodeType',
+        'endTime' => 'EndTime',
+        'error' => 'Error',
+        'haveRows' => 'HaveRows',
+        'output' => 'Output',
         'resourceGroup' => 'ResourceGroup',
-        'sessionId'     => 'SessionId',
-        'startTime'     => 'StartTime',
-        'statementId'   => 'StatementId',
-        'totalCount'    => 'TotalCount',
+        'sessionId' => 'SessionId',
+        'startTime' => 'StartTime',
+        'statementId' => 'StatementId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

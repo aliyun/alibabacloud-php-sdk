@@ -12,33 +12,38 @@ class stepList extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $stepDesc;
+
     /**
      * @var string
      */
     public $stepName;
+
     /**
      * @var string
      */
     public $stepProgress;
+
     /**
      * @var string
      */
     public $stepStatus;
     protected $_name = [
-        'endTime'      => 'EndTime',
-        'startTime'    => 'StartTime',
-        'stepDesc'     => 'StepDesc',
-        'stepName'     => 'StepName',
+        'endTime' => 'EndTime',
+        'startTime' => 'StartTime',
+        'stepDesc' => 'StepDesc',
+        'stepName' => 'StepName',
         'stepProgress' => 'StepProgress',
-        'stepStatus'   => 'StepStatus',
+        'stepStatus' => 'StepStatus',
     ];
 
     public function validate()

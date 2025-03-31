@@ -13,13 +13,14 @@ class DescribeApsDatasourceResponseBody extends Model
      * @var apsDatasource
      */
     public $apsDatasource;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'apsDatasource' => 'ApsDatasource',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

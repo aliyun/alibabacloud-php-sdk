@@ -11,43 +11,56 @@ class SparkBatchSQLStatement extends Model
     /**
      * @var string
      */
+    public $appId;
+
+    /**
+     * @var string
+     */
     public $code;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $error;
+
     /**
      * @var string
      */
     public $result;
+
     /**
      * @var string
      */
     public $resultUri;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $statementId;
     protected $_name = [
-        'code'        => 'Code',
-        'endTime'     => 'EndTime',
-        'error'       => 'Error',
-        'result'      => 'Result',
-        'resultUri'   => 'ResultUri',
-        'startTime'   => 'StartTime',
-        'state'       => 'State',
+        'appId' => 'AppId',
+        'code' => 'Code',
+        'endTime' => 'EndTime',
+        'error' => 'Error',
+        'result' => 'Result',
+        'resultUri' => 'ResultUri',
+        'startTime' => 'StartTime',
+        'state' => 'State',
         'statementId' => 'StatementId',
     ];
 
@@ -59,6 +72,10 @@ class SparkBatchSQLStatement extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
+
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -102,6 +119,10 @@ class SparkBatchSQLStatement extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
+
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

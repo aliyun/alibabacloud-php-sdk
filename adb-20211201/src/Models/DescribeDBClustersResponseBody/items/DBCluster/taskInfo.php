@@ -13,22 +13,25 @@ class taskInfo extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $progress;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var stepList
      */
     public $stepList;
     protected $_name = [
-        'name'     => 'Name',
+        'name' => 'Name',
         'progress' => 'Progress',
-        'status'   => 'Status',
+        'status' => 'Status',
         'stepList' => 'StepList',
     ];
 

@@ -12,23 +12,26 @@ class DownloadInstanceCACertificateRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'engine'      => 'Engine',
-        'ownerId'     => 'OwnerId',
-        'regionId'    => 'RegionId',
+        'engine' => 'Engine',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

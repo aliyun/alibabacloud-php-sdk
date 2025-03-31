@@ -13,23 +13,26 @@ class data extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var jobAcuUsage[]
      */
     public $jobAcuUsage;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'endTime'     => 'EndTime',
+        'endTime' => 'EndTime',
         'jobAcuUsage' => 'JobAcuUsage',
-        'startTime'   => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -54,7 +57,7 @@ class data extends Model
         if (null !== $this->jobAcuUsage) {
             if (\is_array($this->jobAcuUsage)) {
                 $res['JobAcuUsage'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->jobAcuUsage as $item1) {
                     $res['JobAcuUsage'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class data extends Model
         if (isset($map['JobAcuUsage'])) {
             if (!empty($map['JobAcuUsage'])) {
                 $model->jobAcuUsage = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['JobAcuUsage'] as $item1) {
                     $model->jobAcuUsage[$n1++] = jobAcuUsage::fromMap($item1);
                 }

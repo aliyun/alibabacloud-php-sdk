@@ -12,58 +12,68 @@ class DescribeAppliedAdvicesRequest extends Model
      * @var string
      */
     public $adviceType;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $schemaTableName;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'adviceType'      => 'AdviceType',
-        'DBClusterId'     => 'DBClusterId',
-        'endTime'         => 'EndTime',
-        'keyword'         => 'Keyword',
-        'lang'            => 'Lang',
-        'order'           => 'Order',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'adviceType' => 'AdviceType',
+        'DBClusterId' => 'DBClusterId',
+        'endTime' => 'EndTime',
+        'keyword' => 'Keyword',
+        'lang' => 'Lang',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'schemaTableName' => 'SchemaTableName',
-        'startTime'       => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

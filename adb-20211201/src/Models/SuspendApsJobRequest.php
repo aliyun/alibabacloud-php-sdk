@@ -12,6 +12,7 @@ class SuspendApsJobRequest extends Model
      * @var string
      */
     public $apsJobId;
+
     /**
      * @var string
      */

@@ -13,13 +13,14 @@ class categories extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var keys[]
      */
     public $keys;
     protected $_name = [
         'category' => 'Category',
-        'keys'     => 'Keys',
+        'keys' => 'Keys',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class categories extends Model
         if (null !== $this->keys) {
             if (\is_array($this->keys)) {
                 $res['Keys'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->keys as $item1) {
                     $res['Keys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class categories extends Model
         if (isset($map['Keys'])) {
             if (!empty($map['Keys'])) {
                 $model->keys = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Keys'] as $item1) {
                     $model->keys[$n1++] = keys::fromMap($item1);
                 }

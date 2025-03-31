@@ -13,28 +13,32 @@ class DescribeDBClusterPerformanceResponseBody extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var performances[]
      */
     public $performances;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'DBClusterId'  => 'DBClusterId',
-        'endTime'      => 'EndTime',
+        'DBClusterId' => 'DBClusterId',
+        'endTime' => 'EndTime',
         'performances' => 'Performances',
-        'requestId'    => 'RequestId',
-        'startTime'    => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class DescribeDBClusterPerformanceResponseBody extends Model
         if (null !== $this->performances) {
             if (\is_array($this->performances)) {
                 $res['Performances'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->performances as $item1) {
                     $res['Performances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class DescribeDBClusterPerformanceResponseBody extends Model
         if (isset($map['Performances'])) {
             if (!empty($map['Performances'])) {
                 $model->performances = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['Performances'] as $item1) {
                     $model->performances[$n1++] = performances::fromMap($item1);
                 }

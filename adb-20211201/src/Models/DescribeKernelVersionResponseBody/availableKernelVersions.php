@@ -12,18 +12,20 @@ class availableKernelVersions extends Model
      * @var string
      */
     public $expireDate;
+
     /**
      * @var string
      */
     public $kernelVersion;
+
     /**
      * @var string
      */
     public $releaseDate;
     protected $_name = [
-        'expireDate'    => 'ExpireDate',
+        'expireDate' => 'ExpireDate',
         'kernelVersion' => 'KernelVersion',
-        'releaseDate'   => 'ReleaseDate',
+        'releaseDate' => 'ReleaseDate',
     ];
 
     public function validate()

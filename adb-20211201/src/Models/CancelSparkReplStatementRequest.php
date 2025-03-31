@@ -12,17 +12,19 @@ class CancelSparkReplStatementRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $sessionId;
+
     /**
      * @var int
      */
     public $statementId;
     protected $_name = [
-        'appId'       => 'AppId',
-        'sessionId'   => 'SessionId',
+        'appId' => 'AppId',
+        'sessionId' => 'SessionId',
         'statementId' => 'StatementId',
     ];
 

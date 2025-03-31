@@ -12,53 +12,62 @@ class SparkAnalyzeLogTask extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var LogAnalyzeResult
      */
     public $result;
+
     /**
      * @var bool
      */
     public $ruleMatched;
+
     /**
      * @var int
      */
     public $startedTimeInMillis;
+
     /**
      * @var int
      */
     public $submittedTimeInMillis;
+
     /**
      * @var string
      */
     public $taskErrMsg;
+
     /**
      * @var int
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskState;
+
     /**
      * @var int
      */
     public $terminatedTimeInMillis;
+
     /**
      * @var int
      */
     public $userId;
     protected $_name = [
-        'DBClusterId'            => 'DBClusterId',
-        'result'                 => 'Result',
-        'ruleMatched'            => 'RuleMatched',
-        'startedTimeInMillis'    => 'StartedTimeInMillis',
-        'submittedTimeInMillis'  => 'SubmittedTimeInMillis',
-        'taskErrMsg'             => 'TaskErrMsg',
-        'taskId'                 => 'TaskId',
-        'taskState'              => 'TaskState',
+        'DBClusterId' => 'DBClusterId',
+        'result' => 'Result',
+        'ruleMatched' => 'RuleMatched',
+        'startedTimeInMillis' => 'StartedTimeInMillis',
+        'submittedTimeInMillis' => 'SubmittedTimeInMillis',
+        'taskErrMsg' => 'TaskErrMsg',
+        'taskId' => 'TaskId',
+        'taskState' => 'TaskState',
         'terminatedTimeInMillis' => 'TerminatedTimeInMillis',
-        'userId'                 => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class SparkSession extends Model
      * @var string
      */
     public $active;
+
     /**
      * @var int
      */
     public $aliyunUid;
+
     /**
      * @var int
      */
     public $sessionId;
+
     /**
      * @var string
      */
     public $state;
     protected $_name = [
-        'active'    => 'Active',
+        'active' => 'Active',
         'aliyunUid' => 'AliyunUid',
         'sessionId' => 'SessionId',
-        'state'     => 'State',
+        'state' => 'State',
     ];
 
     public function validate()

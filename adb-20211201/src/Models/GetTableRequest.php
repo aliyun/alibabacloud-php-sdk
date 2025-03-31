@@ -12,23 +12,26 @@ class GetTableRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'dbName'      => 'DbName',
-        'regionId'    => 'RegionId',
-        'tableName'   => 'TableName',
+        'dbName' => 'DbName',
+        'regionId' => 'RegionId',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

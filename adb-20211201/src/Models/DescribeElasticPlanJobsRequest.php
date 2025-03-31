@@ -12,38 +12,44 @@ class DescribeElasticPlanJobsRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $elasticPlanName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupName;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'DBClusterId'       => 'DBClusterId',
-        'elasticPlanName'   => 'ElasticPlanName',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
+        'DBClusterId' => 'DBClusterId',
+        'elasticPlanName' => 'ElasticPlanName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupName' => 'ResourceGroupName',
-        'startTime'         => 'StartTime',
-        'status'            => 'Status',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
     ];
 
     public function validate()

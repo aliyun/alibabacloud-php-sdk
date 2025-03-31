@@ -12,10 +12,12 @@ class BindAccountRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class BindAccountRequest extends Model
     protected $_name = [
         'accountName' => 'AccountName',
         'DBClusterId' => 'DBClusterId',
-        'ramUser'     => 'RamUser',
+        'ramUser' => 'RamUser',
     ];
 
     public function validate()

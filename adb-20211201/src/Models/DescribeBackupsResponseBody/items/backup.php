@@ -12,43 +12,50 @@ class backup extends Model
      * @var string
      */
     public $backupEndTime;
+
     /**
      * @var string
      */
     public $backupExpiredTime;
+
     /**
      * @var string
      */
     public $backupId;
+
     /**
      * @var string
      */
     public $backupMethod;
+
     /**
      * @var int
      */
     public $backupSize;
+
     /**
      * @var string
      */
     public $backupStartTime;
+
     /**
      * @var string
      */
     public $backupType;
+
     /**
      * @var string
      */
     public $DBClusterId;
     protected $_name = [
-        'backupEndTime'     => 'BackupEndTime',
+        'backupEndTime' => 'BackupEndTime',
         'backupExpiredTime' => 'BackupExpiredTime',
-        'backupId'          => 'BackupId',
-        'backupMethod'      => 'BackupMethod',
-        'backupSize'        => 'BackupSize',
-        'backupStartTime'   => 'BackupStartTime',
-        'backupType'        => 'BackupType',
-        'DBClusterId'       => 'DBClusterId',
+        'backupId' => 'BackupId',
+        'backupMethod' => 'BackupMethod',
+        'backupSize' => 'BackupSize',
+        'backupStartTime' => 'BackupStartTime',
+        'backupType' => 'BackupType',
+        'DBClusterId' => 'DBClusterId',
     ];
 
     public function validate()

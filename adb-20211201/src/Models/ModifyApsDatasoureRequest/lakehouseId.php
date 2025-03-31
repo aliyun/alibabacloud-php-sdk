@@ -12,18 +12,20 @@ class lakehouseId extends Model
      * @var string
      */
     public $securityGroup;
+
     /**
      * @var string
      */
     public $vpcId;
+
     /**
      * @var string
      */
     public $vswitch;
     protected $_name = [
         'securityGroup' => 'SecurityGroup',
-        'vpcId'         => 'VpcId',
-        'vswitch'       => 'Vswitch',
+        'vpcId' => 'VpcId',
+        'vswitch' => 'Vswitch',
     ];
 
     public function validate()

@@ -14,38 +14,44 @@ class DescribeOversizeNonPartitionTableInfosResponseBody extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var detectionItems[]
      */
     public $detectionItems;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var tables[]
      */
     public $tables;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
-        'DBClusterId'    => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'detectionItems' => 'DetectionItems',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'tables'         => 'Tables',
-        'totalCount'     => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'tables' => 'Tables',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -69,7 +75,7 @@ class DescribeOversizeNonPartitionTableInfosResponseBody extends Model
         if (null !== $this->detectionItems) {
             if (\is_array($this->detectionItems)) {
                 $res['DetectionItems'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->detectionItems as $item1) {
                     $res['DetectionItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -91,7 +97,7 @@ class DescribeOversizeNonPartitionTableInfosResponseBody extends Model
         if (null !== $this->tables) {
             if (\is_array($this->tables)) {
                 $res['Tables'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tables as $item1) {
                     $res['Tables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -120,7 +126,7 @@ class DescribeOversizeNonPartitionTableInfosResponseBody extends Model
         if (isset($map['DetectionItems'])) {
             if (!empty($map['DetectionItems'])) {
                 $model->detectionItems = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['DetectionItems'] as $item1) {
                     $model->detectionItems[$n1++] = detectionItems::fromMap($item1);
                 }
@@ -142,7 +148,7 @@ class DescribeOversizeNonPartitionTableInfosResponseBody extends Model
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
                 $model->tables = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Tables'] as $item1) {
                     $model->tables[$n1++] = tables::fromMap($item1);
                 }

@@ -12,23 +12,26 @@ class ModifyAccountDescriptionRequest extends Model
      * @var string
      */
     public $accountDescription;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $engine;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
-        'accountName'        => 'AccountName',
-        'DBClusterId'        => 'DBClusterId',
-        'engine'             => 'Engine',
+        'accountName' => 'AccountName',
+        'DBClusterId' => 'DBClusterId',
+        'engine' => 'Engine',
     ];
 
     public function validate()

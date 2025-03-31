@@ -12,27 +12,31 @@ class DescribeDBResourceGroupRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $groupType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'groupName'            => 'GroupName',
-        'groupType'            => 'GroupType',
-        'regionId'             => 'RegionId',
+        'DBClusterId' => 'DBClusterId',
+        'groupName' => 'GroupName',
+        'groupType' => 'GroupType',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
     ];
 

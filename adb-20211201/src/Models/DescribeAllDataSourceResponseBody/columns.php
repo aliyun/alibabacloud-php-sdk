@@ -31,7 +31,7 @@ class columns extends Model
         if (null !== $this->column) {
             if (\is_array($this->column)) {
                 $res['Column'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->column as $item1) {
                     $res['Column'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class columns extends Model
         if (isset($map['Column'])) {
             if (!empty($map['Column'])) {
                 $model->column = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Column'] as $item1) {
                     $model->column[$n1++] = column::fromMap($item1);
                 }

@@ -12,12 +12,13 @@ class DescribeElasticPlanAttributeRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $elasticPlanName;
     protected $_name = [
-        'DBClusterId'     => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'elasticPlanName' => 'ElasticPlanName',
     ];
 

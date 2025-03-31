@@ -12,48 +12,56 @@ class GetViewObjectsRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $filterOwner;
+
     /**
      * @var string
      */
     public $filterViewName;
+
     /**
      * @var string
      */
     public $filterViewType;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $schemaName;
     protected $_name = [
-        'DBClusterId'    => 'DBClusterId',
-        'filterOwner'    => 'FilterOwner',
+        'DBClusterId' => 'DBClusterId',
+        'filterOwner' => 'FilterOwner',
         'filterViewName' => 'FilterViewName',
         'filterViewType' => 'FilterViewType',
-        'orderBy'        => 'OrderBy',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'regionId'       => 'RegionId',
-        'schemaName'     => 'SchemaName',
+        'orderBy' => 'OrderBy',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'schemaName' => 'SchemaName',
     ];
 
     public function validate()

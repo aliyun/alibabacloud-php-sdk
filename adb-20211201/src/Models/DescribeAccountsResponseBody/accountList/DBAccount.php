@@ -12,33 +12,38 @@ class DBAccount extends Model
      * @var string
      */
     public $accountDescription;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountStatus;
+
     /**
      * @var string
      */
     public $accountType;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $ramUsers;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
-        'accountName'        => 'AccountName',
-        'accountStatus'      => 'AccountStatus',
-        'accountType'        => 'AccountType',
-        'engine'             => 'Engine',
-        'ramUsers'           => 'RamUsers',
+        'accountName' => 'AccountName',
+        'accountStatus' => 'AccountStatus',
+        'accountType' => 'AccountType',
+        'engine' => 'Engine',
+        'ramUsers' => 'RamUsers',
     ];
 
     public function validate()

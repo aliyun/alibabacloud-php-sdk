@@ -13,18 +13,20 @@ class DescribeClusterNetInfoResponseBody extends Model
      * @var string
      */
     public $clusterNetworkType;
+
     /**
      * @var items
      */
     public $items;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'clusterNetworkType' => 'ClusterNetworkType',
-        'items'              => 'Items',
-        'requestId'          => 'RequestId',
+        'items' => 'Items',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

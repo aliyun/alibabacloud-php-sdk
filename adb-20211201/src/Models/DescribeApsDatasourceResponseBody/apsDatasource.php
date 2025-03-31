@@ -18,58 +18,68 @@ class apsDatasource extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var databricksInfo
      */
     public $databricksInfo;
+
     /**
      * @var string
      */
     public $datasourceDescription;
+
     /**
      * @var string
      */
     public $datasourceName;
+
     /**
      * @var string
      */
     public $datasourceType;
+
     /**
      * @var hiveInfo
      */
     public $hiveInfo;
+
     /**
      * @var kafkaInfo
      */
     public $kafkaInfo;
+
     /**
      * @var polarDBMysqlInfo
      */
     public $polarDBMysqlInfo;
+
     /**
      * @var rdsMysqlInfo
      */
     public $rdsMysqlInfo;
+
     /**
      * @var slsInfo
      */
     public $slsInfo;
     protected $_name = [
-        'createTime'            => 'CreateTime',
-        'DBClusterId'           => 'DBClusterId',
-        'databricksInfo'        => 'DatabricksInfo',
+        'createTime' => 'CreateTime',
+        'DBClusterId' => 'DBClusterId',
+        'databricksInfo' => 'DatabricksInfo',
         'datasourceDescription' => 'DatasourceDescription',
-        'datasourceName'        => 'DatasourceName',
-        'datasourceType'        => 'DatasourceType',
-        'hiveInfo'              => 'HiveInfo',
-        'kafkaInfo'             => 'KafkaInfo',
-        'polarDBMysqlInfo'      => 'PolarDBMysqlInfo',
-        'rdsMysqlInfo'          => 'RdsMysqlInfo',
-        'slsInfo'               => 'SlsInfo',
+        'datasourceName' => 'DatasourceName',
+        'datasourceType' => 'DatasourceType',
+        'hiveInfo' => 'HiveInfo',
+        'kafkaInfo' => 'KafkaInfo',
+        'polarDBMysqlInfo' => 'PolarDBMysqlInfo',
+        'rdsMysqlInfo' => 'RdsMysqlInfo',
+        'slsInfo' => 'SlsInfo',
     ];
 
     public function validate()

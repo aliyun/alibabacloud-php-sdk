@@ -13,28 +13,32 @@ class DescribeApsMigrationWorkloadsResponseBody extends Model
      * @var migrationWorkloads[]
      */
     public $migrationWorkloads;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'migrationWorkloads' => 'MigrationWorkloads',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'requestId'          => 'RequestId',
-        'totalCount'         => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class DescribeApsMigrationWorkloadsResponseBody extends Model
         if (null !== $this->migrationWorkloads) {
             if (\is_array($this->migrationWorkloads)) {
                 $res['MigrationWorkloads'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->migrationWorkloads as $item1) {
                     $res['MigrationWorkloads'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class DescribeApsMigrationWorkloadsResponseBody extends Model
         if (isset($map['MigrationWorkloads'])) {
             if (!empty($map['MigrationWorkloads'])) {
                 $model->migrationWorkloads = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['MigrationWorkloads'] as $item1) {
                     $model->migrationWorkloads[$n1++] = migrationWorkloads::fromMap($item1);
                 }

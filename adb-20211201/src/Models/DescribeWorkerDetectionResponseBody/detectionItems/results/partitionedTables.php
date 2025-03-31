@@ -12,33 +12,38 @@ class partitionedTables extends Model
      * @var string
      */
     public $DDL;
+
     /**
      * @var string
      */
     public $partitionCount;
+
     /**
      * @var string
      */
     public $partitionIds;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
     public $totalDataSize;
     protected $_name = [
-        'DDL'            => 'DDL',
+        'DDL' => 'DDL',
         'partitionCount' => 'PartitionCount',
-        'partitionIds'   => 'PartitionIds',
-        'schemaName'     => 'SchemaName',
-        'tableName'      => 'TableName',
-        'totalDataSize'  => 'TotalDataSize',
+        'partitionIds' => 'PartitionIds',
+        'schemaName' => 'SchemaName',
+        'tableName' => 'TableName',
+        'totalDataSize' => 'TotalDataSize',
     ];
 
     public function validate()

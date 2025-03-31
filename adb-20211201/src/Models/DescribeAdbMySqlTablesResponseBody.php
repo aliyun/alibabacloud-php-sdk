@@ -12,28 +12,32 @@ class DescribeAdbMySqlTablesResponseBody extends Model
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $schema;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string[]
      */
     public $tables;
     protected $_name = [
-        'message'   => 'Message',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'schema'    => 'Schema',
-        'success'   => 'Success',
-        'tables'    => 'Tables',
+        'schema' => 'Schema',
+        'success' => 'Success',
+        'tables' => 'Tables',
     ];
 
     public function validate()
@@ -66,7 +70,7 @@ class DescribeAdbMySqlTablesResponseBody extends Model
         if (null !== $this->tables) {
             if (\is_array($this->tables)) {
                 $res['Tables'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tables as $item1) {
                     $res['Tables'][$n1++] = $item1;
                 }
@@ -103,7 +107,7 @@ class DescribeAdbMySqlTablesResponseBody extends Model
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
                 $model->tables = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Tables'] as $item1) {
                     $model->tables[$n1++] = $item1;
                 }

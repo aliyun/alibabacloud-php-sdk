@@ -12,28 +12,32 @@ class data extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $content;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $resourceGroupName;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'appType'           => 'AppType',
-        'content'           => 'Content',
-        'id'                => 'Id',
+        'appType' => 'AppType',
+        'content' => 'Content',
+        'id' => 'Id',
         'resourceGroupName' => 'ResourceGroupName',
-        'type'              => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

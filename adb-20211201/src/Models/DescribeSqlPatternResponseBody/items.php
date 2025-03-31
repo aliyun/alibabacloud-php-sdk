@@ -12,83 +12,98 @@ class items extends Model
      * @var string
      */
     public $accessIP;
+
     /**
      * @var string
      */
     public $avgCpuTime;
+
     /**
      * @var string
      */
     public $avgPeakMemory;
+
     /**
      * @var string
      */
     public $avgScanSize;
+
     /**
      * @var string
      */
     public $avgStageCount;
+
     /**
      * @var string
      */
     public $avgTaskCount;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $maxCpuTime;
+
     /**
      * @var string
      */
     public $maxPeakMemory;
+
     /**
      * @var string
      */
     public $maxScanSize;
+
     /**
      * @var string
      */
     public $maxStageCount;
+
     /**
      * @var string
      */
     public $maxTaskCount;
+
     /**
      * @var string
      */
     public $pattern;
+
     /**
      * @var string
      */
     public $queryCount;
+
     /**
      * @var string
      */
     public $reportDate;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'accessIP'      => 'AccessIP',
-        'avgCpuTime'    => 'AvgCpuTime',
+        'accessIP' => 'AccessIP',
+        'avgCpuTime' => 'AvgCpuTime',
         'avgPeakMemory' => 'AvgPeakMemory',
-        'avgScanSize'   => 'AvgScanSize',
+        'avgScanSize' => 'AvgScanSize',
         'avgStageCount' => 'AvgStageCount',
-        'avgTaskCount'  => 'AvgTaskCount',
-        'instanceName'  => 'InstanceName',
-        'maxCpuTime'    => 'MaxCpuTime',
+        'avgTaskCount' => 'AvgTaskCount',
+        'instanceName' => 'InstanceName',
+        'maxCpuTime' => 'MaxCpuTime',
         'maxPeakMemory' => 'MaxPeakMemory',
-        'maxScanSize'   => 'MaxScanSize',
+        'maxScanSize' => 'MaxScanSize',
         'maxStageCount' => 'MaxStageCount',
-        'maxTaskCount'  => 'MaxTaskCount',
-        'pattern'       => 'Pattern',
-        'queryCount'    => 'QueryCount',
-        'reportDate'    => 'ReportDate',
-        'user'          => 'User',
+        'maxTaskCount' => 'MaxTaskCount',
+        'pattern' => 'Pattern',
+        'queryCount' => 'QueryCount',
+        'reportDate' => 'ReportDate',
+        'user' => 'User',
     ];
 
     public function validate()

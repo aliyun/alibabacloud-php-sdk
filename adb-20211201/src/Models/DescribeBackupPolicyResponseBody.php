@@ -12,33 +12,38 @@ class DescribeBackupPolicyResponseBody extends Model
      * @var int
      */
     public $backupRetentionPeriod;
+
     /**
      * @var string
      */
     public $enableBackupLog;
+
     /**
      * @var int
      */
     public $logBackupRetentionPeriod;
+
     /**
      * @var string
      */
     public $preferredBackupPeriod;
+
     /**
      * @var string
      */
     public $preferredBackupTime;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'backupRetentionPeriod'    => 'BackupRetentionPeriod',
-        'enableBackupLog'          => 'EnableBackupLog',
+        'backupRetentionPeriod' => 'BackupRetentionPeriod',
+        'enableBackupLog' => 'EnableBackupLog',
         'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
-        'preferredBackupPeriod'    => 'PreferredBackupPeriod',
-        'preferredBackupTime'      => 'PreferredBackupTime',
-        'requestId'                => 'RequestId',
+        'preferredBackupPeriod' => 'PreferredBackupPeriod',
+        'preferredBackupTime' => 'PreferredBackupTime',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

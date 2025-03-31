@@ -12,23 +12,26 @@ class DeleteProcessInstanceRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $processInstanceId;
+
     /**
      * @var int
      */
     public $projectCode;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'DBClusterId'       => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'processInstanceId' => 'ProcessInstanceId',
-        'projectCode'       => 'ProjectCode',
-        'regionId'          => 'RegionId',
+        'projectCode' => 'ProjectCode',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

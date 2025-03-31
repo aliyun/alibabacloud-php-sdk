@@ -12,23 +12,26 @@ class ListSparkAppAttemptsRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'appId'       => 'AppId',
+        'appId' => 'AppId',
         'DBClusterId' => 'DBClusterId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

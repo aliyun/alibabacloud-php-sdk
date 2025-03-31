@@ -12,43 +12,50 @@ class tables extends Model
      * @var int
      */
     public $columnCount;
+
     /**
      * @var string
      */
     public $primaryKeyColumns;
+
     /**
      * @var int
      */
     public $primaryKeyCount;
+
     /**
      * @var int
      */
     public $primaryKeyIndexSize;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var float
      */
     public $spaceRatio;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
     public $totalSize;
     protected $_name = [
-        'columnCount'         => 'ColumnCount',
-        'primaryKeyColumns'   => 'PrimaryKeyColumns',
-        'primaryKeyCount'     => 'PrimaryKeyCount',
+        'columnCount' => 'ColumnCount',
+        'primaryKeyColumns' => 'PrimaryKeyColumns',
+        'primaryKeyCount' => 'PrimaryKeyCount',
         'primaryKeyIndexSize' => 'PrimaryKeyIndexSize',
-        'schemaName'          => 'SchemaName',
-        'spaceRatio'          => 'SpaceRatio',
-        'tableName'           => 'TableName',
-        'totalSize'           => 'TotalSize',
+        'schemaName' => 'SchemaName',
+        'spaceRatio' => 'SpaceRatio',
+        'tableName' => 'TableName',
+        'totalSize' => 'TotalSize',
     ];
 
     public function validate()

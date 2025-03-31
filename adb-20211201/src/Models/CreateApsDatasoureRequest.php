@@ -19,68 +19,80 @@ class CreateApsDatasoureRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var databricksInfo
      */
     public $databricksInfo;
+
     /**
      * @var string
      */
     public $datasourceDescription;
+
     /**
      * @var string
      */
     public $datasourceName;
+
     /**
      * @var string
      */
     public $datasourceType;
+
     /**
      * @var hiveInfo
      */
     public $hiveInfo;
+
     /**
      * @var kafkaInfo
      */
     public $kafkaInfo;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var polarDBMysqlInfo
      */
     public $polarDBMysqlInfo;
+
     /**
      * @var polarDBXInfo
      */
     public $polarDBXInfo;
+
     /**
      * @var rdsMysqlInfo
      */
     public $rdsMysqlInfo;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var slsInfo
      */
     public $slsInfo;
     protected $_name = [
-        'DBClusterId'           => 'DBClusterId',
-        'databricksInfo'        => 'DatabricksInfo',
+        'DBClusterId' => 'DBClusterId',
+        'databricksInfo' => 'DatabricksInfo',
         'datasourceDescription' => 'DatasourceDescription',
-        'datasourceName'        => 'DatasourceName',
-        'datasourceType'        => 'DatasourceType',
-        'hiveInfo'              => 'HiveInfo',
-        'kafkaInfo'             => 'KafkaInfo',
-        'mode'                  => 'Mode',
-        'polarDBMysqlInfo'      => 'PolarDBMysqlInfo',
-        'polarDBXInfo'          => 'PolarDBXInfo',
-        'rdsMysqlInfo'          => 'RdsMysqlInfo',
-        'regionId'              => 'RegionId',
-        'slsInfo'               => 'SlsInfo',
+        'datasourceName' => 'DatasourceName',
+        'datasourceType' => 'DatasourceType',
+        'hiveInfo' => 'HiveInfo',
+        'kafkaInfo' => 'KafkaInfo',
+        'mode' => 'Mode',
+        'polarDBMysqlInfo' => 'PolarDBMysqlInfo',
+        'polarDBXInfo' => 'PolarDBXInfo',
+        'rdsMysqlInfo' => 'RdsMysqlInfo',
+        'regionId' => 'RegionId',
+        'slsInfo' => 'SlsInfo',
     ];
 
     public function validate()

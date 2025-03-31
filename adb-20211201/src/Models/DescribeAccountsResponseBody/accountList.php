@@ -31,7 +31,7 @@ class accountList extends Model
         if (null !== $this->DBAccount) {
             if (\is_array($this->DBAccount)) {
                 $res['DBAccount'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->DBAccount as $item1) {
                     $res['DBAccount'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class accountList extends Model
         if (isset($map['DBAccount'])) {
             if (!empty($map['DBAccount'])) {
                 $model->DBAccount = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['DBAccount'] as $item1) {
                     $model->DBAccount[$n1++] = DBAccount::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class DescribeAdbMySqlTablesRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $schema;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'regionId'    => 'RegionId',
-        'schema'      => 'Schema',
+        'regionId' => 'RegionId',
+        'schema' => 'Schema',
     ];
 
     public function validate()

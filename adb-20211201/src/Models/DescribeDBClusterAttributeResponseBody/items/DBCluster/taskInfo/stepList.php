@@ -31,7 +31,7 @@ class stepList extends Model
         if (null !== $this->stepList) {
             if (\is_array($this->stepList)) {
                 $res['StepList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->stepList as $item1) {
                     $res['StepList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class stepList extends Model
         if (isset($map['StepList'])) {
             if (!empty($map['StepList'])) {
                 $model->stepList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['StepList'] as $item1) {
                     $model->stepList[$n1++] = self::fromMap($item1);
                 }

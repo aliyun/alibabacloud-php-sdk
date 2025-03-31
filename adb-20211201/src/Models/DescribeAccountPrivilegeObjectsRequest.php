@@ -12,48 +12,56 @@ class DescribeAccountPrivilegeObjectsRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $columnPrivilegeObject;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $databasePrivilegeObject;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $privilegeType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $tablePrivilegeObject;
     protected $_name = [
-        'accountName'             => 'AccountName',
-        'columnPrivilegeObject'   => 'ColumnPrivilegeObject',
-        'DBClusterId'             => 'DBClusterId',
+        'accountName' => 'AccountName',
+        'columnPrivilegeObject' => 'ColumnPrivilegeObject',
+        'DBClusterId' => 'DBClusterId',
         'databasePrivilegeObject' => 'DatabasePrivilegeObject',
-        'pageNumber'              => 'PageNumber',
-        'pageSize'                => 'PageSize',
-        'privilegeType'           => 'PrivilegeType',
-        'regionId'                => 'RegionId',
-        'tablePrivilegeObject'    => 'TablePrivilegeObject',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'privilegeType' => 'PrivilegeType',
+        'regionId' => 'RegionId',
+        'tablePrivilegeObject' => 'TablePrivilegeObject',
     ];
 
     public function validate()

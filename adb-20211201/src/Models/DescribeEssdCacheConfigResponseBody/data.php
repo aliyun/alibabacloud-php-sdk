@@ -12,13 +12,14 @@ class data extends Model
      * @var bool
      */
     public $enableEssdCache;
+
     /**
      * @var int
      */
     public $essdCacheSize;
     protected $_name = [
         'enableEssdCache' => 'EnableEssdCache',
-        'essdCacheSize'   => 'EssdCacheSize',
+        'essdCacheSize' => 'EssdCacheSize',
     ];
 
     public function validate()

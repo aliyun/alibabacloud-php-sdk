@@ -12,13 +12,14 @@ class GetTableDDLResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $SQL;
     protected $_name = [
         'requestId' => 'RequestId',
-        'SQL'       => 'SQL',
+        'SQL' => 'SQL',
     ];
 
     public function validate()

@@ -13,33 +13,38 @@ class DescribeSQLPatternsResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var patternDetails[]
      */
     public $patternDetails;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'patternDetails'     => 'PatternDetails',
-        'requestId'          => 'RequestId',
-        'totalCount'         => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'patternDetails' => 'PatternDetails',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -68,7 +73,7 @@ class DescribeSQLPatternsResponseBody extends Model
         if (null !== $this->patternDetails) {
             if (\is_array($this->patternDetails)) {
                 $res['PatternDetails'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->patternDetails as $item1) {
                     $res['PatternDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -109,7 +114,7 @@ class DescribeSQLPatternsResponseBody extends Model
         if (isset($map['PatternDetails'])) {
             if (!empty($map['PatternDetails'])) {
                 $model->patternDetails = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['PatternDetails'] as $item1) {
                     $model->patternDetails[$n1++] = patternDetails::fromMap($item1);
                 }

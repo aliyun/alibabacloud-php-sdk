@@ -12,163 +12,194 @@ class CreateApsSlsADBJobShrinkRequest extends Model
      * @var string
      */
     public $acrossRole;
+
     /**
      * @var string
      */
     public $acrossUid;
+
     /**
      * @var string
      */
     public $advancedConfig;
+
     /**
      * @var string
      */
     public $columnsShrink;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $datasourceId;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var string
      */
     public $dirtyDataHandleMode;
+
     /**
      * @var string
      */
     public $dirtyDataProcessPattern;
+
     /**
      * @var string
      */
     public $exactlyOnce;
+
     /**
      * @var string
      */
     public $fullComputeUnit;
+
     /**
      * @var string
      */
     public $hudiAdvancedConfig;
+
     /**
      * @var string
      */
     public $incrementalComputeUnit;
+
     /**
      * @var int
      */
     public $lakehouseId;
+
     /**
      * @var int
      */
     public $maxOffsetsPerTrigger;
+
     /**
      * @var string
      */
     public $ossLocation;
+
     /**
      * @var string
      */
     public $outputFormat;
+
     /**
      * @var string
      */
     public $partitionSpecsShrink;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $primaryKeyDefinition;
+
     /**
      * @var string
      */
     public $project;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroup;
+
     /**
      * @var string
      */
     public $sourceRegionId;
+
     /**
      * @var string
      */
     public $startingOffsets;
+
     /**
      * @var string
      */
     public $store;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $targetGenerateRule;
+
     /**
      * @var string
      */
     public $targetType;
+
     /**
      * @var string
      */
     public $unixTimestampConvertShrink;
+
     /**
      * @var string
      */
     public $userName;
+
     /**
      * @var string
      */
     public $workloadName;
     protected $_name = [
-        'acrossRole'                 => 'AcrossRole',
-        'acrossUid'                  => 'AcrossUid',
-        'advancedConfig'             => 'AdvancedConfig',
-        'columnsShrink'              => 'Columns',
-        'DBClusterId'                => 'DBClusterId',
-        'datasourceId'               => 'DatasourceId',
-        'dbName'                     => 'DbName',
-        'dirtyDataHandleMode'        => 'DirtyDataHandleMode',
-        'dirtyDataProcessPattern'    => 'DirtyDataProcessPattern',
-        'exactlyOnce'                => 'ExactlyOnce',
-        'fullComputeUnit'            => 'FullComputeUnit',
-        'hudiAdvancedConfig'         => 'HudiAdvancedConfig',
-        'incrementalComputeUnit'     => 'IncrementalComputeUnit',
-        'lakehouseId'                => 'LakehouseId',
-        'maxOffsetsPerTrigger'       => 'MaxOffsetsPerTrigger',
-        'ossLocation'                => 'OssLocation',
-        'outputFormat'               => 'OutputFormat',
-        'partitionSpecsShrink'       => 'PartitionSpecs',
-        'password'                   => 'Password',
-        'primaryKeyDefinition'       => 'PrimaryKeyDefinition',
-        'project'                    => 'Project',
-        'regionId'                   => 'RegionId',
-        'resourceGroup'              => 'ResourceGroup',
-        'sourceRegionId'             => 'SourceRegionId',
-        'startingOffsets'            => 'StartingOffsets',
-        'store'                      => 'Store',
-        'tableName'                  => 'TableName',
-        'targetGenerateRule'         => 'TargetGenerateRule',
-        'targetType'                 => 'TargetType',
+        'acrossRole' => 'AcrossRole',
+        'acrossUid' => 'AcrossUid',
+        'advancedConfig' => 'AdvancedConfig',
+        'columnsShrink' => 'Columns',
+        'DBClusterId' => 'DBClusterId',
+        'datasourceId' => 'DatasourceId',
+        'dbName' => 'DbName',
+        'dirtyDataHandleMode' => 'DirtyDataHandleMode',
+        'dirtyDataProcessPattern' => 'DirtyDataProcessPattern',
+        'exactlyOnce' => 'ExactlyOnce',
+        'fullComputeUnit' => 'FullComputeUnit',
+        'hudiAdvancedConfig' => 'HudiAdvancedConfig',
+        'incrementalComputeUnit' => 'IncrementalComputeUnit',
+        'lakehouseId' => 'LakehouseId',
+        'maxOffsetsPerTrigger' => 'MaxOffsetsPerTrigger',
+        'ossLocation' => 'OssLocation',
+        'outputFormat' => 'OutputFormat',
+        'partitionSpecsShrink' => 'PartitionSpecs',
+        'password' => 'Password',
+        'primaryKeyDefinition' => 'PrimaryKeyDefinition',
+        'project' => 'Project',
+        'regionId' => 'RegionId',
+        'resourceGroup' => 'ResourceGroup',
+        'sourceRegionId' => 'SourceRegionId',
+        'startingOffsets' => 'StartingOffsets',
+        'store' => 'Store',
+        'tableName' => 'TableName',
+        'targetGenerateRule' => 'TargetGenerateRule',
+        'targetType' => 'TargetType',
         'unixTimestampConvertShrink' => 'UnixTimestampConvert',
-        'userName'                   => 'UserName',
-        'workloadName'               => 'WorkloadName',
+        'userName' => 'UserName',
+        'workloadName' => 'WorkloadName',
     ];
 
     public function validate()

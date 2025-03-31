@@ -12,13 +12,14 @@ class DeleteDBClusterResponseBody extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

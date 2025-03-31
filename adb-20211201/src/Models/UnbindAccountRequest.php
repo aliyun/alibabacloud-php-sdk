@@ -12,6 +12,7 @@ class UnbindAccountRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */

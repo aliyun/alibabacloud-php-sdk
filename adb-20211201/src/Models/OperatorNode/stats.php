@@ -12,28 +12,32 @@ class stats extends Model
      * @var int
      */
     public $bytes;
+
     /**
      * @var int
      */
     public $outputRows;
+
     /**
      * @var string
      */
     public $parameters;
+
     /**
      * @var int
      */
     public $peakMemory;
+
     /**
      * @var int
      */
     public $timeCost;
     protected $_name = [
-        'bytes'      => 'bytes',
+        'bytes' => 'bytes',
         'outputRows' => 'outputRows',
         'parameters' => 'parameters',
         'peakMemory' => 'peakMemory',
-        'timeCost'   => 'timeCost',
+        'timeCost' => 'timeCost',
     ];
 
     public function validate()

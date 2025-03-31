@@ -12,28 +12,32 @@ class ModifyClusterAccessWhiteListRequest extends Model
      * @var string
      */
     public $DBClusterIPArrayAttribute;
+
     /**
      * @var string
      */
     public $DBClusterIPArrayName;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $modifyMode;
+
     /**
      * @var string
      */
     public $securityIps;
     protected $_name = [
         'DBClusterIPArrayAttribute' => 'DBClusterIPArrayAttribute',
-        'DBClusterIPArrayName'      => 'DBClusterIPArrayName',
-        'DBClusterId'               => 'DBClusterId',
-        'modifyMode'                => 'ModifyMode',
-        'securityIps'               => 'SecurityIps',
+        'DBClusterIPArrayName' => 'DBClusterIPArrayName',
+        'DBClusterId' => 'DBClusterId',
+        'modifyMode' => 'ModifyMode',
+        'securityIps' => 'SecurityIps',
     ];
 
     public function validate()

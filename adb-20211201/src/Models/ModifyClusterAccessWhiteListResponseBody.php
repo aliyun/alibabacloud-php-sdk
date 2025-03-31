@@ -12,18 +12,20 @@ class ModifyClusterAccessWhiteListResponseBody extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $taskId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'requestId'   => 'RequestId',
-        'taskId'      => 'TaskId',
+        'requestId' => 'RequestId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

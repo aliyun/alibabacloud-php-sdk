@@ -12,23 +12,26 @@ class GetSparkAppAttemptLogRequest extends Model
      * @var string
      */
     public $attemptId;
+
     /**
      * @var int
      */
     public $logLength;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
     protected $_name = [
-        'attemptId'  => 'AttemptId',
-        'logLength'  => 'LogLength',
+        'attemptId' => 'AttemptId',
+        'logLength' => 'LogLength',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

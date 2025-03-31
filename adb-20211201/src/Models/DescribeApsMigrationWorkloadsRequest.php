@@ -12,37 +12,43 @@ class DescribeApsMigrationWorkloadsRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $ossLocation;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $workloadName;
     protected $_name = [
-        'DBClusterId'  => 'DBClusterId',
-        'endTime'      => 'EndTime',
-        'ossLocation'  => 'OssLocation',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'startTime'    => 'StartTime',
+        'DBClusterId' => 'DBClusterId',
+        'endTime' => 'EndTime',
+        'ossLocation' => 'OssLocation',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'startTime' => 'StartTime',
         'workloadName' => 'WorkloadName',
     ];
 

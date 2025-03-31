@@ -12,18 +12,20 @@ class UnbindDBResourceGroupWithUserRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $groupUser;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'groupName'   => 'GroupName',
-        'groupUser'   => 'GroupUser',
+        'groupName' => 'GroupName',
+        'groupUser' => 'GroupUser',
     ];
 
     public function validate()

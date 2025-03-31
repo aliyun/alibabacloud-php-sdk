@@ -12,68 +12,80 @@ class CreateApsDatasoureShrinkRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $databricksInfoShrink;
+
     /**
      * @var string
      */
     public $datasourceDescription;
+
     /**
      * @var string
      */
     public $datasourceName;
+
     /**
      * @var string
      */
     public $datasourceType;
+
     /**
      * @var string
      */
     public $hiveInfoShrink;
+
     /**
      * @var string
      */
     public $kafkaInfoShrink;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $polarDBMysqlInfoShrink;
+
     /**
      * @var string
      */
     public $polarDBXInfoShrink;
+
     /**
      * @var string
      */
     public $rdsMysqlInfoShrink;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $slsInfoShrink;
     protected $_name = [
-        'DBClusterId'            => 'DBClusterId',
-        'databricksInfoShrink'   => 'DatabricksInfo',
-        'datasourceDescription'  => 'DatasourceDescription',
-        'datasourceName'         => 'DatasourceName',
-        'datasourceType'         => 'DatasourceType',
-        'hiveInfoShrink'         => 'HiveInfo',
-        'kafkaInfoShrink'        => 'KafkaInfo',
-        'mode'                   => 'Mode',
+        'DBClusterId' => 'DBClusterId',
+        'databricksInfoShrink' => 'DatabricksInfo',
+        'datasourceDescription' => 'DatasourceDescription',
+        'datasourceName' => 'DatasourceName',
+        'datasourceType' => 'DatasourceType',
+        'hiveInfoShrink' => 'HiveInfo',
+        'kafkaInfoShrink' => 'KafkaInfo',
+        'mode' => 'Mode',
         'polarDBMysqlInfoShrink' => 'PolarDBMysqlInfo',
-        'polarDBXInfoShrink'     => 'PolarDBXInfo',
-        'rdsMysqlInfoShrink'     => 'RdsMysqlInfo',
-        'regionId'               => 'RegionId',
-        'slsInfoShrink'          => 'SlsInfo',
+        'polarDBXInfoShrink' => 'PolarDBXInfo',
+        'rdsMysqlInfoShrink' => 'RdsMysqlInfo',
+        'regionId' => 'RegionId',
+        'slsInfoShrink' => 'SlsInfo',
     ];
 
     public function validate()

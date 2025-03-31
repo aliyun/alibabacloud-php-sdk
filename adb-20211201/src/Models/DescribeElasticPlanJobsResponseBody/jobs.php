@@ -12,58 +12,68 @@ class jobs extends Model
      * @var string
      */
     public $elasticAcu;
+
     /**
      * @var string
      */
     public $elasticPlanName;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $instanceSize;
+
     /**
      * @var string
      */
     public $reserveAcu;
+
     /**
      * @var string
      */
     public $resourceGroupName;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $targetSize;
+
     /**
      * @var string
      */
     public $totalAcu;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'elasticAcu'        => 'ElasticAcu',
-        'elasticPlanName'   => 'ElasticPlanName',
-        'endTime'           => 'EndTime',
-        'instanceSize'      => 'InstanceSize',
-        'reserveAcu'        => 'ReserveAcu',
+        'elasticAcu' => 'ElasticAcu',
+        'elasticPlanName' => 'ElasticPlanName',
+        'endTime' => 'EndTime',
+        'instanceSize' => 'InstanceSize',
+        'reserveAcu' => 'ReserveAcu',
         'resourceGroupName' => 'ResourceGroupName',
-        'startTime'         => 'StartTime',
-        'status'            => 'Status',
-        'targetSize'        => 'TargetSize',
-        'totalAcu'          => 'TotalAcu',
-        'type'              => 'Type',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'targetSize' => 'TargetSize',
+        'totalAcu' => 'TotalAcu',
+        'type' => 'Type',
     ];
 
     public function validate()

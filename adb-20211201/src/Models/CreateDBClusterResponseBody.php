@@ -12,22 +12,25 @@ class CreateDBClusterResponseBody extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'DBClusterId'     => 'DBClusterId',
-        'orderId'         => 'OrderId',
-        'requestId'       => 'RequestId',
+        'DBClusterId' => 'DBClusterId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

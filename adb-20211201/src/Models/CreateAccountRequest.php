@@ -12,33 +12,38 @@ class CreateAccountRequest extends Model
      * @var string
      */
     public $accountDescription;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountPassword;
+
     /**
      * @var string
      */
     public $accountType;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $engine;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
-        'accountName'        => 'AccountName',
-        'accountPassword'    => 'AccountPassword',
-        'accountType'        => 'AccountType',
-        'DBClusterId'        => 'DBClusterId',
-        'engine'             => 'Engine',
+        'accountName' => 'AccountName',
+        'accountPassword' => 'AccountPassword',
+        'accountType' => 'AccountType',
+        'DBClusterId' => 'DBClusterId',
+        'engine' => 'Engine',
     ];
 
     public function validate()

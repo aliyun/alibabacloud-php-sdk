@@ -12,28 +12,32 @@ class data extends Model
      * @var int
      */
     public $capacity;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $dataSize;
+
     /**
      * @var bool
      */
     public $enableLakeCache;
+
     /**
      * @var string[]
      */
     public $instances;
     protected $_name = [
-        'capacity'        => 'Capacity',
-        'DBClusterId'     => 'DBClusterId',
-        'dataSize'        => 'DataSize',
+        'capacity' => 'Capacity',
+        'DBClusterId' => 'DBClusterId',
+        'dataSize' => 'DataSize',
         'enableLakeCache' => 'EnableLakeCache',
-        'instances'       => 'Instances',
+        'instances' => 'Instances',
     ];
 
     public function validate()
@@ -66,7 +70,7 @@ class data extends Model
         if (null !== $this->instances) {
             if (\is_array($this->instances)) {
                 $res['Instances'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->instances as $item1) {
                     $res['Instances'][$n1++] = $item1;
                 }
@@ -103,7 +107,7 @@ class data extends Model
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Instances'] as $item1) {
                     $model->instances[$n1++] = $item1;
                 }

@@ -12,12 +12,13 @@ class ModifyAuditLogConfigResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $updateSucceed;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'updateSucceed' => 'UpdateSucceed',
     ];
 

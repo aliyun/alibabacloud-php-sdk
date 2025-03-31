@@ -12,48 +12,56 @@ class TableSummaryModel extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var string
      */
     public $SQL;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
     public $tableSize;
+
     /**
      * @var string
      */
     public $tableType;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'  => 'CreateTime',
+        'createTime' => 'CreateTime',
         'description' => 'Description',
-        'owner'       => 'Owner',
-        'SQL'         => 'SQL',
-        'schemaName'  => 'SchemaName',
-        'tableName'   => 'TableName',
-        'tableSize'   => 'TableSize',
-        'tableType'   => 'TableType',
-        'updateTime'  => 'UpdateTime',
+        'owner' => 'Owner',
+        'SQL' => 'SQL',
+        'schemaName' => 'SchemaName',
+        'tableName' => 'TableName',
+        'tableSize' => 'TableSize',
+        'tableType' => 'TableType',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

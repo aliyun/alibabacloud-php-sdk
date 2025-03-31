@@ -12,53 +12,62 @@ class searchResults extends Model
      * @var int
      */
     public $inputRows;
+
     /**
      * @var int
      */
     public $inputSize;
+
     /**
      * @var float
      */
     public $operatorCost;
+
     /**
      * @var string
      */
     public $operatorInfo;
+
     /**
      * @var string
      */
     public $operatorName;
+
     /**
      * @var int
      */
     public $outputRows;
+
     /**
      * @var int
      */
     public $outputSize;
+
     /**
      * @var int
      */
     public $peakMemory;
+
     /**
      * @var string
      */
     public $processId;
+
     /**
      * @var string
      */
     public $stageId;
     protected $_name = [
-        'inputRows'    => 'InputRows',
-        'inputSize'    => 'InputSize',
+        'inputRows' => 'InputRows',
+        'inputSize' => 'InputSize',
         'operatorCost' => 'OperatorCost',
         'operatorInfo' => 'OperatorInfo',
         'operatorName' => 'OperatorName',
-        'outputRows'   => 'OutputRows',
-        'outputSize'   => 'OutputSize',
-        'peakMemory'   => 'PeakMemory',
-        'processId'    => 'ProcessId',
-        'stageId'      => 'StageId',
+        'outputRows' => 'OutputRows',
+        'outputSize' => 'OutputSize',
+        'peakMemory' => 'PeakMemory',
+        'processId' => 'ProcessId',
+        'stageId' => 'StageId',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class ports extends Model
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $protocol;
     protected $_name = [
-        'port'     => 'Port',
+        'port' => 'Port',
         'protocol' => 'Protocol',
     ];
 

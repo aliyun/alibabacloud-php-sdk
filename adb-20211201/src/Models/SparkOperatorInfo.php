@@ -12,12 +12,13 @@ class SparkOperatorInfo extends Model
      * @var int
      */
     public $metricValue;
+
     /**
      * @var int[]
      */
     public $operatorName;
     protected $_name = [
-        'metricValue'  => 'MetricValue',
+        'metricValue' => 'MetricValue',
         'operatorName' => 'OperatorName',
     ];
 

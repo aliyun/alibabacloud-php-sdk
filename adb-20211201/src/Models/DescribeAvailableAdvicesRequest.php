@@ -12,52 +12,61 @@ class DescribeAvailableAdvicesRequest extends Model
      * @var int
      */
     public $adviceDate;
+
     /**
      * @var string
      */
     public $adviceType;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $schemaTableName;
     protected $_name = [
-        'adviceDate'      => 'AdviceDate',
-        'adviceType'      => 'AdviceType',
-        'DBClusterId'     => 'DBClusterId',
-        'keyword'         => 'Keyword',
-        'lang'            => 'Lang',
-        'order'           => 'Order',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'adviceDate' => 'AdviceDate',
+        'adviceType' => 'AdviceType',
+        'DBClusterId' => 'DBClusterId',
+        'keyword' => 'Keyword',
+        'lang' => 'Lang',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'schemaTableName' => 'SchemaTableName',
     ];
 

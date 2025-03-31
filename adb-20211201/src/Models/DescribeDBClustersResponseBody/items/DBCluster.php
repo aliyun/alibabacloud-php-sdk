@@ -14,218 +14,260 @@ class DBCluster extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $computeResource;
+
     /**
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $DBClusterDescription;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $DBClusterNetworkType;
+
     /**
      * @var string
      */
     public $DBClusterStatus;
+
     /**
      * @var string
      */
     public $DBClusterType;
+
     /**
      * @var string
      */
     public $DBNodeClass;
+
     /**
      * @var int
      */
     public $DBNodeCount;
+
     /**
      * @var int
      */
     public $DBNodeStorage;
+
     /**
      * @var string
      */
     public $DBVersion;
+
     /**
      * @var string
      */
     public $diskType;
+
     /**
      * @var string
      */
     public $dtsJobId;
+
     /**
      * @var int
      */
     public $elasticIOResource;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $executorCount;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $expired;
+
     /**
      * @var string
      */
     public $innerIp;
+
     /**
      * @var string
      */
     public $innerPort;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var string
      */
     public $lockReason;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $productForm;
+
     /**
      * @var string
      */
     public $productVersion;
+
     /**
      * @var string
      */
     public $rdsInstanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $reservedACU;
+
     /**
      * @var int
      */
     public $reservedNodeCount;
+
     /**
      * @var string
      */
     public $reservedNodeSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $storageResource;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var taskInfo
      */
     public $taskInfo;
+
     /**
      * @var string
      */
     public $VPCCloudInstanceId;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'category'             => 'Category',
-        'commodityCode'        => 'CommodityCode',
-        'computeResource'      => 'ComputeResource',
-        'connectionString'     => 'ConnectionString',
-        'createTime'           => 'CreateTime',
+        'category' => 'Category',
+        'commodityCode' => 'CommodityCode',
+        'computeResource' => 'ComputeResource',
+        'connectionString' => 'ConnectionString',
+        'createTime' => 'CreateTime',
         'DBClusterDescription' => 'DBClusterDescription',
-        'DBClusterId'          => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'DBClusterNetworkType' => 'DBClusterNetworkType',
-        'DBClusterStatus'      => 'DBClusterStatus',
-        'DBClusterType'        => 'DBClusterType',
-        'DBNodeClass'          => 'DBNodeClass',
-        'DBNodeCount'          => 'DBNodeCount',
-        'DBNodeStorage'        => 'DBNodeStorage',
-        'DBVersion'            => 'DBVersion',
-        'diskType'             => 'DiskType',
-        'dtsJobId'             => 'DtsJobId',
-        'elasticIOResource'    => 'ElasticIOResource',
-        'engine'               => 'Engine',
-        'executorCount'        => 'ExecutorCount',
-        'expireTime'           => 'ExpireTime',
-        'expired'              => 'Expired',
-        'innerIp'              => 'InnerIp',
-        'innerPort'            => 'InnerPort',
-        'lockMode'             => 'LockMode',
-        'lockReason'           => 'LockReason',
-        'mode'                 => 'Mode',
-        'payType'              => 'PayType',
-        'port'                 => 'Port',
-        'productForm'          => 'ProductForm',
-        'productVersion'       => 'ProductVersion',
-        'rdsInstanceId'        => 'RdsInstanceId',
-        'regionId'             => 'RegionId',
-        'reservedACU'          => 'ReservedACU',
-        'reservedNodeCount'    => 'ReservedNodeCount',
-        'reservedNodeSize'     => 'ReservedNodeSize',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'storageResource'      => 'StorageResource',
-        'tags'                 => 'Tags',
-        'taskInfo'             => 'TaskInfo',
-        'VPCCloudInstanceId'   => 'VPCCloudInstanceId',
-        'VPCId'                => 'VPCId',
-        'vSwitchId'            => 'VSwitchId',
-        'zoneId'               => 'ZoneId',
+        'DBClusterStatus' => 'DBClusterStatus',
+        'DBClusterType' => 'DBClusterType',
+        'DBNodeClass' => 'DBNodeClass',
+        'DBNodeCount' => 'DBNodeCount',
+        'DBNodeStorage' => 'DBNodeStorage',
+        'DBVersion' => 'DBVersion',
+        'diskType' => 'DiskType',
+        'dtsJobId' => 'DtsJobId',
+        'elasticIOResource' => 'ElasticIOResource',
+        'engine' => 'Engine',
+        'executorCount' => 'ExecutorCount',
+        'expireTime' => 'ExpireTime',
+        'expired' => 'Expired',
+        'innerIp' => 'InnerIp',
+        'innerPort' => 'InnerPort',
+        'lockMode' => 'LockMode',
+        'lockReason' => 'LockReason',
+        'mode' => 'Mode',
+        'payType' => 'PayType',
+        'port' => 'Port',
+        'productForm' => 'ProductForm',
+        'productVersion' => 'ProductVersion',
+        'rdsInstanceId' => 'RdsInstanceId',
+        'regionId' => 'RegionId',
+        'reservedACU' => 'ReservedACU',
+        'reservedNodeCount' => 'ReservedNodeCount',
+        'reservedNodeSize' => 'ReservedNodeSize',
+        'resourceGroupId' => 'ResourceGroupId',
+        'storageResource' => 'StorageResource',
+        'tags' => 'Tags',
+        'taskInfo' => 'TaskInfo',
+        'VPCCloudInstanceId' => 'VPCCloudInstanceId',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

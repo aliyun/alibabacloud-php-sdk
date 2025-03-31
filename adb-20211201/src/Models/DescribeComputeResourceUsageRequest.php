@@ -12,23 +12,26 @@ class DescribeComputeResourceUsageRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $resourceGroupName;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'DBClusterId'       => 'DBClusterId',
-        'endTime'           => 'EndTime',
+        'DBClusterId' => 'DBClusterId',
+        'endTime' => 'EndTime',
         'resourceGroupName' => 'ResourceGroupName',
-        'startTime'         => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

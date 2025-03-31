@@ -12,33 +12,38 @@ class SuspendApsJobResponseBody extends Model
      * @var string
      */
     public $apsJobId;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'apsJobId'       => 'ApsJobId',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
+        'apsJobId' => 'ApsJobId',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

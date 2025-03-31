@@ -12,14 +12,17 @@ class columns extends Model
      * @var string
      */
     public $mapName;
+
     /**
      * @var string
      */
     public $mapType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class columns extends Model
     protected $_name = [
         'mapName' => 'MapName',
         'mapType' => 'MapType',
-        'name'    => 'Name',
-        'type'    => 'Type',
+        'name' => 'Name',
+        'type' => 'Type',
     ];
 
     public function validate()

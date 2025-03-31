@@ -12,28 +12,32 @@ class DescribeUserQuotaResponseBody extends Model
      * @var string
      */
     public $elasticACU;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $reserverdCompteACU;
+
     /**
      * @var string
      */
     public $reserverdStorageACU;
+
     /**
      * @var string
      */
     public $resourceGroupCount;
     protected $_name = [
-        'elasticACU'          => 'ElasticACU',
-        'requestId'           => 'RequestId',
-        'reserverdCompteACU'  => 'ReserverdCompteACU',
+        'elasticACU' => 'ElasticACU',
+        'requestId' => 'RequestId',
+        'reserverdCompteACU' => 'ReserverdCompteACU',
         'reserverdStorageACU' => 'ReserverdStorageACU',
-        'resourceGroupCount'  => 'ResourceGroupCount',
+        'resourceGroupCount' => 'ResourceGroupCount',
     ];
 
     public function validate()

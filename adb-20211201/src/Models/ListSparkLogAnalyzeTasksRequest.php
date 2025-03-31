@@ -12,18 +12,20 @@ class ListSparkLogAnalyzeTasksRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

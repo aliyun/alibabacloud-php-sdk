@@ -13,18 +13,20 @@ class result extends Model
      * @var privilegeObject
      */
     public $privilegeObject;
+
     /**
      * @var string
      */
     public $privilegeType;
+
     /**
      * @var string[]
      */
     public $privileges;
     protected $_name = [
         'privilegeObject' => 'PrivilegeObject',
-        'privilegeType'   => 'PrivilegeType',
-        'privileges'      => 'Privileges',
+        'privilegeType' => 'PrivilegeType',
+        'privileges' => 'Privileges',
     ];
 
     public function validate()
@@ -52,7 +54,7 @@ class result extends Model
         if (null !== $this->privileges) {
             if (\is_array($this->privileges)) {
                 $res['Privileges'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->privileges as $item1) {
                     $res['Privileges'][$n1++] = $item1;
                 }
@@ -81,7 +83,7 @@ class result extends Model
         if (isset($map['Privileges'])) {
             if (!empty($map['Privileges'])) {
                 $model->privileges = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Privileges'] as $item1) {
                     $model->privileges[$n1++] = $item1;
                 }

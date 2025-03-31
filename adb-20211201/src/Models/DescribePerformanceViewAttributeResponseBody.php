@@ -13,26 +13,32 @@ class DescribePerformanceViewAttributeResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $createFromViewType;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var bool
      */
     public $fillOriginViewKeys;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var viewDetail
      */
     public $viewDetail;
+
     /**
      * @var string
      */
@@ -40,11 +46,11 @@ class DescribePerformanceViewAttributeResponseBody extends Model
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
         'createFromViewType' => 'CreateFromViewType',
-        'DBClusterId'        => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'fillOriginViewKeys' => 'FillOriginViewKeys',
-        'requestId'          => 'RequestId',
-        'viewDetail'         => 'ViewDetail',
-        'viewName'           => 'ViewName',
+        'requestId' => 'RequestId',
+        'viewDetail' => 'ViewDetail',
+        'viewName' => 'ViewName',
     ];
 
     public function validate()

@@ -12,138 +12,164 @@ class FieldSchemaModel extends Model
      * @var bool
      */
     public $autoIncrement;
+
     /**
      * @var string
      */
     public $columnRawName;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var bool
      */
     public $compressFloatUseShort;
+
     /**
      * @var string
      */
     public $compression;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $dataType;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var string
      */
     public $defaultValue;
+
     /**
      * @var string
      */
     public $delimiter;
+
     /**
      * @var string
      */
     public $encode;
+
     /**
      * @var bool
      */
     public $isPartitionKey;
+
     /**
      * @var string
      */
     public $mappedName;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var bool
      */
     public $nullable;
+
     /**
      * @var string
      */
     public $onUpdate;
+
     /**
      * @var int
      */
     public $ordinalPosition;
+
     /**
      * @var string
      */
     public $physicalColumnName;
+
     /**
      * @var int
      */
     public $pkPosition;
+
     /**
      * @var int
      */
     public $precision;
+
     /**
      * @var bool
      */
     public $primarykey;
+
     /**
      * @var int
      */
     public $scale;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $tokenizer;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var string
      */
     public $valueType;
     protected $_name = [
-        'autoIncrement'         => 'AutoIncrement',
-        'columnRawName'         => 'ColumnRawName',
-        'comment'               => 'Comment',
+        'autoIncrement' => 'AutoIncrement',
+        'columnRawName' => 'ColumnRawName',
+        'comment' => 'Comment',
         'compressFloatUseShort' => 'CompressFloatUseShort',
-        'compression'           => 'Compression',
-        'createTime'            => 'CreateTime',
-        'dataType'              => 'DataType',
-        'databaseName'          => 'DatabaseName',
-        'defaultValue'          => 'DefaultValue',
-        'delimiter'             => 'Delimiter',
-        'encode'                => 'Encode',
-        'isPartitionKey'        => 'IsPartitionKey',
-        'mappedName'            => 'MappedName',
-        'name'                  => 'Name',
-        'nullable'              => 'Nullable',
-        'onUpdate'              => 'OnUpdate',
-        'ordinalPosition'       => 'OrdinalPosition',
-        'physicalColumnName'    => 'PhysicalColumnName',
-        'pkPosition'            => 'PkPosition',
-        'precision'             => 'Precision',
-        'primarykey'            => 'Primarykey',
-        'scale'                 => 'Scale',
-        'tableName'             => 'TableName',
-        'tokenizer'             => 'Tokenizer',
-        'type'                  => 'Type',
-        'updateTime'            => 'UpdateTime',
-        'valueType'             => 'ValueType',
+        'compression' => 'Compression',
+        'createTime' => 'CreateTime',
+        'dataType' => 'DataType',
+        'databaseName' => 'DatabaseName',
+        'defaultValue' => 'DefaultValue',
+        'delimiter' => 'Delimiter',
+        'encode' => 'Encode',
+        'isPartitionKey' => 'IsPartitionKey',
+        'mappedName' => 'MappedName',
+        'name' => 'Name',
+        'nullable' => 'Nullable',
+        'onUpdate' => 'OnUpdate',
+        'ordinalPosition' => 'OrdinalPosition',
+        'physicalColumnName' => 'PhysicalColumnName',
+        'pkPosition' => 'PkPosition',
+        'precision' => 'Precision',
+        'primarykey' => 'Primarykey',
+        'scale' => 'Scale',
+        'tableName' => 'TableName',
+        'tokenizer' => 'Tokenizer',
+        'type' => 'Type',
+        'updateTime' => 'UpdateTime',
+        'valueType' => 'ValueType',
     ];
 
     public function validate()

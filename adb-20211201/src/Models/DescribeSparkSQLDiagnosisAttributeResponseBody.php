@@ -13,43 +13,50 @@ class DescribeSparkSQLDiagnosisAttributeResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $appId;
+
     /**
      * @var Adb4MysqlSparkDiagnosisInfo[]
      */
     public $diagnosisInfos;
+
     /**
      * @var int
      */
     public $elapsedTime;
+
     /**
      * @var int
      */
     public $innerQueryId;
+
     /**
      * @var operatorListSortedByMetrics
      */
     public $operatorListSortedByMetrics;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var OperatorNode
      */
     public $root;
     protected $_name = [
-        'accessDeniedDetail'          => 'AccessDeniedDetail',
-        'appId'                       => 'AppId',
-        'diagnosisInfos'              => 'DiagnosisInfos',
-        'elapsedTime'                 => 'ElapsedTime',
-        'innerQueryId'                => 'InnerQueryId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'appId' => 'AppId',
+        'diagnosisInfos' => 'DiagnosisInfos',
+        'elapsedTime' => 'ElapsedTime',
+        'innerQueryId' => 'InnerQueryId',
         'operatorListSortedByMetrics' => 'OperatorListSortedByMetrics',
-        'requestId'                   => 'RequestId',
-        'root'                        => 'Root',
+        'requestId' => 'RequestId',
+        'root' => 'Root',
     ];
 
     public function validate()
@@ -80,7 +87,7 @@ class DescribeSparkSQLDiagnosisAttributeResponseBody extends Model
         if (null !== $this->diagnosisInfos) {
             if (\is_array($this->diagnosisInfos)) {
                 $res['DiagnosisInfos'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->diagnosisInfos as $item1) {
                     $res['DiagnosisInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -129,7 +136,7 @@ class DescribeSparkSQLDiagnosisAttributeResponseBody extends Model
         if (isset($map['DiagnosisInfos'])) {
             if (!empty($map['DiagnosisInfos'])) {
                 $model->diagnosisInfos = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['DiagnosisInfos'] as $item1) {
                     $model->diagnosisInfos[$n1++] = Adb4MysqlSparkDiagnosisInfo::fromMap($item1);
                 }

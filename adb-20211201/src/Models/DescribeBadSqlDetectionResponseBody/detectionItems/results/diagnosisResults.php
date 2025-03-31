@@ -12,23 +12,26 @@ class diagnosisResults extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $detail;
+
     /**
      * @var string
      */
     public $operatorId;
+
     /**
      * @var string
      */
     public $stageId;
     protected $_name = [
-        'code'       => 'Code',
-        'detail'     => 'Detail',
+        'code' => 'Code',
+        'detail' => 'Detail',
         'operatorId' => 'OperatorId',
-        'stageId'    => 'StageId',
+        'stageId' => 'StageId',
     ];
 
     public function validate()

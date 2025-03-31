@@ -12,18 +12,20 @@ class GetSparkWarehouseBatchSQLRequest extends Model
      * @var string
      */
     public $agency;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $queryId;
     protected $_name = [
-        'agency'      => 'Agency',
+        'agency' => 'Agency',
         'DBClusterId' => 'DBClusterId',
-        'queryId'     => 'QueryId',
+        'queryId' => 'QueryId',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class ModifyClickhouseEngineRequest extends Model
      * @var int
      */
     public $cacheSize;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $ownerId;
     protected $_name = [
-        'cacheSize'   => 'CacheSize',
+        'cacheSize' => 'CacheSize',
         'DBClusterId' => 'DBClusterId',
-        'enabled'     => 'Enabled',
-        'ownerId'     => 'OwnerId',
+        'enabled' => 'Enabled',
+        'ownerId' => 'OwnerId',
     ];
 
     public function validate()

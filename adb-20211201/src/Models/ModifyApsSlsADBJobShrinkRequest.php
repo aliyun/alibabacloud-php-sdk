@@ -12,68 +12,80 @@ class ModifyApsSlsADBJobShrinkRequest extends Model
      * @var string
      */
     public $columnsShrink;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var string
      */
     public $dirtyDataProcessPattern;
+
     /**
      * @var string
      */
     public $exactlyOnce;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $startingOffsets;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $unixTimestampConvert;
+
     /**
      * @var string
      */
     public $userName;
+
     /**
      * @var string
      */
     public $workloadId;
+
     /**
      * @var string
      */
     public $workloadName;
     protected $_name = [
-        'columnsShrink'           => 'Columns',
-        'DBClusterId'             => 'DBClusterId',
-        'dbName'                  => 'DbName',
+        'columnsShrink' => 'Columns',
+        'DBClusterId' => 'DBClusterId',
+        'dbName' => 'DbName',
         'dirtyDataProcessPattern' => 'DirtyDataProcessPattern',
-        'exactlyOnce'             => 'ExactlyOnce',
-        'password'                => 'Password',
-        'regionId'                => 'RegionId',
-        'startingOffsets'         => 'StartingOffsets',
-        'tableName'               => 'TableName',
-        'unixTimestampConvert'    => 'UnixTimestampConvert',
-        'userName'                => 'UserName',
-        'workloadId'              => 'WorkloadId',
-        'workloadName'            => 'WorkloadName',
+        'exactlyOnce' => 'ExactlyOnce',
+        'password' => 'Password',
+        'regionId' => 'RegionId',
+        'startingOffsets' => 'StartingOffsets',
+        'tableName' => 'TableName',
+        'unixTimestampConvert' => 'UnixTimestampConvert',
+        'userName' => 'UserName',
+        'workloadId' => 'WorkloadId',
+        'workloadName' => 'WorkloadName',
     ];
 
     public function validate()

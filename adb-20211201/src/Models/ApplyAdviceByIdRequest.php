@@ -12,23 +12,26 @@ class ApplyAdviceByIdRequest extends Model
      * @var int
      */
     public $adviceDate;
+
     /**
      * @var string
      */
     public $adviceId;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'adviceDate'  => 'AdviceDate',
-        'adviceId'    => 'AdviceId',
+        'adviceDate' => 'AdviceDate',
+        'adviceId' => 'AdviceId',
         'DBClusterId' => 'DBClusterId',
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

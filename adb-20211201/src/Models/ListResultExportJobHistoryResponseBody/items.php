@@ -12,103 +12,122 @@ class items extends Model
      * @var string
      */
     public $aliUid;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $databaseUser;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $exportJobId;
+
     /**
      * @var string
      */
     public $exportPath;
+
     /**
      * @var string
      */
     public $exportRows;
+
     /**
      * @var string
      */
     public $exportType;
+
     /**
      * @var bool
      */
     public $isExpired;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $processId;
+
     /**
      * @var string
      */
     public $progress;
+
     /**
      * @var string
      */
     public $resourceGroup;
+
     /**
      * @var string
      */
     public $schema;
+
     /**
      * @var string
      */
     public $sql;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $timeCost;
     protected $_name = [
-        'aliUid'        => 'AliUid',
-        'createTime'    => 'CreateTime',
-        'DBClusterId'   => 'DBClusterId',
-        'databaseUser'  => 'DatabaseUser',
-        'endTime'       => 'EndTime',
-        'engine'        => 'Engine',
-        'exportJobId'   => 'ExportJobId',
-        'exportPath'    => 'ExportPath',
-        'exportRows'    => 'ExportRows',
-        'exportType'    => 'ExportType',
-        'isExpired'     => 'IsExpired',
-        'message'       => 'Message',
-        'processId'     => 'ProcessId',
-        'progress'      => 'Progress',
+        'aliUid' => 'AliUid',
+        'createTime' => 'CreateTime',
+        'DBClusterId' => 'DBClusterId',
+        'databaseUser' => 'DatabaseUser',
+        'endTime' => 'EndTime',
+        'engine' => 'Engine',
+        'exportJobId' => 'ExportJobId',
+        'exportPath' => 'ExportPath',
+        'exportRows' => 'ExportRows',
+        'exportType' => 'ExportType',
+        'isExpired' => 'IsExpired',
+        'message' => 'Message',
+        'processId' => 'ProcessId',
+        'progress' => 'Progress',
         'resourceGroup' => 'ResourceGroup',
-        'schema'        => 'Schema',
-        'sql'           => 'Sql',
-        'startTime'     => 'StartTime',
-        'status'        => 'Status',
-        'timeCost'      => 'TimeCost',
+        'schema' => 'Schema',
+        'sql' => 'Sql',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'timeCost' => 'TimeCost',
     ];
 
     public function validate()

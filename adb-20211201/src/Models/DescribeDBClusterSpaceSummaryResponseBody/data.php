@@ -15,23 +15,26 @@ class data extends Model
      * @var coldData
      */
     public $coldData;
+
     /**
      * @var dataGrowth
      */
     public $dataGrowth;
+
     /**
      * @var hotData
      */
     public $hotData;
+
     /**
      * @var string
      */
     public $totalSize;
     protected $_name = [
-        'coldData'   => 'ColdData',
+        'coldData' => 'ColdData',
         'dataGrowth' => 'DataGrowth',
-        'hotData'    => 'HotData',
-        'totalSize'  => 'TotalSize',
+        'hotData' => 'HotData',
+        'totalSize' => 'TotalSize',
     ];
 
     public function validate()

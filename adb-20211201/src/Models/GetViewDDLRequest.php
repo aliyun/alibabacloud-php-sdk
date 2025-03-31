@@ -12,23 +12,26 @@ class GetViewDDLRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $viewName;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'regionId'    => 'RegionId',
-        'schemaName'  => 'SchemaName',
-        'viewName'    => 'ViewName',
+        'regionId' => 'RegionId',
+        'schemaName' => 'SchemaName',
+        'viewName' => 'ViewName',
     ];
 
     public function validate()

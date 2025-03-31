@@ -12,22 +12,25 @@ class SerDeInfoModel extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string[]
      */
     public $parameters;
+
     /**
      * @var int
      */
     public $serDeId;
+
     /**
      * @var string
      */
     public $serializationLib;
     protected $_name = [
-        'name'             => 'Name',
-        'parameters'       => 'Parameters',
-        'serDeId'          => 'SerDeId',
+        'name' => 'Name',
+        'parameters' => 'Parameters',
+        'serDeId' => 'SerDeId',
         'serializationLib' => 'SerializationLib',
     ];
 

@@ -12,68 +12,80 @@ class DescribeSparkAppDiagnosisInfoResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $appId;
+
     /**
      * @var float
      */
     public $cpuUtilization;
+
     /**
      * @var Adb4MysqlSparkDiagnosisInfo[]
      */
     public $diagnosisInfoList;
+
     /**
      * @var int
      */
     public $durationInMillis;
+
     /**
      * @var int
      */
     public $JVMGcCostInMillis;
+
     /**
      * @var int
      */
     public $peakMemoryInByte;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $shuffleReadInByte;
+
     /**
      * @var int
      */
     public $shuffleWriteInByte;
+
     /**
      * @var int
      */
     public $spillInByte;
+
     /**
      * @var int
      */
     public $startedTime;
+
     /**
      * @var string
      */
     public $state;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'appId'              => 'AppId',
-        'cpuUtilization'     => 'CpuUtilization',
-        'diagnosisInfoList'  => 'DiagnosisInfoList',
-        'durationInMillis'   => 'DurationInMillis',
-        'JVMGcCostInMillis'  => 'JVMGcCostInMillis',
-        'peakMemoryInByte'   => 'PeakMemoryInByte',
-        'requestId'          => 'RequestId',
-        'shuffleReadInByte'  => 'ShuffleReadInByte',
+        'appId' => 'AppId',
+        'cpuUtilization' => 'CpuUtilization',
+        'diagnosisInfoList' => 'DiagnosisInfoList',
+        'durationInMillis' => 'DurationInMillis',
+        'JVMGcCostInMillis' => 'JVMGcCostInMillis',
+        'peakMemoryInByte' => 'PeakMemoryInByte',
+        'requestId' => 'RequestId',
+        'shuffleReadInByte' => 'ShuffleReadInByte',
         'shuffleWriteInByte' => 'ShuffleWriteInByte',
-        'spillInByte'        => 'SpillInByte',
-        'startedTime'        => 'StartedTime',
-        'state'              => 'State',
+        'spillInByte' => 'SpillInByte',
+        'startedTime' => 'StartedTime',
+        'state' => 'State',
     ];
 
     public function validate()
@@ -102,7 +114,7 @@ class DescribeSparkAppDiagnosisInfoResponseBody extends Model
         if (null !== $this->diagnosisInfoList) {
             if (\is_array($this->diagnosisInfoList)) {
                 $res['DiagnosisInfoList'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->diagnosisInfoList as $item1) {
                     $res['DiagnosisInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -171,7 +183,7 @@ class DescribeSparkAppDiagnosisInfoResponseBody extends Model
         if (isset($map['DiagnosisInfoList'])) {
             if (!empty($map['DiagnosisInfoList'])) {
                 $model->diagnosisInfoList = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['DiagnosisInfoList'] as $item1) {
                     $model->diagnosisInfoList[$n1++] = Adb4MysqlSparkDiagnosisInfo::fromMap($item1);
                 }

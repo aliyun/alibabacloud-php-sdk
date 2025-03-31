@@ -12,43 +12,50 @@ class DeleteApsJobResponseBody extends Model
      * @var string
      */
     public $apsJobId;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $errCode;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'apsJobId'       => 'ApsJobId',
-        'code'           => 'Code',
-        'errCode'        => 'ErrCode',
-        'errMessage'     => 'ErrMessage',
+        'apsJobId' => 'ApsJobId',
+        'code' => 'Code',
+        'errCode' => 'ErrCode',
+        'errMessage' => 'ErrMessage',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

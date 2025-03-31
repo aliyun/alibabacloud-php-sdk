@@ -14,163 +14,194 @@ class CreateApsSlsADBJobRequest extends Model
      * @var string
      */
     public $acrossRole;
+
     /**
      * @var string
      */
     public $acrossUid;
+
     /**
      * @var string
      */
     public $advancedConfig;
+
     /**
      * @var columns[]
      */
     public $columns;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $datasourceId;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var string
      */
     public $dirtyDataHandleMode;
+
     /**
      * @var string
      */
     public $dirtyDataProcessPattern;
+
     /**
      * @var string
      */
     public $exactlyOnce;
+
     /**
      * @var string
      */
     public $fullComputeUnit;
+
     /**
      * @var string
      */
     public $hudiAdvancedConfig;
+
     /**
      * @var string
      */
     public $incrementalComputeUnit;
+
     /**
      * @var int
      */
     public $lakehouseId;
+
     /**
      * @var int
      */
     public $maxOffsetsPerTrigger;
+
     /**
      * @var string
      */
     public $ossLocation;
+
     /**
      * @var string
      */
     public $outputFormat;
+
     /**
      * @var mixed[][]
      */
     public $partitionSpecs;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $primaryKeyDefinition;
+
     /**
      * @var string
      */
     public $project;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroup;
+
     /**
      * @var string
      */
     public $sourceRegionId;
+
     /**
      * @var string
      */
     public $startingOffsets;
+
     /**
      * @var string
      */
     public $store;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $targetGenerateRule;
+
     /**
      * @var string
      */
     public $targetType;
+
     /**
      * @var unixTimestampConvert
      */
     public $unixTimestampConvert;
+
     /**
      * @var string
      */
     public $userName;
+
     /**
      * @var string
      */
     public $workloadName;
     protected $_name = [
-        'acrossRole'              => 'AcrossRole',
-        'acrossUid'               => 'AcrossUid',
-        'advancedConfig'          => 'AdvancedConfig',
-        'columns'                 => 'Columns',
-        'DBClusterId'             => 'DBClusterId',
-        'datasourceId'            => 'DatasourceId',
-        'dbName'                  => 'DbName',
-        'dirtyDataHandleMode'     => 'DirtyDataHandleMode',
+        'acrossRole' => 'AcrossRole',
+        'acrossUid' => 'AcrossUid',
+        'advancedConfig' => 'AdvancedConfig',
+        'columns' => 'Columns',
+        'DBClusterId' => 'DBClusterId',
+        'datasourceId' => 'DatasourceId',
+        'dbName' => 'DbName',
+        'dirtyDataHandleMode' => 'DirtyDataHandleMode',
         'dirtyDataProcessPattern' => 'DirtyDataProcessPattern',
-        'exactlyOnce'             => 'ExactlyOnce',
-        'fullComputeUnit'         => 'FullComputeUnit',
-        'hudiAdvancedConfig'      => 'HudiAdvancedConfig',
-        'incrementalComputeUnit'  => 'IncrementalComputeUnit',
-        'lakehouseId'             => 'LakehouseId',
-        'maxOffsetsPerTrigger'    => 'MaxOffsetsPerTrigger',
-        'ossLocation'             => 'OssLocation',
-        'outputFormat'            => 'OutputFormat',
-        'partitionSpecs'          => 'PartitionSpecs',
-        'password'                => 'Password',
-        'primaryKeyDefinition'    => 'PrimaryKeyDefinition',
-        'project'                 => 'Project',
-        'regionId'                => 'RegionId',
-        'resourceGroup'           => 'ResourceGroup',
-        'sourceRegionId'          => 'SourceRegionId',
-        'startingOffsets'         => 'StartingOffsets',
-        'store'                   => 'Store',
-        'tableName'               => 'TableName',
-        'targetGenerateRule'      => 'TargetGenerateRule',
-        'targetType'              => 'TargetType',
-        'unixTimestampConvert'    => 'UnixTimestampConvert',
-        'userName'                => 'UserName',
-        'workloadName'            => 'WorkloadName',
+        'exactlyOnce' => 'ExactlyOnce',
+        'fullComputeUnit' => 'FullComputeUnit',
+        'hudiAdvancedConfig' => 'HudiAdvancedConfig',
+        'incrementalComputeUnit' => 'IncrementalComputeUnit',
+        'lakehouseId' => 'LakehouseId',
+        'maxOffsetsPerTrigger' => 'MaxOffsetsPerTrigger',
+        'ossLocation' => 'OssLocation',
+        'outputFormat' => 'OutputFormat',
+        'partitionSpecs' => 'PartitionSpecs',
+        'password' => 'Password',
+        'primaryKeyDefinition' => 'PrimaryKeyDefinition',
+        'project' => 'Project',
+        'regionId' => 'RegionId',
+        'resourceGroup' => 'ResourceGroup',
+        'sourceRegionId' => 'SourceRegionId',
+        'startingOffsets' => 'StartingOffsets',
+        'store' => 'Store',
+        'tableName' => 'TableName',
+        'targetGenerateRule' => 'TargetGenerateRule',
+        'targetType' => 'TargetType',
+        'unixTimestampConvert' => 'UnixTimestampConvert',
+        'userName' => 'UserName',
+        'workloadName' => 'WorkloadName',
     ];
 
     public function validate()
@@ -205,7 +236,7 @@ class CreateApsSlsADBJobRequest extends Model
         if (null !== $this->columns) {
             if (\is_array($this->columns)) {
                 $res['Columns'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->columns as $item1) {
                     $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -267,7 +298,7 @@ class CreateApsSlsADBJobRequest extends Model
         if (null !== $this->partitionSpecs) {
             if (\is_array($this->partitionSpecs)) {
                 $res['PartitionSpecs'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->partitionSpecs as $item1) {
                     if (\is_array($item1)) {
                         $res['PartitionSpecs'][$n1++] = [];
@@ -361,7 +392,7 @@ class CreateApsSlsADBJobRequest extends Model
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
                     $model->columns[$n1++] = columns::fromMap($item1);
                 }
@@ -423,7 +454,7 @@ class CreateApsSlsADBJobRequest extends Model
         if (isset($map['PartitionSpecs'])) {
             if (!empty($map['PartitionSpecs'])) {
                 $model->partitionSpecs = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['PartitionSpecs'] as $item1) {
                     if (!empty($item1)) {
                         $model->partitionSpecs[$n1++] = [];

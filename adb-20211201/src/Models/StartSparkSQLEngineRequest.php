@@ -12,38 +12,44 @@ class StartSparkSQLEngineRequest extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $jars;
+
     /**
      * @var int
      */
     public $maxExecutor;
+
     /**
      * @var int
      */
     public $minExecutor;
+
     /**
      * @var string
      */
     public $resourceGroupName;
+
     /**
      * @var int
      */
     public $slotNum;
     protected $_name = [
-        'config'            => 'Config',
-        'DBClusterId'       => 'DBClusterId',
-        'jars'              => 'Jars',
-        'maxExecutor'       => 'MaxExecutor',
-        'minExecutor'       => 'MinExecutor',
+        'config' => 'Config',
+        'DBClusterId' => 'DBClusterId',
+        'jars' => 'Jars',
+        'maxExecutor' => 'MaxExecutor',
+        'minExecutor' => 'MinExecutor',
         'resourceGroupName' => 'ResourceGroupName',
-        'slotNum'           => 'SlotNum',
+        'slotNum' => 'SlotNum',
     ];
 
     public function validate()

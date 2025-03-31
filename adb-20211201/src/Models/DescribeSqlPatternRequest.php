@@ -12,43 +12,50 @@ class DescribeSqlPatternRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $sqlPattern;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'order'       => 'Order',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'sqlPattern'  => 'SqlPattern',
-        'startTime'   => 'StartTime',
-        'type'        => 'Type',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'sqlPattern' => 'SqlPattern',
+        'startTime' => 'StartTime',
+        'type' => 'Type',
     ];
 
     public function validate()

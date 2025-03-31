@@ -12,18 +12,22 @@ class DescribeOperatorPermissionResponseBody extends Model
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $expiredTime;
+
     /**
      * @var string
      */
     public $privileges;
+
     /**
      * @var string
      */
@@ -32,8 +36,8 @@ class DescribeOperatorPermissionResponseBody extends Model
         'createdTime' => 'CreatedTime',
         'DBClusterId' => 'DBClusterId',
         'expiredTime' => 'ExpiredTime',
-        'privileges'  => 'Privileges',
-        'requestId'   => 'RequestId',
+        'privileges' => 'Privileges',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

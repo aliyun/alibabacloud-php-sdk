@@ -31,7 +31,7 @@ class tagResources extends Model
         if (null !== $this->tagResource) {
             if (\is_array($this->tagResource)) {
                 $res['TagResource'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->tagResource as $item1) {
                     $res['TagResource'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class tagResources extends Model
         if (isset($map['TagResource'])) {
             if (!empty($map['TagResource'])) {
                 $model->tagResource = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['TagResource'] as $item1) {
                     $model->tagResource[$n1++] = tagResource::fromMap($item1);
                 }

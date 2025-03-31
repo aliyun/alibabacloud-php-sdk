@@ -12,6 +12,7 @@ class termiatedTimeRange extends Model
      * @var int
      */
     public $maxTimeInMills;
+
     /**
      * @var int
      */

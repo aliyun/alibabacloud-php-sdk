@@ -12,13 +12,14 @@ class DeleteSparkTemplateRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $id;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'id'          => 'Id',
+        'id' => 'Id',
     ];
 
     public function validate()

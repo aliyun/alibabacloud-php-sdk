@@ -12,58 +12,68 @@ class ColDetailModel extends Model
      * @var string
      */
     public $columnName;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $distributeKey;
+
     /**
      * @var bool
      */
     public $nullable;
+
     /**
      * @var bool
      */
     public $partitionKey;
+
     /**
      * @var bool
      */
     public $primaryKey;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'columnName'    => 'ColumnName',
-        'createTime'    => 'CreateTime',
-        'description'   => 'Description',
+        'columnName' => 'ColumnName',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
         'distributeKey' => 'DistributeKey',
-        'nullable'      => 'Nullable',
-        'partitionKey'  => 'PartitionKey',
-        'primaryKey'    => 'PrimaryKey',
-        'schemaName'    => 'SchemaName',
-        'tableName'     => 'TableName',
-        'type'          => 'Type',
-        'updateTime'    => 'UpdateTime',
+        'nullable' => 'Nullable',
+        'partitionKey' => 'PartitionKey',
+        'primaryKey' => 'PrimaryKey',
+        'schemaName' => 'SchemaName',
+        'tableName' => 'TableName',
+        'type' => 'Type',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

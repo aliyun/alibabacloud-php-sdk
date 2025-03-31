@@ -13,18 +13,20 @@ class DescribePerformanceViewsResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var views[]
      */
     public $views;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'requestId'          => 'RequestId',
-        'views'              => 'Views',
+        'requestId' => 'RequestId',
+        'views' => 'Views',
     ];
 
     public function validate()
@@ -49,7 +51,7 @@ class DescribePerformanceViewsResponseBody extends Model
         if (null !== $this->views) {
             if (\is_array($this->views)) {
                 $res['Views'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->views as $item1) {
                     $res['Views'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class DescribePerformanceViewsResponseBody extends Model
         if (isset($map['Views'])) {
             if (!empty($map['Views'])) {
                 $model->views = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Views'] as $item1) {
                     $model->views[$n1++] = views::fromMap($item1);
                 }

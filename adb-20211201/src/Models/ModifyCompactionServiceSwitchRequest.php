@@ -12,12 +12,13 @@ class ModifyCompactionServiceSwitchRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var bool
      */
     public $enableCompactionService;
     protected $_name = [
-        'DBClusterId'             => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'enableCompactionService' => 'EnableCompactionService',
     ];
 

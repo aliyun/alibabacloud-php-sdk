@@ -12,27 +12,31 @@ class executor extends Model
      * @var int
      */
     public $activeCount;
+
     /**
      * @var int
      */
     public $expectedCount;
+
     /**
      * @var int
      */
     public $riskCount;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $unavailableCount;
     protected $_name = [
-        'activeCount'      => 'ActiveCount',
-        'expectedCount'    => 'ExpectedCount',
-        'riskCount'        => 'RiskCount',
-        'status'           => 'Status',
+        'activeCount' => 'ActiveCount',
+        'expectedCount' => 'ExpectedCount',
+        'riskCount' => 'RiskCount',
+        'status' => 'Status',
         'unavailableCount' => 'UnavailableCount',
     ];
 

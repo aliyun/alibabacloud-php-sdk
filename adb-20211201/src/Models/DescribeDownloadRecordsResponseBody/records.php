@@ -12,28 +12,32 @@ class records extends Model
      * @var int
      */
     public $downloadId;
+
     /**
      * @var string
      */
     public $exceptionMsg;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'downloadId'   => 'DownloadId',
+        'downloadId' => 'DownloadId',
         'exceptionMsg' => 'ExceptionMsg',
-        'fileName'     => 'FileName',
-        'status'       => 'Status',
-        'url'          => 'Url',
+        'fileName' => 'FileName',
+        'status' => 'Status',
+        'url' => 'Url',
     ];
 
     public function validate()

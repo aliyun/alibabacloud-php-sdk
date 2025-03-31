@@ -12,23 +12,26 @@ class series extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var string
      */
     public $translateKey;
+
     /**
      * @var string[]
      */
     public $values;
     protected $_name = [
-        'name'         => 'Name',
-        'tags'         => 'Tags',
+        'name' => 'Name',
+        'tags' => 'Tags',
         'translateKey' => 'TranslateKey',
-        'values'       => 'Values',
+        'values' => 'Values',
     ];
 
     public function validate()
@@ -57,7 +60,7 @@ class series extends Model
         if (null !== $this->values) {
             if (\is_array($this->values)) {
                 $res['Values'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->values as $item1) {
                     $res['Values'][$n1++] = $item1;
                 }
@@ -90,7 +93,7 @@ class series extends Model
         if (isset($map['Values'])) {
             if (!empty($map['Values'])) {
                 $model->values = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Values'] as $item1) {
                     $model->values[$n1++] = $item1;
                 }

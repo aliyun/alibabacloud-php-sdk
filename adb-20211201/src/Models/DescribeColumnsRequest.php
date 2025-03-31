@@ -12,23 +12,26 @@ class DescribeColumnsRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'regionId'    => 'RegionId',
-        'schemaName'  => 'SchemaName',
-        'tableName'   => 'TableName',
+        'regionId' => 'RegionId',
+        'schemaName' => 'SchemaName',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

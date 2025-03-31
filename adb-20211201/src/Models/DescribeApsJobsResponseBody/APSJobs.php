@@ -12,53 +12,62 @@ class APSJobs extends Model
      * @var string
      */
     public $apsJobId;
+
     /**
      * @var string
      */
     public $apsJobName;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $delay;
+
     /**
      * @var string
      */
     public $destinationInstanceID;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $projress;
+
     /**
      * @var string
      */
     public $sourceInstanceID;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $subStatus;
     protected $_name = [
-        'apsJobId'              => 'ApsJobId',
-        'apsJobName'            => 'ApsJobName',
-        'createTime'            => 'CreateTime',
-        'delay'                 => 'Delay',
+        'apsJobId' => 'ApsJobId',
+        'apsJobName' => 'ApsJobName',
+        'createTime' => 'CreateTime',
+        'delay' => 'Delay',
         'destinationInstanceID' => 'DestinationInstanceID',
-        'errMessage'            => 'ErrMessage',
-        'projress'              => 'Projress',
-        'sourceInstanceID'      => 'SourceInstanceID',
-        'status'                => 'Status',
-        'subStatus'             => 'SubStatus',
+        'errMessage' => 'ErrMessage',
+        'projress' => 'Projress',
+        'sourceInstanceID' => 'SourceInstanceID',
+        'status' => 'Status',
+        'subStatus' => 'SubStatus',
     ];
 
     public function validate()

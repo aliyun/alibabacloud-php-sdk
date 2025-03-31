@@ -14,53 +14,62 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var detectionItems[]
      */
     public $detectionItems;
+
     /**
      * @var items[]
      */
     public $items;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $suggestMaxRecordsPerPartition;
+
     /**
      * @var int
      */
     public $suggestMinRecordsPerPartition;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'accessDeniedDetail'            => 'AccessDeniedDetail',
-        'DBClusterId'                   => 'DBClusterId',
-        'detectionItems'                => 'DetectionItems',
-        'items'                         => 'Items',
-        'pageNumber'                    => 'PageNumber',
-        'pageSize'                      => 'PageSize',
-        'requestId'                     => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'DBClusterId' => 'DBClusterId',
+        'detectionItems' => 'DetectionItems',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'suggestMaxRecordsPerPartition' => 'SuggestMaxRecordsPerPartition',
         'suggestMinRecordsPerPartition' => 'SuggestMinRecordsPerPartition',
-        'totalCount'                    => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -88,7 +97,7 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
         if (null !== $this->detectionItems) {
             if (\is_array($this->detectionItems)) {
                 $res['DetectionItems'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->detectionItems as $item1) {
                     $res['DetectionItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -98,7 +107,7 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['Items'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->items as $item1) {
                     $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -151,7 +160,7 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
         if (isset($map['DetectionItems'])) {
             if (!empty($map['DetectionItems'])) {
                 $model->detectionItems = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['DetectionItems'] as $item1) {
                     $model->detectionItems[$n1++] = detectionItems::fromMap($item1);
                 }
@@ -161,7 +170,7 @@ class DescribeTablePartitionDiagnoseResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Items'] as $item1) {
                     $model->items[$n1++] = items::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class ModifyEssdCacheConfigRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var bool
      */
     public $enableEssdCache;
+
     /**
      * @var int
      */
     public $essdCacheSize;
     protected $_name = [
-        'DBClusterId'     => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'enableEssdCache' => 'EnableEssdCache',
-        'essdCacheSize'   => 'EssdCacheSize',
+        'essdCacheSize' => 'EssdCacheSize',
     ];
 
     public function validate()

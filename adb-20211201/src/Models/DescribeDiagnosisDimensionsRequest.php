@@ -12,33 +12,38 @@ class DescribeDiagnosisDimensionsRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $queryCondition;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'DBClusterId'    => 'DBClusterId',
-        'endTime'        => 'EndTime',
-        'lang'           => 'Lang',
+        'DBClusterId' => 'DBClusterId',
+        'endTime' => 'EndTime',
+        'lang' => 'Lang',
         'queryCondition' => 'QueryCondition',
-        'regionId'       => 'RegionId',
-        'startTime'      => 'StartTime',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

@@ -13,23 +13,26 @@ class data extends Model
      * @var DatabaseSummaryModel[]
      */
     public $databaseSummaryModels;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'databaseSummaryModels' => 'DatabaseSummaryModels',
-        'pageNumber'            => 'PageNumber',
-        'pageSize'              => 'PageSize',
-        'totalCount'            => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->databaseSummaryModels) {
             if (\is_array($this->databaseSummaryModels)) {
                 $res['DatabaseSummaryModels'] = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($this->databaseSummaryModels as $item1) {
                     $res['DatabaseSummaryModels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['DatabaseSummaryModels'])) {
             if (!empty($map['DatabaseSummaryModels'])) {
                 $model->databaseSummaryModels = [];
-                $n1                           = 0;
+                $n1 = 0;
                 foreach ($map['DatabaseSummaryModels'] as $item1) {
                     $model->databaseSummaryModels[$n1++] = DatabaseSummaryModel::fromMap($item1);
                 }

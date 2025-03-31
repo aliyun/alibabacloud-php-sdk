@@ -12,47 +12,55 @@ class StorageDescriptorModel extends Model
      * @var bool
      */
     public $compressed;
+
     /**
      * @var string
      */
     public $inputFormat;
+
     /**
      * @var string
      */
     public $location;
+
     /**
      * @var int
      */
     public $numBuckets;
+
     /**
      * @var string
      */
     public $outputFormat;
+
     /**
      * @var string[]
      */
     public $parameters;
+
     /**
      * @var int
      */
     public $sdId;
+
     /**
      * @var SerDeInfoModel
      */
     public $serDeInfo;
+
     /**
      * @var bool
      */
     public $storedAsSubDirectories;
     protected $_name = [
-        'compressed'             => 'Compressed',
-        'inputFormat'            => 'InputFormat',
-        'location'               => 'Location',
-        'numBuckets'             => 'NumBuckets',
-        'outputFormat'           => 'OutputFormat',
-        'parameters'             => 'Parameters',
-        'sdId'                   => 'SdId',
-        'serDeInfo'              => 'SerDeInfo',
+        'compressed' => 'Compressed',
+        'inputFormat' => 'InputFormat',
+        'location' => 'Location',
+        'numBuckets' => 'NumBuckets',
+        'outputFormat' => 'OutputFormat',
+        'parameters' => 'Parameters',
+        'sdId' => 'SdId',
+        'serDeInfo' => 'SerDeInfo',
         'storedAsSubDirectories' => 'StoredAsSubDirectories',
     ];
 

@@ -13,27 +13,31 @@ class DescribeDiagnosisRecordsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var querys[]
      */
     public $querys;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'querys'     => 'Querys',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'querys' => 'Querys',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -59,7 +63,7 @@ class DescribeDiagnosisRecordsResponseBody extends Model
         if (null !== $this->querys) {
             if (\is_array($this->querys)) {
                 $res['Querys'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->querys as $item1) {
                     $res['Querys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class DescribeDiagnosisRecordsResponseBody extends Model
         if (isset($map['Querys'])) {
             if (!empty($map['Querys'])) {
                 $model->querys = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Querys'] as $item1) {
                     $model->querys[$n1++] = querys::fromMap($item1);
                 }

@@ -13,13 +13,14 @@ class DescribeElasticPlanAttributeResponseBody extends Model
      * @var elasticPlan
      */
     public $elasticPlan;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'elasticPlan' => 'ElasticPlan',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

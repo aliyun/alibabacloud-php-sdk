@@ -13,38 +13,44 @@ class DescribeTableDetailResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $avgSize;
+
     /**
      * @var items
      */
     public $items;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'avgSize'            => 'AvgSize',
-        'items'              => 'Items',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'requestId'          => 'RequestId',
-        'totalCount'         => 'TotalCount',
+        'avgSize' => 'AvgSize',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

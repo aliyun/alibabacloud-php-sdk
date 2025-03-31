@@ -12,23 +12,26 @@ class actionLogs extends Model
      * @var string
      */
     public $context;
+
     /**
      * @var string
      */
     public $stage;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $time;
     protected $_name = [
         'context' => 'Context',
-        'stage'   => 'Stage',
-        'state'   => 'State',
-        'time'    => 'Time',
+        'stage' => 'Stage',
+        'state' => 'State',
+        'time' => 'Time',
     ];
 
     public function validate()

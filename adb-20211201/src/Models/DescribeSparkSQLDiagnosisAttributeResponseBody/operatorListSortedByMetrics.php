@@ -13,13 +13,14 @@ class operatorListSortedByMetrics extends Model
      * @var SparkOperatorInfo[]
      */
     public $operatorListSortedByExclusiveTime;
+
     /**
      * @var SparkOperatorInfo[]
      */
     public $operatorListSortedByMaxMemory;
     protected $_name = [
         'operatorListSortedByExclusiveTime' => 'OperatorListSortedByExclusiveTime',
-        'operatorListSortedByMaxMemory'     => 'OperatorListSortedByMaxMemory',
+        'operatorListSortedByMaxMemory' => 'OperatorListSortedByMaxMemory',
     ];
 
     public function validate()
@@ -39,7 +40,7 @@ class operatorListSortedByMetrics extends Model
         if (null !== $this->operatorListSortedByExclusiveTime) {
             if (\is_array($this->operatorListSortedByExclusiveTime)) {
                 $res['OperatorListSortedByExclusiveTime'] = [];
-                $n1                                       = 0;
+                $n1 = 0;
                 foreach ($this->operatorListSortedByExclusiveTime as $item1) {
                     $res['OperatorListSortedByExclusiveTime'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -49,7 +50,7 @@ class operatorListSortedByMetrics extends Model
         if (null !== $this->operatorListSortedByMaxMemory) {
             if (\is_array($this->operatorListSortedByMaxMemory)) {
                 $res['OperatorListSortedByMaxMemory'] = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($this->operatorListSortedByMaxMemory as $item1) {
                     $res['OperatorListSortedByMaxMemory'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +71,7 @@ class operatorListSortedByMetrics extends Model
         if (isset($map['OperatorListSortedByExclusiveTime'])) {
             if (!empty($map['OperatorListSortedByExclusiveTime'])) {
                 $model->operatorListSortedByExclusiveTime = [];
-                $n1                                       = 0;
+                $n1 = 0;
                 foreach ($map['OperatorListSortedByExclusiveTime'] as $item1) {
                     $model->operatorListSortedByExclusiveTime[$n1++] = SparkOperatorInfo::fromMap($item1);
                 }
@@ -80,7 +81,7 @@ class operatorListSortedByMetrics extends Model
         if (isset($map['OperatorListSortedByMaxMemory'])) {
             if (!empty($map['OperatorListSortedByMaxMemory'])) {
                 $model->operatorListSortedByMaxMemory = [];
-                $n1                                   = 0;
+                $n1 = 0;
                 foreach ($map['OperatorListSortedByMaxMemory'] as $item1) {
                     $model->operatorListSortedByMaxMemory[$n1++] = SparkOperatorInfo::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class zone extends Model
      * @var string
      */
     public $localName;
+
     /**
      * @var bool
      */
     public $vpcEnabled;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'localName'  => 'LocalName',
+        'localName' => 'LocalName',
         'vpcEnabled' => 'VpcEnabled',
-        'zoneId'     => 'ZoneId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

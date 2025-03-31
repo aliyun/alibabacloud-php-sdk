@@ -12,22 +12,25 @@ class ListSparkWarehouseBatchSQLRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupName;
     protected $_name = [
-        'DBClusterId'       => 'DBClusterId',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
+        'DBClusterId' => 'DBClusterId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupName' => 'ResourceGroupName',
     ];
 

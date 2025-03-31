@@ -13,18 +13,20 @@ class performances extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var series[]
      */
     public $series;
+
     /**
      * @var string
      */
     public $unit;
     protected $_name = [
-        'key'    => 'Key',
+        'key' => 'Key',
         'series' => 'Series',
-        'unit'   => 'Unit',
+        'unit' => 'Unit',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class performances extends Model
         if (null !== $this->series) {
             if (\is_array($this->series)) {
                 $res['Series'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->series as $item1) {
                     $res['Series'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class performances extends Model
         if (isset($map['Series'])) {
             if (!empty($map['Series'])) {
                 $model->series = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Series'] as $item1) {
                     $model->series[$n1++] = series::fromMap($item1);
                 }

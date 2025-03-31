@@ -12,28 +12,32 @@ class searchResults extends Model
      * @var float
      */
     public $avgValue;
+
     /**
      * @var int
      */
     public $maxValue;
+
     /**
      * @var int
      */
     public $operatorCount;
+
     /**
      * @var string
      */
     public $operatorName;
+
     /**
      * @var int
      */
     public $totalValue;
     protected $_name = [
-        'avgValue'      => 'AvgValue',
-        'maxValue'      => 'MaxValue',
+        'avgValue' => 'AvgValue',
+        'maxValue' => 'MaxValue',
         'operatorCount' => 'OperatorCount',
-        'operatorName'  => 'OperatorName',
-        'totalValue'    => 'TotalValue',
+        'operatorName' => 'OperatorName',
+        'totalValue' => 'TotalValue',
     ];
 
     public function validate()

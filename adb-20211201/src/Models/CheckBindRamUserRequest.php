@@ -12,13 +12,14 @@ class CheckBindRamUserRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

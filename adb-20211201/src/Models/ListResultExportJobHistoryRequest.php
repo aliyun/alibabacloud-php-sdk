@@ -13,53 +13,62 @@ class ListResultExportJobHistoryRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $databaseUser;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var order
      */
     public $order;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroup;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string[]
      */
     public $statusList;
     protected $_name = [
-        'DBClusterId'   => 'DBClusterId',
-        'databaseUser'  => 'DatabaseUser',
-        'endTime'       => 'EndTime',
-        'order'         => 'Order',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'regionId'      => 'RegionId',
+        'DBClusterId' => 'DBClusterId',
+        'databaseUser' => 'DatabaseUser',
+        'endTime' => 'EndTime',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceGroup' => 'ResourceGroup',
-        'startTime'     => 'StartTime',
-        'statusList'    => 'StatusList',
+        'startTime' => 'StartTime',
+        'statusList' => 'StatusList',
     ];
 
     public function validate()
@@ -115,7 +124,7 @@ class ListResultExportJobHistoryRequest extends Model
         if (null !== $this->statusList) {
             if (\is_array($this->statusList)) {
                 $res['StatusList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->statusList as $item1) {
                     $res['StatusList'][$n1++] = $item1;
                 }
@@ -172,7 +181,7 @@ class ListResultExportJobHistoryRequest extends Model
         if (isset($map['StatusList'])) {
             if (!empty($map['StatusList'])) {
                 $model->statusList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['StatusList'] as $item1) {
                     $model->statusList[$n1++] = $item1;
                 }

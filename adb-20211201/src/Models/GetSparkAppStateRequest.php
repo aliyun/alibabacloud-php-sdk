@@ -12,12 +12,13 @@ class GetSparkAppStateRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $DBClusterId;
     protected $_name = [
-        'appId'       => 'AppId',
+        'appId' => 'AppId',
         'DBClusterId' => 'DBClusterId',
     ];
 

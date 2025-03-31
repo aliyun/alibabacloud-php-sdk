@@ -12,13 +12,14 @@ class DownloadInstanceCACertificateResponseBody extends Model
      * @var string
      */
     public $downloadUrl;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'downloadUrl' => 'DownloadUrl',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

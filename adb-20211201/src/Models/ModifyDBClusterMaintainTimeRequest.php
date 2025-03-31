@@ -12,12 +12,13 @@ class ModifyDBClusterMaintainTimeRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $maintainTime;
     protected $_name = [
-        'DBClusterId'  => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'maintainTime' => 'MaintainTime',
     ];
 

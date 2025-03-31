@@ -12,53 +12,62 @@ class items extends Model
      * @var string
      */
     public $computeUnit;
+
     /**
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $strategyType;
+
     /**
      * @var string
      */
     public $taskDesc;
+
     /**
      * @var int
      */
     public $taskDuration;
+
     /**
      * @var string
      */
     public $taskId;
+
     /**
      * @var string
      */
     public $taskMessage;
+
     /**
      * @var string
      */
     public $taskStatus;
     protected $_name = [
-        'computeUnit'  => 'ComputeUnit',
-        'createdTime'  => 'CreatedTime',
-        'DBClusterId'  => 'DBClusterId',
+        'computeUnit' => 'ComputeUnit',
+        'createdTime' => 'CreatedTime',
+        'DBClusterId' => 'DBClusterId',
         'modifiedTime' => 'ModifiedTime',
         'strategyType' => 'StrategyType',
-        'taskDesc'     => 'TaskDesc',
+        'taskDesc' => 'TaskDesc',
         'taskDuration' => 'TaskDuration',
-        'taskId'       => 'TaskId',
-        'taskMessage'  => 'TaskMessage',
-        'taskStatus'   => 'TaskStatus',
+        'taskId' => 'TaskId',
+        'taskMessage' => 'TaskMessage',
+        'taskStatus' => 'TaskStatus',
     ];
 
     public function validate()

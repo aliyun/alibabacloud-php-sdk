@@ -15,33 +15,38 @@ class DescribeDBClusterHealthStatusResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var CS
      */
     public $CS;
+
     /**
      * @var executor
      */
     public $executor;
+
     /**
      * @var string
      */
     public $instanceStatus;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var worker
      */
     public $worker;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'CS'                 => 'CS',
-        'executor'           => 'Executor',
-        'instanceStatus'     => 'InstanceStatus',
-        'requestId'          => 'RequestId',
-        'worker'             => 'Worker',
+        'CS' => 'CS',
+        'executor' => 'Executor',
+        'instanceStatus' => 'InstanceStatus',
+        'requestId' => 'RequestId',
+        'worker' => 'Worker',
     ];
 
     public function validate()

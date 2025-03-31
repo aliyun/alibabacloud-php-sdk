@@ -12,43 +12,50 @@ class DescribeApsDatasourcesRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $datasourceName;
+
     /**
      * @var string
      */
     public $datasourceType;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'DBClusterId'    => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'datasourceName' => 'DatasourceName',
         'datasourceType' => 'DatasourceType',
-        'endTime'        => 'EndTime',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'regionId'       => 'RegionId',
-        'startTime'      => 'StartTime',
+        'endTime' => 'EndTime',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

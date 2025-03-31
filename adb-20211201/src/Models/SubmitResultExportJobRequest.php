@@ -12,38 +12,44 @@ class SubmitResultExportJobRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $exportType;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroup;
+
     /**
      * @var string
      */
     public $SQL;
+
     /**
      * @var string
      */
     public $schema;
     protected $_name = [
-        'DBClusterId'   => 'DBClusterId',
-        'engine'        => 'Engine',
-        'exportType'    => 'ExportType',
-        'regionId'      => 'RegionId',
+        'DBClusterId' => 'DBClusterId',
+        'engine' => 'Engine',
+        'exportType' => 'ExportType',
+        'regionId' => 'RegionId',
         'resourceGroup' => 'ResourceGroup',
-        'SQL'           => 'SQL',
-        'schema'        => 'Schema',
+        'SQL' => 'SQL',
+        'schema' => 'Schema',
     ];
 
     public function validate()

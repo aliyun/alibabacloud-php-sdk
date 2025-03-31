@@ -12,23 +12,26 @@ class rdsMysqlInfo extends Model
      * @var string
      */
     public $connectUrl;
+
     /**
      * @var string
      */
     public $password;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
         'connectUrl' => 'ConnectUrl',
-        'password'   => 'Password',
-        'regionId'   => 'RegionId',
-        'userName'   => 'UserName',
+        'password' => 'Password',
+        'regionId' => 'RegionId',
+        'userName' => 'UserName',
     ];
 
     public function validate()

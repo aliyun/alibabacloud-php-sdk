@@ -12,43 +12,50 @@ class ExecuteSparkWarehouseBatchSQLRequest extends Model
      * @var string
      */
     public $agency;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $executeResultLimit;
+
     /**
      * @var int
      */
     public $executeTimeLimitInSeconds;
+
     /**
      * @var string
      */
     public $query;
+
     /**
      * @var string
      */
     public $resourceGroupName;
+
     /**
      * @var string
      */
     public $runtimeConfig;
+
     /**
      * @var string
      */
     public $schema;
     protected $_name = [
-        'agency'                    => 'Agency',
-        'DBClusterId'               => 'DBClusterId',
-        'executeResultLimit'        => 'ExecuteResultLimit',
+        'agency' => 'Agency',
+        'DBClusterId' => 'DBClusterId',
+        'executeResultLimit' => 'ExecuteResultLimit',
         'executeTimeLimitInSeconds' => 'ExecuteTimeLimitInSeconds',
-        'query'                     => 'Query',
-        'resourceGroupName'         => 'ResourceGroupName',
-        'runtimeConfig'             => 'RuntimeConfig',
-        'schema'                    => 'Schema',
+        'query' => 'Query',
+        'resourceGroupName' => 'ResourceGroupName',
+        'runtimeConfig' => 'RuntimeConfig',
+        'schema' => 'Schema',
     ];
 
     public function validate()

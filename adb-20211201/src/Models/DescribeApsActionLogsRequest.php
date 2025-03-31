@@ -12,73 +12,86 @@ class DescribeApsActionLogsRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $stage;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $workloadId;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'endTime'              => 'EndTime',
-        'keyword'              => 'Keyword',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'regionId'             => 'RegionId',
+        'DBClusterId' => 'DBClusterId',
+        'endTime' => 'EndTime',
+        'keyword' => 'Keyword',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'stage'                => 'Stage',
-        'startTime'            => 'StartTime',
-        'state'                => 'State',
-        'workloadId'           => 'WorkloadId',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'stage' => 'Stage',
+        'startTime' => 'StartTime',
+        'state' => 'State',
+        'workloadId' => 'WorkloadId',
     ];
 
     public function validate()

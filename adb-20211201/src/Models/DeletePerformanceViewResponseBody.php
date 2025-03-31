@@ -12,18 +12,20 @@ class DeletePerformanceViewResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var bool
      */
     public $deleteStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'deleteStatus'       => 'DeleteStatus',
-        'requestId'          => 'RequestId',
+        'deleteStatus' => 'DeleteStatus',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,97 +12,121 @@ class CreateDBResourceGroupShrinkRequest extends Model
      * @var string
      */
     public $autoStopInterval;
+
     /**
      * @var string
      */
     public $clusterMode;
+
     /**
      * @var string
      */
     public $clusterSizeResource;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var bool
      */
     public $enableSpot;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineParamsShrink;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $groupType;
+
     /**
      * @var int
      */
     public $maxClusterCount;
+
     /**
      * @var string
      */
     public $maxComputeResource;
+
     /**
      * @var int
      */
     public $maxGpuQuantity;
+
     /**
      * @var int
      */
     public $minClusterCount;
+
     /**
      * @var string
      */
     public $minComputeResource;
+
     /**
      * @var int
      */
     public $minGpuQuantity;
+
+    /**
+     * @var string
+     */
+    public $rayConfigShrink;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $rulesShrink;
+
     /**
      * @var string
      */
     public $specName;
+
     /**
      * @var string
      */
     public $targetResourceGroupName;
     protected $_name = [
-        'autoStopInterval'        => 'AutoStopInterval',
-        'clusterMode'             => 'ClusterMode',
-        'clusterSizeResource'     => 'ClusterSizeResource',
-        'DBClusterId'             => 'DBClusterId',
-        'enableSpot'              => 'EnableSpot',
-        'engine'                  => 'Engine',
-        'engineParamsShrink'      => 'EngineParams',
-        'groupName'               => 'GroupName',
-        'groupType'               => 'GroupType',
-        'maxClusterCount'         => 'MaxClusterCount',
-        'maxComputeResource'      => 'MaxComputeResource',
-        'maxGpuQuantity'          => 'MaxGpuQuantity',
-        'minClusterCount'         => 'MinClusterCount',
-        'minComputeResource'      => 'MinComputeResource',
-        'minGpuQuantity'          => 'MinGpuQuantity',
-        'regionId'                => 'RegionId',
-        'rulesShrink'             => 'Rules',
-        'specName'                => 'SpecName',
+        'autoStopInterval' => 'AutoStopInterval',
+        'clusterMode' => 'ClusterMode',
+        'clusterSizeResource' => 'ClusterSizeResource',
+        'DBClusterId' => 'DBClusterId',
+        'enableSpot' => 'EnableSpot',
+        'engine' => 'Engine',
+        'engineParamsShrink' => 'EngineParams',
+        'groupName' => 'GroupName',
+        'groupType' => 'GroupType',
+        'maxClusterCount' => 'MaxClusterCount',
+        'maxComputeResource' => 'MaxComputeResource',
+        'maxGpuQuantity' => 'MaxGpuQuantity',
+        'minClusterCount' => 'MinClusterCount',
+        'minComputeResource' => 'MinComputeResource',
+        'minGpuQuantity' => 'MinGpuQuantity',
+        'rayConfigShrink' => 'RayConfig',
+        'regionId' => 'RegionId',
+        'rulesShrink' => 'Rules',
+        'specName' => 'SpecName',
         'targetResourceGroupName' => 'TargetResourceGroupName',
     ];
 
@@ -172,6 +196,10 @@ class CreateDBResourceGroupShrinkRequest extends Model
 
         if (null !== $this->minGpuQuantity) {
             $res['MinGpuQuantity'] = $this->minGpuQuantity;
+        }
+
+        if (null !== $this->rayConfigShrink) {
+            $res['RayConfig'] = $this->rayConfigShrink;
         }
 
         if (null !== $this->regionId) {
@@ -259,6 +287,10 @@ class CreateDBResourceGroupShrinkRequest extends Model
 
         if (isset($map['MinGpuQuantity'])) {
             $model->minGpuQuantity = $map['MinGpuQuantity'];
+        }
+
+        if (isset($map['RayConfig'])) {
+            $model->rayConfigShrink = $map['RayConfig'];
         }
 
         if (isset($map['RegionId'])) {

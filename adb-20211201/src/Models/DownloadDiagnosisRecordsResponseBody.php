@@ -12,13 +12,14 @@ class DownloadDiagnosisRecordsResponseBody extends Model
      * @var int
      */
     public $downloadId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'downloadId' => 'DownloadId',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -429,6 +429,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateLakeStorageResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateLakeStorageShrinkRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateSparkTemplateFileRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateSparkTemplateFileResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\UpgradeKernelVersionRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\UpgradeKernelVersionResponse;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -440,51 +442,51 @@ class Adb extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-qingdao'                  => 'adb.aliyuncs.com',
-            'cn-beijing'                  => 'adb.aliyuncs.com',
-            'cn-hangzhou'                 => 'adb.aliyuncs.com',
-            'cn-shanghai'                 => 'adb.aliyuncs.com',
-            'cn-shenzhen'                 => 'adb.aliyuncs.com',
-            'cn-hongkong'                 => 'adb.aliyuncs.com',
-            'ap-southeast-1'              => 'adb.aliyuncs.com',
-            'us-west-1'                   => 'adb.aliyuncs.com',
-            'us-east-1'                   => 'adb.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'adb.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'adb.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'adb.ap-northeast-1.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'adb.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'adb.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'adb.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'adb.aliyuncs.com',
-            'cn-edge-1'                   => 'adb.aliyuncs.com',
-            'cn-fujian'                   => 'adb.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'adb.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'adb.aliyuncs.com',
+        $this->_endpointMap = [
+            'cn-qingdao' => 'adb.aliyuncs.com',
+            'cn-beijing' => 'adb.aliyuncs.com',
+            'cn-hangzhou' => 'adb.aliyuncs.com',
+            'cn-shanghai' => 'adb.aliyuncs.com',
+            'cn-shenzhen' => 'adb.aliyuncs.com',
+            'cn-hongkong' => 'adb.aliyuncs.com',
+            'ap-southeast-1' => 'adb.aliyuncs.com',
+            'us-west-1' => 'adb.aliyuncs.com',
+            'us-east-1' => 'adb.aliyuncs.com',
+            'cn-hangzhou-finance' => 'adb.aliyuncs.com',
+            'cn-north-2-gov-1' => 'adb.aliyuncs.com',
+            'ap-northeast-2-pop' => 'adb.ap-northeast-1.aliyuncs.com',
+            'cn-beijing-finance-1' => 'adb.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'adb.aliyuncs.com',
+            'cn-beijing-gov-1' => 'adb.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'adb.aliyuncs.com',
+            'cn-edge-1' => 'adb.aliyuncs.com',
+            'cn-fujian' => 'adb.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'adb.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'adb.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'adb.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'adb.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'adb.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'adb.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'adb.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'adb.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'adb.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'adb.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'adb.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'adb.aliyuncs.com',
-            'cn-shanghai-inner'           => 'adb.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'adb.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'adb.aliyuncs.com',
+            'cn-qingdao-nebula' => 'adb.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'adb.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'adb.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'adb.aliyuncs.com',
+            'cn-shanghai-inner' => 'adb.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'adb.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'adb.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'adb.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'adb.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'adb.aliyuncs.com',
-            'cn-wuhan'                    => 'adb.aliyuncs.com',
-            'cn-yushanfang'               => 'adb.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'adb.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'adb.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'adb.aliyuncs.com',
-            'eu-west-1-oxs'               => 'adb.ap-northeast-1.aliyuncs.com',
-            'me-east-1'                   => 'adb.ap-northeast-1.aliyuncs.com',
-            'rus-west-1-pop'              => 'adb.ap-northeast-1.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'adb.aliyuncs.com',
+            'cn-shenzhen-inner' => 'adb.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'adb.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'adb.aliyuncs.com',
+            'cn-wuhan' => 'adb.aliyuncs.com',
+            'cn-yushanfang' => 'adb.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'adb.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'adb.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'adb.aliyuncs.com',
+            'eu-west-1-oxs' => 'adb.ap-northeast-1.aliyuncs.com',
+            'me-east-1' => 'adb.ap-northeast-1.aliyuncs.com',
+            'rus-west-1-pop' => 'adb.ap-northeast-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('adb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -522,6 +524,7 @@ class Adb extends OpenApiClient
      *
      * @param request - AllocateClusterPublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AllocateClusterPublicConnectionResponse
      *
      * @param AllocateClusterPublicConnectionRequest $request
@@ -549,15 +552,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocateClusterPublicConnection',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocateClusterPublicConnection',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AllocateClusterPublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -573,6 +576,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - AllocateClusterPublicConnectionRequest
+     *
      * @returns AllocateClusterPublicConnectionResponse
      *
      * @param AllocateClusterPublicConnectionRequest $request
@@ -594,6 +598,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ApplyAdviceByIdRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ApplyAdviceByIdResponse
      *
      * @param ApplyAdviceByIdRequest $request
@@ -625,15 +630,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ApplyAdviceById',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ApplyAdviceById',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ApplyAdviceByIdResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -649,6 +654,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ApplyAdviceByIdRequest
+     *
      * @returns ApplyAdviceByIdResponse
      *
      * @param ApplyAdviceByIdRequest $request
@@ -670,6 +676,7 @@ class Adb extends OpenApiClient
      *
      * @param request - AttachUserENIRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AttachUserENIResponse
      *
      * @param AttachUserENIRequest $request
@@ -689,15 +696,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AttachUserENI',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AttachUserENI',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AttachUserENIResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -713,6 +720,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - AttachUserENIRequest
+     *
      * @returns AttachUserENIResponse
      *
      * @param AttachUserENIRequest $request
@@ -731,6 +739,7 @@ class Adb extends OpenApiClient
      *
      * @param request - BatchApplyAdviceByIdListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BatchApplyAdviceByIdListResponse
      *
      * @param BatchApplyAdviceByIdListRequest $request
@@ -762,15 +771,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BatchApplyAdviceByIdList',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BatchApplyAdviceByIdList',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BatchApplyAdviceByIdListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -783,6 +792,7 @@ class Adb extends OpenApiClient
      * The request ID.
      *
      * @param request - BatchApplyAdviceByIdListRequest
+     *
      * @returns BatchApplyAdviceByIdListResponse
      *
      * @param BatchApplyAdviceByIdListRequest $request
@@ -804,6 +814,7 @@ class Adb extends OpenApiClient
      *
      * @param request - BindAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BindAccountResponse
      *
      * @param BindAccountRequest $request
@@ -831,15 +842,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindAccount',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindAccount',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BindAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -855,6 +866,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - BindAccountRequest
+     *
      * @returns BindAccountResponse
      *
      * @param BindAccountRequest $request
@@ -876,6 +888,7 @@ class Adb extends OpenApiClient
      *
      * @param request - BindDBResourceGroupWithUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns BindDBResourceGroupWithUserResponse
      *
      * @param BindDBResourceGroupWithUserRequest $request
@@ -903,15 +916,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'BindDBResourceGroupWithUser',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'BindDBResourceGroupWithUser',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return BindDBResourceGroupWithUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -927,6 +940,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - BindDBResourceGroupWithUserRequest
+     *
      * @returns BindDBResourceGroupWithUserResponse
      *
      * @param BindDBResourceGroupWithUserRequest $request
@@ -945,6 +959,7 @@ class Adb extends OpenApiClient
      *
      * @param request - CancelSparkReplStatementRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelSparkReplStatementResponse
      *
      * @param CancelSparkReplStatementRequest $request
@@ -972,15 +987,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CancelSparkReplStatement',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelSparkReplStatement',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CancelSparkReplStatementResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -993,6 +1008,7 @@ class Adb extends OpenApiClient
      * Terminates part of the code in a Spark job.
      *
      * @param request - CancelSparkReplStatementRequest
+     *
      * @returns CancelSparkReplStatementResponse
      *
      * @param CancelSparkReplStatementRequest $request
@@ -1011,6 +1027,7 @@ class Adb extends OpenApiClient
      *
      * @param request - CancelSparkWarehouseBatchSQLRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelSparkWarehouseBatchSQLResponse
      *
      * @param CancelSparkWarehouseBatchSQLRequest $request
@@ -1038,15 +1055,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CancelSparkWarehouseBatchSQL',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelSparkWarehouseBatchSQL',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CancelSparkWarehouseBatchSQLResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1059,6 +1076,7 @@ class Adb extends OpenApiClient
      * 取消一段Spark Batch SQL的状态
      *
      * @param request - CancelSparkWarehouseBatchSQLRequest
+     *
      * @returns CancelSparkWarehouseBatchSQLResponse
      *
      * @param CancelSparkWarehouseBatchSQLRequest $request
@@ -1080,6 +1098,7 @@ class Adb extends OpenApiClient
      *
      * @param request - CheckBindRamUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckBindRamUserResponse
      *
      * @param CheckBindRamUserRequest $request
@@ -1103,15 +1122,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckBindRamUser',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckBindRamUser',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CheckBindRamUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1127,6 +1146,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CheckBindRamUserRequest
+     *
      * @returns CheckBindRamUserResponse
      *
      * @param CheckBindRamUserRequest $request
@@ -1146,6 +1166,7 @@ class Adb extends OpenApiClient
      *
      * @param request - CheckSampleDataSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckSampleDataSetResponse
      *
      * @param CheckSampleDataSetRequest $request
@@ -1165,15 +1186,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckSampleDataSet',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckSampleDataSet',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CheckSampleDataSetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1187,6 +1208,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CheckSampleDataSetRequest
+     *
      * @returns CheckSampleDataSetResponse
      *
      * @param CheckSampleDataSetRequest $request
@@ -1201,10 +1223,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 创建一站式链路.
+     * Creates an AnalyticDB Pipeline Service (APS) job.
+     *
+     * @remarks
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CreateAPSJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAPSJobResponse
      *
      * @param CreateAPSJobRequest $request
@@ -1268,15 +1294,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateAPSJob',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAPSJob',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateAPSJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1286,9 +1312,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 创建一站式链路.
+     * Creates an AnalyticDB Pipeline Service (APS) job.
+     *
+     * @remarks
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CreateAPSJobRequest
+     *
      * @returns CreateAPSJobResponse
      *
      * @param CreateAPSJobRequest $request
@@ -1310,6 +1340,7 @@ class Adb extends OpenApiClient
      *
      * @param request - CreateAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAccountResponse
      *
      * @param CreateAccountRequest $request
@@ -1349,15 +1380,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAccount',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAccount',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1373,6 +1404,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CreateAccountRequest
+     *
      * @returns CreateAccountResponse
      *
      * @param CreateAccountRequest $request
@@ -1387,10 +1419,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 创建工作负载复制链路.
+     * Creates an AnalyticDB Pipeline Service (APS) replication job.
      *
      * @param request - CreateApsCopyWorkloadRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateApsCopyWorkloadResponse
      *
      * @param CreateApsCopyWorkloadRequest $request
@@ -1434,15 +1467,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateApsCopyWorkload',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateApsCopyWorkload',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateApsCopyWorkloadResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1452,9 +1485,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 创建工作负载复制链路.
+     * Creates an AnalyticDB Pipeline Service (APS) replication job.
      *
      * @param request - CreateApsCopyWorkloadRequest
+     *
      * @returns CreateApsCopyWorkloadResponse
      *
      * @param CreateApsCopyWorkloadRequest $request
@@ -1469,10 +1503,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 创建APS数据源。
+     * Creates an AnalyticDB Pipeline Service (APS) data source.
+     *
+     * @remarks
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param tmpReq - CreateApsDatasoureRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateApsDatasoureResponse
      *
      * @param CreateApsDatasoureRequest $tmpReq
@@ -1570,15 +1608,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateApsDatasoure',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateApsDatasoure',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateApsDatasoureResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1588,9 +1626,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 创建APS数据源。
+     * Creates an AnalyticDB Pipeline Service (APS) data source.
+     *
+     * @remarks
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CreateApsDatasoureRequest
+     *
      * @returns CreateApsDatasoureResponse
      *
      * @param CreateApsDatasoureRequest $request
@@ -1605,10 +1647,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 创建Hive数据迁移链路。
+     * Creates an AnalyticDB Pipeline Service (APS) job from a Hive data source.
+     *
+     * @remarks
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CreateApsHiveJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateApsHiveJobResponse
      *
      * @param CreateApsHiveJobRequest $request
@@ -1676,15 +1722,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateApsHiveJob',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateApsHiveJob',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateApsHiveJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1694,9 +1740,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 创建Hive数据迁移链路。
+     * Creates an AnalyticDB Pipeline Service (APS) job from a Hive data source.
+     *
+     * @remarks
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CreateApsHiveJobRequest
+     *
      * @returns CreateApsHiveJobResponse
      *
      * @param CreateApsHiveJobRequest $request
@@ -1711,10 +1761,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 创建一个SLS到ADB数仓的APS链路.
+     * Creates an AnalyticDB Pipeline Service (APS) job from Simple Log Service (SLS) to an AnalyticDB for MySQL Data Warehouse Edition cluster.
      *
      * @param tmpReq - CreateApsSlsADBJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateApsSlsADBJobResponse
      *
      * @param CreateApsSlsADBJobRequest $tmpReq
@@ -1872,15 +1923,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateApsSlsADBJob',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateApsSlsADBJob',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateApsSlsADBJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1890,9 +1941,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 创建一个SLS到ADB数仓的APS链路.
+     * Creates an AnalyticDB Pipeline Service (APS) job from Simple Log Service (SLS) to an AnalyticDB for MySQL Data Warehouse Edition cluster.
      *
      * @param request - CreateApsSlsADBJobRequest
+     *
      * @returns CreateApsSlsADBJobResponse
      *
      * @param CreateApsSlsADBJobRequest $request
@@ -1907,13 +1959,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * The request ID.
+     * Creates an AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
      * @remarks
      * CreateDBCluster
      *
      * @param request - CreateDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDBClusterResponse
      *
      * @param CreateDBClusterRequest $request
@@ -1973,6 +2026,10 @@ class Adb extends OpenApiClient
             @$query['ProductForm'] = $request->productForm;
         }
 
+        if (null !== $request->productVersion) {
+            @$query['ProductVersion'] = $request->productVersion;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -1995,6 +2052,14 @@ class Adb extends OpenApiClient
 
         if (null !== $request->restoreType) {
             @$query['RestoreType'] = $request->restoreType;
+        }
+
+        if (null !== $request->secondaryVSwitchId) {
+            @$query['SecondaryVSwitchId'] = $request->secondaryVSwitchId;
+        }
+
+        if (null !== $request->secondaryZoneId) {
+            @$query['SecondaryZoneId'] = $request->secondaryZoneId;
         }
 
         if (null !== $request->sourceDbClusterId) {
@@ -2029,15 +2094,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDBCluster',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDBCluster',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2047,12 +2112,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * The request ID.
+     * Creates an AnalyticDB for MySQL Data Lakehouse Edition cluster.
      *
      * @remarks
      * CreateDBCluster
      *
      * @param request - CreateDBClusterRequest
+     *
      * @returns CreateDBClusterResponse
      *
      * @param CreateDBClusterRequest $request
@@ -2074,6 +2140,7 @@ class Adb extends OpenApiClient
      *
      * @param tmpReq - CreateDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDBResourceGroupResponse
      *
      * @param CreateDBResourceGroupRequest $tmpReq
@@ -2088,6 +2155,10 @@ class Adb extends OpenApiClient
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->engineParams) {
             $request->engineParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->engineParams, 'EngineParams', 'json');
+        }
+
+        if (null !== $tmpReq->rayConfig) {
+            $request->rayConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rayConfig, 'RayConfig', 'json');
         }
 
         if (null !== $tmpReq->rules) {
@@ -2155,6 +2226,10 @@ class Adb extends OpenApiClient
             @$query['MinGpuQuantity'] = $request->minGpuQuantity;
         }
 
+        if (null !== $request->rayConfigShrink) {
+            @$query['RayConfig'] = $request->rayConfigShrink;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -2175,15 +2250,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDBResourceGroup',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDBResourceGroup',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2199,6 +2274,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
      *
      * @param request - CreateDBResourceGroupRequest
+     *
      * @returns CreateDBResourceGroupResponse
      *
      * @param CreateDBResourceGroupRequest $request
@@ -2220,6 +2296,7 @@ class Adb extends OpenApiClient
      *
      * @param request - CreateElasticPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateElasticPlanResponse
      *
      * @param CreateElasticPlanRequest $request
@@ -2275,15 +2352,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateElasticPlan',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateElasticPlan',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateElasticPlanResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2299,6 +2376,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - CreateElasticPlanRequest
+     *
      * @returns CreateElasticPlanResponse
      *
      * @param CreateElasticPlanRequest $request
@@ -2317,6 +2395,7 @@ class Adb extends OpenApiClient
      *
      * @param tmpReq - CreateLakeStorageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateLakeStorageResponse
      *
      * @param CreateLakeStorageRequest $tmpReq
@@ -2357,18 +2436,18 @@ class Adb extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateLakeStorage',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateLakeStorage',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateLakeStorageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2381,6 +2460,7 @@ class Adb extends OpenApiClient
      * Creates a lake storage.
      *
      * @param request - CreateLakeStorageRequest
+     *
      * @returns CreateLakeStorageResponse
      *
      * @param CreateLakeStorageRequest $request
@@ -2404,6 +2484,7 @@ class Adb extends OpenApiClient
      *
      * @param request - CreateOssSubDirectoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateOssSubDirectoryResponse
      *
      * @param CreateOssSubDirectoryRequest $request
@@ -2427,15 +2508,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateOssSubDirectory',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateOssSubDirectory',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateOssSubDirectoryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2453,6 +2534,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - CreateOssSubDirectoryRequest
+     *
      * @returns CreateOssSubDirectoryResponse
      *
      * @param CreateOssSubDirectoryRequest $request
@@ -2471,6 +2553,7 @@ class Adb extends OpenApiClient
      *
      * @param tmpReq - CreatePerformanceViewRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreatePerformanceViewResponse
      *
      * @param CreatePerformanceViewRequest $tmpReq
@@ -2532,15 +2615,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreatePerformanceView',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreatePerformanceView',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePerformanceViewResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2553,6 +2636,7 @@ class Adb extends OpenApiClient
      * Creates a custom monitoring view.
      *
      * @param request - CreatePerformanceViewRequest
+     *
      * @returns CreatePerformanceViewResponse
      *
      * @param CreatePerformanceViewRequest $request
@@ -2576,6 +2660,7 @@ class Adb extends OpenApiClient
      *
      * @param request - CreateSparkTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSparkTemplateResponse
      *
      * @param CreateSparkTemplateRequest $request
@@ -2611,15 +2696,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateSparkTemplate',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSparkTemplate',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSparkTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2637,6 +2722,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - CreateSparkTemplateRequest
+     *
      * @returns CreateSparkTemplateResponse
      *
      * @param CreateSparkTemplateRequest $request
@@ -2658,6 +2744,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DeleteAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAccountResponse
      *
      * @param DeleteAccountRequest $request
@@ -2685,15 +2772,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAccount',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAccount',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2709,6 +2796,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DeleteAccountRequest
+     *
      * @returns DeleteAccountResponse
      *
      * @param DeleteAccountRequest $request
@@ -2730,6 +2818,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DeleteApsDatasoureRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteApsDatasoureResponse
      *
      * @param DeleteApsDatasoureRequest $request
@@ -2757,15 +2846,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteApsDatasoure',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteApsDatasoure',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteApsDatasoureResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2781,6 +2870,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DeleteApsDatasoureRequest
+     *
      * @returns DeleteApsDatasoureResponse
      *
      * @param DeleteApsDatasoureRequest $request
@@ -2795,10 +2885,16 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 删除aps任务
+     * Deletes an AnalyticDB Pipeline Service (APS) job.
+     *
+     * @remarks
+     *   Deleting backup sets is an asynchronous operation and may require 10 to 20 minutes to complete.
+     * *   You can delete up to 100 backup sets at a time. If you want to delete more than 100 backup sets, call this operation twice.
+     * *   To ensure data security, the system forcibly retains one valid backup set. If you want to delete the last backup set, the system prohibits your operation.
      *
      * @param request - DeleteApsJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteApsJobResponse
      *
      * @param DeleteApsJobRequest $request
@@ -2822,15 +2918,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteApsJob',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteApsJob',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteApsJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2840,9 +2936,15 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 删除aps任务
+     * Deletes an AnalyticDB Pipeline Service (APS) job.
+     *
+     * @remarks
+     *   Deleting backup sets is an asynchronous operation and may require 10 to 20 minutes to complete.
+     * *   You can delete up to 100 backup sets at a time. If you want to delete more than 100 backup sets, call this operation twice.
+     * *   To ensure data security, the system forcibly retains one valid backup set. If you want to delete the last backup set, the system prohibits your operation.
      *
      * @param request - DeleteApsJobRequest
+     *
      * @returns DeleteApsJobResponse
      *
      * @param DeleteApsJobRequest $request
@@ -2865,6 +2967,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DeleteBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteBackupsResponse
      *
      * @param DeleteBackupsRequest $request
@@ -2908,15 +3011,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteBackups',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteBackups',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2933,6 +3036,7 @@ class Adb extends OpenApiClient
      * *   To ensure data security, the system forcibly retains one valid backup set. If you want to delete the last backup set, the system prohibits your operation.
      *
      * @param request - DeleteBackupsRequest
+     *
      * @returns DeleteBackupsResponse
      *
      * @param DeleteBackupsRequest $request
@@ -2957,6 +3061,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DeleteDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDBClusterResponse
      *
      * @param DeleteDBClusterRequest $request
@@ -2976,15 +3081,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDBCluster',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDBCluster',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3003,6 +3108,7 @@ class Adb extends OpenApiClient
      * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DeleteDBClusterRequest
+     *
      * @returns DeleteDBClusterResponse
      *
      * @param DeleteDBClusterRequest $request
@@ -3024,6 +3130,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DeleteDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDBResourceGroupResponse
      *
      * @param DeleteDBResourceGroupRequest $request
@@ -3047,15 +3154,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDBResourceGroup',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDBResourceGroup',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3071,6 +3178,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DeleteDBResourceGroupRequest
+     *
      * @returns DeleteDBResourceGroupResponse
      *
      * @param DeleteDBResourceGroupRequest $request
@@ -3092,6 +3200,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DeleteElasticPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteElasticPlanResponse
      *
      * @param DeleteElasticPlanRequest $request
@@ -3115,15 +3224,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteElasticPlan',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteElasticPlan',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteElasticPlanResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3139,6 +3248,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DeleteElasticPlanRequest
+     *
      * @returns DeleteElasticPlanResponse
      *
      * @param DeleteElasticPlanRequest $request
@@ -3160,6 +3270,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DeleteLakeStorageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteLakeStorageResponse
      *
      * @param DeleteLakeStorageRequest $request
@@ -3186,18 +3297,18 @@ class Adb extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteLakeStorage',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteLakeStorage',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteLakeStorageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3213,6 +3324,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DeleteLakeStorageRequest
+     *
      * @returns DeleteLakeStorageResponse
      *
      * @param DeleteLakeStorageRequest $request
@@ -3231,6 +3343,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DeletePerformanceViewRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeletePerformanceViewResponse
      *
      * @param DeletePerformanceViewRequest $request
@@ -3274,15 +3387,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeletePerformanceView',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeletePerformanceView',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeletePerformanceViewResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3295,6 +3408,7 @@ class Adb extends OpenApiClient
      * Deletes a monitoring view.
      *
      * @param request - DeletePerformanceViewRequest
+     *
      * @returns DeletePerformanceViewResponse
      *
      * @param DeletePerformanceViewRequest $request
@@ -3317,6 +3431,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DeleteProcessInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteProcessInstanceResponse
      *
      * @param DeleteProcessInstanceRequest $request
@@ -3348,15 +3463,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteProcessInstance',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteProcessInstance',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteProcessInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3373,6 +3488,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DeleteProcessInstanceRequest
+     *
      * @returns DeleteProcessInstanceResponse
      *
      * @param DeleteProcessInstanceRequest $request
@@ -3396,6 +3512,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DeleteSparkTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSparkTemplateResponse
      *
      * @param DeleteSparkTemplateRequest $request
@@ -3419,15 +3536,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSparkTemplate',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSparkTemplate',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSparkTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3445,6 +3562,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - DeleteSparkTemplateRequest
+     *
      * @returns DeleteSparkTemplateResponse
      *
      * @param DeleteSparkTemplateRequest $request
@@ -3468,6 +3586,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DeleteSparkTemplateFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSparkTemplateFileResponse
      *
      * @param DeleteSparkTemplateFileRequest $request
@@ -3491,15 +3610,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSparkTemplateFile',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSparkTemplateFile',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSparkTemplateFileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3517,6 +3636,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - DeleteSparkTemplateFileRequest
+     *
      * @returns DeleteSparkTemplateFileResponse
      *
      * @param DeleteSparkTemplateFileRequest $request
@@ -3531,10 +3651,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 获取APS联邦分析ADB实例列表.
+     * Queries a list of AnalyticDB for MySQL clusters for AnalyticDB Pipeline Service (APS) federated analytics.
+     *
+     * @remarks
+     * You can call this operation to query the performance data of a cluster over a time range based on performance metrics. The collection granularity is 30 seconds. This operation allows you to query information about slow queries, such as the SQL query duration, number of scanned rows, and amount of scanned data.
      *
      * @param request - DescribeAPSADBInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAPSADBInstancesResponse
      *
      * @param DescribeAPSADBInstancesRequest $request
@@ -3546,19 +3670,19 @@ class Adb extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAPSADBInstances',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAPSADBInstances',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAPSADBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3568,9 +3692,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 获取APS联邦分析ADB实例列表.
+     * Queries a list of AnalyticDB for MySQL clusters for AnalyticDB Pipeline Service (APS) federated analytics.
+     *
+     * @remarks
+     * You can call this operation to query the performance data of a cluster over a time range based on performance metrics. The collection granularity is 30 seconds. This operation allows you to query information about slow queries, such as the SQL query duration, number of scanned rows, and amount of scanned data.
      *
      * @param request - DescribeAPSADBInstancesRequest
+     *
      * @returns DescribeAPSADBInstancesResponse
      *
      * @param DescribeAPSADBInstancesRequest $request
@@ -3589,6 +3717,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeAbnormalPatternDetectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAbnormalPatternDetectionResponse
      *
      * @param DescribeAbnormalPatternDetectionRequest $request
@@ -3640,15 +3769,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAbnormalPatternDetection',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAbnormalPatternDetection',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAbnormalPatternDetectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3661,6 +3790,7 @@ class Adb extends OpenApiClient
      * Queries abnormal SQL patterns within a time range.
      *
      * @param request - DescribeAbnormalPatternDetectionRequest
+     *
      * @returns DescribeAbnormalPatternDetectionResponse
      *
      * @param DescribeAbnormalPatternDetectionRequest $request
@@ -3682,6 +3812,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeAccountAllPrivilegesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAccountAllPrivilegesResponse
      *
      * @param DescribeAccountAllPrivilegesRequest $request
@@ -3713,15 +3844,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAccountAllPrivileges',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAccountAllPrivileges',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAccountAllPrivilegesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3737,6 +3868,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAccountAllPrivilegesRequest
+     *
      * @returns DescribeAccountAllPrivilegesResponse
      *
      * @param DescribeAccountAllPrivilegesRequest $request
@@ -3758,6 +3890,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeAccountPrivilegeObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAccountPrivilegeObjectsResponse
      *
      * @param DescribeAccountPrivilegeObjectsRequest $request
@@ -3809,15 +3942,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAccountPrivilegeObjects',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAccountPrivilegeObjects',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAccountPrivilegeObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3833,6 +3966,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAccountPrivilegeObjectsRequest
+     *
      * @returns DescribeAccountPrivilegeObjectsResponse
      *
      * @param DescribeAccountPrivilegeObjectsRequest $request
@@ -3851,6 +3985,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeAccountPrivilegesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAccountPrivilegesResponse
      *
      * @param DescribeAccountPrivilegesRequest $request
@@ -3902,15 +4037,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAccountPrivileges',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAccountPrivileges',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAccountPrivilegesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3923,6 +4058,7 @@ class Adb extends OpenApiClient
      * 获取某一ADB账户的权限.
      *
      * @param request - DescribeAccountPrivilegesRequest
+     *
      * @returns DescribeAccountPrivilegesResponse
      *
      * @param DescribeAccountPrivilegesRequest $request
@@ -3944,6 +4080,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeAccountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAccountsResponse
      *
      * @param DescribeAccountsRequest $request
@@ -3975,15 +4112,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAccounts',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAccounts',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAccountsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3999,6 +4136,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAccountsRequest
+     *
      * @returns DescribeAccountsResponse
      *
      * @param DescribeAccountsRequest $request
@@ -4021,6 +4159,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeAdbMySqlColumnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAdbMySqlColumnsResponse
      *
      * @param DescribeAdbMySqlColumnsRequest $request
@@ -4052,15 +4191,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAdbMySqlColumns',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAdbMySqlColumns',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAdbMySqlColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4077,6 +4216,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeAdbMySqlColumnsRequest
+     *
      * @returns DescribeAdbMySqlColumnsResponse
      *
      * @param DescribeAdbMySqlColumnsRequest $request
@@ -4099,6 +4239,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeAdbMySqlSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAdbMySqlSchemasResponse
      *
      * @param DescribeAdbMySqlSchemasRequest $request
@@ -4122,15 +4263,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAdbMySqlSchemas',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAdbMySqlSchemas',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAdbMySqlSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4147,6 +4288,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeAdbMySqlSchemasRequest
+     *
      * @returns DescribeAdbMySqlSchemasResponse
      *
      * @param DescribeAdbMySqlSchemasRequest $request
@@ -4169,6 +4311,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeAdbMySqlTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAdbMySqlTablesResponse
      *
      * @param DescribeAdbMySqlTablesRequest $request
@@ -4196,15 +4339,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAdbMySqlTables',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAdbMySqlTables',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAdbMySqlTablesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4221,6 +4364,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeAdbMySqlTablesRequest
+     *
      * @returns DescribeAdbMySqlTablesResponse
      *
      * @param DescribeAdbMySqlTablesRequest $request
@@ -4242,6 +4386,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeAdviceServiceEnabledRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAdviceServiceEnabledResponse
      *
      * @param DescribeAdviceServiceEnabledRequest $request
@@ -4265,15 +4410,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAdviceServiceEnabled',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAdviceServiceEnabled',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAdviceServiceEnabledResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4289,6 +4434,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAdviceServiceEnabledRequest
+     *
      * @returns DescribeAdviceServiceEnabledResponse
      *
      * @param DescribeAdviceServiceEnabledRequest $request
@@ -4311,6 +4457,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeAllDataSourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAllDataSourceResponse
      *
      * @param DescribeAllDataSourceRequest $request
@@ -4342,15 +4489,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAllDataSource',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAllDataSource',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAllDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4367,6 +4514,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeAllDataSourceRequest
+     *
      * @returns DescribeAllDataSourceResponse
      *
      * @param DescribeAllDataSourceRequest $request
@@ -4385,6 +4533,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeAppliedAdvicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAppliedAdvicesResponse
      *
      * @param DescribeAppliedAdvicesRequest $request
@@ -4444,15 +4593,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAppliedAdvices',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAppliedAdvices',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAppliedAdvicesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4465,6 +4614,7 @@ class Adb extends OpenApiClient
      * Queries the applied optimization suggestions for an AnalyticDB for MySQL cluster.
      *
      * @param request - DescribeAppliedAdvicesRequest
+     *
      * @returns DescribeAppliedAdvicesResponse
      *
      * @param DescribeAppliedAdvicesRequest $request
@@ -4488,6 +4638,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeApsActionLogsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApsActionLogsResponse
      *
      * @param DescribeApsActionLogsRequest $request
@@ -4559,15 +4710,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApsActionLogs',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApsActionLogs',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApsActionLogsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4585,6 +4736,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeApsActionLogsRequest
+     *
      * @returns DescribeApsActionLogsResponse
      *
      * @param DescribeApsActionLogsRequest $request
@@ -4603,6 +4755,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeApsDatasourceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApsDatasourceResponse
      *
      * @param DescribeApsDatasourceRequest $request
@@ -4630,15 +4783,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApsDatasource',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApsDatasource',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApsDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4651,6 +4804,7 @@ class Adb extends OpenApiClient
      * Queries the information about an AnalyticDB Pipeline Service (APS) data source.
      *
      * @param request - DescribeApsDatasourceRequest
+     *
      * @returns DescribeApsDatasourceResponse
      *
      * @param DescribeApsDatasourceRequest $request
@@ -4669,6 +4823,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeApsDatasourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApsDatasourcesResponse
      *
      * @param DescribeApsDatasourcesRequest $request
@@ -4716,15 +4871,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApsDatasources',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApsDatasources',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApsDatasourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4737,6 +4892,7 @@ class Adb extends OpenApiClient
      * Queries a list of AnalyticDB Pipeline Service (APS) data sources.
      *
      * @param request - DescribeApsDatasourcesRequest
+     *
      * @returns DescribeApsDatasourcesResponse
      *
      * @param DescribeApsDatasourcesRequest $request
@@ -4751,10 +4907,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查询APS Hive工作负载.
+     * Queries the information about an AnalyticDB Pipeline Service (APS) job from a Hive data source.
      *
      * @param request - DescribeApsHiveWorkloadRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApsHiveWorkloadResponse
      *
      * @param DescribeApsHiveWorkloadRequest $request
@@ -4782,15 +4939,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApsHiveWorkload',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApsHiveWorkload',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApsHiveWorkloadResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4800,9 +4957,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查询APS Hive工作负载.
+     * Queries the information about an AnalyticDB Pipeline Service (APS) job from a Hive data source.
      *
      * @param request - DescribeApsHiveWorkloadRequest
+     *
      * @returns DescribeApsHiveWorkloadResponse
      *
      * @param DescribeApsHiveWorkloadRequest $request
@@ -4821,6 +4979,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeApsJobDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApsJobDetailResponse
      *
      * @param DescribeApsJobDetailRequest $request
@@ -4844,15 +5003,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApsJobDetail',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApsJobDetail',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApsJobDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4865,6 +5024,7 @@ class Adb extends OpenApiClient
      * Queries the information about an AnalyticDB Pipeline Service (APS) job.
      *
      * @param request - DescribeApsJobDetailRequest
+     *
      * @returns DescribeApsJobDetailResponse
      *
      * @param DescribeApsJobDetailRequest $request
@@ -4879,10 +5039,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查询一站式链路列表.
+     * Queries a list of AnalyticDB Pipeline Service (APS) jobs.
      *
      * @param request - DescribeApsJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApsJobsResponse
      *
      * @param DescribeApsJobsRequest $request
@@ -4922,15 +5083,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApsJobs',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApsJobs',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApsJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4940,9 +5101,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查询一站式链路列表.
+     * Queries a list of AnalyticDB Pipeline Service (APS) jobs.
      *
      * @param request - DescribeApsJobsRequest
+     *
      * @returns DescribeApsJobsResponse
      *
      * @param DescribeApsJobsRequest $request
@@ -4961,6 +5123,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeApsMigrationWorkloadsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApsMigrationWorkloadsResponse
      *
      * @param DescribeApsMigrationWorkloadsRequest $request
@@ -5004,15 +5167,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApsMigrationWorkloads',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApsMigrationWorkloads',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApsMigrationWorkloadsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5025,6 +5188,7 @@ class Adb extends OpenApiClient
      * Queries the workloads of AnalyticDB Pipeline Service (APS) migration jobs.
      *
      * @param request - DescribeApsMigrationWorkloadsRequest
+     *
      * @returns DescribeApsMigrationWorkloadsResponse
      *
      * @param DescribeApsMigrationWorkloadsRequest $request
@@ -5039,10 +5203,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查询aps任务进展。
+     * Queries the progress of an AnalyticDB Pipeline Service (APS) job.
      *
      * @param request - DescribeApsProgressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApsProgressResponse
      *
      * @param DescribeApsProgressRequest $request
@@ -5070,15 +5235,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApsProgress',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApsProgress',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApsProgressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5088,9 +5253,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 查询aps任务进展。
+     * Queries the progress of an AnalyticDB Pipeline Service (APS) job.
      *
      * @param request - DescribeApsProgressRequest
+     *
      * @returns DescribeApsProgressResponse
      *
      * @param DescribeApsProgressRequest $request
@@ -5113,6 +5279,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeApsResourceGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeApsResourceGroupsResponse
      *
      * @param DescribeApsResourceGroupsRequest $request
@@ -5140,15 +5307,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'DescribeApsResourceGroups',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeApsResourceGroups',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeApsResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5165,6 +5332,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeApsResourceGroupsRequest
+     *
      * @returns DescribeApsResourceGroupsResponse
      *
      * @param DescribeApsResourceGroupsRequest $request
@@ -5187,6 +5355,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeAuditLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAuditLogRecordsResponse
      *
      * @param DescribeAuditLogRecordsRequest $request
@@ -5278,15 +5447,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAuditLogRecords',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAuditLogRecords',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAuditLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5303,6 +5472,7 @@ class Adb extends OpenApiClient
      * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeAuditLogRecordsRequest
+     *
      * @returns DescribeAuditLogRecordsResponse
      *
      * @param DescribeAuditLogRecordsRequest $request
@@ -5321,6 +5491,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeAvailableAdvicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAvailableAdvicesResponse
      *
      * @param DescribeAvailableAdvicesRequest $request
@@ -5376,15 +5547,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAvailableAdvices',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAvailableAdvices',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAvailableAdvicesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5397,6 +5568,7 @@ class Adb extends OpenApiClient
      * Queries the available optimization suggestions for an AnalyticDB for MySQL cluster.
      *
      * @param request - DescribeAvailableAdvicesRequest
+     *
      * @returns DescribeAvailableAdvicesResponse
      *
      * @param DescribeAvailableAdvicesRequest $request
@@ -5418,6 +5590,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBackupPolicyResponse
      *
      * @param DescribeBackupPolicyRequest $request
@@ -5453,15 +5626,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupPolicy',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupPolicy',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5477,6 +5650,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeBackupPolicyRequest
+     *
      * @returns DescribeBackupPolicyResponse
      *
      * @param DescribeBackupPolicyRequest $request
@@ -5496,6 +5670,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeBackupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBackupsResponse
      *
      * @param DescribeBackupsRequest $request
@@ -5551,15 +5726,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackups',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackups',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBackupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5573,6 +5748,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeBackupsRequest
+     *
      * @returns DescribeBackupsResponse
      *
      * @param DescribeBackupsRequest $request
@@ -5591,6 +5767,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeBadSqlDetectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBadSqlDetectionResponse
      *
      * @param DescribeBadSqlDetectionRequest $request
@@ -5642,15 +5819,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBadSqlDetection',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBadSqlDetection',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBadSqlDetectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5663,6 +5840,7 @@ class Adb extends OpenApiClient
      * Queries the bad SQL statements that affect cluster stability within a time range.
      *
      * @param request - DescribeBadSqlDetectionRequest
+     *
      * @returns DescribeBadSqlDetectionResponse
      *
      * @param DescribeBadSqlDetectionRequest $request
@@ -5684,6 +5862,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeClusterAccessWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeClusterAccessWhiteListResponse
      *
      * @param DescribeClusterAccessWhiteListRequest $request
@@ -5711,15 +5890,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeClusterAccessWhiteList',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeClusterAccessWhiteList',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeClusterAccessWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5735,6 +5914,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeClusterAccessWhiteListRequest
+     *
      * @returns DescribeClusterAccessWhiteListResponse
      *
      * @param DescribeClusterAccessWhiteListRequest $request
@@ -5756,6 +5936,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeClusterNetInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeClusterNetInfoResponse
      *
      * @param DescribeClusterNetInfoRequest $request
@@ -5779,15 +5960,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeClusterNetInfo',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeClusterNetInfo',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeClusterNetInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5803,6 +5984,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeClusterNetInfoRequest
+     *
      * @returns DescribeClusterNetInfoResponse
      *
      * @param DescribeClusterNetInfoRequest $request
@@ -5824,6 +6006,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeClusterResourceDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeClusterResourceDetailResponse
      *
      * @param DescribeClusterResourceDetailRequest $request
@@ -5843,15 +6026,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeClusterResourceDetail',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeClusterResourceDetail',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeClusterResourceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5867,6 +6050,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeClusterResourceDetailRequest
+     *
      * @returns DescribeClusterResourceDetailResponse
      *
      * @param DescribeClusterResourceDetailRequest $request
@@ -5888,6 +6072,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeClusterResourceUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeClusterResourceUsageResponse
      *
      * @param DescribeClusterResourceUsageRequest $request
@@ -5899,19 +6084,19 @@ class Adb extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeClusterResourceUsage',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeClusterResourceUsage',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeClusterResourceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5927,6 +6112,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeClusterResourceUsageRequest
+     *
      * @returns DescribeClusterResourceUsageResponse
      *
      * @param DescribeClusterResourceUsageRequest $request
@@ -5949,6 +6135,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeColumnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeColumnsResponse
      *
      * @param DescribeColumnsRequest $request
@@ -5980,15 +6167,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeColumns',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeColumns',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6005,6 +6192,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeColumnsRequest
+     *
      * @returns DescribeColumnsResponse
      *
      * @param DescribeColumnsRequest $request
@@ -6023,6 +6211,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeCompactionServiceSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCompactionServiceSwitchResponse
      *
      * @param DescribeCompactionServiceSwitchRequest $request
@@ -6042,15 +6231,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCompactionServiceSwitch',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCompactionServiceSwitch',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCompactionServiceSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6063,6 +6252,7 @@ class Adb extends OpenApiClient
      * Queries whether the remote build feature is enabled in the query acceleration configuration of an AnalyticDB for MySQL cluster.
      *
      * @param request - DescribeCompactionServiceSwitchRequest
+     *
      * @returns DescribeCompactionServiceSwitchResponse
      *
      * @param DescribeCompactionServiceSwitchRequest $request
@@ -6084,6 +6274,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeComputeResourceUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeComputeResourceUsageResponse
      *
      * @param DescribeComputeResourceUsageRequest $request
@@ -6115,15 +6306,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeComputeResourceUsage',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeComputeResourceUsage',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeComputeResourceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6139,6 +6330,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeComputeResourceUsageRequest
+     *
      * @returns DescribeComputeResourceUsageResponse
      *
      * @param DescribeComputeResourceUsageRequest $request
@@ -6157,6 +6349,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeControllerDetectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeControllerDetectionResponse
      *
      * @param DescribeControllerDetectionRequest $request
@@ -6208,15 +6401,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeControllerDetection',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeControllerDetection',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeControllerDetectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6229,6 +6422,7 @@ class Adb extends OpenApiClient
      * Queries the diagnostic results of the access layer.
      *
      * @param request - DescribeControllerDetectionRequest
+     *
      * @returns DescribeControllerDetectionResponse
      *
      * @param DescribeControllerDetectionRequest $request
@@ -6250,6 +6444,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeDBClusterAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBClusterAttributeResponse
      *
      * @param DescribeDBClusterAttributeRequest $request
@@ -6269,15 +6464,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterAttribute',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterAttribute',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBClusterAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6293,6 +6488,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBClusterAttributeRequest
+     *
      * @returns DescribeDBClusterAttributeResponse
      *
      * @param DescribeDBClusterAttributeRequest $request
@@ -6314,6 +6510,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeDBClusterHealthStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBClusterHealthStatusResponse
      *
      * @param DescribeDBClusterHealthStatusRequest $request
@@ -6337,15 +6534,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterHealthStatus',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterHealthStatus',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBClusterHealthStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6361,6 +6558,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBClusterHealthStatusRequest
+     *
      * @returns DescribeDBClusterHealthStatusResponse
      *
      * @param DescribeDBClusterHealthStatusRequest $request
@@ -6382,6 +6580,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeDBClusterPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBClusterPerformanceResponse
      *
      * @param DescribeDBClusterPerformanceRequest $request
@@ -6421,15 +6620,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterPerformance',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterPerformance',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBClusterPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6445,6 +6644,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBClusterPerformanceRequest
+     *
      * @returns DescribeDBClusterPerformanceResponse
      *
      * @param DescribeDBClusterPerformanceRequest $request
@@ -6466,6 +6666,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeDBClusterSpaceSummaryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBClusterSpaceSummaryResponse
      *
      * @param DescribeDBClusterSpaceSummaryRequest $request
@@ -6505,15 +6706,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterSpaceSummary',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterSpaceSummary',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBClusterSpaceSummaryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6529,6 +6730,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBClusterSpaceSummaryRequest
+     *
      * @returns DescribeDBClusterSpaceSummaryResponse
      *
      * @param DescribeDBClusterSpaceSummaryRequest $request
@@ -6550,6 +6752,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeDBClusterStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBClusterStatusResponse
      *
      * @param DescribeDBClusterStatusRequest $request
@@ -6569,15 +6772,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusterStatus',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusterStatus',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBClusterStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6593,6 +6796,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBClusterStatusRequest
+     *
      * @returns DescribeDBClusterStatusResponse
      *
      * @param DescribeDBClusterStatusRequest $request
@@ -6614,6 +6818,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeDBClustersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBClustersResponse
      *
      * @param DescribeDBClustersRequest $request
@@ -6669,15 +6874,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBClusters',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBClusters',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBClustersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6693,6 +6898,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBClustersRequest
+     *
      * @returns DescribeDBClustersResponse
      *
      * @param DescribeDBClustersRequest $request
@@ -6714,6 +6920,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBResourceGroupResponse
      *
      * @param DescribeDBResourceGroupRequest $request
@@ -6749,15 +6956,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBResourceGroup',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBResourceGroup',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6773,6 +6980,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeDBResourceGroupRequest
+     *
      * @returns DescribeDBResourceGroupResponse
      *
      * @param DescribeDBResourceGroupRequest $request
@@ -6794,6 +7002,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeDiagnosisDimensionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDiagnosisDimensionsResponse
      *
      * @param DescribeDiagnosisDimensionsRequest $request
@@ -6833,15 +7042,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDiagnosisDimensions',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDiagnosisDimensions',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDiagnosisDimensionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6857,6 +7066,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
      *
      * @param request - DescribeDiagnosisDimensionsRequest
+     *
      * @returns DescribeDiagnosisDimensionsResponse
      *
      * @param DescribeDiagnosisDimensionsRequest $request
@@ -6878,6 +7088,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeDiagnosisRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDiagnosisRecordsResponse
      *
      * @param DescribeDiagnosisRecordsRequest $request
@@ -6969,15 +7180,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDiagnosisRecords',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDiagnosisRecords',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDiagnosisRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6993,6 +7204,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
      *
      * @param request - DescribeDiagnosisRecordsRequest
+     *
      * @returns DescribeDiagnosisRecordsResponse
      *
      * @param DescribeDiagnosisRecordsRequest $request
@@ -7014,6 +7226,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeDiagnosisSQLInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDiagnosisSQLInfoResponse
      *
      * @param DescribeDiagnosisSQLInfoRequest $request
@@ -7025,19 +7238,19 @@ class Adb extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDiagnosisSQLInfo',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDiagnosisSQLInfo',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDiagnosisSQLInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7053,6 +7266,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
      *
      * @param request - DescribeDiagnosisSQLInfoRequest
+     *
      * @returns DescribeDiagnosisSQLInfoResponse
      *
      * @param DescribeDiagnosisSQLInfoRequest $request
@@ -7074,6 +7288,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeDownloadRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDownloadRecordsResponse
      *
      * @param DescribeDownloadRecordsRequest $request
@@ -7101,15 +7316,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDownloadRecords',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDownloadRecords',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDownloadRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7125,6 +7340,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
      *
      * @param request - DescribeDownloadRecordsRequest
+     *
      * @returns DescribeDownloadRecordsResponse
      *
      * @param DescribeDownloadRecordsRequest $request
@@ -7146,6 +7362,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeElasticPlanAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeElasticPlanAttributeResponse
      *
      * @param DescribeElasticPlanAttributeRequest $request
@@ -7169,15 +7386,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeElasticPlanAttribute',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeElasticPlanAttribute',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeElasticPlanAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7193,6 +7410,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeElasticPlanAttributeRequest
+     *
      * @returns DescribeElasticPlanAttributeResponse
      *
      * @param DescribeElasticPlanAttributeRequest $request
@@ -7214,6 +7432,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeElasticPlanJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeElasticPlanJobsResponse
      *
      * @param DescribeElasticPlanJobsRequest $request
@@ -7257,15 +7476,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeElasticPlanJobs',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeElasticPlanJobs',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeElasticPlanJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7281,6 +7500,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
      *
      * @param request - DescribeElasticPlanJobsRequest
+     *
      * @returns DescribeElasticPlanJobsResponse
      *
      * @param DescribeElasticPlanJobsRequest $request
@@ -7302,6 +7522,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeElasticPlanSpecificationsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeElasticPlanSpecificationsResponse
      *
      * @param DescribeElasticPlanSpecificationsRequest $request
@@ -7329,15 +7550,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeElasticPlanSpecifications',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeElasticPlanSpecifications',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeElasticPlanSpecificationsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7353,6 +7574,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeElasticPlanSpecificationsRequest
+     *
      * @returns DescribeElasticPlanSpecificationsResponse
      *
      * @param DescribeElasticPlanSpecificationsRequest $request
@@ -7374,6 +7596,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeElasticPlansRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeElasticPlansResponse
      *
      * @param DescribeElasticPlansRequest $request
@@ -7417,15 +7640,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeElasticPlans',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeElasticPlans',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeElasticPlansResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7441,6 +7664,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeElasticPlansRequest
+     *
      * @returns DescribeElasticPlansResponse
      *
      * @param DescribeElasticPlansRequest $request
@@ -7459,6 +7683,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeEnabledPrivilegesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEnabledPrivilegesResponse
      *
      * @param DescribeEnabledPrivilegesRequest $request
@@ -7470,19 +7695,19 @@ class Adb extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEnabledPrivileges',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEnabledPrivileges',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeEnabledPrivilegesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7495,6 +7720,7 @@ class Adb extends OpenApiClient
      * Queries the permission level and permissions supported for an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
      * @param request - DescribeEnabledPrivilegesRequest
+     *
      * @returns DescribeEnabledPrivilegesResponse
      *
      * @param DescribeEnabledPrivilegesRequest $request
@@ -7513,6 +7739,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeEssdCacheConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEssdCacheConfigResponse
      *
      * @param DescribeEssdCacheConfigRequest $request
@@ -7532,15 +7759,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEssdCacheConfig',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEssdCacheConfig',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeEssdCacheConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7553,6 +7780,7 @@ class Adb extends OpenApiClient
      * 查询EssdCache配置.
      *
      * @param request - DescribeEssdCacheConfigRequest
+     *
      * @returns DescribeEssdCacheConfigResponse
      *
      * @param DescribeEssdCacheConfigRequest $request
@@ -7571,6 +7799,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeExcessivePrimaryKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeExcessivePrimaryKeysResponse
      *
      * @param DescribeExcessivePrimaryKeysRequest $request
@@ -7634,15 +7863,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExcessivePrimaryKeys',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExcessivePrimaryKeys',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeExcessivePrimaryKeysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7655,6 +7884,7 @@ class Adb extends OpenApiClient
      * Queries the information about tables that have excessive primary key fields in an AnalyticDB for MySQL Data Lakehouse Edition (V5.0) cluster.
      *
      * @param request - DescribeExcessivePrimaryKeysRequest
+     *
      * @returns DescribeExcessivePrimaryKeysResponse
      *
      * @param DescribeExcessivePrimaryKeysRequest $request
@@ -7673,6 +7903,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeExecutorDetectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeExecutorDetectionResponse
      *
      * @param DescribeExecutorDetectionRequest $request
@@ -7724,15 +7955,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeExecutorDetection',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeExecutorDetection',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeExecutorDetectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7745,6 +7976,7 @@ class Adb extends OpenApiClient
      * Queries the diagnostic results of the compute layer.
      *
      * @param request - DescribeExecutorDetectionRequest
+     *
      * @returns DescribeExecutorDetectionResponse
      *
      * @param DescribeExecutorDetectionRequest $request
@@ -7766,6 +7998,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeInclinedNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeInclinedNodesResponse
      *
      * @param DescribeInclinedNodesRequest $request
@@ -7809,15 +8042,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeInclinedNodes',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeInclinedNodes',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeInclinedNodesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7833,6 +8066,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeInclinedNodesRequest
+     *
      * @returns DescribeInclinedNodesResponse
      *
      * @param DescribeInclinedNodesRequest $request
@@ -7854,6 +8088,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeJobResourceUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeJobResourceUsageResponse
      *
      * @param DescribeJobResourceUsageRequest $request
@@ -7881,15 +8116,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeJobResourceUsage',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeJobResourceUsage',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeJobResourceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7905,6 +8140,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeJobResourceUsageRequest
+     *
      * @returns DescribeJobResourceUsageResponse
      *
      * @param DescribeJobResourceUsageRequest $request
@@ -7923,6 +8159,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeKernelVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeKernelVersionResponse
      *
      * @param DescribeKernelVersionRequest $request
@@ -7962,15 +8199,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeKernelVersion',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeKernelVersion',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7983,6 +8220,7 @@ class Adb extends OpenApiClient
      * Queries the information about the minor version of an AnalyticDB for MySQL cluster.
      *
      * @param request - DescribeKernelVersionRequest
+     *
      * @returns DescribeKernelVersionResponse
      *
      * @param DescribeKernelVersionRequest $request
@@ -8001,6 +8239,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeLakeCacheSizeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeLakeCacheSizeResponse
      *
      * @param DescribeLakeCacheSizeRequest $request
@@ -8020,15 +8259,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeLakeCacheSize',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeLakeCacheSize',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeLakeCacheSizeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8041,6 +8280,7 @@ class Adb extends OpenApiClient
      * Queries the lake cache size of an AnalyticDB for MySQL cluster.
      *
      * @param request - DescribeLakeCacheSizeRequest
+     *
      * @returns DescribeLakeCacheSizeResponse
      *
      * @param DescribeLakeCacheSizeRequest $request
@@ -8059,6 +8299,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeOperatorPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeOperatorPermissionResponse
      *
      * @param DescribeOperatorPermissionRequest $request
@@ -8094,15 +8335,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOperatorPermission',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOperatorPermission',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeOperatorPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8115,6 +8356,7 @@ class Adb extends OpenApiClient
      * Queries the service account permissions of an AnalyticDB for MySQL cluster.
      *
      * @param request - DescribeOperatorPermissionRequest
+     *
      * @returns DescribeOperatorPermissionResponse
      *
      * @param DescribeOperatorPermissionRequest $request
@@ -8133,6 +8375,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeOversizeNonPartitionTableInfosRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeOversizeNonPartitionTableInfosResponse
      *
      * @param DescribeOversizeNonPartitionTableInfosRequest $request
@@ -8196,15 +8439,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOversizeNonPartitionTableInfos',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOversizeNonPartitionTableInfos',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeOversizeNonPartitionTableInfosResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8217,6 +8460,7 @@ class Adb extends OpenApiClient
      * Queries the information about oversized non-partitioned tables in an AnalyticDB for MySQL cluster.
      *
      * @param request - DescribeOversizeNonPartitionTableInfosRequest
+     *
      * @returns DescribeOversizeNonPartitionTableInfosResponse
      *
      * @param DescribeOversizeNonPartitionTableInfosRequest $request
@@ -8240,6 +8484,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribePatternPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePatternPerformanceResponse
      *
      * @param DescribePatternPerformanceRequest $request
@@ -8275,15 +8520,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePatternPerformance',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePatternPerformance',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePatternPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8301,6 +8546,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribePatternPerformanceRequest
+     *
      * @returns DescribePatternPerformanceResponse
      *
      * @param DescribePatternPerformanceRequest $request
@@ -8319,6 +8565,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribePerformanceViewAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePerformanceViewAttributeResponse
      *
      * @param DescribePerformanceViewAttributeRequest $request
@@ -8362,15 +8609,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePerformanceViewAttribute',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePerformanceViewAttribute',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePerformanceViewAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8383,6 +8630,7 @@ class Adb extends OpenApiClient
      * Queries the information about a monitoring view.
      *
      * @param request - DescribePerformanceViewAttributeRequest
+     *
      * @returns DescribePerformanceViewAttributeResponse
      *
      * @param DescribePerformanceViewAttributeRequest $request
@@ -8401,6 +8649,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribePerformanceViewsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribePerformanceViewsResponse
      *
      * @param DescribePerformanceViewsRequest $request
@@ -8440,15 +8689,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribePerformanceViews',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribePerformanceViews',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribePerformanceViewsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8461,6 +8710,7 @@ class Adb extends OpenApiClient
      * Queries a list of monitoring views.
      *
      * @param request - DescribePerformanceViewsRequest
+     *
      * @returns DescribePerformanceViewsResponse
      *
      * @param DescribePerformanceViewsRequest $request
@@ -8482,6 +8732,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -8521,15 +8772,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8545,6 +8796,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeRegionsRequest
+     *
      * @returns DescribeRegionsResponse
      *
      * @param DescribeRegionsRequest $request
@@ -8568,6 +8820,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeSQLPatternsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSQLPatternsResponse
      *
      * @param DescribeSQLPatternsRequest $request
@@ -8619,15 +8872,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSQLPatterns',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSQLPatterns',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSQLPatternsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8645,6 +8898,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeSQLPatternsRequest
+     *
      * @returns DescribeSQLPatternsResponse
      *
      * @param DescribeSQLPatternsRequest $request
@@ -8667,6 +8921,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeSchemasRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSchemasResponse
      *
      * @param DescribeSchemasRequest $request
@@ -8690,15 +8945,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSchemas',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSchemas',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSchemasResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8715,6 +8970,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeSchemasRequest
+     *
      * @returns DescribeSchemasResponse
      *
      * @param DescribeSchemasRequest $request
@@ -8733,6 +8989,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeSparkAppDiagnosisInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSparkAppDiagnosisInfoResponse
      *
      * @param DescribeSparkAppDiagnosisInfoRequest $request
@@ -8764,15 +9021,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSparkAppDiagnosisInfo',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSparkAppDiagnosisInfo',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSparkAppDiagnosisInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8785,6 +9042,7 @@ class Adb extends OpenApiClient
      * Queries the diagnostic information about a Spark application.
      *
      * @param request - DescribeSparkAppDiagnosisInfoRequest
+     *
      * @returns DescribeSparkAppDiagnosisInfoResponse
      *
      * @param DescribeSparkAppDiagnosisInfoRequest $request
@@ -8803,6 +9061,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeSparkAppTypeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSparkAppTypeResponse
      *
      * @param DescribeSparkAppTypeRequest $request
@@ -8830,15 +9089,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSparkAppType',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSparkAppType',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSparkAppTypeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8851,6 +9110,7 @@ class Adb extends OpenApiClient
      * Queries the type of a Spark application.
      *
      * @param request - DescribeSparkAppTypeRequest
+     *
      * @returns DescribeSparkAppTypeResponse
      *
      * @param DescribeSparkAppTypeRequest $request
@@ -8873,6 +9133,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeSparkCodeLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSparkCodeLogResponse
      *
      * @param DescribeSparkCodeLogRequest $request
@@ -8900,15 +9161,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSparkCodeLog',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSparkCodeLog',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSparkCodeLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8925,6 +9186,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeSparkCodeLogRequest
+     *
      * @returns DescribeSparkCodeLogResponse
      *
      * @param DescribeSparkCodeLogRequest $request
@@ -8947,6 +9209,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeSparkCodeOutputRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSparkCodeOutputResponse
      *
      * @param DescribeSparkCodeOutputRequest $request
@@ -8974,15 +9237,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSparkCodeOutput',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSparkCodeOutput',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSparkCodeOutputResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -8999,6 +9262,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeSparkCodeOutputRequest
+     *
      * @returns DescribeSparkCodeOutputResponse
      *
      * @param DescribeSparkCodeOutputRequest $request
@@ -9021,6 +9285,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeSparkCodeWebUiRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSparkCodeWebUiResponse
      *
      * @param DescribeSparkCodeWebUiRequest $request
@@ -9048,15 +9313,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSparkCodeWebUi',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSparkCodeWebUi',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSparkCodeWebUiResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9073,6 +9338,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeSparkCodeWebUiRequest
+     *
      * @returns DescribeSparkCodeWebUiResponse
      *
      * @param DescribeSparkCodeWebUiRequest $request
@@ -9087,8 +9353,11 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * Queries the diagnostic information about a Spark SQL query.
+     *
      * @param request - DescribeSparkSQLDiagnosisAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSparkSQLDiagnosisAttributeResponse
      *
      * @param DescribeSparkSQLDiagnosisAttributeRequest $request
@@ -9124,15 +9393,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSparkSQLDiagnosisAttribute',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSparkSQLDiagnosisAttribute',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSparkSQLDiagnosisAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9142,7 +9411,10 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * Queries the diagnostic information about a Spark SQL query.
+     *
      * @param request - DescribeSparkSQLDiagnosisAttributeRequest
+     *
      * @returns DescribeSparkSQLDiagnosisAttributeResponse
      *
      * @param DescribeSparkSQLDiagnosisAttributeRequest $request
@@ -9157,8 +9429,11 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * Queries the diagnostic information about Spark SQL queries.
+     *
      * @param request - DescribeSparkSQLDiagnosisListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSparkSQLDiagnosisListResponse
      *
      * @param DescribeSparkSQLDiagnosisListRequest $request
@@ -9206,15 +9481,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSparkSQLDiagnosisList',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSparkSQLDiagnosisList',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSparkSQLDiagnosisListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9224,7 +9499,10 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * Queries the diagnostic information about Spark SQL queries.
+     *
      * @param request - DescribeSparkSQLDiagnosisListRequest
+     *
      * @returns DescribeSparkSQLDiagnosisListResponse
      *
      * @param DescribeSparkSQLDiagnosisListRequest $request
@@ -9246,6 +9524,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeSqlPatternRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSqlPatternResponse
      *
      * @param DescribeSqlPatternRequest $request
@@ -9293,15 +9572,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSqlPattern',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSqlPattern',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSqlPatternResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9317,6 +9596,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeSqlPatternRequest
+     *
      * @returns DescribeSqlPatternResponse
      *
      * @param DescribeSqlPatternRequest $request
@@ -9338,6 +9618,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeStorageResourceUsageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeStorageResourceUsageResponse
      *
      * @param DescribeStorageResourceUsageRequest $request
@@ -9365,15 +9646,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeStorageResourceUsage',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeStorageResourceUsage',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeStorageResourceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9389,6 +9670,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeStorageResourceUsageRequest
+     *
      * @returns DescribeStorageResourceUsageResponse
      *
      * @param DescribeStorageResourceUsageRequest $request
@@ -9410,6 +9692,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeTableAccessCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTableAccessCountResponse
      *
      * @param DescribeTableAccessCountRequest $request
@@ -9453,15 +9736,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTableAccessCount',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTableAccessCount',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTableAccessCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9477,6 +9760,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
      *
      * @param request - DescribeTableAccessCountRequest
+     *
      * @returns DescribeTableAccessCountResponse
      *
      * @param DescribeTableAccessCountRequest $request
@@ -9495,6 +9779,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeTableDetailRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTableDetailResponse
      *
      * @param DescribeTableDetailRequest $request
@@ -9526,15 +9811,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTableDetail',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTableDetail',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTableDetailResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9547,6 +9832,7 @@ class Adb extends OpenApiClient
      * Queries the information about data distribution among shards of a table.
      *
      * @param request - DescribeTableDetailRequest
+     *
      * @returns DescribeTableDetailResponse
      *
      * @param DescribeTableDetailRequest $request
@@ -9565,6 +9851,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeTablePartitionDiagnoseRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTablePartitionDiagnoseResponse
      *
      * @param DescribeTablePartitionDiagnoseRequest $request
@@ -9604,15 +9891,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTablePartitionDiagnose',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTablePartitionDiagnose',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTablePartitionDiagnoseResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9625,6 +9912,7 @@ class Adb extends OpenApiClient
      * Queries the information about partition diagnostics.
      *
      * @param request - DescribeTablePartitionDiagnoseRequest
+     *
      * @returns DescribeTablePartitionDiagnoseResponse
      *
      * @param DescribeTablePartitionDiagnoseRequest $request
@@ -9647,6 +9935,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeTablesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTablesResponse
      *
      * @param DescribeTablesRequest $request
@@ -9674,15 +9963,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTables',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTables',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTablesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9699,6 +9988,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - DescribeTablesRequest
+     *
      * @returns DescribeTablesResponse
      *
      * @param DescribeTablesRequest $request
@@ -9720,6 +10010,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeUserQuotaRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUserQuotaResponse
      *
      * @param DescribeUserQuotaRequest $request
@@ -9731,19 +10022,19 @@ class Adb extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserQuota',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserQuota',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeUserQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9759,6 +10050,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DescribeUserQuotaRequest
+     *
      * @returns DescribeUserQuotaResponse
      *
      * @param DescribeUserQuotaRequest $request
@@ -9777,6 +10069,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DescribeWorkerDetectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeWorkerDetectionResponse
      *
      * @param DescribeWorkerDetectionRequest $request
@@ -9828,15 +10121,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeWorkerDetection',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeWorkerDetection',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeWorkerDetectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9849,6 +10142,7 @@ class Adb extends OpenApiClient
      * Queries the diagnostic results of the storage layer.
      *
      * @param request - DescribeWorkerDetectionRequest
+     *
      * @returns DescribeWorkerDetectionResponse
      *
      * @param DescribeWorkerDetectionRequest $request
@@ -9870,6 +10164,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DetachUserENIRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DetachUserENIResponse
      *
      * @param DetachUserENIRequest $request
@@ -9889,15 +10184,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DetachUserENI',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DetachUserENI',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DetachUserENIResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9913,6 +10208,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DetachUserENIRequest
+     *
      * @returns DetachUserENIResponse
      *
      * @param DetachUserENIRequest $request
@@ -9931,6 +10227,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DisableAdviceServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableAdviceServiceResponse
      *
      * @param DisableAdviceServiceRequest $request
@@ -9954,15 +10251,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableAdviceService',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableAdviceService',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableAdviceServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -9975,6 +10272,7 @@ class Adb extends OpenApiClient
      * Disables the suggestion feature.
      *
      * @param request - DisableAdviceServiceRequest
+     *
      * @returns DisableAdviceServiceResponse
      *
      * @param DisableAdviceServiceRequest $request
@@ -9996,6 +10294,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DisableElasticPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableElasticPlanResponse
      *
      * @param DisableElasticPlanRequest $request
@@ -10019,15 +10318,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableElasticPlan',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableElasticPlan',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableElasticPlanResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10043,6 +10342,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - DisableElasticPlanRequest
+     *
      * @returns DisableElasticPlanResponse
      *
      * @param DisableElasticPlanRequest $request
@@ -10064,6 +10364,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DownloadDiagnosisRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DownloadDiagnosisRecordsResponse
      *
      * @param DownloadDiagnosisRecordsRequest $request
@@ -10139,15 +10440,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DownloadDiagnosisRecords',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DownloadDiagnosisRecords',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DownloadDiagnosisRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10163,6 +10464,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
      *
      * @param request - DownloadDiagnosisRecordsRequest
+     *
      * @returns DownloadDiagnosisRecordsResponse
      *
      * @param DownloadDiagnosisRecordsRequest $request
@@ -10181,6 +10483,7 @@ class Adb extends OpenApiClient
      *
      * @param request - DownloadInstanceCACertificateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DownloadInstanceCACertificateResponse
      *
      * @param DownloadInstanceCACertificateRequest $request
@@ -10212,15 +10515,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DownloadInstanceCACertificate',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DownloadInstanceCACertificate',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DownloadInstanceCACertificateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10233,6 +10536,7 @@ class Adb extends OpenApiClient
      * Queries the Object Storage Service (OSS) URL of the downloaded certificate authority (CA) certificate that is used to connect to the wide table engine.
      *
      * @param request - DownloadInstanceCACertificateRequest
+     *
      * @returns DownloadInstanceCACertificateResponse
      *
      * @param DownloadInstanceCACertificateRequest $request
@@ -10251,6 +10555,7 @@ class Adb extends OpenApiClient
      *
      * @param request - EnableAdviceServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableAdviceServiceResponse
      *
      * @param EnableAdviceServiceRequest $request
@@ -10274,15 +10579,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableAdviceService',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableAdviceService',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableAdviceServiceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10295,6 +10600,7 @@ class Adb extends OpenApiClient
      * Enables the suggestion feature.
      *
      * @param request - EnableAdviceServiceRequest
+     *
      * @returns EnableAdviceServiceResponse
      *
      * @param EnableAdviceServiceRequest $request
@@ -10316,6 +10622,7 @@ class Adb extends OpenApiClient
      *
      * @param request - EnableElasticPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableElasticPlanResponse
      *
      * @param EnableElasticPlanRequest $request
@@ -10339,15 +10646,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableElasticPlan',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableElasticPlan',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableElasticPlanResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10363,6 +10670,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - EnableElasticPlanRequest
+     *
      * @returns EnableElasticPlanResponse
      *
      * @param EnableElasticPlanRequest $request
@@ -10381,6 +10689,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ExecuteSparkReplStatementRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExecuteSparkReplStatementResponse
      *
      * @param ExecuteSparkReplStatementRequest $request
@@ -10412,15 +10721,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExecuteSparkReplStatement',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExecuteSparkReplStatement',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExecuteSparkReplStatementResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10433,6 +10742,7 @@ class Adb extends OpenApiClient
      * Executes part of the code in a Spark job.
      *
      * @param request - ExecuteSparkReplStatementRequest
+     *
      * @returns ExecuteSparkReplStatementResponse
      *
      * @param ExecuteSparkReplStatementRequest $request
@@ -10451,6 +10761,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ExecuteSparkWarehouseBatchSQLRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExecuteSparkWarehouseBatchSQLResponse
      *
      * @param ExecuteSparkWarehouseBatchSQLRequest $request
@@ -10498,15 +10809,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExecuteSparkWarehouseBatchSQL',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExecuteSparkWarehouseBatchSQL',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExecuteSparkWarehouseBatchSQLResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10519,6 +10830,7 @@ class Adb extends OpenApiClient
      * 执行一段Spark Batch SQL.
      *
      * @param request - ExecuteSparkWarehouseBatchSQLRequest
+     *
      * @returns ExecuteSparkWarehouseBatchSQLResponse
      *
      * @param ExecuteSparkWarehouseBatchSQLRequest $request
@@ -10542,6 +10854,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ExistRunningSQLEngineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExistRunningSQLEngineResponse
      *
      * @param ExistRunningSQLEngineRequest $request
@@ -10565,15 +10878,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ExistRunningSQLEngine',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExistRunningSQLEngine',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExistRunningSQLEngineResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10591,6 +10904,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - ExistRunningSQLEngineRequest
+     *
      * @returns ExistRunningSQLEngineResponse
      *
      * @param ExistRunningSQLEngineRequest $request
@@ -10609,6 +10923,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetApsManagedDatabasesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetApsManagedDatabasesResponse
      *
      * @param GetApsManagedDatabasesRequest $request
@@ -10632,15 +10947,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetApsManagedDatabases',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetApsManagedDatabases',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetApsManagedDatabasesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10653,6 +10968,7 @@ class Adb extends OpenApiClient
      * Queries a list of databases.
      *
      * @param request - GetApsManagedDatabasesRequest
+     *
      * @returns GetApsManagedDatabasesResponse
      *
      * @param GetApsManagedDatabasesRequest $request
@@ -10671,6 +10987,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetCreateTableSQLRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCreateTableSQLResponse
      *
      * @param GetCreateTableSQLRequest $request
@@ -10718,15 +11035,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetCreateTableSQL',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetCreateTableSQL',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetCreateTableSQLResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10739,6 +11056,7 @@ class Adb extends OpenApiClient
      * Queries the table creation statement for tables.
      *
      * @param request - GetCreateTableSQLRequest
+     *
      * @returns GetCreateTableSQLResponse
      *
      * @param GetCreateTableSQLRequest $request
@@ -10761,6 +11079,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetDatabaseObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDatabaseObjectsResponse
      *
      * @param GetDatabaseObjectsRequest $request
@@ -10804,15 +11123,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDatabaseObjects',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetDatabaseObjects',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDatabaseObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10829,6 +11148,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetDatabaseObjectsRequest
+     *
      * @returns GetDatabaseObjectsResponse
      *
      * @param GetDatabaseObjectsRequest $request
@@ -10847,6 +11167,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetLakeStorageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetLakeStorageResponse
      *
      * @param GetLakeStorageRequest $request
@@ -10873,18 +11194,18 @@ class Adb extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetLakeStorage',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetLakeStorage',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetLakeStorageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10897,6 +11218,7 @@ class Adb extends OpenApiClient
      * Queries a lake storage.
      *
      * @param request - GetLakeStorageRequest
+     *
      * @returns GetLakeStorageResponse
      *
      * @param GetLakeStorageRequest $request
@@ -10920,6 +11242,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetSparkAppAttemptLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSparkAppAttemptLogResponse
      *
      * @param GetSparkAppAttemptLogRequest $request
@@ -10950,18 +11273,18 @@ class Adb extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSparkAppAttemptLog',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSparkAppAttemptLog',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSparkAppAttemptLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -10979,6 +11302,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - GetSparkAppAttemptLogRequest
+     *
      * @returns GetSparkAppAttemptLogResponse
      *
      * @param GetSparkAppAttemptLogRequest $request
@@ -11002,6 +11326,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetSparkAppInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSparkAppInfoResponse
      *
      * @param GetSparkAppInfoRequest $request
@@ -11024,18 +11349,18 @@ class Adb extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSparkAppInfo',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSparkAppInfo',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSparkAppInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11053,6 +11378,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - GetSparkAppInfoRequest
+     *
      * @returns GetSparkAppInfoResponse
      *
      * @param GetSparkAppInfoRequest $request
@@ -11076,6 +11402,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetSparkAppLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSparkAppLogResponse
      *
      * @param GetSparkAppLogRequest $request
@@ -11110,18 +11437,18 @@ class Adb extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSparkAppLog',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSparkAppLog',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSparkAppLogResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11139,6 +11466,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - GetSparkAppLogRequest
+     *
      * @returns GetSparkAppLogResponse
      *
      * @param GetSparkAppLogRequest $request
@@ -11162,6 +11490,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetSparkAppMetricsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSparkAppMetricsResponse
      *
      * @param GetSparkAppMetricsRequest $request
@@ -11184,18 +11513,18 @@ class Adb extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSparkAppMetrics',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSparkAppMetrics',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSparkAppMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11213,6 +11542,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - GetSparkAppMetricsRequest
+     *
      * @returns GetSparkAppMetricsResponse
      *
      * @param GetSparkAppMetricsRequest $request
@@ -11236,6 +11566,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetSparkAppStateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSparkAppStateResponse
      *
      * @param GetSparkAppStateRequest $request
@@ -11258,18 +11589,18 @@ class Adb extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSparkAppState',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSparkAppState',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSparkAppStateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11287,6 +11618,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - GetSparkAppStateRequest
+     *
      * @returns GetSparkAppStateResponse
      *
      * @param GetSparkAppStateRequest $request
@@ -11310,6 +11642,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetSparkAppWebUiAddressRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSparkAppWebUiAddressResponse
      *
      * @param GetSparkAppWebUiAddressRequest $request
@@ -11332,18 +11665,18 @@ class Adb extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSparkAppWebUiAddress',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSparkAppWebUiAddress',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSparkAppWebUiAddressResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11361,6 +11694,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetSparkAppWebUiAddressRequest
+     *
      * @returns GetSparkAppWebUiAddressResponse
      *
      * @param GetSparkAppWebUiAddressRequest $request
@@ -11384,6 +11718,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetSparkConfigLogPathRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSparkConfigLogPathResponse
      *
      * @param GetSparkConfigLogPathRequest $request
@@ -11403,15 +11738,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSparkConfigLogPath',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSparkConfigLogPath',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSparkConfigLogPathResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11429,6 +11764,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - GetSparkConfigLogPathRequest
+     *
      * @returns GetSparkConfigLogPathResponse
      *
      * @param GetSparkConfigLogPathRequest $request
@@ -11452,6 +11788,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetSparkLogAnalyzeTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSparkLogAnalyzeTaskResponse
      *
      * @param GetSparkLogAnalyzeTaskRequest $request
@@ -11471,15 +11808,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSparkLogAnalyzeTask',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSparkLogAnalyzeTask',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSparkLogAnalyzeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11497,6 +11834,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - GetSparkLogAnalyzeTaskRequest
+     *
      * @returns GetSparkLogAnalyzeTaskResponse
      *
      * @param GetSparkLogAnalyzeTaskRequest $request
@@ -11515,6 +11853,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetSparkReplSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSparkReplSessionResponse
      *
      * @param GetSparkReplSessionRequest $request
@@ -11538,15 +11877,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSparkReplSession',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSparkReplSession',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSparkReplSessionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11559,6 +11898,7 @@ class Adb extends OpenApiClient
      * Queries the status of a Spark session.
      *
      * @param request - GetSparkReplSessionRequest
+     *
      * @returns GetSparkReplSessionResponse
      *
      * @param GetSparkReplSessionRequest $request
@@ -11577,6 +11917,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetSparkReplStatementRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSparkReplStatementResponse
      *
      * @param GetSparkReplStatementRequest $request
@@ -11604,15 +11945,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSparkReplStatement',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSparkReplStatement',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSparkReplStatementResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11625,6 +11966,7 @@ class Adb extends OpenApiClient
      * Queries the execution result of a code block.
      *
      * @param request - GetSparkReplStatementRequest
+     *
      * @returns GetSparkReplStatementResponse
      *
      * @param GetSparkReplStatementRequest $request
@@ -11648,6 +11990,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetSparkSQLEngineStateRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSparkSQLEngineStateResponse
      *
      * @param GetSparkSQLEngineStateRequest $request
@@ -11671,15 +12014,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSparkSQLEngineState',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSparkSQLEngineState',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSparkSQLEngineStateResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11697,6 +12040,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - GetSparkSQLEngineStateRequest
+     *
      * @returns GetSparkSQLEngineStateResponse
      *
      * @param GetSparkSQLEngineStateRequest $request
@@ -11720,6 +12064,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetSparkTemplateFileContentRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSparkTemplateFileContentResponse
      *
      * @param GetSparkTemplateFileContentRequest $request
@@ -11743,15 +12088,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSparkTemplateFileContent',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSparkTemplateFileContent',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSparkTemplateFileContentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11769,6 +12114,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - GetSparkTemplateFileContentRequest
+     *
      * @returns GetSparkTemplateFileContentResponse
      *
      * @param GetSparkTemplateFileContentRequest $request
@@ -11792,6 +12138,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetSparkTemplateFolderTreeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSparkTemplateFolderTreeResponse
      *
      * @param GetSparkTemplateFolderTreeRequest $request
@@ -11811,15 +12158,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSparkTemplateFolderTree',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSparkTemplateFolderTree',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSparkTemplateFolderTreeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11837,6 +12184,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - GetSparkTemplateFolderTreeRequest
+     *
      * @returns GetSparkTemplateFolderTreeResponse
      *
      * @param GetSparkTemplateFolderTreeRequest $request
@@ -11860,6 +12208,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetSparkTemplateFullTreeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSparkTemplateFullTreeResponse
      *
      * @param GetSparkTemplateFullTreeRequest $request
@@ -11879,15 +12228,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSparkTemplateFullTree',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSparkTemplateFullTree',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSparkTemplateFullTreeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11905,6 +12254,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - GetSparkTemplateFullTreeRequest
+     *
      * @returns GetSparkTemplateFullTreeResponse
      *
      * @param GetSparkTemplateFullTreeRequest $request
@@ -11923,6 +12273,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetSparkWarehouseBatchSQLRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSparkWarehouseBatchSQLResponse
      *
      * @param GetSparkWarehouseBatchSQLRequest $request
@@ -11950,15 +12301,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'GetSparkWarehouseBatchSQL',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSparkWarehouseBatchSQL',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSparkWarehouseBatchSQLResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -11971,6 +12322,7 @@ class Adb extends OpenApiClient
      * 获取一段Spark Batch SQL的状态
      *
      * @param request - GetSparkWarehouseBatchSQLRequest
+     *
      * @returns GetSparkWarehouseBatchSQLResponse
      *
      * @param GetSparkWarehouseBatchSQLRequest $request
@@ -11989,6 +12341,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTableResponse
      *
      * @param GetTableRequest $request
@@ -12020,15 +12373,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTable',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTable',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTableResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12041,6 +12394,7 @@ class Adb extends OpenApiClient
      * 获取表.
      *
      * @param request - GetTableRequest
+     *
      * @returns GetTableResponse
      *
      * @param GetTableRequest $request
@@ -12063,6 +12417,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetTableColumnsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTableColumnsResponse
      *
      * @param GetTableColumnsRequest $request
@@ -12106,15 +12461,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTableColumns',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTableColumns',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTableColumnsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12131,6 +12486,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetTableColumnsRequest
+     *
      * @returns GetTableColumnsResponse
      *
      * @param GetTableColumnsRequest $request
@@ -12153,6 +12509,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetTableDDLRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTableDDLResponse
      *
      * @param GetTableDDLRequest $request
@@ -12184,15 +12541,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTableDDL',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTableDDL',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTableDDLResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12209,6 +12566,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetTableDDLRequest
+     *
      * @returns GetTableDDLResponse
      *
      * @param GetTableDDLRequest $request
@@ -12227,6 +12585,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetTableObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetTableObjectsResponse
      *
      * @param GetTableObjectsRequest $request
@@ -12282,15 +12641,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetTableObjects',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetTableObjects',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTableObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12303,6 +12662,7 @@ class Adb extends OpenApiClient
      * 获取table概要信息.
      *
      * @param request - GetTableObjectsRequest
+     *
      * @returns GetTableObjectsResponse
      *
      * @param GetTableObjectsRequest $request
@@ -12325,6 +12685,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetViewDDLRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetViewDDLResponse
      *
      * @param GetViewDDLRequest $request
@@ -12356,15 +12717,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetViewDDL',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetViewDDL',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetViewDDLResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12381,6 +12742,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetViewDDLRequest
+     *
      * @returns GetViewDDLResponse
      *
      * @param GetViewDDLRequest $request
@@ -12403,6 +12765,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GetViewObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetViewObjectsResponse
      *
      * @param GetViewObjectsRequest $request
@@ -12454,15 +12817,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetViewObjects',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetViewObjects',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetViewObjectsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12479,6 +12842,7 @@ class Adb extends OpenApiClient
      * *   Regional Virtual Private Cloud (VPC) endpoint: `adb-vpc.<region-id>.aliyuncs.com`. Example: `adb-vpc.cn-hangzhou.aliyuncs.com`.
      *
      * @param request - GetViewObjectsRequest
+     *
      * @returns GetViewObjectsResponse
      *
      * @param GetViewObjectsRequest $request
@@ -12497,6 +12861,7 @@ class Adb extends OpenApiClient
      *
      * @param request - GrantOperatorPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GrantOperatorPermissionResponse
      *
      * @param GrantOperatorPermissionRequest $request
@@ -12540,15 +12905,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GrantOperatorPermission',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GrantOperatorPermission',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GrantOperatorPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12561,6 +12926,7 @@ class Adb extends OpenApiClient
      * Grants permissions to the service account of an AnalyticDB for MySQL cluster.
      *
      * @param request - GrantOperatorPermissionRequest
+     *
      * @returns GrantOperatorPermissionResponse
      *
      * @param GrantOperatorPermissionRequest $request
@@ -12579,6 +12945,7 @@ class Adb extends OpenApiClient
      *
      * @param request - KillProcessRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns KillProcessResponse
      *
      * @param KillProcessRequest $request
@@ -12590,19 +12957,19 @@ class Adb extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'KillProcess',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'KillProcess',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return KillProcessResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12615,6 +12982,7 @@ class Adb extends OpenApiClient
      * Terminates an ongoing query.
      *
      * @param request - KillProcessRequest
+     *
      * @returns KillProcessResponse
      *
      * @param KillProcessRequest $request
@@ -12638,6 +13006,7 @@ class Adb extends OpenApiClient
      *
      * @param request - KillSparkAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns KillSparkAppResponse
      *
      * @param KillSparkAppRequest $request
@@ -12660,18 +13029,18 @@ class Adb extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'KillSparkApp',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'KillSparkApp',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return KillSparkAppResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12689,6 +13058,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - KillSparkAppRequest
+     *
      * @returns KillSparkAppResponse
      *
      * @param KillSparkAppRequest $request
@@ -12712,6 +13082,7 @@ class Adb extends OpenApiClient
      *
      * @param request - KillSparkLogAnalyzeTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns KillSparkLogAnalyzeTaskResponse
      *
      * @param KillSparkLogAnalyzeTaskRequest $request
@@ -12731,15 +13102,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'KillSparkLogAnalyzeTask',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'KillSparkLogAnalyzeTask',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return KillSparkLogAnalyzeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12757,6 +13128,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - KillSparkLogAnalyzeTaskRequest
+     *
      * @returns KillSparkLogAnalyzeTaskResponse
      *
      * @param KillSparkLogAnalyzeTaskRequest $request
@@ -12780,6 +13152,7 @@ class Adb extends OpenApiClient
      *
      * @param request - KillSparkSQLEngineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns KillSparkSQLEngineResponse
      *
      * @param KillSparkSQLEngineRequest $request
@@ -12803,15 +13176,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'KillSparkSQLEngine',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'KillSparkSQLEngine',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return KillSparkSQLEngineResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12829,6 +13202,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - KillSparkSQLEngineRequest
+     *
      * @returns KillSparkSQLEngineResponse
      *
      * @param KillSparkSQLEngineRequest $request
@@ -12847,6 +13221,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ListApsLifecycleStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListApsLifecycleStrategyResponse
      *
      * @param ListApsLifecycleStrategyRequest $request
@@ -12886,15 +13261,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListApsLifecycleStrategy',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApsLifecycleStrategy',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListApsLifecycleStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12907,6 +13282,7 @@ class Adb extends OpenApiClient
      * Queries a list of lifecycle management policies of an AnalyticDB for MySQL cluster.
      *
      * @param request - ListApsLifecycleStrategyRequest
+     *
      * @returns ListApsLifecycleStrategyResponse
      *
      * @param ListApsLifecycleStrategyRequest $request
@@ -12921,10 +13297,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 获取当前ADB实例湖存储优化策略列表。
+     * Queries a list of lake storage optimization policies for an AnalyticDB for MySQL cluster.
+     *
+     * @remarks
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ListApsOptimizationStrategyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListApsOptimizationStrategyResponse
      *
      * @param ListApsOptimizationStrategyRequest $request
@@ -12948,15 +13328,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListApsOptimizationStrategy',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApsOptimizationStrategy',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListApsOptimizationStrategyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -12966,9 +13346,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 获取当前ADB实例湖存储优化策略列表。
+     * Queries a list of lake storage optimization policies for an AnalyticDB for MySQL cluster.
+     *
+     * @remarks
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ListApsOptimizationStrategyRequest
+     *
      * @returns ListApsOptimizationStrategyResponse
      *
      * @param ListApsOptimizationStrategyRequest $request
@@ -12987,6 +13371,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ListApsOptimizationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListApsOptimizationTasksResponse
      *
      * @param ListApsOptimizationTasksRequest $request
@@ -13030,15 +13415,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListApsOptimizationTasks',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListApsOptimizationTasks',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListApsOptimizationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13051,6 +13436,7 @@ class Adb extends OpenApiClient
      * Queries a list of optimization jobs executed based on a lifecycle management policy. The system runs optimization jobs on a regular basis based on lifecycle management policies.
      *
      * @param request - ListApsOptimizationTasksRequest
+     *
      * @returns ListApsOptimizationTasksResponse
      *
      * @param ListApsOptimizationTasksRequest $request
@@ -13065,10 +13451,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 列取湖存储.
+     * Queries a list of lake storages.
      *
      * @param request - ListLakeStoragesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListLakeStoragesResponse
      *
      * @param ListLakeStoragesRequest $request
@@ -13080,19 +13467,19 @@ class Adb extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListLakeStorages',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListLakeStorages',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListLakeStoragesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13102,9 +13489,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 列取湖存储.
+     * Queries a list of lake storages.
      *
      * @param request - ListLakeStoragesRequest
+     *
      * @returns ListLakeStoragesResponse
      *
      * @param ListLakeStoragesRequest $request
@@ -13123,6 +13511,7 @@ class Adb extends OpenApiClient
      *
      * @param tmpReq - ListResultExportJobHistoryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResultExportJobHistoryResponse
      *
      * @param ListResultExportJobHistoryRequest $tmpReq
@@ -13188,15 +13577,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListResultExportJobHistory',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResultExportJobHistory',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListResultExportJobHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13209,6 +13598,7 @@ class Adb extends OpenApiClient
      * Queries the execution records of result set export jobs of a Resource Access Management (RAM) user.
      *
      * @param request - ListResultExportJobHistoryRequest
+     *
      * @returns ListResultExportJobHistoryResponse
      *
      * @param ListResultExportJobHistoryRequest $request
@@ -13232,6 +13622,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ListSparkAppAttemptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSparkAppAttemptsResponse
      *
      * @param ListSparkAppAttemptsRequest $request
@@ -13263,15 +13654,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSparkAppAttempts',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSparkAppAttempts',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSparkAppAttemptsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13289,6 +13680,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - ListSparkAppAttemptsRequest
+     *
      * @returns ListSparkAppAttemptsResponse
      *
      * @param ListSparkAppAttemptsRequest $request
@@ -13307,6 +13699,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ListSparkAppsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSparkAppsResponse
      *
      * @param ListSparkAppsRequest $request
@@ -13342,15 +13735,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSparkApps',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSparkApps',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSparkAppsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13363,6 +13756,7 @@ class Adb extends OpenApiClient
      * Queries the Spark applications that run on an AnalyticDB for MySQL Data Lakehouse Edition (V3.0) cluster.
      *
      * @param request - ListSparkAppsRequest
+     *
      * @returns ListSparkAppsResponse
      *
      * @param ListSparkAppsRequest $request
@@ -13386,6 +13780,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ListSparkLogAnalyzeTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSparkLogAnalyzeTasksResponse
      *
      * @param ListSparkLogAnalyzeTasksRequest $request
@@ -13413,15 +13808,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListSparkLogAnalyzeTasks',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSparkLogAnalyzeTasks',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSparkLogAnalyzeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13439,6 +13834,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - ListSparkLogAnalyzeTasksRequest
+     *
      * @returns ListSparkLogAnalyzeTasksResponse
      *
      * @param ListSparkLogAnalyzeTasksRequest $request
@@ -13462,6 +13858,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ListSparkTemplateFileIdsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSparkTemplateFileIdsResponse
      *
      * @param ListSparkTemplateFileIdsRequest $request
@@ -13481,15 +13878,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListSparkTemplateFileIds',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSparkTemplateFileIds',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSparkTemplateFileIdsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13507,6 +13904,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - ListSparkTemplateFileIdsRequest
+     *
      * @returns ListSparkTemplateFileIdsResponse
      *
      * @param ListSparkTemplateFileIdsRequest $request
@@ -13525,6 +13923,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ListSparkWarehouseBatchSQLRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSparkWarehouseBatchSQLResponse
      *
      * @param ListSparkWarehouseBatchSQLRequest $request
@@ -13556,15 +13955,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ListSparkWarehouseBatchSQL',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSparkWarehouseBatchSQL',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSparkWarehouseBatchSQLResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13577,6 +13976,7 @@ class Adb extends OpenApiClient
      * 列出提交的的SparkBatchSQL.
      *
      * @param request - ListSparkWarehouseBatchSQLRequest
+     *
      * @returns ListSparkWarehouseBatchSQLResponse
      *
      * @param ListSparkWarehouseBatchSQLRequest $request
@@ -13595,6 +13995,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -13646,15 +14047,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13667,6 +14068,7 @@ class Adb extends OpenApiClient
      * Queries the tags that are added to AnalyticDB for MySQL clusters, or the AnalyticDB for MySQL clusters that have tags added.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -13688,6 +14090,7 @@ class Adb extends OpenApiClient
      *
      * @param request - LoadSampleDataSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns LoadSampleDataSetResponse
      *
      * @param LoadSampleDataSetRequest $request
@@ -13707,15 +14110,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'LoadSampleDataSet',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'LoadSampleDataSet',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return LoadSampleDataSetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13731,6 +14134,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - LoadSampleDataSetRequest
+     *
      * @returns LoadSampleDataSetResponse
      *
      * @param LoadSampleDataSetRequest $request
@@ -13752,6 +14156,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ModifyAccountDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAccountDescriptionResponse
      *
      * @param ModifyAccountDescriptionRequest $request
@@ -13783,15 +14188,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAccountDescription',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAccountDescription',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13807,6 +14212,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyAccountDescriptionRequest
+     *
      * @returns ModifyAccountDescriptionResponse
      *
      * @param ModifyAccountDescriptionRequest $request
@@ -13828,6 +14234,7 @@ class Adb extends OpenApiClient
      *
      * @param tmpReq - ModifyAccountPrivilegesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAccountPrivilegesResponse
      *
      * @param ModifyAccountPrivilegesRequest $tmpReq
@@ -13865,15 +14272,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAccountPrivileges',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAccountPrivileges',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyAccountPrivilegesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -13889,6 +14296,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyAccountPrivilegesRequest
+     *
      * @returns ModifyAccountPrivilegesResponse
      *
      * @param ModifyAccountPrivilegesRequest $request
@@ -13912,6 +14320,7 @@ class Adb extends OpenApiClient
      *
      * @param tmpReq - ModifyApsDatasoureRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyApsDatasoureResponse
      *
      * @param ModifyApsDatasoureRequest $tmpReq
@@ -13989,15 +14398,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyApsDatasoure',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyApsDatasoure',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyApsDatasoureResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14015,6 +14424,7 @@ class Adb extends OpenApiClient
      * *   You cannot modify the number of nodes for the USER_DEFAULT resource group.
      *
      * @param request - ModifyApsDatasoureRequest
+     *
      * @returns ModifyApsDatasoureResponse
      *
      * @param ModifyApsDatasoureRequest $request
@@ -14029,10 +14439,14 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 修改aps任务
+     * Modifies an AnalyticDB Pipeline Service (APS) job.
+     *
+     * @remarks
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyApsJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyApsJobResponse
      *
      * @param ModifyApsJobRequest $request
@@ -14064,15 +14478,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyApsJob',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyApsJob',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyApsJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14082,9 +14496,13 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 修改aps任务
+     * Modifies an AnalyticDB Pipeline Service (APS) job.
+     *
+     * @remarks
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyApsJobRequest
+     *
      * @returns ModifyApsJobResponse
      *
      * @param ModifyApsJobRequest $request
@@ -14099,10 +14517,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 修改sls投递adb数仓任务
+     * Modifies an AnalyticDB Pipeline Service (APS) job from Simple Log Service (SLS) to an AnalyticDB for MySQL Data Warehouse Edition cluster.
      *
      * @param tmpReq - ModifyApsSlsADBJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyApsSlsADBJobResponse
      *
      * @param ModifyApsSlsADBJobRequest $tmpReq
@@ -14176,15 +14595,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyApsSlsADBJob',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyApsSlsADBJob',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyApsSlsADBJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14194,9 +14613,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 修改sls投递adb数仓任务
+     * Modifies an AnalyticDB Pipeline Service (APS) job from Simple Log Service (SLS) to an AnalyticDB for MySQL Data Warehouse Edition cluster.
      *
      * @param request - ModifyApsSlsADBJobRequest
+     *
      * @returns ModifyApsSlsADBJobResponse
      *
      * @param ModifyApsSlsADBJobRequest $request
@@ -14213,8 +14633,12 @@ class Adb extends OpenApiClient
     /**
      * Modifies the AnalyticDB Pipeline Service (APS) workload name.
      *
+     * @remarks
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     *
      * @param request - ModifyApsWorkloadNameRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyApsWorkloadNameResponse
      *
      * @param ModifyApsWorkloadNameRequest $request
@@ -14246,15 +14670,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyApsWorkloadName',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyApsWorkloadName',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyApsWorkloadNameResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14266,7 +14690,11 @@ class Adb extends OpenApiClient
     /**
      * Modifies the AnalyticDB Pipeline Service (APS) workload name.
      *
+     * @remarks
+     * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
+     *
      * @param request - ModifyApsWorkloadNameRequest
+     *
      * @returns ModifyApsWorkloadNameResponse
      *
      * @param ModifyApsWorkloadNameRequest $request
@@ -14288,6 +14716,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ModifyAuditLogConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAuditLogConfigResponse
      *
      * @param ModifyAuditLogConfigRequest $request
@@ -14335,15 +14764,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAuditLogConfig',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAuditLogConfig',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyAuditLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14359,6 +14788,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyAuditLogConfigRequest
+     *
      * @returns ModifyAuditLogConfigResponse
      *
      * @param ModifyAuditLogConfigRequest $request
@@ -14380,6 +14810,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ModifyBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyBackupPolicyResponse
      *
      * @param ModifyBackupPolicyRequest $request
@@ -14435,15 +14866,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyBackupPolicy',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyBackupPolicy',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14459,6 +14890,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyBackupPolicyRequest
+     *
      * @returns ModifyBackupPolicyResponse
      *
      * @param ModifyBackupPolicyRequest $request
@@ -14477,6 +14909,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ModifyClickhouseEngineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyClickhouseEngineResponse
      *
      * @param ModifyClickhouseEngineRequest $request
@@ -14508,15 +14941,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyClickhouseEngine',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyClickhouseEngine',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyClickhouseEngineResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14529,6 +14962,7 @@ class Adb extends OpenApiClient
      * 开启宽表引擎.
      *
      * @param request - ModifyClickhouseEngineRequest
+     *
      * @returns ModifyClickhouseEngineResponse
      *
      * @param ModifyClickhouseEngineRequest $request
@@ -14550,6 +14984,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ModifyClusterAccessWhiteListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyClusterAccessWhiteListResponse
      *
      * @param ModifyClusterAccessWhiteListRequest $request
@@ -14585,15 +15020,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyClusterAccessWhiteList',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyClusterAccessWhiteList',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyClusterAccessWhiteListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14609,6 +15044,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
      *
      * @param request - ModifyClusterAccessWhiteListRequest
+     *
      * @returns ModifyClusterAccessWhiteListResponse
      *
      * @param ModifyClusterAccessWhiteListRequest $request
@@ -14630,6 +15066,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ModifyClusterConnectionStringRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyClusterConnectionStringResponse
      *
      * @param ModifyClusterConnectionStringRequest $request
@@ -14661,15 +15098,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyClusterConnectionString',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyClusterConnectionString',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyClusterConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14685,6 +15122,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyClusterConnectionStringRequest
+     *
      * @returns ModifyClusterConnectionStringResponse
      *
      * @param ModifyClusterConnectionStringRequest $request
@@ -14703,6 +15141,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ModifyCompactionServiceSwitchRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyCompactionServiceSwitchResponse
      *
      * @param ModifyCompactionServiceSwitchRequest $request
@@ -14726,15 +15165,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyCompactionServiceSwitch',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyCompactionServiceSwitch',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyCompactionServiceSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14747,6 +15186,7 @@ class Adb extends OpenApiClient
      * Modifies the status of the remote build feature in the query acceleration configuration of an AnalyticDB for MySQL cluster.
      *
      * @param request - ModifyCompactionServiceSwitchRequest
+     *
      * @returns ModifyCompactionServiceSwitchResponse
      *
      * @param ModifyCompactionServiceSwitchRequest $request
@@ -14774,6 +15214,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ModifyDBClusterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBClusterResponse
      *
      * @param ModifyDBClusterRequest $request
@@ -14833,15 +15274,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBCluster',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBCluster',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14863,6 +15304,7 @@ class Adb extends OpenApiClient
      * *   For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyDBClusterRequest
+     *
      * @returns ModifyDBClusterResponse
      *
      * @param ModifyDBClusterRequest $request
@@ -14884,6 +15326,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ModifyDBClusterDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBClusterDescriptionResponse
      *
      * @param ModifyDBClusterDescriptionRequest $request
@@ -14907,15 +15350,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterDescription',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterDescription',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBClusterDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14931,6 +15374,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyDBClusterDescriptionRequest
+     *
      * @returns ModifyDBClusterDescriptionResponse
      *
      * @param ModifyDBClusterDescriptionRequest $request
@@ -14952,6 +15396,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ModifyDBClusterMaintainTimeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBClusterMaintainTimeResponse
      *
      * @param ModifyDBClusterMaintainTimeRequest $request
@@ -14975,15 +15420,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterMaintainTime',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterMaintainTime',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBClusterMaintainTimeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -14999,6 +15444,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyDBClusterMaintainTimeRequest
+     *
      * @returns ModifyDBClusterMaintainTimeResponse
      *
      * @param ModifyDBClusterMaintainTimeRequest $request
@@ -15017,6 +15463,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ModifyDBClusterResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBClusterResourceGroupResponse
      *
      * @param ModifyDBClusterResourceGroupRequest $request
@@ -15056,15 +15503,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterResourceGroup',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterResourceGroup',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBClusterResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15077,6 +15524,7 @@ class Adb extends OpenApiClient
      * Changes the resource group to which an AnalyticDB for MySQL cluster belongs.
      *
      * @param request - ModifyDBClusterResourceGroupRequest
+     *
      * @returns ModifyDBClusterResourceGroupResponse
      *
      * @param ModifyDBClusterResourceGroupRequest $request
@@ -15095,6 +15543,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ModifyDBClusterVipRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBClusterVipResponse
      *
      * @param ModifyDBClusterVipRequest $request
@@ -15126,15 +15575,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBClusterVip',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBClusterVip',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBClusterVipResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15147,6 +15596,7 @@ class Adb extends OpenApiClient
      * Changes the virtual IP address (VIP) that is used to connect to an AnalyticDB for MySQL cluster.
      *
      * @param request - ModifyDBClusterVipRequest
+     *
      * @returns ModifyDBClusterVipResponse
      *
      * @param ModifyDBClusterVipRequest $request
@@ -15168,6 +15618,7 @@ class Adb extends OpenApiClient
      *
      * @param tmpReq - ModifyDBResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBResourceGroupResponse
      *
      * @param ModifyDBResourceGroupRequest $tmpReq
@@ -15182,6 +15633,10 @@ class Adb extends OpenApiClient
         Utils::convert($tmpReq, $request);
         if (null !== $tmpReq->engineParams) {
             $request->engineParamsShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->engineParams, 'EngineParams', 'json');
+        }
+
+        if (null !== $tmpReq->rayConfig) {
+            $request->rayConfigShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->rayConfig, 'RayConfig', 'json');
         }
 
         if (null !== $tmpReq->rules) {
@@ -15245,6 +15700,10 @@ class Adb extends OpenApiClient
             @$query['MinGpuQuantity'] = $request->minGpuQuantity;
         }
 
+        if (null !== $request->rayConfigShrink) {
+            @$query['RayConfig'] = $request->rayConfigShrink;
+        }
+
         if (null !== $request->regionId) {
             @$query['RegionId'] = $request->regionId;
         }
@@ -15269,15 +15728,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBResourceGroup',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBResourceGroup',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15293,6 +15752,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ModifyDBResourceGroupRequest
+     *
      * @returns ModifyDBResourceGroupResponse
      *
      * @param ModifyDBResourceGroupRequest $request
@@ -15314,6 +15774,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ModifyElasticPlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyElasticPlanResponse
      *
      * @param ModifyElasticPlanRequest $request
@@ -15353,15 +15814,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyElasticPlan',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyElasticPlan',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyElasticPlanResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15377,6 +15838,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see Endpoints.
      *
      * @param request - ModifyElasticPlanRequest
+     *
      * @returns ModifyElasticPlanResponse
      *
      * @param ModifyElasticPlanRequest $request
@@ -15395,6 +15857,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ModifyEssdCacheConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyEssdCacheConfigResponse
      *
      * @param ModifyEssdCacheConfigRequest $request
@@ -15422,15 +15885,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyEssdCacheConfig',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyEssdCacheConfig',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyEssdCacheConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15443,6 +15906,7 @@ class Adb extends OpenApiClient
      * Modifies the disk cache size in the query acceleration configuration of an AnalyticDB for MySQL cluster.
      *
      * @param request - ModifyEssdCacheConfigRequest
+     *
      * @returns ModifyEssdCacheConfigResponse
      *
      * @param ModifyEssdCacheConfigRequest $request
@@ -15461,6 +15925,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ModifyLakeCacheSizeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyLakeCacheSizeResponse
      *
      * @param ModifyLakeCacheSizeRequest $request
@@ -15488,15 +15953,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyLakeCacheSize',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyLakeCacheSize',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyLakeCacheSizeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15509,6 +15974,7 @@ class Adb extends OpenApiClient
      * Modifies the lake cache size of an AnalyticDB for MySQL cluster.
      *
      * @param request - ModifyLakeCacheSizeRequest
+     *
      * @returns ModifyLakeCacheSizeResponse
      *
      * @param ModifyLakeCacheSizeRequest $request
@@ -15527,6 +15993,7 @@ class Adb extends OpenApiClient
      *
      * @param tmpReq - ModifyPerformanceViewRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyPerformanceViewResponse
      *
      * @param ModifyPerformanceViewRequest $tmpReq
@@ -15580,15 +16047,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyPerformanceView',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyPerformanceView',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyPerformanceViewResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15601,6 +16068,7 @@ class Adb extends OpenApiClient
      * Modifies the information about a custom monitoring view.
      *
      * @param request - ModifyPerformanceViewRequest
+     *
      * @returns ModifyPerformanceViewResponse
      *
      * @param ModifyPerformanceViewRequest $request
@@ -15619,6 +16087,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ModifyUserEniVswitchOptionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyUserEniVswitchOptionsResponse
      *
      * @param ModifyUserEniVswitchOptionsRequest $request
@@ -15661,18 +16130,18 @@ class Adb extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ModifyUserEniVswitchOptions',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyUserEniVswitchOptions',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyUserEniVswitchOptionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15685,6 +16154,7 @@ class Adb extends OpenApiClient
      * Modifies the vSwitches that are connected to elastic network interfaces (ENIs).
      *
      * @param request - ModifyUserEniVswitchOptionsRequest
+     *
      * @returns ModifyUserEniVswitchOptionsResponse
      *
      * @param ModifyUserEniVswitchOptionsRequest $request
@@ -15708,6 +16178,7 @@ class Adb extends OpenApiClient
      *
      * @param request - PreloadSparkAppMetricsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PreloadSparkAppMetricsResponse
      *
      * @param PreloadSparkAppMetricsRequest $request
@@ -15730,18 +16201,18 @@ class Adb extends OpenApiClient
 
         $req = new OpenApiRequest([
             'query' => Utils::query($query),
-            'body'  => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'PreloadSparkAppMetrics',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'PreloadSparkAppMetrics',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return PreloadSparkAppMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15759,6 +16230,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - PreloadSparkAppMetricsRequest
+     *
      * @returns PreloadSparkAppMetricsResponse
      *
      * @param PreloadSparkAppMetricsRequest $request
@@ -15780,6 +16252,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ReleaseClusterPublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleaseClusterPublicConnectionResponse
      *
      * @param ReleaseClusterPublicConnectionRequest $request
@@ -15803,15 +16276,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseClusterPublicConnection',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseClusterPublicConnection',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleaseClusterPublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15827,6 +16300,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ReleaseClusterPublicConnectionRequest
+     *
      * @returns ReleaseClusterPublicConnectionResponse
      *
      * @param ReleaseClusterPublicConnectionRequest $request
@@ -15848,6 +16322,7 @@ class Adb extends OpenApiClient
      *
      * @param request - ResetAccountPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResetAccountPasswordResponse
      *
      * @param ResetAccountPasswordRequest $request
@@ -15883,15 +16358,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetAccountPassword',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetAccountPassword',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15907,6 +16382,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - ResetAccountPasswordRequest
+     *
      * @returns ResetAccountPasswordResponse
      *
      * @param ResetAccountPasswordRequest $request
@@ -15925,6 +16401,7 @@ class Adb extends OpenApiClient
      *
      * @param request - RevokeOperatorPermissionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RevokeOperatorPermissionResponse
      *
      * @param RevokeOperatorPermissionRequest $request
@@ -15960,15 +16437,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RevokeOperatorPermission',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RevokeOperatorPermission',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RevokeOperatorPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -15981,6 +16458,7 @@ class Adb extends OpenApiClient
      * Revokes permissions from the service account of an AnalyticDB for MySQL cluster.
      *
      * @param request - RevokeOperatorPermissionRequest
+     *
      * @returns RevokeOperatorPermissionResponse
      *
      * @param RevokeOperatorPermissionRequest $request
@@ -16004,6 +16482,7 @@ class Adb extends OpenApiClient
      *
      * @param request - SetSparkAppLogRootPathRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetSparkAppLogRootPathResponse
      *
      * @param SetSparkAppLogRootPathRequest $request
@@ -16031,15 +16510,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetSparkAppLogRootPath',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SetSparkAppLogRootPath',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SetSparkAppLogRootPathResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16057,6 +16536,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - SetSparkAppLogRootPathRequest
+     *
      * @returns SetSparkAppLogRootPathResponse
      *
      * @param SetSparkAppLogRootPathRequest $request
@@ -16071,10 +16551,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 启动aps任务
+     * Starts an AnalyticDB Pipeline Service (APS) job.
      *
      * @param request - StartApsJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartApsJobResponse
      *
      * @param StartApsJobRequest $request
@@ -16098,15 +16579,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartApsJob',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartApsJob',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartApsJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16116,9 +16597,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 启动aps任务
+     * Starts an AnalyticDB Pipeline Service (APS) job.
      *
      * @param request - StartApsJobRequest
+     *
      * @returns StartApsJobResponse
      *
      * @param StartApsJobRequest $request
@@ -16137,6 +16619,7 @@ class Adb extends OpenApiClient
      *
      * @param request - StartSparkReplSessionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartSparkReplSessionResponse
      *
      * @param StartSparkReplSessionRequest $request
@@ -16164,15 +16647,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartSparkReplSession',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartSparkReplSession',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartSparkReplSessionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16185,6 +16668,7 @@ class Adb extends OpenApiClient
      * Starts a Spark session.
      *
      * @param request - StartSparkReplSessionRequest
+     *
      * @returns StartSparkReplSessionResponse
      *
      * @param StartSparkReplSessionRequest $request
@@ -16208,6 +16692,7 @@ class Adb extends OpenApiClient
      *
      * @param request - StartSparkSQLEngineRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StartSparkSQLEngineResponse
      *
      * @param StartSparkSQLEngineRequest $request
@@ -16251,15 +16736,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StartSparkSQLEngine',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'StartSparkSQLEngine',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StartSparkSQLEngineResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16277,6 +16762,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - StartSparkSQLEngineRequest
+     *
      * @returns StartSparkSQLEngineResponse
      *
      * @param StartSparkSQLEngineRequest $request
@@ -16295,6 +16781,7 @@ class Adb extends OpenApiClient
      *
      * @param request - SubmitResultExportJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SubmitResultExportJobResponse
      *
      * @param SubmitResultExportJobRequest $request
@@ -16338,15 +16825,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SubmitResultExportJob',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitResultExportJob',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubmitResultExportJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16359,6 +16846,7 @@ class Adb extends OpenApiClient
      * Submits an SQL query and exports a result set.
      *
      * @param request - SubmitResultExportJobRequest
+     *
      * @returns SubmitResultExportJobResponse
      *
      * @param SubmitResultExportJobRequest $request
@@ -16382,6 +16870,7 @@ class Adb extends OpenApiClient
      *
      * @param request - SubmitSparkAppRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SubmitSparkAppResponse
      *
      * @param SubmitSparkAppRequest $request
@@ -16429,15 +16918,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SubmitSparkApp',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitSparkApp',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubmitSparkAppResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16455,6 +16944,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - SubmitSparkAppRequest
+     *
      * @returns SubmitSparkAppResponse
      *
      * @param SubmitSparkAppRequest $request
@@ -16478,6 +16968,7 @@ class Adb extends OpenApiClient
      *
      * @param request - SubmitSparkLogAnalyzeTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SubmitSparkLogAnalyzeTaskResponse
      *
      * @param SubmitSparkLogAnalyzeTaskRequest $request
@@ -16497,15 +16988,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SubmitSparkLogAnalyzeTask',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SubmitSparkLogAnalyzeTask',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SubmitSparkLogAnalyzeTaskResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16523,6 +17014,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - SubmitSparkLogAnalyzeTaskRequest
+     *
      * @returns SubmitSparkLogAnalyzeTaskResponse
      *
      * @param SubmitSparkLogAnalyzeTaskRequest $request
@@ -16537,10 +17029,11 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 暂停aps任务
+     * Suspends an AnalyticDB Pipeline Service (APS) job.
      *
      * @param request - SuspendApsJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SuspendApsJobResponse
      *
      * @param SuspendApsJobRequest $request
@@ -16564,15 +17057,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SuspendApsJob',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SuspendApsJob',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SuspendApsJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16582,9 +17075,10 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * 暂停aps任务
+     * Suspends an AnalyticDB Pipeline Service (APS) job.
      *
      * @param request - SuspendApsJobRequest
+     *
      * @returns SuspendApsJobResponse
      *
      * @param SuspendApsJobRequest $request
@@ -16606,6 +17100,7 @@ class Adb extends OpenApiClient
      *
      * @param request - UnbindAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnbindAccountResponse
      *
      * @param UnbindAccountRequest $request
@@ -16629,15 +17124,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnbindAccount',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnbindAccount',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnbindAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16653,6 +17148,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - UnbindAccountRequest
+     *
      * @returns UnbindAccountResponse
      *
      * @param UnbindAccountRequest $request
@@ -16674,6 +17170,7 @@ class Adb extends OpenApiClient
      *
      * @param request - UnbindDBResourceGroupWithUserRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UnbindDBResourceGroupWithUserResponse
      *
      * @param UnbindDBResourceGroupWithUserRequest $request
@@ -16701,15 +17198,15 @@ class Adb extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UnbindDBResourceGroupWithUser',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UnbindDBResourceGroupWithUser',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UnbindDBResourceGroupWithUserResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16725,6 +17222,7 @@ class Adb extends OpenApiClient
      * For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
      *
      * @param request - UnbindDBResourceGroupWithUserRequest
+     *
      * @returns UnbindDBResourceGroupWithUserResponse
      *
      * @param UnbindDBResourceGroupWithUserRequest $request
@@ -16743,6 +17241,7 @@ class Adb extends OpenApiClient
      *
      * @param tmpReq - UpdateLakeStorageRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateLakeStorageResponse
      *
      * @param UpdateLakeStorageRequest $tmpReq
@@ -16784,15 +17283,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateLakeStorage',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateLakeStorage',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateLakeStorageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16805,6 +17304,7 @@ class Adb extends OpenApiClient
      * Updates a lake storage.
      *
      * @param request - UpdateLakeStorageRequest
+     *
      * @returns UpdateLakeStorageResponse
      *
      * @param UpdateLakeStorageRequest $request
@@ -16828,6 +17328,7 @@ class Adb extends OpenApiClient
      *
      * @param request - UpdateSparkTemplateFileRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateSparkTemplateFileResponse
      *
      * @param UpdateSparkTemplateFileRequest $request
@@ -16859,15 +17360,15 @@ class Adb extends OpenApiClient
             'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSparkTemplateFile',
-            'version'     => '2021-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSparkTemplateFile',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateSparkTemplateFileResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -16885,6 +17386,7 @@ class Adb extends OpenApiClient
      * >  If HTTP status code 409 is returned when you call this operation in the China (Qingdao), China (Shenzhen), China (Guangzhou), or China (Hong Kong) region, contact technical support.
      *
      * @param request - UpdateSparkTemplateFileRequest
+     *
      * @returns UpdateSparkTemplateFileResponse
      *
      * @param UpdateSparkTemplateFileRequest $request
@@ -16896,5 +17398,89 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateSparkTemplateFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * Updates the minor version of an AnalyticDB for MySQL cluster.
+     *
+     * @param request - UpgradeKernelVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeKernelVersionResponse
+     *
+     * @param UpgradeKernelVersionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpgradeKernelVersionResponse
+     */
+    public function upgradeKernelVersionWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBClusterId) {
+            @$query['DBClusterId'] = $request->DBClusterId;
+        }
+
+        if (null !== $request->DBVersion) {
+            @$query['DBVersion'] = $request->DBVersion;
+        }
+
+        if (null !== $request->ownerAccount) {
+            @$query['OwnerAccount'] = $request->ownerAccount;
+        }
+
+        if (null !== $request->ownerId) {
+            @$query['OwnerId'] = $request->ownerId;
+        }
+
+        if (null !== $request->resourceOwnerAccount) {
+            @$query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+
+        if (null !== $request->resourceOwnerId) {
+            @$query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+
+        if (null !== $request->switchMode) {
+            @$query['SwitchMode'] = $request->switchMode;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'UpgradeKernelVersion',
+            'version' => '2021-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpgradeKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpgradeKernelVersionResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * Updates the minor version of an AnalyticDB for MySQL cluster.
+     *
+     * @param request - UpgradeKernelVersionRequest
+     *
+     * @returns UpgradeKernelVersionResponse
+     *
+     * @param UpgradeKernelVersionRequest $request
+     *
+     * @return UpgradeKernelVersionResponse
+     */
+    public function upgradeKernelVersion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upgradeKernelVersionWithOptions($request, $runtime);
     }
 }

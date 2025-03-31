@@ -12,48 +12,56 @@ class tables extends Model
      * @var int
      */
     public $dataSize;
+
     /**
      * @var int
      */
     public $indexSize;
+
     /**
      * @var int
      */
     public $localDataSize;
+
     /**
      * @var int
      */
     public $primaryKeySize;
+
     /**
      * @var int
      */
     public $remoteDataSize;
+
     /**
      * @var int
      */
     public $rowCount;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var float
      */
     public $spaceRatio;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'dataSize'       => 'DataSize',
-        'indexSize'      => 'IndexSize',
-        'localDataSize'  => 'LocalDataSize',
+        'dataSize' => 'DataSize',
+        'indexSize' => 'IndexSize',
+        'localDataSize' => 'LocalDataSize',
         'primaryKeySize' => 'PrimaryKeySize',
         'remoteDataSize' => 'RemoteDataSize',
-        'rowCount'       => 'RowCount',
-        'schemaName'     => 'SchemaName',
-        'spaceRatio'     => 'SpaceRatio',
-        'tableName'      => 'TableName',
+        'rowCount' => 'RowCount',
+        'schemaName' => 'SchemaName',
+        'spaceRatio' => 'SpaceRatio',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

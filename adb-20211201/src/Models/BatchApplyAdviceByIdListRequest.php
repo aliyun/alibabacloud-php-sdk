@@ -12,23 +12,26 @@ class BatchApplyAdviceByIdListRequest extends Model
      * @var int
      */
     public $adviceDate;
+
     /**
      * @var string
      */
     public $adviceIdList;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'adviceDate'   => 'AdviceDate',
+        'adviceDate' => 'AdviceDate',
         'adviceIdList' => 'AdviceIdList',
-        'DBClusterId'  => 'DBClusterId',
-        'regionId'     => 'RegionId',
+        'DBClusterId' => 'DBClusterId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

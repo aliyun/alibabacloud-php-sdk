@@ -12,43 +12,50 @@ class polarDBMysqlInfo extends Model
      * @var bool
      */
     public $across;
+
     /**
      * @var string
      */
     public $acrossRole;
+
     /**
      * @var string
      */
     public $acrossUid;
+
     /**
      * @var string
      */
     public $connectUrl;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityGroup;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'across'        => 'Across',
-        'acrossRole'    => 'AcrossRole',
-        'acrossUid'     => 'AcrossUid',
-        'connectUrl'    => 'ConnectUrl',
-        'instanceId'    => 'InstanceId',
-        'regionId'      => 'RegionId',
+        'across' => 'Across',
+        'acrossRole' => 'AcrossRole',
+        'acrossUid' => 'AcrossUid',
+        'connectUrl' => 'ConnectUrl',
+        'instanceId' => 'InstanceId',
+        'regionId' => 'RegionId',
         'securityGroup' => 'SecurityGroup',
-        'userName'      => 'UserName',
+        'userName' => 'UserName',
     ];
 
     public function validate()

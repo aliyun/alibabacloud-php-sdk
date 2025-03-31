@@ -12,13 +12,14 @@ class ModifyDBClusterDescriptionRequest extends Model
      * @var string
      */
     public $DBClusterDescription;
+
     /**
      * @var string
      */
     public $DBClusterId;
     protected $_name = [
         'DBClusterDescription' => 'DBClusterDescription',
-        'DBClusterId'          => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
     ];
 
     public function validate()

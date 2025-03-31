@@ -12,37 +12,43 @@ class CreateApsCopyWorkloadRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $datasourceId;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $workloadId;
+
     /**
      * @var string
      */
     public $workloadType;
     protected $_name = [
-        'DBClusterId'  => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'datasourceId' => 'DatasourceId',
-        'dbName'       => 'DbName',
-        'regionId'     => 'RegionId',
-        'tableName'    => 'TableName',
-        'workloadId'   => 'WorkloadId',
+        'dbName' => 'DbName',
+        'regionId' => 'RegionId',
+        'tableName' => 'TableName',
+        'workloadId' => 'WorkloadId',
         'workloadType' => 'WorkloadType',
     ];
 

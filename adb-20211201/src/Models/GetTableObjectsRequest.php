@@ -12,53 +12,62 @@ class GetTableObjectsRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $filterDescription;
+
     /**
      * @var string
      */
     public $filterOwner;
+
     /**
      * @var string
      */
     public $filterTblName;
+
     /**
      * @var string
      */
     public $filterTblType;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $schemaName;
     protected $_name = [
-        'DBClusterId'       => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'filterDescription' => 'FilterDescription',
-        'filterOwner'       => 'FilterOwner',
-        'filterTblName'     => 'FilterTblName',
-        'filterTblType'     => 'FilterTblType',
-        'orderBy'           => 'OrderBy',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'regionId'          => 'RegionId',
-        'schemaName'        => 'SchemaName',
+        'filterOwner' => 'FilterOwner',
+        'filterTblName' => 'FilterTblName',
+        'filterTblType' => 'FilterTblType',
+        'orderBy' => 'OrderBy',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'schemaName' => 'SchemaName',
     ];
 
     public function validate()

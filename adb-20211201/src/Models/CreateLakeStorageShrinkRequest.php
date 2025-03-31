@@ -12,28 +12,32 @@ class CreateLakeStorageShrinkRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $permissionsShrink;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clientToken'       => 'ClientToken',
-        'DBClusterId'       => 'DBClusterId',
-        'description'       => 'Description',
+        'clientToken' => 'ClientToken',
+        'DBClusterId' => 'DBClusterId',
+        'description' => 'Description',
         'permissionsShrink' => 'Permissions',
-        'regionId'          => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

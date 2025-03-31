@@ -12,38 +12,44 @@ class DescribeTableAccessCountRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'order'       => 'Order',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'startTime'   => 'StartTime',
-        'tableName'   => 'TableName',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

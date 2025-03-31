@@ -12,18 +12,20 @@ class KillProcessRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $processId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'processId'   => 'ProcessId',
-        'regionId'    => 'RegionId',
+        'processId' => 'ProcessId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

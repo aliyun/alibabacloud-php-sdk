@@ -12,23 +12,26 @@ class apsHiveProgress extends Model
      * @var string
      */
     public $dbName;
+
     /**
      * @var string
      */
     public $progress;
+
     /**
      * @var string
      */
     public $speed;
+
     /**
      * @var string
      */
     public $tbName;
     protected $_name = [
-        'dbName'   => 'DbName',
+        'dbName' => 'DbName',
         'progress' => 'Progress',
-        'speed'    => 'Speed',
-        'tbName'   => 'TbName',
+        'speed' => 'Speed',
+        'tbName' => 'TbName',
     ];
 
     public function validate()

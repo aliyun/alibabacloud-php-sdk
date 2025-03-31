@@ -12,53 +12,62 @@ class SQLDiagnosisList extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var int
      */
     public $elapsedTime;
+
     /**
      * @var int
      */
     public $innerQueryId;
+
     /**
      * @var int
      */
     public $maxExclusiveTime;
+
     /**
      * @var int
      */
     public $peakMemory;
+
     /**
      * @var string
      */
     public $SQL;
+
     /**
      * @var int
      */
     public $scanRowCount;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var int
      */
     public $statementId;
     protected $_name = [
-        'appId'            => 'AppId',
-        'elapsedTime'      => 'ElapsedTime',
-        'innerQueryId'     => 'InnerQueryId',
+        'appId' => 'AppId',
+        'elapsedTime' => 'ElapsedTime',
+        'innerQueryId' => 'InnerQueryId',
         'maxExclusiveTime' => 'MaxExclusiveTime',
-        'peakMemory'       => 'PeakMemory',
-        'SQL'              => 'SQL',
-        'scanRowCount'     => 'ScanRowCount',
-        'startTime'        => 'StartTime',
-        'state'            => 'State',
-        'statementId'      => 'StatementId',
+        'peakMemory' => 'PeakMemory',
+        'SQL' => 'SQL',
+        'scanRowCount' => 'ScanRowCount',
+        'startTime' => 'StartTime',
+        'state' => 'State',
+        'statementId' => 'StatementId',
     ];
 
     public function validate()

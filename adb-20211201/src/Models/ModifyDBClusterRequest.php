@@ -12,58 +12,68 @@ class ModifyDBClusterRequest extends Model
      * @var string
      */
     public $computeResource;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var bool
      */
     public $enableDefaultResourcePool;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $productForm;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $reservedNodeCount;
+
     /**
      * @var string
      */
     public $reservedNodeSize;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var string
      */
     public $storageResource;
     protected $_name = [
-        'computeResource'           => 'ComputeResource',
-        'DBClusterId'               => 'DBClusterId',
+        'computeResource' => 'ComputeResource',
+        'DBClusterId' => 'DBClusterId',
         'enableDefaultResourcePool' => 'EnableDefaultResourcePool',
-        'ownerAccount'              => 'OwnerAccount',
-        'ownerId'                   => 'OwnerId',
-        'productForm'               => 'ProductForm',
-        'regionId'                  => 'RegionId',
-        'reservedNodeCount'         => 'ReservedNodeCount',
-        'reservedNodeSize'          => 'ReservedNodeSize',
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'storageResource'           => 'StorageResource',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'productForm' => 'ProductForm',
+        'regionId' => 'RegionId',
+        'reservedNodeCount' => 'ReservedNodeCount',
+        'reservedNodeSize' => 'ReservedNodeSize',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'storageResource' => 'StorageResource',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class SubmitSparkAppRequest extends Model
      * @var string
      */
     public $agentSource;
+
     /**
      * @var string
      */
     public $agentVersion;
+
     /**
      * @var string
      */
     public $appName;
+
     /**
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $data;
+
     /**
      * @var string
      */
     public $resourceGroupName;
+
     /**
      * @var int
      */
     public $templateFileId;
     protected $_name = [
-        'agentSource'       => 'AgentSource',
-        'agentVersion'      => 'AgentVersion',
-        'appName'           => 'AppName',
-        'appType'           => 'AppType',
-        'DBClusterId'       => 'DBClusterId',
-        'data'              => 'Data',
+        'agentSource' => 'AgentSource',
+        'agentVersion' => 'AgentVersion',
+        'appName' => 'AppName',
+        'appType' => 'AppType',
+        'DBClusterId' => 'DBClusterId',
+        'data' => 'Data',
         'resourceGroupName' => 'ResourceGroupName',
-        'templateFileId'    => 'TemplateFileId',
+        'templateFileId' => 'TemplateFileId',
     ];
 
     public function validate()

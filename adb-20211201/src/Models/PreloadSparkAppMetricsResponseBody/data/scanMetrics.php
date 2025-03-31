@@ -12,12 +12,13 @@ class scanMetrics extends Model
      * @var int
      */
     public $outputRowsCount;
+
     /**
      * @var int
      */
     public $totalReadFileSizeInByte;
     protected $_name = [
-        'outputRowsCount'         => 'OutputRowsCount',
+        'outputRowsCount' => 'OutputRowsCount',
         'totalReadFileSizeInByte' => 'TotalReadFileSizeInByte',
     ];
 

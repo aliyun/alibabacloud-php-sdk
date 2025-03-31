@@ -12,22 +12,25 @@ class UpdateSparkTemplateFileRequest extends Model
      * @var string
      */
     public $content;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $resourceGroupName;
     protected $_name = [
-        'content'           => 'Content',
-        'DBClusterId'       => 'DBClusterId',
-        'id'                => 'Id',
+        'content' => 'Content',
+        'DBClusterId' => 'DBClusterId',
+        'id' => 'Id',
         'resourceGroupName' => 'ResourceGroupName',
     ];
 

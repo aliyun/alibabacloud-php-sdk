@@ -12,78 +12,92 @@ class DownloadDiagnosisRecordsRequest extends Model
      * @var string
      */
     public $clientIp;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $database;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $keyword;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var int
      */
     public $maxPeakMemory;
+
     /**
      * @var int
      */
     public $maxScanSize;
+
     /**
      * @var int
      */
     public $minPeakMemory;
+
     /**
      * @var int
      */
     public $minScanSize;
+
     /**
      * @var string
      */
     public $queryCondition;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroup;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'clientIp'       => 'ClientIp',
-        'DBClusterId'    => 'DBClusterId',
-        'database'       => 'Database',
-        'endTime'        => 'EndTime',
-        'keyword'        => 'Keyword',
-        'lang'           => 'Lang',
-        'maxPeakMemory'  => 'MaxPeakMemory',
-        'maxScanSize'    => 'MaxScanSize',
-        'minPeakMemory'  => 'MinPeakMemory',
-        'minScanSize'    => 'MinScanSize',
+        'clientIp' => 'ClientIp',
+        'DBClusterId' => 'DBClusterId',
+        'database' => 'Database',
+        'endTime' => 'EndTime',
+        'keyword' => 'Keyword',
+        'lang' => 'Lang',
+        'maxPeakMemory' => 'MaxPeakMemory',
+        'maxScanSize' => 'MaxScanSize',
+        'minPeakMemory' => 'MinPeakMemory',
+        'minScanSize' => 'MinScanSize',
         'queryCondition' => 'QueryCondition',
-        'regionId'       => 'RegionId',
-        'resourceGroup'  => 'ResourceGroup',
-        'startTime'      => 'StartTime',
-        'userName'       => 'UserName',
+        'regionId' => 'RegionId',
+        'resourceGroup' => 'ResourceGroup',
+        'startTime' => 'StartTime',
+        'userName' => 'UserName',
     ];
 
     public function validate()

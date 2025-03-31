@@ -12,243 +12,290 @@ class TableModel extends Model
      * @var string
      */
     public $archiveType;
+
     /**
      * @var int
      */
     public $blockSize;
+
     /**
      * @var int
      */
     public $bucket;
+
     /**
      * @var int
      */
     public $bucketCount;
+
     /**
      * @var FieldSchemaModel[]
      */
     public $cols;
+
     /**
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $compression;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var int
      */
     public $currentVersion;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var bool
      */
     public $dictEncode;
+
     /**
      * @var FieldSchemaModel[]
      */
     public $distributeColumns;
+
     /**
      * @var string
      */
     public $distributeType;
+
     /**
      * @var bool
      */
     public $enableDfs;
+
     /**
      * @var int
      */
     public $hotPartitionCount;
+
     /**
      * @var CstoreIndexModel[]
      */
     public $indexes;
+
     /**
      * @var bool
      */
     public $isAllIndex;
+
     /**
      * @var bool
      */
     public $isFulltextDict;
+
     /**
      * @var int
      */
     public $maxColumnId;
+
     /**
      * @var string[]
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $partitionColumn;
+
     /**
      * @var int
      */
     public $partitionCount;
+
     /**
      * @var FieldSchemaModel[]
      */
     public $partitionKeys;
+
     /**
      * @var string
      */
     public $partitionType;
+
     /**
      * @var string
      */
     public $physicalDatabaseName;
+
     /**
      * @var string
      */
     public $physicalTableName;
+
     /**
      * @var int
      */
     public $previousVersion;
+
     /**
      * @var string
      */
     public $rawTableName;
+
     /**
      * @var FieldSchemaModel[]
      */
     public $routeColumns;
+
     /**
      * @var FieldSchemaModel
      */
     public $routeEffectiveColumn;
+
     /**
      * @var string
      */
     public $routeType;
+
     /**
      * @var string
      */
     public $rtEngineType;
+
     /**
      * @var bool
      */
     public $rtIndexAll;
+
     /**
      * @var string
      */
     public $rtModeType;
+
     /**
      * @var StorageDescriptorModel
      */
     public $sd;
+
     /**
      * @var string
      */
     public $storagePolicy;
+
     /**
      * @var string
      */
     public $subpartitionColumn;
+
     /**
      * @var int
      */
     public $subpartitionCount;
+
     /**
      * @var string
      */
     public $subpartitionType;
+
     /**
      * @var string
      */
     public $tableEngineName;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $tableType;
+
     /**
      * @var int
      */
     public $tblId;
+
     /**
      * @var bool
      */
     public $temporary;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var string
      */
     public $viewExpandedText;
+
     /**
      * @var string
      */
     public $viewOriginalText;
+
     /**
      * @var string
      */
     public $viewSecurityMode;
     protected $_name = [
-        'archiveType'          => 'ArchiveType',
-        'blockSize'            => 'BlockSize',
-        'bucket'               => 'Bucket',
-        'bucketCount'          => 'BucketCount',
-        'cols'                 => 'Cols',
-        'comment'              => 'Comment',
-        'compression'          => 'Compression',
-        'createTime'           => 'CreateTime',
-        'currentVersion'       => 'CurrentVersion',
-        'dbName'               => 'DbName',
-        'dictEncode'           => 'DictEncode',
-        'distributeColumns'    => 'DistributeColumns',
-        'distributeType'       => 'DistributeType',
-        'enableDfs'            => 'EnableDfs',
-        'hotPartitionCount'    => 'HotPartitionCount',
-        'indexes'              => 'Indexes',
-        'isAllIndex'           => 'IsAllIndex',
-        'isFulltextDict'       => 'IsFulltextDict',
-        'maxColumnId'          => 'MaxColumnId',
-        'parameters'           => 'Parameters',
-        'partitionColumn'      => 'PartitionColumn',
-        'partitionCount'       => 'PartitionCount',
-        'partitionKeys'        => 'PartitionKeys',
-        'partitionType'        => 'PartitionType',
+        'archiveType' => 'ArchiveType',
+        'blockSize' => 'BlockSize',
+        'bucket' => 'Bucket',
+        'bucketCount' => 'BucketCount',
+        'cols' => 'Cols',
+        'comment' => 'Comment',
+        'compression' => 'Compression',
+        'createTime' => 'CreateTime',
+        'currentVersion' => 'CurrentVersion',
+        'dbName' => 'DbName',
+        'dictEncode' => 'DictEncode',
+        'distributeColumns' => 'DistributeColumns',
+        'distributeType' => 'DistributeType',
+        'enableDfs' => 'EnableDfs',
+        'hotPartitionCount' => 'HotPartitionCount',
+        'indexes' => 'Indexes',
+        'isAllIndex' => 'IsAllIndex',
+        'isFulltextDict' => 'IsFulltextDict',
+        'maxColumnId' => 'MaxColumnId',
+        'parameters' => 'Parameters',
+        'partitionColumn' => 'PartitionColumn',
+        'partitionCount' => 'PartitionCount',
+        'partitionKeys' => 'PartitionKeys',
+        'partitionType' => 'PartitionType',
         'physicalDatabaseName' => 'PhysicalDatabaseName',
-        'physicalTableName'    => 'PhysicalTableName',
-        'previousVersion'      => 'PreviousVersion',
-        'rawTableName'         => 'RawTableName',
-        'routeColumns'         => 'RouteColumns',
+        'physicalTableName' => 'PhysicalTableName',
+        'previousVersion' => 'PreviousVersion',
+        'rawTableName' => 'RawTableName',
+        'routeColumns' => 'RouteColumns',
         'routeEffectiveColumn' => 'RouteEffectiveColumn',
-        'routeType'            => 'RouteType',
-        'rtEngineType'         => 'RtEngineType',
-        'rtIndexAll'           => 'RtIndexAll',
-        'rtModeType'           => 'RtModeType',
-        'sd'                   => 'Sd',
-        'storagePolicy'        => 'StoragePolicy',
-        'subpartitionColumn'   => 'SubpartitionColumn',
-        'subpartitionCount'    => 'SubpartitionCount',
-        'subpartitionType'     => 'SubpartitionType',
-        'tableEngineName'      => 'TableEngineName',
-        'tableName'            => 'TableName',
-        'tableType'            => 'TableType',
-        'tblId'                => 'TblId',
-        'temporary'            => 'Temporary',
-        'updateTime'           => 'UpdateTime',
-        'viewExpandedText'     => 'ViewExpandedText',
-        'viewOriginalText'     => 'ViewOriginalText',
-        'viewSecurityMode'     => 'ViewSecurityMode',
+        'routeType' => 'RouteType',
+        'rtEngineType' => 'RtEngineType',
+        'rtIndexAll' => 'RtIndexAll',
+        'rtModeType' => 'RtModeType',
+        'sd' => 'Sd',
+        'storagePolicy' => 'StoragePolicy',
+        'subpartitionColumn' => 'SubpartitionColumn',
+        'subpartitionCount' => 'SubpartitionCount',
+        'subpartitionType' => 'SubpartitionType',
+        'tableEngineName' => 'TableEngineName',
+        'tableName' => 'TableName',
+        'tableType' => 'TableType',
+        'tblId' => 'TblId',
+        'temporary' => 'Temporary',
+        'updateTime' => 'UpdateTime',
+        'viewExpandedText' => 'ViewExpandedText',
+        'viewOriginalText' => 'ViewOriginalText',
+        'viewSecurityMode' => 'ViewSecurityMode',
     ];
 
     public function validate()
@@ -302,7 +349,7 @@ class TableModel extends Model
         if (null !== $this->cols) {
             if (\is_array($this->cols)) {
                 $res['Cols'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->cols as $item1) {
                     $res['Cols'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -336,7 +383,7 @@ class TableModel extends Model
         if (null !== $this->distributeColumns) {
             if (\is_array($this->distributeColumns)) {
                 $res['DistributeColumns'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->distributeColumns as $item1) {
                     $res['DistributeColumns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -358,7 +405,7 @@ class TableModel extends Model
         if (null !== $this->indexes) {
             if (\is_array($this->indexes)) {
                 $res['Indexes'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->indexes as $item1) {
                     $res['Indexes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -397,7 +444,7 @@ class TableModel extends Model
         if (null !== $this->partitionKeys) {
             if (\is_array($this->partitionKeys)) {
                 $res['PartitionKeys'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->partitionKeys as $item1) {
                     $res['PartitionKeys'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -427,7 +474,7 @@ class TableModel extends Model
         if (null !== $this->routeColumns) {
             if (\is_array($this->routeColumns)) {
                 $res['RouteColumns'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->routeColumns as $item1) {
                     $res['RouteColumns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -540,7 +587,7 @@ class TableModel extends Model
         if (isset($map['Cols'])) {
             if (!empty($map['Cols'])) {
                 $model->cols = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Cols'] as $item1) {
                     $model->cols[$n1++] = FieldSchemaModel::fromMap($item1);
                 }
@@ -574,7 +621,7 @@ class TableModel extends Model
         if (isset($map['DistributeColumns'])) {
             if (!empty($map['DistributeColumns'])) {
                 $model->distributeColumns = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['DistributeColumns'] as $item1) {
                     $model->distributeColumns[$n1++] = FieldSchemaModel::fromMap($item1);
                 }
@@ -596,7 +643,7 @@ class TableModel extends Model
         if (isset($map['Indexes'])) {
             if (!empty($map['Indexes'])) {
                 $model->indexes = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Indexes'] as $item1) {
                     $model->indexes[$n1++] = CstoreIndexModel::fromMap($item1);
                 }
@@ -635,7 +682,7 @@ class TableModel extends Model
         if (isset($map['PartitionKeys'])) {
             if (!empty($map['PartitionKeys'])) {
                 $model->partitionKeys = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['PartitionKeys'] as $item1) {
                     $model->partitionKeys[$n1++] = FieldSchemaModel::fromMap($item1);
                 }
@@ -665,7 +712,7 @@ class TableModel extends Model
         if (isset($map['RouteColumns'])) {
             if (!empty($map['RouteColumns'])) {
                 $model->routeColumns = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['RouteColumns'] as $item1) {
                     $model->routeColumns[$n1++] = FieldSchemaModel::fromMap($item1);
                 }

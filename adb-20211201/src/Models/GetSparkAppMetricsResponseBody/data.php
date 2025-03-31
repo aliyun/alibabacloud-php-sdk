@@ -13,28 +13,32 @@ class data extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $attemptId;
+
     /**
      * @var string
      */
     public $eventLogPath;
+
     /**
      * @var bool
      */
     public $finished;
+
     /**
      * @var scanMetrics
      */
     public $scanMetrics;
     protected $_name = [
-        'appId'        => 'AppId',
-        'attemptId'    => 'AttemptId',
+        'appId' => 'AppId',
+        'attemptId' => 'AttemptId',
         'eventLogPath' => 'EventLogPath',
-        'finished'     => 'Finished',
-        'scanMetrics'  => 'ScanMetrics',
+        'finished' => 'Finished',
+        'scanMetrics' => 'ScanMetrics',
     ];
 
     public function validate()

@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponseBody;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponseBody\groupsInfo\rayConfig;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponseBody\groupsInfo\rules;
 
 class groupsInfo extends Model
@@ -13,129 +14,161 @@ class groupsInfo extends Model
      * @var string
      */
     public $autoStopInterval;
+
     /**
      * @var string
      */
     public $clusterMode;
+
     /**
      * @var string
      */
     public $clusterSizeResource;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $elasticMinComputeResource;
+
     /**
      * @var string
      */
     public $enableSpot;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var mixed[]
      */
     public $engineParams;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $groupType;
+
     /**
      * @var string
      */
     public $groupUsers;
+
     /**
      * @var int
      */
     public $maxClusterCount;
+
     /**
      * @var string
      */
     public $maxComputeResource;
+
     /**
      * @var int
      */
     public $maxGpuQuantity;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var int
      */
     public $minClusterCount;
+
     /**
      * @var string
      */
     public $minComputeResource;
+
     /**
      * @var int
      */
     public $minGpuQuantity;
+
+    /**
+     * @var rayConfig
+     */
+    public $rayConfig;
+
     /**
      * @var rules[]
      */
     public $rules;
+
     /**
      * @var int
      */
     public $runningClusterCount;
+
     /**
      * @var string
      */
     public $specName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $targetResourceGroupName;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'autoStopInterval'          => 'AutoStopInterval',
-        'clusterMode'               => 'ClusterMode',
-        'clusterSizeResource'       => 'ClusterSizeResource',
-        'createTime'                => 'CreateTime',
+        'autoStopInterval' => 'AutoStopInterval',
+        'clusterMode' => 'ClusterMode',
+        'clusterSizeResource' => 'ClusterSizeResource',
+        'createTime' => 'CreateTime',
         'elasticMinComputeResource' => 'ElasticMinComputeResource',
-        'enableSpot'                => 'EnableSpot',
-        'engine'                    => 'Engine',
-        'engineParams'              => 'EngineParams',
-        'groupName'                 => 'GroupName',
-        'groupType'                 => 'GroupType',
-        'groupUsers'                => 'GroupUsers',
-        'maxClusterCount'           => 'MaxClusterCount',
-        'maxComputeResource'        => 'MaxComputeResource',
-        'maxGpuQuantity'            => 'MaxGpuQuantity',
-        'message'                   => 'Message',
-        'minClusterCount'           => 'MinClusterCount',
-        'minComputeResource'        => 'MinComputeResource',
-        'minGpuQuantity'            => 'MinGpuQuantity',
-        'rules'                     => 'Rules',
-        'runningClusterCount'       => 'RunningClusterCount',
-        'specName'                  => 'SpecName',
-        'status'                    => 'Status',
-        'targetResourceGroupName'   => 'TargetResourceGroupName',
-        'updateTime'                => 'UpdateTime',
+        'enableSpot' => 'EnableSpot',
+        'engine' => 'Engine',
+        'engineParams' => 'EngineParams',
+        'groupName' => 'GroupName',
+        'groupType' => 'GroupType',
+        'groupUsers' => 'GroupUsers',
+        'maxClusterCount' => 'MaxClusterCount',
+        'maxComputeResource' => 'MaxComputeResource',
+        'maxGpuQuantity' => 'MaxGpuQuantity',
+        'message' => 'Message',
+        'minClusterCount' => 'MinClusterCount',
+        'minComputeResource' => 'MinComputeResource',
+        'minGpuQuantity' => 'MinGpuQuantity',
+        'rayConfig' => 'RayConfig',
+        'rules' => 'Rules',
+        'runningClusterCount' => 'RunningClusterCount',
+        'specName' => 'SpecName',
+        'status' => 'Status',
+        'targetResourceGroupName' => 'TargetResourceGroupName',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
     {
         if (\is_array($this->engineParams)) {
             Model::validateArray($this->engineParams);
+        }
+        if (null !== $this->rayConfig) {
+            $this->rayConfig->validate();
         }
         if (\is_array($this->rules)) {
             Model::validateArray($this->rules);
@@ -223,10 +256,14 @@ class groupsInfo extends Model
             $res['MinGpuQuantity'] = $this->minGpuQuantity;
         }
 
+        if (null !== $this->rayConfig) {
+            $res['RayConfig'] = null !== $this->rayConfig ? $this->rayConfig->toArray($noStream) : $this->rayConfig;
+        }
+
         if (null !== $this->rules) {
             if (\is_array($this->rules)) {
                 $res['Rules'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->rules as $item1) {
                     $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -341,10 +378,14 @@ class groupsInfo extends Model
             $model->minGpuQuantity = $map['MinGpuQuantity'];
         }
 
+        if (isset($map['RayConfig'])) {
+            $model->rayConfig = rayConfig::fromMap($map['RayConfig']);
+        }
+
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Rules'] as $item1) {
                     $model->rules[$n1++] = rules::fromMap($item1);
                 }

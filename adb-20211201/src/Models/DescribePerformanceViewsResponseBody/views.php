@@ -12,10 +12,12 @@ class views extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $updateTime;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class views extends Model
     protected $_name = [
         'createTime' => 'CreateTime',
         'updateTime' => 'UpdateTime',
-        'viewName'   => 'ViewName',
+        'viewName' => 'ViewName',
     ];
 
     public function validate()

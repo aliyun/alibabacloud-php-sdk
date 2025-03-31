@@ -12,18 +12,20 @@ class DeleteApsDatasoureRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $datasourceId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'DBClusterId'  => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'datasourceId' => 'DatasourceId',
-        'regionId'     => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

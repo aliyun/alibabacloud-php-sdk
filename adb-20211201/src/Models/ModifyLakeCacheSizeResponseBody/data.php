@@ -12,17 +12,19 @@ class data extends Model
      * @var int
      */
     public $capacity;
+
     /**
      * @var int
      */
     public $dataSize;
+
     /**
      * @var string[]
      */
     public $instances;
     protected $_name = [
-        'capacity'  => 'Capacity',
-        'dataSize'  => 'DataSize',
+        'capacity' => 'Capacity',
+        'dataSize' => 'DataSize',
         'instances' => 'Instances',
     ];
 
@@ -48,7 +50,7 @@ class data extends Model
         if (null !== $this->instances) {
             if (\is_array($this->instances)) {
                 $res['Instances'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->instances as $item1) {
                     $res['Instances'][$n1++] = $item1;
                 }
@@ -77,7 +79,7 @@ class data extends Model
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Instances'] as $item1) {
                     $model->instances[$n1++] = $item1;
                 }

@@ -13,128 +13,170 @@ class CreateDBClusterRequest extends Model
      * @var string
      */
     public $backupSetId;
+
     /**
      * @var string
      */
     public $cloneSourceRegionId;
+
     /**
      * @var string
      */
     public $computeResource;
+
     /**
      * @var string
      */
     public $DBClusterDescription;
+
     /**
      * @var string
      */
     public $DBClusterNetworkType;
+
     /**
      * @var string
      */
     public $DBClusterVersion;
+
     /**
      * @var bool
      */
     public $diskEncryption;
+
     /**
      * @var bool
      */
     public $enableDefaultResourcePool;
+
     /**
      * @var string
      */
     public $kmsId;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $productForm;
+
+    /**
+     * @var string
+     */
+    public $productVersion;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $reservedNodeCount;
+
     /**
      * @var string
      */
     public $reservedNodeSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $restoreToTime;
+
     /**
      * @var string
      */
     public $restoreType;
+
+    /**
+     * @var string
+     */
+    public $secondaryVSwitchId;
+
+    /**
+     * @var string
+     */
+    public $secondaryZoneId;
+
     /**
      * @var string
      */
     public $sourceDbClusterId;
+
     /**
      * @var string
      */
     public $storageResource;
+
     /**
      * @var tag[]
      */
     public $tag;
+
     /**
      * @var string
      */
     public $usedTime;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'backupSetId'               => 'BackupSetId',
-        'cloneSourceRegionId'       => 'CloneSourceRegionId',
-        'computeResource'           => 'ComputeResource',
-        'DBClusterDescription'      => 'DBClusterDescription',
-        'DBClusterNetworkType'      => 'DBClusterNetworkType',
-        'DBClusterVersion'          => 'DBClusterVersion',
-        'diskEncryption'            => 'DiskEncryption',
+        'backupSetId' => 'BackupSetId',
+        'cloneSourceRegionId' => 'CloneSourceRegionId',
+        'computeResource' => 'ComputeResource',
+        'DBClusterDescription' => 'DBClusterDescription',
+        'DBClusterNetworkType' => 'DBClusterNetworkType',
+        'DBClusterVersion' => 'DBClusterVersion',
+        'diskEncryption' => 'DiskEncryption',
         'enableDefaultResourcePool' => 'EnableDefaultResourcePool',
-        'kmsId'                     => 'KmsId',
-        'payType'                   => 'PayType',
-        'period'                    => 'Period',
-        'productForm'               => 'ProductForm',
-        'regionId'                  => 'RegionId',
-        'reservedNodeCount'         => 'ReservedNodeCount',
-        'reservedNodeSize'          => 'ReservedNodeSize',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'restoreToTime'             => 'RestoreToTime',
-        'restoreType'               => 'RestoreType',
-        'sourceDbClusterId'         => 'SourceDbClusterId',
-        'storageResource'           => 'StorageResource',
-        'tag'                       => 'Tag',
-        'usedTime'                  => 'UsedTime',
-        'VPCId'                     => 'VPCId',
-        'vSwitchId'                 => 'VSwitchId',
-        'zoneId'                    => 'ZoneId',
+        'kmsId' => 'KmsId',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'productForm' => 'ProductForm',
+        'productVersion' => 'ProductVersion',
+        'regionId' => 'RegionId',
+        'reservedNodeCount' => 'ReservedNodeCount',
+        'reservedNodeSize' => 'ReservedNodeSize',
+        'resourceGroupId' => 'ResourceGroupId',
+        'restoreToTime' => 'RestoreToTime',
+        'restoreType' => 'RestoreType',
+        'secondaryVSwitchId' => 'SecondaryVSwitchId',
+        'secondaryZoneId' => 'SecondaryZoneId',
+        'sourceDbClusterId' => 'SourceDbClusterId',
+        'storageResource' => 'StorageResource',
+        'tag' => 'Tag',
+        'usedTime' => 'UsedTime',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -196,6 +238,10 @@ class CreateDBClusterRequest extends Model
             $res['ProductForm'] = $this->productForm;
         }
 
+        if (null !== $this->productVersion) {
+            $res['ProductVersion'] = $this->productVersion;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -220,6 +266,14 @@ class CreateDBClusterRequest extends Model
             $res['RestoreType'] = $this->restoreType;
         }
 
+        if (null !== $this->secondaryVSwitchId) {
+            $res['SecondaryVSwitchId'] = $this->secondaryVSwitchId;
+        }
+
+        if (null !== $this->secondaryZoneId) {
+            $res['SecondaryZoneId'] = $this->secondaryZoneId;
+        }
+
         if (null !== $this->sourceDbClusterId) {
             $res['SourceDbClusterId'] = $this->sourceDbClusterId;
         }
@@ -231,7 +285,7 @@ class CreateDBClusterRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -313,6 +367,10 @@ class CreateDBClusterRequest extends Model
             $model->productForm = $map['ProductForm'];
         }
 
+        if (isset($map['ProductVersion'])) {
+            $model->productVersion = $map['ProductVersion'];
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -337,6 +395,14 @@ class CreateDBClusterRequest extends Model
             $model->restoreType = $map['RestoreType'];
         }
 
+        if (isset($map['SecondaryVSwitchId'])) {
+            $model->secondaryVSwitchId = $map['SecondaryVSwitchId'];
+        }
+
+        if (isset($map['SecondaryZoneId'])) {
+            $model->secondaryZoneId = $map['SecondaryZoneId'];
+        }
+
         if (isset($map['SourceDbClusterId'])) {
             $model->sourceDbClusterId = $map['SourceDbClusterId'];
         }
@@ -348,7 +414,7 @@ class CreateDBClusterRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

@@ -12,21 +12,24 @@ class data extends Model
      * @var int
      */
     public $clientCRC;
+
     /**
      * @var string
      */
     public $ETag;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $serverCRC;
     protected $_name = [
         'clientCRC' => 'ClientCRC',
-        'ETag'      => 'ETag',
+        'ETag' => 'ETag',
         'requestId' => 'RequestId',
         'serverCRC' => 'ServerCRC',
     ];

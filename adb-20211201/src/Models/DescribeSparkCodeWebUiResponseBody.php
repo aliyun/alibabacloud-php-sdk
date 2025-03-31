@@ -12,23 +12,26 @@ class DescribeSparkCodeWebUiResponseBody extends Model
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $url;
     protected $_name = [
-        'message'   => 'Message',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'url'       => 'Url',
+        'success' => 'Success',
+        'url' => 'Url',
     ];
 
     public function validate()

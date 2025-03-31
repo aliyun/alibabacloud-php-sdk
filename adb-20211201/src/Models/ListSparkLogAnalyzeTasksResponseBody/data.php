@@ -13,22 +13,25 @@ class data extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var SparkAnalyzeLogTask[]
      */
     public $taskList;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'taskList'   => 'TaskList',
+        'pageSize' => 'PageSize',
+        'taskList' => 'TaskList',
         'totalCount' => 'TotalCount',
     ];
 
@@ -54,7 +57,7 @@ class data extends Model
         if (null !== $this->taskList) {
             if (\is_array($this->taskList)) {
                 $res['TaskList'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->taskList as $item1) {
                     $res['TaskList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class data extends Model
         if (isset($map['TaskList'])) {
             if (!empty($map['TaskList'])) {
                 $model->taskList = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['TaskList'] as $item1) {
                     $model->taskList[$n1++] = SparkAnalyzeLogTask::fromMap($item1);
                 }

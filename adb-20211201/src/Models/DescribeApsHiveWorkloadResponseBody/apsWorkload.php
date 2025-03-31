@@ -12,108 +12,128 @@ class apsWorkload extends Model
      * @var string
      */
     public $advancedConfig;
+
     /**
      * @var string
      */
     public $conflictStrategy;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $datasourceId;
+
     /**
      * @var string
      */
     public $datasourceName;
+
     /**
      * @var string
      */
     public $emrClusterId;
+
     /**
      * @var string
      */
     public $fullComputeUnit;
+
     /**
      * @var string
      */
     public $metaStoreUri;
+
     /**
      * @var string
      */
     public $ossLocation;
+
     /**
      * @var int
      */
     public $parallelism;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroup;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $syncAllowExpression;
+
     /**
      * @var string
      */
     public $syncDenyExpression;
+
     /**
      * @var string
      */
     public $targetType;
+
     /**
      * @var string
      */
     public $vswitch;
+
     /**
      * @var string
      */
     public $workloadId;
+
     /**
      * @var string
      */
     public $workloadName;
+
     /**
      * @var string
      */
     public $workloadTypeName;
     protected $_name = [
-        'advancedConfig'      => 'AdvancedConfig',
-        'conflictStrategy'    => 'ConflictStrategy',
-        'createTime'          => 'CreateTime',
-        'DBClusterId'         => 'DBClusterId',
-        'datasourceId'        => 'DatasourceId',
-        'datasourceName'      => 'DatasourceName',
-        'emrClusterId'        => 'EmrClusterId',
-        'fullComputeUnit'     => 'FullComputeUnit',
-        'metaStoreUri'        => 'MetaStoreUri',
-        'ossLocation'         => 'OssLocation',
-        'parallelism'         => 'Parallelism',
-        'regionId'            => 'RegionId',
-        'resourceGroup'       => 'ResourceGroup',
-        'state'               => 'State',
+        'advancedConfig' => 'AdvancedConfig',
+        'conflictStrategy' => 'ConflictStrategy',
+        'createTime' => 'CreateTime',
+        'DBClusterId' => 'DBClusterId',
+        'datasourceId' => 'DatasourceId',
+        'datasourceName' => 'DatasourceName',
+        'emrClusterId' => 'EmrClusterId',
+        'fullComputeUnit' => 'FullComputeUnit',
+        'metaStoreUri' => 'MetaStoreUri',
+        'ossLocation' => 'OssLocation',
+        'parallelism' => 'Parallelism',
+        'regionId' => 'RegionId',
+        'resourceGroup' => 'ResourceGroup',
+        'state' => 'State',
         'syncAllowExpression' => 'SyncAllowExpression',
-        'syncDenyExpression'  => 'SyncDenyExpression',
-        'targetType'          => 'TargetType',
-        'vswitch'             => 'Vswitch',
-        'workloadId'          => 'WorkloadId',
-        'workloadName'        => 'WorkloadName',
-        'workloadTypeName'    => 'WorkloadTypeName',
+        'syncDenyExpression' => 'SyncDenyExpression',
+        'targetType' => 'TargetType',
+        'vswitch' => 'Vswitch',
+        'workloadId' => 'WorkloadId',
+        'workloadName' => 'WorkloadName',
+        'workloadTypeName' => 'WorkloadTypeName',
     ];
 
     public function validate()

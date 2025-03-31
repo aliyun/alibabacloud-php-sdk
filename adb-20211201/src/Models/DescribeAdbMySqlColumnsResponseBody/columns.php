@@ -12,18 +12,20 @@ class columns extends Model
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'comment' => 'Comment',
-        'name'    => 'Name',
-        'type'    => 'Type',
+        'name' => 'Name',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -13,33 +13,38 @@ class DescribeSparkSQLDiagnosisListResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var SQLDiagnosisList[]
      */
     public $SQLDiagnosisList;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'requestId'          => 'RequestId',
-        'SQLDiagnosisList'   => 'SQLDiagnosisList',
-        'totalCount'         => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'SQLDiagnosisList' => 'SQLDiagnosisList',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -72,7 +77,7 @@ class DescribeSparkSQLDiagnosisListResponseBody extends Model
         if (null !== $this->SQLDiagnosisList) {
             if (\is_array($this->SQLDiagnosisList)) {
                 $res['SQLDiagnosisList'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->SQLDiagnosisList as $item1) {
                     $res['SQLDiagnosisList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -113,7 +118,7 @@ class DescribeSparkSQLDiagnosisListResponseBody extends Model
         if (isset($map['SQLDiagnosisList'])) {
             if (!empty($map['SQLDiagnosisList'])) {
                 $model->SQLDiagnosisList = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['SQLDiagnosisList'] as $item1) {
                     $model->SQLDiagnosisList[$n1++] = SQLDiagnosisList::fromMap($item1);
                 }

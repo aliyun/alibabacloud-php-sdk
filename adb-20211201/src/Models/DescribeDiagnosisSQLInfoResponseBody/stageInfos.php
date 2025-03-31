@@ -12,48 +12,56 @@ class stageInfos extends Model
      * @var int
      */
     public $inputDataSize;
+
     /**
      * @var int
      */
     public $inputRows;
+
     /**
      * @var int
      */
     public $operatorCost;
+
     /**
      * @var int
      */
     public $outputDataSize;
+
     /**
      * @var int
      */
     public $outputRows;
+
     /**
      * @var int
      */
     public $peakMemory;
+
     /**
      * @var float
      */
     public $progress;
+
     /**
      * @var string
      */
     public $stageId;
+
     /**
      * @var string
      */
     public $state;
     protected $_name = [
-        'inputDataSize'  => 'InputDataSize',
-        'inputRows'      => 'InputRows',
-        'operatorCost'   => 'OperatorCost',
+        'inputDataSize' => 'InputDataSize',
+        'inputRows' => 'InputRows',
+        'operatorCost' => 'OperatorCost',
         'outputDataSize' => 'OutputDataSize',
-        'outputRows'     => 'OutputRows',
-        'peakMemory'     => 'PeakMemory',
-        'progress'       => 'Progress',
-        'stageId'        => 'StageId',
-        'state'          => 'State',
+        'outputRows' => 'OutputRows',
+        'peakMemory' => 'PeakMemory',
+        'progress' => 'Progress',
+        'stageId' => 'StageId',
+        'state' => 'State',
     ];
 
     public function validate()

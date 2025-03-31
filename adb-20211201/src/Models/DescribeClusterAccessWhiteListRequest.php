@@ -12,17 +12,19 @@ class DescribeClusterAccessWhiteListRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
     protected $_name = [
-        'DBClusterId'          => 'DBClusterId',
-        'regionId'             => 'RegionId',
+        'DBClusterId' => 'DBClusterId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
     ];
 

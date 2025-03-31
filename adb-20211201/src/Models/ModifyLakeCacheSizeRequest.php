@@ -12,17 +12,19 @@ class ModifyLakeCacheSizeRequest extends Model
      * @var int
      */
     public $capacity;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var bool
      */
     public $enableLakeCache;
     protected $_name = [
-        'capacity'        => 'Capacity',
-        'DBClusterId'     => 'DBClusterId',
+        'capacity' => 'Capacity',
+        'DBClusterId' => 'DBClusterId',
         'enableLakeCache' => 'EnableLakeCache',
     ];
 

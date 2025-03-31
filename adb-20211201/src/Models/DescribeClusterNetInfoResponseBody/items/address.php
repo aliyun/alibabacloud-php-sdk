@@ -13,43 +13,50 @@ class address extends Model
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $connectionStringPrefix;
+
     /**
      * @var string
      */
     public $IPAddress;
+
     /**
      * @var string
      */
     public $netType;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var ports
      */
     public $ports;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'connectionString'       => 'ConnectionString',
+        'connectionString' => 'ConnectionString',
         'connectionStringPrefix' => 'ConnectionStringPrefix',
-        'IPAddress'              => 'IPAddress',
-        'netType'                => 'NetType',
-        'port'                   => 'Port',
-        'ports'                  => 'Ports',
-        'VPCId'                  => 'VPCId',
-        'vSwitchId'              => 'VSwitchId',
+        'IPAddress' => 'IPAddress',
+        'netType' => 'NetType',
+        'port' => 'Port',
+        'ports' => 'Ports',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()

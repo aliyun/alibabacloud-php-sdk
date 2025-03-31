@@ -12,22 +12,27 @@ class items extends Model
      * @var string
      */
     public $partitionDetail;
+
     /**
      * @var int
      */
     public $partitionNumber;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var float
      */
     public $spaceRatio;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
@@ -35,10 +40,10 @@ class items extends Model
     protected $_name = [
         'partitionDetail' => 'PartitionDetail',
         'partitionNumber' => 'PartitionNumber',
-        'schemaName'      => 'SchemaName',
-        'spaceRatio'      => 'SpaceRatio',
-        'tableName'       => 'TableName',
-        'totalSize'       => 'TotalSize',
+        'schemaName' => 'SchemaName',
+        'spaceRatio' => 'SpaceRatio',
+        'tableName' => 'TableName',
+        'totalSize' => 'TotalSize',
     ];
 
     public function validate()

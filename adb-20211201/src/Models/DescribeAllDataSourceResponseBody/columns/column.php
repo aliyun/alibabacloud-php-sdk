@@ -12,38 +12,44 @@ class column extends Model
      * @var bool
      */
     public $autoIncrementColumn;
+
     /**
      * @var string
      */
     public $columnName;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var bool
      */
     public $primaryKey;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'autoIncrementColumn' => 'AutoIncrementColumn',
-        'columnName'          => 'ColumnName',
-        'DBClusterId'         => 'DBClusterId',
-        'primaryKey'          => 'PrimaryKey',
-        'schemaName'          => 'SchemaName',
-        'tableName'           => 'TableName',
-        'type'                => 'Type',
+        'columnName' => 'ColumnName',
+        'DBClusterId' => 'DBClusterId',
+        'primaryKey' => 'PrimaryKey',
+        'schemaName' => 'SchemaName',
+        'tableName' => 'TableName',
+        'type' => 'Type',
     ];
 
     public function validate()

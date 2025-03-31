@@ -12,23 +12,26 @@ class data extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $appName;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $state;
     protected $_name = [
-        'appId'   => 'AppId',
+        'appId' => 'AppId',
         'appName' => 'AppName',
         'message' => 'Message',
-        'state'   => 'State',
+        'state' => 'State',
     ];
 
     public function validate()

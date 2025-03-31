@@ -12,18 +12,20 @@ class LogAnalyzeResult extends Model
      * @var string
      */
     public $appErrorAdvice;
+
     /**
      * @var string
      */
     public $appErrorCode;
+
     /**
      * @var string
      */
     public $appErrorLog;
     protected $_name = [
         'appErrorAdvice' => 'AppErrorAdvice',
-        'appErrorCode'   => 'AppErrorCode',
-        'appErrorLog'    => 'AppErrorLog',
+        'appErrorCode' => 'AppErrorCode',
+        'appErrorLog' => 'AppErrorLog',
     ];
 
     public function validate()

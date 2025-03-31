@@ -13,63 +13,74 @@ class items extends Model
      * @var string
      */
     public $apsJobId;
+
     /**
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var operationTables[]
      */
     public $operationTables;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $strategyDatabases;
+
     /**
      * @var string
      */
     public $strategyDesc;
+
     /**
      * @var string
      */
     public $strategyName;
+
     /**
      * @var int
      */
     public $strategyTables;
+
     /**
      * @var string
      */
     public $strategyType;
+
     /**
      * @var string
      */
     public $strategyValue;
     protected $_name = [
-        'apsJobId'          => 'ApsJobId',
-        'createdTime'       => 'CreatedTime',
-        'DBClusterId'       => 'DBClusterId',
-        'modifiedTime'      => 'ModifiedTime',
-        'operationTables'   => 'OperationTables',
-        'status'            => 'Status',
+        'apsJobId' => 'ApsJobId',
+        'createdTime' => 'CreatedTime',
+        'DBClusterId' => 'DBClusterId',
+        'modifiedTime' => 'ModifiedTime',
+        'operationTables' => 'OperationTables',
+        'status' => 'Status',
         'strategyDatabases' => 'StrategyDatabases',
-        'strategyDesc'      => 'StrategyDesc',
-        'strategyName'      => 'StrategyName',
-        'strategyTables'    => 'StrategyTables',
-        'strategyType'      => 'StrategyType',
-        'strategyValue'     => 'StrategyValue',
+        'strategyDesc' => 'StrategyDesc',
+        'strategyName' => 'StrategyName',
+        'strategyTables' => 'StrategyTables',
+        'strategyType' => 'StrategyType',
+        'strategyValue' => 'StrategyValue',
     ];
 
     public function validate()
@@ -102,7 +113,7 @@ class items extends Model
         if (null !== $this->operationTables) {
             if (\is_array($this->operationTables)) {
                 $res['OperationTables'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->operationTables as $item1) {
                     $res['OperationTables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -167,7 +178,7 @@ class items extends Model
         if (isset($map['OperationTables'])) {
             if (!empty($map['OperationTables'])) {
                 $model->operationTables = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['OperationTables'] as $item1) {
                     $model->operationTables[$n1++] = operationTables::fromMap($item1);
                 }

@@ -12,28 +12,32 @@ class GetTableResponseBody extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var TableModel
      */
     public $table;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
+        'code' => 'Code',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'table'     => 'Table',
+        'success' => 'Success',
+        'table' => 'Table',
     ];
 
     public function validate()

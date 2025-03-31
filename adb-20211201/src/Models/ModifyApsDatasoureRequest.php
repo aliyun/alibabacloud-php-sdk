@@ -17,53 +17,62 @@ class ModifyApsDatasoureRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $datasourceDescription;
+
     /**
      * @var int
      */
     public $datasourceId;
+
     /**
      * @var string
      */
     public $datasourceName;
+
     /**
      * @var kafkaInfo
      */
     public $kafkaInfo;
+
     /**
      * @var lakehouseId
      */
     public $lakehouseId;
+
     /**
      * @var polarDBMysqlInfo
      */
     public $polarDBMysqlInfo;
+
     /**
      * @var rdsMysqlInfo
      */
     public $rdsMysqlInfo;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var slsInfo
      */
     public $slsInfo;
     protected $_name = [
-        'DBClusterId'           => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'datasourceDescription' => 'DatasourceDescription',
-        'datasourceId'          => 'DatasourceId',
-        'datasourceName'        => 'DatasourceName',
-        'kafkaInfo'             => 'KafkaInfo',
-        'lakehouseId'           => 'LakehouseId',
-        'polarDBMysqlInfo'      => 'PolarDBMysqlInfo',
-        'rdsMysqlInfo'          => 'RdsMysqlInfo',
-        'regionId'              => 'RegionId',
-        'slsInfo'               => 'SlsInfo',
+        'datasourceId' => 'DatasourceId',
+        'datasourceName' => 'DatasourceName',
+        'kafkaInfo' => 'KafkaInfo',
+        'lakehouseId' => 'LakehouseId',
+        'polarDBMysqlInfo' => 'PolarDBMysqlInfo',
+        'rdsMysqlInfo' => 'RdsMysqlInfo',
+        'regionId' => 'RegionId',
+        'slsInfo' => 'SlsInfo',
     ];
 
     public function validate()

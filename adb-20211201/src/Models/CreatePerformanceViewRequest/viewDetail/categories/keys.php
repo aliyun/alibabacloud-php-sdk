@@ -12,12 +12,13 @@ class keys extends Model
      * @var string
      */
     public $keyName;
+
     /**
      * @var bool
      */
     public $selected;
     protected $_name = [
-        'keyName'  => 'KeyName',
+        'keyName' => 'KeyName',
         'selected' => 'Selected',
     ];
 

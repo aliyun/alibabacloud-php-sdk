@@ -12,23 +12,26 @@ class DescribeSparkCodeLogResponseBody extends Model
      * @var string
      */
     public $log;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'log'       => 'Log',
-        'message'   => 'Message',
+        'log' => 'Log',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

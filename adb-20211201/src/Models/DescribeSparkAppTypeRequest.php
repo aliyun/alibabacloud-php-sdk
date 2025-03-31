@@ -12,18 +12,20 @@ class DescribeSparkAppTypeRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'appId'       => 'AppId',
+        'appId' => 'AppId',
         'DBClusterId' => 'DBClusterId',
-        'regionId'    => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

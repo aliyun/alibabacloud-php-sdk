@@ -12,22 +12,25 @@ class ExecuteSparkReplStatementRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $codeType;
+
     /**
      * @var int
      */
     public $sessionId;
     protected $_name = [
-        'appId'     => 'AppId',
-        'code'      => 'Code',
-        'codeType'  => 'CodeType',
+        'appId' => 'AppId',
+        'code' => 'Code',
+        'codeType' => 'CodeType',
         'sessionId' => 'SessionId',
     ];
 

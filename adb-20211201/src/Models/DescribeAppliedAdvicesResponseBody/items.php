@@ -12,68 +12,80 @@ class items extends Model
      * @var string
      */
     public $adviceId;
+
     /**
      * @var string
      */
     public $benefit;
+
     /**
      * @var string
      */
     public $buildSQL;
+
     /**
      * @var string
      */
     public $jobStatus;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $rollbackSQL;
+
     /**
      * @var string
      */
     public $SQL;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $submitStatus;
+
     /**
      * @var string
      */
     public $submitTime;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'adviceId'     => 'AdviceId',
-        'benefit'      => 'Benefit',
-        'buildSQL'     => 'BuildSQL',
-        'jobStatus'    => 'JobStatus',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'rollbackSQL'  => 'RollbackSQL',
-        'SQL'          => 'SQL',
-        'schemaName'   => 'SchemaName',
+        'adviceId' => 'AdviceId',
+        'benefit' => 'Benefit',
+        'buildSQL' => 'BuildSQL',
+        'jobStatus' => 'JobStatus',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'rollbackSQL' => 'RollbackSQL',
+        'SQL' => 'SQL',
+        'schemaName' => 'SchemaName',
         'submitStatus' => 'SubmitStatus',
-        'submitTime'   => 'SubmitTime',
-        'tableName'    => 'TableName',
-        'totalCount'   => 'TotalCount',
+        'submitTime' => 'SubmitTime',
+        'tableName' => 'TableName',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()

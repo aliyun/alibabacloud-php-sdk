@@ -13,53 +13,62 @@ class DescribeDBClustersRequest extends Model
      * @var string
      */
     public $DBClusterDescription;
+
     /**
      * @var string
      */
     public $DBClusterIds;
+
     /**
      * @var string
      */
     public $DBClusterStatus;
+
     /**
      * @var string
      */
     public $DBClusterVersion;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $productVersion;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
         'DBClusterDescription' => 'DBClusterDescription',
-        'DBClusterIds'         => 'DBClusterIds',
-        'DBClusterStatus'      => 'DBClusterStatus',
-        'DBClusterVersion'     => 'DBClusterVersion',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
-        'productVersion'       => 'ProductVersion',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'tag'                  => 'Tag',
+        'DBClusterIds' => 'DBClusterIds',
+        'DBClusterStatus' => 'DBClusterStatus',
+        'DBClusterVersion' => 'DBClusterVersion',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'productVersion' => 'ProductVersion',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -112,7 +121,7 @@ class DescribeDBClustersRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -169,7 +178,7 @@ class DescribeDBClustersRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

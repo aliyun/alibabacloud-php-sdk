@@ -12,38 +12,44 @@ class elasticPlans extends Model
      * @var bool
      */
     public $autoScale;
+
     /**
      * @var string
      */
     public $elasticPlanName;
+
     /**
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $nextScheduleTime;
+
     /**
      * @var string
      */
     public $resourceGroupName;
+
     /**
      * @var string
      */
     public $targetSize;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'autoScale'         => 'AutoScale',
-        'elasticPlanName'   => 'ElasticPlanName',
-        'enabled'           => 'Enabled',
-        'nextScheduleTime'  => 'NextScheduleTime',
+        'autoScale' => 'AutoScale',
+        'elasticPlanName' => 'ElasticPlanName',
+        'enabled' => 'Enabled',
+        'nextScheduleTime' => 'NextScheduleTime',
         'resourceGroupName' => 'ResourceGroupName',
-        'targetSize'        => 'TargetSize',
-        'type'              => 'Type',
+        'targetSize' => 'TargetSize',
+        'type' => 'Type',
     ];
 
     public function validate()

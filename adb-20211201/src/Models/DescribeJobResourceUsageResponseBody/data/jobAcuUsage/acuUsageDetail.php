@@ -12,28 +12,32 @@ class acuUsageDetail extends Model
      * @var float
      */
     public $elasticAcuNumber;
+
     /**
      * @var float
      */
     public $reservedAcuNumber;
+
     /**
      * @var float
      */
     public $spotAcuNumber;
+
     /**
      * @var float
      */
     public $spotAcuPercentage;
+
     /**
      * @var float
      */
     public $totalAcuNumber;
     protected $_name = [
-        'elasticAcuNumber'  => 'ElasticAcuNumber',
+        'elasticAcuNumber' => 'ElasticAcuNumber',
         'reservedAcuNumber' => 'ReservedAcuNumber',
-        'spotAcuNumber'     => 'SpotAcuNumber',
+        'spotAcuNumber' => 'SpotAcuNumber',
         'spotAcuPercentage' => 'SpotAcuPercentage',
-        'totalAcuNumber'    => 'TotalAcuNumber',
+        'totalAcuNumber' => 'TotalAcuNumber',
     ];
 
     public function validate()

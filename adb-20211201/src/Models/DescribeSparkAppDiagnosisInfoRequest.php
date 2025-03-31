@@ -12,23 +12,26 @@ class DescribeSparkAppDiagnosisInfoRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'appId'       => 'AppId',
+        'appId' => 'AppId',
         'DBClusterId' => 'DBClusterId',
-        'language'    => 'Language',
-        'regionId'    => 'RegionId',
+        'language' => 'Language',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

@@ -12,48 +12,56 @@ class elasticPlan extends Model
      * @var bool
      */
     public $autoScale;
+
     /**
      * @var string
      */
     public $cronExpression;
+
     /**
      * @var string
      */
     public $elasticPlanName;
+
     /**
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $resourceGroupName;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $targetSize;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'autoScale'         => 'AutoScale',
-        'cronExpression'    => 'CronExpression',
-        'elasticPlanName'   => 'ElasticPlanName',
-        'enabled'           => 'Enabled',
-        'endTime'           => 'EndTime',
+        'autoScale' => 'AutoScale',
+        'cronExpression' => 'CronExpression',
+        'elasticPlanName' => 'ElasticPlanName',
+        'enabled' => 'Enabled',
+        'endTime' => 'EndTime',
         'resourceGroupName' => 'ResourceGroupName',
-        'startTime'         => 'StartTime',
-        'targetSize'        => 'TargetSize',
-        'type'              => 'Type',
+        'startTime' => 'StartTime',
+        'targetSize' => 'TargetSize',
+        'type' => 'Type',
     ];
 
     public function validate()

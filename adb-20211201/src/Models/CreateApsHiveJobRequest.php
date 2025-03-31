@@ -12,68 +12,80 @@ class CreateApsHiveJobRequest extends Model
      * @var string
      */
     public $advancedConfig;
+
     /**
      * @var string
      */
     public $conflictStrategy;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $datasourceId;
+
     /**
      * @var string
      */
     public $fullComputeUnit;
+
     /**
      * @var string
      */
     public $ossLocation;
+
     /**
      * @var int
      */
     public $parallelism;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroup;
+
     /**
      * @var string
      */
     public $syncAllowExpression;
+
     /**
      * @var string
      */
     public $syncDenyExpression;
+
     /**
      * @var string
      */
     public $targetType;
+
     /**
      * @var string
      */
     public $workloadName;
     protected $_name = [
-        'advancedConfig'      => 'AdvancedConfig',
-        'conflictStrategy'    => 'ConflictStrategy',
-        'DBClusterId'         => 'DBClusterId',
-        'datasourceId'        => 'DatasourceId',
-        'fullComputeUnit'     => 'FullComputeUnit',
-        'ossLocation'         => 'OssLocation',
-        'parallelism'         => 'Parallelism',
-        'regionId'            => 'RegionId',
-        'resourceGroup'       => 'ResourceGroup',
+        'advancedConfig' => 'AdvancedConfig',
+        'conflictStrategy' => 'ConflictStrategy',
+        'DBClusterId' => 'DBClusterId',
+        'datasourceId' => 'DatasourceId',
+        'fullComputeUnit' => 'FullComputeUnit',
+        'ossLocation' => 'OssLocation',
+        'parallelism' => 'Parallelism',
+        'regionId' => 'RegionId',
+        'resourceGroup' => 'ResourceGroup',
         'syncAllowExpression' => 'SyncAllowExpression',
-        'syncDenyExpression'  => 'SyncDenyExpression',
-        'targetType'          => 'TargetType',
-        'workloadName'        => 'WorkloadName',
+        'syncDenyExpression' => 'SyncDenyExpression',
+        'targetType' => 'TargetType',
+        'workloadName' => 'WorkloadName',
     ];
 
     public function validate()

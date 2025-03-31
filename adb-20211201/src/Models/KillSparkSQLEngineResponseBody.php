@@ -12,12 +12,13 @@ class KillSparkSQLEngineResponseBody extends Model
      * @var bool
      */
     public $data;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'requestId' => 'RequestId',
     ];
 

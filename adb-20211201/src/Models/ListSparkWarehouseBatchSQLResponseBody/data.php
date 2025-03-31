@@ -13,23 +13,26 @@ class data extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var SparkBatchSQL[]
      */
     public $queries;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'queries'    => 'Queries',
-        'total'      => 'Total',
+        'pageSize' => 'PageSize',
+        'queries' => 'Queries',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -54,7 +57,7 @@ class data extends Model
         if (null !== $this->queries) {
             if (\is_array($this->queries)) {
                 $res['Queries'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->queries as $item1) {
                     $res['Queries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +90,7 @@ class data extends Model
         if (isset($map['Queries'])) {
             if (!empty($map['Queries'])) {
                 $model->queries = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Queries'] as $item1) {
                     $model->queries[$n1++] = SparkBatchSQL::fromMap($item1);
                 }

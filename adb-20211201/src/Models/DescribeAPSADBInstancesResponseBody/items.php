@@ -12,38 +12,44 @@ class items extends Model
      * @var string
      */
     public $computeResource;
+
     /**
      * @var string
      */
     public $DBClusterDescription;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $DBClusterStatus;
+
     /**
      * @var string
      */
     public $reservedACU;
+
     /**
      * @var int
      */
     public $storageResource;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'computeResource'      => 'ComputeResource',
+        'computeResource' => 'ComputeResource',
         'DBClusterDescription' => 'DBClusterDescription',
-        'DBClusterId'          => 'DBClusterId',
-        'DBClusterStatus'      => 'DBClusterStatus',
-        'reservedACU'          => 'ReservedACU',
-        'storageResource'      => 'StorageResource',
-        'zoneId'               => 'ZoneId',
+        'DBClusterId' => 'DBClusterId',
+        'DBClusterStatus' => 'DBClusterStatus',
+        'reservedACU' => 'ReservedACU',
+        'storageResource' => 'StorageResource',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

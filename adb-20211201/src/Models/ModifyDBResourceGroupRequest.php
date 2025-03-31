@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupRequest\rayConfig;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ModifyDBResourceGroupRequest\rules;
 
 class ModifyDBResourceGroupRequest extends Model
@@ -13,97 +14,121 @@ class ModifyDBResourceGroupRequest extends Model
      * @var string
      */
     public $autoStopInterval;
+
     /**
      * @var string
      */
     public $clusterMode;
+
     /**
      * @var string
      */
     public $clusterSizeResource;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var bool
      */
     public $enableSpot;
+
     /**
      * @var mixed[]
      */
     public $engineParams;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $groupType;
+
     /**
      * @var int
      */
     public $maxClusterCount;
+
     /**
      * @var string
      */
     public $maxComputeResource;
+
     /**
      * @var int
      */
     public $maxGpuQuantity;
+
     /**
      * @var int
      */
     public $minClusterCount;
+
     /**
      * @var string
      */
     public $minComputeResource;
+
     /**
      * @var int
      */
     public $minGpuQuantity;
+
+    /**
+     * @var rayConfig
+     */
+    public $rayConfig;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var rules[]
      */
     public $rules;
+
     /**
      * @var string
      */
     public $specName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $targetResourceGroupName;
     protected $_name = [
-        'autoStopInterval'        => 'AutoStopInterval',
-        'clusterMode'             => 'ClusterMode',
-        'clusterSizeResource'     => 'ClusterSizeResource',
-        'DBClusterId'             => 'DBClusterId',
-        'enableSpot'              => 'EnableSpot',
-        'engineParams'            => 'EngineParams',
-        'groupName'               => 'GroupName',
-        'groupType'               => 'GroupType',
-        'maxClusterCount'         => 'MaxClusterCount',
-        'maxComputeResource'      => 'MaxComputeResource',
-        'maxGpuQuantity'          => 'MaxGpuQuantity',
-        'minClusterCount'         => 'MinClusterCount',
-        'minComputeResource'      => 'MinComputeResource',
-        'minGpuQuantity'          => 'MinGpuQuantity',
-        'regionId'                => 'RegionId',
-        'rules'                   => 'Rules',
-        'specName'                => 'SpecName',
-        'status'                  => 'Status',
+        'autoStopInterval' => 'AutoStopInterval',
+        'clusterMode' => 'ClusterMode',
+        'clusterSizeResource' => 'ClusterSizeResource',
+        'DBClusterId' => 'DBClusterId',
+        'enableSpot' => 'EnableSpot',
+        'engineParams' => 'EngineParams',
+        'groupName' => 'GroupName',
+        'groupType' => 'GroupType',
+        'maxClusterCount' => 'MaxClusterCount',
+        'maxComputeResource' => 'MaxComputeResource',
+        'maxGpuQuantity' => 'MaxGpuQuantity',
+        'minClusterCount' => 'MinClusterCount',
+        'minComputeResource' => 'MinComputeResource',
+        'minGpuQuantity' => 'MinGpuQuantity',
+        'rayConfig' => 'RayConfig',
+        'regionId' => 'RegionId',
+        'rules' => 'Rules',
+        'specName' => 'SpecName',
+        'status' => 'Status',
         'targetResourceGroupName' => 'TargetResourceGroupName',
     ];
 
@@ -111,6 +136,9 @@ class ModifyDBResourceGroupRequest extends Model
     {
         if (\is_array($this->engineParams)) {
             Model::validateArray($this->engineParams);
+        }
+        if (null !== $this->rayConfig) {
+            $this->rayConfig->validate();
         }
         if (\is_array($this->rules)) {
             Model::validateArray($this->rules);
@@ -182,6 +210,10 @@ class ModifyDBResourceGroupRequest extends Model
             $res['MinGpuQuantity'] = $this->minGpuQuantity;
         }
 
+        if (null !== $this->rayConfig) {
+            $res['RayConfig'] = null !== $this->rayConfig ? $this->rayConfig->toArray($noStream) : $this->rayConfig;
+        }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -189,7 +221,7 @@ class ModifyDBResourceGroupRequest extends Model
         if (null !== $this->rules) {
             if (\is_array($this->rules)) {
                 $res['Rules'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->rules as $item1) {
                     $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -280,6 +312,10 @@ class ModifyDBResourceGroupRequest extends Model
             $model->minGpuQuantity = $map['MinGpuQuantity'];
         }
 
+        if (isset($map['RayConfig'])) {
+            $model->rayConfig = rayConfig::fromMap($map['RayConfig']);
+        }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -287,7 +323,7 @@ class ModifyDBResourceGroupRequest extends Model
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Rules'] as $item1) {
                     $model->rules[$n1++] = rules::fromMap($item1);
                 }

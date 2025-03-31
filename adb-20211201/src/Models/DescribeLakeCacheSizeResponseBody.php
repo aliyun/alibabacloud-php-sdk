@@ -13,17 +13,19 @@ class DescribeLakeCacheSizeResponseBody extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var data
      */
     public $data;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
+        'code' => 'Code',
+        'data' => 'Data',
         'requestId' => 'RequestId',
     ];
 

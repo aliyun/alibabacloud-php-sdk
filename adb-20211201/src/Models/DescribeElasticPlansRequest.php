@@ -12,38 +12,44 @@ class DescribeElasticPlansRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $elasticPlanName;
+
     /**
      * @var bool
      */
     public $enabled;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupName;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'DBClusterId'       => 'DBClusterId',
-        'elasticPlanName'   => 'ElasticPlanName',
-        'enabled'           => 'Enabled',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
+        'DBClusterId' => 'DBClusterId',
+        'elasticPlanName' => 'ElasticPlanName',
+        'enabled' => 'Enabled',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupName' => 'ResourceGroupName',
-        'type'              => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

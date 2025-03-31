@@ -12,33 +12,38 @@ class DescribeApsJobsRequest extends Model
      * @var string
      */
     public $apsJobName;
+
     /**
      * @var string
      */
     public $createTimeEnd;
+
     /**
      * @var string
      */
     public $createTimeStart;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'apsJobName'      => 'ApsJobName',
-        'createTimeEnd'   => 'CreateTimeEnd',
+        'apsJobName' => 'ApsJobName',
+        'createTimeEnd' => 'CreateTimeEnd',
         'createTimeStart' => 'CreateTimeStart',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

@@ -12,22 +12,25 @@ class ModifyApsWorkloadNameRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $workloadId;
+
     /**
      * @var string
      */
     public $workloadName;
     protected $_name = [
-        'DBClusterId'  => 'DBClusterId',
-        'regionId'     => 'RegionId',
-        'workloadId'   => 'WorkloadId',
+        'DBClusterId' => 'DBClusterId',
+        'regionId' => 'RegionId',
+        'workloadId' => 'WorkloadId',
         'workloadName' => 'WorkloadName',
     ];
 

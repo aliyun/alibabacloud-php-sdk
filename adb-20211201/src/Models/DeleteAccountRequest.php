@@ -12,10 +12,12 @@ class DeleteAccountRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
@@ -23,7 +25,7 @@ class DeleteAccountRequest extends Model
     protected $_name = [
         'accountName' => 'AccountName',
         'DBClusterId' => 'DBClusterId',
-        'engine'      => 'Engine',
+        'engine' => 'Engine',
     ];
 
     public function validate()

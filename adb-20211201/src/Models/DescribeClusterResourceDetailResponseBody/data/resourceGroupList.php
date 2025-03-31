@@ -12,68 +12,80 @@ class resourceGroupList extends Model
      * @var string
      */
     public $clusterMode;
+
     /**
      * @var string
      */
     public $clusterSizeResource;
+
     /**
      * @var bool
      */
     public $enableSpot;
+
     /**
      * @var int
      */
     public $maxClusterCount;
+
     /**
      * @var string
      */
     public $maxComputeResource;
+
     /**
      * @var int
      */
     public $minClusterCount;
+
     /**
      * @var string
      */
     public $minComputeResource;
+
     /**
      * @var int
      */
     public $poolId;
+
     /**
      * @var string
      */
     public $poolName;
+
     /**
      * @var string
      */
     public $poolType;
+
     /**
      * @var string
      */
     public $poolUsers;
+
     /**
      * @var int
      */
     public $runningClusterCount;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
-        'clusterMode'         => 'ClusterMode',
+        'clusterMode' => 'ClusterMode',
         'clusterSizeResource' => 'ClusterSizeResource',
-        'enableSpot'          => 'EnableSpot',
-        'maxClusterCount'     => 'MaxClusterCount',
-        'maxComputeResource'  => 'MaxComputeResource',
-        'minClusterCount'     => 'MinClusterCount',
-        'minComputeResource'  => 'MinComputeResource',
-        'poolId'              => 'PoolId',
-        'poolName'            => 'PoolName',
-        'poolType'            => 'PoolType',
-        'poolUsers'           => 'PoolUsers',
+        'enableSpot' => 'EnableSpot',
+        'maxClusterCount' => 'MaxClusterCount',
+        'maxComputeResource' => 'MaxComputeResource',
+        'minClusterCount' => 'MinClusterCount',
+        'minComputeResource' => 'MinComputeResource',
+        'poolId' => 'PoolId',
+        'poolName' => 'PoolName',
+        'poolType' => 'PoolType',
+        'poolUsers' => 'PoolUsers',
         'runningClusterCount' => 'RunningClusterCount',
-        'status'              => 'Status',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -12,63 +12,74 @@ class CreateAPSJobRequest extends Model
      * @var string
      */
     public $apsJobName;
+
     /**
      * @var string
      */
     public $dbList;
+
     /**
      * @var string
      */
     public $destinationEndpointInstanceID;
+
     /**
      * @var string
      */
     public $destinationEndpointPassword;
+
     /**
      * @var string
      */
     public $destinationEndpointUserName;
+
     /**
      * @var string
      */
     public $partitionList;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $sourceEndpointInstanceID;
+
     /**
      * @var string
      */
     public $sourceEndpointPassword;
+
     /**
      * @var string
      */
     public $sourceEndpointRegion;
+
     /**
      * @var string
      */
     public $sourceEndpointUserName;
+
     /**
      * @var string
      */
     public $targetTableMode;
     protected $_name = [
-        'apsJobName'                    => 'ApsJobName',
-        'dbList'                        => 'DbList',
+        'apsJobName' => 'ApsJobName',
+        'dbList' => 'DbList',
         'destinationEndpointInstanceID' => 'DestinationEndpointInstanceID',
-        'destinationEndpointPassword'   => 'DestinationEndpointPassword',
-        'destinationEndpointUserName'   => 'DestinationEndpointUserName',
-        'partitionList'                 => 'PartitionList',
-        'regionId'                      => 'RegionId',
-        'sourceEndpointInstanceID'      => 'SourceEndpointInstanceID',
-        'sourceEndpointPassword'        => 'SourceEndpointPassword',
-        'sourceEndpointRegion'          => 'SourceEndpointRegion',
-        'sourceEndpointUserName'        => 'SourceEndpointUserName',
-        'targetTableMode'               => 'TargetTableMode',
+        'destinationEndpointPassword' => 'DestinationEndpointPassword',
+        'destinationEndpointUserName' => 'DestinationEndpointUserName',
+        'partitionList' => 'PartitionList',
+        'regionId' => 'RegionId',
+        'sourceEndpointInstanceID' => 'SourceEndpointInstanceID',
+        'sourceEndpointPassword' => 'SourceEndpointPassword',
+        'sourceEndpointRegion' => 'SourceEndpointRegion',
+        'sourceEndpointUserName' => 'SourceEndpointUserName',
+        'targetTableMode' => 'TargetTableMode',
     ];
 
     public function validate()

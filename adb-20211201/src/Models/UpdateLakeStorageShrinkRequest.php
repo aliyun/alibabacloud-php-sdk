@@ -12,28 +12,32 @@ class UpdateLakeStorageShrinkRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $lakeStorageId;
+
     /**
      * @var string
      */
     public $permissionsShrink;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'DBClusterId'       => 'DBClusterId',
-        'description'       => 'Description',
-        'lakeStorageId'     => 'LakeStorageId',
+        'DBClusterId' => 'DBClusterId',
+        'description' => 'Description',
+        'lakeStorageId' => 'LakeStorageId',
         'permissionsShrink' => 'Permissions',
-        'regionId'          => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

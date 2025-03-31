@@ -12,28 +12,32 @@ class items extends Model
      * @var string
      */
     public $accessCount;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var string
      */
     public $reportDate;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $tableSchema;
     protected $_name = [
-        'accessCount'  => 'AccessCount',
+        'accessCount' => 'AccessCount',
         'instanceName' => 'InstanceName',
-        'reportDate'   => 'ReportDate',
-        'tableName'    => 'TableName',
-        'tableSchema'  => 'TableSchema',
+        'reportDate' => 'ReportDate',
+        'tableName' => 'TableName',
+        'tableSchema' => 'TableSchema',
     ];
 
     public function validate()

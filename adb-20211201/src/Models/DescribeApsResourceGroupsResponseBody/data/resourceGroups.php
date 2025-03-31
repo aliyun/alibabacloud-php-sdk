@@ -12,38 +12,44 @@ class resourceGroups extends Model
      * @var bool
      */
     public $available;
+
     /**
      * @var int[]
      */
     public $cuOptions;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $groupType;
+
     /**
      * @var int
      */
     public $leftComputeResource;
+
     /**
      * @var int
      */
     public $maxComputeResource;
+
     /**
      * @var int
      */
     public $minComputeResource;
     protected $_name = [
-        'available'           => 'Available',
-        'cuOptions'           => 'CuOptions',
-        'groupName'           => 'GroupName',
-        'groupType'           => 'GroupType',
+        'available' => 'Available',
+        'cuOptions' => 'CuOptions',
+        'groupName' => 'GroupName',
+        'groupType' => 'GroupType',
         'leftComputeResource' => 'LeftComputeResource',
-        'maxComputeResource'  => 'MaxComputeResource',
-        'minComputeResource'  => 'MinComputeResource',
+        'maxComputeResource' => 'MaxComputeResource',
+        'minComputeResource' => 'MinComputeResource',
     ];
 
     public function validate()
@@ -64,7 +70,7 @@ class resourceGroups extends Model
         if (null !== $this->cuOptions) {
             if (\is_array($this->cuOptions)) {
                 $res['CuOptions'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->cuOptions as $item1) {
                     $res['CuOptions'][$n1++] = $item1;
                 }
@@ -109,7 +115,7 @@ class resourceGroups extends Model
         if (isset($map['CuOptions'])) {
             if (!empty($map['CuOptions'])) {
                 $model->cuOptions = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['CuOptions'] as $item1) {
                     $model->cuOptions[$n1++] = $item1;
                 }

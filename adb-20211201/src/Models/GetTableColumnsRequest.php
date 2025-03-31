@@ -12,38 +12,44 @@ class GetTableColumnsRequest extends Model
      * @var string
      */
     public $columnName;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'columnName'  => 'ColumnName',
+        'columnName' => 'ColumnName',
         'DBClusterId' => 'DBClusterId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'schemaName'  => 'SchemaName',
-        'tableName'   => 'TableName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'schemaName' => 'SchemaName',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

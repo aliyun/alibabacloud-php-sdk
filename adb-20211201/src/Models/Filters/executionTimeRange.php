@@ -12,6 +12,7 @@ class executionTimeRange extends Model
      * @var int
      */
     public $maxTimeInSeconds;
+
     /**
      * @var int
      */

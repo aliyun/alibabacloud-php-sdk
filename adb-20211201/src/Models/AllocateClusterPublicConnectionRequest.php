@@ -12,18 +12,20 @@ class AllocateClusterPublicConnectionRequest extends Model
      * @var string
      */
     public $connectionStringPrefix;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $engine;
     protected $_name = [
         'connectionStringPrefix' => 'ConnectionStringPrefix',
-        'DBClusterId'            => 'DBClusterId',
-        'engine'                 => 'Engine',
+        'DBClusterId' => 'DBClusterId',
+        'engine' => 'Engine',
     ];
 
     public function validate()

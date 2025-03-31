@@ -12,13 +12,14 @@ class DeleteDBResourceGroupRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $groupName;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'groupName'   => 'GroupName',
+        'groupName' => 'GroupName',
     ];
 
     public function validate()

@@ -13,128 +13,152 @@ class querys extends Model
      * @var string
      */
     public $clientIp;
+
     /**
      * @var int
      */
     public $cost;
+
     /**
      * @var string
      */
     public $database;
+
     /**
      * @var int
      */
     public $etlWriteRows;
+
     /**
      * @var int
      */
     public $executionTime;
+
     /**
      * @var int
      */
     public $outputDataSize;
+
     /**
      * @var int
      */
     public $outputRows;
+
     /**
      * @var string
      */
     public $patternId;
+
     /**
      * @var int
      */
     public $peakMemory;
+
     /**
      * @var string
      */
     public $processId;
+
     /**
      * @var queryProperties[]
      */
     public $queryProperties;
+
     /**
      * @var int
      */
     public $queueTime;
+
     /**
      * @var string
      */
     public $rcHost;
+
     /**
      * @var int
      */
     public $resourceCostRank;
+
     /**
      * @var string
      */
     public $resourceGroup;
+
     /**
      * @var string
      */
     public $SQL;
+
     /**
      * @var bool
      */
     public $SQLTruncated;
+
     /**
      * @var int
      */
     public $SQLTruncatedThreshold;
+
     /**
      * @var int
      */
     public $scanRows;
+
     /**
      * @var int
      */
     public $scanSize;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $totalPlanningTime;
+
     /**
      * @var int
      */
     public $totalStages;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'clientIp'              => 'ClientIp',
-        'cost'                  => 'Cost',
-        'database'              => 'Database',
-        'etlWriteRows'          => 'EtlWriteRows',
-        'executionTime'         => 'ExecutionTime',
-        'outputDataSize'        => 'OutputDataSize',
-        'outputRows'            => 'OutputRows',
-        'patternId'             => 'PatternId',
-        'peakMemory'            => 'PeakMemory',
-        'processId'             => 'ProcessId',
-        'queryProperties'       => 'QueryProperties',
-        'queueTime'             => 'QueueTime',
-        'rcHost'                => 'RcHost',
-        'resourceCostRank'      => 'ResourceCostRank',
-        'resourceGroup'         => 'ResourceGroup',
-        'SQL'                   => 'SQL',
-        'SQLTruncated'          => 'SQLTruncated',
+        'clientIp' => 'ClientIp',
+        'cost' => 'Cost',
+        'database' => 'Database',
+        'etlWriteRows' => 'EtlWriteRows',
+        'executionTime' => 'ExecutionTime',
+        'outputDataSize' => 'OutputDataSize',
+        'outputRows' => 'OutputRows',
+        'patternId' => 'PatternId',
+        'peakMemory' => 'PeakMemory',
+        'processId' => 'ProcessId',
+        'queryProperties' => 'QueryProperties',
+        'queueTime' => 'QueueTime',
+        'rcHost' => 'RcHost',
+        'resourceCostRank' => 'ResourceCostRank',
+        'resourceGroup' => 'ResourceGroup',
+        'SQL' => 'SQL',
+        'SQLTruncated' => 'SQLTruncated',
         'SQLTruncatedThreshold' => 'SQLTruncatedThreshold',
-        'scanRows'              => 'ScanRows',
-        'scanSize'              => 'ScanSize',
-        'startTime'             => 'StartTime',
-        'status'                => 'Status',
-        'totalPlanningTime'     => 'TotalPlanningTime',
-        'totalStages'           => 'TotalStages',
-        'userName'              => 'UserName',
+        'scanRows' => 'ScanRows',
+        'scanSize' => 'ScanSize',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'totalPlanningTime' => 'TotalPlanningTime',
+        'totalStages' => 'TotalStages',
+        'userName' => 'UserName',
     ];
 
     public function validate()
@@ -191,7 +215,7 @@ class querys extends Model
         if (null !== $this->queryProperties) {
             if (\is_array($this->queryProperties)) {
                 $res['QueryProperties'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->queryProperties as $item1) {
                     $res['QueryProperties'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -308,7 +332,7 @@ class querys extends Model
         if (isset($map['QueryProperties'])) {
             if (!empty($map['QueryProperties'])) {
                 $model->queryProperties = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['QueryProperties'] as $item1) {
                     $model->queryProperties[$n1++] = queryProperties::fromMap($item1);
                 }

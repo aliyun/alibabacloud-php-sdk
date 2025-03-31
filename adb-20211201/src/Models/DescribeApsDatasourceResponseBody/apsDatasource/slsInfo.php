@@ -12,33 +12,38 @@ class slsInfo extends Model
      * @var bool
      */
     public $across;
+
     /**
      * @var string
      */
     public $acrossRole;
+
     /**
      * @var string
      */
     public $acrossUid;
+
     /**
      * @var string
      */
     public $project;
+
     /**
      * @var string
      */
     public $sourceRegionId;
+
     /**
      * @var string
      */
     public $store;
     protected $_name = [
-        'across'         => 'Across',
-        'acrossRole'     => 'AcrossRole',
-        'acrossUid'      => 'AcrossUid',
-        'project'        => 'Project',
+        'across' => 'Across',
+        'acrossRole' => 'AcrossRole',
+        'acrossUid' => 'AcrossUid',
+        'project' => 'Project',
         'sourceRegionId' => 'SourceRegionId',
-        'store'          => 'Store',
+        'store' => 'Store',
     ];
 
     public function validate()

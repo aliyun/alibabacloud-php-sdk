@@ -13,43 +13,50 @@ class OperatorNode extends Model
      * @var OperatorNode[]
      */
     public $children;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $levelWidth;
+
     /**
      * @var int
      */
     public $nodeDepth;
+
     /**
      * @var string
      */
     public $nodeName;
+
     /**
      * @var int
      */
     public $nodeWidth;
+
     /**
      * @var int
      */
     public $parentId;
+
     /**
      * @var stats
      */
     public $stats;
     protected $_name = [
-        'children'   => 'children',
-        'id'         => 'id',
+        'children' => 'children',
+        'id' => 'id',
         'levelWidth' => 'levelWidth',
-        'nodeDepth'  => 'nodeDepth',
-        'nodeName'   => 'nodeName',
-        'nodeWidth'  => 'nodeWidth',
-        'parentId'   => 'parentId',
-        'stats'      => 'stats',
+        'nodeDepth' => 'nodeDepth',
+        'nodeName' => 'nodeName',
+        'nodeWidth' => 'nodeWidth',
+        'parentId' => 'parentId',
+        'stats' => 'stats',
     ];
 
     public function validate()
@@ -69,7 +76,7 @@ class OperatorNode extends Model
         if (null !== $this->children) {
             if (\is_array($this->children)) {
                 $res['children'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->children as $item1) {
                     $res['children'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -118,7 +125,7 @@ class OperatorNode extends Model
         if (isset($map['children'])) {
             if (!empty($map['children'])) {
                 $model->children = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['children'] as $item1) {
                     $model->children[$n1++] = self::fromMap($item1);
                 }

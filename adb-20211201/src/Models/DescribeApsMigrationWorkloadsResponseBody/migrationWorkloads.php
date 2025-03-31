@@ -12,57 +12,67 @@ class migrationWorkloads extends Model
      * @var int
      */
     public $acuCount;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $failedMsg;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $maxRT;
+
     /**
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ossLocation;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $targetType;
+
     /**
      * @var string
      */
     public $workloadSubType;
     protected $_name = [
-        'acuCount'        => 'AcuCount',
-        'createTime'      => 'CreateTime',
-        'failedMsg'       => 'FailedMsg',
-        'id'              => 'Id',
-        'maxRT'           => 'MaxRT',
-        'modifyTime'      => 'ModifyTime',
-        'name'            => 'Name',
-        'ossLocation'     => 'OssLocation',
-        'state'           => 'State',
-        'targetType'      => 'TargetType',
+        'acuCount' => 'AcuCount',
+        'createTime' => 'CreateTime',
+        'failedMsg' => 'FailedMsg',
+        'id' => 'Id',
+        'maxRT' => 'MaxRT',
+        'modifyTime' => 'ModifyTime',
+        'name' => 'Name',
+        'ossLocation' => 'OssLocation',
+        'state' => 'State',
+        'targetType' => 'TargetType',
         'workloadSubType' => 'WorkloadSubType',
     ];
 

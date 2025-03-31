@@ -12,43 +12,50 @@ class APSJobDetail extends Model
      * @var string
      */
     public $dbList;
+
     /**
      * @var string
      */
     public $destinationEndpointInstanceID;
+
     /**
      * @var string
      */
     public $destinationEndpointRegion;
+
     /**
      * @var string
      */
     public $partitionList;
+
     /**
      * @var string
      */
     public $sourceEndpointInstanceID;
+
     /**
      * @var string
      */
     public $sourceEndpointRegion;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $targetTableMode;
     protected $_name = [
-        'dbList'                        => 'DbList',
+        'dbList' => 'DbList',
         'destinationEndpointInstanceID' => 'DestinationEndpointInstanceID',
-        'destinationEndpointRegion'     => 'DestinationEndpointRegion',
-        'partitionList'                 => 'PartitionList',
-        'sourceEndpointInstanceID'      => 'SourceEndpointInstanceID',
-        'sourceEndpointRegion'          => 'SourceEndpointRegion',
-        'status'                        => 'Status',
-        'targetTableMode'               => 'TargetTableMode',
+        'destinationEndpointRegion' => 'DestinationEndpointRegion',
+        'partitionList' => 'PartitionList',
+        'sourceEndpointInstanceID' => 'SourceEndpointInstanceID',
+        'sourceEndpointRegion' => 'SourceEndpointRegion',
+        'status' => 'Status',
+        'targetTableMode' => 'TargetTableMode',
     ];
 
     public function validate()

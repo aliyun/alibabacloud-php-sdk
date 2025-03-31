@@ -12,37 +12,43 @@ class ListApsOptimizationTasksRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $strategyType;
     protected $_name = [
-        'DBClusterId'  => 'DBClusterId',
-        'endTime'      => 'EndTime',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'regionId'     => 'RegionId',
-        'startTime'    => 'StartTime',
+        'DBClusterId' => 'DBClusterId',
+        'endTime' => 'EndTime',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
         'strategyType' => 'StrategyType',
     ];
 

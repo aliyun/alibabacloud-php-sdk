@@ -12,48 +12,56 @@ class results extends Model
      * @var string
      */
     public $accessIp;
+
     /**
      * @var string
      */
     public $detail;
+
     /**
      * @var int
      */
     public $failedCount;
+
     /**
      * @var string
      */
     public $patternId;
+
     /**
      * @var int
      */
     public $queryCount;
+
     /**
      * @var string
      */
     public $relatedMetrics;
+
     /**
      * @var string
      */
     public $SQLPattern;
+
     /**
      * @var string
      */
     public $tables;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'accessIp'       => 'AccessIp',
-        'detail'         => 'Detail',
-        'failedCount'    => 'FailedCount',
-        'patternId'      => 'PatternId',
-        'queryCount'     => 'QueryCount',
+        'accessIp' => 'AccessIp',
+        'detail' => 'Detail',
+        'failedCount' => 'FailedCount',
+        'patternId' => 'PatternId',
+        'queryCount' => 'QueryCount',
         'relatedMetrics' => 'RelatedMetrics',
-        'SQLPattern'     => 'SQLPattern',
-        'tables'         => 'Tables',
-        'user'           => 'User',
+        'SQLPattern' => 'SQLPattern',
+        'tables' => 'Tables',
+        'user' => 'User',
     ];
 
     public function validate()

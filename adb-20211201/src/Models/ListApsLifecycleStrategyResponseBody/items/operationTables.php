@@ -12,18 +12,20 @@ class operationTables extends Model
      * @var string
      */
     public $databaseName;
+
     /**
      * @var string
      */
     public $processAll;
+
     /**
      * @var string[]
      */
     public $tableNames;
     protected $_name = [
         'databaseName' => 'DatabaseName',
-        'processAll'   => 'ProcessAll',
-        'tableNames'   => 'TableNames',
+        'processAll' => 'ProcessAll',
+        'tableNames' => 'TableNames',
     ];
 
     public function validate()
@@ -48,7 +50,7 @@ class operationTables extends Model
         if (null !== $this->tableNames) {
             if (\is_array($this->tableNames)) {
                 $res['TableNames'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->tableNames as $item1) {
                     $res['TableNames'][$n1++] = $item1;
                 }
@@ -77,7 +79,7 @@ class operationTables extends Model
         if (isset($map['TableNames'])) {
             if (!empty($map['TableNames'])) {
                 $model->tableNames = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['TableNames'] as $item1) {
                     $model->tableNames[$n1++] = $item1;
                 }

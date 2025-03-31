@@ -12,57 +12,67 @@ class items extends Model
      * @var string
      */
     public $adviceDate;
+
     /**
      * @var string
      */
     public $adviceId;
+
     /**
      * @var string
      */
     public $adviceType;
+
     /**
      * @var string
      */
     public $benefit;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $reason;
+
     /**
      * @var string
      */
     public $SQL;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'adviceDate' => 'AdviceDate',
-        'adviceId'   => 'AdviceId',
+        'adviceId' => 'AdviceId',
         'adviceType' => 'AdviceType',
-        'benefit'    => 'Benefit',
+        'benefit' => 'Benefit',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'reason'     => 'Reason',
-        'SQL'        => 'SQL',
+        'pageSize' => 'PageSize',
+        'reason' => 'Reason',
+        'SQL' => 'SQL',
         'schemaName' => 'SchemaName',
-        'tableName'  => 'TableName',
+        'tableName' => 'TableName',
         'totalCount' => 'TotalCount',
     ];
 

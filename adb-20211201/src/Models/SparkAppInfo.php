@@ -12,38 +12,44 @@ class SparkAppInfo extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $appName;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var Detail
      */
     public $detail;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $priority;
+
     /**
      * @var string
      */
     public $state;
     protected $_name = [
-        'appId'       => 'AppId',
-        'appName'     => 'AppName',
+        'appId' => 'AppId',
+        'appName' => 'AppName',
         'DBClusterId' => 'DBClusterId',
-        'detail'      => 'Detail',
-        'message'     => 'Message',
-        'priority'    => 'Priority',
-        'state'       => 'State',
+        'detail' => 'Detail',
+        'message' => 'Message',
+        'priority' => 'Priority',
+        'state' => 'State',
     ];
 
     public function validate()

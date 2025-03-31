@@ -12,18 +12,20 @@ class ModifyDBClusterResponseBody extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'orderId'     => 'OrderId',
-        'requestId'   => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

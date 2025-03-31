@@ -12,28 +12,32 @@ class keys extends Model
      * @var bool
      */
     public $enableAutoMc;
+
     /**
      * @var string[]
      */
     public $engine;
+
     /**
      * @var string[]
      */
     public $groupType;
+
     /**
      * @var string
      */
     public $keyName;
+
     /**
      * @var bool
      */
     public $selected;
     protected $_name = [
         'enableAutoMc' => 'EnableAutoMc',
-        'engine'       => 'Engine',
-        'groupType'    => 'GroupType',
-        'keyName'      => 'KeyName',
-        'selected'     => 'Selected',
+        'engine' => 'Engine',
+        'groupType' => 'GroupType',
+        'keyName' => 'KeyName',
+        'selected' => 'Selected',
     ];
 
     public function validate()
@@ -57,7 +61,7 @@ class keys extends Model
         if (null !== $this->engine) {
             if (\is_array($this->engine)) {
                 $res['Engine'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->engine as $item1) {
                     $res['Engine'][$n1++] = $item1;
                 }
@@ -67,7 +71,7 @@ class keys extends Model
         if (null !== $this->groupType) {
             if (\is_array($this->groupType)) {
                 $res['GroupType'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->groupType as $item1) {
                     $res['GroupType'][$n1++] = $item1;
                 }
@@ -100,7 +104,7 @@ class keys extends Model
         if (isset($map['Engine'])) {
             if (!empty($map['Engine'])) {
                 $model->engine = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Engine'] as $item1) {
                     $model->engine[$n1++] = $item1;
                 }
@@ -110,7 +114,7 @@ class keys extends Model
         if (isset($map['GroupType'])) {
             if (!empty($map['GroupType'])) {
                 $model->groupType = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['GroupType'] as $item1) {
                     $model->groupType[$n1++] = $item1;
                 }

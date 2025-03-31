@@ -13,22 +13,25 @@ class data extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var TableDetailModel
      */
     public $table;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'table'      => 'Table',
+        'pageSize' => 'PageSize',
+        'table' => 'Table',
         'totalCount' => 'TotalCount',
     ];
 

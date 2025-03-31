@@ -12,18 +12,20 @@ class DescribeSparkCodeWebUiRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'jobId'       => 'JobId',
-        'regionId'    => 'RegionId',
+        'jobId' => 'JobId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

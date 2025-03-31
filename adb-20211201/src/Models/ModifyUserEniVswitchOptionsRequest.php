@@ -12,38 +12,44 @@ class ModifyUserEniVswitchOptionsRequest extends Model
      * @var string
      */
     public $dbClusterId;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $vSwitchOptions;
     protected $_name = [
-        'dbClusterId'          => 'DbClusterId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'dbClusterId' => 'DbClusterId',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'vSwitchOptions'       => 'VSwitchOptions',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'vSwitchOptions' => 'VSwitchOptions',
     ];
 
     public function validate()

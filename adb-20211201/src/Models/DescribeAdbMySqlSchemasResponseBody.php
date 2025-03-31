@@ -12,23 +12,26 @@ class DescribeAdbMySqlSchemasResponseBody extends Model
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
     public $schemas;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'message'   => 'Message',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'schemas'   => 'Schemas',
-        'success'   => 'Success',
+        'schemas' => 'Schemas',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -53,7 +56,7 @@ class DescribeAdbMySqlSchemasResponseBody extends Model
         if (null !== $this->schemas) {
             if (\is_array($this->schemas)) {
                 $res['Schemas'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->schemas as $item1) {
                     $res['Schemas'][$n1++] = $item1;
                 }
@@ -86,7 +89,7 @@ class DescribeAdbMySqlSchemasResponseBody extends Model
         if (isset($map['Schemas'])) {
             if (!empty($map['Schemas'])) {
                 $model->schemas = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Schemas'] as $item1) {
                     $model->schemas[$n1++] = $item1;
                 }

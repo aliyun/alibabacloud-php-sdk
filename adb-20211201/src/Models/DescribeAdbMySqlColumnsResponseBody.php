@@ -13,38 +13,44 @@ class DescribeAdbMySqlColumnsResponseBody extends Model
      * @var int
      */
     public $columnCount;
+
     /**
      * @var columns[]
      */
     public $columns;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $schema;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
         'columnCount' => 'ColumnCount',
-        'columns'     => 'Columns',
-        'message'     => 'Message',
-        'requestId'   => 'RequestId',
-        'schema'      => 'Schema',
-        'success'     => 'Success',
-        'tableName'   => 'TableName',
+        'columns' => 'Columns',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'schema' => 'Schema',
+        'success' => 'Success',
+        'tableName' => 'TableName',
     ];
 
     public function validate()
@@ -65,7 +71,7 @@ class DescribeAdbMySqlColumnsResponseBody extends Model
         if (null !== $this->columns) {
             if (\is_array($this->columns)) {
                 $res['Columns'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->columns as $item1) {
                     $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -110,7 +116,7 @@ class DescribeAdbMySqlColumnsResponseBody extends Model
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
                     $model->columns[$n1++] = columns::fromMap($item1);
                 }

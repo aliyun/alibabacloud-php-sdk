@@ -12,48 +12,56 @@ class TableDetailModel extends Model
      * @var string
      */
     public $catalog;
+
     /**
      * @var ColDetailModel[]
      */
     public $columns;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $owner;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $tableType;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'catalog'     => 'Catalog',
-        'columns'     => 'Columns',
-        'createTime'  => 'CreateTime',
+        'catalog' => 'Catalog',
+        'columns' => 'Columns',
+        'createTime' => 'CreateTime',
         'description' => 'Description',
-        'owner'       => 'Owner',
-        'schemaName'  => 'SchemaName',
-        'tableName'   => 'TableName',
-        'tableType'   => 'TableType',
-        'updateTime'  => 'UpdateTime',
+        'owner' => 'Owner',
+        'schemaName' => 'SchemaName',
+        'tableName' => 'TableName',
+        'tableType' => 'TableType',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -74,7 +82,7 @@ class TableDetailModel extends Model
         if (null !== $this->columns) {
             if (\is_array($this->columns)) {
                 $res['Columns'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->columns as $item1) {
                     $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -127,7 +135,7 @@ class TableDetailModel extends Model
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
                     $model->columns[$n1++] = ColDetailModel::fromMap($item1);
                 }

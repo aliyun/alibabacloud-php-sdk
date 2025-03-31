@@ -12,48 +12,56 @@ class CstoreIndexModel extends Model
      * @var string[]
      */
     public $columnOrds;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $databaseName;
+
     /**
      * @var FieldSchemaModel[]
      */
     public $indexColumns;
+
     /**
      * @var string
      */
     public $indexName;
+
     /**
      * @var string
      */
     public $indexType;
+
     /**
      * @var string[]
      */
     public $options;
+
     /**
      * @var string
      */
     public $physicalTableName;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'columnOrds'        => 'ColumnOrds',
-        'createTime'        => 'CreateTime',
-        'databaseName'      => 'DatabaseName',
-        'indexColumns'      => 'IndexColumns',
-        'indexName'         => 'IndexName',
-        'indexType'         => 'IndexType',
-        'options'           => 'Options',
+        'columnOrds' => 'ColumnOrds',
+        'createTime' => 'CreateTime',
+        'databaseName' => 'DatabaseName',
+        'indexColumns' => 'IndexColumns',
+        'indexName' => 'IndexName',
+        'indexType' => 'IndexType',
+        'options' => 'Options',
         'physicalTableName' => 'PhysicalTableName',
-        'updateTime'        => 'UpdateTime',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -76,7 +84,7 @@ class CstoreIndexModel extends Model
         if (null !== $this->columnOrds) {
             if (\is_array($this->columnOrds)) {
                 $res['ColumnOrds'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->columnOrds as $item1) {
                     $res['ColumnOrds'][$n1++] = $item1;
                 }
@@ -94,7 +102,7 @@ class CstoreIndexModel extends Model
         if (null !== $this->indexColumns) {
             if (\is_array($this->indexColumns)) {
                 $res['IndexColumns'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->indexColumns as $item1) {
                     $res['IndexColumns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -140,7 +148,7 @@ class CstoreIndexModel extends Model
         if (isset($map['ColumnOrds'])) {
             if (!empty($map['ColumnOrds'])) {
                 $model->columnOrds = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ColumnOrds'] as $item1) {
                     $model->columnOrds[$n1++] = $item1;
                 }
@@ -158,7 +166,7 @@ class CstoreIndexModel extends Model
         if (isset($map['IndexColumns'])) {
             if (!empty($map['IndexColumns'])) {
                 $model->indexColumns = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['IndexColumns'] as $item1) {
                     $model->indexColumns[$n1++] = FieldSchemaModel::fromMap($item1);
                 }

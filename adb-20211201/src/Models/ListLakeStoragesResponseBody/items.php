@@ -13,73 +13,86 @@ class items extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $creatorUid;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $fileSize;
+
     /**
      * @var string
      */
     public $lakeStorageId;
+
     /**
      * @var string
      */
     public $operatorUid;
+
     /**
      * @var string
      */
     public $ownerUid;
+
     /**
      * @var permissions[]
      */
     public $permissions;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $tableCount;
+
     /**
      * @var int
      */
     public $totalRows;
+
     /**
      * @var string
      */
     public $totalStorage;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'    => 'CreateTime',
-        'creatorUid'    => 'CreatorUid',
-        'DBClusterId'   => 'DBClusterId',
-        'description'   => 'Description',
-        'fileSize'      => 'FileSize',
+        'createTime' => 'CreateTime',
+        'creatorUid' => 'CreatorUid',
+        'DBClusterId' => 'DBClusterId',
+        'description' => 'Description',
+        'fileSize' => 'FileSize',
         'lakeStorageId' => 'LakeStorageId',
-        'operatorUid'   => 'OperatorUid',
-        'ownerUid'      => 'OwnerUid',
-        'permissions'   => 'Permissions',
-        'regionId'      => 'RegionId',
-        'tableCount'    => 'TableCount',
-        'totalRows'     => 'TotalRows',
-        'totalStorage'  => 'TotalStorage',
-        'updateTime'    => 'UpdateTime',
+        'operatorUid' => 'OperatorUid',
+        'ownerUid' => 'OwnerUid',
+        'permissions' => 'Permissions',
+        'regionId' => 'RegionId',
+        'tableCount' => 'TableCount',
+        'totalRows' => 'TotalRows',
+        'totalStorage' => 'TotalStorage',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
@@ -128,7 +141,7 @@ class items extends Model
         if (null !== $this->permissions) {
             if (\is_array($this->permissions)) {
                 $res['Permissions'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->permissions as $item1) {
                     $res['Permissions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -201,7 +214,7 @@ class items extends Model
         if (isset($map['Permissions'])) {
             if (!empty($map['Permissions'])) {
                 $model->permissions = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Permissions'] as $item1) {
                     $model->permissions[$n1++] = permissions::fromMap($item1);
                 }

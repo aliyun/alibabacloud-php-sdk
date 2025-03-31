@@ -12,13 +12,14 @@ class CreateOssSubDirectoryRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $path;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'path'        => 'Path',
+        'path' => 'Path',
     ];
 
     public function validate()

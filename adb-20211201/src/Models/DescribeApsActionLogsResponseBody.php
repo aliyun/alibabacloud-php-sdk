@@ -13,43 +13,50 @@ class DescribeApsActionLogsResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var actionLogs[]
      */
     public $actionLogs;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
+
     /**
      * @var string
      */
     public $workloadId;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'actionLogs'         => 'ActionLogs',
-        'DBClusterId'        => 'DBClusterId',
-        'pageNumber'         => 'PageNumber',
-        'pageSize'           => 'PageSize',
-        'requestId'          => 'RequestId',
-        'totalCount'         => 'TotalCount',
-        'workloadId'         => 'WorkloadId',
+        'actionLogs' => 'ActionLogs',
+        'DBClusterId' => 'DBClusterId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
+        'workloadId' => 'WorkloadId',
     ];
 
     public function validate()
@@ -70,7 +77,7 @@ class DescribeApsActionLogsResponseBody extends Model
         if (null !== $this->actionLogs) {
             if (\is_array($this->actionLogs)) {
                 $res['ActionLogs'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->actionLogs as $item1) {
                     $res['ActionLogs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -119,7 +126,7 @@ class DescribeApsActionLogsResponseBody extends Model
         if (isset($map['ActionLogs'])) {
             if (!empty($map['ActionLogs'])) {
                 $model->actionLogs = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ActionLogs'] as $item1) {
                     $model->actionLogs[$n1++] = actionLogs::fromMap($item1);
                 }

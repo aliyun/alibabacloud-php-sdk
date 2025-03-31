@@ -12,23 +12,26 @@ class ModifyApsJobRequest extends Model
      * @var string
      */
     public $apsJobId;
+
     /**
      * @var string
      */
     public $dbList;
+
     /**
      * @var string
      */
     public $partitionList;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'apsJobId'      => 'ApsJobId',
-        'dbList'        => 'DbList',
+        'apsJobId' => 'ApsJobId',
+        'dbList' => 'DbList',
         'partitionList' => 'PartitionList',
-        'regionId'      => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

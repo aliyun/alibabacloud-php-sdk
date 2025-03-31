@@ -12,23 +12,26 @@ class hiveInfo extends Model
      * @var string
      */
     public $emrClusterId;
+
     /**
      * @var string
      */
     public $metaStoreUri;
+
     /**
      * @var string
      */
     public $securityGroup;
+
     /**
      * @var string
      */
     public $vswitch;
     protected $_name = [
-        'emrClusterId'  => 'EmrClusterId',
-        'metaStoreUri'  => 'MetaStoreUri',
+        'emrClusterId' => 'EmrClusterId',
+        'metaStoreUri' => 'MetaStoreUri',
         'securityGroup' => 'SecurityGroup',
-        'vswitch'       => 'Vswitch',
+        'vswitch' => 'Vswitch',
     ];
 
     public function validate()

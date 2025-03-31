@@ -13,33 +13,38 @@ class DescribeAppliedAdvicesResponseBody extends Model
      * @var items[]
      */
     public $items;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
     public $schemaTableNames;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'items'            => 'Items',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'requestId'        => 'RequestId',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'schemaTableNames' => 'SchemaTableNames',
-        'totalCount'       => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -59,7 +64,7 @@ class DescribeAppliedAdvicesResponseBody extends Model
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['Items'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->items as $item1) {
                     $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -81,7 +86,7 @@ class DescribeAppliedAdvicesResponseBody extends Model
         if (null !== $this->schemaTableNames) {
             if (\is_array($this->schemaTableNames)) {
                 $res['SchemaTableNames'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->schemaTableNames as $item1) {
                     $res['SchemaTableNames'][$n1++] = $item1;
                 }
@@ -106,7 +111,7 @@ class DescribeAppliedAdvicesResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Items'] as $item1) {
                     $model->items[$n1++] = items::fromMap($item1);
                 }
@@ -128,7 +133,7 @@ class DescribeAppliedAdvicesResponseBody extends Model
         if (isset($map['SchemaTableNames'])) {
             if (!empty($map['SchemaTableNames'])) {
                 $model->schemaTableNames = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['SchemaTableNames'] as $item1) {
                     $model->schemaTableNames[$n1++] = $item1;
                 }

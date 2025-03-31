@@ -12,53 +12,62 @@ class CreatePerformanceViewShrinkRequest extends Model
      * @var string
      */
     public $createFromViewType;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var bool
      */
     public $fillOriginViewKeys;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
+
     /**
      * @var string
      */
     public $viewDetailShrink;
+
     /**
      * @var string
      */
     public $viewName;
     protected $_name = [
-        'createFromViewType'   => 'CreateFromViewType',
-        'DBClusterId'          => 'DBClusterId',
-        'fillOriginViewKeys'   => 'FillOriginViewKeys',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
+        'createFromViewType' => 'CreateFromViewType',
+        'DBClusterId' => 'DBClusterId',
+        'fillOriginViewKeys' => 'FillOriginViewKeys',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'regionId' => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'viewDetailShrink'     => 'ViewDetail',
-        'viewName'             => 'ViewName',
+        'resourceOwnerId' => 'ResourceOwnerId',
+        'viewDetailShrink' => 'ViewDetail',
+        'viewName' => 'ViewName',
     ];
 
     public function validate()

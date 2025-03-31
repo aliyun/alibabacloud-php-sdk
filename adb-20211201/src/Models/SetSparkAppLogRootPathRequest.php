@@ -12,17 +12,19 @@ class SetSparkAppLogRootPathRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $ossLogPath;
+
     /**
      * @var bool
      */
     public $useDefaultOss;
     protected $_name = [
-        'DBClusterId'   => 'DBClusterId',
-        'ossLogPath'    => 'OssLogPath',
+        'DBClusterId' => 'DBClusterId',
+        'ossLogPath' => 'OssLogPath',
         'useDefaultOss' => 'UseDefaultOss',
     ];
 

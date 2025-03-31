@@ -12,18 +12,20 @@ class DescribeElasticPlanSpecificationsRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $resourceGroupName;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'DBClusterId'       => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'resourceGroupName' => 'ResourceGroupName',
-        'type'              => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

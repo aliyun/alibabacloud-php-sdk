@@ -12,13 +12,14 @@ class items extends Model
      * @var string
      */
     public $diskUsageRatio;
+
     /**
      * @var string
      */
     public $node;
     protected $_name = [
         'diskUsageRatio' => 'DiskUsageRatio',
-        'node'           => 'Node',
+        'node' => 'Node',
     ];
 
     public function validate()

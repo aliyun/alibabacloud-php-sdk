@@ -12,52 +12,61 @@ class ListResultExportJobHistoryShrinkRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $databaseUser;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $orderShrink;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroup;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $statusListShrink;
     protected $_name = [
-        'DBClusterId'      => 'DBClusterId',
-        'databaseUser'     => 'DatabaseUser',
-        'endTime'          => 'EndTime',
-        'orderShrink'      => 'Order',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'regionId'         => 'RegionId',
-        'resourceGroup'    => 'ResourceGroup',
-        'startTime'        => 'StartTime',
+        'DBClusterId' => 'DBClusterId',
+        'databaseUser' => 'DatabaseUser',
+        'endTime' => 'EndTime',
+        'orderShrink' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'resourceGroup' => 'ResourceGroup',
+        'startTime' => 'StartTime',
         'statusListShrink' => 'StatusList',
     ];
 

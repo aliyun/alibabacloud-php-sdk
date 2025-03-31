@@ -12,18 +12,20 @@ class DescribeSparkAppTypeResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'requestId'          => 'RequestId',
-        'type'               => 'Type',
+        'requestId' => 'RequestId',
+        'type' => 'Type',
     ];
 
     public function validate()

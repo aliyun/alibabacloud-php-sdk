@@ -12,23 +12,26 @@ class ModifyDBClusterVipRequest extends Model
      * @var string
      */
     public $connectString;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
         'connectString' => 'ConnectString',
-        'DBClusterId'   => 'DBClusterId',
-        'VPCId'         => 'VPCId',
-        'vSwitchId'     => 'VSwitchId',
+        'DBClusterId' => 'DBClusterId',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
     ];
 
     public function validate()

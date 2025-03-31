@@ -13,28 +13,32 @@ class DescribeApsProgressResponseBody extends Model
      * @var apsHiveProgress[]
      */
     public $apsHiveProgress;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $successPercentage;
+
     /**
      * @var int
      */
     public $successTableCount;
+
     /**
      * @var int
      */
     public $totalTableCount;
     protected $_name = [
-        'apsHiveProgress'   => 'ApsHiveProgress',
-        'requestId'         => 'RequestId',
+        'apsHiveProgress' => 'ApsHiveProgress',
+        'requestId' => 'RequestId',
         'successPercentage' => 'SuccessPercentage',
         'successTableCount' => 'SuccessTableCount',
-        'totalTableCount'   => 'TotalTableCount',
+        'totalTableCount' => 'TotalTableCount',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class DescribeApsProgressResponseBody extends Model
         if (null !== $this->apsHiveProgress) {
             if (\is_array($this->apsHiveProgress)) {
                 $res['ApsHiveProgress'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->apsHiveProgress as $item1) {
                     $res['ApsHiveProgress'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class DescribeApsProgressResponseBody extends Model
         if (isset($map['ApsHiveProgress'])) {
             if (!empty($map['ApsHiveProgress'])) {
                 $model->apsHiveProgress = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ApsHiveProgress'] as $item1) {
                     $model->apsHiveProgress[$n1++] = apsHiveProgress::fromMap($item1);
                 }

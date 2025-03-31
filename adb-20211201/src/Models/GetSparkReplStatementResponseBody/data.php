@@ -12,57 +12,67 @@ class data extends Model
      * @var int
      */
     public $aliyunUid;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $codeState;
+
     /**
      * @var string
      */
     public $codeType;
+
     /**
      * @var string[]
      */
     public $columns;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $error;
+
     /**
      * @var string
      */
     public $output;
+
     /**
      * @var string
      */
     public $outputType;
+
     /**
      * @var int
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $statementId;
     protected $_name = [
-        'aliyunUid'   => 'AliyunUid',
-        'code'        => 'Code',
-        'codeState'   => 'CodeState',
-        'codeType'    => 'CodeType',
-        'columns'     => 'Columns',
-        'endTime'     => 'EndTime',
-        'error'       => 'Error',
-        'output'      => 'Output',
-        'outputType'  => 'OutputType',
-        'startTime'   => 'StartTime',
+        'aliyunUid' => 'AliyunUid',
+        'code' => 'Code',
+        'codeState' => 'CodeState',
+        'codeType' => 'CodeType',
+        'columns' => 'Columns',
+        'endTime' => 'EndTime',
+        'error' => 'Error',
+        'output' => 'Output',
+        'outputType' => 'OutputType',
+        'startTime' => 'StartTime',
         'statementId' => 'StatementId',
     ];
 
@@ -96,7 +106,7 @@ class data extends Model
         if (null !== $this->columns) {
             if (\is_array($this->columns)) {
                 $res['Columns'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->columns as $item1) {
                     $res['Columns'][$n1++] = $item1;
                 }
@@ -157,7 +167,7 @@ class data extends Model
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
                     $model->columns[$n1++] = $item1;
                 }

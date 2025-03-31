@@ -12,17 +12,19 @@ class StartSparkReplSessionRequest extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $resourceGroupName;
     protected $_name = [
-        'config'            => 'Config',
-        'DBClusterId'       => 'DBClusterId',
+        'config' => 'Config',
+        'DBClusterId' => 'DBClusterId',
         'resourceGroupName' => 'ResourceGroupName',
     ];
 

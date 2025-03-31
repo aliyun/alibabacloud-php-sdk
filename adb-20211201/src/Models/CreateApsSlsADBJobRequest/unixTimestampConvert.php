@@ -12,17 +12,19 @@ class unixTimestampConvert extends Model
      * @var string
      */
     public $convert;
+
     /**
      * @var string
      */
     public $format;
+
     /**
      * @var bool
      */
     public $transform;
     protected $_name = [
-        'convert'   => 'Convert',
-        'format'    => 'Format',
+        'convert' => 'Convert',
+        'format' => 'Format',
         'transform' => 'Transform',
     ];
 

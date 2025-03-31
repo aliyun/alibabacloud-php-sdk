@@ -12,38 +12,44 @@ class DescribeDiagnosisSQLInfoRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $processId;
+
     /**
      * @var string
      */
     public $processRcHost;
+
     /**
      * @var int
      */
     public $processStartTime;
+
     /**
      * @var string
      */
     public $processState;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'DBClusterId'      => 'DBClusterId',
-        'lang'             => 'Lang',
-        'processId'        => 'ProcessId',
-        'processRcHost'    => 'ProcessRcHost',
+        'DBClusterId' => 'DBClusterId',
+        'lang' => 'Lang',
+        'processId' => 'ProcessId',
+        'processRcHost' => 'ProcessRcHost',
         'processStartTime' => 'ProcessStartTime',
-        'processState'     => 'ProcessState',
-        'regionId'         => 'RegionId',
+        'processState' => 'ProcessState',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

@@ -13,18 +13,20 @@ class data extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var privileges[]
      */
     public $privileges;
+
     /**
      * @var string
      */
     public $scope;
     protected $_name = [
         'description' => 'Description',
-        'privileges'  => 'Privileges',
-        'scope'       => 'Scope',
+        'privileges' => 'Privileges',
+        'scope' => 'Scope',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class data extends Model
         if (null !== $this->privileges) {
             if (\is_array($this->privileges)) {
                 $res['Privileges'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->privileges as $item1) {
                     $res['Privileges'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class data extends Model
         if (isset($map['Privileges'])) {
             if (!empty($map['Privileges'])) {
                 $model->privileges = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Privileges'] as $item1) {
                     $model->privileges[$n1++] = privileges::fromMap($item1);
                 }

@@ -13,13 +13,14 @@ class DescribeApsHiveWorkloadResponseBody extends Model
      * @var apsWorkload
      */
     public $apsWorkload;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'apsWorkload' => 'ApsWorkload',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

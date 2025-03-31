@@ -13,17 +13,19 @@ class viewDetail extends Model
      * @var categories[]
      */
     public $categories;
+
     /**
      * @var bool
      */
     public $chartLinked;
+
     /**
      * @var int
      */
     public $chartsPerLine;
     protected $_name = [
-        'categories'    => 'Categories',
-        'chartLinked'   => 'ChartLinked',
+        'categories' => 'Categories',
+        'chartLinked' => 'ChartLinked',
         'chartsPerLine' => 'ChartsPerLine',
     ];
 
@@ -41,7 +43,7 @@ class viewDetail extends Model
         if (null !== $this->categories) {
             if (\is_array($this->categories)) {
                 $res['Categories'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->categories as $item1) {
                     $res['Categories'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class viewDetail extends Model
         if (isset($map['Categories'])) {
             if (!empty($map['Categories'])) {
                 $model->categories = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Categories'] as $item1) {
                     $model->categories[$n1++] = categories::fromMap($item1);
                 }

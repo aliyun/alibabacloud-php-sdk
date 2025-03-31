@@ -12,28 +12,32 @@ class DescribeElasticPlanSpecificationsResponseBody extends Model
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
     public $specifications;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'specifications' => 'Specifications',
-        'totalCount'     => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -62,7 +66,7 @@ class DescribeElasticPlanSpecificationsResponseBody extends Model
         if (null !== $this->specifications) {
             if (\is_array($this->specifications)) {
                 $res['Specifications'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->specifications as $item1) {
                     $res['Specifications'][$n1++] = $item1;
                 }
@@ -99,7 +103,7 @@ class DescribeElasticPlanSpecificationsResponseBody extends Model
         if (isset($map['Specifications'])) {
             if (!empty($map['Specifications'])) {
                 $model->specifications = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['Specifications'] as $item1) {
                     $model->specifications[$n1++] = $item1;
                 }

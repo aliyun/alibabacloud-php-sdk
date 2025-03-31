@@ -13,53 +13,62 @@ class DescribePatternPerformanceResponseBody extends Model
      * @var string
      */
     public $accessIp;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $failedCount;
+
     /**
      * @var performances[]
      */
     public $performances;
+
     /**
      * @var int
      */
     public $queryCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $SQLPattern;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var string
      */
     public $tables;
+
     /**
      * @var string
      */
     public $user;
     protected $_name = [
-        'accessIp'     => 'AccessIp',
-        'endTime'      => 'EndTime',
-        'failedCount'  => 'FailedCount',
+        'accessIp' => 'AccessIp',
+        'endTime' => 'EndTime',
+        'failedCount' => 'FailedCount',
         'performances' => 'Performances',
-        'queryCount'   => 'QueryCount',
-        'requestId'    => 'RequestId',
-        'SQLPattern'   => 'SQLPattern',
-        'startTime'    => 'StartTime',
-        'tables'       => 'Tables',
-        'user'         => 'User',
+        'queryCount' => 'QueryCount',
+        'requestId' => 'RequestId',
+        'SQLPattern' => 'SQLPattern',
+        'startTime' => 'StartTime',
+        'tables' => 'Tables',
+        'user' => 'User',
     ];
 
     public function validate()
@@ -88,7 +97,7 @@ class DescribePatternPerformanceResponseBody extends Model
         if (null !== $this->performances) {
             if (\is_array($this->performances)) {
                 $res['Performances'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->performances as $item1) {
                     $res['Performances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -145,7 +154,7 @@ class DescribePatternPerformanceResponseBody extends Model
         if (isset($map['Performances'])) {
             if (!empty($map['Performances'])) {
                 $model->performances = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['Performances'] as $item1) {
                     $model->performances[$n1++] = performances::fromMap($item1);
                 }

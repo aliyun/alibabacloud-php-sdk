@@ -12,22 +12,25 @@ class slsInfo extends Model
      * @var bool
      */
     public $across;
+
     /**
      * @var string
      */
     public $acrossRole;
+
     /**
      * @var string
      */
     public $acrossUid;
+
     /**
      * @var string
      */
     public $sourceRegionId;
     protected $_name = [
-        'across'         => 'Across',
-        'acrossRole'     => 'AcrossRole',
-        'acrossUid'      => 'AcrossUid',
+        'across' => 'Across',
+        'acrossRole' => 'AcrossRole',
+        'acrossUid' => 'AcrossUid',
         'sourceRegionId' => 'SourceRegionId',
     ];
 

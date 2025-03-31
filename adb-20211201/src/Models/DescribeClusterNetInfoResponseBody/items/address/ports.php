@@ -9,7 +9,7 @@ use AlibabaCloud\Dara\Model;
 class ports extends Model
 {
     /**
-     * @var \AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterNetInfoResponseBody\items\address\ports\ports[]
+     * @var ports\ports[]
      */
     public $ports;
     protected $_name = [
@@ -30,7 +30,7 @@ class ports extends Model
         if (null !== $this->ports) {
             if (\is_array($this->ports)) {
                 $res['ports'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->ports as $item1) {
                     $res['ports'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -51,9 +51,9 @@ class ports extends Model
         if (isset($map['ports'])) {
             if (!empty($map['ports'])) {
                 $model->ports = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['ports'] as $item1) {
-                    $model->ports[$n1++] = \AlibabaCloud\SDK\Adb\V20211201\Models\DescribeClusterNetInfoResponseBody\items\address\ports\ports::fromMap($item1);
+                    $model->ports[$n1++] = ports\ports::fromMap($item1);
                 }
             }
         }

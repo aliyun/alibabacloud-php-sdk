@@ -13,28 +13,32 @@ class DescribeBadSqlDetectionResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var detectionItems[]
      */
     public $detectionItems;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'DBClusterId'        => 'DBClusterId',
-        'detectionItems'     => 'DetectionItems',
-        'requestId'          => 'RequestId',
-        'totalCount'         => 'TotalCount',
+        'DBClusterId' => 'DBClusterId',
+        'detectionItems' => 'DetectionItems',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -59,7 +63,7 @@ class DescribeBadSqlDetectionResponseBody extends Model
         if (null !== $this->detectionItems) {
             if (\is_array($this->detectionItems)) {
                 $res['DetectionItems'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->detectionItems as $item1) {
                     $res['DetectionItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -96,7 +100,7 @@ class DescribeBadSqlDetectionResponseBody extends Model
         if (isset($map['DetectionItems'])) {
             if (!empty($map['DetectionItems'])) {
                 $model->detectionItems = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['DetectionItems'] as $item1) {
                     $model->detectionItems[$n1++] = detectionItems::fromMap($item1);
                 }

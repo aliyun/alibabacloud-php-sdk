@@ -12,13 +12,14 @@ class kafkaInfo extends Model
      * @var string
      */
     public $kafkaClusterId;
+
     /**
      * @var string
      */
     public $kafkaTopic;
     protected $_name = [
         'kafkaClusterId' => 'KafkaClusterId',
-        'kafkaTopic'     => 'KafkaTopic',
+        'kafkaTopic' => 'KafkaTopic',
     ];
 
     public function validate()

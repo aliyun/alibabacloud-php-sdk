@@ -12,33 +12,38 @@ class apsDatasources extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $datasourceDescription;
+
     /**
      * @var int
      */
     public $datasourceId;
+
     /**
      * @var string
      */
     public $datasourceName;
+
     /**
      * @var string
      */
     public $datasourceType;
+
     /**
      * @var bool
      */
     public $hasJob;
     protected $_name = [
-        'createTime'            => 'CreateTime',
+        'createTime' => 'CreateTime',
         'datasourceDescription' => 'DatasourceDescription',
-        'datasourceId'          => 'DatasourceId',
-        'datasourceName'        => 'DatasourceName',
-        'datasourceType'        => 'DatasourceType',
-        'hasJob'                => 'HasJob',
+        'datasourceId' => 'DatasourceId',
+        'datasourceName' => 'DatasourceName',
+        'datasourceType' => 'DatasourceType',
+        'hasJob' => 'HasJob',
     ];
 
     public function validate()

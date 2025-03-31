@@ -15,37 +15,43 @@ class Filters extends Model
      * @var string
      */
     public $appIdRegex;
+
     /**
      * @var string
      */
     public $appNameRegex;
+
     /**
      * @var string
      */
     public $appState;
+
     /**
      * @var string
      */
     public $appType;
+
     /**
      * @var executionTimeRange
      */
     public $executionTimeRange;
+
     /**
      * @var submitTimeRange
      */
     public $submitTimeRange;
+
     /**
      * @var termiatedTimeRange
      */
     public $termiatedTimeRange;
     protected $_name = [
-        'appIdRegex'         => 'AppIdRegex',
-        'appNameRegex'       => 'AppNameRegex',
-        'appState'           => 'AppState',
-        'appType'            => 'AppType',
+        'appIdRegex' => 'AppIdRegex',
+        'appNameRegex' => 'AppNameRegex',
+        'appState' => 'AppState',
+        'appType' => 'AppType',
         'executionTimeRange' => 'ExecutionTimeRange',
-        'submitTimeRange'    => 'SubmitTimeRange',
+        'submitTimeRange' => 'SubmitTimeRange',
         'termiatedTimeRange' => 'TermiatedTimeRange',
     ];
 

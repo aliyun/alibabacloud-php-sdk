@@ -13,27 +13,31 @@ class DescribeElasticPlanJobsResponseBody extends Model
      * @var jobs[]
      */
     public $jobs;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'jobs'       => 'Jobs',
+        'jobs' => 'Jobs',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -51,7 +55,7 @@ class DescribeElasticPlanJobsResponseBody extends Model
         if (null !== $this->jobs) {
             if (\is_array($this->jobs)) {
                 $res['Jobs'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->jobs as $item1) {
                     $res['Jobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class DescribeElasticPlanJobsResponseBody extends Model
         if (isset($map['Jobs'])) {
             if (!empty($map['Jobs'])) {
                 $model->jobs = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Jobs'] as $item1) {
                     $model->jobs[$n1++] = jobs::fromMap($item1);
                 }

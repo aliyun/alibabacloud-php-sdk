@@ -13,28 +13,32 @@ class data extends Model
      * @var string
      */
     public $computeResource;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $freeComputeResource;
+
     /**
      * @var resourceGroupList[]
      */
     public $resourceGroupList;
+
     /**
      * @var string
      */
     public $storageResource;
     protected $_name = [
-        'computeResource'     => 'ComputeResource',
-        'DBClusterId'         => 'DBClusterId',
+        'computeResource' => 'ComputeResource',
+        'DBClusterId' => 'DBClusterId',
         'freeComputeResource' => 'FreeComputeResource',
-        'resourceGroupList'   => 'ResourceGroupList',
-        'storageResource'     => 'StorageResource',
+        'resourceGroupList' => 'ResourceGroupList',
+        'storageResource' => 'StorageResource',
     ];
 
     public function validate()
@@ -63,7 +67,7 @@ class data extends Model
         if (null !== $this->resourceGroupList) {
             if (\is_array($this->resourceGroupList)) {
                 $res['ResourceGroupList'] = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($this->resourceGroupList as $item1) {
                     $res['ResourceGroupList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class data extends Model
         if (isset($map['ResourceGroupList'])) {
             if (!empty($map['ResourceGroupList'])) {
                 $model->resourceGroupList = [];
-                $n1                       = 0;
+                $n1 = 0;
                 foreach ($map['ResourceGroupList'] as $item1) {
                     $model->resourceGroupList[$n1++] = resourceGroupList::fromMap($item1);
                 }

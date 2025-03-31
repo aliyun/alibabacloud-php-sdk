@@ -12,33 +12,38 @@ class CreateAPSJobResponseBody extends Model
      * @var string
      */
     public $apsJobId;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'apsJobId'       => 'ApsJobId',
-        'code'           => 'Code',
+        'apsJobId' => 'ApsJobId',
+        'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'message' => 'Message',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
     ];
 
     public function validate()

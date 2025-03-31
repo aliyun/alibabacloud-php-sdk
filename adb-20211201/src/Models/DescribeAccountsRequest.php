@@ -12,14 +12,17 @@ class DescribeAccountsRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class DescribeAccountsRequest extends Model
     protected $_name = [
         'accountName' => 'AccountName',
         'DBClusterId' => 'DBClusterId',
-        'engine'      => 'Engine',
-        'ownerId'     => 'OwnerId',
+        'engine' => 'Engine',
+        'ownerId' => 'OwnerId',
     ];
 
     public function validate()

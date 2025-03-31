@@ -12,32 +12,37 @@ class data extends Model
      * @var string
      */
     public $aliyunUid;
+
     /**
      * @var string
      */
     public $attemptId;
+
     /**
      * @var string
      */
     public $error;
+
     /**
      * @var int
      */
     public $sessionId;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $webUiAddress;
     protected $_name = [
-        'aliyunUid'    => 'AliyunUid',
-        'attemptId'    => 'AttemptId',
-        'error'        => 'Error',
-        'sessionId'    => 'SessionId',
-        'state'        => 'State',
+        'aliyunUid' => 'AliyunUid',
+        'attemptId' => 'AttemptId',
+        'error' => 'Error',
+        'sessionId' => 'SessionId',
+        'state' => 'State',
         'webUiAddress' => 'WebUiAddress',
     ];
 

@@ -12,22 +12,27 @@ class searchResults extends Model
      * @var int
      */
     public $accessCount;
+
     /**
      * @var float
      */
     public $avgScanCost;
+
     /**
      * @var float
      */
     public $avgScanSize;
+
     /**
      * @var int
      */
     public $maxScanCost;
+
     /**
      * @var int
      */
     public $maxScanSize;
+
     /**
      * @var string
      */
@@ -38,7 +43,7 @@ class searchResults extends Model
         'avgScanSize' => 'AvgScanSize',
         'maxScanCost' => 'MaxScanCost',
         'maxScanSize' => 'MaxScanSize',
-        'tableName'   => 'TableName',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

@@ -12,53 +12,62 @@ class ModifyApsDatasoureShrinkRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $datasourceDescription;
+
     /**
      * @var int
      */
     public $datasourceId;
+
     /**
      * @var string
      */
     public $datasourceName;
+
     /**
      * @var string
      */
     public $kafkaInfoShrink;
+
     /**
      * @var string
      */
     public $lakehouseIdShrink;
+
     /**
      * @var string
      */
     public $polarDBMysqlInfoShrink;
+
     /**
      * @var string
      */
     public $rdsMysqlInfoShrink;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $slsInfoShrink;
     protected $_name = [
-        'DBClusterId'            => 'DBClusterId',
-        'datasourceDescription'  => 'DatasourceDescription',
-        'datasourceId'           => 'DatasourceId',
-        'datasourceName'         => 'DatasourceName',
-        'kafkaInfoShrink'        => 'KafkaInfo',
-        'lakehouseIdShrink'      => 'LakehouseId',
+        'DBClusterId' => 'DBClusterId',
+        'datasourceDescription' => 'DatasourceDescription',
+        'datasourceId' => 'DatasourceId',
+        'datasourceName' => 'DatasourceName',
+        'kafkaInfoShrink' => 'KafkaInfo',
+        'lakehouseIdShrink' => 'LakehouseId',
         'polarDBMysqlInfoShrink' => 'PolarDBMysqlInfo',
-        'rdsMysqlInfoShrink'     => 'RdsMysqlInfo',
-        'regionId'               => 'RegionId',
-        'slsInfoShrink'          => 'SlsInfo',
+        'rdsMysqlInfoShrink' => 'RdsMysqlInfo',
+        'regionId' => 'RegionId',
+        'slsInfoShrink' => 'SlsInfo',
     ];
 
     public function validate()

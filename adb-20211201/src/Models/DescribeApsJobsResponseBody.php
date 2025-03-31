@@ -13,48 +13,56 @@ class DescribeApsJobsResponseBody extends Model
      * @var APSJobs[]
      */
     public $APSJobs;
+
     /**
      * @var string
      */
     public $code;
+
     /**
      * @var int
      */
     public $httpStatusCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
-        'APSJobs'        => 'APSJobs',
-        'code'           => 'Code',
+        'APSJobs' => 'APSJobs',
+        'code' => 'Code',
         'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
-        'totalCount'     => 'TotalCount',
+        'message' => 'Message',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'success' => 'Success',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -71,7 +79,7 @@ class DescribeApsJobsResponseBody extends Model
         if (null !== $this->APSJobs) {
             if (\is_array($this->APSJobs)) {
                 $res['APSJobs'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->APSJobs as $item1) {
                     $res['APSJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -124,7 +132,7 @@ class DescribeApsJobsResponseBody extends Model
         if (isset($map['APSJobs'])) {
             if (!empty($map['APSJobs'])) {
                 $model->APSJobs = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['APSJobs'] as $item1) {
                     $model->APSJobs[$n1++] = APSJobs::fromMap($item1);
                 }

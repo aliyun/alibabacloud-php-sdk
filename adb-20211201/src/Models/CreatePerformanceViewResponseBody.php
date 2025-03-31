@@ -12,18 +12,20 @@ class CreatePerformanceViewResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $createStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'createStatus'       => 'CreateStatus',
-        'requestId'          => 'RequestId',
+        'createStatus' => 'CreateStatus',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class ModifyClusterConnectionStringRequest extends Model
      * @var string
      */
     public $connectionStringPrefix;
+
     /**
      * @var string
      */
     public $currentConnectionString;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $port;
     protected $_name = [
-        'connectionStringPrefix'  => 'ConnectionStringPrefix',
+        'connectionStringPrefix' => 'ConnectionStringPrefix',
         'currentConnectionString' => 'CurrentConnectionString',
-        'DBClusterId'             => 'DBClusterId',
-        'port'                    => 'Port',
+        'DBClusterId' => 'DBClusterId',
+        'port' => 'Port',
     ];
 
     public function validate()

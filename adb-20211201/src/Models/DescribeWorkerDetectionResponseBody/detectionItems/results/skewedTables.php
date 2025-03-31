@@ -12,53 +12,62 @@ class skewedTables extends Model
      * @var string
      */
     public $DDL;
+
     /**
      * @var int
      */
     public $partitionCount;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $shardSkewedRows;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var int
      */
     public $totalDataSize;
+
     /**
      * @var string
      */
     public $totalLocalDataSize;
+
     /**
      * @var int
      */
     public $totalPkSize;
+
     /**
      * @var int
      */
     public $totalRemoteDataSize;
+
     /**
      * @var int
      */
     public $totalRowCount;
     protected $_name = [
-        'DDL'                 => 'DDL',
-        'partitionCount'      => 'PartitionCount',
-        'schemaName'          => 'SchemaName',
-        'shardSkewedRows'     => 'ShardSkewedRows',
-        'tableName'           => 'TableName',
-        'totalDataSize'       => 'TotalDataSize',
-        'totalLocalDataSize'  => 'TotalLocalDataSize',
-        'totalPkSize'         => 'TotalPkSize',
+        'DDL' => 'DDL',
+        'partitionCount' => 'PartitionCount',
+        'schemaName' => 'SchemaName',
+        'shardSkewedRows' => 'ShardSkewedRows',
+        'tableName' => 'TableName',
+        'totalDataSize' => 'TotalDataSize',
+        'totalLocalDataSize' => 'TotalLocalDataSize',
+        'totalPkSize' => 'TotalPkSize',
         'totalRemoteDataSize' => 'TotalRemoteDataSize',
-        'totalRowCount'       => 'TotalRowCount',
+        'totalRowCount' => 'TotalRowCount',
     ];
 
     public function validate()

@@ -13,13 +13,14 @@ class DescribeDBResourceGroupResponseBody extends Model
      * @var groupsInfo[]
      */
     public $groupsInfo;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'groupsInfo' => 'GroupsInfo',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,7 +37,7 @@ class DescribeDBResourceGroupResponseBody extends Model
         if (null !== $this->groupsInfo) {
             if (\is_array($this->groupsInfo)) {
                 $res['GroupsInfo'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->groupsInfo as $item1) {
                     $res['GroupsInfo'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -61,7 +62,7 @@ class DescribeDBResourceGroupResponseBody extends Model
         if (isset($map['GroupsInfo'])) {
             if (!empty($map['GroupsInfo'])) {
                 $model->groupsInfo = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['GroupsInfo'] as $item1) {
                     $model->groupsInfo[$n1++] = groupsInfo::fromMap($item1);
                 }

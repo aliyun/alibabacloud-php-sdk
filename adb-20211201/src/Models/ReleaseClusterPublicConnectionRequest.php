@@ -12,13 +12,14 @@ class ReleaseClusterPublicConnectionRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $engine;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'engine'      => 'Engine',
+        'engine' => 'Engine',
     ];
 
     public function validate()

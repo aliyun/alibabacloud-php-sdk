@@ -12,12 +12,13 @@ class GetSparkAppInfoResponseBody extends Model
      * @var SparkAppInfo
      */
     public $data;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'requestId' => 'RequestId',
     ];
 

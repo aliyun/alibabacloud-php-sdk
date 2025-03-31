@@ -12,33 +12,38 @@ class DescribeDBClusterPerformanceRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourcePools;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'DBClusterId'   => 'DBClusterId',
-        'endTime'       => 'EndTime',
-        'key'           => 'Key',
-        'regionId'      => 'RegionId',
+        'DBClusterId' => 'DBClusterId',
+        'endTime' => 'EndTime',
+        'key' => 'Key',
+        'regionId' => 'RegionId',
         'resourcePools' => 'ResourcePools',
-        'startTime'     => 'StartTime',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

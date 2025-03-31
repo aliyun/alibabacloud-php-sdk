@@ -12,28 +12,32 @@ class GetSparkAppLogRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $logLength;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
     protected $_name = [
-        'appId'       => 'AppId',
+        'appId' => 'AppId',
         'DBClusterId' => 'DBClusterId',
-        'logLength'   => 'LogLength',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'logLength' => 'LogLength',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
     ];
 
     public function validate()

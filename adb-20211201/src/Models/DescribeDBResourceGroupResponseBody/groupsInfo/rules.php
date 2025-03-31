@@ -12,17 +12,19 @@ class rules extends Model
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $queryTime;
+
     /**
      * @var string
      */
     public $targetGroupName;
     protected $_name = [
-        'groupName'       => 'GroupName',
-        'queryTime'       => 'QueryTime',
+        'groupName' => 'GroupName',
+        'queryTime' => 'QueryTime',
         'targetGroupName' => 'TargetGroupName',
     ];
 

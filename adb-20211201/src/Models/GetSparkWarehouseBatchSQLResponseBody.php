@@ -12,12 +12,13 @@ class GetSparkWarehouseBatchSQLResponseBody extends Model
      * @var SparkBatchSQL
      */
     public $data;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'requestId' => 'RequestId',
     ];
 

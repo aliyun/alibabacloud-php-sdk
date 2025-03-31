@@ -14,12 +14,13 @@ class results extends Model
      * @var operatorAgg[]
      */
     public $operatorAgg;
+
     /**
      * @var operatorDetails[]
      */
     public $operatorDetails;
     protected $_name = [
-        'operatorAgg'     => 'OperatorAgg',
+        'operatorAgg' => 'OperatorAgg',
         'operatorDetails' => 'OperatorDetails',
     ];
 
@@ -40,7 +41,7 @@ class results extends Model
         if (null !== $this->operatorAgg) {
             if (\is_array($this->operatorAgg)) {
                 $res['OperatorAgg'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->operatorAgg as $item1) {
                     $res['OperatorAgg'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -50,7 +51,7 @@ class results extends Model
         if (null !== $this->operatorDetails) {
             if (\is_array($this->operatorDetails)) {
                 $res['OperatorDetails'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->operatorDetails as $item1) {
                     $res['OperatorDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -71,7 +72,7 @@ class results extends Model
         if (isset($map['OperatorAgg'])) {
             if (!empty($map['OperatorAgg'])) {
                 $model->operatorAgg = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['OperatorAgg'] as $item1) {
                     $model->operatorAgg[$n1++] = operatorAgg::fromMap($item1);
                 }
@@ -81,7 +82,7 @@ class results extends Model
         if (isset($map['OperatorDetails'])) {
             if (!empty($map['OperatorDetails'])) {
                 $model->operatorDetails = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['OperatorDetails'] as $item1) {
                     $model->operatorDetails[$n1++] = operatorDetails::fromMap($item1);
                 }

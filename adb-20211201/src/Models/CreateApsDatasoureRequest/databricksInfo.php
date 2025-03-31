@@ -12,12 +12,13 @@ class databricksInfo extends Model
      * @var string
      */
     public $accessToken;
+
     /**
      * @var string
      */
     public $workspaceURL;
     protected $_name = [
-        'accessToken'  => 'AccessToken',
+        'accessToken' => 'AccessToken',
         'workspaceURL' => 'WorkspaceURL',
     ];
 

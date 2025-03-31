@@ -31,7 +31,7 @@ class items extends Model
         if (null !== $this->address) {
             if (\is_array($this->address)) {
                 $res['Address'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->address as $item1) {
                     $res['Address'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class items extends Model
         if (isset($map['Address'])) {
             if (!empty($map['Address'])) {
                 $model->address = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Address'] as $item1) {
                     $model->address[$n1++] = address::fromMap($item1);
                 }

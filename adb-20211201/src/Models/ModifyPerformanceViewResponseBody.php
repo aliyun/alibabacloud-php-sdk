@@ -12,18 +12,20 @@ class ModifyPerformanceViewResponseBody extends Model
      * @var string
      */
     public $accessDeniedDetail;
+
     /**
      * @var string
      */
     public $modifyStatus;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
-        'modifyStatus'       => 'ModifyStatus',
-        'requestId'          => 'RequestId',
+        'modifyStatus' => 'ModifyStatus',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

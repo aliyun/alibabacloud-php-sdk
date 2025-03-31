@@ -13,28 +13,32 @@ class UpdateLakeStorageRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $lakeStorageId;
+
     /**
      * @var permissions[]
      */
     public $permissions;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'DBClusterId'   => 'DBClusterId',
-        'description'   => 'Description',
+        'DBClusterId' => 'DBClusterId',
+        'description' => 'Description',
         'lakeStorageId' => 'LakeStorageId',
-        'permissions'   => 'Permissions',
-        'regionId'      => 'RegionId',
+        'permissions' => 'Permissions',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -63,7 +67,7 @@ class UpdateLakeStorageRequest extends Model
         if (null !== $this->permissions) {
             if (\is_array($this->permissions)) {
                 $res['Permissions'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->permissions as $item1) {
                     $res['Permissions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -100,7 +104,7 @@ class UpdateLakeStorageRequest extends Model
         if (isset($map['Permissions'])) {
             if (!empty($map['Permissions'])) {
                 $model->permissions = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Permissions'] as $item1) {
                     $model->permissions[$n1++] = permissions::fromMap($item1);
                 }

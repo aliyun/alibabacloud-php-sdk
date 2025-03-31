@@ -12,23 +12,26 @@ class permissions extends Model
      * @var string
      */
     public $account;
+
     /**
      * @var bool
      */
     public $read;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var bool
      */
     public $write;
     protected $_name = [
         'account' => 'Account',
-        'read'    => 'Read',
-        'type'    => 'Type',
-        'write'   => 'Write',
+        'read' => 'Read',
+        'type' => 'Type',
+        'write' => 'Write',
     ];
 
     public function validate()

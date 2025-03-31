@@ -12,42 +12,49 @@ class data extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $jars;
+
     /**
      * @var string
      */
     public $maxExecutor;
+
     /**
      * @var string
      */
     public $minExecutor;
+
     /**
      * @var string
      */
     public $slotNum;
+
     /**
      * @var string
      */
     public $state;
+
     /**
      * @var string
      */
     public $submittedTimeInMillis;
     protected $_name = [
-        'appId'                 => 'AppId',
-        'config'                => 'Config',
-        'jars'                  => 'Jars',
-        'maxExecutor'           => 'MaxExecutor',
-        'minExecutor'           => 'MinExecutor',
-        'slotNum'               => 'SlotNum',
-        'state'                 => 'State',
+        'appId' => 'AppId',
+        'config' => 'Config',
+        'jars' => 'Jars',
+        'maxExecutor' => 'MaxExecutor',
+        'minExecutor' => 'MinExecutor',
+        'slotNum' => 'SlotNum',
+        'state' => 'State',
         'submittedTimeInMillis' => 'SubmittedTimeInMillis',
     ];
 

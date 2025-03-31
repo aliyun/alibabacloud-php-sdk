@@ -12,18 +12,20 @@ class DescribeDownloadRecordsRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $lang;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'lang'        => 'Lang',
-        'regionId'    => 'RegionId',
+        'lang' => 'Lang',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

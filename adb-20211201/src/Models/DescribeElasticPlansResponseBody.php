@@ -13,28 +13,32 @@ class DescribeElasticPlansResponseBody extends Model
      * @var elasticPlans[]
      */
     public $elasticPlans;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'elasticPlans' => 'ElasticPlans',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'requestId'    => 'RequestId',
-        'totalCount'   => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class DescribeElasticPlansResponseBody extends Model
         if (null !== $this->elasticPlans) {
             if (\is_array($this->elasticPlans)) {
                 $res['ElasticPlans'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->elasticPlans as $item1) {
                     $res['ElasticPlans'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class DescribeElasticPlansResponseBody extends Model
         if (isset($map['ElasticPlans'])) {
             if (!empty($map['ElasticPlans'])) {
                 $model->elasticPlans = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ElasticPlans'] as $item1) {
                     $model->elasticPlans[$n1++] = elasticPlans::fromMap($item1);
                 }

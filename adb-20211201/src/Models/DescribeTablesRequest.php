@@ -12,18 +12,20 @@ class DescribeTablesRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $schemaName;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'regionId'    => 'RegionId',
-        'schemaName'  => 'SchemaName',
+        'regionId' => 'RegionId',
+        'schemaName' => 'SchemaName',
     ];
 
     public function validate()

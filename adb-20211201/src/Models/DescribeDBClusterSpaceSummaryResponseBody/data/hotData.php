@@ -12,28 +12,32 @@ class hotData extends Model
      * @var int
      */
     public $dataSize;
+
     /**
      * @var int
      */
     public $indexSize;
+
     /**
      * @var int
      */
     public $otherSize;
+
     /**
      * @var int
      */
     public $primaryKeyIndexSize;
+
     /**
      * @var int
      */
     public $totalSize;
     protected $_name = [
-        'dataSize'            => 'DataSize',
-        'indexSize'           => 'IndexSize',
-        'otherSize'           => 'OtherSize',
+        'dataSize' => 'DataSize',
+        'indexSize' => 'IndexSize',
+        'otherSize' => 'OtherSize',
         'primaryKeyIndexSize' => 'PrimaryKeyIndexSize',
-        'totalSize'           => 'TotalSize',
+        'totalSize' => 'TotalSize',
     ];
 
     public function validate()

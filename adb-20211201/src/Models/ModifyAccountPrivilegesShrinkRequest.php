@@ -12,23 +12,26 @@ class ModifyAccountPrivilegesShrinkRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountPrivilegesShrink;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'accountName'             => 'AccountName',
+        'accountName' => 'AccountName',
         'accountPrivilegesShrink' => 'AccountPrivileges',
-        'DBClusterId'             => 'DBClusterId',
-        'regionId'                => 'RegionId',
+        'DBClusterId' => 'DBClusterId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

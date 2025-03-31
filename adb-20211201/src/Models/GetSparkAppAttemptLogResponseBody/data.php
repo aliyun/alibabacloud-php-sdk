@@ -12,28 +12,32 @@ class data extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $logContent;
+
     /**
      * @var int
      */
     public $logSize;
+
     /**
      * @var string
      */
     public $message;
     protected $_name = [
-        'appId'       => 'AppId',
+        'appId' => 'AppId',
         'DBClusterId' => 'DBClusterId',
-        'logContent'  => 'LogContent',
-        'logSize'     => 'LogSize',
-        'message'     => 'Message',
+        'logContent' => 'LogContent',
+        'logSize' => 'LogSize',
+        'message' => 'Message',
     ];
 
     public function validate()

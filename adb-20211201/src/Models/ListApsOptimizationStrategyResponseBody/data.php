@@ -12,25 +12,29 @@ class data extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $strategyDesc;
+
     /**
      * @var string
      */
     public $strategyName;
+
     /**
      * @var string
      */
     public $strategyType;
     protected $_name = [
-        'DBClusterId'  => 'DBClusterId',
-        'status'       => 'Status',
+        'DBClusterId' => 'DBClusterId',
+        'status' => 'Status',
         'strategyDesc' => 'StrategyDesc',
         'strategyName' => 'StrategyName',
         'strategyType' => 'StrategyType',

@@ -13,13 +13,14 @@ class DescribeApsJobDetailResponseBody extends Model
      * @var APSJobDetail
      */
     public $APSJobDetail;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'APSJobDetail' => 'APSJobDetail',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

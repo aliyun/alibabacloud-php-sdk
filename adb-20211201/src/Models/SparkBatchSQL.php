@@ -12,63 +12,74 @@ class SparkBatchSQL extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $errMessage;
+
     /**
      * @var string
      */
     public $query;
+
     /**
      * @var int
      */
     public $queryEndTime;
+
     /**
      * @var string
      */
     public $queryId;
+
     /**
      * @var int
      */
     public $queryStartTime;
+
     /**
      * @var string
      */
     public $queryState;
+
     /**
      * @var int
      */
     public $querySubmissionTime;
+
     /**
      * @var string
      */
     public $resourceGroupName;
+
     /**
      * @var string
      */
     public $schema;
+
     /**
      * @var SparkBatchSQLStatement[]
      */
     public $statements;
+
     /**
      * @var int
      */
     public $uid;
     protected $_name = [
-        'DBClusterId'         => 'DBClusterId',
-        'errMessage'          => 'ErrMessage',
-        'query'               => 'Query',
-        'queryEndTime'        => 'QueryEndTime',
-        'queryId'             => 'QueryId',
-        'queryStartTime'      => 'QueryStartTime',
-        'queryState'          => 'QueryState',
+        'DBClusterId' => 'DBClusterId',
+        'errMessage' => 'ErrMessage',
+        'query' => 'Query',
+        'queryEndTime' => 'QueryEndTime',
+        'queryId' => 'QueryId',
+        'queryStartTime' => 'QueryStartTime',
+        'queryState' => 'QueryState',
         'querySubmissionTime' => 'QuerySubmissionTime',
-        'resourceGroupName'   => 'ResourceGroupName',
-        'schema'              => 'Schema',
-        'statements'          => 'Statements',
-        'uid'                 => 'Uid',
+        'resourceGroupName' => 'ResourceGroupName',
+        'schema' => 'Schema',
+        'statements' => 'Statements',
+        'uid' => 'Uid',
     ];
 
     public function validate()
@@ -125,7 +136,7 @@ class SparkBatchSQL extends Model
         if (null !== $this->statements) {
             if (\is_array($this->statements)) {
                 $res['Statements'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->statements as $item1) {
                     $res['Statements'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -190,7 +201,7 @@ class SparkBatchSQL extends Model
         if (isset($map['Statements'])) {
             if (!empty($map['Statements'])) {
                 $model->statements = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Statements'] as $item1) {
                     $model->statements[$n1++] = SparkBatchSQLStatement::fromMap($item1);
                 }

@@ -12,28 +12,32 @@ class CreateSparkTemplateRequest extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $parentId;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'appType'     => 'AppType',
+        'appType' => 'AppType',
         'DBClusterId' => 'DBClusterId',
-        'name'        => 'Name',
-        'parentId'    => 'ParentId',
-        'type'        => 'Type',
+        'name' => 'Name',
+        'parentId' => 'ParentId',
+        'type' => 'Type',
     ];
 
     public function validate()

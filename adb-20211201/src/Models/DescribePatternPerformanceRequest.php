@@ -12,28 +12,32 @@ class DescribePatternPerformanceRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $patternId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'endTime'     => 'EndTime',
-        'patternId'   => 'PatternId',
-        'regionId'    => 'RegionId',
-        'startTime'   => 'StartTime',
+        'endTime' => 'EndTime',
+        'patternId' => 'PatternId',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

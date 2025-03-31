@@ -13,28 +13,32 @@ class DescribeApsDatasourcesResponseBody extends Model
      * @var apsDatasources[]
      */
     public $apsDatasources;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $totalCount;
     protected $_name = [
         'apsDatasources' => 'ApsDatasources',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'requestId'      => 'RequestId',
-        'totalCount'     => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class DescribeApsDatasourcesResponseBody extends Model
         if (null !== $this->apsDatasources) {
             if (\is_array($this->apsDatasources)) {
                 $res['ApsDatasources'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->apsDatasources as $item1) {
                     $res['ApsDatasources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class DescribeApsDatasourcesResponseBody extends Model
         if (isset($map['ApsDatasources'])) {
             if (!empty($map['ApsDatasources'])) {
                 $model->apsDatasources = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ApsDatasources'] as $item1) {
                     $model->apsDatasources[$n1++] = apsDatasources::fromMap($item1);
                 }

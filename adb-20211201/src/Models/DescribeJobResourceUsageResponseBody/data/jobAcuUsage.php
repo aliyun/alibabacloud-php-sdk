@@ -13,27 +13,31 @@ class jobAcuUsage extends Model
      * @var acuUsageDetail
      */
     public $acuUsageDetail;
+
     /**
      * @var string
      */
     public $jobEndTime;
+
     /**
      * @var string
      */
     public $jobId;
+
     /**
      * @var string
      */
     public $jobStartTime;
+
     /**
      * @var string
      */
     public $resourceGroupName;
     protected $_name = [
-        'acuUsageDetail'    => 'AcuUsageDetail',
-        'jobEndTime'        => 'JobEndTime',
-        'jobId'             => 'JobId',
-        'jobStartTime'      => 'JobStartTime',
+        'acuUsageDetail' => 'AcuUsageDetail',
+        'jobEndTime' => 'JobEndTime',
+        'jobId' => 'JobId',
+        'jobStartTime' => 'JobStartTime',
         'resourceGroupName' => 'ResourceGroupName',
     ];
 

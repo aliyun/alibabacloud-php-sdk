@@ -12,27 +12,31 @@ class ListSparkAppsRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $filters;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupName;
     protected $_name = [
-        'DBClusterId'       => 'DBClusterId',
-        'filters'           => 'Filters',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
+        'DBClusterId' => 'DBClusterId',
+        'filters' => 'Filters',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupName' => 'ResourceGroupName',
     ];
 

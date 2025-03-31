@@ -12,12 +12,13 @@ class shard extends Model
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $size;
     protected $_name = [
-        'id'   => 'Id',
+        'id' => 'Id',
         'size' => 'Size',
     ];
 

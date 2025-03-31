@@ -12,13 +12,14 @@ class order extends Model
      * @var string
      */
     public $field;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
         'field' => 'Field',
-        'type'  => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

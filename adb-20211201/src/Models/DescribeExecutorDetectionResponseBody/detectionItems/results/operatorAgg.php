@@ -13,12 +13,13 @@ class operatorAgg extends Model
      * @var string
      */
     public $metricName;
+
     /**
      * @var searchResults[]
      */
     public $searchResults;
     protected $_name = [
-        'metricName'    => 'MetricName',
+        'metricName' => 'MetricName',
         'searchResults' => 'SearchResults',
     ];
 
@@ -40,7 +41,7 @@ class operatorAgg extends Model
         if (null !== $this->searchResults) {
             if (\is_array($this->searchResults)) {
                 $res['SearchResults'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->searchResults as $item1) {
                     $res['SearchResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class operatorAgg extends Model
         if (isset($map['SearchResults'])) {
             if (!empty($map['SearchResults'])) {
                 $model->searchResults = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['SearchResults'] as $item1) {
                     $model->searchResults[$n1++] = searchResults::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class GetLakeStorageRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $lakeStorageId;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'DBClusterId'   => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'lakeStorageId' => 'LakeStorageId',
-        'regionId'      => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

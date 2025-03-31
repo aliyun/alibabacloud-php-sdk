@@ -12,18 +12,20 @@ class DescribeApsHiveWorkloadRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $workloadId;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'regionId'    => 'RegionId',
-        'workloadId'  => 'WorkloadId',
+        'regionId' => 'RegionId',
+        'workloadId' => 'WorkloadId',
     ];
 
     public function validate()

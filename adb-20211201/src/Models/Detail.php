@@ -12,68 +12,80 @@ class Detail extends Model
      * @var string
      */
     public $appType;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $data;
+
     /**
      * @var int
      */
     public $durationInMillis;
+
     /**
      * @var int
      */
     public $estimateExecutionCpuTimeInSeconds;
+
     /**
      * @var string
      */
     public $lastAttemptId;
+
     /**
      * @var int
      */
     public $lastUpdatedTimeInMillis;
+
     /**
      * @var string
      */
     public $logRootPath;
+
     /**
      * @var string
      */
     public $resourceGroupName;
+
     /**
      * @var int
      */
     public $startedTimeInMillis;
+
     /**
      * @var int
      */
     public $submittedTimeInMillis;
+
     /**
      * @var int
      */
     public $terminatedTimeInMillis;
+
     /**
      * @var string
      */
     public $webUiAddress;
     protected $_name = [
-        'appType'                           => 'AppType',
-        'DBClusterId'                       => 'DBClusterId',
-        'data'                              => 'Data',
-        'durationInMillis'                  => 'DurationInMillis',
+        'appType' => 'AppType',
+        'DBClusterId' => 'DBClusterId',
+        'data' => 'Data',
+        'durationInMillis' => 'DurationInMillis',
         'estimateExecutionCpuTimeInSeconds' => 'EstimateExecutionCpuTimeInSeconds',
-        'lastAttemptId'                     => 'LastAttemptId',
-        'lastUpdatedTimeInMillis'           => 'LastUpdatedTimeInMillis',
-        'logRootPath'                       => 'LogRootPath',
-        'resourceGroupName'                 => 'ResourceGroupName',
-        'startedTimeInMillis'               => 'StartedTimeInMillis',
-        'submittedTimeInMillis'             => 'SubmittedTimeInMillis',
-        'terminatedTimeInMillis'            => 'TerminatedTimeInMillis',
-        'webUiAddress'                      => 'WebUiAddress',
+        'lastAttemptId' => 'LastAttemptId',
+        'lastUpdatedTimeInMillis' => 'LastUpdatedTimeInMillis',
+        'logRootPath' => 'LogRootPath',
+        'resourceGroupName' => 'ResourceGroupName',
+        'startedTimeInMillis' => 'StartedTimeInMillis',
+        'submittedTimeInMillis' => 'SubmittedTimeInMillis',
+        'terminatedTimeInMillis' => 'TerminatedTimeInMillis',
+        'webUiAddress' => 'WebUiAddress',
     ];
 
     public function validate()

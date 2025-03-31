@@ -12,12 +12,13 @@ class dataGrowth extends Model
      * @var int
      */
     public $dayGrowth;
+
     /**
      * @var int
      */
     public $weekGrowth;
     protected $_name = [
-        'dayGrowth'  => 'DayGrowth',
+        'dayGrowth' => 'DayGrowth',
         'weekGrowth' => 'WeekGrowth',
     ];
 

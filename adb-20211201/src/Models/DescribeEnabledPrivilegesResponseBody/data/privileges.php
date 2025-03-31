@@ -12,13 +12,14 @@ class privileges extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $key;
     protected $_name = [
         'description' => 'Description',
-        'key'         => 'Key',
+        'key' => 'Key',
     ];
 
     public function validate()

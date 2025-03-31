@@ -12,28 +12,32 @@ class data extends Model
      * @var string
      */
     public $defaultLogPath;
+
     /**
      * @var bool
      */
     public $isLogPathExists;
+
     /**
      * @var string
      */
     public $modifiedTimestamp;
+
     /**
      * @var string
      */
     public $modifiedUid;
+
     /**
      * @var string
      */
     public $recordedLogPath;
     protected $_name = [
-        'defaultLogPath'    => 'DefaultLogPath',
-        'isLogPathExists'   => 'IsLogPathExists',
+        'defaultLogPath' => 'DefaultLogPath',
+        'isLogPathExists' => 'IsLogPathExists',
         'modifiedTimestamp' => 'ModifiedTimestamp',
-        'modifiedUid'       => 'ModifiedUid',
-        'recordedLogPath'   => 'RecordedLogPath',
+        'modifiedUid' => 'ModifiedUid',
+        'recordedLogPath' => 'RecordedLogPath',
     ];
 
     public function validate()

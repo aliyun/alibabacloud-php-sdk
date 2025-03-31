@@ -14,218 +14,278 @@ class DBCluster extends Model
      * @var int
      */
     public $clickhouseEngineCacheSize;
+
     /**
      * @var bool
      */
     public $clickhouseEngineEnabled;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $computeResource;
+
     /**
      * @var string
      */
     public $computeResourceTotal;
+
     /**
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $creationTime;
+
     /**
      * @var string
      */
     public $DBClusterDescription;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $DBClusterNetworkType;
+
     /**
      * @var string
      */
     public $DBClusterStatus;
+
     /**
      * @var string
      */
     public $DBClusterType;
+
     /**
      * @var string
      */
     public $DBVersion;
+
+    /**
+     * @var bool
+     */
+    public $diskEncryption;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $expired;
+
     /**
      * @var string
      */
     public $kmsId;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var string
      */
     public $lockReason;
+
     /**
      * @var string
      */
     public $maintainTime;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $productForm;
+
     /**
      * @var string
      */
     public $productVersion;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $reservedACU;
+
     /**
      * @var int
      */
     public $reservedNodeCount;
+
     /**
      * @var string
      */
     public $reservedNodeSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $secondaryVSwitchId;
+
+    /**
+     * @var string
+     */
+    public $secondaryZoneId;
+
     /**
      * @var string
      */
     public $storageResource;
+
     /**
      * @var string
      */
     public $storageResourceTotal;
+
     /**
      * @var string[]
      */
     public $supportedFeatures;
+
     /**
      * @var tags
      */
     public $tags;
+
     /**
      * @var taskInfo
      */
     public $taskInfo;
+
     /**
      * @var bool
      */
     public $userENIStatus;
+
     /**
      * @var string
      */
     public $userENIVSwitchOptions;
+
     /**
      * @var string
      */
     public $userENIVpcId;
+
     /**
      * @var string
      */
     public $userENIZoneOptions;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'clickhouseEngineCacheSize' => 'ClickhouseEngineCacheSize',
-        'clickhouseEngineEnabled'   => 'ClickhouseEngineEnabled',
-        'commodityCode'             => 'CommodityCode',
-        'computeResource'           => 'ComputeResource',
-        'computeResourceTotal'      => 'ComputeResourceTotal',
-        'connectionString'          => 'ConnectionString',
-        'creationTime'              => 'CreationTime',
-        'DBClusterDescription'      => 'DBClusterDescription',
-        'DBClusterId'               => 'DBClusterId',
-        'DBClusterNetworkType'      => 'DBClusterNetworkType',
-        'DBClusterStatus'           => 'DBClusterStatus',
-        'DBClusterType'             => 'DBClusterType',
-        'DBVersion'                 => 'DBVersion',
-        'engine'                    => 'Engine',
-        'engineVersion'             => 'EngineVersion',
-        'expireTime'                => 'ExpireTime',
-        'expired'                   => 'Expired',
-        'kmsId'                     => 'KmsId',
-        'lockMode'                  => 'LockMode',
-        'lockReason'                => 'LockReason',
-        'maintainTime'              => 'MaintainTime',
-        'mode'                      => 'Mode',
-        'payType'                   => 'PayType',
-        'port'                      => 'Port',
-        'productForm'               => 'ProductForm',
-        'productVersion'            => 'ProductVersion',
-        'regionId'                  => 'RegionId',
-        'reservedACU'               => 'ReservedACU',
-        'reservedNodeCount'         => 'ReservedNodeCount',
-        'reservedNodeSize'          => 'ReservedNodeSize',
-        'resourceGroupId'           => 'ResourceGroupId',
-        'storageResource'           => 'StorageResource',
-        'storageResourceTotal'      => 'StorageResourceTotal',
-        'supportedFeatures'         => 'SupportedFeatures',
-        'tags'                      => 'Tags',
-        'taskInfo'                  => 'TaskInfo',
-        'userENIStatus'             => 'UserENIStatus',
-        'userENIVSwitchOptions'     => 'UserENIVSwitchOptions',
-        'userENIVpcId'              => 'UserENIVpcId',
-        'userENIZoneOptions'        => 'UserENIZoneOptions',
-        'VPCId'                     => 'VPCId',
-        'vSwitchId'                 => 'VSwitchId',
-        'zoneId'                    => 'ZoneId',
+        'clickhouseEngineEnabled' => 'ClickhouseEngineEnabled',
+        'commodityCode' => 'CommodityCode',
+        'computeResource' => 'ComputeResource',
+        'computeResourceTotal' => 'ComputeResourceTotal',
+        'connectionString' => 'ConnectionString',
+        'creationTime' => 'CreationTime',
+        'DBClusterDescription' => 'DBClusterDescription',
+        'DBClusterId' => 'DBClusterId',
+        'DBClusterNetworkType' => 'DBClusterNetworkType',
+        'DBClusterStatus' => 'DBClusterStatus',
+        'DBClusterType' => 'DBClusterType',
+        'DBVersion' => 'DBVersion',
+        'diskEncryption' => 'DiskEncryption',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'expireTime' => 'ExpireTime',
+        'expired' => 'Expired',
+        'kmsId' => 'KmsId',
+        'lockMode' => 'LockMode',
+        'lockReason' => 'LockReason',
+        'maintainTime' => 'MaintainTime',
+        'mode' => 'Mode',
+        'payType' => 'PayType',
+        'port' => 'Port',
+        'productForm' => 'ProductForm',
+        'productVersion' => 'ProductVersion',
+        'regionId' => 'RegionId',
+        'reservedACU' => 'ReservedACU',
+        'reservedNodeCount' => 'ReservedNodeCount',
+        'reservedNodeSize' => 'ReservedNodeSize',
+        'resourceGroupId' => 'ResourceGroupId',
+        'secondaryVSwitchId' => 'SecondaryVSwitchId',
+        'secondaryZoneId' => 'SecondaryZoneId',
+        'storageResource' => 'StorageResource',
+        'storageResourceTotal' => 'StorageResourceTotal',
+        'supportedFeatures' => 'SupportedFeatures',
+        'tags' => 'Tags',
+        'taskInfo' => 'TaskInfo',
+        'userENIStatus' => 'UserENIStatus',
+        'userENIVSwitchOptions' => 'UserENIVSwitchOptions',
+        'userENIVpcId' => 'UserENIVpcId',
+        'userENIZoneOptions' => 'UserENIZoneOptions',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -295,6 +355,10 @@ class DBCluster extends Model
 
         if (null !== $this->DBVersion) {
             $res['DBVersion'] = $this->DBVersion;
+        }
+
+        if (null !== $this->diskEncryption) {
+            $res['DiskEncryption'] = $this->diskEncryption;
         }
 
         if (null !== $this->engine) {
@@ -367,6 +431,14 @@ class DBCluster extends Model
 
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+
+        if (null !== $this->secondaryVSwitchId) {
+            $res['SecondaryVSwitchId'] = $this->secondaryVSwitchId;
+        }
+
+        if (null !== $this->secondaryZoneId) {
+            $res['SecondaryZoneId'] = $this->secondaryZoneId;
         }
 
         if (null !== $this->storageResource) {
@@ -485,6 +557,10 @@ class DBCluster extends Model
             $model->DBVersion = $map['DBVersion'];
         }
 
+        if (isset($map['DiskEncryption'])) {
+            $model->diskEncryption = $map['DiskEncryption'];
+        }
+
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
@@ -555,6 +631,14 @@ class DBCluster extends Model
 
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+
+        if (isset($map['SecondaryVSwitchId'])) {
+            $model->secondaryVSwitchId = $map['SecondaryVSwitchId'];
+        }
+
+        if (isset($map['SecondaryZoneId'])) {
+            $model->secondaryZoneId = $map['SecondaryZoneId'];
         }
 
         if (isset($map['StorageResource'])) {

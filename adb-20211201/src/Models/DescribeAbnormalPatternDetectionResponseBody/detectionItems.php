@@ -13,12 +13,13 @@ class detectionItems extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var results[]
      */
     public $results;
     protected $_name = [
-        'name'    => 'Name',
+        'name' => 'Name',
         'results' => 'Results',
     ];
 
@@ -40,7 +41,7 @@ class detectionItems extends Model
         if (null !== $this->results) {
             if (\is_array($this->results)) {
                 $res['Results'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->results as $item1) {
                     $res['Results'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class detectionItems extends Model
         if (isset($map['Results'])) {
             if (!empty($map['Results'])) {
                 $model->results = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Results'] as $item1) {
                     $model->results[$n1++] = results::fromMap($item1);
                 }

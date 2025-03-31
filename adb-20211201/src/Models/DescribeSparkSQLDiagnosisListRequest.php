@@ -12,43 +12,50 @@ class DescribeSparkSQLDiagnosisListRequest extends Model
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var string
      */
     public $maxStartTime;
+
     /**
      * @var string
      */
     public $minStartTime;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $statementId;
     protected $_name = [
-        'DBClusterId'  => 'DBClusterId',
+        'DBClusterId' => 'DBClusterId',
         'maxStartTime' => 'MaxStartTime',
         'minStartTime' => 'MinStartTime',
-        'order'        => 'Order',
-        'pageNumber'   => 'PageNumber',
-        'pageSize'     => 'PageSize',
-        'regionId'     => 'RegionId',
-        'statementId'  => 'StatementId',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'statementId' => 'StatementId',
     ];
 
     public function validate()

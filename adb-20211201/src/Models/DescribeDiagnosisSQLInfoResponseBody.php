@@ -13,18 +13,20 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
      * @var string
      */
     public $diagnosisSQLInfo;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var stageInfos[]
      */
     public $stageInfos;
     protected $_name = [
         'diagnosisSQLInfo' => 'DiagnosisSQLInfo',
-        'requestId'        => 'RequestId',
-        'stageInfos'       => 'StageInfos',
+        'requestId' => 'RequestId',
+        'stageInfos' => 'StageInfos',
     ];
 
     public function validate()
@@ -49,7 +51,7 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
         if (null !== $this->stageInfos) {
             if (\is_array($this->stageInfos)) {
                 $res['StageInfos'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->stageInfos as $item1) {
                     $res['StageInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
         if (isset($map['StageInfos'])) {
             if (!empty($map['StageInfos'])) {
                 $model->stageInfos = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['StageInfos'] as $item1) {
                     $model->stageInfos[$n1++] = stageInfos::fromMap($item1);
                 }

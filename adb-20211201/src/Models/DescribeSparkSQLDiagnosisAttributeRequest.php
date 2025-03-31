@@ -12,28 +12,32 @@ class DescribeSparkSQLDiagnosisAttributeRequest extends Model
      * @var string
      */
     public $appId;
+
     /**
      * @var string
      */
     public $DBClusterId;
+
     /**
      * @var int
      */
     public $innerQueryId;
+
     /**
      * @var string
      */
     public $language;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'appId'        => 'AppId',
-        'DBClusterId'  => 'DBClusterId',
+        'appId' => 'AppId',
+        'DBClusterId' => 'DBClusterId',
         'innerQueryId' => 'InnerQueryId',
-        'language'     => 'Language',
-        'regionId'     => 'RegionId',
+        'language' => 'Language',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
