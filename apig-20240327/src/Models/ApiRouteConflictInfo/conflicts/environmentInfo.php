@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ApiRouteConflictInfo\conflicts;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class environmentInfo extends Model
 {
@@ -22,14 +22,18 @@ class environmentInfo extends Model
         'name' => 'name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->environmentId) {
             $res['environmentId'] = $this->environmentId;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -37,17 +41,18 @@ class environmentInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return environmentInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['environmentId'])) {
             $model->environmentId = $map['environmentId'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

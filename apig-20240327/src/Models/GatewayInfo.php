@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\GatewayInfo\vpcInfo;
-use AlibabaCloud\Tea\Model;
 
 class GatewayInfo extends Model
 {
@@ -35,44 +35,56 @@ class GatewayInfo extends Model
         'vpcInfo' => 'vpcInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->vpcInfo) {
+            $this->vpcInfo->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->engineVersion) {
             $res['engineVersion'] = $this->engineVersion;
         }
+
         if (null !== $this->gatewayId) {
             $res['gatewayId'] = $this->gatewayId;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
+
         if (null !== $this->vpcInfo) {
-            $res['vpcInfo'] = null !== $this->vpcInfo ? $this->vpcInfo->toMap() : null;
+            $res['vpcInfo'] = null !== $this->vpcInfo ? $this->vpcInfo->toArray($noStream) : $this->vpcInfo;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GatewayInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['engineVersion'])) {
             $model->engineVersion = $map['engineVersion'];
         }
+
         if (isset($map['gatewayId'])) {
             $model->gatewayId = $map['gatewayId'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }
+
         if (isset($map['vpcInfo'])) {
             $model->vpcInfo = vpcInfo::fromMap($map['vpcInfo']);
         }

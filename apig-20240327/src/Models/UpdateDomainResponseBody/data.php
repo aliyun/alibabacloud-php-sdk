@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\UpdateDomainResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description Deploy revision id.
-     *
-     * @example apr-xxx
-     *
      * @var string
      */
     public $deployRevisionId;
@@ -20,9 +16,12 @@ class data extends Model
         'deployRevisionId' => 'deployRevisionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->deployRevisionId) {
@@ -32,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

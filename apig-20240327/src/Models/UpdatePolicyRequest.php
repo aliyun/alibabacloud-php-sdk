@@ -4,37 +4,21 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdatePolicyRequest extends Model
 {
     /**
-     * @description Policy configuration
-     *
-     * This parameter is required.
-     *
-     * @example {"unitNum":1,"timeUnit":"s","enable":true}
-     *
      * @var string
      */
     public $config;
 
     /**
-     * @description Description
-     *
-     * @example this is a timeout policy description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description Policy name
-     *
-     * This parameter is required.
-     *
-     * @example celue-timeout-test
-     *
      * @var string
      */
     public $name;
@@ -44,17 +28,22 @@ class UpdatePolicyRequest extends Model
         'name' => 'name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->config) {
             $res['config'] = $this->config;
         }
+
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -62,20 +51,22 @@ class UpdatePolicyRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdatePolicyRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['config'])) {
             $model->config = $map['config'];
         }
+
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

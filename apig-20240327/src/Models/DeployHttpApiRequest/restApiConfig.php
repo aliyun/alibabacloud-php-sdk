@@ -4,32 +4,22 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest\restApiConfig\environment;
-use AlibabaCloud\Tea\Model;
 
 class restApiConfig extends Model
 {
     /**
-     * @description Publication description.
-     *
-     * @example 用户服务API发布。
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description Publication environment configuration.
-     *
      * @var environment
      */
     public $environment;
 
     /**
-     * @description Historical version number. If this field is specified, the publication information will be based on the historical version information.
-     *
-     * @example apr-xxx
-     *
      * @var string
      */
     public $revisionId;
@@ -39,17 +29,25 @@ class restApiConfig extends Model
         'revisionId' => 'revisionId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->environment) {
+            $this->environment->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->environment) {
-            $res['environment'] = null !== $this->environment ? $this->environment->toMap() : null;
+            $res['environment'] = null !== $this->environment ? $this->environment->toArray($noStream) : $this->environment;
         }
+
         if (null !== $this->revisionId) {
             $res['revisionId'] = $this->revisionId;
         }
@@ -57,20 +55,22 @@ class restApiConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return restApiConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['environment'])) {
             $model->environment = environment::fromMap($map['environment']);
         }
+
         if (isset($map['revisionId'])) {
             $model->revisionId = $map['revisionId'];
         }

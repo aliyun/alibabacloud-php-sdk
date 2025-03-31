@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPublishRevisionInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiBackendMatchConditions;
-use AlibabaCloud\Tea\Model;
 
 class vipConfigs extends Model
 {
@@ -20,8 +20,6 @@ class vipConfigs extends Model
     public $match;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $weight;
@@ -31,17 +29,34 @@ class vipConfigs extends Model
         'weight' => 'weight',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->endpoints)) {
+            Model::validateArray($this->endpoints);
+        }
+        if (null !== $this->match) {
+            $this->match->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->endpoints) {
-            $res['endpoints'] = $this->endpoints;
+            if (\is_array($this->endpoints)) {
+                $res['endpoints'] = [];
+                $n1 = 0;
+                foreach ($this->endpoints as $item1) {
+                    $res['endpoints'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->match) {
-            $res['match'] = null !== $this->match ? $this->match->toMap() : null;
+            $res['match'] = null !== $this->match ? $this->match->toArray($noStream) : $this->match;
         }
+
         if (null !== $this->weight) {
             $res['weight'] = $this->weight;
         }
@@ -49,22 +64,28 @@ class vipConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vipConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['endpoints'])) {
             if (!empty($map['endpoints'])) {
-                $model->endpoints = $map['endpoints'];
+                $model->endpoints = [];
+                $n1 = 0;
+                foreach ($map['endpoints'] as $item1) {
+                    $model->endpoints[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['match'])) {
             $model->match = HttpApiBackendMatchConditions::fromMap($map['match']);
         }
+
         if (isset($map['weight'])) {
             $model->weight = $map['weight'];
         }

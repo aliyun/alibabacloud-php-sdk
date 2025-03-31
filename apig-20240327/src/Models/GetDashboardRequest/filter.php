@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\GetDashboardRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class filter extends Model
 {
     /**
-     * @description Route name
-     *
-     * @example test-route
-     *
      * @var string
      */
     public $routeName;
@@ -20,9 +16,12 @@ class filter extends Model
         'routeName' => 'routeName',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->routeName) {
@@ -32,11 +31,11 @@ class filter extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return filter
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetEnvironmentRequest extends Model
 {
     /**
-     * @description Indicates whether to return online resource info.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $withStatistics;
 
     /**
-     * @description Option for vpc info.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $withVpcInfo;
@@ -30,14 +22,18 @@ class GetEnvironmentRequest extends Model
         'withVpcInfo' => 'withVpcInfo',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->withStatistics) {
             $res['withStatistics'] = $this->withStatistics;
         }
+
         if (null !== $this->withVpcInfo) {
             $res['withVpcInfo'] = $this->withVpcInfo;
         }
@@ -45,17 +41,18 @@ class GetEnvironmentRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetEnvironmentRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['withStatistics'])) {
             $model->withStatistics = $map['withStatistics'];
         }
+
         if (isset($map['withVpcInfo'])) {
             $model->withVpcInfo = $map['withVpcInfo'];
         }

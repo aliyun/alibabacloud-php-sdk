@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ImportHttpApiResponseBody\data\dryRunInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class failureComponents extends Model
 {
     /**
-     * @description Error message.
-     *
-     * @example 数据结构定义有误。
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description 数据结构名称。
-     *
-     * @example orderDTO
-     *
      * @var string
      */
     public $name;
@@ -30,14 +22,18 @@ class failureComponents extends Model
         'name' => 'name',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorMessage) {
             $res['errorMessage'] = $this->errorMessage;
         }
+
         if (null !== $this->name) {
             $res['name'] = $this->name;
         }
@@ -45,17 +41,18 @@ class failureComponents extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return failureComponents
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['errorMessage'])) {
             $model->errorMessage = $map['errorMessage'];
         }
+
         if (isset($map['name'])) {
             $model->name = $map['name'];
         }

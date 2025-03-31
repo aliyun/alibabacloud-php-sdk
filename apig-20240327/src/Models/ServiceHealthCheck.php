@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ServiceHealthCheck extends Model
 {
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enable;
@@ -36,8 +34,6 @@ class ServiceHealthCheck extends Model
     public $interval;
 
     /**
-     * @example TCP
-     *
      * @var string
      */
     public $protocol;
@@ -62,32 +58,42 @@ class ServiceHealthCheck extends Model
         'unhealthyThreshold' => 'unhealthyThreshold',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enable) {
             $res['enable'] = $this->enable;
         }
+
         if (null !== $this->healthyThreshold) {
             $res['healthyThreshold'] = $this->healthyThreshold;
         }
+
         if (null !== $this->httpHost) {
             $res['httpHost'] = $this->httpHost;
         }
+
         if (null !== $this->httpPath) {
             $res['httpPath'] = $this->httpPath;
         }
+
         if (null !== $this->interval) {
             $res['interval'] = $this->interval;
         }
+
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
         }
+
         if (null !== $this->timeout) {
             $res['timeout'] = $this->timeout;
         }
+
         if (null !== $this->unhealthyThreshold) {
             $res['unhealthyThreshold'] = $this->unhealthyThreshold;
         }
@@ -95,35 +101,42 @@ class ServiceHealthCheck extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ServiceHealthCheck
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['enable'])) {
             $model->enable = $map['enable'];
         }
+
         if (isset($map['healthyThreshold'])) {
             $model->healthyThreshold = $map['healthyThreshold'];
         }
+
         if (isset($map['httpHost'])) {
             $model->httpHost = $map['httpHost'];
         }
+
         if (isset($map['httpPath'])) {
             $model->httpPath = $map['httpPath'];
         }
+
         if (isset($map['interval'])) {
             $model->interval = $map['interval'];
         }
+
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
         }
+
         if (isset($map['timeout'])) {
             $model->timeout = $map['timeout'];
         }
+
         if (isset($map['unhealthyThreshold'])) {
             $model->unhealthyThreshold = $map['unhealthyThreshold'];
         }

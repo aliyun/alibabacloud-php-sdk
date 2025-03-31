@@ -4,25 +4,21 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPublishRevisionInfo\cloudProductConfig;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPublishRevisionInfo\dnsConfigs;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPublishRevisionInfo\environmentInfo;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPublishRevisionInfo\serviceConfigs;
 use AlibabaCloud\SDK\APIG\V20240327\Models\HttpApiPublishRevisionInfo\vipConfigs;
-use AlibabaCloud\Tea\Model;
 
 class HttpApiPublishRevisionInfo extends Model
 {
     /**
-     * @example SingleService
-     *
      * @var string
      */
     public $backendScene;
 
     /**
-     * @example Service
-     *
      * @var string
      */
     public $backendType;
@@ -33,8 +29,6 @@ class HttpApiPublishRevisionInfo extends Model
     public $cloudProductConfig;
 
     /**
-     * @example 1718807057927
-     *
      * @var int
      */
     public $createTimestamp;
@@ -50,15 +44,11 @@ class HttpApiPublishRevisionInfo extends Model
     public $dnsConfigs;
 
     /**
-     * @example env-xxx
-     *
      * @var environmentInfo
      */
     public $environmentInfo;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $isCurrentVersion;
@@ -69,8 +59,6 @@ class HttpApiPublishRevisionInfo extends Model
     public $operations;
 
     /**
-     * @example apr-xxx
-     *
      * @var string
      */
     public $revisionId;
@@ -81,8 +69,6 @@ class HttpApiPublishRevisionInfo extends Model
     public $serviceConfigs;
 
     /**
-     * @example env-xxx.com
-     *
      * @var HttpApiDomainInfo[]
      */
     public $subDomains;
@@ -107,83 +93,122 @@ class HttpApiPublishRevisionInfo extends Model
         'vipConfigs' => 'vipConfigs',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->cloudProductConfig) {
+            $this->cloudProductConfig->validate();
+        }
+        if (\is_array($this->customDomains)) {
+            Model::validateArray($this->customDomains);
+        }
+        if (\is_array($this->dnsConfigs)) {
+            Model::validateArray($this->dnsConfigs);
+        }
+        if (null !== $this->environmentInfo) {
+            $this->environmentInfo->validate();
+        }
+        if (\is_array($this->operations)) {
+            Model::validateArray($this->operations);
+        }
+        if (\is_array($this->serviceConfigs)) {
+            Model::validateArray($this->serviceConfigs);
+        }
+        if (\is_array($this->subDomains)) {
+            Model::validateArray($this->subDomains);
+        }
+        if (\is_array($this->vipConfigs)) {
+            Model::validateArray($this->vipConfigs);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backendScene) {
             $res['backendScene'] = $this->backendScene;
         }
+
         if (null !== $this->backendType) {
             $res['backendType'] = $this->backendType;
         }
+
         if (null !== $this->cloudProductConfig) {
-            $res['cloudProductConfig'] = null !== $this->cloudProductConfig ? $this->cloudProductConfig->toMap() : null;
+            $res['cloudProductConfig'] = null !== $this->cloudProductConfig ? $this->cloudProductConfig->toArray($noStream) : $this->cloudProductConfig;
         }
+
         if (null !== $this->createTimestamp) {
             $res['createTimestamp'] = $this->createTimestamp;
         }
+
         if (null !== $this->customDomains) {
-            $res['customDomains'] = [];
-            if (null !== $this->customDomains && \is_array($this->customDomains)) {
-                $n = 0;
-                foreach ($this->customDomains as $item) {
-                    $res['customDomains'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->customDomains)) {
+                $res['customDomains'] = [];
+                $n1 = 0;
+                foreach ($this->customDomains as $item1) {
+                    $res['customDomains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->dnsConfigs) {
-            $res['dnsConfigs'] = [];
-            if (null !== $this->dnsConfigs && \is_array($this->dnsConfigs)) {
-                $n = 0;
-                foreach ($this->dnsConfigs as $item) {
-                    $res['dnsConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dnsConfigs)) {
+                $res['dnsConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->dnsConfigs as $item1) {
+                    $res['dnsConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->environmentInfo) {
-            $res['environmentInfo'] = null !== $this->environmentInfo ? $this->environmentInfo->toMap() : null;
+            $res['environmentInfo'] = null !== $this->environmentInfo ? $this->environmentInfo->toArray($noStream) : $this->environmentInfo;
         }
+
         if (null !== $this->isCurrentVersion) {
             $res['isCurrentVersion'] = $this->isCurrentVersion;
         }
+
         if (null !== $this->operations) {
-            $res['operations'] = [];
-            if (null !== $this->operations && \is_array($this->operations)) {
-                $n = 0;
-                foreach ($this->operations as $item) {
-                    $res['operations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->operations)) {
+                $res['operations'] = [];
+                $n1 = 0;
+                foreach ($this->operations as $item1) {
+                    $res['operations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->revisionId) {
             $res['revisionId'] = $this->revisionId;
         }
+
         if (null !== $this->serviceConfigs) {
-            $res['serviceConfigs'] = [];
-            if (null !== $this->serviceConfigs && \is_array($this->serviceConfigs)) {
-                $n = 0;
-                foreach ($this->serviceConfigs as $item) {
-                    $res['serviceConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->serviceConfigs)) {
+                $res['serviceConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->serviceConfigs as $item1) {
+                    $res['serviceConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->subDomains) {
-            $res['subDomains'] = [];
-            if (null !== $this->subDomains && \is_array($this->subDomains)) {
-                $n = 0;
-                foreach ($this->subDomains as $item) {
-                    $res['subDomains'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->subDomains)) {
+                $res['subDomains'] = [];
+                $n1 = 0;
+                foreach ($this->subDomains as $item1) {
+                    $res['subDomains'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->vipConfigs) {
-            $res['vipConfigs'] = [];
-            if (null !== $this->vipConfigs && \is_array($this->vipConfigs)) {
-                $n = 0;
-                foreach ($this->vipConfigs as $item) {
-                    $res['vipConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->vipConfigs)) {
+                $res['vipConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->vipConfigs as $item1) {
+                    $res['vipConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -191,86 +216,98 @@ class HttpApiPublishRevisionInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return HttpApiPublishRevisionInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['backendScene'])) {
             $model->backendScene = $map['backendScene'];
         }
+
         if (isset($map['backendType'])) {
             $model->backendType = $map['backendType'];
         }
+
         if (isset($map['cloudProductConfig'])) {
             $model->cloudProductConfig = cloudProductConfig::fromMap($map['cloudProductConfig']);
         }
+
         if (isset($map['createTimestamp'])) {
             $model->createTimestamp = $map['createTimestamp'];
         }
+
         if (isset($map['customDomains'])) {
             if (!empty($map['customDomains'])) {
                 $model->customDomains = [];
-                $n = 0;
-                foreach ($map['customDomains'] as $item) {
-                    $model->customDomains[$n++] = null !== $item ? HttpApiDomainInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['customDomains'] as $item1) {
+                    $model->customDomains[$n1++] = HttpApiDomainInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['dnsConfigs'])) {
             if (!empty($map['dnsConfigs'])) {
                 $model->dnsConfigs = [];
-                $n = 0;
-                foreach ($map['dnsConfigs'] as $item) {
-                    $model->dnsConfigs[$n++] = null !== $item ? dnsConfigs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['dnsConfigs'] as $item1) {
+                    $model->dnsConfigs[$n1++] = dnsConfigs::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['environmentInfo'])) {
             $model->environmentInfo = environmentInfo::fromMap($map['environmentInfo']);
         }
+
         if (isset($map['isCurrentVersion'])) {
             $model->isCurrentVersion = $map['isCurrentVersion'];
         }
+
         if (isset($map['operations'])) {
             if (!empty($map['operations'])) {
                 $model->operations = [];
-                $n = 0;
-                foreach ($map['operations'] as $item) {
-                    $model->operations[$n++] = null !== $item ? HttpApiOperationInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['operations'] as $item1) {
+                    $model->operations[$n1++] = HttpApiOperationInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['revisionId'])) {
             $model->revisionId = $map['revisionId'];
         }
+
         if (isset($map['serviceConfigs'])) {
             if (!empty($map['serviceConfigs'])) {
                 $model->serviceConfigs = [];
-                $n = 0;
-                foreach ($map['serviceConfigs'] as $item) {
-                    $model->serviceConfigs[$n++] = null !== $item ? serviceConfigs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['serviceConfigs'] as $item1) {
+                    $model->serviceConfigs[$n1++] = serviceConfigs::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['subDomains'])) {
             if (!empty($map['subDomains'])) {
                 $model->subDomains = [];
-                $n = 0;
-                foreach ($map['subDomains'] as $item) {
-                    $model->subDomains[$n++] = null !== $item ? HttpApiDomainInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['subDomains'] as $item1) {
+                    $model->subDomains[$n1++] = HttpApiDomainInfo::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['vipConfigs'])) {
             if (!empty($map['vipConfigs'])) {
                 $model->vipConfigs = [];
-                $n = 0;
-                foreach ($map['vipConfigs'] as $item) {
-                    $model->vipConfigs[$n++] = null !== $item ? vipConfigs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['vipConfigs'] as $item1) {
+                    $model->vipConfigs[$n1++] = vipConfigs::fromMap($item1);
                 }
             }
         }

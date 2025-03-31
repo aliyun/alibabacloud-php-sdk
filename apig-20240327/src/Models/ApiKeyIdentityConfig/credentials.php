@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ApiKeyIdentityConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class credentials extends Model
 {
@@ -22,14 +22,18 @@ class credentials extends Model
         'generateMode' => 'generateMode',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->apikey) {
             $res['apikey'] = $this->apikey;
         }
+
         if (null !== $this->generateMode) {
             $res['generateMode'] = $this->generateMode;
         }
@@ -37,17 +41,18 @@ class credentials extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return credentials
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['apikey'])) {
             $model->apikey = $map['apikey'];
         }
+
         if (isset($map['generateMode'])) {
             $model->generateMode = $map['generateMode'];
         }

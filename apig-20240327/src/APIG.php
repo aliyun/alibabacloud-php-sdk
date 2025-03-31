@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327;
 
-use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\Dara\Models\RuntimeOptions;
+use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AddGatewaySecurityGroupRuleRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\AddGatewaySecurityGroupRuleResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\ChangeResourceGroupRequest;
@@ -99,11 +99,10 @@ use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePolicyRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpdatePolicyResponse;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpgradeGatewayRequest;
 use AlibabaCloud\SDK\APIG\V20240327\Models\UpgradeGatewayResponse;
-use AlibabaCloud\Tea\Utils\Utils;
-use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
+use Darabonba\OpenApi\Utils;
 
 class APIG extends OpenApiClient
 {
@@ -128,55 +127,65 @@ class APIG extends OpenApiClient
      */
     public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
     {
-        if (!Utils::empty_($endpoint)) {
+        if (null !== $endpoint) {
             return $endpoint;
         }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+
+        if (null !== $endpointMap && null !== @$endpointMap[$regionId]) {
             return @$endpointMap[$regionId];
         }
 
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+        return Utils::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 
     /**
-     * @summary Authorize the security group for gateway to access services
-     *  *
-     * @param string                             $gatewayId
-     * @param AddGatewaySecurityGroupRuleRequest $request   AddGatewaySecurityGroupRuleRequest
-     * @param string[]                           $headers   map
-     * @param RuntimeOptions                     $runtime   runtime options for this request RuntimeOptions
+     * Authorize the security group for gateway to access services.
      *
-     * @return AddGatewaySecurityGroupRuleResponse AddGatewaySecurityGroupRuleResponse
+     * @param request - AddGatewaySecurityGroupRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns AddGatewaySecurityGroupRuleResponse
+     *
+     * @param string                             $gatewayId
+     * @param AddGatewaySecurityGroupRuleRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return AddGatewaySecurityGroupRuleResponse
      */
     public function addGatewaySecurityGroupRuleWithOptions($gatewayId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->portRanges)) {
-            $body['portRanges'] = $request->portRanges;
+
+        if (null !== $request->portRanges) {
+            @$body['portRanges'] = $request->portRanges;
         }
-        if (!Utils::isUnset($request->securityGroupId)) {
-            $body['securityGroupId'] = $request->securityGroupId;
+
+        if (null !== $request->securityGroupId) {
+            @$body['securityGroupId'] = $request->securityGroupId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'AddGatewaySecurityGroupRule',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/security-group-rules',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/security-group-rules',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddGatewaySecurityGroupRuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -184,12 +193,16 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Authorize the security group for gateway to access services
-     *  *
-     * @param string                             $gatewayId
-     * @param AddGatewaySecurityGroupRuleRequest $request   AddGatewaySecurityGroupRuleRequest
+     * Authorize the security group for gateway to access services.
      *
-     * @return AddGatewaySecurityGroupRuleResponse AddGatewaySecurityGroupRuleResponse
+     * @param request - AddGatewaySecurityGroupRuleRequest
+     *
+     * @returns AddGatewaySecurityGroupRuleResponse
+     *
+     * @param string                             $gatewayId
+     * @param AddGatewaySecurityGroupRuleRequest $request
+     *
+     * @return AddGatewaySecurityGroupRuleResponse
      */
     public function addGatewaySecurityGroupRule($gatewayId, $request)
     {
@@ -200,33 +213,43 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Resource Group Transfer
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
-     * @param string[]                   $headers map
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * Resource Group Transfer.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroupWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (null !== $request->resourceGroupId) {
+            @$query['ResourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
         }
-        if (!Utils::isUnset($request->resourceType)) {
-            $query['ResourceType'] = $request->resourceType;
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->service)) {
-            $query['Service'] = $request->service;
+
+        if (null !== $request->service) {
+            @$query['Service'] = $request->service;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ChangeResourceGroup',
@@ -239,7 +262,7 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -247,11 +270,15 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Resource Group Transfer
-     *  *
-     * @param ChangeResourceGroupRequest $request ChangeResourceGroupRequest
+     * Resource Group Transfer.
      *
-     * @return ChangeResourceGroupResponse ChangeResourceGroupResponse
+     * @param request - ChangeResourceGroupRequest
+     *
+     * @returns ChangeResourceGroupResponse
+     *
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
      */
     public function changeResourceGroup($request)
     {
@@ -262,59 +289,78 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Create Domain
-     *  *
-     * @description Create Domain.
-     *  *
-     * @param CreateDomainRequest $request CreateDomainRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Creates a domain name.
      *
-     * @return CreateDomainResponse CreateDomainResponse
+     * @remarks
+     * Create Domain.
+     *
+     * @param request - CreateDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateDomainResponse
+     *
+     * @param CreateDomainRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateDomainResponse
      */
     public function createDomainWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->caCertIdentifier)) {
-            $body['caCertIdentifier'] = $request->caCertIdentifier;
+        if (null !== $request->caCertIdentifier) {
+            @$body['caCertIdentifier'] = $request->caCertIdentifier;
         }
-        if (!Utils::isUnset($request->certIdentifier)) {
-            $body['certIdentifier'] = $request->certIdentifier;
+
+        if (null !== $request->certIdentifier) {
+            @$body['certIdentifier'] = $request->certIdentifier;
         }
-        if (!Utils::isUnset($request->clientCACert)) {
-            $body['clientCACert'] = $request->clientCACert;
+
+        if (null !== $request->clientCACert) {
+            @$body['clientCACert'] = $request->clientCACert;
         }
-        if (!Utils::isUnset($request->forceHttps)) {
-            $body['forceHttps'] = $request->forceHttps;
+
+        if (null !== $request->forceHttps) {
+            @$body['forceHttps'] = $request->forceHttps;
         }
-        if (!Utils::isUnset($request->http2Option)) {
-            $body['http2Option'] = $request->http2Option;
+
+        if (null !== $request->http2Option) {
+            @$body['http2Option'] = $request->http2Option;
         }
-        if (!Utils::isUnset($request->mTLSEnabled)) {
-            $body['mTLSEnabled'] = $request->mTLSEnabled;
+
+        if (null !== $request->mTLSEnabled) {
+            @$body['mTLSEnabled'] = $request->mTLSEnabled;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->protocol)) {
-            $body['protocol'] = $request->protocol;
+
+        if (null !== $request->protocol) {
+            @$body['protocol'] = $request->protocol;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tlsCipherSuitesConfig)) {
-            $body['tlsCipherSuitesConfig'] = $request->tlsCipherSuitesConfig;
+
+        if (null !== $request->tlsCipherSuitesConfig) {
+            @$body['tlsCipherSuitesConfig'] = $request->tlsCipherSuitesConfig;
         }
-        if (!Utils::isUnset($request->tlsMax)) {
-            $body['tlsMax'] = $request->tlsMax;
+
+        if (null !== $request->tlsMax) {
+            @$body['tlsMax'] = $request->tlsMax;
         }
-        if (!Utils::isUnset($request->tlsMin)) {
-            $body['tlsMin'] = $request->tlsMin;
+
+        if (null !== $request->tlsMin) {
+            @$body['tlsMin'] = $request->tlsMin;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateDomain',
@@ -327,7 +373,7 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -335,13 +381,18 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Create Domain
-     *  *
-     * @description Create Domain.
-     *  *
-     * @param CreateDomainRequest $request CreateDomainRequest
+     * Creates a domain name.
      *
-     * @return CreateDomainResponse CreateDomainResponse
+     * @remarks
+     * Create Domain.
+     *
+     * @param request - CreateDomainRequest
+     *
+     * @returns CreateDomainResponse
+     *
+     * @param CreateDomainRequest $request
+     *
+     * @return CreateDomainResponse
      */
     public function createDomain($request)
     {
@@ -351,43 +402,54 @@ class APIG extends OpenApiClient
         return $this->createDomainWithOptions($request, $headers, $runtime);
     }
 
+    // Deprecated
     /**
+     * CreateEnvironment.
+     *
+     * @remarks
+     * Create environment.
+     *
      * @deprecated OpenAPI CreateEnvironment is deprecated
-     *  *
-     * @summary CreateEnvironment
-     *  *
-     * @description Create environment.
-     *  *
-     * Deprecated
      *
-     * @param CreateEnvironmentRequest $request CreateEnvironmentRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param request - CreateEnvironmentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return CreateEnvironmentResponse CreateEnvironmentResponse
+     * @returns CreateEnvironmentResponse
+     *
+     * @param CreateEnvironmentRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateEnvironmentResponse
      */
     public function createEnvironmentWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alias)) {
-            $body['alias'] = $request->alias;
+        if (null !== $request->alias) {
+            @$body['alias'] = $request->alias;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->gatewayId)) {
-            $body['gatewayId'] = $request->gatewayId;
+
+        if (null !== $request->gatewayId) {
+            @$body['gatewayId'] = $request->gatewayId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateEnvironment',
@@ -400,25 +462,29 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
         return CreateEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * CreateEnvironment.
+     *
+     * @remarks
+     * Create environment.
+     *
      * @deprecated OpenAPI CreateEnvironment is deprecated
-     *  *
-     * @summary CreateEnvironment
-     *  *
-     * @description Create environment.
-     *  *
-     * Deprecated
      *
-     * @param CreateEnvironmentRequest $request CreateEnvironmentRequest
+     * @param request - CreateEnvironmentRequest
      *
-     * @return CreateEnvironmentResponse CreateEnvironmentResponse
+     * @returns CreateEnvironmentResponse
+     *
+     * @param CreateEnvironmentRequest $request
+     *
+     * @return CreateEnvironmentResponse
      */
     public function createEnvironment($request)
     {
@@ -429,57 +495,75 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Create an API of HTTP type
-     *  *
-     * @param CreateHttpApiRequest $request CreateHttpApiRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates an HTTP API.
      *
-     * @return CreateHttpApiResponse CreateHttpApiResponse
+     * @param request - CreateHttpApiRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHttpApiResponse
+     *
+     * @param CreateHttpApiRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateHttpApiResponse
      */
     public function createHttpApiWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aiProtocols)) {
-            $body['aiProtocols'] = $request->aiProtocols;
+        if (null !== $request->aiProtocols) {
+            @$body['aiProtocols'] = $request->aiProtocols;
         }
-        if (!Utils::isUnset($request->authConfig)) {
-            $body['authConfig'] = $request->authConfig;
+
+        if (null !== $request->authConfig) {
+            @$body['authConfig'] = $request->authConfig;
         }
-        if (!Utils::isUnset($request->basePath)) {
-            $body['basePath'] = $request->basePath;
+
+        if (null !== $request->basePath) {
+            @$body['basePath'] = $request->basePath;
         }
-        if (!Utils::isUnset($request->deployConfigs)) {
-            $body['deployConfigs'] = $request->deployConfigs;
+
+        if (null !== $request->deployConfigs) {
+            @$body['deployConfigs'] = $request->deployConfigs;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->enableAuth)) {
-            $body['enableAuth'] = $request->enableAuth;
+
+        if (null !== $request->enableAuth) {
+            @$body['enableAuth'] = $request->enableAuth;
         }
-        if (!Utils::isUnset($request->ingressConfig)) {
-            $body['ingressConfig'] = $request->ingressConfig;
+
+        if (null !== $request->ingressConfig) {
+            @$body['ingressConfig'] = $request->ingressConfig;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->protocols)) {
-            $body['protocols'] = $request->protocols;
+
+        if (null !== $request->protocols) {
+            @$body['protocols'] = $request->protocols;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->type)) {
-            $body['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$body['type'] = $request->type;
         }
-        if (!Utils::isUnset($request->versionConfig)) {
-            $body['versionConfig'] = $request->versionConfig;
+
+        if (null !== $request->versionConfig) {
+            @$body['versionConfig'] = $request->versionConfig;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateHttpApi',
@@ -492,7 +576,7 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -500,11 +584,15 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Create an API of HTTP type
-     *  *
-     * @param CreateHttpApiRequest $request CreateHttpApiRequest
+     * Creates an HTTP API.
      *
-     * @return CreateHttpApiResponse CreateHttpApiResponse
+     * @param request - CreateHttpApiRequest
+     *
+     * @returns CreateHttpApiResponse
+     *
+     * @param CreateHttpApiRequest $request
+     *
+     * @return CreateHttpApiResponse
      */
     public function createHttpApi($request)
     {
@@ -515,38 +603,45 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Create an Operation for HTTP API
-     *  *
-     * @param string                        $httpApiId
-     * @param CreateHttpApiOperationRequest $request   CreateHttpApiOperationRequest
-     * @param string[]                      $headers   map
-     * @param RuntimeOptions                $runtime   runtime options for this request RuntimeOptions
+     * Create an Operation for HTTP API.
      *
-     * @return CreateHttpApiOperationResponse CreateHttpApiOperationResponse
+     * @param request - CreateHttpApiOperationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHttpApiOperationResponse
+     *
+     * @param string                        $httpApiId
+     * @param CreateHttpApiOperationRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateHttpApiOperationResponse
      */
     public function createHttpApiOperationWithOptions($httpApiId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->operations)) {
-            $body['operations'] = $request->operations;
+        if (null !== $request->operations) {
+            @$body['operations'] = $request->operations;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateHttpApiOperation',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '/operations',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/operations',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateHttpApiOperationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -554,12 +649,16 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Create an Operation for HTTP API
-     *  *
-     * @param string                        $httpApiId
-     * @param CreateHttpApiOperationRequest $request   CreateHttpApiOperationRequest
+     * Create an Operation for HTTP API.
      *
-     * @return CreateHttpApiOperationResponse CreateHttpApiOperationResponse
+     * @param request - CreateHttpApiOperationRequest
+     *
+     * @returns CreateHttpApiOperationResponse
+     *
+     * @param string                        $httpApiId
+     * @param CreateHttpApiOperationRequest $request
+     *
+     * @return CreateHttpApiOperationResponse
      */
     public function createHttpApiOperation($httpApiId, $request)
     {
@@ -570,53 +669,65 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Creates a route for an HTTP API.
-     *  *
-     * @param string                    $httpApiId
-     * @param CreateHttpApiRouteRequest $request   CreateHttpApiRouteRequest
-     * @param string[]                  $headers   map
-     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
+     * Creates a route for an HTTP API.
      *
-     * @return CreateHttpApiRouteResponse CreateHttpApiRouteResponse
+     * @param request - CreateHttpApiRouteRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateHttpApiRouteResponse
+     *
+     * @param string                    $httpApiId
+     * @param CreateHttpApiRouteRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateHttpApiRouteResponse
      */
     public function createHttpApiRouteWithOptions($httpApiId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->backendConfig)) {
-            $body['backendConfig'] = $request->backendConfig;
+        if (null !== $request->backendConfig) {
+            @$body['backendConfig'] = $request->backendConfig;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->domainIds)) {
-            $body['domainIds'] = $request->domainIds;
+
+        if (null !== $request->domainIds) {
+            @$body['domainIds'] = $request->domainIds;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $body['environmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$body['environmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->match)) {
-            $body['match'] = $request->match;
+
+        if (null !== $request->match) {
+            @$body['match'] = $request->match;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateHttpApiRoute',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '/routes',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/routes',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateHttpApiRouteResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -624,12 +735,16 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Creates a route for an HTTP API.
-     *  *
-     * @param string                    $httpApiId
-     * @param CreateHttpApiRouteRequest $request   CreateHttpApiRouteRequest
+     * Creates a route for an HTTP API.
      *
-     * @return CreateHttpApiRouteResponse CreateHttpApiRouteResponse
+     * @param request - CreateHttpApiRouteRequest
+     *
+     * @returns CreateHttpApiRouteResponse
+     *
+     * @param string                    $httpApiId
+     * @param CreateHttpApiRouteRequest $request
+     *
+     * @return CreateHttpApiRouteResponse
      */
     public function createHttpApiRoute($httpApiId, $request)
     {
@@ -640,33 +755,43 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Create Policy
-     *  *
-     * @param CreatePolicyRequest $request CreatePolicyRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Create Policy.
      *
-     * @return CreatePolicyResponse CreatePolicyResponse
+     * @param request - CreatePolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePolicyResponse
+     *
+     * @param CreatePolicyRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreatePolicyResponse
      */
     public function createPolicyWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->className)) {
-            $body['className'] = $request->className;
+        if (null !== $request->className) {
+            @$body['className'] = $request->className;
         }
-        if (!Utils::isUnset($request->config)) {
-            $body['config'] = $request->config;
+
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreatePolicy',
@@ -679,7 +804,7 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -687,11 +812,15 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Create Policy
-     *  *
-     * @param CreatePolicyRequest $request CreatePolicyRequest
+     * Create Policy.
      *
-     * @return CreatePolicyResponse CreatePolicyResponse
+     * @param request - CreatePolicyRequest
+     *
+     * @returns CreatePolicyResponse
+     *
+     * @param CreatePolicyRequest $request
+     *
+     * @return CreatePolicyResponse
      */
     public function createPolicy($request)
     {
@@ -702,36 +831,47 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Create policy resource mount
-     *  *
-     * @param CreatePolicyAttachmentRequest $request CreatePolicyAttachmentRequest
-     * @param string[]                      $headers map
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * Create policy resource mount.
      *
-     * @return CreatePolicyAttachmentResponse CreatePolicyAttachmentResponse
+     * @param request - CreatePolicyAttachmentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreatePolicyAttachmentResponse
+     *
+     * @param CreatePolicyAttachmentRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreatePolicyAttachmentResponse
      */
     public function createPolicyAttachmentWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->attachResourceId)) {
-            $body['attachResourceId'] = $request->attachResourceId;
+        if (null !== $request->attachResourceId) {
+            @$body['attachResourceId'] = $request->attachResourceId;
         }
-        if (!Utils::isUnset($request->attachResourceType)) {
-            $body['attachResourceType'] = $request->attachResourceType;
+
+        if (null !== $request->attachResourceType) {
+            @$body['attachResourceType'] = $request->attachResourceType;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $body['environmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$body['environmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->gatewayId)) {
-            $body['gatewayId'] = $request->gatewayId;
+
+        if (null !== $request->gatewayId) {
+            @$body['gatewayId'] = $request->gatewayId;
         }
-        if (!Utils::isUnset($request->policyId)) {
-            $body['policyId'] = $request->policyId;
+
+        if (null !== $request->policyId) {
+            @$body['policyId'] = $request->policyId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreatePolicyAttachment',
@@ -744,7 +884,7 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreatePolicyAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -752,11 +892,15 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Create policy resource mount
-     *  *
-     * @param CreatePolicyAttachmentRequest $request CreatePolicyAttachmentRequest
+     * Create policy resource mount.
      *
-     * @return CreatePolicyAttachmentResponse CreatePolicyAttachmentResponse
+     * @param request - CreatePolicyAttachmentRequest
+     *
+     * @returns CreatePolicyAttachmentResponse
+     *
+     * @param CreatePolicyAttachmentRequest $request
+     *
+     * @return CreatePolicyAttachmentResponse
      */
     public function createPolicyAttachment($request)
     {
@@ -767,35 +911,46 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Create Service
-     *  *
-     * @description The interface supports creating multiple services.
-     *  *
-     * @param CreateServiceRequest $request CreateServiceRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Creates a service.
      *
-     * @return CreateServiceResponse CreateServiceResponse
+     * @remarks
+     * You can call this operation to create multiple services at a time.
+     *
+     * @param request - CreateServiceRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateServiceResponse
+     *
+     * @param CreateServiceRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateServiceResponse
      */
     public function createServiceWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->gatewayId)) {
-            $body['gatewayId'] = $request->gatewayId;
+        if (null !== $request->gatewayId) {
+            @$body['gatewayId'] = $request->gatewayId;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->serviceConfigs)) {
-            $body['serviceConfigs'] = $request->serviceConfigs;
+
+        if (null !== $request->serviceConfigs) {
+            @$body['serviceConfigs'] = $request->serviceConfigs;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $body['sourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$body['sourceType'] = $request->sourceType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'CreateService',
@@ -808,7 +963,7 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -816,13 +971,18 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Create Service
-     *  *
-     * @description The interface supports creating multiple services.
-     *  *
-     * @param CreateServiceRequest $request CreateServiceRequest
+     * Creates a service.
      *
-     * @return CreateServiceResponse CreateServiceResponse
+     * @remarks
+     * You can call this operation to create multiple services at a time.
+     *
+     * @param request - CreateServiceRequest
+     *
+     * @returns CreateServiceResponse
+     *
+     * @param CreateServiceRequest $request
+     *
+     * @return CreateServiceResponse
      */
     public function createService($request)
     {
@@ -833,13 +993,18 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary DeleteDomain
-     *  *
-     * @param string         $domainId
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * DeleteDomain.
      *
-     * @return DeleteDomainResponse DeleteDomainResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteDomainResponse
+     *
+     * @param string         $domainId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteDomainResponse
      */
     public function deleteDomainWithOptions($domainId, $headers, $runtime)
     {
@@ -850,14 +1015,14 @@ class APIG extends OpenApiClient
             'action' => 'DeleteDomain',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/domains/' . OpenApiUtilClient::getEncodeParam($domainId) . '',
+            'pathname' => '/v1/domains/' . Url::percentEncode($domainId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -865,11 +1030,13 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary DeleteDomain
-     *  *
+     * DeleteDomain.
+     *
+     * @returns DeleteDomainResponse
+     *
      * @param string $domainId
      *
-     * @return DeleteDomainResponse DeleteDomainResponse
+     * @return DeleteDomainResponse
      */
     public function deleteDomain($domainId)
     {
@@ -879,18 +1046,22 @@ class APIG extends OpenApiClient
         return $this->deleteDomainWithOptions($domainId, $headers, $runtime);
     }
 
+    // Deprecated
     /**
+     * DeleteEnvironment.
+     *
      * @deprecated OpenAPI DeleteEnvironment is deprecated
-     *  *
-     * @summary DeleteEnvironment
-     *  *
-     * Deprecated
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteEnvironmentResponse
      *
      * @param string         $environmentId
-     * @param string[]       $headers       map
-     * @param RuntimeOptions $runtime       runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteEnvironmentResponse DeleteEnvironmentResponse
+     * @return DeleteEnvironmentResponse
      */
     public function deleteEnvironmentWithOptions($environmentId, $headers, $runtime)
     {
@@ -901,30 +1072,31 @@ class APIG extends OpenApiClient
             'action' => 'DeleteEnvironment',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/environments/' . OpenApiUtilClient::getEncodeParam($environmentId) . '',
+            'pathname' => '/v1/environments/' . Url::percentEncode($environmentId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
         return DeleteEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * DeleteEnvironment.
+     *
      * @deprecated OpenAPI DeleteEnvironment is deprecated
-     *  *
-     * @summary DeleteEnvironment
-     *  *
-     * Deprecated
+     *
+     * @returns DeleteEnvironmentResponse
      *
      * @param string $environmentId
      *
-     * @return DeleteEnvironmentResponse DeleteEnvironmentResponse
+     * @return DeleteEnvironmentResponse
      */
     public function deleteEnvironment($environmentId)
     {
@@ -935,13 +1107,18 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Delete Gateway
-     *  *
-     * @param string         $gatewayId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * Delete Gateway.
      *
-     * @return DeleteGatewayResponse DeleteGatewayResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGatewayResponse
+     *
+     * @param string         $gatewayId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteGatewayResponse
      */
     public function deleteGatewayWithOptions($gatewayId, $headers, $runtime)
     {
@@ -952,14 +1129,14 @@ class APIG extends OpenApiClient
             'action' => 'DeleteGateway',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -967,11 +1144,13 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Delete Gateway
-     *  *
+     * Delete Gateway.
+     *
+     * @returns DeleteGatewayResponse
+     *
      * @param string $gatewayId
      *
-     * @return DeleteGatewayResponse DeleteGatewayResponse
+     * @return DeleteGatewayResponse
      */
     public function deleteGateway($gatewayId)
     {
@@ -982,39 +1161,46 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Delete the security group rule of a gateway
-     *  *
+     * Delete the security group rule of a gateway.
+     *
+     * @param request - DeleteGatewaySecurityGroupRuleRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteGatewaySecurityGroupRuleResponse
+     *
      * @param string                                $gatewayId
      * @param string                                $securityGroupRuleId
-     * @param DeleteGatewaySecurityGroupRuleRequest $request             DeleteGatewaySecurityGroupRuleRequest
-     * @param string[]                              $headers             map
-     * @param RuntimeOptions                        $runtime             runtime options for this request RuntimeOptions
+     * @param DeleteGatewaySecurityGroupRuleRequest $request
+     * @param string[]                              $headers
+     * @param RuntimeOptions                        $runtime
      *
-     * @return DeleteGatewaySecurityGroupRuleResponse DeleteGatewaySecurityGroupRuleResponse
+     * @return DeleteGatewaySecurityGroupRuleResponse
      */
     public function deleteGatewaySecurityGroupRuleWithOptions($gatewayId, $securityGroupRuleId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->cascadingDelete)) {
-            $query['cascadingDelete'] = $request->cascadingDelete;
+        if (null !== $request->cascadingDelete) {
+            @$query['cascadingDelete'] = $request->cascadingDelete;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'DeleteGatewaySecurityGroupRule',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/security-group-rules/' . OpenApiUtilClient::getEncodeParam($securityGroupRuleId) . '',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/security-group-rules/' . Url::percentEncode($securityGroupRuleId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteGatewaySecurityGroupRuleResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1022,13 +1208,17 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Delete the security group rule of a gateway
-     *  *
+     * Delete the security group rule of a gateway.
+     *
+     * @param request - DeleteGatewaySecurityGroupRuleRequest
+     *
+     * @returns DeleteGatewaySecurityGroupRuleResponse
+     *
      * @param string                                $gatewayId
      * @param string                                $securityGroupRuleId
-     * @param DeleteGatewaySecurityGroupRuleRequest $request             DeleteGatewaySecurityGroupRuleRequest
+     * @param DeleteGatewaySecurityGroupRuleRequest $request
      *
-     * @return DeleteGatewaySecurityGroupRuleResponse DeleteGatewaySecurityGroupRuleResponse
+     * @return DeleteGatewaySecurityGroupRuleResponse
      */
     public function deleteGatewaySecurityGroupRule($gatewayId, $securityGroupRuleId, $request)
     {
@@ -1039,13 +1229,18 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an HTTP API.
-     *  *
-     * @param string         $httpApiId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * Deletes an HTTP API.
      *
-     * @return DeleteHttpApiResponse DeleteHttpApiResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHttpApiResponse
+     *
+     * @param string         $httpApiId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteHttpApiResponse
      */
     public function deleteHttpApiWithOptions($httpApiId, $headers, $runtime)
     {
@@ -1056,14 +1251,14 @@ class APIG extends OpenApiClient
             'action' => 'DeleteHttpApi',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1071,11 +1266,13 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Deletes an HTTP API.
-     *  *
+     * Deletes an HTTP API.
+     *
+     * @returns DeleteHttpApiResponse
+     *
      * @param string $httpApiId
      *
-     * @return DeleteHttpApiResponse DeleteHttpApiResponse
+     * @return DeleteHttpApiResponse
      */
     public function deleteHttpApi($httpApiId)
     {
@@ -1086,14 +1283,19 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Delete Operation
-     *  *
+     * Delete Operation.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHttpApiOperationResponse
+     *
      * @param string         $httpApiId
      * @param string         $operationId
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteHttpApiOperationResponse DeleteHttpApiOperationResponse
+     * @return DeleteHttpApiOperationResponse
      */
     public function deleteHttpApiOperationWithOptions($httpApiId, $operationId, $headers, $runtime)
     {
@@ -1104,14 +1306,14 @@ class APIG extends OpenApiClient
             'action' => 'DeleteHttpApiOperation',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '/operations/' . OpenApiUtilClient::getEncodeParam($operationId) . '',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/operations/' . Url::percentEncode($operationId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteHttpApiOperationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1119,12 +1321,14 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Delete Operation
-     *  *
+     * Delete Operation.
+     *
+     * @returns DeleteHttpApiOperationResponse
+     *
      * @param string $httpApiId
      * @param string $operationId
      *
-     * @return DeleteHttpApiOperationResponse DeleteHttpApiOperationResponse
+     * @return DeleteHttpApiOperationResponse
      */
     public function deleteHttpApiOperation($httpApiId, $operationId)
     {
@@ -1135,14 +1339,19 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Delete the route of an HttpApi
-     *  *
+     * Delete the route of an HttpApi.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteHttpApiRouteResponse
+     *
      * @param string         $httpApiId
      * @param string         $routeId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DeleteHttpApiRouteResponse DeleteHttpApiRouteResponse
+     * @return DeleteHttpApiRouteResponse
      */
     public function deleteHttpApiRouteWithOptions($httpApiId, $routeId, $headers, $runtime)
     {
@@ -1153,14 +1362,14 @@ class APIG extends OpenApiClient
             'action' => 'DeleteHttpApiRoute',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '/routes/' . OpenApiUtilClient::getEncodeParam($routeId) . '',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/routes/' . Url::percentEncode($routeId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteHttpApiRouteResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1168,12 +1377,14 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Delete the route of an HttpApi
-     *  *
+     * Delete the route of an HttpApi.
+     *
+     * @returns DeleteHttpApiRouteResponse
+     *
      * @param string $httpApiId
      * @param string $routeId
      *
-     * @return DeleteHttpApiRouteResponse DeleteHttpApiRouteResponse
+     * @return DeleteHttpApiRouteResponse
      */
     public function deleteHttpApiRoute($httpApiId, $routeId)
     {
@@ -1184,13 +1395,18 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Delete Policy
-     *  *
-     * @param string         $policyId
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * Delete Policy.
      *
-     * @return DeletePolicyResponse DeletePolicyResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePolicyResponse
+     *
+     * @param string         $policyId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeletePolicyResponse
      */
     public function deletePolicyWithOptions($policyId, $headers, $runtime)
     {
@@ -1201,14 +1417,14 @@ class APIG extends OpenApiClient
             'action' => 'DeletePolicy',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v2/policies/' . OpenApiUtilClient::getEncodeParam($policyId) . '',
+            'pathname' => '/v2/policies/' . Url::percentEncode($policyId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1216,11 +1432,13 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Delete Policy
-     *  *
+     * Delete Policy.
+     *
+     * @returns DeletePolicyResponse
+     *
      * @param string $policyId
      *
-     * @return DeletePolicyResponse DeletePolicyResponse
+     * @return DeletePolicyResponse
      */
     public function deletePolicy($policyId)
     {
@@ -1231,13 +1449,18 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Delete policy resource attachment
-     *  *
-     * @param string         $policyAttachmentId
-     * @param string[]       $headers            map
-     * @param RuntimeOptions $runtime            runtime options for this request RuntimeOptions
+     * Delete policy resource attachment.
      *
-     * @return DeletePolicyAttachmentResponse DeletePolicyAttachmentResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeletePolicyAttachmentResponse
+     *
+     * @param string         $policyAttachmentId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeletePolicyAttachmentResponse
      */
     public function deletePolicyAttachmentWithOptions($policyAttachmentId, $headers, $runtime)
     {
@@ -1248,14 +1471,14 @@ class APIG extends OpenApiClient
             'action' => 'DeletePolicyAttachment',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/policy-attachments/' . OpenApiUtilClient::getEncodeParam($policyAttachmentId) . '',
+            'pathname' => '/v1/policy-attachments/' . Url::percentEncode($policyAttachmentId) . '',
             'method' => 'DELETE',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeletePolicyAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1263,11 +1486,13 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Delete policy resource attachment
-     *  *
+     * Delete policy resource attachment.
+     *
+     * @returns DeletePolicyAttachmentResponse
+     *
      * @param string $policyAttachmentId
      *
-     * @return DeletePolicyAttachmentResponse DeletePolicyAttachmentResponse
+     * @return DeletePolicyAttachmentResponse
      */
     public function deletePolicyAttachment($policyAttachmentId)
     {
@@ -1278,41 +1503,49 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Deploy HttpApi
-     *  *
-     * @param string               $httpApiId
-     * @param DeployHttpApiRequest $request   DeployHttpApiRequest
-     * @param string[]             $headers   map
-     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
+     * Deploy HttpApi.
      *
-     * @return DeployHttpApiResponse DeployHttpApiResponse
+     * @param request - DeployHttpApiRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeployHttpApiResponse
+     *
+     * @param string               $httpApiId
+     * @param DeployHttpApiRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeployHttpApiResponse
      */
     public function deployHttpApiWithOptions($httpApiId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->restApiConfig)) {
-            $body['restApiConfig'] = $request->restApiConfig;
+        if (null !== $request->restApiConfig) {
+            @$body['restApiConfig'] = $request->restApiConfig;
         }
-        if (!Utils::isUnset($request->routeId)) {
-            $body['routeId'] = $request->routeId;
+
+        if (null !== $request->routeId) {
+            @$body['routeId'] = $request->routeId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'DeployHttpApi',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '/deploy',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/deploy',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeployHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1320,12 +1553,16 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Deploy HttpApi
-     *  *
-     * @param string               $httpApiId
-     * @param DeployHttpApiRequest $request   DeployHttpApiRequest
+     * Deploy HttpApi.
      *
-     * @return DeployHttpApiResponse DeployHttpApiResponse
+     * @param request - DeployHttpApiRequest
+     *
+     * @returns DeployHttpApiResponse
+     *
+     * @param string               $httpApiId
+     * @param DeployHttpApiRequest $request
+     *
+     * @return DeployHttpApiResponse
      */
     public function deployHttpApi($httpApiId, $request)
     {
@@ -1336,13 +1573,18 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Export HTTP API
-     *  *
-     * @param string         $httpApiId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * Export HTTP API.
      *
-     * @return ExportHttpApiResponse ExportHttpApiResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ExportHttpApiResponse
+     *
+     * @param string         $httpApiId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ExportHttpApiResponse
      */
     public function exportHttpApiWithOptions($httpApiId, $headers, $runtime)
     {
@@ -1353,14 +1595,14 @@ class APIG extends OpenApiClient
             'action' => 'ExportHttpApi',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '/export',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/export',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExportHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1368,11 +1610,13 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Export HTTP API
-     *  *
+     * Export HTTP API.
+     *
+     * @returns ExportHttpApiResponse
+     *
      * @param string $httpApiId
      *
-     * @return ExportHttpApiResponse ExportHttpApiResponse
+     * @return ExportHttpApiResponse
      */
     public function exportHttpApi($httpApiId)
     {
@@ -1383,58 +1627,79 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Get Monitoring/Logging Dashboard Interface
-     *  *
-     * @param string              $gatewayId
-     * @param GetDashboardRequest $tmpReq    GetDashboardRequest
-     * @param string[]            $headers   map
-     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     * Obtains data from dashboards.
      *
-     * @return GetDashboardResponse GetDashboardResponse
+     * @param tmpReq - GetDashboardRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDashboardResponse
+     *
+     * @param string              $gatewayId
+     * @param GetDashboardRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetDashboardResponse
      */
     public function getDashboardWithOptions($gatewayId, $tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new GetDashboardShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->filter)) {
-            $request->filterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'filter', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->filter) {
+            $request->filterShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'filter', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['acceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['acceptLanguage'] = $request->acceptLanguage;
         }
-        if (!Utils::isUnset($request->apiId)) {
-            $query['apiId'] = $request->apiId;
+
+        if (null !== $request->apiId) {
+            @$query['apiId'] = $request->apiId;
         }
-        if (!Utils::isUnset($request->filterShrink)) {
-            $query['filter'] = $request->filterShrink;
+
+        if (null !== $request->filterShrink) {
+            @$query['filter'] = $request->filterShrink;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pluginClassId)) {
-            $query['pluginClassId'] = $request->pluginClassId;
+
+        if (null !== $request->pluginClassId) {
+            @$query['pluginClassId'] = $request->pluginClassId;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['source'] = $request->source;
+
+        if (null !== $request->pluginId) {
+            @$query['pluginId'] = $request->pluginId;
         }
+
+        if (null !== $request->source) {
+            @$query['source'] = $request->source;
+        }
+
+        if (null !== $request->upstreamCluster) {
+            @$query['upstreamCluster'] = $request->upstreamCluster;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDashboard',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/dashboards',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/dashboards',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDashboardResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1442,12 +1707,16 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Get Monitoring/Logging Dashboard Interface
-     *  *
-     * @param string              $gatewayId
-     * @param GetDashboardRequest $request   GetDashboardRequest
+     * Obtains data from dashboards.
      *
-     * @return GetDashboardResponse GetDashboardResponse
+     * @param request - GetDashboardRequest
+     *
+     * @returns GetDashboardResponse
+     *
+     * @param string              $gatewayId
+     * @param GetDashboardRequest $request
+     *
+     * @return GetDashboardResponse
      */
     public function getDashboard($gatewayId, $request)
     {
@@ -1458,38 +1727,45 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Query domain details
-     *  *
-     * @param string           $domainId
-     * @param GetDomainRequest $request  GetDomainRequest
-     * @param string[]         $headers  map
-     * @param RuntimeOptions   $runtime  runtime options for this request RuntimeOptions
+     * Queries the information about a domain name.
      *
-     * @return GetDomainResponse GetDomainResponse
+     * @param request - GetDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetDomainResponse
+     *
+     * @param string           $domainId
+     * @param GetDomainRequest $request
+     * @param string[]         $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetDomainResponse
      */
     public function getDomainWithOptions($domainId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->withStatistics)) {
-            $query['withStatistics'] = $request->withStatistics;
+        if (null !== $request->withStatistics) {
+            @$query['withStatistics'] = $request->withStatistics;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetDomain',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/domains/' . OpenApiUtilClient::getEncodeParam($domainId) . '',
+            'pathname' => '/v1/domains/' . Url::percentEncode($domainId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDomainResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1497,12 +1773,16 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Query domain details
-     *  *
-     * @param string           $domainId
-     * @param GetDomainRequest $request  GetDomainRequest
+     * Queries the information about a domain name.
      *
-     * @return GetDomainResponse GetDomainResponse
+     * @param request - GetDomainRequest
+     *
+     * @returns GetDomainResponse
+     *
+     * @param string           $domainId
+     * @param GetDomainRequest $request
+     *
+     * @return GetDomainResponse
      */
     public function getDomain($domainId, $request)
     {
@@ -1512,63 +1792,73 @@ class APIG extends OpenApiClient
         return $this->getDomainWithOptions($domainId, $request, $headers, $runtime);
     }
 
+    // Deprecated
     /**
+     * GetEnvironment.
+     *
      * @deprecated OpenAPI GetEnvironment is deprecated
-     *  *
-     * @summary GetEnvironment
-     *  *
-     * Deprecated
+     *
+     * @param request - GetEnvironmentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEnvironmentResponse
      *
      * @param string                $environmentId
-     * @param GetEnvironmentRequest $request       GetEnvironmentRequest
-     * @param string[]              $headers       map
-     * @param RuntimeOptions        $runtime       runtime options for this request RuntimeOptions
+     * @param GetEnvironmentRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return GetEnvironmentResponse GetEnvironmentResponse
+     * @return GetEnvironmentResponse
      */
     public function getEnvironmentWithOptions($environmentId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->withStatistics)) {
-            $query['withStatistics'] = $request->withStatistics;
+        if (null !== $request->withStatistics) {
+            @$query['withStatistics'] = $request->withStatistics;
         }
-        if (!Utils::isUnset($request->withVpcInfo)) {
-            $query['withVpcInfo'] = $request->withVpcInfo;
+
+        if (null !== $request->withVpcInfo) {
+            @$query['withVpcInfo'] = $request->withVpcInfo;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetEnvironment',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/environments/' . OpenApiUtilClient::getEncodeParam($environmentId) . '',
+            'pathname' => '/v1/environments/' . Url::percentEncode($environmentId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
         return GetEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * GetEnvironment.
+     *
      * @deprecated OpenAPI GetEnvironment is deprecated
-     *  *
-     * @summary GetEnvironment
-     *  *
-     * Deprecated
+     *
+     * @param request - GetEnvironmentRequest
+     *
+     * @returns GetEnvironmentResponse
      *
      * @param string                $environmentId
-     * @param GetEnvironmentRequest $request       GetEnvironmentRequest
+     * @param GetEnvironmentRequest $request
      *
-     * @return GetEnvironmentResponse GetEnvironmentResponse
+     * @return GetEnvironmentResponse
      */
     public function getEnvironment($environmentId, $request)
     {
@@ -1579,13 +1869,18 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Get a gateway.
-     *  *
-     * @param string         $gatewayId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * Get a gateway.
      *
-     * @return GetGatewayResponse GetGatewayResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetGatewayResponse
+     *
+     * @param string         $gatewayId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetGatewayResponse
      */
     public function getGatewayWithOptions($gatewayId, $headers, $runtime)
     {
@@ -1596,14 +1891,14 @@ class APIG extends OpenApiClient
             'action' => 'GetGateway',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1611,11 +1906,13 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Get a gateway.
-     *  *
+     * Get a gateway.
+     *
+     * @returns GetGatewayResponse
+     *
      * @param string $gatewayId
      *
-     * @return GetGatewayResponse GetGatewayResponse
+     * @return GetGatewayResponse
      */
     public function getGateway($gatewayId)
     {
@@ -1626,13 +1923,18 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Read HttpApi
-     *  *
-     * @param string         $httpApiId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * Read HttpApi.
      *
-     * @return GetHttpApiResponse GetHttpApiResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHttpApiResponse
+     *
+     * @param string         $httpApiId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetHttpApiResponse
      */
     public function getHttpApiWithOptions($httpApiId, $headers, $runtime)
     {
@@ -1643,14 +1945,14 @@ class APIG extends OpenApiClient
             'action' => 'GetHttpApi',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1658,11 +1960,13 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Read HttpApi
-     *  *
+     * Read HttpApi.
+     *
+     * @returns GetHttpApiResponse
+     *
      * @param string $httpApiId
      *
-     * @return GetHttpApiResponse GetHttpApiResponse
+     * @return GetHttpApiResponse
      */
     public function getHttpApi($httpApiId)
     {
@@ -1673,14 +1977,19 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Get Operation
-     *  *
+     * Get Operation.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHttpApiOperationResponse
+     *
      * @param string         $httpApiId
      * @param string         $operationId
-     * @param string[]       $headers     map
-     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetHttpApiOperationResponse GetHttpApiOperationResponse
+     * @return GetHttpApiOperationResponse
      */
     public function getHttpApiOperationWithOptions($httpApiId, $operationId, $headers, $runtime)
     {
@@ -1691,14 +2000,14 @@ class APIG extends OpenApiClient
             'action' => 'GetHttpApiOperation',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '/operations/' . OpenApiUtilClient::getEncodeParam($operationId) . '',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/operations/' . Url::percentEncode($operationId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetHttpApiOperationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1706,12 +2015,14 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Get Operation
-     *  *
+     * Get Operation.
+     *
+     * @returns GetHttpApiOperationResponse
+     *
      * @param string $httpApiId
      * @param string $operationId
      *
-     * @return GetHttpApiOperationResponse GetHttpApiOperationResponse
+     * @return GetHttpApiOperationResponse
      */
     public function getHttpApiOperation($httpApiId, $operationId)
     {
@@ -1722,14 +2033,19 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Get the details of an HttpApi route
-     *  *
+     * Queries the details of a route of an HTTP API.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetHttpApiRouteResponse
+     *
      * @param string         $httpApiId
      * @param string         $routeId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return GetHttpApiRouteResponse GetHttpApiRouteResponse
+     * @return GetHttpApiRouteResponse
      */
     public function getHttpApiRouteWithOptions($httpApiId, $routeId, $headers, $runtime)
     {
@@ -1740,14 +2056,14 @@ class APIG extends OpenApiClient
             'action' => 'GetHttpApiRoute',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '/routes/' . OpenApiUtilClient::getEncodeParam($routeId) . '',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/routes/' . Url::percentEncode($routeId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetHttpApiRouteResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1755,12 +2071,14 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Get the details of an HttpApi route
-     *  *
+     * Queries the details of a route of an HTTP API.
+     *
+     * @returns GetHttpApiRouteResponse
+     *
      * @param string $httpApiId
      * @param string $routeId
      *
-     * @return GetHttpApiRouteResponse GetHttpApiRouteResponse
+     * @return GetHttpApiRouteResponse
      */
     public function getHttpApiRoute($httpApiId, $routeId)
     {
@@ -1771,13 +2089,18 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary GetPolicy
-     *  *
-     * @param string         $policyId
-     * @param string[]       $headers  map
-     * @param RuntimeOptions $runtime  runtime options for this request RuntimeOptions
+     * Queries a policy.
      *
-     * @return GetPolicyResponse GetPolicyResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPolicyResponse
+     *
+     * @param string         $policyId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetPolicyResponse
      */
     public function getPolicyWithOptions($policyId, $headers, $runtime)
     {
@@ -1788,14 +2111,14 @@ class APIG extends OpenApiClient
             'action' => 'GetPolicy',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v2/policies/' . OpenApiUtilClient::getEncodeParam($policyId) . '',
+            'pathname' => '/v2/policies/' . Url::percentEncode($policyId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1803,11 +2126,13 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary GetPolicy
-     *  *
+     * Queries a policy.
+     *
+     * @returns GetPolicyResponse
+     *
      * @param string $policyId
      *
-     * @return GetPolicyResponse GetPolicyResponse
+     * @return GetPolicyResponse
      */
     public function getPolicy($policyId)
     {
@@ -1818,13 +2143,18 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Query Policy Resource Attachment
-     *  *
-     * @param string         $policyAttachmentId
-     * @param string[]       $headers            map
-     * @param RuntimeOptions $runtime            runtime options for this request RuntimeOptions
+     * Query Policy Resource Attachment.
      *
-     * @return GetPolicyAttachmentResponse GetPolicyAttachmentResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetPolicyAttachmentResponse
+     *
+     * @param string         $policyAttachmentId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetPolicyAttachmentResponse
      */
     public function getPolicyAttachmentWithOptions($policyAttachmentId, $headers, $runtime)
     {
@@ -1835,14 +2165,14 @@ class APIG extends OpenApiClient
             'action' => 'GetPolicyAttachment',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/policy-attachments/' . OpenApiUtilClient::getEncodeParam($policyAttachmentId) . '',
+            'pathname' => '/v1/policy-attachments/' . Url::percentEncode($policyAttachmentId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetPolicyAttachmentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1850,11 +2180,13 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Query Policy Resource Attachment
-     *  *
+     * Query Policy Resource Attachment.
+     *
+     * @returns GetPolicyAttachmentResponse
+     *
      * @param string $policyAttachmentId
      *
-     * @return GetPolicyAttachmentResponse GetPolicyAttachmentResponse
+     * @return GetPolicyAttachmentResponse
      */
     public function getPolicyAttachment($policyAttachmentId)
     {
@@ -1865,12 +2197,17 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Get resource overview information
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Get resource overview information.
      *
-     * @return GetResourceOverviewResponse GetResourceOverviewResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetResourceOverviewResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetResourceOverviewResponse
      */
     public function getResourceOverviewWithOptions($headers, $runtime)
     {
@@ -1888,7 +2225,7 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetResourceOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1896,9 +2233,11 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Get resource overview information
-     *  *
-     * @return GetResourceOverviewResponse GetResourceOverviewResponse
+     * Get resource overview information.
+     *
+     * @returns GetResourceOverviewResponse
+     *
+     * @return GetResourceOverviewResponse
      */
     public function getResourceOverview()
     {
@@ -1909,13 +2248,18 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Get Service Details
-     *  *
-     * @param string         $serviceId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * Queries the details of a service.
      *
-     * @return GetServiceResponse GetServiceResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServiceResponse
+     *
+     * @param string         $serviceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetServiceResponse
      */
     public function getServiceWithOptions($serviceId, $headers, $runtime)
     {
@@ -1926,14 +2270,14 @@ class APIG extends OpenApiClient
             'action' => 'GetService',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/services/' . OpenApiUtilClient::getEncodeParam($serviceId) . '',
+            'pathname' => '/v1/services/' . Url::percentEncode($serviceId) . '',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetServiceResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1941,11 +2285,13 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Get Service Details
-     *  *
+     * Queries the details of a service.
+     *
+     * @returns GetServiceResponse
+     *
      * @param string $serviceId
      *
-     * @return GetServiceResponse GetServiceResponse
+     * @return GetServiceResponse
      */
     public function getService($serviceId)
     {
@@ -1956,38 +2302,45 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve Tracing Configuration
-     *  *
-     * @param string                $gatewayId
-     * @param GetTraceConfigRequest $request   GetTraceConfigRequest
-     * @param string[]              $headers   map
-     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
+     * Retrieve Tracing Configuration.
      *
-     * @return GetTraceConfigResponse GetTraceConfigResponse
+     * @param request - GetTraceConfigRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetTraceConfigResponse
+     *
+     * @param string                $gatewayId
+     * @param GetTraceConfigRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetTraceConfigResponse
      */
     public function getTraceConfigWithOptions($gatewayId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['acceptLanguage'] = $request->acceptLanguage;
+        if (null !== $request->acceptLanguage) {
+            @$query['acceptLanguage'] = $request->acceptLanguage;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'GetTraceConfig',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/trace',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/trace',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetTraceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -1995,12 +2348,16 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve Tracing Configuration
-     *  *
-     * @param string                $gatewayId
-     * @param GetTraceConfigRequest $request   GetTraceConfigRequest
+     * Retrieve Tracing Configuration.
      *
-     * @return GetTraceConfigResponse GetTraceConfigResponse
+     * @param request - GetTraceConfigRequest
+     *
+     * @returns GetTraceConfigResponse
+     *
+     * @param string                $gatewayId
+     * @param GetTraceConfigRequest $request
+     *
+     * @return GetTraceConfigResponse
      */
     public function getTraceConfig($gatewayId, $request)
     {
@@ -2011,51 +2368,67 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Import HttpApi
-     *  *
-     * @param ImportHttpApiRequest $request ImportHttpApiRequest
-     * @param string[]             $headers map
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * Imports HTTP APIs. You can call this operation to import OpenAPI 2.0 and OpenAPI 3.0.x definition files to create REST APIs.
      *
-     * @return ImportHttpApiResponse ImportHttpApiResponse
+     * @param request - ImportHttpApiRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ImportHttpApiResponse
+     *
+     * @param ImportHttpApiRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ImportHttpApiResponse
      */
     public function importHttpApiWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->dryRun)) {
-            $body['dryRun'] = $request->dryRun;
+
+        if (null !== $request->dryRun) {
+            @$body['dryRun'] = $request->dryRun;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $body['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$body['resourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->specContentBase64)) {
-            $body['specContentBase64'] = $request->specContentBase64;
+
+        if (null !== $request->specContentBase64) {
+            @$body['specContentBase64'] = $request->specContentBase64;
         }
-        if (!Utils::isUnset($request->specFileUrl)) {
-            $body['specFileUrl'] = $request->specFileUrl;
+
+        if (null !== $request->specFileUrl) {
+            @$body['specFileUrl'] = $request->specFileUrl;
         }
-        if (!Utils::isUnset($request->specOssConfig)) {
-            $body['specOssConfig'] = $request->specOssConfig;
+
+        if (null !== $request->specOssConfig) {
+            @$body['specOssConfig'] = $request->specOssConfig;
         }
-        if (!Utils::isUnset($request->strategy)) {
-            $body['strategy'] = $request->strategy;
+
+        if (null !== $request->strategy) {
+            @$body['strategy'] = $request->strategy;
         }
-        if (!Utils::isUnset($request->targetHttpApiId)) {
-            $body['targetHttpApiId'] = $request->targetHttpApiId;
+
+        if (null !== $request->targetHttpApiId) {
+            @$body['targetHttpApiId'] = $request->targetHttpApiId;
         }
-        if (!Utils::isUnset($request->versionConfig)) {
-            $body['versionConfig'] = $request->versionConfig;
+
+        if (null !== $request->versionConfig) {
+            @$body['versionConfig'] = $request->versionConfig;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'ImportHttpApi',
@@ -2068,7 +2441,7 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ImportHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2076,11 +2449,15 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Import HttpApi
-     *  *
-     * @param ImportHttpApiRequest $request ImportHttpApiRequest
+     * Imports HTTP APIs. You can call this operation to import OpenAPI 2.0 and OpenAPI 3.0.x definition files to create REST APIs.
      *
-     * @return ImportHttpApiResponse ImportHttpApiResponse
+     * @param request - ImportHttpApiRequest
+     *
+     * @returns ImportHttpApiResponse
+     *
+     * @param ImportHttpApiRequest $request
+     *
+     * @return ImportHttpApiResponse
      */
     public function importHttpApi($request)
     {
@@ -2091,36 +2468,47 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary ListDomains
-     *  *
-     * @param ListDomainsRequest $request ListDomainsRequest
-     * @param string[]           $headers map
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * Queries a list of domain names.
      *
-     * @return ListDomainsResponse ListDomainsResponse
+     * @param request - ListDomainsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListDomainsResponse
+     *
+     * @param ListDomainsRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListDomainsResponse
      */
     public function listDomainsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->gatewayId)) {
-            $query['gatewayId'] = $request->gatewayId;
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
         }
-        if (!Utils::isUnset($request->nameLike)) {
-            $query['nameLike'] = $request->nameLike;
+
+        if (null !== $request->nameLike) {
+            @$query['nameLike'] = $request->nameLike;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListDomains',
@@ -2133,7 +2521,7 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2141,11 +2529,15 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary ListDomains
-     *  *
-     * @param ListDomainsRequest $request ListDomainsRequest
+     * Queries a list of domain names.
      *
-     * @return ListDomainsResponse ListDomainsResponse
+     * @param request - ListDomainsRequest
+     *
+     * @returns ListDomainsResponse
+     *
+     * @param ListDomainsRequest $request
+     *
+     * @return ListDomainsResponse
      */
     public function listDomains($request)
     {
@@ -2155,47 +2547,59 @@ class APIG extends OpenApiClient
         return $this->listDomainsWithOptions($request, $headers, $runtime);
     }
 
+    // Deprecated
     /**
+     * ListEnvironments.
+     *
      * @deprecated OpenAPI ListEnvironments is deprecated
-     *  *
-     * @summary ListEnvironments
-     *  *
-     * Deprecated
      *
-     * @param ListEnvironmentsRequest $request ListEnvironmentsRequest
-     * @param string[]                $headers map
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param request - ListEnvironmentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
      *
-     * @return ListEnvironmentsResponse ListEnvironmentsResponse
+     * @returns ListEnvironmentsResponse
+     *
+     * @param ListEnvironmentsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListEnvironmentsResponse
      */
     public function listEnvironmentsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->aliasLike)) {
-            $query['aliasLike'] = $request->aliasLike;
+        if (null !== $request->aliasLike) {
+            @$query['aliasLike'] = $request->aliasLike;
         }
-        if (!Utils::isUnset($request->gatewayId)) {
-            $query['gatewayId'] = $request->gatewayId;
+
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
         }
-        if (!Utils::isUnset($request->gatewayNameLike)) {
-            $query['gatewayNameLike'] = $request->gatewayNameLike;
+
+        if (null !== $request->gatewayNameLike) {
+            @$query['gatewayNameLike'] = $request->gatewayNameLike;
         }
-        if (!Utils::isUnset($request->nameLike)) {
-            $query['nameLike'] = $request->nameLike;
+
+        if (null !== $request->nameLike) {
+            @$query['nameLike'] = $request->nameLike;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListEnvironments',
@@ -2208,23 +2612,26 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListEnvironmentsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
         return ListEnvironmentsResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * ListEnvironments.
+     *
      * @deprecated OpenAPI ListEnvironments is deprecated
-     *  *
-     * @summary ListEnvironments
-     *  *
-     * Deprecated
      *
-     * @param ListEnvironmentsRequest $request ListEnvironmentsRequest
+     * @param request - ListEnvironmentsRequest
      *
-     * @return ListEnvironmentsResponse ListEnvironmentsResponse
+     * @returns ListEnvironmentsResponse
+     *
+     * @param ListEnvironmentsRequest $request
+     *
+     * @return ListEnvironmentsResponse
      */
     public function listEnvironments($request)
     {
@@ -2235,47 +2642,61 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve the list of created cloud-native gateways
-     *  *
-     * @param ListGatewaysRequest $tmpReq  ListGatewaysRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries a list of instances.
      *
-     * @return ListGatewaysResponse ListGatewaysResponse
+     * @param tmpReq - ListGatewaysRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListGatewaysResponse
+     *
+     * @param ListGatewaysRequest $tmpReq
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListGatewaysResponse
      */
     public function listGatewaysWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        $tmpReq->validate();
         $request = new ListGatewaysShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tag)) {
-            $request->tagShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'tag', 'json');
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->tag) {
+            $request->tagShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->tag, 'tag', 'json');
         }
+
         $query = [];
-        if (!Utils::isUnset($request->gatewayId)) {
-            $query['gatewayId'] = $request->gatewayId;
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->tagShrink)) {
-            $query['tag'] = $request->tagShrink;
+
+        if (null !== $request->tagShrink) {
+            @$query['tag'] = $request->tagShrink;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListGateways',
@@ -2288,7 +2709,7 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2296,11 +2717,15 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve the list of created cloud-native gateways
-     *  *
-     * @param ListGatewaysRequest $request ListGatewaysRequest
+     * Queries a list of instances.
      *
-     * @return ListGatewaysResponse ListGatewaysResponse
+     * @param request - ListGatewaysRequest
+     *
+     * @returns ListGatewaysResponse
+     *
+     * @param ListGatewaysRequest $request
+     *
+     * @return ListGatewaysResponse
      */
     public function listGateways($request)
     {
@@ -2311,65 +2736,81 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary List Operations
-     *  *
-     * @param string                       $httpApiId
-     * @param ListHttpApiOperationsRequest $request   ListHttpApiOperationsRequest
-     * @param string[]                     $headers   map
-     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
+     * List Operations.
      *
-     * @return ListHttpApiOperationsResponse ListHttpApiOperationsResponse
+     * @param request - ListHttpApiOperationsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHttpApiOperationsResponse
+     *
+     * @param string                       $httpApiId
+     * @param ListHttpApiOperationsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListHttpApiOperationsResponse
      */
     public function listHttpApiOperationsWithOptions($httpApiId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->consumerAuthorizationRuleId)) {
-            $query['consumerAuthorizationRuleId'] = $request->consumerAuthorizationRuleId;
+        if (null !== $request->consumerAuthorizationRuleId) {
+            @$query['consumerAuthorizationRuleId'] = $request->consumerAuthorizationRuleId;
         }
-        if (!Utils::isUnset($request->method)) {
-            $query['method'] = $request->method;
+
+        if (null !== $request->method) {
+            @$query['method'] = $request->method;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->nameLike)) {
-            $query['nameLike'] = $request->nameLike;
+
+        if (null !== $request->nameLike) {
+            @$query['nameLike'] = $request->nameLike;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pathLike)) {
-            $query['pathLike'] = $request->pathLike;
+
+        if (null !== $request->pathLike) {
+            @$query['pathLike'] = $request->pathLike;
         }
-        if (!Utils::isUnset($request->withConsumerInEnvironmentId)) {
-            $query['withConsumerInEnvironmentId'] = $request->withConsumerInEnvironmentId;
+
+        if (null !== $request->withConsumerInEnvironmentId) {
+            @$query['withConsumerInEnvironmentId'] = $request->withConsumerInEnvironmentId;
         }
-        if (!Utils::isUnset($request->withConsumerInfoById)) {
-            $query['withConsumerInfoById'] = $request->withConsumerInfoById;
+
+        if (null !== $request->withConsumerInfoById) {
+            @$query['withConsumerInfoById'] = $request->withConsumerInfoById;
         }
-        if (!Utils::isUnset($request->withPluginAttachmentByPluginId)) {
-            $query['withPluginAttachmentByPluginId'] = $request->withPluginAttachmentByPluginId;
+
+        if (null !== $request->withPluginAttachmentByPluginId) {
+            @$query['withPluginAttachmentByPluginId'] = $request->withPluginAttachmentByPluginId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListHttpApiOperations',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '/operations',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/operations',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListHttpApiOperationsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2377,12 +2818,16 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary List Operations
-     *  *
-     * @param string                       $httpApiId
-     * @param ListHttpApiOperationsRequest $request   ListHttpApiOperationsRequest
+     * List Operations.
      *
-     * @return ListHttpApiOperationsResponse ListHttpApiOperationsResponse
+     * @param request - ListHttpApiOperationsRequest
+     *
+     * @returns ListHttpApiOperationsResponse
+     *
+     * @param string                       $httpApiId
+     * @param ListHttpApiOperationsRequest $request
+     *
+     * @return ListHttpApiOperationsResponse
      */
     public function listHttpApiOperations($httpApiId, $request)
     {
@@ -2393,74 +2838,93 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Create a route for HttpApi
-     *  *
-     * @param string                   $httpApiId
-     * @param ListHttpApiRoutesRequest $request   ListHttpApiRoutesRequest
-     * @param string[]                 $headers   map
-     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
+     * Queries the routes of an HTTP API.
      *
-     * @return ListHttpApiRoutesResponse ListHttpApiRoutesResponse
+     * @param request - ListHttpApiRoutesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHttpApiRoutesResponse
+     *
+     * @param string                   $httpApiId
+     * @param ListHttpApiRoutesRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListHttpApiRoutesResponse
      */
     public function listHttpApiRoutesWithOptions($httpApiId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->consumerAuthorizationRuleId)) {
-            $query['consumerAuthorizationRuleId'] = $request->consumerAuthorizationRuleId;
+        if (null !== $request->consumerAuthorizationRuleId) {
+            @$query['consumerAuthorizationRuleId'] = $request->consumerAuthorizationRuleId;
         }
-        if (!Utils::isUnset($request->deployStatuses)) {
-            $query['deployStatuses'] = $request->deployStatuses;
+
+        if (null !== $request->deployStatuses) {
+            @$query['deployStatuses'] = $request->deployStatuses;
         }
-        if (!Utils::isUnset($request->domainId)) {
-            $query['domainId'] = $request->domainId;
+
+        if (null !== $request->domainId) {
+            @$query['domainId'] = $request->domainId;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $query['environmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$query['environmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->gatewayId)) {
-            $query['gatewayId'] = $request->gatewayId;
+
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->nameLike)) {
-            $query['nameLike'] = $request->nameLike;
+
+        if (null !== $request->nameLike) {
+            @$query['nameLike'] = $request->nameLike;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->pathLike)) {
-            $query['pathLike'] = $request->pathLike;
+
+        if (null !== $request->pathLike) {
+            @$query['pathLike'] = $request->pathLike;
         }
-        if (!Utils::isUnset($request->withAuthPolicyInfo)) {
-            $query['withAuthPolicyInfo'] = $request->withAuthPolicyInfo;
+
+        if (null !== $request->withAuthPolicyInfo) {
+            @$query['withAuthPolicyInfo'] = $request->withAuthPolicyInfo;
         }
-        if (!Utils::isUnset($request->withConsumerInfoById)) {
-            $query['withConsumerInfoById'] = $request->withConsumerInfoById;
+
+        if (null !== $request->withConsumerInfoById) {
+            @$query['withConsumerInfoById'] = $request->withConsumerInfoById;
         }
-        if (!Utils::isUnset($request->withPluginAttachmentByPluginId)) {
-            $query['withPluginAttachmentByPluginId'] = $request->withPluginAttachmentByPluginId;
+
+        if (null !== $request->withPluginAttachmentByPluginId) {
+            @$query['withPluginAttachmentByPluginId'] = $request->withPluginAttachmentByPluginId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListHttpApiRoutes',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '/routes',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/routes',
             'method' => 'GET',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListHttpApiRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2468,12 +2932,16 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Create a route for HttpApi
-     *  *
-     * @param string                   $httpApiId
-     * @param ListHttpApiRoutesRequest $request   ListHttpApiRoutesRequest
+     * Queries the routes of an HTTP API.
      *
-     * @return ListHttpApiRoutesResponse ListHttpApiRoutesResponse
+     * @param request - ListHttpApiRoutesRequest
+     *
+     * @returns ListHttpApiRoutesResponse
+     *
+     * @param string                   $httpApiId
+     * @param ListHttpApiRoutesRequest $request
+     *
+     * @return ListHttpApiRoutesResponse
      */
     public function listHttpApiRoutes($httpApiId, $request)
     {
@@ -2484,63 +2952,91 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary List HTTP APIs
-     *  *
-     * @param ListHttpApisRequest $request ListHttpApisRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries a list of HTTP APIs.
      *
-     * @return ListHttpApisResponse ListHttpApisResponse
+     * @param request - ListHttpApisRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListHttpApisResponse
+     *
+     * @param ListHttpApisRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListHttpApisResponse
      */
     public function listHttpApisWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->gatewayId)) {
-            $query['gatewayId'] = $request->gatewayId;
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
         }
-        if (!Utils::isUnset($request->keyword)) {
-            $query['keyword'] = $request->keyword;
+
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->types)) {
-            $query['types'] = $request->types;
+
+        if (null !== $request->types) {
+            @$query['types'] = $request->types;
         }
-        if (!Utils::isUnset($request->withAuthPolicyInEnvironmentId)) {
-            $query['withAuthPolicyInEnvironmentId'] = $request->withAuthPolicyInEnvironmentId;
+
+        if (null !== $request->withAPIsPublishedToEnvironment) {
+            @$query['withAPIsPublishedToEnvironment'] = $request->withAPIsPublishedToEnvironment;
         }
-        if (!Utils::isUnset($request->withAuthPolicyList)) {
-            $query['withAuthPolicyList'] = $request->withAuthPolicyList;
+
+        if (null !== $request->withAuthPolicyInEnvironmentId) {
+            @$query['withAuthPolicyInEnvironmentId'] = $request->withAuthPolicyInEnvironmentId;
         }
-        if (!Utils::isUnset($request->withConsumerInfoById)) {
-            $query['withConsumerInfoById'] = $request->withConsumerInfoById;
+
+        if (null !== $request->withAuthPolicyList) {
+            @$query['withAuthPolicyList'] = $request->withAuthPolicyList;
         }
-        if (!Utils::isUnset($request->withEnvironmentInfo)) {
-            $query['withEnvironmentInfo'] = $request->withEnvironmentInfo;
+
+        if (null !== $request->withConsumerInfoById) {
+            @$query['withConsumerInfoById'] = $request->withConsumerInfoById;
         }
-        if (!Utils::isUnset($request->withEnvironmentInfoById)) {
-            $query['withEnvironmentInfoById'] = $request->withEnvironmentInfoById;
+
+        if (null !== $request->withEnvironmentInfo) {
+            @$query['withEnvironmentInfo'] = $request->withEnvironmentInfo;
         }
-        if (!Utils::isUnset($request->withIngressInfo)) {
-            $query['withIngressInfo'] = $request->withIngressInfo;
+
+        if (null !== $request->withEnvironmentInfoById) {
+            @$query['withEnvironmentInfoById'] = $request->withEnvironmentInfoById;
         }
-        if (!Utils::isUnset($request->withPluginAttachmentByPluginId)) {
-            $query['withPluginAttachmentByPluginId'] = $request->withPluginAttachmentByPluginId;
+
+        if (null !== $request->withIngressInfo) {
+            @$query['withIngressInfo'] = $request->withIngressInfo;
         }
+
+        if (null !== $request->withPluginAttachmentByPluginId) {
+            @$query['withPluginAttachmentByPluginId'] = $request->withPluginAttachmentByPluginId;
+        }
+
+        if (null !== $request->withPolicyConfigs) {
+            @$query['withPolicyConfigs'] = $request->withPolicyConfigs;
+        }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListHttpApis',
@@ -2553,7 +3049,7 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListHttpApisResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2561,11 +3057,15 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary List HTTP APIs
-     *  *
-     * @param ListHttpApisRequest $request ListHttpApisRequest
+     * Queries a list of HTTP APIs.
      *
-     * @return ListHttpApisResponse ListHttpApisResponse
+     * @param request - ListHttpApisRequest
+     *
+     * @returns ListHttpApisResponse
+     *
+     * @param ListHttpApisRequest $request
+     *
+     * @return ListHttpApisResponse
      */
     public function listHttpApis($request)
     {
@@ -2576,36 +3076,47 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary ListPolicyClasses
-     *  *
-     * @param ListPolicyClassesRequest $request ListPolicyClassesRequest
-     * @param string[]                 $headers map
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * ListPolicyClasses.
      *
-     * @return ListPolicyClassesResponse ListPolicyClassesResponse
+     * @param request - ListPolicyClassesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListPolicyClassesResponse
+     *
+     * @param ListPolicyClassesRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListPolicyClassesResponse
      */
     public function listPolicyClassesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->attachResourceType)) {
-            $query['attachResourceType'] = $request->attachResourceType;
+        if (null !== $request->attachResourceType) {
+            @$query['attachResourceType'] = $request->attachResourceType;
         }
-        if (!Utils::isUnset($request->direction)) {
-            $query['direction'] = $request->direction;
+
+        if (null !== $request->direction) {
+            @$query['direction'] = $request->direction;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->type)) {
-            $query['type'] = $request->type;
+
+        if (null !== $request->type) {
+            @$query['type'] = $request->type;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListPolicyClasses',
@@ -2618,7 +3129,7 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListPolicyClassesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2626,11 +3137,15 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary ListPolicyClasses
-     *  *
-     * @param ListPolicyClassesRequest $request ListPolicyClassesRequest
+     * ListPolicyClasses.
      *
-     * @return ListPolicyClassesResponse ListPolicyClassesResponse
+     * @param request - ListPolicyClassesRequest
+     *
+     * @returns ListPolicyClassesResponse
+     *
+     * @param ListPolicyClassesRequest $request
+     *
+     * @return ListPolicyClassesResponse
      */
     public function listPolicyClasses($request)
     {
@@ -2641,39 +3156,51 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Get Service List
-     *  *
-     * @param ListServicesRequest $request ListServicesRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * Queries a list of services.
      *
-     * @return ListServicesResponse ListServicesResponse
+     * @param request - ListServicesRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServicesResponse
+     *
+     * @param ListServicesRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListServicesResponse
      */
     public function listServicesWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->gatewayId)) {
-            $query['gatewayId'] = $request->gatewayId;
+        if (null !== $request->gatewayId) {
+            @$query['gatewayId'] = $request->gatewayId;
         }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['resourceGroupId'] = $request->resourceGroupId;
+
+        if (null !== $request->resourceGroupId) {
+            @$query['resourceGroupId'] = $request->resourceGroupId;
         }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['sourceType'] = $request->sourceType;
+
+        if (null !== $request->sourceType) {
+            @$query['sourceType'] = $request->sourceType;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListServices',
@@ -2686,7 +3213,7 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2694,11 +3221,15 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Get Service List
-     *  *
-     * @param ListServicesRequest $request ListServicesRequest
+     * Queries a list of services.
      *
-     * @return ListServicesResponse ListServicesResponse
+     * @param request - ListServicesRequest
+     *
+     * @returns ListServicesResponse
+     *
+     * @param ListServicesRequest $request
+     *
+     * @return ListServicesResponse
      */
     public function listServices($request)
     {
@@ -2709,33 +3240,43 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary ListSslCerts
-     *  *
-     * @param ListSslCertsRequest $request ListSslCertsRequest
-     * @param string[]            $headers map
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * ListSslCerts.
      *
-     * @return ListSslCertsResponse ListSslCertsResponse
+     * @param request - ListSslCertsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListSslCertsResponse
+     *
+     * @param ListSslCertsRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListSslCertsResponse
      */
     public function listSslCertsWithOptions($request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->certNameLike)) {
-            $query['certNameLike'] = $request->certNameLike;
+        if (null !== $request->certNameLike) {
+            @$query['certNameLike'] = $request->certNameLike;
         }
-        if (!Utils::isUnset($request->domainName)) {
-            $query['domainName'] = $request->domainName;
+
+        if (null !== $request->domainName) {
+            @$query['domainName'] = $request->domainName;
         }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
         }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'ListSslCerts',
@@ -2748,7 +3289,7 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSslCertsResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2756,11 +3297,15 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary ListSslCerts
-     *  *
-     * @param ListSslCertsRequest $request ListSslCertsRequest
+     * ListSslCerts.
      *
-     * @return ListSslCertsResponse ListSslCertsResponse
+     * @param request - ListSslCertsRequest
+     *
+     * @returns ListSslCertsResponse
+     *
+     * @param ListSslCertsRequest $request
+     *
+     * @return ListSslCertsResponse
      */
     public function listSslCerts($request)
     {
@@ -2771,12 +3316,17 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve the availability zones under a cloud-native API gateway region
-     *  *
-     * @param string[]       $headers map
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * Retrieve the availability zones under a cloud-native API gateway region.
      *
-     * @return ListZonesResponse ListZonesResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListZonesResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListZonesResponse
      */
     public function listZonesWithOptions($headers, $runtime)
     {
@@ -2794,7 +3344,7 @@ class APIG extends OpenApiClient
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListZonesResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2802,9 +3352,11 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Retrieve the availability zones under a cloud-native API gateway region
-     *  *
-     * @return ListZonesResponse ListZonesResponse
+     * Retrieve the availability zones under a cloud-native API gateway region.
+     *
+     * @returns ListZonesResponse
+     *
+     * @return ListZonesResponse
      */
     public function listZones()
     {
@@ -2815,13 +3367,18 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Gateway Restart
-     *  *
-     * @param string         $gatewayId
-     * @param string[]       $headers   map
-     * @param RuntimeOptions $runtime   runtime options for this request RuntimeOptions
+     * Gateway Restart.
      *
-     * @return RestartGatewayResponse RestartGatewayResponse
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RestartGatewayResponse
+     *
+     * @param string         $gatewayId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return RestartGatewayResponse
      */
     public function restartGatewayWithOptions($gatewayId, $headers, $runtime)
     {
@@ -2832,14 +3389,14 @@ class APIG extends OpenApiClient
             'action' => 'RestartGateway',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/restart',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/restart',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RestartGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2847,11 +3404,13 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Gateway Restart
-     *  *
+     * Gateway Restart.
+     *
+     * @returns RestartGatewayResponse
+     *
      * @param string $gatewayId
      *
-     * @return RestartGatewayResponse RestartGatewayResponse
+     * @return RestartGatewayResponse
      */
     public function restartGateway($gatewayId)
     {
@@ -2862,41 +3421,49 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 取消部署HttpApi
-     *  *
-     * @param string                 $httpApiId
-     * @param UndeployHttpApiRequest $request   UndeployHttpApiRequest
-     * @param string[]               $headers   map
-     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
+     * 取消部署HttpApi.
      *
-     * @return UndeployHttpApiResponse UndeployHttpApiResponse
+     * @param request - UndeployHttpApiRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UndeployHttpApiResponse
+     *
+     * @param string                 $httpApiId
+     * @param UndeployHttpApiRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UndeployHttpApiResponse
      */
     public function undeployHttpApiWithOptions($httpApiId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->environmentId)) {
-            $body['environmentId'] = $request->environmentId;
+        if (null !== $request->environmentId) {
+            @$body['environmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->routeId)) {
-            $body['routeId'] = $request->routeId;
+
+        if (null !== $request->routeId) {
+            @$body['routeId'] = $request->routeId;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UndeployHttpApi',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '/undeploy',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/undeploy',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UndeployHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2904,12 +3471,16 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary 取消部署HttpApi
-     *  *
-     * @param string                 $httpApiId
-     * @param UndeployHttpApiRequest $request   UndeployHttpApiRequest
+     * 取消部署HttpApi.
      *
-     * @return UndeployHttpApiResponse UndeployHttpApiResponse
+     * @param request - UndeployHttpApiRequest
+     *
+     * @returns UndeployHttpApiResponse
+     *
+     * @param string                 $httpApiId
+     * @param UndeployHttpApiRequest $request
+     *
+     * @return UndeployHttpApiResponse
      */
     public function undeployHttpApi($httpApiId, $request)
     {
@@ -2920,67 +3491,81 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary UpdateDomain
-     *  *
-     * @description 只有类型为**容器服务**的来源允许更新监听Ingress的配置。
-     *  *
-     * @param string              $domainId
-     * @param UpdateDomainRequest $request  UpdateDomainRequest
-     * @param string[]            $headers  map
-     * @param RuntimeOptions      $runtime  runtime options for this request RuntimeOptions
+     * Updates a domain name.
      *
-     * @return UpdateDomainResponse UpdateDomainResponse
+     * @param request - UpdateDomainRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDomainResponse
+     *
+     * @param string              $domainId
+     * @param UpdateDomainRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateDomainResponse
      */
     public function updateDomainWithOptions($domainId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->caCertIdentifier)) {
-            $body['caCertIdentifier'] = $request->caCertIdentifier;
+        if (null !== $request->caCertIdentifier) {
+            @$body['caCertIdentifier'] = $request->caCertIdentifier;
         }
-        if (!Utils::isUnset($request->certIdentifier)) {
-            $body['certIdentifier'] = $request->certIdentifier;
+
+        if (null !== $request->certIdentifier) {
+            @$body['certIdentifier'] = $request->certIdentifier;
         }
-        if (!Utils::isUnset($request->clientCACert)) {
-            $body['clientCACert'] = $request->clientCACert;
+
+        if (null !== $request->clientCACert) {
+            @$body['clientCACert'] = $request->clientCACert;
         }
-        if (!Utils::isUnset($request->forceHttps)) {
-            $body['forceHttps'] = $request->forceHttps;
+
+        if (null !== $request->forceHttps) {
+            @$body['forceHttps'] = $request->forceHttps;
         }
-        if (!Utils::isUnset($request->http2Option)) {
-            $body['http2Option'] = $request->http2Option;
+
+        if (null !== $request->http2Option) {
+            @$body['http2Option'] = $request->http2Option;
         }
-        if (!Utils::isUnset($request->mTLSEnabled)) {
-            $body['mTLSEnabled'] = $request->mTLSEnabled;
+
+        if (null !== $request->mTLSEnabled) {
+            @$body['mTLSEnabled'] = $request->mTLSEnabled;
         }
-        if (!Utils::isUnset($request->protocol)) {
-            $body['protocol'] = $request->protocol;
+
+        if (null !== $request->protocol) {
+            @$body['protocol'] = $request->protocol;
         }
-        if (!Utils::isUnset($request->tlsCipherSuitesConfig)) {
-            $body['tlsCipherSuitesConfig'] = $request->tlsCipherSuitesConfig;
+
+        if (null !== $request->tlsCipherSuitesConfig) {
+            @$body['tlsCipherSuitesConfig'] = $request->tlsCipherSuitesConfig;
         }
-        if (!Utils::isUnset($request->tlsMax)) {
-            $body['tlsMax'] = $request->tlsMax;
+
+        if (null !== $request->tlsMax) {
+            @$body['tlsMax'] = $request->tlsMax;
         }
-        if (!Utils::isUnset($request->tlsMin)) {
-            $body['tlsMin'] = $request->tlsMin;
+
+        if (null !== $request->tlsMin) {
+            @$body['tlsMin'] = $request->tlsMin;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateDomain',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/domains/' . OpenApiUtilClient::getEncodeParam($domainId) . '',
+            'pathname' => '/v1/domains/' . Url::percentEncode($domainId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -2988,14 +3573,16 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary UpdateDomain
-     *  *
-     * @description 只有类型为**容器服务**的来源允许更新监听Ingress的配置。
-     *  *
-     * @param string              $domainId
-     * @param UpdateDomainRequest $request  UpdateDomainRequest
+     * Updates a domain name.
      *
-     * @return UpdateDomainResponse UpdateDomainResponse
+     * @param request - UpdateDomainRequest
+     *
+     * @returns UpdateDomainResponse
+     *
+     * @param string              $domainId
+     * @param UpdateDomainRequest $request
+     *
+     * @return UpdateDomainResponse
      */
     public function updateDomain($domainId, $request)
     {
@@ -3005,63 +3592,73 @@ class APIG extends OpenApiClient
         return $this->updateDomainWithOptions($domainId, $request, $headers, $runtime);
     }
 
+    // Deprecated
     /**
+     * UpdateEnvironment.
+     *
      * @deprecated OpenAPI UpdateEnvironment is deprecated
-     *  *
-     * @summary UpdateEnvironment
-     *  *
-     * Deprecated
+     *
+     * @param request - UpdateEnvironmentRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateEnvironmentResponse
      *
      * @param string                   $environmentId
-     * @param UpdateEnvironmentRequest $request       UpdateEnvironmentRequest
-     * @param string[]                 $headers       map
-     * @param RuntimeOptions           $runtime       runtime options for this request RuntimeOptions
+     * @param UpdateEnvironmentRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
      *
-     * @return UpdateEnvironmentResponse UpdateEnvironmentResponse
+     * @return UpdateEnvironmentResponse
      */
     public function updateEnvironmentWithOptions($environmentId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->alias)) {
-            $body['alias'] = $request->alias;
+        if (null !== $request->alias) {
+            @$body['alias'] = $request->alias;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateEnvironment',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/environments/' . OpenApiUtilClient::getEncodeParam($environmentId) . '',
+            'pathname' => '/v1/environments/' . Url::percentEncode($environmentId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
         return UpdateEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
     }
 
+    // Deprecated
     /**
+     * UpdateEnvironment.
+     *
      * @deprecated OpenAPI UpdateEnvironment is deprecated
-     *  *
-     * @summary UpdateEnvironment
-     *  *
-     * Deprecated
+     *
+     * @param request - UpdateEnvironmentRequest
+     *
+     * @returns UpdateEnvironmentResponse
      *
      * @param string                   $environmentId
-     * @param UpdateEnvironmentRequest $request       UpdateEnvironmentRequest
+     * @param UpdateEnvironmentRequest $request
      *
-     * @return UpdateEnvironmentResponse UpdateEnvironmentResponse
+     * @return UpdateEnvironmentResponse
      */
     public function updateEnvironment($environmentId, $request)
     {
@@ -3072,39 +3669,46 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Get the feature configuration of the gateway
-     *  *
+     * Get the feature configuration of the gateway.
+     *
+     * @param request - UpdateGatewayFeatureRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGatewayFeatureResponse
+     *
      * @param string                      $gatewayId
      * @param string                      $name
-     * @param UpdateGatewayFeatureRequest $request   UpdateGatewayFeatureRequest
-     * @param string[]                    $headers   map
-     * @param RuntimeOptions              $runtime   runtime options for this request RuntimeOptions
+     * @param UpdateGatewayFeatureRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
-     * @return UpdateGatewayFeatureResponse UpdateGatewayFeatureResponse
+     * @return UpdateGatewayFeatureResponse
      */
     public function updateGatewayFeatureWithOptions($gatewayId, $name, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->value)) {
-            $body['value'] = $request->value;
+        if (null !== $request->value) {
+            @$body['value'] = $request->value;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateGatewayFeature',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/gateway-features/' . OpenApiUtilClient::getEncodeParam($name) . '',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/gateway-features/' . Url::percentEncode($name) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateGatewayFeatureResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3112,13 +3716,17 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Get the feature configuration of the gateway
-     *  *
+     * Get the feature configuration of the gateway.
+     *
+     * @param request - UpdateGatewayFeatureRequest
+     *
+     * @returns UpdateGatewayFeatureResponse
+     *
      * @param string                      $gatewayId
      * @param string                      $name
-     * @param UpdateGatewayFeatureRequest $request   UpdateGatewayFeatureRequest
+     * @param UpdateGatewayFeatureRequest $request
      *
-     * @return UpdateGatewayFeatureResponse UpdateGatewayFeatureResponse
+     * @return UpdateGatewayFeatureResponse
      */
     public function updateGatewayFeature($gatewayId, $name, $request)
     {
@@ -3129,38 +3737,45 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Change the name of a gateway instance
-     *  *
-     * @param string                   $gatewayId
-     * @param UpdateGatewayNameRequest $request   UpdateGatewayNameRequest
-     * @param string[]                 $headers   map
-     * @param RuntimeOptions           $runtime   runtime options for this request RuntimeOptions
+     * Change the name of a gateway instance.
      *
-     * @return UpdateGatewayNameResponse UpdateGatewayNameResponse
+     * @param request - UpdateGatewayNameRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateGatewayNameResponse
+     *
+     * @param string                   $gatewayId
+     * @param UpdateGatewayNameRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateGatewayNameResponse
      */
     public function updateGatewayNameWithOptions($gatewayId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
+        if (null !== $request->name) {
+            @$query['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpdateGatewayName',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/name',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/name',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateGatewayNameResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3168,12 +3783,16 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Change the name of a gateway instance
-     *  *
-     * @param string                   $gatewayId
-     * @param UpdateGatewayNameRequest $request   UpdateGatewayNameRequest
+     * Change the name of a gateway instance.
      *
-     * @return UpdateGatewayNameResponse UpdateGatewayNameResponse
+     * @param request - UpdateGatewayNameRequest
+     *
+     * @returns UpdateGatewayNameResponse
+     *
+     * @param string                   $gatewayId
+     * @param UpdateGatewayNameRequest $request
+     *
+     * @return UpdateGatewayNameResponse
      */
     public function updateGatewayName($gatewayId, $request)
     {
@@ -3184,62 +3803,77 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Updates an HTTP API.
-     *  *
-     * @param string               $httpApiId
-     * @param UpdateHttpApiRequest $request   UpdateHttpApiRequest
-     * @param string[]             $headers   map
-     * @param RuntimeOptions       $runtime   runtime options for this request RuntimeOptions
+     * Updates an HTTP API.
      *
-     * @return UpdateHttpApiResponse UpdateHttpApiResponse
+     * @param request - UpdateHttpApiRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateHttpApiResponse
+     *
+     * @param string               $httpApiId
+     * @param UpdateHttpApiRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return UpdateHttpApiResponse
      */
     public function updateHttpApiWithOptions($httpApiId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->aiProtocols)) {
-            $body['aiProtocols'] = $request->aiProtocols;
+        if (null !== $request->aiProtocols) {
+            @$body['aiProtocols'] = $request->aiProtocols;
         }
-        if (!Utils::isUnset($request->authConfig)) {
-            $body['authConfig'] = $request->authConfig;
+
+        if (null !== $request->authConfig) {
+            @$body['authConfig'] = $request->authConfig;
         }
-        if (!Utils::isUnset($request->basePath)) {
-            $body['basePath'] = $request->basePath;
+
+        if (null !== $request->basePath) {
+            @$body['basePath'] = $request->basePath;
         }
-        if (!Utils::isUnset($request->deployConfigs)) {
-            $body['deployConfigs'] = $request->deployConfigs;
+
+        if (null !== $request->deployConfigs) {
+            @$body['deployConfigs'] = $request->deployConfigs;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->enableAuth)) {
-            $body['enableAuth'] = $request->enableAuth;
+
+        if (null !== $request->enableAuth) {
+            @$body['enableAuth'] = $request->enableAuth;
         }
-        if (!Utils::isUnset($request->ingressConfig)) {
-            $body['ingressConfig'] = $request->ingressConfig;
+
+        if (null !== $request->ingressConfig) {
+            @$body['ingressConfig'] = $request->ingressConfig;
         }
-        if (!Utils::isUnset($request->protocols)) {
-            $body['protocols'] = $request->protocols;
+
+        if (null !== $request->protocols) {
+            @$body['protocols'] = $request->protocols;
         }
-        if (!Utils::isUnset($request->versionConfig)) {
-            $body['versionConfig'] = $request->versionConfig;
+
+        if (null !== $request->versionConfig) {
+            @$body['versionConfig'] = $request->versionConfig;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateHttpApi',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateHttpApiResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3247,12 +3881,16 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Updates an HTTP API.
-     *  *
-     * @param string               $httpApiId
-     * @param UpdateHttpApiRequest $request   UpdateHttpApiRequest
+     * Updates an HTTP API.
      *
-     * @return UpdateHttpApiResponse UpdateHttpApiResponse
+     * @param request - UpdateHttpApiRequest
+     *
+     * @returns UpdateHttpApiResponse
+     *
+     * @param string               $httpApiId
+     * @param UpdateHttpApiRequest $request
+     *
+     * @return UpdateHttpApiResponse
      */
     public function updateHttpApi($httpApiId, $request)
     {
@@ -3263,39 +3901,46 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Update Operation
-     *  *
+     * Update Operation.
+     *
+     * @param request - UpdateHttpApiOperationRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateHttpApiOperationResponse
+     *
      * @param string                        $httpApiId
      * @param string                        $operationId
-     * @param UpdateHttpApiOperationRequest $request     UpdateHttpApiOperationRequest
-     * @param string[]                      $headers     map
-     * @param RuntimeOptions                $runtime     runtime options for this request RuntimeOptions
+     * @param UpdateHttpApiOperationRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
      *
-     * @return UpdateHttpApiOperationResponse UpdateHttpApiOperationResponse
+     * @return UpdateHttpApiOperationResponse
      */
     public function updateHttpApiOperationWithOptions($httpApiId, $operationId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->operation)) {
-            $body['operation'] = $request->operation;
+        if (null !== $request->operation) {
+            @$body['operation'] = $request->operation;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateHttpApiOperation',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '/operations/' . OpenApiUtilClient::getEncodeParam($operationId) . '',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/operations/' . Url::percentEncode($operationId) . '',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateHttpApiOperationResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3303,13 +3948,17 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Update Operation
-     *  *
+     * Update Operation.
+     *
+     * @param request - UpdateHttpApiOperationRequest
+     *
+     * @returns UpdateHttpApiOperationResponse
+     *
      * @param string                        $httpApiId
      * @param string                        $operationId
-     * @param UpdateHttpApiOperationRequest $request     UpdateHttpApiOperationRequest
+     * @param UpdateHttpApiOperationRequest $request
      *
-     * @return UpdateHttpApiOperationResponse UpdateHttpApiOperationResponse
+     * @return UpdateHttpApiOperationResponse
      */
     public function updateHttpApiOperation($httpApiId, $operationId, $request)
     {
@@ -3320,51 +3969,62 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Update the route of HttpApi
-     *  *
+     * Updates the route of an HTTP API.
+     *
+     * @param request - UpdateHttpApiRouteRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateHttpApiRouteResponse
+     *
      * @param string                    $httpApiId
      * @param string                    $routeId
-     * @param UpdateHttpApiRouteRequest $request   UpdateHttpApiRouteRequest
-     * @param string[]                  $headers   map
-     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
+     * @param UpdateHttpApiRouteRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return UpdateHttpApiRouteResponse UpdateHttpApiRouteResponse
+     * @return UpdateHttpApiRouteResponse
      */
     public function updateHttpApiRouteWithOptions($httpApiId, $routeId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->backendConfig)) {
-            $body['backendConfig'] = $request->backendConfig;
+        if (null !== $request->backendConfig) {
+            @$body['backendConfig'] = $request->backendConfig;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->domainIds)) {
-            $body['domainIds'] = $request->domainIds;
+
+        if (null !== $request->domainIds) {
+            @$body['domainIds'] = $request->domainIds;
         }
-        if (!Utils::isUnset($request->environmentId)) {
-            $body['environmentId'] = $request->environmentId;
+
+        if (null !== $request->environmentId) {
+            @$body['environmentId'] = $request->environmentId;
         }
-        if (!Utils::isUnset($request->match)) {
-            $body['match'] = $request->match;
+
+        if (null !== $request->match) {
+            @$body['match'] = $request->match;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdateHttpApiRoute',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/http-apis/' . OpenApiUtilClient::getEncodeParam($httpApiId) . '/routes/' . OpenApiUtilClient::getEncodeParam($routeId) . '',
+            'pathname' => '/v1/http-apis/' . Url::percentEncode($httpApiId) . '/routes/' . Url::percentEncode($routeId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateHttpApiRouteResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3372,13 +4032,17 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Update the route of HttpApi
-     *  *
+     * Updates the route of an HTTP API.
+     *
+     * @param request - UpdateHttpApiRouteRequest
+     *
+     * @returns UpdateHttpApiRouteResponse
+     *
      * @param string                    $httpApiId
      * @param string                    $routeId
-     * @param UpdateHttpApiRouteRequest $request   UpdateHttpApiRouteRequest
+     * @param UpdateHttpApiRouteRequest $request
      *
-     * @return UpdateHttpApiRouteResponse UpdateHttpApiRouteResponse
+     * @return UpdateHttpApiRouteResponse
      */
     public function updateHttpApiRoute($httpApiId, $routeId, $request)
     {
@@ -3389,44 +4053,53 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Update Policy
-     *  *
-     * @param string              $policyId
-     * @param UpdatePolicyRequest $request  UpdatePolicyRequest
-     * @param string[]            $headers  map
-     * @param RuntimeOptions      $runtime  runtime options for this request RuntimeOptions
+     * Update Policy.
      *
-     * @return UpdatePolicyResponse UpdatePolicyResponse
+     * @param request - UpdatePolicyRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdatePolicyResponse
+     *
+     * @param string              $policyId
+     * @param UpdatePolicyRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdatePolicyResponse
      */
     public function updatePolicyWithOptions($policyId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $body = [];
-        if (!Utils::isUnset($request->config)) {
-            $body['config'] = $request->config;
+        if (null !== $request->config) {
+            @$body['config'] = $request->config;
         }
-        if (!Utils::isUnset($request->description)) {
-            $body['description'] = $request->description;
+
+        if (null !== $request->description) {
+            @$body['description'] = $request->description;
         }
-        if (!Utils::isUnset($request->name)) {
-            $body['name'] = $request->name;
+
+        if (null !== $request->name) {
+            @$body['name'] = $request->name;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
             'action' => 'UpdatePolicy',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v2/policies/' . OpenApiUtilClient::getEncodeParam($policyId) . '',
+            'pathname' => '/v2/policies/' . Url::percentEncode($policyId) . '',
             'method' => 'PUT',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3434,12 +4107,16 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Update Policy
-     *  *
-     * @param string              $policyId
-     * @param UpdatePolicyRequest $request  UpdatePolicyRequest
+     * Update Policy.
      *
-     * @return UpdatePolicyResponse UpdatePolicyResponse
+     * @param request - UpdatePolicyRequest
+     *
+     * @returns UpdatePolicyResponse
+     *
+     * @param string              $policyId
+     * @param UpdatePolicyRequest $request
+     *
+     * @return UpdatePolicyResponse
      */
     public function updatePolicy($policyId, $request)
     {
@@ -3450,38 +4127,45 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Upgrade the gateway version
-     *  *
-     * @param string                $gatewayId
-     * @param UpgradeGatewayRequest $request   UpgradeGatewayRequest
-     * @param string[]              $headers   map
-     * @param RuntimeOptions        $runtime   runtime options for this request RuntimeOptions
+     * Upgrade the gateway version.
      *
-     * @return UpgradeGatewayResponse UpgradeGatewayResponse
+     * @param request - UpgradeGatewayRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpgradeGatewayResponse
+     *
+     * @param string                $gatewayId
+     * @param UpgradeGatewayRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpgradeGatewayResponse
      */
     public function upgradeGatewayWithOptions($gatewayId, $request, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        $request->validate();
         $query = [];
-        if (!Utils::isUnset($request->version)) {
-            $query['version'] = $request->version;
+        if (null !== $request->version) {
+            @$query['version'] = $request->version;
         }
+
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query' => OpenApiUtilClient::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
             'action' => 'UpgradeGateway',
             'version' => '2024-03-27',
             'protocol' => 'HTTPS',
-            'pathname' => '/v1/gateways/' . OpenApiUtilClient::getEncodeParam($gatewayId) . '/upgrade',
+            'pathname' => '/v1/gateways/' . Url::percentEncode($gatewayId) . '/upgrade',
             'method' => 'POST',
             'authType' => 'AK',
             'style' => 'ROA',
             'reqBodyType' => 'json',
             'bodyType' => 'json',
         ]);
-        if (Utils::isUnset($this->_signatureVersion) || !Utils::equalString($this->_signatureVersion, 'v4')) {
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpgradeGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
         }
 
@@ -3489,12 +4173,16 @@ class APIG extends OpenApiClient
     }
 
     /**
-     * @summary Upgrade the gateway version
-     *  *
-     * @param string                $gatewayId
-     * @param UpgradeGatewayRequest $request   UpgradeGatewayRequest
+     * Upgrade the gateway version.
      *
-     * @return UpgradeGatewayResponse UpgradeGatewayResponse
+     * @param request - UpgradeGatewayRequest
+     *
+     * @returns UpgradeGatewayResponse
+     *
+     * @param string                $gatewayId
+     * @param UpgradeGatewayRequest $request
+     *
+     * @return UpgradeGatewayResponse
      */
     public function upgradeGateway($gatewayId, $request)
     {

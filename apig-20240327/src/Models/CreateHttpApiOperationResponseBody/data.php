@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiOperationResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\CreateHttpApiOperationResponseBody\data\operations;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description Operation information.
-     *
      * @var operations[]
      */
     public $operations;
@@ -19,17 +17,23 @@ class data extends Model
         'operations' => 'operations',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (\is_array($this->operations)) {
+            Model::validateArray($this->operations);
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->operations) {
-            $res['operations'] = [];
-            if (null !== $this->operations && \is_array($this->operations)) {
-                $n = 0;
-                foreach ($this->operations as $item) {
-                    $res['operations'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->operations)) {
+                $res['operations'] = [];
+                $n1 = 0;
+                foreach ($this->operations as $item1) {
+                    $res['operations'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['operations'])) {
             if (!empty($map['operations'])) {
                 $model->operations = [];
-                $n = 0;
-                foreach ($map['operations'] as $item) {
-                    $model->operations[$n++] = null !== $item ? operations::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['operations'] as $item1) {
+                    $model->operations[$n1++] = operations::fromMap($item1);
                 }
             }
         }

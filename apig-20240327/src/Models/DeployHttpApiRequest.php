@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\APIG\V20240327\Models\DeployHttpApiRequest\restApiConfig;
-use AlibabaCloud\Tea\Model;
 
 class DeployHttpApiRequest extends Model
 {
     /**
-     * @description Rest API deployment configuration. Required when deploying an HTTP API as a Rest API.
-     *
      * @var restApiConfig
      */
     public $restApiConfig;
 
     /**
-     * @description Route ID. This must be provided when publishing the route of an HTTP API.
-     *
-     * @example hr-cr82undlhtgrl***
-     *
      * @var string
      */
     public $routeId;
@@ -29,14 +23,21 @@ class DeployHttpApiRequest extends Model
         'routeId' => 'routeId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        if (null !== $this->restApiConfig) {
+            $this->restApiConfig->validate();
+        }
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->restApiConfig) {
-            $res['restApiConfig'] = null !== $this->restApiConfig ? $this->restApiConfig->toMap() : null;
+            $res['restApiConfig'] = null !== $this->restApiConfig ? $this->restApiConfig->toArray($noStream) : $this->restApiConfig;
         }
+
         if (null !== $this->routeId) {
             $res['routeId'] = $this->routeId;
         }
@@ -44,17 +45,18 @@ class DeployHttpApiRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeployHttpApiRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['restApiConfig'])) {
             $model->restApiConfig = restApiConfig::fromMap($map['restApiConfig']);
         }
+
         if (isset($map['routeId'])) {
             $model->routeId = $map['routeId'];
         }

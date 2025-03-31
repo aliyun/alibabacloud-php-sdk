@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\APIG\V20240327\Models\ListGatewaysResponseBody\data\items;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class vSwitch extends Model
 {
     /**
-     * @description The vSwitch ID.
-     *
-     * @example vsw-xxxxx
-     *
      * @var string
      */
     public $vSwitchId;
@@ -20,9 +16,12 @@ class vSwitch extends Model
         'vSwitchId' => 'vSwitchId',
     ];
 
-    public function validate() {}
+    public function validate()
+    {
+        parent::validate();
+    }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->vSwitchId) {
@@ -32,11 +31,11 @@ class vSwitch extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return vSwitch
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
