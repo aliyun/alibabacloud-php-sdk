@@ -4,47 +4,46 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLPlansResponseBody\SQLPlans;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSQLPlansResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the execution plan.
-     *
      * @var SQLPlans[]
      */
     public $SQLPlans;
     protected $_name = [
         'requestId' => 'RequestId',
-        'SQLPlans'  => 'SQLPlans',
+        'SQLPlans' => 'SQLPlans',
     ];
 
     public function validate()
     {
+        if (\is_array($this->SQLPlans)) {
+            Model::validateArray($this->SQLPlans);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->SQLPlans) {
-            $res['SQLPlans'] = [];
-            if (null !== $this->SQLPlans && \is_array($this->SQLPlans)) {
-                $n = 0;
-                foreach ($this->SQLPlans as $item) {
-                    $res['SQLPlans'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->SQLPlans)) {
+                $res['SQLPlans'] = [];
+                $n1 = 0;
+                foreach ($this->SQLPlans as $item1) {
+                    $res['SQLPlans'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +51,24 @@ class DescribeSQLPlansResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSQLPlansResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SQLPlans'])) {
             if (!empty($map['SQLPlans'])) {
                 $model->SQLPlans = [];
-                $n               = 0;
-                foreach ($map['SQLPlans'] as $item) {
-                    $model->SQLPlans[$n++] = null !== $item ? SQLPlans::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SQLPlans'] as $item1) {
+                    $model->SQLPlans[$n1++] = SQLPlans::fromMap($item1);
                 }
             }
         }

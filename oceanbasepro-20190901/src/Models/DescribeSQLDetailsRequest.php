@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSQLDetailsRequest extends Model
 {
     /**
-     * @description The SQL text.
-     *
-     * This parameter is required.
-     * @example 8D6E84****0B8FB1823D199E2CA1****
-     *
      * @var string
      */
     public $SQLId;
 
     /**
-     * @description SQLID.
-     *
-     * This parameter is required.
-     * @example t2mr3oae0****
-     *
      * @var string
      */
     public $tenantId;
     protected $_name = [
-        'SQLId'    => 'SQLId',
+        'SQLId' => 'SQLId',
         'tenantId' => 'TenantId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->SQLId) {
             $res['SQLId'] = $this->SQLId;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
@@ -49,17 +41,18 @@ class DescribeSQLDetailsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSQLDetailsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SQLId'])) {
             $model->SQLId = $map['SQLId'];
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }

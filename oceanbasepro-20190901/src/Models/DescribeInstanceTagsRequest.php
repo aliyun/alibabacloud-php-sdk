@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeInstanceTagsRequest extends Model
 {
     /**
-     * @description The list of cluster IDs.
-     *
-     * @example ["ob3za5w73as8rk"]
-     *
      * @var string
      */
     public $instanceIds;
 
     /**
-     * @description The tags.
-     *
-     * @example [{"Key": "xxx", "Value", "xxx"},{}]
-     *
      * @var string
      */
     public $tags;
     protected $_name = [
         'instanceIds' => 'InstanceIds',
-        'tags'        => 'Tags',
+        'tags' => 'Tags',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
         }
+
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
         }
@@ -47,17 +41,18 @@ class DescribeInstanceTagsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceTagsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
         }
+
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
         }

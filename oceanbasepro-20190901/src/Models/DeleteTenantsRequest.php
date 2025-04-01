@@ -4,46 +4,36 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteTenantsRequest extends Model
 {
     /**
-     * @description You can call this operation to delete one or more tenants from an OceanBase cluster.
-     *
-     * This parameter is required.
-     * @example ob317v4uif****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description ```
-     * http(s)://[Endpoint]/?Action=DeleteTenants
-     * &TenantIds=["ob2mr3oae0****", "ob2mr3oae1****"]
-     * &InstanceId=ob317v4uif****
-     * This parameter is required.
-     * @example ["ob2mr3oae0****", "ob2mr3oae1****"]
-     *
      * @var string
      */
     public $tenantIds;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'tenantIds'  => 'TenantIds',
+        'tenantIds' => 'TenantIds',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->tenantIds) {
             $res['TenantIds'] = $this->tenantIds;
         }
@@ -51,17 +41,18 @@ class DeleteTenantsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTenantsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['TenantIds'])) {
             $model->tenantIds = $map['TenantIds'];
         }

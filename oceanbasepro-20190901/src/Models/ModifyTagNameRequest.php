@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyTagNameRequest extends Model
 {
     /**
-     * @description The name of the tag group.
-     *
-     * This parameter is required.
-     * @example Tag group 1
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The new name of the tag group.
-     *
-     * This parameter is required.
-     * @example Tag group 2
-     *
      * @var string
      */
     public $newKey;
     protected $_name = [
-        'key'    => 'Key',
+        'key' => 'Key',
         'newKey' => 'NewKey',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
+
         if (null !== $this->newKey) {
             $res['NewKey'] = $this->newKey;
         }
@@ -49,17 +41,18 @@ class ModifyTagNameRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyTagNameRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
+
         if (isset($map['NewKey'])) {
             $model->newKey = $map['NewKey'];
         }

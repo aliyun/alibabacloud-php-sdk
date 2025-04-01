@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectFullVerifyResultResponseBody\data\fullVerifyTableStatistics;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class errorDetails extends Model
 {
     /**
-     * @example CM-RESOAT1111
-     *
      * @var string
      */
     public $code;
@@ -21,15 +19,11 @@ class errorDetails extends Model
     public $extraContext;
 
     /**
-     * @example ERROR
-     *
      * @var string
      */
     public $level;
 
     /**
-     * @example null
-     *
      * @var string
      */
     public $message;
@@ -40,15 +34,11 @@ class errorDetails extends Model
     public $messageMcmsContext;
 
     /**
-     * @example null
-     *
      * @var string
      */
     public $messageMcmsKey;
 
     /**
-     * @example null
-     *
      * @var string
      */
     public $proposal;
@@ -59,15 +49,11 @@ class errorDetails extends Model
     public $proposalMcmsContext;
 
     /**
-     * @example null
-     *
      * @var string
      */
     public $proposalMcmsKey;
 
     /**
-     * @example null
-     *
      * @var string
      */
     public $reason;
@@ -78,77 +64,118 @@ class errorDetails extends Model
     public $reasonMcmsContext;
 
     /**
-     * @example null
-     *
      * @var string
      */
     public $reasonMcmsKey;
 
     /**
-     * @example null
-     *
      * @var mixed
      */
     public $upstreamErrorDetail;
     protected $_name = [
-        'code'                => 'Code',
-        'extraContext'        => 'ExtraContext',
-        'level'               => 'Level',
-        'message'             => 'Message',
-        'messageMcmsContext'  => 'MessageMcmsContext',
-        'messageMcmsKey'      => 'MessageMcmsKey',
-        'proposal'            => 'Proposal',
+        'code' => 'Code',
+        'extraContext' => 'ExtraContext',
+        'level' => 'Level',
+        'message' => 'Message',
+        'messageMcmsContext' => 'MessageMcmsContext',
+        'messageMcmsKey' => 'MessageMcmsKey',
+        'proposal' => 'Proposal',
         'proposalMcmsContext' => 'ProposalMcmsContext',
-        'proposalMcmsKey'     => 'ProposalMcmsKey',
-        'reason'              => 'Reason',
-        'reasonMcmsContext'   => 'ReasonMcmsContext',
-        'reasonMcmsKey'       => 'ReasonMcmsKey',
+        'proposalMcmsKey' => 'ProposalMcmsKey',
+        'reason' => 'Reason',
+        'reasonMcmsContext' => 'ReasonMcmsContext',
+        'reasonMcmsKey' => 'ReasonMcmsKey',
         'upstreamErrorDetail' => 'UpstreamErrorDetail',
     ];
 
     public function validate()
     {
+        if (\is_array($this->extraContext)) {
+            Model::validateArray($this->extraContext);
+        }
+        if (\is_array($this->messageMcmsContext)) {
+            Model::validateArray($this->messageMcmsContext);
+        }
+        if (\is_array($this->proposalMcmsContext)) {
+            Model::validateArray($this->proposalMcmsContext);
+        }
+        if (\is_array($this->reasonMcmsContext)) {
+            Model::validateArray($this->reasonMcmsContext);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->extraContext) {
-            $res['ExtraContext'] = $this->extraContext;
+            if (\is_array($this->extraContext)) {
+                $res['ExtraContext'] = [];
+                foreach ($this->extraContext as $key1 => $value1) {
+                    $res['ExtraContext'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->messageMcmsContext) {
-            $res['MessageMcmsContext'] = $this->messageMcmsContext;
+            if (\is_array($this->messageMcmsContext)) {
+                $res['MessageMcmsContext'] = [];
+                foreach ($this->messageMcmsContext as $key1 => $value1) {
+                    $res['MessageMcmsContext'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->messageMcmsKey) {
             $res['MessageMcmsKey'] = $this->messageMcmsKey;
         }
+
         if (null !== $this->proposal) {
             $res['Proposal'] = $this->proposal;
         }
+
         if (null !== $this->proposalMcmsContext) {
-            $res['ProposalMcmsContext'] = $this->proposalMcmsContext;
+            if (\is_array($this->proposalMcmsContext)) {
+                $res['ProposalMcmsContext'] = [];
+                foreach ($this->proposalMcmsContext as $key1 => $value1) {
+                    $res['ProposalMcmsContext'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->proposalMcmsKey) {
             $res['ProposalMcmsKey'] = $this->proposalMcmsKey;
         }
+
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
         }
+
         if (null !== $this->reasonMcmsContext) {
-            $res['ReasonMcmsContext'] = $this->reasonMcmsContext;
+            if (\is_array($this->reasonMcmsContext)) {
+                $res['ReasonMcmsContext'] = [];
+                foreach ($this->reasonMcmsContext as $key1 => $value1) {
+                    $res['ReasonMcmsContext'][$key1] = $value1;
+                }
+            }
         }
+
         if (null !== $this->reasonMcmsKey) {
             $res['ReasonMcmsKey'] = $this->reasonMcmsKey;
         }
+
         if (null !== $this->upstreamErrorDetail) {
             $res['UpstreamErrorDetail'] = $this->upstreamErrorDetail;
         }
@@ -156,50 +183,82 @@ class errorDetails extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return errorDetails
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['ExtraContext'])) {
-            $model->extraContext = $map['ExtraContext'];
+            if (!empty($map['ExtraContext'])) {
+                $model->extraContext = [];
+                foreach ($map['ExtraContext'] as $key1 => $value1) {
+                    $model->extraContext[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['MessageMcmsContext'])) {
-            $model->messageMcmsContext = $map['MessageMcmsContext'];
+            if (!empty($map['MessageMcmsContext'])) {
+                $model->messageMcmsContext = [];
+                foreach ($map['MessageMcmsContext'] as $key1 => $value1) {
+                    $model->messageMcmsContext[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['MessageMcmsKey'])) {
             $model->messageMcmsKey = $map['MessageMcmsKey'];
         }
+
         if (isset($map['Proposal'])) {
             $model->proposal = $map['Proposal'];
         }
+
         if (isset($map['ProposalMcmsContext'])) {
-            $model->proposalMcmsContext = $map['ProposalMcmsContext'];
+            if (!empty($map['ProposalMcmsContext'])) {
+                $model->proposalMcmsContext = [];
+                foreach ($map['ProposalMcmsContext'] as $key1 => $value1) {
+                    $model->proposalMcmsContext[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['ProposalMcmsKey'])) {
             $model->proposalMcmsKey = $map['ProposalMcmsKey'];
         }
+
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
         }
+
         if (isset($map['ReasonMcmsContext'])) {
-            $model->reasonMcmsContext = $map['ReasonMcmsContext'];
+            if (!empty($map['ReasonMcmsContext'])) {
+                $model->reasonMcmsContext = [];
+                foreach ($map['ReasonMcmsContext'] as $key1 => $value1) {
+                    $model->reasonMcmsContext[$key1] = $value1;
+                }
+            }
         }
+
         if (isset($map['ReasonMcmsKey'])) {
             $model->reasonMcmsKey = $map['ReasonMcmsKey'];
         }
+
         if (isset($map['UpstreamErrorDetail'])) {
             $model->upstreamErrorDetail = $map['UpstreamErrorDetail'];
         }

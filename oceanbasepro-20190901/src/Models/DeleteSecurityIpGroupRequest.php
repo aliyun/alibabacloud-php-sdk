@@ -4,43 +4,36 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteSecurityIpGroupRequest extends Model
 {
     /**
-     * @description The name of the IP address whitelist group.
-     * This parameter is required.
-     * @example ob317v4uif****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The information of the deleted IP whitelist group.
-     *
-     * This parameter is required.
-     * @example paytest
-     *
      * @var string
      */
     public $securityIpGroupName;
     protected $_name = [
-        'instanceId'          => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'securityIpGroupName' => 'SecurityIpGroupName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->securityIpGroupName) {
             $res['SecurityIpGroupName'] = $this->securityIpGroupName;
         }
@@ -48,17 +41,18 @@ class DeleteSecurityIpGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteSecurityIpGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['SecurityIpGroupName'])) {
             $model->securityIpGroupName = $map['SecurityIpGroupName'];
         }

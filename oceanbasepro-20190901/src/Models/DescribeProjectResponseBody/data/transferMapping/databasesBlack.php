@@ -4,31 +4,25 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\transferMapping;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\transferMapping\databasesBlack\specificTables;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\transferMapping\databasesBlack\specificViews;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\transferMapping\databasesBlack\tables;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\transferMapping\databasesBlack\views;
-use AlibabaCloud\Tea\Model;
 
 class databasesBlack extends Model
 {
     /**
-     * @example db_id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example mapped_db
-     *
      * @var string
      */
     public $mappedName;
 
     /**
-     * @example db_name
-     *
      * @var string
      */
     public $name;
@@ -49,15 +43,11 @@ class databasesBlack extends Model
     public $tables;
 
     /**
-     * @example mapped_tenant
-     *
      * @var string
      */
     public $tenantName;
 
     /**
-     * @example DATABASE
-     *
      * @var string
      */
     public $type;
@@ -67,72 +57,93 @@ class databasesBlack extends Model
      */
     public $views;
     protected $_name = [
-        'id'             => 'Id',
-        'mappedName'     => 'MappedName',
-        'name'           => 'Name',
+        'id' => 'Id',
+        'mappedName' => 'MappedName',
+        'name' => 'Name',
         'specificTables' => 'SpecificTables',
-        'specificViews'  => 'SpecificViews',
-        'tables'         => 'Tables',
-        'tenantName'     => 'TenantName',
-        'type'           => 'Type',
-        'views'          => 'Views',
+        'specificViews' => 'SpecificViews',
+        'tables' => 'Tables',
+        'tenantName' => 'TenantName',
+        'type' => 'Type',
+        'views' => 'Views',
     ];
 
     public function validate()
     {
+        if (\is_array($this->specificTables)) {
+            Model::validateArray($this->specificTables);
+        }
+        if (\is_array($this->specificViews)) {
+            Model::validateArray($this->specificViews);
+        }
+        if (\is_array($this->tables)) {
+            Model::validateArray($this->tables);
+        }
+        if (\is_array($this->views)) {
+            Model::validateArray($this->views);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->mappedName) {
             $res['MappedName'] = $this->mappedName;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->specificTables) {
-            $res['SpecificTables'] = [];
-            if (null !== $this->specificTables && \is_array($this->specificTables)) {
-                $n = 0;
-                foreach ($this->specificTables as $item) {
-                    $res['SpecificTables'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->specificTables)) {
+                $res['SpecificTables'] = [];
+                $n1 = 0;
+                foreach ($this->specificTables as $item1) {
+                    $res['SpecificTables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->specificViews) {
-            $res['SpecificViews'] = [];
-            if (null !== $this->specificViews && \is_array($this->specificViews)) {
-                $n = 0;
-                foreach ($this->specificViews as $item) {
-                    $res['SpecificViews'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->specificViews)) {
+                $res['SpecificViews'] = [];
+                $n1 = 0;
+                foreach ($this->specificViews as $item1) {
+                    $res['SpecificViews'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->tables) {
-            $res['Tables'] = [];
-            if (null !== $this->tables && \is_array($this->tables)) {
-                $n = 0;
-                foreach ($this->tables as $item) {
-                    $res['Tables'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tables)) {
+                $res['Tables'] = [];
+                $n1 = 0;
+                foreach ($this->tables as $item1) {
+                    $res['Tables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->tenantName) {
             $res['TenantName'] = $this->tenantName;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->views) {
-            $res['Views'] = [];
-            if (null !== $this->views && \is_array($this->views)) {
-                $n = 0;
-                foreach ($this->views as $item) {
-                    $res['Views'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->views)) {
+                $res['Views'] = [];
+                $n1 = 0;
+                foreach ($this->views as $item1) {
+                    $res['Views'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -140,62 +151,70 @@ class databasesBlack extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return databasesBlack
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['MappedName'])) {
             $model->mappedName = $map['MappedName'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['SpecificTables'])) {
             if (!empty($map['SpecificTables'])) {
                 $model->specificTables = [];
-                $n                     = 0;
-                foreach ($map['SpecificTables'] as $item) {
-                    $model->specificTables[$n++] = null !== $item ? specificTables::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SpecificTables'] as $item1) {
+                    $model->specificTables[$n1++] = specificTables::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['SpecificViews'])) {
             if (!empty($map['SpecificViews'])) {
                 $model->specificViews = [];
-                $n                    = 0;
-                foreach ($map['SpecificViews'] as $item) {
-                    $model->specificViews[$n++] = null !== $item ? specificViews::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SpecificViews'] as $item1) {
+                    $model->specificViews[$n1++] = specificViews::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
                 $model->tables = [];
-                $n             = 0;
-                foreach ($map['Tables'] as $item) {
-                    $model->tables[$n++] = null !== $item ? tables::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tables'] as $item1) {
+                    $model->tables[$n1++] = tables::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TenantName'])) {
             $model->tenantName = $map['TenantName'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Views'])) {
             if (!empty($map['Views'])) {
                 $model->views = [];
-                $n            = 0;
-                foreach ($map['Views'] as $item) {
-                    $model->views[$n++] = null !== $item ? views::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Views'] as $item1) {
+                    $model->views[$n1++] = views::fromMap($item1);
                 }
             }
         }

@@ -4,58 +4,46 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSecurityIpGroupRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
-     *
-     * This parameter is required.
-     * @example ob317v4uif****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The name of the whitelist group.
-     *
-     * This parameter is required.
-     * @example pay_online
-     *
      * @var string
      */
     public $securityIpGroupName;
 
     /**
-     * @description The return result of the request.
-     *
-     * This parameter is required.
-     * @example {"192.168.1.1","192.168.0.0.1/8"}
-     *
      * @var string
      */
     public $securityIps;
     protected $_name = [
-        'instanceId'          => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'securityIpGroupName' => 'SecurityIpGroupName',
-        'securityIps'         => 'SecurityIps',
+        'securityIps' => 'SecurityIps',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->securityIpGroupName) {
             $res['SecurityIpGroupName'] = $this->securityIpGroupName;
         }
+
         if (null !== $this->securityIps) {
             $res['SecurityIps'] = $this->securityIps;
         }
@@ -63,20 +51,22 @@ class CreateSecurityIpGroupRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSecurityIpGroupRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['SecurityIpGroupName'])) {
             $model->securityIpGroupName = $map['SecurityIpGroupName'];
         }
+
         if (isset($map['SecurityIps'])) {
             $model->securityIps = $map['SecurityIps'];
         }

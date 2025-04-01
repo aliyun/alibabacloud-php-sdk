@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeDataBackupSetResponseBody\data\backupResults;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tableBackupResults extends Model
 {
     /**
-     * @example order_ce****_online
-     *
      * @var string
      */
     public $database;
 
     /**
-     * @example Create tag success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example RUNNING
-     *
      * @var string
      */
     public $status;
 
     /**
-     * @example tr_sale_order_****
-     *
      * @var string
      */
     public $table;
     protected $_name = [
         'database' => 'Database',
-        'message'  => 'Message',
-        'status'   => 'Status',
-        'table'    => 'Table',
+        'message' => 'Message',
+        'status' => 'Status',
+        'table' => 'Table',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->database) {
             $res['Database'] = $this->database;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+
         if (null !== $this->table) {
             $res['Table'] = $this->table;
         }
@@ -65,23 +61,26 @@ class tableBackupResults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tableBackupResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+
         if (isset($map['Table'])) {
             $model->table = $map['Table'];
         }

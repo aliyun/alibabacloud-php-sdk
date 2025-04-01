@@ -4,53 +4,46 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeAvailableSpecRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example ob317v4uif****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example oceanbase.cluster.cd8.xlarge
-     *
      * @var string
      */
     public $spec;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example upgradespec
-     *
      * @var string
      */
     public $upgradeType;
     protected $_name = [
-        'instanceId'  => 'InstanceId',
-        'spec'        => 'Spec',
+        'instanceId' => 'InstanceId',
+        'spec' => 'Spec',
         'upgradeType' => 'UpgradeType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
         }
+
         if (null !== $this->upgradeType) {
             $res['UpgradeType'] = $this->upgradeType;
         }
@@ -58,20 +51,22 @@ class DescribeAvailableSpecRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeAvailableSpecRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
         }
+
         if (isset($map['UpgradeType'])) {
             $model->upgradeType = $map['UpgradeType'];
         }

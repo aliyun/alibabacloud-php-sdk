@@ -4,57 +4,46 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeParametersRequest extends Model
 {
     /**
-     * @description It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
-     *
-     * This parameter is required.
-     * @example TENANT
-     *
      * @var string
      */
     public $dimension;
 
     /**
-     * @description Alibaba Cloud CLI
-     *
-     * @example ob2mr3oae0****
-     *
      * @var string
      */
     public $dimensionValue;
 
     /**
-     * @description 498529
-     *
-     * This parameter is required.
-     * @example ob317v4uif****
-     *
      * @var string
      */
     public $instanceId;
     protected $_name = [
-        'dimension'      => 'Dimension',
+        'dimension' => 'Dimension',
         'dimensionValue' => 'DimensionValue',
-        'instanceId'     => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dimension) {
             $res['Dimension'] = $this->dimension;
         }
+
         if (null !== $this->dimensionValue) {
             $res['DimensionValue'] = $this->dimensionValue;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -62,20 +51,22 @@ class DescribeParametersRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeParametersRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Dimension'])) {
             $model->dimension = $map['Dimension'];
         }
+
         if (isset($map['DimensionValue'])) {
             $model->dimensionValue = $map['DimensionValue'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

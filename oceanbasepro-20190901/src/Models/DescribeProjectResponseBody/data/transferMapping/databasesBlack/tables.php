@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\transferMapping\databasesBlack;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectResponseBody\data\transferMapping\databasesBlack\tables\adbTableSchema;
-use AlibabaCloud\Tea\Model;
 
 class tables extends Model
 {
@@ -20,22 +20,16 @@ class tables extends Model
     public $filterColumns;
 
     /**
-     * @example table_id
-     *
      * @var string
      */
     public $id;
 
     /**
-     * @example mapped_table
-     *
      * @var string
      */
     public $mappedName;
 
     /**
-     * @example table_name
-     *
      * @var string
      */
     public $name;
@@ -46,46 +40,72 @@ class tables extends Model
     public $shardColumns;
 
     /**
-     * @example id>1
-     *
      * @var string
      */
     public $whereClause;
     protected $_name = [
         'adbTableSchema' => 'AdbTableSchema',
-        'filterColumns'  => 'FilterColumns',
-        'id'             => 'Id',
-        'mappedName'     => 'MappedName',
-        'name'           => 'Name',
-        'shardColumns'   => 'ShardColumns',
-        'whereClause'    => 'WhereClause',
+        'filterColumns' => 'FilterColumns',
+        'id' => 'Id',
+        'mappedName' => 'MappedName',
+        'name' => 'Name',
+        'shardColumns' => 'ShardColumns',
+        'whereClause' => 'WhereClause',
     ];
 
     public function validate()
     {
+        if (null !== $this->adbTableSchema) {
+            $this->adbTableSchema->validate();
+        }
+        if (\is_array($this->filterColumns)) {
+            Model::validateArray($this->filterColumns);
+        }
+        if (\is_array($this->shardColumns)) {
+            Model::validateArray($this->shardColumns);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->adbTableSchema) {
-            $res['AdbTableSchema'] = null !== $this->adbTableSchema ? $this->adbTableSchema->toMap() : null;
+            $res['AdbTableSchema'] = null !== $this->adbTableSchema ? $this->adbTableSchema->toArray($noStream) : $this->adbTableSchema;
         }
+
         if (null !== $this->filterColumns) {
-            $res['FilterColumns'] = $this->filterColumns;
+            if (\is_array($this->filterColumns)) {
+                $res['FilterColumns'] = [];
+                $n1 = 0;
+                foreach ($this->filterColumns as $item1) {
+                    $res['FilterColumns'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->mappedName) {
             $res['MappedName'] = $this->mappedName;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->shardColumns) {
-            $res['ShardColumns'] = $this->shardColumns;
+            if (\is_array($this->shardColumns)) {
+                $res['ShardColumns'] = [];
+                $n1 = 0;
+                foreach ($this->shardColumns as $item1) {
+                    $res['ShardColumns'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->whereClause) {
             $res['WhereClause'] = $this->whereClause;
         }
@@ -93,36 +113,50 @@ class tables extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tables
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdbTableSchema'])) {
             $model->adbTableSchema = adbTableSchema::fromMap($map['AdbTableSchema']);
         }
+
         if (isset($map['FilterColumns'])) {
             if (!empty($map['FilterColumns'])) {
-                $model->filterColumns = $map['FilterColumns'];
+                $model->filterColumns = [];
+                $n1 = 0;
+                foreach ($map['FilterColumns'] as $item1) {
+                    $model->filterColumns[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['MappedName'])) {
             $model->mappedName = $map['MappedName'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['ShardColumns'])) {
             if (!empty($map['ShardColumns'])) {
-                $model->shardColumns = $map['ShardColumns'];
+                $model->shardColumns = [];
+                $n1 = 0;
+                foreach ($map['ShardColumns'] as $item1) {
+                    $model->shardColumns[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['WhereClause'])) {
             $model->whereClause = $map['WhereClause'];
         }

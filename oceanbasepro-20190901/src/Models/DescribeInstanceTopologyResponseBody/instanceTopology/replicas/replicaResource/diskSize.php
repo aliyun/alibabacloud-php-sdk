@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody\instanceTopology\replicas\replicaResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class diskSize extends Model
 {
     /**
-     * @description The total disk space of the replica, in GB.
-     *
-     * @example 100
-     *
      * @var int
      */
     public $totalDiskSize;
 
     /**
-     * @description The disk space used by the replica, in GB.
-     *
-     * @example 50
-     *
      * @var float
      */
     public $usedDiskSize;
     protected $_name = [
         'totalDiskSize' => 'TotalDiskSize',
-        'usedDiskSize'  => 'UsedDiskSize',
+        'usedDiskSize' => 'UsedDiskSize',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->totalDiskSize) {
             $res['TotalDiskSize'] = $this->totalDiskSize;
         }
+
         if (null !== $this->usedDiskSize) {
             $res['UsedDiskSize'] = $this->usedDiskSize;
         }
@@ -47,17 +41,18 @@ class diskSize extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return diskSize
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TotalDiskSize'])) {
             $model->totalDiskSize = $map['TotalDiskSize'];
         }
+
         if (isset($map['UsedDiskSize'])) {
             $model->usedDiskSize = $map['UsedDiskSize'];
         }

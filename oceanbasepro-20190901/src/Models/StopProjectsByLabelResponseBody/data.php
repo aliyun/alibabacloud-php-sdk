@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StopProjectsByLabelResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -19,30 +19,49 @@ class data extends Model
     public $succeedProjectIds;
 
     /**
-     * @example 16
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'failedProjectIds'  => 'FailedProjectIds',
+        'failedProjectIds' => 'FailedProjectIds',
         'succeedProjectIds' => 'SucceedProjectIds',
-        'total'             => 'Total',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->failedProjectIds)) {
+            Model::validateArray($this->failedProjectIds);
+        }
+        if (\is_array($this->succeedProjectIds)) {
+            Model::validateArray($this->succeedProjectIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->failedProjectIds) {
-            $res['FailedProjectIds'] = $this->failedProjectIds;
+            if (\is_array($this->failedProjectIds)) {
+                $res['FailedProjectIds'] = [];
+                $n1 = 0;
+                foreach ($this->failedProjectIds as $item1) {
+                    $res['FailedProjectIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->succeedProjectIds) {
-            $res['SucceedProjectIds'] = $this->succeedProjectIds;
+            if (\is_array($this->succeedProjectIds)) {
+                $res['SucceedProjectIds'] = [];
+                $n1 = 0;
+                foreach ($this->succeedProjectIds as $item1) {
+                    $res['SucceedProjectIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -50,24 +69,34 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FailedProjectIds'])) {
             if (!empty($map['FailedProjectIds'])) {
-                $model->failedProjectIds = $map['FailedProjectIds'];
+                $model->failedProjectIds = [];
+                $n1 = 0;
+                foreach ($map['FailedProjectIds'] as $item1) {
+                    $model->failedProjectIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['SucceedProjectIds'])) {
             if (!empty($map['SucceedProjectIds'])) {
-                $model->succeedProjectIds = $map['SucceedProjectIds'];
+                $model->succeedProjectIds = [];
+                $n1 = 0;
+                foreach ($map['SucceedProjectIds'] as $item1) {
+                    $model->succeedProjectIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

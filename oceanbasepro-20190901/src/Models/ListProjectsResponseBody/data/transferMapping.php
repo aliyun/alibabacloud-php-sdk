@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class transferMapping extends Model
 {
     /**
-     * @example SPECIFIC
-     *
      * @var string
      */
     public $mode;
@@ -20,9 +18,10 @@ class transferMapping extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mode) {
@@ -32,11 +31,11 @@ class transferMapping extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return transferMapping
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

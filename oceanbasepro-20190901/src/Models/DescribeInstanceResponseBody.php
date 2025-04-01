@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceResponseBody\instance;
-use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceResponseBody extends Model
 {
     /**
-     * @description The information of the OceanBase cluster.
-     *
      * @var instance
      */
     public $instance;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'instance'  => 'Instance',
+        'instance' => 'Instance',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->instance) {
+            $this->instance->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instance) {
-            $res['Instance'] = null !== $this->instance ? $this->instance->toMap() : null;
+            $res['Instance'] = null !== $this->instance ? $this->instance->toArray($noStream) : $this->instance;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class DescribeInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Instance'])) {
             $model->instance = instance::fromMap($map['Instance']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

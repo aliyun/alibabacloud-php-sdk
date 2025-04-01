@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeRestorableTenantsResponseBody\tenants;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class backupSets extends Model
 {
     /**
-     * @description The ID of the full backup set used for restore.
-     *
-     * @example bak-4n****gacpa8
-     *
      * @var string
      */
     public $backupSetId;
 
     /**
-     * @description The checkpoint of the backup set.
-     *
-     * @example 2024-01-01\\"T\\"12:10:10.000\\"Z\\"
-     *
      * @var string
      */
     public $checkpoint;
 
     /**
-     * @description The ID of the backup set.
-     *
-     * @example bak-xxxxx
-     *
      * @var string
      */
     public $setId;
 
     /**
-     * @description The ID of the tenant.
-     *
-     * @example t5********
-     *
      * @var string
      */
     public $tenantId;
     protected $_name = [
         'backupSetId' => 'BackupSetId',
-        'checkpoint'  => 'Checkpoint',
-        'setId'       => 'SetId',
-        'tenantId'    => 'TenantId',
+        'checkpoint' => 'Checkpoint',
+        'setId' => 'SetId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->backupSetId) {
             $res['BackupSetId'] = $this->backupSetId;
         }
+
         if (null !== $this->checkpoint) {
             $res['Checkpoint'] = $this->checkpoint;
         }
+
         if (null !== $this->setId) {
             $res['SetId'] = $this->setId;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
@@ -73,23 +61,26 @@ class backupSets extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backupSets
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['BackupSetId'])) {
             $model->backupSetId = $map['BackupSetId'];
         }
+
         if (isset($map['Checkpoint'])) {
             $model->checkpoint = $map['Checkpoint'];
         }
+
         if (isset($map['SetId'])) {
             $model->setId = $map['SetId'];
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }

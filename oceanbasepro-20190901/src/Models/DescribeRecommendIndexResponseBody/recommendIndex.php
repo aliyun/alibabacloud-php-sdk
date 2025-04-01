@@ -4,51 +4,46 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeRecommendIndexResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class recommendIndex extends Model
 {
     /**
-     * @description Example 1
-     *
-     * @example PRIMARY
-     *
      * @var string
      */
     public $suggestIndex;
 
     /**
-     * @example testtable
-     *
      * @var string
      */
     public $tableList;
 
     /**
-     * @example mysql
-     *
      * @var string
      */
     public $tenantMode;
     protected $_name = [
         'suggestIndex' => 'SuggestIndex',
-        'tableList'    => 'TableList',
-        'tenantMode'   => 'TenantMode',
+        'tableList' => 'TableList',
+        'tenantMode' => 'TenantMode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->suggestIndex) {
             $res['SuggestIndex'] = $this->suggestIndex;
         }
+
         if (null !== $this->tableList) {
             $res['TableList'] = $this->tableList;
         }
+
         if (null !== $this->tenantMode) {
             $res['TenantMode'] = $this->tenantMode;
         }
@@ -56,20 +51,22 @@ class recommendIndex extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return recommendIndex
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SuggestIndex'])) {
             $model->suggestIndex = $map['SuggestIndex'];
         }
+
         if (isset($map['TableList'])) {
             $model->tableList = $map['TableList'];
         }
+
         if (isset($map['TenantMode'])) {
             $model->tenantMode = $map['TenantMode'];
         }

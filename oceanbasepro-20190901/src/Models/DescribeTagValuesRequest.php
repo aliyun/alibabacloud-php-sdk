@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeTagValuesRequest extends Model
 {
     /**
-     * @description The type of the resource.
-     *
-     * This parameter is required.
-     * @example tag
-     *
      * @var string
      */
     public $resourceType;
@@ -23,9 +18,10 @@ class DescribeTagValuesRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->resourceType) {
@@ -35,11 +31,11 @@ class DescribeTagValuesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTagValuesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

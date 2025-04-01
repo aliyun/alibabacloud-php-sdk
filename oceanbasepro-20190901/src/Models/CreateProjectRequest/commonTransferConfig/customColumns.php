@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectRequest\commonTransferConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class customColumns extends Model
 {
@@ -24,14 +24,16 @@ class customColumns extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnName) {
             $res['ColumnName'] = $this->columnName;
         }
+
         if (null !== $this->expression) {
             $res['Expression'] = $this->expression;
         }
@@ -39,17 +41,18 @@ class customColumns extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return customColumns
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnName'])) {
             $model->columnName = $map['ColumnName'];
         }
+
         if (isset($map['Expression'])) {
             $model->expression = $map['Expression'];
         }

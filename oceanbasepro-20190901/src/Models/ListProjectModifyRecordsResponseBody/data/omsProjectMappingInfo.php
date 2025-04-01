@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectModifyRecordsResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectModifyRecordsResponseBody\data\omsProjectMappingInfo\columnMappings;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectModifyRecordsResponseBody\data\omsProjectMappingInfo\schemaMappings;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectModifyRecordsResponseBody\data\omsProjectMappingInfo\tableMappings;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectModifyRecordsResponseBody\data\omsProjectMappingInfo\viewMappings;
-use AlibabaCloud\Tea\Model;
 
 class omsProjectMappingInfo extends Model
 {
@@ -34,50 +34,66 @@ class omsProjectMappingInfo extends Model
     protected $_name = [
         'columnMappings' => 'ColumnMappings',
         'schemaMappings' => 'SchemaMappings',
-        'tableMappings'  => 'TableMappings',
-        'viewMappings'   => 'ViewMappings',
+        'tableMappings' => 'TableMappings',
+        'viewMappings' => 'ViewMappings',
     ];
 
     public function validate()
     {
+        if (\is_array($this->columnMappings)) {
+            Model::validateArray($this->columnMappings);
+        }
+        if (\is_array($this->schemaMappings)) {
+            Model::validateArray($this->schemaMappings);
+        }
+        if (\is_array($this->tableMappings)) {
+            Model::validateArray($this->tableMappings);
+        }
+        if (\is_array($this->viewMappings)) {
+            Model::validateArray($this->viewMappings);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnMappings) {
-            $res['ColumnMappings'] = [];
-            if (null !== $this->columnMappings && \is_array($this->columnMappings)) {
-                $n = 0;
-                foreach ($this->columnMappings as $item) {
-                    $res['ColumnMappings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->columnMappings)) {
+                $res['ColumnMappings'] = [];
+                $n1 = 0;
+                foreach ($this->columnMappings as $item1) {
+                    $res['ColumnMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->schemaMappings) {
-            $res['SchemaMappings'] = [];
-            if (null !== $this->schemaMappings && \is_array($this->schemaMappings)) {
-                $n = 0;
-                foreach ($this->schemaMappings as $item) {
-                    $res['SchemaMappings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->schemaMappings)) {
+                $res['SchemaMappings'] = [];
+                $n1 = 0;
+                foreach ($this->schemaMappings as $item1) {
+                    $res['SchemaMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->tableMappings) {
-            $res['TableMappings'] = [];
-            if (null !== $this->tableMappings && \is_array($this->tableMappings)) {
-                $n = 0;
-                foreach ($this->tableMappings as $item) {
-                    $res['TableMappings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tableMappings)) {
+                $res['TableMappings'] = [];
+                $n1 = 0;
+                foreach ($this->tableMappings as $item1) {
+                    $res['TableMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->viewMappings) {
-            $res['ViewMappings'] = [];
-            if (null !== $this->viewMappings && \is_array($this->viewMappings)) {
-                $n = 0;
-                foreach ($this->viewMappings as $item) {
-                    $res['ViewMappings'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->viewMappings)) {
+                $res['ViewMappings'] = [];
+                $n1 = 0;
+                foreach ($this->viewMappings as $item1) {
+                    $res['ViewMappings'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -85,47 +101,50 @@ class omsProjectMappingInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return omsProjectMappingInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnMappings'])) {
             if (!empty($map['ColumnMappings'])) {
                 $model->columnMappings = [];
-                $n                     = 0;
-                foreach ($map['ColumnMappings'] as $item) {
-                    $model->columnMappings[$n++] = null !== $item ? columnMappings::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ColumnMappings'] as $item1) {
+                    $model->columnMappings[$n1++] = columnMappings::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['SchemaMappings'])) {
             if (!empty($map['SchemaMappings'])) {
                 $model->schemaMappings = [];
-                $n                     = 0;
-                foreach ($map['SchemaMappings'] as $item) {
-                    $model->schemaMappings[$n++] = null !== $item ? schemaMappings::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SchemaMappings'] as $item1) {
+                    $model->schemaMappings[$n1++] = schemaMappings::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TableMappings'])) {
             if (!empty($map['TableMappings'])) {
                 $model->tableMappings = [];
-                $n                    = 0;
-                foreach ($map['TableMappings'] as $item) {
-                    $model->tableMappings[$n++] = null !== $item ? tableMappings::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TableMappings'] as $item1) {
+                    $model->tableMappings[$n1++] = tableMappings::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ViewMappings'])) {
             if (!empty($map['ViewMappings'])) {
                 $model->viewMappings = [];
-                $n                   = 0;
-                foreach ($map['ViewMappings'] as $item) {
-                    $model->viewMappings[$n++] = null !== $item ? viewMappings::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ViewMappings'] as $item1) {
+                    $model->viewMappings[$n1++] = viewMappings::fromMap($item1);
                 }
             }
         }

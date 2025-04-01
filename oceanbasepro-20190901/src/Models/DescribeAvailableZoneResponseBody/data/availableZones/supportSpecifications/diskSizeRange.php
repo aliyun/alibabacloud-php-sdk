@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableZoneResponseBody\data\availableZones\supportSpecifications;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class diskSizeRange extends Model
 {
     /**
-     * @example 40000
-     *
      * @var int
      */
     public $max;
 
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $min;
 
     /**
-     * @example 5
-     *
      * @var int
      */
     public $step;
     protected $_name = [
-        'max'  => 'Max',
-        'min'  => 'Min',
+        'max' => 'Max',
+        'min' => 'Min',
         'step' => 'Step',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->max) {
             $res['Max'] = $this->max;
         }
+
         if (null !== $this->min) {
             $res['Min'] = $this->min;
         }
+
         if (null !== $this->step) {
             $res['Step'] = $this->step;
         }
@@ -54,20 +51,22 @@ class diskSizeRange extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return diskSizeRange
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Max'])) {
             $model->max = $map['Max'];
         }
+
         if (isset($map['Min'])) {
             $model->min = $map['Min'];
         }
+
         if (isset($map['Step'])) {
             $model->step = $map['Step'];
         }

@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateBackupSetDownloadLinkResponseBody extends Model
 {
     /**
-     * @example 10000***67
-     *
      * @var int
      */
     public $downloadTaskId;
 
     /**
-     * @example EE205C00-30E4-****-****-87E3A8A2AA0C
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'downloadTaskId' => 'DownloadTaskId',
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->downloadTaskId) {
             $res['DownloadTaskId'] = $this->downloadTaskId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -43,17 +41,18 @@ class CreateBackupSetDownloadLinkResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateBackupSetDownloadLinkResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownloadTaskId'])) {
             $model->downloadTaskId = $map['DownloadTaskId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

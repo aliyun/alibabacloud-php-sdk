@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantUsersResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantUsersResponseBody\tenantUsers\databases;
-use AlibabaCloud\Tea\Model;
 
 class tenantUsers extends Model
 {
@@ -15,102 +15,95 @@ class tenantUsers extends Model
     public $databases;
 
     /**
-     * @example use for test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example Encrypt,Decrypt
-     *
      * @var string
      */
     public $globalPermissions;
 
     /**
-     * @description 所属集群Id
-     *
-     * @example obshc32****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description 所属租户Id
-     *
-     * @example tshfs3****
-     *
      * @var string
      */
     public $tenantId;
 
     /**
-     * @example pay_test
-     *
      * @var string
      */
     public $userName;
 
     /**
-     * @example NORMAL
-     *
      * @var string
      */
     public $userStatus;
 
     /**
-     * @example NORMAL
-     *
      * @var string
      */
     public $userType;
     protected $_name = [
-        'databases'         => 'Databases',
-        'description'       => 'Description',
+        'databases' => 'Databases',
+        'description' => 'Description',
         'globalPermissions' => 'GlobalPermissions',
-        'instanceId'        => 'InstanceId',
-        'tenantId'          => 'TenantId',
-        'userName'          => 'UserName',
-        'userStatus'        => 'UserStatus',
-        'userType'          => 'UserType',
+        'instanceId' => 'InstanceId',
+        'tenantId' => 'TenantId',
+        'userName' => 'UserName',
+        'userStatus' => 'UserStatus',
+        'userType' => 'UserType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->databases)) {
+            Model::validateArray($this->databases);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->databases) {
-            $res['Databases'] = [];
-            if (null !== $this->databases && \is_array($this->databases)) {
-                $n = 0;
-                foreach ($this->databases as $item) {
-                    $res['Databases'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->databases)) {
+                $res['Databases'] = [];
+                $n1 = 0;
+                foreach ($this->databases as $item1) {
+                    $res['Databases'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->globalPermissions) {
             $res['GlobalPermissions'] = $this->globalPermissions;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
+
         if (null !== $this->userStatus) {
             $res['UserStatus'] = $this->userStatus;
         }
+
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
         }
@@ -118,41 +111,48 @@ class tenantUsers extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tenantUsers
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Databases'])) {
             if (!empty($map['Databases'])) {
                 $model->databases = [];
-                $n                = 0;
-                foreach ($map['Databases'] as $item) {
-                    $model->databases[$n++] = null !== $item ? databases::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Databases'] as $item1) {
+                    $model->databases[$n1++] = databases::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['GlobalPermissions'])) {
             $model->globalPermissions = $map['GlobalPermissions'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }
+
         if (isset($map['UserStatus'])) {
             $model->userStatus = $map['UserStatus'];
         }
+
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];
         }

@@ -4,49 +4,46 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantUserStatusResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class tenantUser extends Model
 {
     /**
-     * @example t33h8y08k****
-     *
      * @var string
      */
     public $tenantId;
 
     /**
-     * @example pay_test
-     *
      * @var string
      */
     public $userName;
 
     /**
-     * @example LOCKED
-     *
      * @var string
      */
     public $userStatus;
     protected $_name = [
-        'tenantId'   => 'TenantId',
-        'userName'   => 'UserName',
+        'tenantId' => 'TenantId',
+        'userName' => 'UserName',
         'userStatus' => 'UserStatus',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
+
         if (null !== $this->userStatus) {
             $res['UserStatus'] = $this->userStatus;
         }
@@ -54,20 +51,22 @@ class tenantUser extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tenantUser
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }
+
         if (isset($map['UserStatus'])) {
             $model->userStatus = $map['UserStatus'];
         }

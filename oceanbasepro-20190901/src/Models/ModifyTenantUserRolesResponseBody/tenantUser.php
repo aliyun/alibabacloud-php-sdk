@@ -4,30 +4,22 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantUserRolesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantUserRolesResponseBody\tenantUser\userRole;
-use AlibabaCloud\Tea\Model;
 
 class tenantUser extends Model
 {
     /**
-     * @example t33h8y08k****
-     *
      * @var string
      */
     public $tenantId;
 
     /**
-     * @example pay_test
-     *
      * @var string
      */
     public $userName;
 
     /**
-     * @description The name of the database (MySQL mode) or schema (Oracle mode).
-     *
-     * @example 账号具备的数据库权限信息列表。
-     *
      * @var userRole[]
      */
     public $userRole;
@@ -39,23 +31,29 @@ class tenantUser extends Model
 
     public function validate()
     {
+        if (\is_array($this->userRole)) {
+            Model::validateArray($this->userRole);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
+
         if (null !== $this->userRole) {
-            $res['UserRole'] = [];
-            if (null !== $this->userRole && \is_array($this->userRole)) {
-                $n = 0;
-                foreach ($this->userRole as $item) {
-                    $res['UserRole'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->userRole)) {
+                $res['UserRole'] = [];
+                $n1 = 0;
+                foreach ($this->userRole as $item1) {
+                    $res['UserRole'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -63,26 +61,28 @@ class tenantUser extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tenantUser
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }
+
         if (isset($map['UserRole'])) {
             if (!empty($map['UserRole'])) {
                 $model->userRole = [];
-                $n               = 0;
-                foreach ($map['UserRole'] as $item) {
-                    $model->userRole[$n++] = null !== $item ? userRole::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['UserRole'] as $item1) {
+                    $model->userRole[$n1++] = userRole::fromMap($item1);
                 }
             }
         }

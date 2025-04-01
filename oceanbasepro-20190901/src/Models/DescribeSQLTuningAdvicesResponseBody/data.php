@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLTuningAdvicesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLTuningAdvicesResponseBody\data\columns;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLTuningAdvicesResponseBody\data\plan;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example c1;c2;c3
-     *
      * @var string
      */
     public $columnNames;
@@ -23,15 +21,11 @@ class data extends Model
     public $columns;
 
     /**
-     * @example test_db
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @example Local/Global
-     *
      * @var string
      */
     public $localityType;
@@ -42,59 +36,68 @@ class data extends Model
     public $plan;
 
     /**
-     * @example test_table
-     *
      * @var string
      */
     public $table;
 
     /**
-     * @example PLAN_BINDING/INDEX_CREATION
-     *
      * @var string
      */
     public $type;
     protected $_name = [
-        'columnNames'  => 'ColumnNames',
-        'columns'      => 'Columns',
-        'dbName'       => 'DbName',
+        'columnNames' => 'ColumnNames',
+        'columns' => 'Columns',
+        'dbName' => 'DbName',
         'localityType' => 'LocalityType',
-        'plan'         => 'Plan',
-        'table'        => 'Table',
-        'type'         => 'Type',
+        'plan' => 'Plan',
+        'table' => 'Table',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        if (\is_array($this->columns)) {
+            Model::validateArray($this->columns);
+        }
+        if (null !== $this->plan) {
+            $this->plan->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->columnNames) {
             $res['ColumnNames'] = $this->columnNames;
         }
+
         if (null !== $this->columns) {
-            $res['Columns'] = [];
-            if (null !== $this->columns && \is_array($this->columns)) {
-                $n = 0;
-                foreach ($this->columns as $item) {
-                    $res['Columns'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->columns)) {
+                $res['Columns'] = [];
+                $n1 = 0;
+                foreach ($this->columns as $item1) {
+                    $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->localityType) {
             $res['LocalityType'] = $this->localityType;
         }
+
         if (null !== $this->plan) {
-            $res['Plan'] = null !== $this->plan ? $this->plan->toMap() : null;
+            $res['Plan'] = null !== $this->plan ? $this->plan->toArray($noStream) : $this->plan;
         }
+
         if (null !== $this->table) {
             $res['Table'] = $this->table;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -102,38 +105,44 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ColumnNames'])) {
             $model->columnNames = $map['ColumnNames'];
         }
+
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n              = 0;
-                foreach ($map['Columns'] as $item) {
-                    $model->columns[$n++] = null !== $item ? columns::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Columns'] as $item1) {
+                    $model->columns[$n1++] = columns::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['LocalityType'])) {
             $model->localityType = $map['LocalityType'];
         }
+
         if (isset($map['Plan'])) {
             $model->plan = plan::fromMap($map['Plan']);
         }
+
         if (isset($map['Table'])) {
             $model->table = $map['Table'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

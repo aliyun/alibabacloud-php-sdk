@@ -4,11 +4,11 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectModifyRecordsResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectModifyRecordsResponseBody\data\migrationObjectsInfo\tables;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectModifyRecordsResponseBody\data\migrationObjectsInfo\tablesBlack;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectModifyRecordsResponseBody\data\migrationObjectsInfo\views;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectModifyRecordsResponseBody\data\migrationObjectsInfo\viewsBlack;
-use AlibabaCloud\Tea\Model;
 
 class migrationObjectsInfo extends Model
 {
@@ -33,62 +33,77 @@ class migrationObjectsInfo extends Model
     public $viewsBlack;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $wildcardMode;
     protected $_name = [
-        'tables'       => 'Tables',
-        'tablesBlack'  => 'TablesBlack',
-        'views'        => 'Views',
-        'viewsBlack'   => 'ViewsBlack',
+        'tables' => 'Tables',
+        'tablesBlack' => 'TablesBlack',
+        'views' => 'Views',
+        'viewsBlack' => 'ViewsBlack',
         'wildcardMode' => 'WildcardMode',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tables)) {
+            Model::validateArray($this->tables);
+        }
+        if (\is_array($this->tablesBlack)) {
+            Model::validateArray($this->tablesBlack);
+        }
+        if (\is_array($this->views)) {
+            Model::validateArray($this->views);
+        }
+        if (\is_array($this->viewsBlack)) {
+            Model::validateArray($this->viewsBlack);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->tables) {
-            $res['Tables'] = [];
-            if (null !== $this->tables && \is_array($this->tables)) {
-                $n = 0;
-                foreach ($this->tables as $item) {
-                    $res['Tables'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tables)) {
+                $res['Tables'] = [];
+                $n1 = 0;
+                foreach ($this->tables as $item1) {
+                    $res['Tables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->tablesBlack) {
-            $res['TablesBlack'] = [];
-            if (null !== $this->tablesBlack && \is_array($this->tablesBlack)) {
-                $n = 0;
-                foreach ($this->tablesBlack as $item) {
-                    $res['TablesBlack'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tablesBlack)) {
+                $res['TablesBlack'] = [];
+                $n1 = 0;
+                foreach ($this->tablesBlack as $item1) {
+                    $res['TablesBlack'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->views) {
-            $res['Views'] = [];
-            if (null !== $this->views && \is_array($this->views)) {
-                $n = 0;
-                foreach ($this->views as $item) {
-                    $res['Views'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->views)) {
+                $res['Views'] = [];
+                $n1 = 0;
+                foreach ($this->views as $item1) {
+                    $res['Views'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->viewsBlack) {
-            $res['ViewsBlack'] = [];
-            if (null !== $this->viewsBlack && \is_array($this->viewsBlack)) {
-                $n = 0;
-                foreach ($this->viewsBlack as $item) {
-                    $res['ViewsBlack'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->viewsBlack)) {
+                $res['ViewsBlack'] = [];
+                $n1 = 0;
+                foreach ($this->viewsBlack as $item1) {
+                    $res['ViewsBlack'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->wildcardMode) {
             $res['WildcardMode'] = $this->wildcardMode;
         }
@@ -96,50 +111,54 @@ class migrationObjectsInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return migrationObjectsInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
                 $model->tables = [];
-                $n             = 0;
-                foreach ($map['Tables'] as $item) {
-                    $model->tables[$n++] = null !== $item ? tables::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tables'] as $item1) {
+                    $model->tables[$n1++] = tables::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TablesBlack'])) {
             if (!empty($map['TablesBlack'])) {
                 $model->tablesBlack = [];
-                $n                  = 0;
-                foreach ($map['TablesBlack'] as $item) {
-                    $model->tablesBlack[$n++] = null !== $item ? tablesBlack::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TablesBlack'] as $item1) {
+                    $model->tablesBlack[$n1++] = tablesBlack::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Views'])) {
             if (!empty($map['Views'])) {
                 $model->views = [];
-                $n            = 0;
-                foreach ($map['Views'] as $item) {
-                    $model->views[$n++] = null !== $item ? views::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Views'] as $item1) {
+                    $model->views[$n1++] = views::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ViewsBlack'])) {
             if (!empty($map['ViewsBlack'])) {
                 $model->viewsBlack = [];
-                $n                 = 0;
-                foreach ($map['ViewsBlack'] as $item) {
-                    $model->viewsBlack[$n++] = null !== $item ? viewsBlack::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ViewsBlack'] as $item1) {
+                    $model->viewsBlack[$n1++] = viewsBlack::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['WildcardMode'])) {
             $model->wildcardMode = $map['WildcardMode'];
         }

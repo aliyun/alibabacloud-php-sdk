@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeInstanceTenantModesResponseBody extends Model
 {
@@ -14,26 +14,35 @@ class DescribeInstanceTenantModesResponseBody extends Model
     public $instanceModes;
 
     /**
-     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceModes' => 'InstanceModes',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->instanceModes)) {
+            Model::validateArray($this->instanceModes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceModes) {
-            $res['InstanceModes'] = $this->instanceModes;
+            if (\is_array($this->instanceModes)) {
+                $res['InstanceModes'] = [];
+                $n1 = 0;
+                foreach ($this->instanceModes as $item1) {
+                    $res['InstanceModes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -41,19 +50,24 @@ class DescribeInstanceTenantModesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeInstanceTenantModesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceModes'])) {
             if (!empty($map['InstanceModes'])) {
-                $model->instanceModes = $map['InstanceModes'];
+                $model->instanceModes = [];
+                $n1 = 0;
+                foreach ($map['InstanceModes'] as $item1) {
+                    $model->instanceModes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

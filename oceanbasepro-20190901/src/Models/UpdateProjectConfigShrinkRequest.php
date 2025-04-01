@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateProjectConfigShrinkRequest extends Model
 {
@@ -19,10 +19,6 @@ class UpdateProjectConfigShrinkRequest extends Model
     public $fullTransferConfigShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example np_fe****
-     *
      * @var string
      */
     public $id;
@@ -37,32 +33,37 @@ class UpdateProjectConfigShrinkRequest extends Model
      */
     public $reverseIncrTransferConfigShrink;
     protected $_name = [
-        'commonTransferConfigShrink'      => 'CommonTransferConfig',
-        'fullTransferConfigShrink'        => 'FullTransferConfig',
-        'id'                              => 'Id',
-        'incrTransferConfigShrink'        => 'IncrTransferConfig',
+        'commonTransferConfigShrink' => 'CommonTransferConfig',
+        'fullTransferConfigShrink' => 'FullTransferConfig',
+        'id' => 'Id',
+        'incrTransferConfigShrink' => 'IncrTransferConfig',
         'reverseIncrTransferConfigShrink' => 'ReverseIncrTransferConfig',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->commonTransferConfigShrink) {
             $res['CommonTransferConfig'] = $this->commonTransferConfigShrink;
         }
+
         if (null !== $this->fullTransferConfigShrink) {
             $res['FullTransferConfig'] = $this->fullTransferConfigShrink;
         }
+
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
+
         if (null !== $this->incrTransferConfigShrink) {
             $res['IncrTransferConfig'] = $this->incrTransferConfigShrink;
         }
+
         if (null !== $this->reverseIncrTransferConfigShrink) {
             $res['ReverseIncrTransferConfig'] = $this->reverseIncrTransferConfigShrink;
         }
@@ -70,26 +71,30 @@ class UpdateProjectConfigShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateProjectConfigShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CommonTransferConfig'])) {
             $model->commonTransferConfigShrink = $map['CommonTransferConfig'];
         }
+
         if (isset($map['FullTransferConfig'])) {
             $model->fullTransferConfigShrink = $map['FullTransferConfig'];
         }
+
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
+
         if (isset($map['IncrTransferConfig'])) {
             $model->incrTransferConfigShrink = $map['IncrTransferConfig'];
         }
+
         if (isset($map['ReverseIncrTransferConfig'])) {
             $model->reverseIncrTransferConfigShrink = $map['ReverseIncrTransferConfig'];
         }

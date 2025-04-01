@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeDataBackupSetResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeDataBackupSetResponseBody\data\backupResults\tableBackupResults;
-use AlibabaCloud\Tea\Model;
 
 class backupResults extends Model
 {
     /**
-     * @example container-opa-****-02
-     *
      * @var string
      */
     public $clusterName;
@@ -22,36 +20,40 @@ class backupResults extends Model
     public $tableBackupResults;
 
     /**
-     * @example ob2mr3oae0****
-     *
      * @var string
      */
     public $tenantName;
     protected $_name = [
-        'clusterName'        => 'ClusterName',
+        'clusterName' => 'ClusterName',
         'tableBackupResults' => 'TableBackupResults',
-        'tenantName'         => 'TenantName',
+        'tenantName' => 'TenantName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tableBackupResults)) {
+            Model::validateArray($this->tableBackupResults);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
         }
+
         if (null !== $this->tableBackupResults) {
-            $res['TableBackupResults'] = [];
-            if (null !== $this->tableBackupResults && \is_array($this->tableBackupResults)) {
-                $n = 0;
-                foreach ($this->tableBackupResults as $item) {
-                    $res['TableBackupResults'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tableBackupResults)) {
+                $res['TableBackupResults'] = [];
+                $n1 = 0;
+                foreach ($this->tableBackupResults as $item1) {
+                    $res['TableBackupResults'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->tenantName) {
             $res['TenantName'] = $this->tenantName;
         }
@@ -59,26 +61,28 @@ class backupResults extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return backupResults
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
         }
+
         if (isset($map['TableBackupResults'])) {
             if (!empty($map['TableBackupResults'])) {
                 $model->tableBackupResults = [];
-                $n                         = 0;
-                foreach ($map['TableBackupResults'] as $item) {
-                    $model->tableBackupResults[$n++] = null !== $item ? tableBackupResults::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['TableBackupResults'] as $item1) {
+                    $model->tableBackupResults[$n1++] = tableBackupResults::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TenantName'])) {
             $model->tenantName = $map['TenantName'];
         }

@@ -4,47 +4,46 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeCharsetResponseBody\charset;
-use AlibabaCloud\Tea\Model;
 
 class DescribeCharsetResponseBody extends Model
 {
     /**
-     * @description ```
-     * ```
      * @var charset[]
      */
     public $charset;
 
     /**
-     * @description The operation that you want to perform.
-     * Set the value to **DescribeCharset**.
-     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'charset'   => 'Charset',
+        'charset' => 'Charset',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->charset)) {
+            Model::validateArray($this->charset);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->charset) {
-            $res['Charset'] = [];
-            if (null !== $this->charset && \is_array($this->charset)) {
-                $n = 0;
-                foreach ($this->charset as $item) {
-                    $res['Charset'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->charset)) {
+                $res['Charset'] = [];
+                $n1 = 0;
+                foreach ($this->charset as $item1) {
+                    $res['Charset'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +51,24 @@ class DescribeCharsetResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCharsetResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Charset'])) {
             if (!empty($map['Charset'])) {
                 $model->charset = [];
-                $n              = 0;
-                foreach ($map['Charset'] as $item) {
-                    $model->charset[$n++] = null !== $item ? charset::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Charset'] as $item1) {
+                    $model->charset[$n1++] = charset::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

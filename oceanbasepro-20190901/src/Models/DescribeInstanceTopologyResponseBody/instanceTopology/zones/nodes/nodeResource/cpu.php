@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody\instanceTopology\zones\nodes\nodeResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class cpu extends Model
 {
     /**
-     * @description The total number of CPU cores of the node.
-     *
-     * @example 14
-     *
      * @var int
      */
     public $totalCpu;
 
     /**
-     * @description The number of CPU cores used by the node.
-     *
-     * @example 4
-     *
      * @var float
      */
     public $usedCpu;
     protected $_name = [
         'totalCpu' => 'TotalCpu',
-        'usedCpu'  => 'UsedCpu',
+        'usedCpu' => 'UsedCpu',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->totalCpu) {
             $res['TotalCpu'] = $this->totalCpu;
         }
+
         if (null !== $this->usedCpu) {
             $res['UsedCpu'] = $this->usedCpu;
         }
@@ -47,17 +41,18 @@ class cpu extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return cpu
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TotalCpu'])) {
             $model->totalCpu = $map['TotalCpu'];
         }
+
         if (isset($map['UsedCpu'])) {
             $model->usedCpu = $map['UsedCpu'];
         }

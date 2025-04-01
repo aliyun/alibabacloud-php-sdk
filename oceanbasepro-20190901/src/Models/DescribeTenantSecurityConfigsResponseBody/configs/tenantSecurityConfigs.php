@@ -4,73 +4,66 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantSecurityConfigsResponseBody\configs;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantSecurityConfigsResponseBody\configs\tenantSecurityConfigs\securityConfigs;
-use AlibabaCloud\Tea\Model;
 
 class tenantSecurityConfigs extends Model
 {
     /**
-     * @description The number of detected tenant security risks.
-     *
-     * @example 0
-     *
      * @var int
      */
     public $riskCount;
 
     /**
-     * @description The list of risks.
-     *
      * @var securityConfigs[]
      */
     public $securityConfigs;
 
     /**
-     * @description The ID of the tenant.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $tenantId;
 
     /**
-     * @description The name of the tenant.
-     *
-     * @example xxx
-     *
      * @var string
      */
     public $tenantName;
     protected $_name = [
-        'riskCount'       => 'RiskCount',
+        'riskCount' => 'RiskCount',
         'securityConfigs' => 'SecurityConfigs',
-        'tenantId'        => 'TenantId',
-        'tenantName'      => 'TenantName',
+        'tenantId' => 'TenantId',
+        'tenantName' => 'TenantName',
     ];
 
     public function validate()
     {
+        if (\is_array($this->securityConfigs)) {
+            Model::validateArray($this->securityConfigs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->riskCount) {
             $res['RiskCount'] = $this->riskCount;
         }
+
         if (null !== $this->securityConfigs) {
-            $res['SecurityConfigs'] = [];
-            if (null !== $this->securityConfigs && \is_array($this->securityConfigs)) {
-                $n = 0;
-                foreach ($this->securityConfigs as $item) {
-                    $res['SecurityConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->securityConfigs)) {
+                $res['SecurityConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->securityConfigs as $item1) {
+                    $res['SecurityConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
+
         if (null !== $this->tenantName) {
             $res['TenantName'] = $this->tenantName;
         }
@@ -78,29 +71,32 @@ class tenantSecurityConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tenantSecurityConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RiskCount'])) {
             $model->riskCount = $map['RiskCount'];
         }
+
         if (isset($map['SecurityConfigs'])) {
             if (!empty($map['SecurityConfigs'])) {
                 $model->securityConfigs = [];
-                $n                      = 0;
-                foreach ($map['SecurityConfigs'] as $item) {
-                    $model->securityConfigs[$n++] = null !== $item ? securityConfigs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SecurityConfigs'] as $item1) {
+                    $model->securityConfigs[$n1++] = securityConfigs::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
+
         if (isset($map['TenantName'])) {
             $model->tenantName = $map['TenantName'];
         }

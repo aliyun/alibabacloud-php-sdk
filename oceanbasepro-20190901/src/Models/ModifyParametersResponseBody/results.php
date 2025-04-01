@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyParametersResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class results extends Model
 {
     /**
-     * @example schedule timeout.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $success;
@@ -28,14 +24,16 @@ class results extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
@@ -43,17 +41,18 @@ class results extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return results
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }

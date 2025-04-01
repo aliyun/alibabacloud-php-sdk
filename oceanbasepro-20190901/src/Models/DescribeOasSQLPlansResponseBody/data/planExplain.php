@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasSQLPlansResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class planExplain extends Model
 {
     /**
-     * @description JSON string of the SQL execution plan.
-     *
-     * @example {\\"RootOperations\\":[{\\"Children\\
-     *
      * @var string
      */
     public $planJsonString;
@@ -22,9 +18,10 @@ class planExplain extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->planJsonString) {
@@ -34,11 +31,11 @@ class planExplain extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return planExplain
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

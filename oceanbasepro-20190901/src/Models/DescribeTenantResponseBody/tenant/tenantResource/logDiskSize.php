@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantResponseBody\tenant\tenantResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class logDiskSize extends Model
 {
     /**
-     * @description The total size of log disk of the tenant, in GB.
-     *
-     * @example 8.0
-     *
      * @var int
      */
     public $totalLogDisk;
 
     /**
-     * @description The log disk size of each resource unit of the tenant, in GB.
-     *
-     * @example 8.0
-     *
      * @var int
      */
     public $unitLogDisk;
     protected $_name = [
         'totalLogDisk' => 'TotalLogDisk',
-        'unitLogDisk'  => 'UnitLogDisk',
+        'unitLogDisk' => 'UnitLogDisk',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->totalLogDisk) {
             $res['TotalLogDisk'] = $this->totalLogDisk;
         }
+
         if (null !== $this->unitLogDisk) {
             $res['UnitLogDisk'] = $this->unitLogDisk;
         }
@@ -47,17 +41,18 @@ class logDiskSize extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return logDiskSize
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TotalLogDisk'])) {
             $model->totalLogDisk = $map['TotalLogDisk'];
         }
+
         if (isset($map['UnitLogDisk'])) {
             $model->unitLogDisk = $map['UnitLogDisk'];
         }

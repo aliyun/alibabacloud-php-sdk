@@ -4,40 +4,36 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetUploadOssUrlRequest extends Model
 {
     /**
-     * @example 10
-     *
      * @var int
      */
     public $effectiveTimeMinutes;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example CREATE_PROJECT
-     *
      * @var string
      */
     public $type;
     protected $_name = [
         'effectiveTimeMinutes' => 'EffectiveTimeMinutes',
-        'type'                 => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->effectiveTimeMinutes) {
             $res['EffectiveTimeMinutes'] = $this->effectiveTimeMinutes;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -45,17 +41,18 @@ class GetUploadOssUrlRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetUploadOssUrlRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EffectiveTimeMinutes'])) {
             $model->effectiveTimeMinutes = $map['EffectiveTimeMinutes'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }

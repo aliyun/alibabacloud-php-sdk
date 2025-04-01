@@ -4,16 +4,12 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSecurityIpGroupsResponseBody\securityIpGroups;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSecurityIpGroupsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
-     *
      * @var string
      */
     public $requestId;
@@ -24,38 +20,40 @@ class DescribeSecurityIpGroupsResponseBody extends Model
     public $securityIpGroups;
 
     /**
-     * @description Example 1
-     *
-     * @example 2
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
         'securityIpGroups' => 'SecurityIpGroups',
-        'totalCount'       => 'TotalCount',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->securityIpGroups)) {
+            Model::validateArray($this->securityIpGroups);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->securityIpGroups) {
-            $res['SecurityIpGroups'] = [];
-            if (null !== $this->securityIpGroups && \is_array($this->securityIpGroups)) {
-                $n = 0;
-                foreach ($this->securityIpGroups as $item) {
-                    $res['SecurityIpGroups'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->securityIpGroups)) {
+                $res['SecurityIpGroups'] = [];
+                $n1 = 0;
+                foreach ($this->securityIpGroups as $item1) {
+                    $res['SecurityIpGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -63,26 +61,28 @@ class DescribeSecurityIpGroupsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSecurityIpGroupsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SecurityIpGroups'])) {
             if (!empty($map['SecurityIpGroups'])) {
                 $model->securityIpGroups = [];
-                $n                       = 0;
-                foreach ($map['SecurityIpGroups'] as $item) {
-                    $model->securityIpGroups[$n++] = null !== $item ? securityIpGroups::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SecurityIpGroups'] as $item1) {
+                    $model->securityIpGroups[$n1++] = securityIpGroups::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

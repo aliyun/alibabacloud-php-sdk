@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeDatabasesResponseBody\databases;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class users extends Model
 {
     /**
-     * @description If you have granted custom privileges on the database, this parameter indicates the custom privileges, separated by commas (,). Otherwise, no data is returned for this parameter.
-     *
-     * @example select,delete,update
-     *
      * @var string
      */
     public $privileges;
 
     /**
-     * @description The role of the account.
-     * - DML: a role that has the DML privileges such as SELECT, INSERT, UPDATE, DELETE, and SHOW VIEW.
-     * @example ReadOnly
-     *
      * @var string
      */
     public $role;
 
     /**
-     * @description The name of the account.
-     *
-     * @example user_pay_ro
-     *
      * @var string
      */
     public $userName;
 
     /**
-     * @description The type of the account. Valid values:
-     * - Normal: a general account.
-     * @example Normal
-     *
      * @var string
      */
     public $userType;
     protected $_name = [
         'privileges' => 'Privileges',
-        'role'       => 'Role',
-        'userName'   => 'UserName',
-        'userType'   => 'UserType',
+        'role' => 'Role',
+        'userName' => 'UserName',
+        'userType' => 'UserType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->privileges) {
             $res['Privileges'] = $this->privileges;
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
+
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
         }
@@ -73,23 +61,26 @@ class users extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return users
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Privileges'])) {
             $model->privileges = $map['Privileges'];
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }
+
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];
         }

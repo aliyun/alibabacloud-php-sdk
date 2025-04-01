@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateProjectModifyRecordsRequest\databases\specificTables;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class adbTableSchema extends Model
 {
@@ -14,15 +14,11 @@ class adbTableSchema extends Model
     public $distributedKeys;
 
     /**
-     * @example 30
-     *
      * @var string
      */
     public $partitionLifeCycle;
 
     /**
-     * @example PARTITION BY VALUE(\\"id\\")
-     *
      * @var string
      */
     public $partitionStatement;
@@ -32,57 +28,90 @@ class adbTableSchema extends Model
      */
     public $primaryKeys;
     protected $_name = [
-        'distributedKeys'    => 'DistributedKeys',
+        'distributedKeys' => 'DistributedKeys',
         'partitionLifeCycle' => 'PartitionLifeCycle',
         'partitionStatement' => 'PartitionStatement',
-        'primaryKeys'        => 'PrimaryKeys',
+        'primaryKeys' => 'PrimaryKeys',
     ];
 
     public function validate()
     {
+        if (\is_array($this->distributedKeys)) {
+            Model::validateArray($this->distributedKeys);
+        }
+        if (\is_array($this->primaryKeys)) {
+            Model::validateArray($this->primaryKeys);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->distributedKeys) {
-            $res['DistributedKeys'] = $this->distributedKeys;
+            if (\is_array($this->distributedKeys)) {
+                $res['DistributedKeys'] = [];
+                $n1 = 0;
+                foreach ($this->distributedKeys as $item1) {
+                    $res['DistributedKeys'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->partitionLifeCycle) {
             $res['PartitionLifeCycle'] = $this->partitionLifeCycle;
         }
+
         if (null !== $this->partitionStatement) {
             $res['PartitionStatement'] = $this->partitionStatement;
         }
+
         if (null !== $this->primaryKeys) {
-            $res['PrimaryKeys'] = $this->primaryKeys;
+            if (\is_array($this->primaryKeys)) {
+                $res['PrimaryKeys'] = [];
+                $n1 = 0;
+                foreach ($this->primaryKeys as $item1) {
+                    $res['PrimaryKeys'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return adbTableSchema
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DistributedKeys'])) {
             if (!empty($map['DistributedKeys'])) {
-                $model->distributedKeys = $map['DistributedKeys'];
+                $model->distributedKeys = [];
+                $n1 = 0;
+                foreach ($map['DistributedKeys'] as $item1) {
+                    $model->distributedKeys[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['PartitionLifeCycle'])) {
             $model->partitionLifeCycle = $map['PartitionLifeCycle'];
         }
+
         if (isset($map['PartitionStatement'])) {
             $model->partitionStatement = $map['PartitionStatement'];
         }
+
         if (isset($map['PrimaryKeys'])) {
             if (!empty($map['PrimaryKeys'])) {
-                $model->primaryKeys = $map['PrimaryKeys'];
+                $model->primaryKeys = [];
+                $n1 = 0;
+                foreach ($map['PrimaryKeys'] as $item1) {
+                    $model->primaryKeys[$n1++] = $item1;
+                }
             }
         }
 

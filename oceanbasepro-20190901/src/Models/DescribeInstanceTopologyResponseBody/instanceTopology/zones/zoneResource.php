@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody\instanceTopology\zones;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody\instanceTopology\zones\zoneResource\diskSize;
-use AlibabaCloud\Tea\Model;
 
 class zoneResource extends Model
 {
     /**
-     * @description The information about the storage resources of the node.
-     *
      * @var diskSize
      */
     public $diskSize;
@@ -21,23 +19,27 @@ class zoneResource extends Model
 
     public function validate()
     {
+        if (null !== $this->diskSize) {
+            $this->diskSize->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->diskSize) {
-            $res['DiskSize'] = null !== $this->diskSize ? $this->diskSize->toMap() : null;
+            $res['DiskSize'] = null !== $this->diskSize ? $this->diskSize->toArray($noStream) : $this->diskSize;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zoneResource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

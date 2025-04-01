@@ -4,50 +4,46 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLDetailsResponseBody\SQLDetails;
-use AlibabaCloud\Tea\Model;
 
 class DescribeSQLDetailsResponseBody extends Model
 {
     /**
-     * @description The operation that you want to perform.
-     * Set the value to **DescribeSQLDetails**.
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description ```
-     * http(s)://[Endpoint]/?Action=DescribeSQLDetails
-     * &TenantId=t2mr3oae0****
-     * &SQLId=8D6E84****0B8FB1823D199E2CA1****
-     * ```
      * @var SQLDetails[]
      */
     public $SQLDetails;
     protected $_name = [
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
         'SQLDetails' => 'SQLDetails',
     ];
 
     public function validate()
     {
+        if (\is_array($this->SQLDetails)) {
+            Model::validateArray($this->SQLDetails);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->SQLDetails) {
-            $res['SQLDetails'] = [];
-            if (null !== $this->SQLDetails && \is_array($this->SQLDetails)) {
-                $n = 0;
-                foreach ($this->SQLDetails as $item) {
-                    $res['SQLDetails'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->SQLDetails)) {
+                $res['SQLDetails'] = [];
+                $n1 = 0;
+                foreach ($this->SQLDetails as $item1) {
+                    $res['SQLDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -55,23 +51,24 @@ class DescribeSQLDetailsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSQLDetailsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SQLDetails'])) {
             if (!empty($map['SQLDetails'])) {
                 $model->SQLDetails = [];
-                $n                 = 0;
-                foreach ($map['SQLDetails'] as $item) {
-                    $model->SQLDetails[$n++] = null !== $item ? SQLDetails::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SQLDetails'] as $item1) {
+                    $model->SQLDetails[$n1++] = SQLDetails::fromMap($item1);
                 }
             }
         }

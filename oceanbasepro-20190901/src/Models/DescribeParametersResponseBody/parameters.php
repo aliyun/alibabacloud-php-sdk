@@ -4,142 +4,134 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeParametersResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class parameters extends Model
 {
     /**
-     * @description DescribeParameters
-     *
      * @var string[]
      */
     public $acceptableValue;
 
     /**
-     * @description The ID of the OceanBase cluster.
-     *
-     * @example 600
-     *
      * @var string
      */
     public $currentValue;
 
     /**
-     * @description ```
-     * http(s)://[Endpoint]/?Action=DescribeParameters
-     * &InstanceId=ob317v4uif****
-     * &Dimension=TENANT
-     * &DimensionValue=ob2mr3oae0****
-     * ```
-     * @example 600s
-     *
      * @var string
      */
     public $defaultValue;
 
     /**
-     * @description The description of the parameter.
-     *
-     * @example The operation that you want to perform.
-     * Set the value to **DescribeParameters**.
      * @var string
      */
     public $description;
 
     /**
-     * @description The request ID.
-     *
-     * @example connect_timeout
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The name of the parameter.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $needReboot;
 
     /**
-     * @description 参数是否只读
-     *
      * @var bool
      */
     public $readonly;
 
     /**
-     * @description {
-     * }
      * @var string[]
      */
     public $rejectedValue;
 
     /**
-     * @example s
-     *
      * @var string
      */
     public $unit;
 
     /**
-     * @description The invalid value range of the parameter.
-     * It is an array with two string elements, which represents a range. The first element represents the minimum value and the second element represents the maximum value.
-     * @example CAPACITY
-     *
      * @var string
      */
     public $valueType;
     protected $_name = [
         'acceptableValue' => 'AcceptableValue',
-        'currentValue'    => 'CurrentValue',
-        'defaultValue'    => 'DefaultValue',
-        'description'     => 'Description',
-        'name'            => 'Name',
-        'needReboot'      => 'NeedReboot',
-        'readonly'        => 'Readonly',
-        'rejectedValue'   => 'RejectedValue',
-        'unit'            => 'Unit',
-        'valueType'       => 'ValueType',
+        'currentValue' => 'CurrentValue',
+        'defaultValue' => 'DefaultValue',
+        'description' => 'Description',
+        'name' => 'Name',
+        'needReboot' => 'NeedReboot',
+        'readonly' => 'Readonly',
+        'rejectedValue' => 'RejectedValue',
+        'unit' => 'Unit',
+        'valueType' => 'ValueType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->acceptableValue)) {
+            Model::validateArray($this->acceptableValue);
+        }
+        if (\is_array($this->rejectedValue)) {
+            Model::validateArray($this->rejectedValue);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptableValue) {
-            $res['AcceptableValue'] = $this->acceptableValue;
+            if (\is_array($this->acceptableValue)) {
+                $res['AcceptableValue'] = [];
+                $n1 = 0;
+                foreach ($this->acceptableValue as $item1) {
+                    $res['AcceptableValue'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->currentValue) {
             $res['CurrentValue'] = $this->currentValue;
         }
+
         if (null !== $this->defaultValue) {
             $res['DefaultValue'] = $this->defaultValue;
         }
+
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->needReboot) {
             $res['NeedReboot'] = $this->needReboot;
         }
+
         if (null !== $this->readonly) {
             $res['Readonly'] = $this->readonly;
         }
+
         if (null !== $this->rejectedValue) {
-            $res['RejectedValue'] = $this->rejectedValue;
+            if (\is_array($this->rejectedValue)) {
+                $res['RejectedValue'] = [];
+                $n1 = 0;
+                foreach ($this->rejectedValue as $item1) {
+                    $res['RejectedValue'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
+
         if (null !== $this->valueType) {
             $res['ValueType'] = $this->valueType;
         }
@@ -147,45 +139,62 @@ class parameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return parameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptableValue'])) {
             if (!empty($map['AcceptableValue'])) {
-                $model->acceptableValue = $map['AcceptableValue'];
+                $model->acceptableValue = [];
+                $n1 = 0;
+                foreach ($map['AcceptableValue'] as $item1) {
+                    $model->acceptableValue[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['CurrentValue'])) {
             $model->currentValue = $map['CurrentValue'];
         }
+
         if (isset($map['DefaultValue'])) {
             $model->defaultValue = $map['DefaultValue'];
         }
+
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['NeedReboot'])) {
             $model->needReboot = $map['NeedReboot'];
         }
+
         if (isset($map['Readonly'])) {
             $model->readonly = $map['Readonly'];
         }
+
         if (isset($map['RejectedValue'])) {
             if (!empty($map['RejectedValue'])) {
-                $model->rejectedValue = $map['RejectedValue'];
+                $model->rejectedValue = [];
+                $n1 = 0;
+                foreach ($map['RejectedValue'] as $item1) {
+                    $model->rejectedValue[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }
+
         if (isset($map['ValueType'])) {
             $model->valueType = $map['ValueType'];
         }

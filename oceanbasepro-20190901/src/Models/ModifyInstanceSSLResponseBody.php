@@ -4,41 +4,40 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyInstanceSSLResponseBody\instanceSSL;
-use AlibabaCloud\Tea\Model;
 
 class ModifyInstanceSSLResponseBody extends Model
 {
     /**
-     * @description The SSL setting of the OceanBase cluster instance.
-     *
      * @var instanceSSL
      */
     public $instanceSSL;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example EE205C00-30E4-****-****-87E3A8A2AA0C
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceSSL' => 'InstanceSSL',
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->instanceSSL) {
+            $this->instanceSSL->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceSSL) {
-            $res['InstanceSSL'] = null !== $this->instanceSSL ? $this->instanceSSL->toMap() : null;
+            $res['InstanceSSL'] = null !== $this->instanceSSL ? $this->instanceSSL->toArray($noStream) : $this->instanceSSL;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -46,17 +45,18 @@ class ModifyInstanceSSLResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyInstanceSSLResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceSSL'])) {
             $model->instanceSSL = instanceSSL::fromMap($map['InstanceSSL']);
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

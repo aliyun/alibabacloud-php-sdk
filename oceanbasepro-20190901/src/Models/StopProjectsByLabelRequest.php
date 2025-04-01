@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StopProjectsByLabelRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example l_****
-     *
      * @var string
      */
     public $id;
@@ -22,9 +18,10 @@ class StopProjectsByLabelRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->id) {
@@ -34,11 +31,11 @@ class StopProjectsByLabelRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StopProjectsByLabelRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

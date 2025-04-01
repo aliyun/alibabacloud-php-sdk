@@ -4,55 +4,46 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantResponseBody\tenant\readOnlyResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class memory extends Model
 {
     /**
-     * @description The total memory size of the tenant, in GB.
-     *
-     * @example 64
-     *
      * @var float
      */
     public $totalMemory;
 
     /**
-     * @description The memory size of each resource unit of the tenant, in GB.
-     *
-     * @example 32
-     *
      * @var float
      */
     public $unitMemory;
 
     /**
-     * @description The size of memory used by the tenant, in GB.
-     *
-     * @example 30
-     *
      * @var float
      */
     public $usedMemory;
     protected $_name = [
         'totalMemory' => 'TotalMemory',
-        'unitMemory'  => 'UnitMemory',
-        'usedMemory'  => 'UsedMemory',
+        'unitMemory' => 'UnitMemory',
+        'usedMemory' => 'UsedMemory',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->totalMemory) {
             $res['TotalMemory'] = $this->totalMemory;
         }
+
         if (null !== $this->unitMemory) {
             $res['UnitMemory'] = $this->unitMemory;
         }
+
         if (null !== $this->usedMemory) {
             $res['UsedMemory'] = $this->usedMemory;
         }
@@ -60,20 +51,22 @@ class memory extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return memory
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TotalMemory'])) {
             $model->totalMemory = $map['TotalMemory'];
         }
+
         if (isset($map['UnitMemory'])) {
             $model->unitMemory = $map['UnitMemory'];
         }
+
         if (isset($map['UsedMemory'])) {
             $model->usedMemory = $map['UsedMemory'];
         }

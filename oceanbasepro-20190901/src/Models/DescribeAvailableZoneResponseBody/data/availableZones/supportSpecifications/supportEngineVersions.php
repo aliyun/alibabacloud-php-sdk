@@ -4,20 +4,16 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableZoneResponseBody\data\availableZones\supportSpecifications;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class supportEngineVersions extends Model
 {
     /**
-     * @example 3.2.4.4
-     *
      * @var string
      */
     public $obVersion;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $supportIsolationOptimization;
@@ -27,48 +23,66 @@ class supportEngineVersions extends Model
      */
     public $supportReplicaModes;
     protected $_name = [
-        'obVersion'                    => 'ObVersion',
+        'obVersion' => 'ObVersion',
         'supportIsolationOptimization' => 'SupportIsolationOptimization',
-        'supportReplicaModes'          => 'SupportReplicaModes',
+        'supportReplicaModes' => 'SupportReplicaModes',
     ];
 
     public function validate()
     {
+        if (\is_array($this->supportReplicaModes)) {
+            Model::validateArray($this->supportReplicaModes);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->obVersion) {
             $res['ObVersion'] = $this->obVersion;
         }
+
         if (null !== $this->supportIsolationOptimization) {
             $res['SupportIsolationOptimization'] = $this->supportIsolationOptimization;
         }
+
         if (null !== $this->supportReplicaModes) {
-            $res['SupportReplicaModes'] = $this->supportReplicaModes;
+            if (\is_array($this->supportReplicaModes)) {
+                $res['SupportReplicaModes'] = [];
+                $n1 = 0;
+                foreach ($this->supportReplicaModes as $item1) {
+                    $res['SupportReplicaModes'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportEngineVersions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ObVersion'])) {
             $model->obVersion = $map['ObVersion'];
         }
+
         if (isset($map['SupportIsolationOptimization'])) {
             $model->supportIsolationOptimization = $map['SupportIsolationOptimization'];
         }
+
         if (isset($map['SupportReplicaModes'])) {
             if (!empty($map['SupportReplicaModes'])) {
-                $model->supportReplicaModes = $map['SupportReplicaModes'];
+                $model->supportReplicaModes = [];
+                $n1 = 0;
+                foreach ($map['SupportReplicaModes'] as $item1) {
+                    $model->supportReplicaModes[$n1++] = $item1;
+                }
             }
         }
 

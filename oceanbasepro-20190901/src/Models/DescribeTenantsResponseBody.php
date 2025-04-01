@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantsResponseBody\tenants;
-use AlibabaCloud\Tea\Model;
 
 class DescribeTenantsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information of tenants.
-     *
      * @var tenants[]
      */
     public $tenants;
 
     /**
-     * @description The total number of tenants in the specified OceanBase cluster.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'requestId'  => 'RequestId',
-        'tenants'    => 'Tenants',
+        'requestId' => 'RequestId',
+        'tenants' => 'Tenants',
         'totalCount' => 'TotalCount',
     ];
 
     public function validate()
     {
+        if (\is_array($this->tenants)) {
+            Model::validateArray($this->tenants);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tenants) {
-            $res['Tenants'] = [];
-            if (null !== $this->tenants && \is_array($this->tenants)) {
-                $n = 0;
-                foreach ($this->tenants as $item) {
-                    $res['Tenants'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tenants)) {
+                $res['Tenants'] = [];
+                $n1 = 0;
+                foreach ($this->tenants as $item1) {
+                    $res['Tenants'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
         }
@@ -65,26 +61,28 @@ class DescribeTenantsResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTenantsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Tenants'])) {
             if (!empty($map['Tenants'])) {
                 $model->tenants = [];
-                $n              = 0;
-                foreach ($map['Tenants'] as $item) {
-                    $model->tenants[$n++] = null !== $item ? tenants::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tenants'] as $item1) {
+                    $model->tenants[$n1++] = tenants::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
         }

@@ -4,70 +4,76 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody\instanceTopology\replicas;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody\instanceTopology\tenants;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody\instanceTopology\zones;
-use AlibabaCloud\Tea\Model;
 
 class instanceTopology extends Model
 {
     /**
-     * @description The information about replicas.
-     *
      * @var replicas[]
      */
     public $replicas;
 
     /**
-     * @description The information about the tenants.
-     *
      * @var tenants[]
      */
     public $tenants;
 
     /**
-     * @description The information about the zones in which the cluster is deployed.
-     *
      * @var zones[]
      */
     public $zones;
     protected $_name = [
         'replicas' => 'Replicas',
-        'tenants'  => 'Tenants',
-        'zones'    => 'Zones',
+        'tenants' => 'Tenants',
+        'zones' => 'Zones',
     ];
 
     public function validate()
     {
+        if (\is_array($this->replicas)) {
+            Model::validateArray($this->replicas);
+        }
+        if (\is_array($this->tenants)) {
+            Model::validateArray($this->tenants);
+        }
+        if (\is_array($this->zones)) {
+            Model::validateArray($this->zones);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->replicas) {
-            $res['Replicas'] = [];
-            if (null !== $this->replicas && \is_array($this->replicas)) {
-                $n = 0;
-                foreach ($this->replicas as $item) {
-                    $res['Replicas'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->replicas)) {
+                $res['Replicas'] = [];
+                $n1 = 0;
+                foreach ($this->replicas as $item1) {
+                    $res['Replicas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->tenants) {
-            $res['Tenants'] = [];
-            if (null !== $this->tenants && \is_array($this->tenants)) {
-                $n = 0;
-                foreach ($this->tenants as $item) {
-                    $res['Tenants'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->tenants)) {
+                $res['Tenants'] = [];
+                $n1 = 0;
+                foreach ($this->tenants as $item1) {
+                    $res['Tenants'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->zones) {
-            $res['Zones'] = [];
-            if (null !== $this->zones && \is_array($this->zones)) {
-                $n = 0;
-                foreach ($this->zones as $item) {
-                    $res['Zones'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->zones)) {
+                $res['Zones'] = [];
+                $n1 = 0;
+                foreach ($this->zones as $item1) {
+                    $res['Zones'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -75,38 +81,40 @@ class instanceTopology extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return instanceTopology
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Replicas'])) {
             if (!empty($map['Replicas'])) {
                 $model->replicas = [];
-                $n               = 0;
-                foreach ($map['Replicas'] as $item) {
-                    $model->replicas[$n++] = null !== $item ? replicas::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Replicas'] as $item1) {
+                    $model->replicas[$n1++] = replicas::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Tenants'])) {
             if (!empty($map['Tenants'])) {
                 $model->tenants = [];
-                $n              = 0;
-                foreach ($map['Tenants'] as $item) {
-                    $model->tenants[$n++] = null !== $item ? tenants::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Tenants'] as $item1) {
+                    $model->tenants[$n1++] = tenants::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Zones'])) {
             if (!empty($map['Zones'])) {
                 $model->zones = [];
-                $n            = 0;
-                foreach ($map['Zones'] as $item) {
-                    $model->zones[$n++] = null !== $item ? zones::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Zones'] as $item1) {
+                    $model->zones[$n1++] = zones::fromMap($item1);
                 }
             }
         }

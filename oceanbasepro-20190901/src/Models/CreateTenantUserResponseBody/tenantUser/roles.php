@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantUserResponseBody\tenantUser;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class roles extends Model
 {
     /**
-     * @example db_pay1
-     *
      * @var string
      */
     public $database;
 
     /**
-     * @example ReadOnly
-     *
      * @var string
      */
     public $role;
     protected $_name = [
         'database' => 'Database',
-        'role'     => 'Role',
+        'role' => 'Role',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->database) {
             $res['Database'] = $this->database;
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
@@ -43,17 +41,18 @@ class roles extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return roles
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }

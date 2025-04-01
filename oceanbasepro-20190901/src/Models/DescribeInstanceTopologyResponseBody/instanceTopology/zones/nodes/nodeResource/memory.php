@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody\instanceTopology\zones\nodes\nodeResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class memory extends Model
 {
     /**
-     * @description The total memory size of the node, in GB.
-     *
-     * @example 70
-     *
      * @var int
      */
     public $totalMemory;
 
     /**
-     * @description The size of memory used by the node, in GB.
-     *
-     * @example 10
-     *
      * @var float
      */
     public $usedMemory;
     protected $_name = [
         'totalMemory' => 'TotalMemory',
-        'usedMemory'  => 'UsedMemory',
+        'usedMemory' => 'UsedMemory',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->totalMemory) {
             $res['TotalMemory'] = $this->totalMemory;
         }
+
         if (null !== $this->usedMemory) {
             $res['UsedMemory'] = $this->usedMemory;
         }
@@ -47,17 +41,18 @@ class memory extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return memory
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['TotalMemory'])) {
             $model->totalMemory = $map['TotalMemory'];
         }
+
         if (isset($map['UsedMemory'])) {
             $model->usedMemory = $map['UsedMemory'];
         }

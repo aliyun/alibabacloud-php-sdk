@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteTenantsResponseBody extends Model
 {
     /**
-     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
-     *
      * @var string
      */
     public $requestId;
@@ -26,35 +24,51 @@ class DeleteTenantsResponseBody extends Model
 
     public function validate()
     {
+        if (\is_array($this->tenantIds)) {
+            Model::validateArray($this->tenantIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tenantIds) {
-            $res['TenantIds'] = $this->tenantIds;
+            if (\is_array($this->tenantIds)) {
+                $res['TenantIds'] = [];
+                $n1 = 0;
+                foreach ($this->tenantIds as $item1) {
+                    $res['TenantIds'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTenantsResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TenantIds'])) {
             if (!empty($map['TenantIds'])) {
-                $model->tenantIds = $map['TenantIds'];
+                $model->tenantIds = [];
+                $n1 = 0;
+                foreach ($map['TenantIds'] as $item1) {
+                    $model->tenantIds[$n1++] = $item1;
+                }
             }
         }
 

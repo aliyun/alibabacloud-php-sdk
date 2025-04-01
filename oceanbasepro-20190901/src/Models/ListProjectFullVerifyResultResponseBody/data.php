@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectFullVerifyResultResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectFullVerifyResultResponseBody\data\fullVerifyTableStatistics;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 11
-     *
      * @var int
      */
     public $differentNumber;
@@ -21,26 +19,31 @@ class data extends Model
      */
     public $fullVerifyTableStatistics;
     protected $_name = [
-        'differentNumber'           => 'DifferentNumber',
+        'differentNumber' => 'DifferentNumber',
         'fullVerifyTableStatistics' => 'FullVerifyTableStatistics',
     ];
 
     public function validate()
     {
+        if (\is_array($this->fullVerifyTableStatistics)) {
+            Model::validateArray($this->fullVerifyTableStatistics);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->differentNumber) {
             $res['DifferentNumber'] = $this->differentNumber;
         }
+
         if (null !== $this->fullVerifyTableStatistics) {
-            $res['FullVerifyTableStatistics'] = [];
-            if (null !== $this->fullVerifyTableStatistics && \is_array($this->fullVerifyTableStatistics)) {
-                $n = 0;
-                foreach ($this->fullVerifyTableStatistics as $item) {
-                    $res['FullVerifyTableStatistics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fullVerifyTableStatistics)) {
+                $res['FullVerifyTableStatistics'] = [];
+                $n1 = 0;
+                foreach ($this->fullVerifyTableStatistics as $item1) {
+                    $res['FullVerifyTableStatistics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -48,23 +51,24 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DifferentNumber'])) {
             $model->differentNumber = $map['DifferentNumber'];
         }
+
         if (isset($map['FullVerifyTableStatistics'])) {
             if (!empty($map['FullVerifyTableStatistics'])) {
                 $model->fullVerifyTableStatistics = [];
-                $n                                = 0;
-                foreach ($map['FullVerifyTableStatistics'] as $item) {
-                    $model->fullVerifyTableStatistics[$n++] = null !== $item ? fullVerifyTableStatistics::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FullVerifyTableStatistics'] as $item1) {
+                    $model->fullVerifyTableStatistics[$n1++] = fullVerifyTableStatistics::fromMap($item1);
                 }
             }
         }

@@ -4,56 +4,46 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifySecurityIpsRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
-     *
-     * This parameter is required.
-     * @example ob317v4uif****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The information of the IP address whitelist group.
-     *
-     * @example paytest
-     *
      * @var string
      */
     public $securityIpGroupName;
 
     /**
-     * @description The list of IP addresses and CIDR blocks in the whitelist.
-     * It is a JSON array. Each object in the array is an IP address or CIDR block. You can specify at most 40 IP addresses or CIDR blocks.
-     * @example ["192.168.0.0/20","192.169.1.1"]
-     *
      * @var string
      */
     public $securityIps;
     protected $_name = [
-        'instanceId'          => 'InstanceId',
+        'instanceId' => 'InstanceId',
         'securityIpGroupName' => 'SecurityIpGroupName',
-        'securityIps'         => 'SecurityIps',
+        'securityIps' => 'SecurityIps',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->securityIpGroupName) {
             $res['SecurityIpGroupName'] = $this->securityIpGroupName;
         }
+
         if (null !== $this->securityIps) {
             $res['SecurityIps'] = $this->securityIps;
         }
@@ -61,20 +51,22 @@ class ModifySecurityIpsRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifySecurityIpsRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['SecurityIpGroupName'])) {
             $model->securityIpGroupName = $map['SecurityIpGroupName'];
         }
+
         if (isset($map['SecurityIps'])) {
             $model->securityIps = $map['SecurityIps'];
         }

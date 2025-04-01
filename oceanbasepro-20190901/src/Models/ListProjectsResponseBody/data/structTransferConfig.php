@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ListProjectsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class structTransferConfig extends Model
 {
     /**
-     * @example DO_NOTHING_IF_BYTE_USED
-     *
      * @var string
      */
     public $byteCharConvertStrategy;
 
     /**
-     * @example false
-     *
      * @var bool
      */
     public $deferIndexCreation;
     protected $_name = [
         'byteCharConvertStrategy' => 'ByteCharConvertStrategy',
-        'deferIndexCreation'      => 'DeferIndexCreation',
+        'deferIndexCreation' => 'DeferIndexCreation',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->byteCharConvertStrategy) {
             $res['ByteCharConvertStrategy'] = $this->byteCharConvertStrategy;
         }
+
         if (null !== $this->deferIndexCreation) {
             $res['DeferIndexCreation'] = $this->deferIndexCreation;
         }
@@ -43,17 +41,18 @@ class structTransferConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return structTransferConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ByteCharConvertStrategy'])) {
             $model->byteCharConvertStrategy = $map['ByteCharConvertStrategy'];
         }
+
         if (isset($map['DeferIndexCreation'])) {
             $model->deferIndexCreation = $map['DeferIndexCreation'];
         }

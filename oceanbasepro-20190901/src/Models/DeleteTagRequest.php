@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteTagRequest extends Model
 {
     /**
-     * @description The name of the tag group.
-     *
-     * This parameter is required.
-     * @example Tag group 2
-     *
      * @var string
      */
     public $key;
@@ -23,9 +18,10 @@ class DeleteTagRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->key) {
@@ -35,11 +31,11 @@ class DeleteTagRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteTagRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

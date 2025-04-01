@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteInstancesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The result of the dry-run request.
-     * - If the DryRun parameter is set to false, no dry run is performed and the DryRunResult parameter returns false.
-     * @example false
-     *
      * @var bool
      */
     public $dryRunResult;
@@ -22,9 +18,10 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dryRunResult) {
@@ -34,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

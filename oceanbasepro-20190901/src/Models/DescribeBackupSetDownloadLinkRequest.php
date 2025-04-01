@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeBackupSetDownloadLinkRequest extends Model
 {
     /**
-     * @description The ID of the download task corresponding to the target backup set.
-     *
-     * This parameter is required.
-     * @example 1000002
-     *
      * @var string
      */
     public $downloadTaskId;
 
     /**
-     * @description The ID of the OceanBase cluster.
-     *
-     * This parameter is required.
-     * @example ob317v4uif****
-     *
      * @var string
      */
     public $instanceId;
     protected $_name = [
         'downloadTaskId' => 'DownloadTaskId',
-        'instanceId'     => 'InstanceId',
+        'instanceId' => 'InstanceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->downloadTaskId) {
             $res['DownloadTaskId'] = $this->downloadTaskId;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -49,17 +41,18 @@ class DescribeBackupSetDownloadLinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeBackupSetDownloadLinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DownloadTaskId'])) {
             $model->downloadTaskId = $map['DownloadTaskId'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

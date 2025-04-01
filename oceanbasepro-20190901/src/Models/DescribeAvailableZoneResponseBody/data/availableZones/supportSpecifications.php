@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableZoneResponseBody\data\availableZones;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableZoneResponseBody\data\availableZones\supportSpecifications\diskSizeRange;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableZoneResponseBody\data\availableZones\supportSpecifications\supportEngineVersions;
-use AlibabaCloud\Tea\Model;
 
 class supportSpecifications extends Model
 {
@@ -21,15 +21,11 @@ class supportSpecifications extends Model
     public $diskTypes;
 
     /**
-     * @example 4C16GB
-     *
      * @var string
      */
     public $instanceClass;
 
     /**
-     * @example oceanbase.cluster.cd8.xlarge
-     *
      * @var string
      */
     public $spec;
@@ -39,38 +35,58 @@ class supportSpecifications extends Model
      */
     public $supportEngineVersions;
     protected $_name = [
-        'diskSizeRange'         => 'DiskSizeRange',
-        'diskTypes'             => 'DiskTypes',
-        'instanceClass'         => 'InstanceClass',
-        'spec'                  => 'Spec',
+        'diskSizeRange' => 'DiskSizeRange',
+        'diskTypes' => 'DiskTypes',
+        'instanceClass' => 'InstanceClass',
+        'spec' => 'Spec',
         'supportEngineVersions' => 'SupportEngineVersions',
     ];
 
     public function validate()
     {
+        if (null !== $this->diskSizeRange) {
+            $this->diskSizeRange->validate();
+        }
+        if (\is_array($this->diskTypes)) {
+            Model::validateArray($this->diskTypes);
+        }
+        if (\is_array($this->supportEngineVersions)) {
+            Model::validateArray($this->supportEngineVersions);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->diskSizeRange) {
-            $res['DiskSizeRange'] = null !== $this->diskSizeRange ? $this->diskSizeRange->toMap() : null;
+            $res['DiskSizeRange'] = null !== $this->diskSizeRange ? $this->diskSizeRange->toArray($noStream) : $this->diskSizeRange;
         }
+
         if (null !== $this->diskTypes) {
-            $res['DiskTypes'] = $this->diskTypes;
+            if (\is_array($this->diskTypes)) {
+                $res['DiskTypes'] = [];
+                $n1 = 0;
+                foreach ($this->diskTypes as $item1) {
+                    $res['DiskTypes'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->instanceClass) {
             $res['InstanceClass'] = $this->instanceClass;
         }
+
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
         }
+
         if (null !== $this->supportEngineVersions) {
-            $res['SupportEngineVersions'] = [];
-            if (null !== $this->supportEngineVersions && \is_array($this->supportEngineVersions)) {
-                $n = 0;
-                foreach ($this->supportEngineVersions as $item) {
-                    $res['SupportEngineVersions'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->supportEngineVersions)) {
+                $res['SupportEngineVersions'] = [];
+                $n1 = 0;
+                foreach ($this->supportEngineVersions as $item1) {
+                    $res['SupportEngineVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -78,34 +94,42 @@ class supportSpecifications extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return supportSpecifications
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DiskSizeRange'])) {
             $model->diskSizeRange = diskSizeRange::fromMap($map['DiskSizeRange']);
         }
+
         if (isset($map['DiskTypes'])) {
             if (!empty($map['DiskTypes'])) {
-                $model->diskTypes = $map['DiskTypes'];
+                $model->diskTypes = [];
+                $n1 = 0;
+                foreach ($map['DiskTypes'] as $item1) {
+                    $model->diskTypes[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['InstanceClass'])) {
             $model->instanceClass = $map['InstanceClass'];
         }
+
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
         }
+
         if (isset($map['SupportEngineVersions'])) {
             if (!empty($map['SupportEngineVersions'])) {
                 $model->supportEngineVersions = [];
-                $n                            = 0;
-                foreach ($map['SupportEngineVersions'] as $item) {
-                    $model->supportEngineVersions[$n++] = null !== $item ? supportEngineVersions::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['SupportEngineVersions'] as $item1) {
+                    $model->supportEngineVersions[$n1++] = supportEngineVersions::fromMap($item1);
                 }
             }
         }

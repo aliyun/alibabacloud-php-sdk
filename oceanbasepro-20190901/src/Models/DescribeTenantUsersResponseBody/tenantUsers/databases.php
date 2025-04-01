@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantUsersResponseBody\tenantUsers;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class databases extends Model
 {
     /**
-     * @example db_pay1
-     *
      * @var string
      */
     public $database;
@@ -21,41 +19,41 @@ class databases extends Model
     public $privileges;
 
     /**
-     * @example ReadOnly
-     *
      * @var string
      */
     public $role;
 
     /**
-     * @example tbl_pay1
-     *
      * @var string
      */
     public $table;
     protected $_name = [
-        'database'   => 'Database',
+        'database' => 'Database',
         'privileges' => 'Privileges',
-        'role'       => 'Role',
-        'table'      => 'Table',
+        'role' => 'Role',
+        'table' => 'Table',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->database) {
             $res['Database'] = $this->database;
         }
+
         if (null !== $this->privileges) {
             $res['Privileges'] = $this->privileges;
         }
+
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
+
         if (null !== $this->table) {
             $res['Table'] = $this->table;
         }
@@ -63,23 +61,26 @@ class databases extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return databases
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Database'])) {
             $model->database = $map['Database'];
         }
+
         if (isset($map['Privileges'])) {
             $model->privileges = $map['Privileges'];
         }
+
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
+
         if (isset($map['Table'])) {
             $model->table = $map['Table'];
         }

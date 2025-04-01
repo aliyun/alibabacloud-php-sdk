@@ -4,23 +4,17 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTimeZonesResponseBody\timeZones;
-use AlibabaCloud\Tea\Model;
 
 class DescribeTimeZonesResponseBody extends Model
 {
     /**
-     * @description DescribeTimeZones
-     *
-     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The description of the time zone.
-     *
      * @var timeZones
      */
     public $timeZones;
@@ -31,32 +25,38 @@ class DescribeTimeZonesResponseBody extends Model
 
     public function validate()
     {
+        if (null !== $this->timeZones) {
+            $this->timeZones->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->timeZones) {
-            $res['TimeZones'] = null !== $this->timeZones ? $this->timeZones->toMap() : null;
+            $res['TimeZones'] = null !== $this->timeZones ? $this->timeZones->toArray($noStream) : $this->timeZones;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTimeZonesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['TimeZones'])) {
             $model->timeZones = timeZones::fromMap($map['TimeZones']);
         }

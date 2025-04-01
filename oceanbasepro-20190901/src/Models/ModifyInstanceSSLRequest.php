@@ -4,26 +4,16 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyInstanceSSLRequest extends Model
 {
     /**
-     * @description The operation to modify the SSL status. Valid values:
-     *
-     * This parameter is required.
-     * @example open
-     *
      * @var string
      */
     public $enableSSL;
 
     /**
-     * @description The ID of the OceanBase cluster.
-     *
-     * This parameter is required.
-     * @example ob317v4uif****
-     *
      * @var string
      */
     public $instanceId;
@@ -33,24 +23,27 @@ class ModifyInstanceSSLRequest extends Model
      */
     public $tenantId;
     protected $_name = [
-        'enableSSL'  => 'EnableSSL',
+        'enableSSL' => 'EnableSSL',
         'instanceId' => 'InstanceId',
-        'tenantId'   => 'TenantId',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableSSL) {
             $res['EnableSSL'] = $this->enableSSL;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
@@ -58,20 +51,22 @@ class ModifyInstanceSSLRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyInstanceSSLRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableSSL'])) {
             $model->enableSSL = $map['EnableSSL'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }

@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantUserResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantUserResponseBody\tenantUser\roles;
-use AlibabaCloud\Tea\Model;
 
 class tenantUser extends Model
 {
     /**
-     * @example Encrypt,Decrypt
-     *
      * @var string
      */
     public $globalPermissions;
@@ -22,15 +20,11 @@ class tenantUser extends Model
     public $roles;
 
     /**
-     * @example pay_test
-     *
      * @var string
      */
     public $userName;
 
     /**
-     * @example ONLINE
-     *
      * @var string
      */
     public $userStatus;
@@ -41,37 +35,45 @@ class tenantUser extends Model
     public $userType;
     protected $_name = [
         'globalPermissions' => 'GlobalPermissions',
-        'roles'             => 'Roles',
-        'userName'          => 'UserName',
-        'userStatus'        => 'UserStatus',
-        'userType'          => 'UserType',
+        'roles' => 'Roles',
+        'userName' => 'UserName',
+        'userStatus' => 'UserStatus',
+        'userType' => 'UserType',
     ];
 
     public function validate()
     {
+        if (\is_array($this->roles)) {
+            Model::validateArray($this->roles);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->globalPermissions) {
             $res['GlobalPermissions'] = $this->globalPermissions;
         }
+
         if (null !== $this->roles) {
-            $res['Roles'] = [];
-            if (null !== $this->roles && \is_array($this->roles)) {
-                $n = 0;
-                foreach ($this->roles as $item) {
-                    $res['Roles'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->roles)) {
+                $res['Roles'] = [];
+                $n1 = 0;
+                foreach ($this->roles as $item1) {
+                    $res['Roles'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
         }
+
         if (null !== $this->userStatus) {
             $res['UserStatus'] = $this->userStatus;
         }
+
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
         }
@@ -79,32 +81,36 @@ class tenantUser extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return tenantUser
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['GlobalPermissions'])) {
             $model->globalPermissions = $map['GlobalPermissions'];
         }
+
         if (isset($map['Roles'])) {
             if (!empty($map['Roles'])) {
                 $model->roles = [];
-                $n            = 0;
-                foreach ($map['Roles'] as $item) {
-                    $model->roles[$n++] = null !== $item ? roles::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Roles'] as $item1) {
+                    $model->roles[$n1++] = roles::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
         }
+
         if (isset($map['UserStatus'])) {
             $model->userStatus = $map['UserStatus'];
         }
+
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];
         }

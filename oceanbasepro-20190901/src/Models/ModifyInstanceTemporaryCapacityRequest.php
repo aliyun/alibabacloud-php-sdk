@@ -4,68 +4,56 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyInstanceTemporaryCapacityRequest extends Model
 {
     /**
-     * @example zh-CN
-     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
-     * @description The disk size. Unit: GB.
-     *
-     * @example 400
-     *
      * @var string
      */
     public $diskSize;
 
     /**
-     * @description The ID of the OceanBase cluster.
-     *
-     * This parameter is required.
-     * @example ob317v4uif****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Specification.
-     *
-     * This parameter is required.
-     * @example oceanbase.cluster.i2.small
-     *
      * @var string
      */
     public $spec;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'diskSize'       => 'DiskSize',
-        'instanceId'     => 'InstanceId',
-        'spec'           => 'Spec',
+        'diskSize' => 'DiskSize',
+        'instanceId' => 'InstanceId',
+        'spec' => 'Spec',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+
         if (null !== $this->diskSize) {
             $res['DiskSize'] = $this->diskSize;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
         }
@@ -73,23 +61,26 @@ class ModifyInstanceTemporaryCapacityRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyInstanceTemporaryCapacityRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+
         if (isset($map['DiskSize'])) {
             $model->diskSize = $map['DiskSize'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
         }

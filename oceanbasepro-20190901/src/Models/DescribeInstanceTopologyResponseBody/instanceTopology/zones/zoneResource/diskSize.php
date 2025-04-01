@@ -4,40 +4,45 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody\instanceTopology\zones\zoneResource;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class diskSize extends Model
 {
     /**
-     * @description The IDs of OBServer nodes that use the maximum disk space.
-     *
      * @var string[]
      */
     public $maxDiskUsedObServer;
 
     /**
-     * @description The maximum disk usage, in percentage.
-     *
-     * @example 0.14
-     *
      * @var float
      */
     public $maxDiskUsedPercent;
     protected $_name = [
         'maxDiskUsedObServer' => 'MaxDiskUsedObServer',
-        'maxDiskUsedPercent'  => 'MaxDiskUsedPercent',
+        'maxDiskUsedPercent' => 'MaxDiskUsedPercent',
     ];
 
     public function validate()
     {
+        if (\is_array($this->maxDiskUsedObServer)) {
+            Model::validateArray($this->maxDiskUsedObServer);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->maxDiskUsedObServer) {
-            $res['MaxDiskUsedObServer'] = $this->maxDiskUsedObServer;
+            if (\is_array($this->maxDiskUsedObServer)) {
+                $res['MaxDiskUsedObServer'] = [];
+                $n1 = 0;
+                foreach ($this->maxDiskUsedObServer as $item1) {
+                    $res['MaxDiskUsedObServer'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->maxDiskUsedPercent) {
             $res['MaxDiskUsedPercent'] = $this->maxDiskUsedPercent;
         }
@@ -45,19 +50,24 @@ class diskSize extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return diskSize
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MaxDiskUsedObServer'])) {
             if (!empty($map['MaxDiskUsedObServer'])) {
-                $model->maxDiskUsedObServer = $map['MaxDiskUsedObServer'];
+                $model->maxDiskUsedObServer = [];
+                $n1 = 0;
+                foreach ($map['MaxDiskUsedObServer'] as $item1) {
+                    $model->maxDiskUsedObServer[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['MaxDiskUsedPercent'])) {
             $model->maxDiskUsedPercent = $map['MaxDiskUsedPercent'];
         }

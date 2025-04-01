@@ -4,59 +4,59 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantResponseBody\tenant;
-use AlibabaCloud\Tea\Model;
 
 class DescribeTenantResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The information about the tenant.
-     *
      * @var tenant
      */
     public $tenant;
     protected $_name = [
         'requestId' => 'RequestId',
-        'tenant'    => 'Tenant',
+        'tenant' => 'Tenant',
     ];
 
     public function validate()
     {
+        if (null !== $this->tenant) {
+            $this->tenant->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->tenant) {
-            $res['Tenant'] = null !== $this->tenant ? $this->tenant->toMap() : null;
+            $res['Tenant'] = null !== $this->tenant ? $this->tenant->toArray($noStream) : $this->tenant;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTenantResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Tenant'])) {
             $model->tenant = tenant::fromMap($map['Tenant']);
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableSpecResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeAvailableSpecResponseBody\data\availableSpecifications;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->availableSpecifications)) {
+            Model::validateArray($this->availableSpecifications);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->availableSpecifications) {
-            $res['AvailableSpecifications'] = [];
-            if (null !== $this->availableSpecifications && \is_array($this->availableSpecifications)) {
-                $n = 0;
-                foreach ($this->availableSpecifications as $item) {
-                    $res['AvailableSpecifications'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->availableSpecifications)) {
+                $res['AvailableSpecifications'] = [];
+                $n1 = 0;
+                foreach ($this->availableSpecifications as $item1) {
+                    $res['AvailableSpecifications'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AvailableSpecifications'])) {
             if (!empty($map['AvailableSpecifications'])) {
                 $model->availableSpecifications = [];
-                $n                              = 0;
-                foreach ($map['AvailableSpecifications'] as $item) {
-                    $model->availableSpecifications[$n++] = null !== $item ? availableSpecifications::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AvailableSpecifications'] as $item1) {
+                    $model->availableSpecifications[$n1++] = availableSpecifications::fromMap($item1);
                 }
             }
         }

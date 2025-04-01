@@ -4,73 +4,81 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody\instanceTopology\zones\nodes;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody\instanceTopology\zones\nodes\nodeResource\cpu;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody\instanceTopology\zones\nodes\nodeResource\diskSize;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponseBody\instanceTopology\zones\nodes\nodeResource\memory;
-use AlibabaCloud\Tea\Model;
 
 class nodeResource extends Model
 {
     /**
-     * @description The information about the CPU resources of the node.
-     *
      * @var cpu
      */
     public $cpu;
 
     /**
-     * @description The information about the storage resources of the node.
-     *
      * @var diskSize
      */
     public $diskSize;
 
     /**
-     * @description The information about the memory resources of the node.
-     *
      * @var memory
      */
     public $memory;
     protected $_name = [
-        'cpu'      => 'Cpu',
+        'cpu' => 'Cpu',
         'diskSize' => 'DiskSize',
-        'memory'   => 'Memory',
+        'memory' => 'Memory',
     ];
 
     public function validate()
     {
+        if (null !== $this->cpu) {
+            $this->cpu->validate();
+        }
+        if (null !== $this->diskSize) {
+            $this->diskSize->validate();
+        }
+        if (null !== $this->memory) {
+            $this->memory->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpu) {
-            $res['Cpu'] = null !== $this->cpu ? $this->cpu->toMap() : null;
+            $res['Cpu'] = null !== $this->cpu ? $this->cpu->toArray($noStream) : $this->cpu;
         }
+
         if (null !== $this->diskSize) {
-            $res['DiskSize'] = null !== $this->diskSize ? $this->diskSize->toMap() : null;
+            $res['DiskSize'] = null !== $this->diskSize ? $this->diskSize->toArray($noStream) : $this->diskSize;
         }
+
         if (null !== $this->memory) {
-            $res['Memory'] = null !== $this->memory ? $this->memory->toMap() : null;
+            $res['Memory'] = null !== $this->memory ? $this->memory->toArray($noStream) : $this->memory;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return nodeResource
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cpu'])) {
             $model->cpu = cpu::fromMap($map['Cpu']);
         }
+
         if (isset($map['DiskSize'])) {
             $model->diskSize = diskSize::fromMap($map['DiskSize']);
         }
+
         if (isset($map['Memory'])) {
             $model->memory = memory::fromMap($map['Memory']);
         }

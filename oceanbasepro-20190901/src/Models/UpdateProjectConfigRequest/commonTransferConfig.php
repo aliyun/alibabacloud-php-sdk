@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\UpdateProjectConfigRequest;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class commonTransferConfig extends Model
 {
@@ -18,20 +18,22 @@ class commonTransferConfig extends Model
      */
     public $sourceStoreFormat;
     protected $_name = [
-        'sinkStoreFormat'   => 'SinkStoreFormat',
+        'sinkStoreFormat' => 'SinkStoreFormat',
         'sourceStoreFormat' => 'SourceStoreFormat',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sinkStoreFormat) {
             $res['SinkStoreFormat'] = $this->sinkStoreFormat;
         }
+
         if (null !== $this->sourceStoreFormat) {
             $res['SourceStoreFormat'] = $this->sourceStoreFormat;
         }
@@ -39,17 +41,18 @@ class commonTransferConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return commonTransferConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SinkStoreFormat'])) {
             $model->sinkStoreFormat = $map['SinkStoreFormat'];
         }
+
         if (isset($map['SourceStoreFormat'])) {
             $model->sourceStoreFormat = $map['SourceStoreFormat'];
         }

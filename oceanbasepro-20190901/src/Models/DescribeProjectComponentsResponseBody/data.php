@@ -4,13 +4,13 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectComponentsResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectComponentsResponseBody\data\fullImportComponents;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectComponentsResponseBody\data\fullVerifyComponents;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectComponentsResponseBody\data\incrSyncComponents;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectComponentsResponseBody\data\reverseIncrSyncComponents;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectComponentsResponseBody\data\reverseStoreList;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeProjectComponentsResponseBody\data\storeList;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -44,72 +44,96 @@ class data extends Model
      */
     public $storeList;
     protected $_name = [
-        'fullImportComponents'      => 'FullImportComponents',
-        'fullVerifyComponents'      => 'FullVerifyComponents',
-        'incrSyncComponents'        => 'IncrSyncComponents',
+        'fullImportComponents' => 'FullImportComponents',
+        'fullVerifyComponents' => 'FullVerifyComponents',
+        'incrSyncComponents' => 'IncrSyncComponents',
         'reverseIncrSyncComponents' => 'ReverseIncrSyncComponents',
-        'reverseStoreList'          => 'ReverseStoreList',
-        'storeList'                 => 'StoreList',
+        'reverseStoreList' => 'ReverseStoreList',
+        'storeList' => 'StoreList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->fullImportComponents)) {
+            Model::validateArray($this->fullImportComponents);
+        }
+        if (\is_array($this->fullVerifyComponents)) {
+            Model::validateArray($this->fullVerifyComponents);
+        }
+        if (\is_array($this->incrSyncComponents)) {
+            Model::validateArray($this->incrSyncComponents);
+        }
+        if (\is_array($this->reverseIncrSyncComponents)) {
+            Model::validateArray($this->reverseIncrSyncComponents);
+        }
+        if (\is_array($this->reverseStoreList)) {
+            Model::validateArray($this->reverseStoreList);
+        }
+        if (\is_array($this->storeList)) {
+            Model::validateArray($this->storeList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->fullImportComponents) {
-            $res['FullImportComponents'] = [];
-            if (null !== $this->fullImportComponents && \is_array($this->fullImportComponents)) {
-                $n = 0;
-                foreach ($this->fullImportComponents as $item) {
-                    $res['FullImportComponents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fullImportComponents)) {
+                $res['FullImportComponents'] = [];
+                $n1 = 0;
+                foreach ($this->fullImportComponents as $item1) {
+                    $res['FullImportComponents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->fullVerifyComponents) {
-            $res['FullVerifyComponents'] = [];
-            if (null !== $this->fullVerifyComponents && \is_array($this->fullVerifyComponents)) {
-                $n = 0;
-                foreach ($this->fullVerifyComponents as $item) {
-                    $res['FullVerifyComponents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->fullVerifyComponents)) {
+                $res['FullVerifyComponents'] = [];
+                $n1 = 0;
+                foreach ($this->fullVerifyComponents as $item1) {
+                    $res['FullVerifyComponents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->incrSyncComponents) {
-            $res['IncrSyncComponents'] = [];
-            if (null !== $this->incrSyncComponents && \is_array($this->incrSyncComponents)) {
-                $n = 0;
-                foreach ($this->incrSyncComponents as $item) {
-                    $res['IncrSyncComponents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->incrSyncComponents)) {
+                $res['IncrSyncComponents'] = [];
+                $n1 = 0;
+                foreach ($this->incrSyncComponents as $item1) {
+                    $res['IncrSyncComponents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->reverseIncrSyncComponents) {
-            $res['ReverseIncrSyncComponents'] = [];
-            if (null !== $this->reverseIncrSyncComponents && \is_array($this->reverseIncrSyncComponents)) {
-                $n = 0;
-                foreach ($this->reverseIncrSyncComponents as $item) {
-                    $res['ReverseIncrSyncComponents'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->reverseIncrSyncComponents)) {
+                $res['ReverseIncrSyncComponents'] = [];
+                $n1 = 0;
+                foreach ($this->reverseIncrSyncComponents as $item1) {
+                    $res['ReverseIncrSyncComponents'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->reverseStoreList) {
-            $res['ReverseStoreList'] = [];
-            if (null !== $this->reverseStoreList && \is_array($this->reverseStoreList)) {
-                $n = 0;
-                foreach ($this->reverseStoreList as $item) {
-                    $res['ReverseStoreList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->reverseStoreList)) {
+                $res['ReverseStoreList'] = [];
+                $n1 = 0;
+                foreach ($this->reverseStoreList as $item1) {
+                    $res['ReverseStoreList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->storeList) {
-            $res['StoreList'] = [];
-            if (null !== $this->storeList && \is_array($this->storeList)) {
-                $n = 0;
-                foreach ($this->storeList as $item) {
-                    $res['StoreList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->storeList)) {
+                $res['StoreList'] = [];
+                $n1 = 0;
+                foreach ($this->storeList as $item1) {
+                    $res['StoreList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -117,65 +141,70 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['FullImportComponents'])) {
             if (!empty($map['FullImportComponents'])) {
                 $model->fullImportComponents = [];
-                $n                           = 0;
-                foreach ($map['FullImportComponents'] as $item) {
-                    $model->fullImportComponents[$n++] = null !== $item ? fullImportComponents::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FullImportComponents'] as $item1) {
+                    $model->fullImportComponents[$n1++] = fullImportComponents::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['FullVerifyComponents'])) {
             if (!empty($map['FullVerifyComponents'])) {
                 $model->fullVerifyComponents = [];
-                $n                           = 0;
-                foreach ($map['FullVerifyComponents'] as $item) {
-                    $model->fullVerifyComponents[$n++] = null !== $item ? fullVerifyComponents::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['FullVerifyComponents'] as $item1) {
+                    $model->fullVerifyComponents[$n1++] = fullVerifyComponents::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['IncrSyncComponents'])) {
             if (!empty($map['IncrSyncComponents'])) {
                 $model->incrSyncComponents = [];
-                $n                         = 0;
-                foreach ($map['IncrSyncComponents'] as $item) {
-                    $model->incrSyncComponents[$n++] = null !== $item ? incrSyncComponents::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['IncrSyncComponents'] as $item1) {
+                    $model->incrSyncComponents[$n1++] = incrSyncComponents::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ReverseIncrSyncComponents'])) {
             if (!empty($map['ReverseIncrSyncComponents'])) {
                 $model->reverseIncrSyncComponents = [];
-                $n                                = 0;
-                foreach ($map['ReverseIncrSyncComponents'] as $item) {
-                    $model->reverseIncrSyncComponents[$n++] = null !== $item ? reverseIncrSyncComponents::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ReverseIncrSyncComponents'] as $item1) {
+                    $model->reverseIncrSyncComponents[$n1++] = reverseIncrSyncComponents::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['ReverseStoreList'])) {
             if (!empty($map['ReverseStoreList'])) {
                 $model->reverseStoreList = [];
-                $n                       = 0;
-                foreach ($map['ReverseStoreList'] as $item) {
-                    $model->reverseStoreList[$n++] = null !== $item ? reverseStoreList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ReverseStoreList'] as $item1) {
+                    $model->reverseStoreList[$n1++] = reverseStoreList::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['StoreList'])) {
             if (!empty($map['StoreList'])) {
                 $model->storeList = [];
-                $n                = 0;
-                foreach ($map['StoreList'] as $item) {
-                    $model->storeList[$n++] = null !== $item ? storeList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['StoreList'] as $item1) {
+                    $model->storeList[$n1++] = storeList::fromMap($item1);
                 }
             }
         }

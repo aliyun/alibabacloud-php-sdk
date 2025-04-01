@@ -4,109 +4,86 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSQLSamplesRequest extends Model
 {
     /**
-     * @description The database name.
-     *
-     * This parameter is required.
-     * @example test_db
-     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @description The end time of querying the slow query execution.
-     * This parameter is required.
-     * @example 2023-04-12T05:38:38Z
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description The instance ID.
-     *
-     * @example ob317v4uif****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description Specifies whether to return the SQL text.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $returnSqlText;
 
     /**
-     * @description SQL ID.
-     *
-     * This parameter is required.
-     * @example 8D6E84****0B8FB1823D199E2CA1****
-     *
      * @var string
      */
     public $sqlId;
 
     /**
-     * @description The start time of querying the slow query execution.
-     * This parameter is required.
-     * @example 2023-04-12T04:38:38Z
-     *
      * @var string
      */
     public $startTime;
 
     /**
-     * @description The tenant ID.
-     *
-     * @example t4louaeei****
-     *
      * @var string
      */
     public $tenantId;
     protected $_name = [
-        'dbName'        => 'DbName',
-        'endTime'       => 'EndTime',
-        'instanceId'    => 'InstanceId',
+        'dbName' => 'DbName',
+        'endTime' => 'EndTime',
+        'instanceId' => 'InstanceId',
         'returnSqlText' => 'ReturnSqlText',
-        'sqlId'         => 'SqlId',
-        'startTime'     => 'StartTime',
-        'tenantId'      => 'TenantId',
+        'sqlId' => 'SqlId',
+        'startTime' => 'StartTime',
+        'tenantId' => 'TenantId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dbName) {
             $res['DbName'] = $this->dbName;
         }
+
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->returnSqlText) {
             $res['ReturnSqlText'] = $this->returnSqlText;
         }
+
         if (null !== $this->sqlId) {
             $res['SqlId'] = $this->sqlId;
         }
+
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
@@ -114,32 +91,38 @@ class DescribeSQLSamplesRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSQLSamplesRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DbName'])) {
             $model->dbName = $map['DbName'];
         }
+
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['ReturnSqlText'])) {
             $model->returnSqlText = $map['ReturnSqlText'];
         }
+
         if (isset($map['SqlId'])) {
             $model->sqlId = $map['SqlId'];
         }
+
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
+
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }

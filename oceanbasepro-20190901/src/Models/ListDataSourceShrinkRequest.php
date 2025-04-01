@@ -4,41 +4,31 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListDataSourceShrinkRequest extends Model
 {
     /**
-     * @example descend
-     *
      * @var string
      */
     public $order;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $pageNumber;
 
     /**
-     * @example 10
-     *
      * @var string
      */
     public $pageSize;
 
     /**
-     * @example GRATI****89278244
-     *
      * @var string
      */
     public $searchKey;
 
     /**
-     * @example gmtCreate
-     *
      * @var string
      */
     public $sortField;
@@ -48,36 +38,42 @@ class ListDataSourceShrinkRequest extends Model
      */
     public $typesShrink;
     protected $_name = [
-        'order'       => 'Order',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'searchKey'   => 'SearchKey',
-        'sortField'   => 'SortField',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'searchKey' => 'SearchKey',
+        'sortField' => 'SortField',
         'typesShrink' => 'Types',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->order) {
             $res['Order'] = $this->order;
         }
+
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->searchKey) {
             $res['SearchKey'] = $this->searchKey;
         }
+
         if (null !== $this->sortField) {
             $res['SortField'] = $this->sortField;
         }
+
         if (null !== $this->typesShrink) {
             $res['Types'] = $this->typesShrink;
         }
@@ -85,29 +81,34 @@ class ListDataSourceShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListDataSourceShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Order'])) {
             $model->order = $map['Order'];
         }
+
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['SearchKey'])) {
             $model->searchKey = $map['SearchKey'];
         }
+
         if (isset($map['SortField'])) {
             $model->sortField = $map['SortField'];
         }
+
         if (isset($map['Types'])) {
             $model->typesShrink = $map['Types'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeCharsetRequest extends Model
 {
@@ -14,42 +14,36 @@ class DescribeCharsetRequest extends Model
     public $instanceId;
 
     /**
-     * @description 实例的系列  - normal（默认）：标准集群版（云盘）  - normal_ssd：标准集群版（本地盘） - history：历史库集群版。
-     *
-     * @example normal
-     *
      * @var string
      */
     public $series;
 
     /**
-     * @description The return result of the request.
-     *
-     * This parameter is required.
-     * @example Oracle
-     *
      * @var string
      */
     public $tenantMode;
     protected $_name = [
         'instanceId' => 'InstanceId',
-        'series'     => 'Series',
+        'series' => 'Series',
         'tenantMode' => 'TenantMode',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->series) {
             $res['Series'] = $this->series;
         }
+
         if (null !== $this->tenantMode) {
             $res['TenantMode'] = $this->tenantMode;
         }
@@ -57,20 +51,22 @@ class DescribeCharsetRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeCharsetRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['Series'])) {
             $model->series = $map['Series'];
         }
+
         if (isset($map['TenantMode'])) {
             $model->tenantMode = $map['TenantMode'];
         }

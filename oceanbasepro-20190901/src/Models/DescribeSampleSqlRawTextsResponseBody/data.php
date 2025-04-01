@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSampleSqlRawTextsResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -18,29 +18,43 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->sqlText)) {
+            Model::validateArray($this->sqlText);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->sqlText) {
-            $res['SqlText'] = $this->sqlText;
+            if (\is_array($this->sqlText)) {
+                $res['SqlText'] = [];
+                $n1 = 0;
+                foreach ($this->sqlText as $item1) {
+                    $res['SqlText'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['SqlText'])) {
             if (!empty($map['SqlText'])) {
-                $model->sqlText = $map['SqlText'];
+                $model->sqlText = [];
+                $n1 = 0;
+                foreach ($map['SqlText'] as $item1) {
+                    $model->sqlText[$n1++] = $item1;
+                }
             }
         }
 

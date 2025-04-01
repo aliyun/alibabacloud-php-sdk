@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\OceanBasePro\V20190901\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeTagValuesResponseBody extends Model
 {
     /**
-     * @description The mappings between tag groups and tags.
-     *
-     * @example "{\\"Tag group 2\\":[\\"Tag 2-1\\",\\"Tag 2-2\\"],\\"Tag group 1\\":[\\"Tag 1-1\\"]}"
-     *
      * @var string
      */
     public $map;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 4C91F7BA-xxxx-xxxx-xxxx-846ECA1A9908
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'map'       => 'Map',
+        'map' => 'Map',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->map) {
             $res['Map'] = $this->map;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,17 +41,18 @@ class DescribeTagValuesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeTagValuesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Map'])) {
             $model->map = $map['Map'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
