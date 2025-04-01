@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Advisor\V20180120\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class RefreshAdvisorResourceRequest extends Model
 {
     /**
-     * @example ecs
-     *
      * @var string
      */
     public $product;
 
     /**
-     * @example i-bp67acfmxazb4p****
-     *
      * @var string
      */
     public $resourceId;
     protected $_name = [
-        'product'    => 'Product',
+        'product' => 'Product',
         'resourceId' => 'ResourceId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->product) {
             $res['Product'] = $this->product;
         }
+
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
@@ -43,17 +41,18 @@ class RefreshAdvisorResourceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return RefreshAdvisorResourceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Product'])) {
             $model->product = $map['Product'];
         }
+
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
         }

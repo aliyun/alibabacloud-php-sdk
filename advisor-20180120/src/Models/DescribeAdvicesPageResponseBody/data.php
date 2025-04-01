@@ -4,21 +4,17 @@
 
 namespace AlibabaCloud\SDK\Advisor\V20180120\Models\DescribeAdvicesPageResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Advisor\V20180120\Models\DescribeAdvicesPageResponseBody\data\result;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -29,40 +25,45 @@ class data extends Model
     public $result;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'pageNo'   => 'PageNo',
+        'pageNo' => 'PageNo',
         'pageSize' => 'PageSize',
-        'result'   => 'Result',
-        'total'    => 'Total',
+        'result' => 'Result',
+        'total' => 'Total',
     ];
 
     public function validate()
     {
+        if (\is_array($this->result)) {
+            Model::validateArray($this->result);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->pageNo) {
             $res['PageNo'] = $this->pageNo;
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->result) {
-            $res['Result'] = [];
-            if (null !== $this->result && \is_array($this->result)) {
-                $n = 0;
-                foreach ($this->result as $item) {
-                    $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->result)) {
+                $res['Result'] = [];
+                $n1 = 0;
+                foreach ($this->result as $item1) {
+                    $res['Result'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->total) {
             $res['Total'] = $this->total;
         }
@@ -70,29 +71,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['PageNo'])) {
             $model->pageNo = $map['PageNo'];
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
                 $model->result = [];
-                $n             = 0;
-                foreach ($map['Result'] as $item) {
-                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Result'] as $item1) {
+                    $model->result[$n1++] = result::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['Total'])) {
             $model->total = $map['Total'];
         }

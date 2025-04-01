@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Advisor\V20180120\Models\DescribeAdvisorChecksResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Advisor\V20180120\Models\DescribeAdvisorChecksResponseBody\data\advisorCheck;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
@@ -19,17 +19,21 @@ class data extends Model
 
     public function validate()
     {
+        if (\is_array($this->advisorCheck)) {
+            Model::validateArray($this->advisorCheck);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->advisorCheck) {
-            $res['AdvisorCheck'] = [];
-            if (null !== $this->advisorCheck && \is_array($this->advisorCheck)) {
-                $n = 0;
-                foreach ($this->advisorCheck as $item) {
-                    $res['AdvisorCheck'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->advisorCheck)) {
+                $res['AdvisorCheck'] = [];
+                $n1 = 0;
+                foreach ($this->advisorCheck as $item1) {
+                    $res['AdvisorCheck'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AdvisorCheck'])) {
             if (!empty($map['AdvisorCheck'])) {
                 $model->advisorCheck = [];
-                $n                   = 0;
-                foreach ($map['AdvisorCheck'] as $item) {
-                    $model->advisorCheck[$n++] = null !== $item ? advisorCheck::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['AdvisorCheck'] as $item1) {
+                    $model->advisorCheck[$n1++] = advisorCheck::fromMap($item1);
                 }
             }
         }
