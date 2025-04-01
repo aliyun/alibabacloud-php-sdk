@@ -13,38 +13,44 @@ class gdnInstanceList extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $gdnInstanceName;
+
     /**
      * @var string
      */
     public $gmtCreated;
+
     /**
      * @var memberList[]
      */
     public $memberList;
+
     /**
      * @var string
      */
     public $mysqlVersion;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $switchHistory;
     protected $_name = [
-        'description'     => 'Description',
+        'description' => 'Description',
         'gdnInstanceName' => 'GdnInstanceName',
-        'gmtCreated'      => 'GmtCreated',
-        'memberList'      => 'MemberList',
-        'mysqlVersion'    => 'MysqlVersion',
-        'status'          => 'Status',
-        'switchHistory'   => 'SwitchHistory',
+        'gmtCreated' => 'GmtCreated',
+        'memberList' => 'MemberList',
+        'mysqlVersion' => 'MysqlVersion',
+        'status' => 'Status',
+        'switchHistory' => 'SwitchHistory',
     ];
 
     public function validate()
@@ -73,7 +79,7 @@ class gdnInstanceList extends Model
         if (null !== $this->memberList) {
             if (\is_array($this->memberList)) {
                 $res['MemberList'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->memberList as $item1) {
                     $res['MemberList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -118,7 +124,7 @@ class gdnInstanceList extends Model
         if (isset($map['MemberList'])) {
             if (!empty($map['MemberList'])) {
                 $model->memberList = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['MemberList'] as $item1) {
                     $model->memberList[$n1++] = memberList::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class DescribeOpenBackupSetRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $restoreTime;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'regionId'       => 'RegionId',
-        'restoreTime'    => 'RestoreTime',
+        'regionId' => 'RegionId',
+        'restoreTime' => 'RestoreTime',
     ];
 
     public function validate()

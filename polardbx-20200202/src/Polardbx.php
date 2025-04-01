@@ -52,6 +52,8 @@ use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupSetRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBackupSetResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBinaryLogListRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeBinaryLogListResponse;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCdcInfoRequest;
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCdcInfoResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCharacterSetRequest;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeCharacterSetResponse;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeColdDataBasicInfoRequest;
@@ -166,52 +168,52 @@ class Polardbx extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'ap-northeast-1'              => 'polardbx.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'polardbx.aliyuncs.com',
-            'ap-south-1'                  => 'polardbx.aliyuncs.com',
-            'ap-southeast-2'              => 'polardbx.aliyuncs.com',
-            'ap-southeast-3'              => 'polardbx.aliyuncs.com',
-            'ap-southeast-5'              => 'polardbx.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'polardbx.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'polardbx.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'polardbx.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'polardbx.aliyuncs.com',
-            'cn-edge-1'                   => 'polardbx.aliyuncs.com',
-            'cn-fujian'                   => 'polardbx.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'polardbx.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'polardbx.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'polardbx.aliyuncs.com',
+        $this->_endpointMap = [
+            'ap-northeast-1' => 'polardbx.aliyuncs.com',
+            'ap-northeast-2-pop' => 'polardbx.aliyuncs.com',
+            'ap-south-1' => 'polardbx.aliyuncs.com',
+            'ap-southeast-2' => 'polardbx.aliyuncs.com',
+            'ap-southeast-3' => 'polardbx.aliyuncs.com',
+            'ap-southeast-5' => 'polardbx.aliyuncs.com',
+            'cn-beijing-finance-1' => 'polardbx.aliyuncs.com',
+            'cn-beijing-finance-pop' => 'polardbx.aliyuncs.com',
+            'cn-beijing-gov-1' => 'polardbx.aliyuncs.com',
+            'cn-beijing-nu16-b01' => 'polardbx.aliyuncs.com',
+            'cn-edge-1' => 'polardbx.aliyuncs.com',
+            'cn-fujian' => 'polardbx.aliyuncs.com',
+            'cn-haidian-cm12-c01' => 'polardbx.aliyuncs.com',
+            'cn-hangzhou-bj-b01' => 'polardbx.aliyuncs.com',
+            'cn-hangzhou-finance' => 'polardbx.aliyuncs.com',
             'cn-hangzhou-internal-prod-1' => 'polardbx.aliyuncs.com',
             'cn-hangzhou-internal-test-1' => 'polardbx.aliyuncs.com',
             'cn-hangzhou-internal-test-2' => 'polardbx.aliyuncs.com',
             'cn-hangzhou-internal-test-3' => 'polardbx.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'polardbx.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'polardbx.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'polardbx.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'polardbx.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'polardbx.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'polardbx.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'polardbx.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'polardbx.aliyuncs.com',
-            'cn-shanghai-inner'           => 'polardbx.aliyuncs.com',
+            'cn-hangzhou-test-306' => 'polardbx.aliyuncs.com',
+            'cn-hongkong-finance-pop' => 'polardbx.aliyuncs.com',
+            'cn-huhehaote-nebula-1' => 'polardbx.aliyuncs.com',
+            'cn-north-2-gov-1' => 'polardbx.aliyuncs.com',
+            'cn-qingdao-nebula' => 'polardbx.aliyuncs.com',
+            'cn-shanghai-et15-b01' => 'polardbx.aliyuncs.com',
+            'cn-shanghai-et2-b01' => 'polardbx.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'polardbx.aliyuncs.com',
+            'cn-shanghai-inner' => 'polardbx.aliyuncs.com',
             'cn-shanghai-internal-test-1' => 'polardbx.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'polardbx.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'polardbx.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'polardbx.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'polardbx.aliyuncs.com',
-            'cn-wuhan'                    => 'polardbx.aliyuncs.com',
-            'cn-wulanchabu'               => 'polardbx.aliyuncs.com',
-            'cn-yushanfang'               => 'polardbx.aliyuncs.com',
-            'cn-zhangbei'                 => 'polardbx.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'polardbx.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'polardbx.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'polardbx.aliyuncs.com',
-            'eu-central-1'                => 'polardbx.aliyuncs.com',
-            'eu-west-1'                   => 'polardbx.aliyuncs.com',
-            'eu-west-1-oxs'               => 'polardbx.aliyuncs.com',
-            'me-east-1'                   => 'polardbx.aliyuncs.com',
-            'rus-west-1-pop'              => 'polardbx.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'polardbx.aliyuncs.com',
+            'cn-shenzhen-inner' => 'polardbx.aliyuncs.com',
+            'cn-shenzhen-st4-d01' => 'polardbx.aliyuncs.com',
+            'cn-shenzhen-su18-b01' => 'polardbx.aliyuncs.com',
+            'cn-wuhan' => 'polardbx.aliyuncs.com',
+            'cn-wulanchabu' => 'polardbx.aliyuncs.com',
+            'cn-yushanfang' => 'polardbx.aliyuncs.com',
+            'cn-zhangbei' => 'polardbx.aliyuncs.com',
+            'cn-zhangbei-na61-b01' => 'polardbx.aliyuncs.com',
+            'cn-zhangjiakou-na62-a01' => 'polardbx.aliyuncs.com',
+            'cn-zhengzhou-nebula-1' => 'polardbx.aliyuncs.com',
+            'eu-central-1' => 'polardbx.aliyuncs.com',
+            'eu-west-1' => 'polardbx.aliyuncs.com',
+            'eu-west-1-oxs' => 'polardbx.aliyuncs.com',
+            'me-east-1' => 'polardbx.aliyuncs.com',
+            'rus-west-1-pop' => 'polardbx.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('polardbx', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -244,6 +246,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - AlignStoragePrimaryAzoneRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AlignStoragePrimaryAzoneResponse
      *
      * @param AlignStoragePrimaryAzoneRequest $request
@@ -279,15 +282,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AlignStoragePrimaryAzone',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AlignStoragePrimaryAzone',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AlignStoragePrimaryAzoneResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -298,6 +301,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - AlignStoragePrimaryAzoneRequest
+     *
      * @returns AlignStoragePrimaryAzoneResponse
      *
      * @param AlignStoragePrimaryAzoneRequest $request
@@ -316,6 +320,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - AllocateColdDataVolumeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AllocateColdDataVolumeResponse
      *
      * @param AllocateColdDataVolumeRequest $request
@@ -339,15 +344,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocateColdDataVolume',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocateColdDataVolume',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AllocateColdDataVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -360,6 +365,7 @@ class Polardbx extends OpenApiClient
      * 开通冷存储.
      *
      * @param request - AllocateColdDataVolumeRequest
+     *
      * @returns AllocateColdDataVolumeResponse
      *
      * @param AllocateColdDataVolumeRequest $request
@@ -376,6 +382,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - AllocateInstancePublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AllocateInstancePublicConnectionResponse
      *
      * @param AllocateInstancePublicConnectionRequest $request
@@ -423,15 +430,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AllocateInstancePublicConnection',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AllocateInstancePublicConnection',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AllocateInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -442,6 +449,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - AllocateInstancePublicConnectionRequest
+     *
      * @returns AllocateInstancePublicConnectionResponse
      *
      * @param AllocateInstancePublicConnectionRequest $request
@@ -460,6 +468,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - CancelActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CancelActiveOperationTasksResponse
      *
      * @param CancelActiveOperationTasksRequest $request
@@ -471,19 +480,19 @@ class Polardbx extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CancelActiveOperationTasks',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CancelActiveOperationTasks',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CancelActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -496,6 +505,7 @@ class Polardbx extends OpenApiClient
      * 取消主动运维任务
      *
      * @param request - CancelActiveOperationTasksRequest
+     *
      * @returns CancelActiveOperationTasksResponse
      *
      * @param CancelActiveOperationTasksRequest $request
@@ -514,6 +524,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - ChangeResourceGroupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -545,15 +556,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -566,6 +577,7 @@ class Polardbx extends OpenApiClient
      * 修改实例所在资源组.
      *
      * @param request - ChangeResourceGroupRequest
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -582,6 +594,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - CheckCloudResourceAuthorizedRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CheckCloudResourceAuthorizedResponse
      *
      * @param CheckCloudResourceAuthorizedRequest $request
@@ -609,15 +622,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CheckCloudResourceAuthorized',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CheckCloudResourceAuthorized',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CheckCloudResourceAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -628,6 +641,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - CheckCloudResourceAuthorizedRequest
+     *
      * @returns CheckCloudResourceAuthorizedResponse
      *
      * @param CheckCloudResourceAuthorizedRequest $request
@@ -644,6 +658,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - CreateAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateAccountResponse
      *
      * @param CreateAccountRequest $request
@@ -695,15 +710,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateAccount',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateAccount',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -714,6 +729,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - CreateAccountRequest
+     *
      * @returns CreateAccountResponse
      *
      * @param CreateAccountRequest $request
@@ -730,6 +746,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - CreateBackupRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateBackupResponse
      *
      * @param CreateBackupRequest $request
@@ -757,15 +774,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateBackup',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateBackup',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateBackupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -776,6 +793,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - CreateBackupRequest
+     *
      * @returns CreateBackupResponse
      *
      * @param CreateBackupRequest $request
@@ -792,6 +810,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - CreateDBRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDBResponse
      *
      * @param CreateDBRequest $request
@@ -851,15 +870,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDB',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDB',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDBResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -870,6 +889,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - CreateDBRequest
+     *
      * @returns CreateDBResponse
      *
      * @param CreateDBRequest $request
@@ -884,8 +904,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 创建实例.
+     *
      * @param tmpReq - CreateDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDBInstanceResponse
      *
      * @param CreateDBInstanceRequest $tmpReq
@@ -1019,15 +1042,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateDBInstance',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateDBInstance',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1037,7 +1060,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 创建实例.
+     *
      * @param request - CreateDBInstanceRequest
+     *
      * @returns CreateDBInstanceResponse
      *
      * @param CreateDBInstanceRequest $request
@@ -1054,6 +1080,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - CreateSuperAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSuperAccountResponse
      *
      * @param CreateSuperAccountRequest $request
@@ -1089,15 +1116,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSuperAccount',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSuperAccount',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSuperAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1108,6 +1135,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - CreateSuperAccountRequest
+     *
      * @returns CreateSuperAccountResponse
      *
      * @param CreateSuperAccountRequest $request
@@ -1124,6 +1152,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DeleteAccountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteAccountResponse
      *
      * @param DeleteAccountRequest $request
@@ -1159,15 +1188,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteAccount',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteAccount',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteAccountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1178,6 +1207,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DeleteAccountRequest
+     *
      * @returns DeleteAccountResponse
      *
      * @param DeleteAccountRequest $request
@@ -1194,6 +1224,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DeleteDBRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDBResponse
      *
      * @param DeleteDBRequest $request
@@ -1221,15 +1252,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDB',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDB',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDBResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1240,6 +1271,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DeleteDBRequest
+     *
      * @returns DeleteDBResponse
      *
      * @param DeleteDBRequest $request
@@ -1256,6 +1288,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DeleteDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDBInstanceResponse
      *
      * @param DeleteDBInstanceRequest $request
@@ -1279,15 +1312,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDBInstance',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteDBInstance',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1298,6 +1331,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DeleteDBInstanceRequest
+     *
      * @returns DeleteDBInstanceResponse
      *
      * @param DeleteDBInstanceRequest $request
@@ -1314,6 +1348,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeAccountListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeAccountListResponse
      *
      * @param DescribeAccountListRequest $request
@@ -1345,15 +1380,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeAccountList',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeAccountList',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeAccountListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1364,6 +1399,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeAccountListRequest
+     *
      * @returns DescribeAccountListResponse
      *
      * @param DescribeAccountListRequest $request
@@ -1382,6 +1418,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - DescribeActiveOperationMaintainConfRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeActiveOperationMaintainConfResponse
      *
      * @param DescribeActiveOperationMaintainConfRequest $request
@@ -1401,15 +1438,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActiveOperationMaintainConf',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeActiveOperationMaintainConf',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeActiveOperationMaintainConfResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1422,6 +1459,7 @@ class Polardbx extends OpenApiClient
      * 展示全局运维窗口配置.
      *
      * @param request - DescribeActiveOperationMaintainConfRequest
+     *
      * @returns DescribeActiveOperationMaintainConfResponse
      *
      * @param DescribeActiveOperationMaintainConfRequest $request
@@ -1440,6 +1478,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - DescribeActiveOperationTaskCountRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeActiveOperationTaskCountResponse
      *
      * @param DescribeActiveOperationTaskCountRequest $request
@@ -1451,19 +1490,19 @@ class Polardbx extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActiveOperationTaskCount',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeActiveOperationTaskCount',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeActiveOperationTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1476,6 +1515,7 @@ class Polardbx extends OpenApiClient
      * 获取主动运维任务数量.
      *
      * @param request - DescribeActiveOperationTaskCountRequest
+     *
      * @returns DescribeActiveOperationTaskCountResponse
      *
      * @param DescribeActiveOperationTaskCountRequest $request
@@ -1494,6 +1534,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - DescribeActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeActiveOperationTasksResponse
      *
      * @param DescribeActiveOperationTasksRequest $request
@@ -1505,19 +1546,19 @@ class Polardbx extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActiveOperationTasks',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeActiveOperationTasks',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1530,6 +1571,7 @@ class Polardbx extends OpenApiClient
      * 获取待执行自动运维任务列表.
      *
      * @param request - DescribeActiveOperationTasksRequest
+     *
      * @returns DescribeActiveOperationTasksResponse
      *
      * @param DescribeActiveOperationTasksRequest $request
@@ -1548,6 +1590,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - DescribeArchiveTableListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeArchiveTableListResponse
      *
      * @param DescribeArchiveTableListRequest $request
@@ -1591,15 +1634,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeArchiveTableList',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeArchiveTableList',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeArchiveTableListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1612,6 +1655,7 @@ class Polardbx extends OpenApiClient
      * 冷存储表列表.
      *
      * @param request - DescribeArchiveTableListRequest
+     *
      * @returns DescribeArchiveTableListResponse
      *
      * @param DescribeArchiveTableListRequest $request
@@ -1628,6 +1672,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBackupPolicyResponse
      *
      * @param DescribeBackupPolicyRequest $request
@@ -1651,15 +1696,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupPolicy',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupPolicy',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1670,6 +1715,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeBackupPolicyRequest
+     *
      * @returns DescribeBackupPolicyResponse
      *
      * @param DescribeBackupPolicyRequest $request
@@ -1688,6 +1734,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - DescribeBackupSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBackupSetResponse
      *
      * @param DescribeBackupSetRequest $request
@@ -1719,15 +1766,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupSet',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupSet',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBackupSetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1740,6 +1787,7 @@ class Polardbx extends OpenApiClient
      * 备份集详情.
      *
      * @param request - DescribeBackupSetRequest
+     *
      * @returns DescribeBackupSetResponse
      *
      * @param DescribeBackupSetRequest $request
@@ -1756,6 +1804,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeBackupSetListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBackupSetListResponse
      *
      * @param DescribeBackupSetListRequest $request
@@ -1767,19 +1816,19 @@ class Polardbx extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBackupSetList',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBackupSetList',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBackupSetListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1790,6 +1839,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeBackupSetListRequest
+     *
      * @returns DescribeBackupSetListResponse
      *
      * @param DescribeBackupSetListRequest $request
@@ -1806,6 +1856,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeBinaryLogListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeBinaryLogListResponse
      *
      * @param DescribeBinaryLogListRequest $request
@@ -1849,15 +1900,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeBinaryLogList',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeBinaryLogList',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeBinaryLogListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1868,6 +1919,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeBinaryLogListRequest
+     *
      * @returns DescribeBinaryLogListResponse
      *
      * @param DescribeBinaryLogListRequest $request
@@ -1882,8 +1934,73 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 查询CDC信息.
+     *
+     * @param request - DescribeCdcInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DescribeCdcInfoResponse
+     *
+     * @param DescribeCdcInfoRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DescribeCdcInfoResponse
+     */
+    public function describeCdcInfoWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->DBInstanceName) {
+            @$query['DBInstanceName'] = $request->DBInstanceName;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'DescribeCdcInfo',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DescribeCdcInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DescribeCdcInfoResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询CDC信息.
+     *
+     * @param request - DescribeCdcInfoRequest
+     *
+     * @returns DescribeCdcInfoResponse
+     *
+     * @param DescribeCdcInfoRequest $request
+     *
+     * @return DescribeCdcInfoResponse
+     */
+    public function describeCdcInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdcInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param request - DescribeCharacterSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeCharacterSetResponse
      *
      * @param DescribeCharacterSetRequest $request
@@ -1907,15 +2024,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeCharacterSet',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeCharacterSet',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeCharacterSetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1926,6 +2043,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeCharacterSetRequest
+     *
      * @returns DescribeCharacterSetResponse
      *
      * @param DescribeCharacterSetRequest $request
@@ -1944,6 +2062,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - DescribeColdDataBasicInfoRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeColdDataBasicInfoResponse
      *
      * @param DescribeColdDataBasicInfoRequest $request
@@ -1955,19 +2074,19 @@ class Polardbx extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeColdDataBasicInfo',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeColdDataBasicInfo',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeColdDataBasicInfoResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1980,6 +2099,7 @@ class Polardbx extends OpenApiClient
      * 冷存储基础信息.
      *
      * @param request - DescribeColdDataBasicInfoRequest
+     *
      * @returns DescribeColdDataBasicInfoResponse
      *
      * @param DescribeColdDataBasicInfoRequest $request
@@ -1996,6 +2116,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeDBInstanceAttributeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstanceAttributeResponse
      *
      * @param DescribeDBInstanceAttributeRequest $request
@@ -2023,15 +2144,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceAttribute',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceAttribute',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstanceAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2042,6 +2163,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeDBInstanceAttributeRequest
+     *
      * @returns DescribeDBInstanceAttributeResponse
      *
      * @param DescribeDBInstanceAttributeRequest $request
@@ -2058,6 +2180,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeDBInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstanceConfigResponse
      *
      * @param DescribeDBInstanceConfigRequest $request
@@ -2085,15 +2208,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceConfig',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceConfig',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2104,6 +2227,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeDBInstanceConfigRequest
+     *
      * @returns DescribeDBInstanceConfigResponse
      *
      * @param DescribeDBInstanceConfigRequest $request
@@ -2120,6 +2244,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeDBInstanceHARequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstanceHAResponse
      *
      * @param DescribeDBInstanceHARequest $request
@@ -2143,15 +2268,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceHA',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceHA',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2162,6 +2287,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeDBInstanceHARequest
+     *
      * @returns DescribeDBInstanceHAResponse
      *
      * @param DescribeDBInstanceHARequest $request
@@ -2178,6 +2304,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeDBInstanceSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstanceSSLResponse
      *
      * @param DescribeDBInstanceSSLRequest $request
@@ -2201,15 +2328,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceSSL',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceSSL',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2220,6 +2347,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeDBInstanceSSLRequest
+     *
      * @returns DescribeDBInstanceSSLResponse
      *
      * @param DescribeDBInstanceSSLRequest $request
@@ -2236,6 +2364,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeDBInstanceTDERequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstanceTDEResponse
      *
      * @param DescribeDBInstanceTDERequest $request
@@ -2259,15 +2388,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceTDE',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceTDE',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2278,6 +2407,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeDBInstanceTDERequest
+     *
      * @returns DescribeDBInstanceTDEResponse
      *
      * @param DescribeDBInstanceTDERequest $request
@@ -2294,6 +2424,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeDBInstanceTopologyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstanceTopologyResponse
      *
      * @param DescribeDBInstanceTopologyRequest $request
@@ -2329,15 +2460,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceTopology',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceTopology',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstanceTopologyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2348,6 +2479,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeDBInstanceTopologyRequest
+     *
      * @returns DescribeDBInstanceTopologyResponse
      *
      * @param DescribeDBInstanceTopologyRequest $request
@@ -2366,6 +2498,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - DescribeDBInstanceViaEndpointRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstanceViaEndpointResponse
      *
      * @param DescribeDBInstanceViaEndpointRequest $request
@@ -2389,15 +2522,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstanceViaEndpoint',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstanceViaEndpoint',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstanceViaEndpointResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2410,6 +2543,7 @@ class Polardbx extends OpenApiClient
      * 通过Endpoint查询实例.
      *
      * @param request - DescribeDBInstanceViaEndpointRequest
+     *
      * @returns DescribeDBInstanceViaEndpointResponse
      *
      * @param DescribeDBInstanceViaEndpointRequest $request
@@ -2426,6 +2560,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeDBInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBInstancesResponse
      *
      * @param DescribeDBInstancesRequest $request
@@ -2477,15 +2612,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBInstances',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBInstances',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2496,6 +2631,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeDBInstancesRequest
+     *
      * @returns DescribeDBInstancesResponse
      *
      * @param DescribeDBInstancesRequest $request
@@ -2510,8 +2646,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 性能监控数据接口.
+     *
      * @param request - DescribeDBNodePerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDBNodePerformanceResponse
      *
      * @param DescribeDBNodePerformanceRequest $request
@@ -2559,15 +2698,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDBNodePerformance',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDBNodePerformance',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDBNodePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2577,7 +2716,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 性能监控数据接口.
+     *
      * @param request - DescribeDBNodePerformanceRequest
+     *
      * @returns DescribeDBNodePerformanceResponse
      *
      * @param DescribeDBNodePerformanceRequest $request
@@ -2594,6 +2736,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeDbListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDbListResponse
      *
      * @param DescribeDbListRequest $request
@@ -2621,15 +2764,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDbList',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDbList',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDbListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2640,6 +2783,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeDbListRequest
+     *
      * @returns DescribeDbListResponse
      *
      * @param DescribeDbListRequest $request
@@ -2656,6 +2800,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeDistributeTableListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeDistributeTableListResponse
      *
      * @param DescribeDistributeTableListRequest $request
@@ -2683,15 +2828,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeDistributeTableList',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeDistributeTableList',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeDistributeTableListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2702,6 +2847,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeDistributeTableListRequest
+     *
      * @returns DescribeDistributeTableListResponse
      *
      * @param DescribeDistributeTableListRequest $request
@@ -2720,6 +2866,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - DescribeEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeEventsResponse
      *
      * @param DescribeEventsRequest $request
@@ -2731,19 +2878,19 @@ class Polardbx extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeEvents',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeEvents',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeEventsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2756,6 +2903,7 @@ class Polardbx extends OpenApiClient
      * 历史事件.
      *
      * @param request - DescribeEventsRequest
+     *
      * @returns DescribeEventsResponse
      *
      * @param DescribeEventsRequest $request
@@ -2774,6 +2922,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - DescribeGdnInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeGdnInstancesResponse
      *
      * @param DescribeGdnInstancesRequest $request
@@ -2813,15 +2962,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeGdnInstances',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeGdnInstances',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeGdnInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2834,6 +2983,7 @@ class Polardbx extends OpenApiClient
      * 获取GDN实例列表.
      *
      * @param request - DescribeGdnInstancesRequest
+     *
      * @returns DescribeGdnInstancesResponse
      *
      * @param DescribeGdnInstancesRequest $request
@@ -2852,6 +3002,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - DescribeOpenBackupSetRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeOpenBackupSetResponse
      *
      * @param DescribeOpenBackupSetRequest $request
@@ -2879,15 +3030,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeOpenBackupSet',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeOpenBackupSet',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeOpenBackupSetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2900,6 +3051,7 @@ class Polardbx extends OpenApiClient
      * 开放商业备份集.
      *
      * @param request - DescribeOpenBackupSetRequest
+     *
      * @returns DescribeOpenBackupSetResponse
      *
      * @param DescribeOpenBackupSetRequest $request
@@ -2916,6 +3068,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeParameterTemplatesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeParameterTemplatesResponse
      *
      * @param DescribeParameterTemplatesRequest $request
@@ -2947,15 +3100,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeParameterTemplates',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeParameterTemplates',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeParameterTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2966,6 +3119,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeParameterTemplatesRequest
+     *
      * @returns DescribeParameterTemplatesResponse
      *
      * @param DescribeParameterTemplatesRequest $request
@@ -2982,6 +3136,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeParametersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeParametersResponse
      *
      * @param DescribeParametersRequest $request
@@ -3009,15 +3164,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeParameters',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeParameters',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeParametersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3028,6 +3183,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeParametersRequest
+     *
      * @returns DescribeParametersResponse
      *
      * @param DescribeParametersRequest $request
@@ -3044,6 +3200,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeRegionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeRegionsResponse
      *
      * @param RuntimeOptions $runtime
@@ -3052,17 +3209,17 @@ class Polardbx extends OpenApiClient
      */
     public function describeRegionsWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DescribeRegions',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeRegions',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3086,6 +3243,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeScaleOutMigrateTaskListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeScaleOutMigrateTaskListResponse
      *
      * @param DescribeScaleOutMigrateTaskListRequest $request
@@ -3125,15 +3283,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeScaleOutMigrateTaskList',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeScaleOutMigrateTaskList',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeScaleOutMigrateTaskListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3144,6 +3302,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeScaleOutMigrateTaskListRequest
+     *
      * @returns DescribeScaleOutMigrateTaskListResponse
      *
      * @param DescribeScaleOutMigrateTaskListRequest $request
@@ -3160,6 +3319,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeSecurityIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSecurityIpsResponse
      *
      * @param DescribeSecurityIpsRequest $request
@@ -3183,15 +3343,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSecurityIps',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSecurityIps',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3202,6 +3362,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeSecurityIpsRequest
+     *
      * @returns DescribeSecurityIpsResponse
      *
      * @param DescribeSecurityIpsRequest $request
@@ -3220,6 +3381,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - DescribeSlowLogRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeSlowLogRecordsResponse
      *
      * @param DescribeSlowLogRecordsRequest $request
@@ -3271,15 +3433,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeSlowLogRecords',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeSlowLogRecords',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3292,6 +3454,7 @@ class Polardbx extends OpenApiClient
      * 慢SQL明细.
      *
      * @param request - DescribeSlowLogRecordsRequest
+     *
      * @returns DescribeSlowLogRecordsResponse
      *
      * @param DescribeSlowLogRecordsRequest $request
@@ -3310,6 +3473,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - DescribeTagsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTagsResponse
      *
      * @param DescribeTagsRequest $request
@@ -3337,15 +3501,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTags',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTags',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTagsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3358,6 +3522,7 @@ class Polardbx extends OpenApiClient
      * 标签列表查询.
      *
      * @param request - DescribeTagsRequest
+     *
      * @returns DescribeTagsResponse
      *
      * @param DescribeTagsRequest $request
@@ -3374,6 +3539,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeTasksResponse
      *
      * @param DescribeTasksRequest $request
@@ -3429,15 +3595,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeTasks',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeTasks',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3448,6 +3614,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeTasksRequest
+     *
      * @returns DescribeTasksResponse
      *
      * @param DescribeTasksRequest $request
@@ -3464,6 +3631,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DescribeUserEncryptionKeyListRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DescribeUserEncryptionKeyListResponse
      *
      * @param DescribeUserEncryptionKeyListRequest $request
@@ -3487,15 +3655,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeUserEncryptionKeyList',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DescribeUserEncryptionKeyList',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DescribeUserEncryptionKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3506,6 +3674,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DescribeUserEncryptionKeyListRequest
+     *
      * @returns DescribeUserEncryptionKeyListResponse
      *
      * @param DescribeUserEncryptionKeyListRequest $request
@@ -3522,6 +3691,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - DisableRightsSeparationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableRightsSeparationResponse
      *
      * @param DisableRightsSeparationRequest $request
@@ -3553,15 +3723,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DisableRightsSeparation',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableRightsSeparation',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableRightsSeparationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3572,6 +3742,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - DisableRightsSeparationRequest
+     *
      * @returns DisableRightsSeparationResponse
      *
      * @param DisableRightsSeparationRequest $request
@@ -3590,6 +3761,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - EnableRightsSeparationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableRightsSeparationResponse
      *
      * @param EnableRightsSeparationRequest $request
@@ -3637,15 +3809,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'EnableRightsSeparation',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableRightsSeparation',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableRightsSeparationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3658,6 +3830,7 @@ class Polardbx extends OpenApiClient
      * 开启三权分立.
      *
      * @param request - EnableRightsSeparationRequest
+     *
      * @returns EnableRightsSeparationResponse
      *
      * @param EnableRightsSeparationRequest $request
@@ -3676,6 +3849,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -3711,15 +3885,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagResources',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagResources',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3732,6 +3906,7 @@ class Polardbx extends OpenApiClient
      * 查标签接口.
      *
      * @param request - ListTagResourcesRequest
+     *
      * @returns ListTagResourcesResponse
      *
      * @param ListTagResourcesRequest $request
@@ -3748,6 +3923,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - ModifyAccountDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAccountDescriptionResponse
      *
      * @param ModifyAccountDescriptionRequest $request
@@ -3779,15 +3955,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAccountDescription',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAccountDescription',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyAccountDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3798,6 +3974,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - ModifyAccountDescriptionRequest
+     *
      * @returns ModifyAccountDescriptionResponse
      *
      * @param ModifyAccountDescriptionRequest $request
@@ -3814,6 +3991,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - ModifyAccountPrivilegeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyAccountPrivilegeResponse
      *
      * @param ModifyAccountPrivilegeRequest $request
@@ -3857,15 +4035,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyAccountPrivilege',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyAccountPrivilege',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyAccountPrivilegeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3876,6 +4054,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - ModifyAccountPrivilegeRequest
+     *
      * @returns ModifyAccountPrivilegeResponse
      *
      * @param ModifyAccountPrivilegeRequest $request
@@ -3894,6 +4073,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - ModifyActiveOperationMaintainConfRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyActiveOperationMaintainConfResponse
      *
      * @param ModifyActiveOperationMaintainConfRequest $request
@@ -3905,19 +4085,19 @@ class Polardbx extends OpenApiClient
     {
         $request->validate();
         $query = Utils::query($request->toMap());
-        $req   = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyActiveOperationMaintainConf',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyActiveOperationMaintainConf',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyActiveOperationMaintainConfResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3930,6 +4110,7 @@ class Polardbx extends OpenApiClient
      * 修改全局运维窗口信息.
      *
      * @param request - ModifyActiveOperationMaintainConfRequest
+     *
      * @returns ModifyActiveOperationMaintainConfResponse
      *
      * @param ModifyActiveOperationMaintainConfRequest $request
@@ -3948,6 +4129,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - ModifyActiveOperationTasksRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyActiveOperationTasksResponse
      *
      * @param ModifyActiveOperationTasksRequest $request
@@ -3979,15 +4161,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyActiveOperationTasks',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyActiveOperationTasks',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4000,6 +4182,7 @@ class Polardbx extends OpenApiClient
      * 修改主动运维任务
      *
      * @param request - ModifyActiveOperationTasksRequest
+     *
      * @returns ModifyActiveOperationTasksResponse
      *
      * @param ModifyActiveOperationTasksRequest $request
@@ -4016,6 +4199,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - ModifyDBInstanceClassRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBInstanceClassResponse
      *
      * @param ModifyDBInstanceClassRequest $request
@@ -4075,15 +4259,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceClass',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceClass',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBInstanceClassResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4094,6 +4278,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - ModifyDBInstanceClassRequest
+     *
      * @returns ModifyDBInstanceClassResponse
      *
      * @param ModifyDBInstanceClassRequest $request
@@ -4112,6 +4297,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - ModifyDBInstanceConfigRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBInstanceConfigResponse
      *
      * @param ModifyDBInstanceConfigRequest $request
@@ -4143,15 +4329,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceConfig',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceConfig',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4164,6 +4350,7 @@ class Polardbx extends OpenApiClient
      * 修改实例配置.
      *
      * @param request - ModifyDBInstanceConfigRequest
+     *
      * @returns ModifyDBInstanceConfigResponse
      *
      * @param ModifyDBInstanceConfigRequest $request
@@ -4182,6 +4369,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - ModifyDBInstanceConnectionStringRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBInstanceConnectionStringResponse
      *
      * @param ModifyDBInstanceConnectionStringRequest $request
@@ -4217,15 +4405,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceConnectionString',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceConnectionString',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBInstanceConnectionStringResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4238,6 +4426,7 @@ class Polardbx extends OpenApiClient
      * 修改实例链接串.
      *
      * @param request - ModifyDBInstanceConnectionStringRequest
+     *
      * @returns ModifyDBInstanceConnectionStringResponse
      *
      * @param ModifyDBInstanceConnectionStringRequest $request
@@ -4254,6 +4443,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - ModifyDBInstanceDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDBInstanceDescriptionResponse
      *
      * @param ModifyDBInstanceDescriptionRequest $request
@@ -4281,15 +4471,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceDescription',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDBInstanceDescription',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDBInstanceDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4300,6 +4490,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - ModifyDBInstanceDescriptionRequest
+     *
      * @returns ModifyDBInstanceDescriptionResponse
      *
      * @param ModifyDBInstanceDescriptionRequest $request
@@ -4316,6 +4507,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - ModifyDatabaseDescriptionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyDatabaseDescriptionResponse
      *
      * @param ModifyDatabaseDescriptionRequest $request
@@ -4347,15 +4539,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDatabaseDescription',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyDatabaseDescription',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyDatabaseDescriptionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4366,6 +4558,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - ModifyDatabaseDescriptionRequest
+     *
      * @returns ModifyDatabaseDescriptionResponse
      *
      * @param ModifyDatabaseDescriptionRequest $request
@@ -4382,6 +4575,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - ModifyParameterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifyParameterResponse
      *
      * @param ModifyParameterRequest $request
@@ -4421,15 +4615,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyParameter',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifyParameter',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifyParameterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4440,6 +4634,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - ModifyParameterRequest
+     *
      * @returns ModifyParameterResponse
      *
      * @param ModifyParameterRequest $request
@@ -4456,6 +4651,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - ModifySecurityIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ModifySecurityIpsResponse
      *
      * @param ModifySecurityIpsRequest $request
@@ -4491,15 +4687,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifySecurityIps',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ModifySecurityIps',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ModifySecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4510,6 +4706,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - ModifySecurityIpsRequest
+     *
      * @returns ModifySecurityIpsResponse
      *
      * @param ModifySecurityIpsRequest $request
@@ -4528,6 +4725,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - ReleaseColdDataVolumeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleaseColdDataVolumeResponse
      *
      * @param ReleaseColdDataVolumeRequest $request
@@ -4551,15 +4749,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseColdDataVolume',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseColdDataVolume',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleaseColdDataVolumeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4572,6 +4770,7 @@ class Polardbx extends OpenApiClient
      * 关闭冷存储.
      *
      * @param request - ReleaseColdDataVolumeRequest
+     *
      * @returns ReleaseColdDataVolumeResponse
      *
      * @param ReleaseColdDataVolumeRequest $request
@@ -4588,6 +4787,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - ReleaseInstancePublicConnectionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ReleaseInstancePublicConnectionResponse
      *
      * @param ReleaseInstancePublicConnectionRequest $request
@@ -4615,15 +4815,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ReleaseInstancePublicConnection',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ReleaseInstancePublicConnection',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ReleaseInstancePublicConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4634,6 +4834,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - ReleaseInstancePublicConnectionRequest
+     *
      * @returns ReleaseInstancePublicConnectionResponse
      *
      * @param ReleaseInstancePublicConnectionRequest $request
@@ -4650,6 +4851,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - ResetAccountPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ResetAccountPasswordResponse
      *
      * @param ResetAccountPasswordRequest $request
@@ -4689,15 +4891,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ResetAccountPassword',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ResetAccountPassword',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ResetAccountPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4708,6 +4910,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - ResetAccountPasswordRequest
+     *
      * @returns ResetAccountPasswordResponse
      *
      * @param ResetAccountPasswordRequest $request
@@ -4724,6 +4927,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - RestartDBInstanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RestartDBInstanceResponse
      *
      * @param RestartDBInstanceRequest $request
@@ -4747,15 +4951,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'RestartDBInstance',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'RestartDBInstance',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RestartDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4766,6 +4970,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - RestartDBInstanceRequest
+     *
      * @returns RestartDBInstanceResponse
      *
      * @param RestartDBInstanceRequest $request
@@ -4782,6 +4987,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - SwitchDBInstanceHARequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SwitchDBInstanceHAResponse
      *
      * @param SwitchDBInstanceHARequest $request
@@ -4821,15 +5027,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchDBInstanceHA',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchDBInstanceHA',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SwitchDBInstanceHAResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4840,6 +5046,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - SwitchDBInstanceHARequest
+     *
      * @returns SwitchDBInstanceHAResponse
      *
      * @param SwitchDBInstanceHARequest $request
@@ -4858,6 +5065,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - SwitchGdnMemberRoleRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SwitchGdnMemberRoleResponse
      *
      * @param SwitchGdnMemberRoleRequest $request
@@ -4889,15 +5097,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SwitchGdnMemberRole',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SwitchGdnMemberRole',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SwitchGdnMemberRoleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4910,6 +5118,7 @@ class Polardbx extends OpenApiClient
      * GDN主备切换.
      *
      * @param request - SwitchGdnMemberRoleRequest
+     *
      * @returns SwitchGdnMemberRoleResponse
      *
      * @param SwitchGdnMemberRoleRequest $request
@@ -4928,6 +5137,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -4959,15 +5169,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TagResources',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'TagResources',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4980,6 +5190,7 @@ class Polardbx extends OpenApiClient
      * 打标签接口.
      *
      * @param request - TagResourcesRequest
+     *
      * @returns TagResourcesResponse
      *
      * @param TagResourcesRequest $request
@@ -4998,6 +5209,7 @@ class Polardbx extends OpenApiClient
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -5033,15 +5245,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UntagResources',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UntagResources',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5054,6 +5266,7 @@ class Polardbx extends OpenApiClient
      * 删标签接口.
      *
      * @param request - UntagResourcesRequest
+     *
      * @returns UntagResourcesResponse
      *
      * @param UntagResourcesRequest $request
@@ -5070,6 +5283,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - UpdateBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateBackupPolicyResponse
      *
      * @param UpdateBackupPolicyRequest $request
@@ -5165,15 +5379,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateBackupPolicy',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateBackupPolicy',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateBackupPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5184,6 +5398,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - UpdateBackupPolicyRequest
+     *
      * @returns UpdateBackupPolicyResponse
      *
      * @param UpdateBackupPolicyRequest $request
@@ -5200,6 +5415,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - UpdateDBInstanceSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDBInstanceSSLResponse
      *
      * @param UpdateDBInstanceSSLRequest $request
@@ -5231,15 +5447,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDBInstanceSSL',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDBInstanceSSL',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDBInstanceSSLResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5250,6 +5466,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - UpdateDBInstanceSSLRequest
+     *
      * @returns UpdateDBInstanceSSLResponse
      *
      * @param UpdateDBInstanceSSLRequest $request
@@ -5266,6 +5483,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - UpdateDBInstanceTDERequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDBInstanceTDEResponse
      *
      * @param UpdateDBInstanceTDERequest $request
@@ -5301,15 +5519,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDBInstanceTDE',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateDBInstanceTDE',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDBInstanceTDEResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5320,6 +5538,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - UpdateDBInstanceTDERequest
+     *
      * @returns UpdateDBInstanceTDEResponse
      *
      * @param UpdateDBInstanceTDERequest $request
@@ -5334,8 +5553,11 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 扩缩容实例节点数.
+     *
      * @param request - UpdatePolarDBXInstanceNodeRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdatePolarDBXInstanceNodeResponse
      *
      * @param UpdatePolarDBXInstanceNodeRequest $request
@@ -5387,15 +5609,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdatePolarDBXInstanceNode',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdatePolarDBXInstanceNode',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdatePolarDBXInstanceNodeResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5405,7 +5627,10 @@ class Polardbx extends OpenApiClient
     }
 
     /**
+     * 扩缩容实例节点数.
+     *
      * @param request - UpdatePolarDBXInstanceNodeRequest
+     *
      * @returns UpdatePolarDBXInstanceNodeResponse
      *
      * @param UpdatePolarDBXInstanceNodeRequest $request
@@ -5422,6 +5647,7 @@ class Polardbx extends OpenApiClient
     /**
      * @param request - UpgradeDBInstanceKernelVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpgradeDBInstanceKernelVersionResponse
      *
      * @param UpgradeDBInstanceKernelVersionRequest $request
@@ -5453,15 +5679,15 @@ class Polardbx extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpgradeDBInstanceKernelVersion',
-            'version'     => '2020-02-02',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpgradeDBInstanceKernelVersion',
+            'version' => '2020-02-02',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpgradeDBInstanceKernelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5472,6 +5698,7 @@ class Polardbx extends OpenApiClient
 
     /**
      * @param request - UpgradeDBInstanceKernelVersionRequest
+     *
      * @returns UpgradeDBInstanceKernelVersionResponse
      *
      * @param UpgradeDBInstanceKernelVersionRequest $request

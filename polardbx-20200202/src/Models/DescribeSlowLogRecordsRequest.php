@@ -12,48 +12,56 @@ class DescribeSlowLogRecordsRequest extends Model
      * @var string
      */
     public $characterType;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $DBNodeIds;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $page;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'characterType'  => 'CharacterType',
+        'characterType' => 'CharacterType',
         'DBInstanceName' => 'DBInstanceName',
-        'DBName'         => 'DBName',
-        'DBNodeIds'      => 'DBNodeIds',
-        'endTime'        => 'EndTime',
-        'page'           => 'Page',
-        'pageSize'       => 'PageSize',
-        'regionId'       => 'RegionId',
-        'startTime'      => 'StartTime',
+        'DBName' => 'DBName',
+        'DBNodeIds' => 'DBNodeIds',
+        'endTime' => 'EndTime',
+        'page' => 'Page',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

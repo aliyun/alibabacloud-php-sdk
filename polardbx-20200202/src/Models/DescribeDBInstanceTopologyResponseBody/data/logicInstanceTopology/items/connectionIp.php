@@ -12,18 +12,20 @@ class connectionIp extends Model
      * @var string
      */
     public $connectionString;
+
     /**
      * @var int
      */
     public $DBInstanceNetType;
+
     /**
      * @var string
      */
     public $port;
     protected $_name = [
-        'connectionString'  => 'ConnectionString',
+        'connectionString' => 'ConnectionString',
         'DBInstanceNetType' => 'DBInstanceNetType',
-        'port'              => 'Port',
+        'port' => 'Port',
     ];
 
     public function validate()

@@ -13,13 +13,14 @@ class DescribeDBInstanceViaEndpointResponseBody extends Model
      * @var DBInstance
      */
     public $DBInstance;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBInstance' => 'DBInstance',
-        'requestId'  => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

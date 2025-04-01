@@ -13,13 +13,14 @@ class data extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var groupItems[]
      */
     public $groupItems;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'groupItems'     => 'GroupItems',
+        'groupItems' => 'GroupItems',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class data extends Model
         if (null !== $this->groupItems) {
             if (\is_array($this->groupItems)) {
                 $res['GroupItems'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->groupItems as $item1) {
                     $res['GroupItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class data extends Model
         if (isset($map['GroupItems'])) {
             if (!empty($map['GroupItems'])) {
                 $model->groupItems = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['GroupItems'] as $item1) {
                     $model->groupItems[$n1++] = groupItems::fromMap($item1);
                 }

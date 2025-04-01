@@ -12,57 +12,67 @@ class logList extends Model
      * @var string
      */
     public $beginTime;
+
     /**
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $downloadLink;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var int
      */
     public $logSize;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var int
      */
     public $purgeStatus;
+
     /**
      * @var string
      */
     public $uploadHost;
+
     /**
      * @var int
      */
     public $uploadStatus;
     protected $_name = [
-        'beginTime'    => 'BeginTime',
-        'createdTime'  => 'CreatedTime',
+        'beginTime' => 'BeginTime',
+        'createdTime' => 'CreatedTime',
         'downloadLink' => 'DownloadLink',
-        'endTime'      => 'EndTime',
-        'fileName'     => 'FileName',
-        'id'           => 'Id',
-        'logSize'      => 'LogSize',
+        'endTime' => 'EndTime',
+        'fileName' => 'FileName',
+        'id' => 'Id',
+        'logSize' => 'LogSize',
         'modifiedTime' => 'ModifiedTime',
-        'purgeStatus'  => 'PurgeStatus',
-        'uploadHost'   => 'UploadHost',
+        'purgeStatus' => 'PurgeStatus',
+        'uploadHost' => 'UploadHost',
         'uploadStatus' => 'UploadStatus',
     ];
 

@@ -12,23 +12,26 @@ class ModifyDatabaseDescriptionRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $dbDescription;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'dbDescription'  => 'DbDescription',
-        'dbName'         => 'DbName',
-        'regionId'       => 'RegionId',
+        'dbDescription' => 'DbDescription',
+        'dbName' => 'DbName',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

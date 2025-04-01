@@ -12,18 +12,20 @@ class DescribeParametersRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $paramLevel;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'DBInstanceId' => 'DBInstanceId',
-        'paramLevel'   => 'ParamLevel',
-        'regionId'     => 'RegionId',
+        'paramLevel' => 'ParamLevel',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

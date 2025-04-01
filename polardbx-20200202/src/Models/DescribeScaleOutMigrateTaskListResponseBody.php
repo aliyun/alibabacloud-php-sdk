@@ -12,12 +12,13 @@ class DescribeScaleOutMigrateTaskListResponseBody extends Model
      * @var int
      */
     public $progress;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'progress'  => 'Progress',
+        'progress' => 'Progress',
         'requestId' => 'RequestId',
     ];
 

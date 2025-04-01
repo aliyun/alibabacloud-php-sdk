@@ -12,13 +12,14 @@ class performanceItemValue extends Model
      * @var int
      */
     public $timestamp;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
         'timestamp' => 'Timestamp',
-        'value'     => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

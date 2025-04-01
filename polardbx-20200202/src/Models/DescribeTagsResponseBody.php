@@ -13,13 +13,14 @@ class DescribeTagsResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var tagInfos[]
      */
     public $tagInfos;
     protected $_name = [
         'requestId' => 'RequestId',
-        'tagInfos'  => 'TagInfos',
+        'tagInfos' => 'TagInfos',
     ];
 
     public function validate()
@@ -40,7 +41,7 @@ class DescribeTagsResponseBody extends Model
         if (null !== $this->tagInfos) {
             if (\is_array($this->tagInfos)) {
                 $res['TagInfos'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->tagInfos as $item1) {
                     $res['TagInfos'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class DescribeTagsResponseBody extends Model
         if (isset($map['TagInfos'])) {
             if (!empty($map['TagInfos'])) {
                 $model->tagInfos = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['TagInfos'] as $item1) {
                     $model->tagInfos[$n1++] = tagInfos::fromMap($item1);
                 }

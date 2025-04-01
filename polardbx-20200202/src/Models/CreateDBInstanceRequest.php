@@ -12,143 +12,170 @@ class CreateDBInstanceRequest extends Model
      * @var bool
      */
     public $autoRenew;
+
     /**
-     * @var string
+     * @var int
      */
     public $CNNodeCount;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $cnClass;
+
     /**
      * @var string
      */
     public $DBNodeClass;
+
     /**
      * @var int
      */
     public $DBNodeCount;
+
     /**
-     * @var string
+     * @var int
      */
     public $DNNodeCount;
+
     /**
      * @var string
      */
     public $dnClass;
+
     /**
      * @var string
      */
     public $dnStorageSpace;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string[]
      */
     public $extraParams;
+
     /**
      * @var bool
      */
     public $isColumnarReadDBInstance;
+
     /**
      * @var bool
      */
     public $isReadDBInstance;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $period;
+
     /**
      * @var string
      */
     public $primaryDBInstanceName;
+
     /**
      * @var string
      */
     public $primaryZone;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $secondaryZone;
+
     /**
      * @var string
      */
     public $series;
+
     /**
      * @var string
      */
     public $tertiaryZone;
+
     /**
      * @var string
      */
     public $topologyType;
+
     /**
      * @var int
      */
     public $usedTime;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'autoRenew'                => 'AutoRenew',
-        'CNNodeCount'              => 'CNNodeCount',
-        'clientToken'              => 'ClientToken',
-        'cnClass'                  => 'CnClass',
-        'DBNodeClass'              => 'DBNodeClass',
-        'DBNodeCount'              => 'DBNodeCount',
-        'DNNodeCount'              => 'DNNodeCount',
-        'dnClass'                  => 'DnClass',
-        'dnStorageSpace'           => 'DnStorageSpace',
-        'engineVersion'            => 'EngineVersion',
-        'extraParams'              => 'ExtraParams',
+        'autoRenew' => 'AutoRenew',
+        'CNNodeCount' => 'CNNodeCount',
+        'clientToken' => 'ClientToken',
+        'cnClass' => 'CnClass',
+        'DBNodeClass' => 'DBNodeClass',
+        'DBNodeCount' => 'DBNodeCount',
+        'DNNodeCount' => 'DNNodeCount',
+        'dnClass' => 'DnClass',
+        'dnStorageSpace' => 'DnStorageSpace',
+        'engineVersion' => 'EngineVersion',
+        'extraParams' => 'ExtraParams',
         'isColumnarReadDBInstance' => 'IsColumnarReadDBInstance',
-        'isReadDBInstance'         => 'IsReadDBInstance',
-        'networkType'              => 'NetworkType',
-        'payType'                  => 'PayType',
-        'period'                   => 'Period',
-        'primaryDBInstanceName'    => 'PrimaryDBInstanceName',
-        'primaryZone'              => 'PrimaryZone',
-        'regionId'                 => 'RegionId',
-        'resourceGroupId'          => 'ResourceGroupId',
-        'secondaryZone'            => 'SecondaryZone',
-        'series'                   => 'Series',
-        'tertiaryZone'             => 'TertiaryZone',
-        'topologyType'             => 'TopologyType',
-        'usedTime'                 => 'UsedTime',
-        'VPCId'                    => 'VPCId',
-        'vSwitchId'                => 'VSwitchId',
-        'zoneId'                   => 'ZoneId',
+        'isReadDBInstance' => 'IsReadDBInstance',
+        'networkType' => 'NetworkType',
+        'payType' => 'PayType',
+        'period' => 'Period',
+        'primaryDBInstanceName' => 'PrimaryDBInstanceName',
+        'primaryZone' => 'PrimaryZone',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'secondaryZone' => 'SecondaryZone',
+        'series' => 'Series',
+        'tertiaryZone' => 'TertiaryZone',
+        'topologyType' => 'TopologyType',
+        'usedTime' => 'UsedTime',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

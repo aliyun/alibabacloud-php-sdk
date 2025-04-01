@@ -12,17 +12,19 @@ class data extends Model
      * @var string
      */
     public $certCommonName;
+
     /**
      * @var bool
      */
     public $SSLEnabled;
+
     /**
      * @var string
      */
     public $SSLExpiredTime;
     protected $_name = [
         'certCommonName' => 'CertCommonName',
-        'SSLEnabled'     => 'SSLEnabled',
+        'SSLEnabled' => 'SSLEnabled',
         'SSLExpiredTime' => 'SSLExpiredTime',
     ];
 

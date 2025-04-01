@@ -16,278 +16,332 @@ class DBInstance extends Model
      * @var bool
      */
     public $canNotCreateColumnar;
+
     /**
      * @var string
      */
     public $cnNodeClassCode;
+
     /**
      * @var int
      */
     public $cnNodeCount;
+
     /**
      * @var string
      */
     public $columnarInstanceName;
+
     /**
      * @var string[]
      */
     public $columnarReadDBInstances;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var connAddrs[]
      */
     public $connAddrs;
+
     /**
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $DBInstanceType;
+
     /**
      * @var string
      */
     public $DBNodeClass;
+
     /**
      * @var int
      */
     public $DBNodeCount;
+
     /**
      * @var DBNodes[]
      */
     public $DBNodes;
+
     /**
      * @var string
      */
     public $DBType;
+
     /**
      * @var string
      */
     public $DBVersion;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var bool
      */
     public $differentDNSpec;
+
     /**
      * @var string
      */
     public $dnNodeClassCode;
+
     /**
      * @var int
      */
     public $dnNodeCount;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $expireDate;
+
     /**
      * @var string
      */
     public $expired;
+
     /**
      * @var string
      */
     public $gdnInstanceName;
+
     /**
      * @var gdnMemberList[]
      */
     public $gdnMemberList;
+
     /**
      * @var string
      */
     public $gdnRole;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var int
      */
     public $kindCode;
+
     /**
      * @var string[]
      */
     public $LTSVersions;
+
     /**
      * @var string
      */
     public $latestMinorVersion;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var string
      */
     public $maintainEndTime;
+
     /**
      * @var string
      */
     public $maintainStartTime;
+
     /**
      * @var string
      */
     public $minorVersion;
+
     /**
      * @var string
      */
     public $network;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $primaryInstanceId;
+
     /**
      * @var string
      */
     public $primaryZone;
+
     /**
      * @var string[]
      */
     public $readDBInstances;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var bool
      */
     public $rightsSeparationEnabled;
+
     /**
      * @var string
      */
     public $rightsSeparationStatus;
+
     /**
      * @var string
      */
     public $secondaryZone;
+
     /**
      * @var string
      */
     public $series;
+
     /**
      * @var string
      */
     public $specCategory;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $storageUsed;
+
     /**
      * @var tagSet[]
      */
     public $tagSet;
+
     /**
      * @var string
      */
     public $tertiaryZone;
+
     /**
      * @var string
      */
     public $topologyType;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'canNotCreateColumnar'    => 'CanNotCreateColumnar',
-        'cnNodeClassCode'         => 'CnNodeClassCode',
-        'cnNodeCount'             => 'CnNodeCount',
-        'columnarInstanceName'    => 'ColumnarInstanceName',
+        'canNotCreateColumnar' => 'CanNotCreateColumnar',
+        'cnNodeClassCode' => 'CnNodeClassCode',
+        'cnNodeCount' => 'CnNodeCount',
+        'columnarInstanceName' => 'ColumnarInstanceName',
         'columnarReadDBInstances' => 'ColumnarReadDBInstances',
-        'commodityCode'           => 'CommodityCode',
-        'connAddrs'               => 'ConnAddrs',
-        'connectionString'        => 'ConnectionString',
-        'createTime'              => 'CreateTime',
-        'DBInstanceType'          => 'DBInstanceType',
-        'DBNodeClass'             => 'DBNodeClass',
-        'DBNodeCount'             => 'DBNodeCount',
-        'DBNodes'                 => 'DBNodes',
-        'DBType'                  => 'DBType',
-        'DBVersion'               => 'DBVersion',
-        'description'             => 'Description',
-        'differentDNSpec'         => 'DifferentDNSpec',
-        'dnNodeClassCode'         => 'DnNodeClassCode',
-        'dnNodeCount'             => 'DnNodeCount',
-        'engine'                  => 'Engine',
-        'expireDate'              => 'ExpireDate',
-        'expired'                 => 'Expired',
-        'gdnInstanceName'         => 'GdnInstanceName',
-        'gdnMemberList'           => 'GdnMemberList',
-        'gdnRole'                 => 'GdnRole',
-        'id'                      => 'Id',
-        'kindCode'                => 'KindCode',
-        'LTSVersions'             => 'LTSVersions',
-        'latestMinorVersion'      => 'LatestMinorVersion',
-        'lockMode'                => 'LockMode',
-        'maintainEndTime'         => 'MaintainEndTime',
-        'maintainStartTime'       => 'MaintainStartTime',
-        'minorVersion'            => 'MinorVersion',
-        'network'                 => 'Network',
-        'payType'                 => 'PayType',
-        'port'                    => 'Port',
-        'primaryInstanceId'       => 'PrimaryInstanceId',
-        'primaryZone'             => 'PrimaryZone',
-        'readDBInstances'         => 'ReadDBInstances',
-        'regionId'                => 'RegionId',
-        'resourceGroupId'         => 'ResourceGroupId',
+        'commodityCode' => 'CommodityCode',
+        'connAddrs' => 'ConnAddrs',
+        'connectionString' => 'ConnectionString',
+        'createTime' => 'CreateTime',
+        'DBInstanceType' => 'DBInstanceType',
+        'DBNodeClass' => 'DBNodeClass',
+        'DBNodeCount' => 'DBNodeCount',
+        'DBNodes' => 'DBNodes',
+        'DBType' => 'DBType',
+        'DBVersion' => 'DBVersion',
+        'description' => 'Description',
+        'differentDNSpec' => 'DifferentDNSpec',
+        'dnNodeClassCode' => 'DnNodeClassCode',
+        'dnNodeCount' => 'DnNodeCount',
+        'engine' => 'Engine',
+        'expireDate' => 'ExpireDate',
+        'expired' => 'Expired',
+        'gdnInstanceName' => 'GdnInstanceName',
+        'gdnMemberList' => 'GdnMemberList',
+        'gdnRole' => 'GdnRole',
+        'id' => 'Id',
+        'kindCode' => 'KindCode',
+        'LTSVersions' => 'LTSVersions',
+        'latestMinorVersion' => 'LatestMinorVersion',
+        'lockMode' => 'LockMode',
+        'maintainEndTime' => 'MaintainEndTime',
+        'maintainStartTime' => 'MaintainStartTime',
+        'minorVersion' => 'MinorVersion',
+        'network' => 'Network',
+        'payType' => 'PayType',
+        'port' => 'Port',
+        'primaryInstanceId' => 'PrimaryInstanceId',
+        'primaryZone' => 'PrimaryZone',
+        'readDBInstances' => 'ReadDBInstances',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
         'rightsSeparationEnabled' => 'RightsSeparationEnabled',
-        'rightsSeparationStatus'  => 'RightsSeparationStatus',
-        'secondaryZone'           => 'SecondaryZone',
-        'series'                  => 'Series',
-        'specCategory'            => 'SpecCategory',
-        'status'                  => 'Status',
-        'storageUsed'             => 'StorageUsed',
-        'tagSet'                  => 'TagSet',
-        'tertiaryZone'            => 'TertiaryZone',
-        'topologyType'            => 'TopologyType',
-        'type'                    => 'Type',
-        'VPCId'                   => 'VPCId',
-        'vSwitchId'               => 'VSwitchId',
-        'zoneId'                  => 'ZoneId',
+        'rightsSeparationStatus' => 'RightsSeparationStatus',
+        'secondaryZone' => 'SecondaryZone',
+        'series' => 'Series',
+        'specCategory' => 'SpecCategory',
+        'status' => 'Status',
+        'storageUsed' => 'StorageUsed',
+        'tagSet' => 'TagSet',
+        'tertiaryZone' => 'TertiaryZone',
+        'topologyType' => 'TopologyType',
+        'type' => 'Type',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -338,7 +392,7 @@ class DBInstance extends Model
         if (null !== $this->columnarReadDBInstances) {
             if (\is_array($this->columnarReadDBInstances)) {
                 $res['ColumnarReadDBInstances'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->columnarReadDBInstances as $item1) {
                     $res['ColumnarReadDBInstances'][$n1++] = $item1;
                 }
@@ -352,7 +406,7 @@ class DBInstance extends Model
         if (null !== $this->connAddrs) {
             if (\is_array($this->connAddrs)) {
                 $res['ConnAddrs'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->connAddrs as $item1) {
                     $res['ConnAddrs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -382,7 +436,7 @@ class DBInstance extends Model
         if (null !== $this->DBNodes) {
             if (\is_array($this->DBNodes)) {
                 $res['DBNodes'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->DBNodes as $item1) {
                     $res['DBNodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -432,7 +486,7 @@ class DBInstance extends Model
         if (null !== $this->gdnMemberList) {
             if (\is_array($this->gdnMemberList)) {
                 $res['GdnMemberList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->gdnMemberList as $item1) {
                     $res['GdnMemberList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -454,7 +508,7 @@ class DBInstance extends Model
         if (null !== $this->LTSVersions) {
             if (\is_array($this->LTSVersions)) {
                 $res['LTSVersions'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->LTSVersions as $item1) {
                     $res['LTSVersions'][$n1++] = $item1;
                 }
@@ -504,7 +558,7 @@ class DBInstance extends Model
         if (null !== $this->readDBInstances) {
             if (\is_array($this->readDBInstances)) {
                 $res['ReadDBInstances'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->readDBInstances as $item1) {
                     $res['ReadDBInstances'][$n1++] = $item1;
                 }
@@ -550,7 +604,7 @@ class DBInstance extends Model
         if (null !== $this->tagSet) {
             if (\is_array($this->tagSet)) {
                 $res['TagSet'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tagSet as $item1) {
                     $res['TagSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -611,7 +665,7 @@ class DBInstance extends Model
         if (isset($map['ColumnarReadDBInstances'])) {
             if (!empty($map['ColumnarReadDBInstances'])) {
                 $model->columnarReadDBInstances = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['ColumnarReadDBInstances'] as $item1) {
                     $model->columnarReadDBInstances[$n1++] = $item1;
                 }
@@ -625,7 +679,7 @@ class DBInstance extends Model
         if (isset($map['ConnAddrs'])) {
             if (!empty($map['ConnAddrs'])) {
                 $model->connAddrs = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['ConnAddrs'] as $item1) {
                     $model->connAddrs[$n1++] = connAddrs::fromMap($item1);
                 }
@@ -655,7 +709,7 @@ class DBInstance extends Model
         if (isset($map['DBNodes'])) {
             if (!empty($map['DBNodes'])) {
                 $model->DBNodes = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['DBNodes'] as $item1) {
                     $model->DBNodes[$n1++] = DBNodes::fromMap($item1);
                 }
@@ -705,7 +759,7 @@ class DBInstance extends Model
         if (isset($map['GdnMemberList'])) {
             if (!empty($map['GdnMemberList'])) {
                 $model->gdnMemberList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['GdnMemberList'] as $item1) {
                     $model->gdnMemberList[$n1++] = gdnMemberList::fromMap($item1);
                 }
@@ -727,7 +781,7 @@ class DBInstance extends Model
         if (isset($map['LTSVersions'])) {
             if (!empty($map['LTSVersions'])) {
                 $model->LTSVersions = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['LTSVersions'] as $item1) {
                     $model->LTSVersions[$n1++] = $item1;
                 }
@@ -777,7 +831,7 @@ class DBInstance extends Model
         if (isset($map['ReadDBInstances'])) {
             if (!empty($map['ReadDBInstances'])) {
                 $model->readDBInstances = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ReadDBInstances'] as $item1) {
                     $model->readDBInstances[$n1++] = $item1;
                 }
@@ -823,7 +877,7 @@ class DBInstance extends Model
         if (isset($map['TagSet'])) {
             if (!empty($map['TagSet'])) {
                 $model->tagSet = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['TagSet'] as $item1) {
                     $model->tagSet[$n1++] = tagSet::fromMap($item1);
                 }

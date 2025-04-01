@@ -12,13 +12,14 @@ class azoneRoleList extends Model
      * @var string
      */
     public $azone;
+
     /**
      * @var string
      */
     public $role;
     protected $_name = [
         'azone' => 'Azone',
-        'role'  => 'Role',
+        'role' => 'Role',
     ];
 
     public function validate()

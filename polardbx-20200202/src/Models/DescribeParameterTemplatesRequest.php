@@ -12,23 +12,26 @@ class DescribeParameterTemplatesRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var string
      */
     public $paramLevel;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'DBInstanceId'  => 'DBInstanceId',
+        'DBInstanceId' => 'DBInstanceId',
         'engineVersion' => 'EngineVersion',
-        'paramLevel'    => 'ParamLevel',
-        'regionId'      => 'RegionId',
+        'paramLevel' => 'ParamLevel',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

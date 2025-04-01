@@ -12,27 +12,31 @@ class ModifySecurityIpsRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $modifyMode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityIPList;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'groupName'      => 'GroupName',
-        'modifyMode'     => 'ModifyMode',
-        'regionId'       => 'RegionId',
+        'groupName' => 'GroupName',
+        'modifyMode' => 'ModifyMode',
+        'regionId' => 'RegionId',
         'securityIPList' => 'SecurityIPList',
     ];
 

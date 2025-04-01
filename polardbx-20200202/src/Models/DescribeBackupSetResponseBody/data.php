@@ -13,43 +13,50 @@ class data extends Model
      * @var int
      */
     public $backupModel;
+
     /**
      * @var int
      */
     public $backupSetId;
+
     /**
      * @var int
      */
     public $backupSetSize;
+
     /**
      * @var int
      */
     public $backupType;
+
     /**
      * @var int
      */
     public $beginTime;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var OSSList[]
      */
     public $OSSList;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'backupModel'   => 'BackupModel',
-        'backupSetId'   => 'BackupSetId',
+        'backupModel' => 'BackupModel',
+        'backupSetId' => 'BackupSetId',
         'backupSetSize' => 'BackupSetSize',
-        'backupType'    => 'BackupType',
-        'beginTime'     => 'BeginTime',
-        'endTime'       => 'EndTime',
-        'OSSList'       => 'OSSList',
-        'status'        => 'Status',
+        'backupType' => 'BackupType',
+        'beginTime' => 'BeginTime',
+        'endTime' => 'EndTime',
+        'OSSList' => 'OSSList',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -90,7 +97,7 @@ class data extends Model
         if (null !== $this->OSSList) {
             if (\is_array($this->OSSList)) {
                 $res['OSSList'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->OSSList as $item1) {
                     $res['OSSList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -139,7 +146,7 @@ class data extends Model
         if (isset($map['OSSList'])) {
             if (!empty($map['OSSList'])) {
                 $model->OSSList = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['OSSList'] as $item1) {
                     $model->OSSList[$n1++] = OSSList::fromMap($item1);
                 }

@@ -13,23 +13,26 @@ class data extends Model
      * @var gdnInstanceList[]
      */
     public $gdnInstanceList;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $totalNumber;
     protected $_name = [
         'gdnInstanceList' => 'GdnInstanceList',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'totalNumber'     => 'TotalNumber',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'totalNumber' => 'TotalNumber',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class data extends Model
         if (null !== $this->gdnInstanceList) {
             if (\is_array($this->gdnInstanceList)) {
                 $res['GdnInstanceList'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->gdnInstanceList as $item1) {
                     $res['GdnInstanceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class data extends Model
         if (isset($map['GdnInstanceList'])) {
             if (!empty($map['GdnInstanceList'])) {
                 $model->gdnInstanceList = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['GdnInstanceList'] as $item1) {
                     $model->gdnInstanceList[$n1++] = gdnInstanceList::fromMap($item1);
                 }

@@ -12,43 +12,50 @@ class AllocateInstancePublicConnectionRequest extends Model
      * @var string
      */
     public $connectionStringPrefix;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $ownerAccount;
+
     /**
      * @var int
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $port;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceOwnerAccount;
+
     /**
      * @var int
      */
     public $resourceOwnerId;
     protected $_name = [
         'connectionStringPrefix' => 'ConnectionStringPrefix',
-        'DBInstanceName'         => 'DBInstanceName',
-        'ownerAccount'           => 'OwnerAccount',
-        'ownerId'                => 'OwnerId',
-        'port'                   => 'Port',
-        'regionId'               => 'RegionId',
-        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
-        'resourceOwnerId'        => 'ResourceOwnerId',
+        'DBInstanceName' => 'DBInstanceName',
+        'ownerAccount' => 'OwnerAccount',
+        'ownerId' => 'OwnerId',
+        'port' => 'Port',
+        'regionId' => 'RegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()

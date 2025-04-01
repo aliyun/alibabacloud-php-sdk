@@ -13,23 +13,26 @@ class DescribeGdnInstancesResponseBody extends Model
      * @var data
      */
     public $data;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'data'      => 'Data',
-        'message'   => 'Message',
+        'data' => 'Data',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

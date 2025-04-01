@@ -12,38 +12,44 @@ class DescribeBinaryLogListRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $instanceName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'endTime'        => 'EndTime',
-        'instanceName'   => 'InstanceName',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'regionId'       => 'RegionId',
-        'startTime'      => 'StartTime',
+        'endTime' => 'EndTime',
+        'instanceName' => 'InstanceName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

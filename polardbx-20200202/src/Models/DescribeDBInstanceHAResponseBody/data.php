@@ -12,28 +12,32 @@ class data extends Model
      * @var string
      */
     public $primaryAzoneId;
+
     /**
      * @var string
      */
     public $primaryRegionId;
+
     /**
      * @var string
      */
     public $secondaryAzoneId;
+
     /**
      * @var string
      */
     public $secondaryRegionId;
+
     /**
      * @var string
      */
     public $topologyType;
     protected $_name = [
-        'primaryAzoneId'    => 'PrimaryAzoneId',
-        'primaryRegionId'   => 'PrimaryRegionId',
-        'secondaryAzoneId'  => 'SecondaryAzoneId',
+        'primaryAzoneId' => 'PrimaryAzoneId',
+        'primaryRegionId' => 'PrimaryRegionId',
+        'secondaryAzoneId' => 'SecondaryAzoneId',
         'secondaryRegionId' => 'SecondaryRegionId',
-        'topologyType'      => 'TopologyType',
+        'topologyType' => 'TopologyType',
     ];
 
     public function validate()

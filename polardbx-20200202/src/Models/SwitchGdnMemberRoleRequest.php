@@ -12,23 +12,26 @@ class SwitchGdnMemberRoleRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $switchMode;
+
     /**
      * @var int
      */
     public $taskTimeout;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'regionId'       => 'RegionId',
-        'switchMode'     => 'SwitchMode',
-        'taskTimeout'    => 'TaskTimeout',
+        'regionId' => 'RegionId',
+        'switchMode' => 'SwitchMode',
+        'taskTimeout' => 'TaskTimeout',
     ];
 
     public function validate()

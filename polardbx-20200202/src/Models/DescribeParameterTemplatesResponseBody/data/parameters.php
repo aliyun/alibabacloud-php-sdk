@@ -12,33 +12,38 @@ class parameters extends Model
      * @var string
      */
     public $checkingCode;
+
     /**
      * @var int
      */
     public $dynamic;
+
     /**
      * @var string
      */
     public $parameterDescription;
+
     /**
      * @var string
      */
     public $parameterName;
+
     /**
      * @var string
      */
     public $parameterValue;
+
     /**
      * @var int
      */
     public $revisable;
     protected $_name = [
-        'checkingCode'         => 'CheckingCode',
-        'dynamic'              => 'Dynamic',
+        'checkingCode' => 'CheckingCode',
+        'dynamic' => 'Dynamic',
         'parameterDescription' => 'ParameterDescription',
-        'parameterName'        => 'ParameterName',
-        'parameterValue'       => 'ParameterValue',
-        'revisable'            => 'Revisable',
+        'parameterName' => 'ParameterName',
+        'parameterValue' => 'ParameterValue',
+        'revisable' => 'Revisable',
     ];
 
     public function validate()

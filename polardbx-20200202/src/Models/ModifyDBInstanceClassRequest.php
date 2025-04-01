@@ -12,58 +12,68 @@ class ModifyDBInstanceClassRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $cnClass;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $dnClass;
+
     /**
      * @var string
      */
     public $dnStorageSpace;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var bool
      */
     public $specifiedDNScale;
+
     /**
      * @var string
      */
     public $specifiedDNSpecMapJson;
+
     /**
      * @var string
      */
     public $switchTime;
+
     /**
      * @var string
      */
     public $switchTimeMode;
+
     /**
      * @var string
      */
     public $targetDBInstanceClass;
     protected $_name = [
-        'clientToken'            => 'ClientToken',
-        'cnClass'                => 'CnClass',
-        'DBInstanceName'         => 'DBInstanceName',
-        'dnClass'                => 'DnClass',
-        'dnStorageSpace'         => 'DnStorageSpace',
-        'regionId'               => 'RegionId',
-        'specifiedDNScale'       => 'SpecifiedDNScale',
+        'clientToken' => 'ClientToken',
+        'cnClass' => 'CnClass',
+        'DBInstanceName' => 'DBInstanceName',
+        'dnClass' => 'DnClass',
+        'dnStorageSpace' => 'DnStorageSpace',
+        'regionId' => 'RegionId',
+        'specifiedDNScale' => 'SpecifiedDNScale',
         'specifiedDNSpecMapJson' => 'SpecifiedDNSpecMapJson',
-        'switchTime'             => 'SwitchTime',
-        'switchTimeMode'         => 'SwitchTimeMode',
-        'targetDBInstanceClass'  => 'TargetDBInstanceClass',
+        'switchTime' => 'SwitchTime',
+        'switchTimeMode' => 'SwitchTimeMode',
+        'targetDBInstanceClass' => 'TargetDBInstanceClass',
     ];
 
     public function validate()

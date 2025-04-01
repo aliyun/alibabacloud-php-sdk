@@ -12,18 +12,20 @@ class DescribeTagsRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $tagKey;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'regionId'       => 'RegionId',
-        'tagKey'         => 'TagKey',
+        'regionId' => 'RegionId',
+        'tagKey' => 'TagKey',
     ];
 
     public function validate()

@@ -12,28 +12,32 @@ class ModifyDBInstanceConnectionStringRequest extends Model
      * @var string
      */
     public $connectionString;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $newPort;
+
     /**
      * @var string
      */
     public $newPrefix;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'connectionString' => 'ConnectionString',
-        'DBInstanceName'   => 'DBInstanceName',
-        'newPort'          => 'NewPort',
-        'newPrefix'        => 'NewPrefix',
-        'regionId'         => 'RegionId',
+        'DBInstanceName' => 'DBInstanceName',
+        'newPort' => 'NewPort',
+        'newPrefix' => 'NewPrefix',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

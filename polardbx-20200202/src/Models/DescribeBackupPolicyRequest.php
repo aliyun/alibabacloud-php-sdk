@@ -12,13 +12,14 @@ class DescribeBackupPolicyRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

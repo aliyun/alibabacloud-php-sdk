@@ -13,28 +13,32 @@ class DescribeDBNodePerformanceResponseBody extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var performanceKeys
      */
     public $performanceKeys;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'DBInstanceName'  => 'DBInstanceName',
-        'endTime'         => 'EndTime',
+        'DBInstanceName' => 'DBInstanceName',
+        'endTime' => 'EndTime',
         'performanceKeys' => 'PerformanceKeys',
-        'requestId'       => 'RequestId',
-        'startTime'       => 'StartTime',
+        'requestId' => 'RequestId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

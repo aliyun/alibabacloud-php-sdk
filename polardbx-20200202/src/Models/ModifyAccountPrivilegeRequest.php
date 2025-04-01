@@ -12,37 +12,43 @@ class ModifyAccountPrivilegeRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountPrivilege;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityAccountName;
+
     /**
      * @var string
      */
     public $securityAccountPassword;
     protected $_name = [
-        'accountName'             => 'AccountName',
-        'accountPrivilege'        => 'AccountPrivilege',
-        'DBInstanceName'          => 'DBInstanceName',
-        'dbName'                  => 'DbName',
-        'regionId'                => 'RegionId',
-        'securityAccountName'     => 'SecurityAccountName',
+        'accountName' => 'AccountName',
+        'accountPrivilege' => 'AccountPrivilege',
+        'DBInstanceName' => 'DBInstanceName',
+        'dbName' => 'DbName',
+        'regionId' => 'RegionId',
+        'securityAccountName' => 'SecurityAccountName',
         'securityAccountPassword' => 'SecurityAccountPassword',
     ];
 

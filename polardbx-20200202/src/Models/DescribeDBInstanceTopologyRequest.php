@@ -12,28 +12,32 @@ class DescribeDBInstanceTopologyRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var bool
      */
     public $minuteSimple;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'endTime'        => 'EndTime',
-        'minuteSimple'   => 'MinuteSimple',
-        'regionId'       => 'RegionId',
-        'startTime'      => 'StartTime',
+        'endTime' => 'EndTime',
+        'minuteSimple' => 'MinuteSimple',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

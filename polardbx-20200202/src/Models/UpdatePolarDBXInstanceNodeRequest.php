@@ -12,48 +12,56 @@ class UpdatePolarDBXInstanceNodeRequest extends Model
      * @var string
      */
     public $addDNSpec;
+
     /**
-     * @var string
+     * @var int
      */
     public $CNNodeCount;
+
     /**
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
-     * @var string
+     * @var int
      */
     public $DNNodeCount;
+
     /**
-     * @var string
+     * @var int
      */
     public $dbInstanceNodeCount;
+
     /**
      * @var string
      */
     public $deleteDNIds;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $storagePoolName;
     protected $_name = [
-        'addDNSpec'           => 'AddDNSpec',
-        'CNNodeCount'         => 'CNNodeCount',
-        'clientToken'         => 'ClientToken',
-        'DBInstanceName'      => 'DBInstanceName',
-        'DNNodeCount'         => 'DNNodeCount',
+        'addDNSpec' => 'AddDNSpec',
+        'CNNodeCount' => 'CNNodeCount',
+        'clientToken' => 'ClientToken',
+        'DBInstanceName' => 'DBInstanceName',
+        'DNNodeCount' => 'DNNodeCount',
         'dbInstanceNodeCount' => 'DbInstanceNodeCount',
-        'deleteDNIds'         => 'DeleteDNIds',
-        'regionId'            => 'RegionId',
-        'storagePoolName'     => 'StoragePoolName',
+        'deleteDNIds' => 'DeleteDNIds',
+        'regionId' => 'RegionId',
+        'storagePoolName' => 'StoragePoolName',
     ];
 
     public function validate()

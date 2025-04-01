@@ -13,43 +13,50 @@ class data extends Model
      * @var int
      */
     public $pageIndex;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $pausedCount;
+
     /**
      * @var int
      */
     public $runningCount;
+
     /**
      * @var int
      */
     public $successCount;
+
     /**
      * @var tables[]
      */
     public $tables;
+
     /**
      * @var int
      */
     public $tobeArchivedConut;
+
     /**
      * @var int
      */
     public $total;
     protected $_name = [
-        'pageIndex'         => 'PageIndex',
-        'pageSize'          => 'PageSize',
-        'pausedCount'       => 'PausedCount',
-        'runningCount'      => 'RunningCount',
-        'successCount'      => 'SuccessCount',
-        'tables'            => 'Tables',
+        'pageIndex' => 'PageIndex',
+        'pageSize' => 'PageSize',
+        'pausedCount' => 'PausedCount',
+        'runningCount' => 'RunningCount',
+        'successCount' => 'SuccessCount',
+        'tables' => 'Tables',
         'tobeArchivedConut' => 'TobeArchivedConut',
-        'total'             => 'Total',
+        'total' => 'Total',
     ];
 
     public function validate()
@@ -86,7 +93,7 @@ class data extends Model
         if (null !== $this->tables) {
             if (\is_array($this->tables)) {
                 $res['Tables'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tables as $item1) {
                     $res['Tables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -135,7 +142,7 @@ class data extends Model
         if (isset($map['Tables'])) {
             if (!empty($map['Tables'])) {
                 $model->tables = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Tables'] as $item1) {
                     $model->tables[$n1++] = tables::fromMap($item1);
                 }

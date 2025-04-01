@@ -12,98 +12,116 @@ class data extends Model
      * @var string
      */
     public $backupPeriod;
+
     /**
      * @var string
      */
     public $backupPlanBegin;
+
     /**
      * @var int
      */
     public $backupSetRetention;
+
     /**
      * @var string
      */
     public $backupType;
+
     /**
      * @var string
      */
     public $backupWay;
+
     /**
      * @var int
      */
     public $coldDataBackupInterval;
+
     /**
      * @var int
      */
     public $coldDataBackupRetention;
+
     /**
      * @var int
      */
     public $crossRegionDataBackupRetention;
+
     /**
      * @var int
      */
     public $crossRegionLogBackupRetention;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $destCrossRegion;
+
     /**
      * @var int
      */
     public $forceCleanOnHighSpaceUsage;
+
     /**
      * @var bool
      */
     public $isCrossRegionDataBackupEnabled;
+
     /**
      * @var bool
      */
     public $isCrossRegionLogBackupEnabled;
+
     /**
      * @var int
      */
     public $isEnabled;
+
     /**
      * @var int
      */
     public $localLogRetention;
+
     /**
      * @var int
      */
     public $localLogRetentionNumber;
+
     /**
      * @var int
      */
     public $logLocalRetentionSpace;
+
     /**
      * @var int
      */
     public $removeLogRetention;
     protected $_name = [
-        'backupPeriod'                   => 'BackupPeriod',
-        'backupPlanBegin'                => 'BackupPlanBegin',
-        'backupSetRetention'             => 'BackupSetRetention',
-        'backupType'                     => 'BackupType',
-        'backupWay'                      => 'BackupWay',
-        'coldDataBackupInterval'         => 'ColdDataBackupInterval',
-        'coldDataBackupRetention'        => 'ColdDataBackupRetention',
+        'backupPeriod' => 'BackupPeriod',
+        'backupPlanBegin' => 'BackupPlanBegin',
+        'backupSetRetention' => 'BackupSetRetention',
+        'backupType' => 'BackupType',
+        'backupWay' => 'BackupWay',
+        'coldDataBackupInterval' => 'ColdDataBackupInterval',
+        'coldDataBackupRetention' => 'ColdDataBackupRetention',
         'crossRegionDataBackupRetention' => 'CrossRegionDataBackupRetention',
-        'crossRegionLogBackupRetention'  => 'CrossRegionLogBackupRetention',
-        'DBInstanceName'                 => 'DBInstanceName',
-        'destCrossRegion'                => 'DestCrossRegion',
-        'forceCleanOnHighSpaceUsage'     => 'ForceCleanOnHighSpaceUsage',
+        'crossRegionLogBackupRetention' => 'CrossRegionLogBackupRetention',
+        'DBInstanceName' => 'DBInstanceName',
+        'destCrossRegion' => 'DestCrossRegion',
+        'forceCleanOnHighSpaceUsage' => 'ForceCleanOnHighSpaceUsage',
         'isCrossRegionDataBackupEnabled' => 'IsCrossRegionDataBackupEnabled',
-        'isCrossRegionLogBackupEnabled'  => 'IsCrossRegionLogBackupEnabled',
-        'isEnabled'                      => 'IsEnabled',
-        'localLogRetention'              => 'LocalLogRetention',
-        'localLogRetentionNumber'        => 'LocalLogRetentionNumber',
-        'logLocalRetentionSpace'         => 'LogLocalRetentionSpace',
-        'removeLogRetention'             => 'RemoveLogRetention',
+        'isCrossRegionLogBackupEnabled' => 'IsCrossRegionLogBackupEnabled',
+        'isEnabled' => 'IsEnabled',
+        'localLogRetention' => 'LocalLogRetention',
+        'localLogRetentionNumber' => 'LocalLogRetentionNumber',
+        'logLocalRetentionSpace' => 'LogLocalRetentionSpace',
+        'removeLogRetention' => 'RemoveLogRetention',
     ];
 
     public function validate()

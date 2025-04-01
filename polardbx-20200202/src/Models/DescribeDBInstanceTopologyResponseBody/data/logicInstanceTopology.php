@@ -14,83 +14,98 @@ class logicInstanceTopology extends Model
      * @var string
      */
     public $DBInstanceConnType;
+
     /**
      * @var string
      */
     public $DBInstanceCreateTime;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var int
      */
     public $DBInstanceStatus;
+
     /**
      * @var string
      */
     public $DBInstanceStatusDescription;
+
     /**
      * @var int
      */
     public $DBInstanceStorage;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var historyItems[]
      */
     public $historyItems;
+
     /**
      * @var items[]
      */
     public $items;
+
     /**
      * @var int
      */
     public $lockMode;
+
     /**
      * @var string
      */
     public $lockReason;
+
     /**
      * @var string
      */
     public $maintainEndTime;
+
     /**
      * @var string
      */
     public $maintainStartTime;
     protected $_name = [
-        'DBInstanceConnType'          => 'DBInstanceConnType',
-        'DBInstanceCreateTime'        => 'DBInstanceCreateTime',
-        'DBInstanceDescription'       => 'DBInstanceDescription',
-        'DBInstanceId'                => 'DBInstanceId',
-        'DBInstanceName'              => 'DBInstanceName',
-        'DBInstanceStatus'            => 'DBInstanceStatus',
+        'DBInstanceConnType' => 'DBInstanceConnType',
+        'DBInstanceCreateTime' => 'DBInstanceCreateTime',
+        'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceName' => 'DBInstanceName',
+        'DBInstanceStatus' => 'DBInstanceStatus',
         'DBInstanceStatusDescription' => 'DBInstanceStatusDescription',
-        'DBInstanceStorage'           => 'DBInstanceStorage',
-        'engine'                      => 'Engine',
-        'engineVersion'               => 'EngineVersion',
-        'historyItems'                => 'HistoryItems',
-        'items'                       => 'Items',
-        'lockMode'                    => 'LockMode',
-        'lockReason'                  => 'LockReason',
-        'maintainEndTime'             => 'MaintainEndTime',
-        'maintainStartTime'           => 'MaintainStartTime',
+        'DBInstanceStorage' => 'DBInstanceStorage',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'historyItems' => 'HistoryItems',
+        'items' => 'Items',
+        'lockMode' => 'LockMode',
+        'lockReason' => 'LockReason',
+        'maintainEndTime' => 'MaintainEndTime',
+        'maintainStartTime' => 'MaintainStartTime',
     ];
 
     public function validate()
@@ -150,7 +165,7 @@ class logicInstanceTopology extends Model
         if (null !== $this->historyItems) {
             if (\is_array($this->historyItems)) {
                 $res['HistoryItems'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->historyItems as $item1) {
                     $res['HistoryItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -160,7 +175,7 @@ class logicInstanceTopology extends Model
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['Items'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->items as $item1) {
                     $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -237,7 +252,7 @@ class logicInstanceTopology extends Model
         if (isset($map['HistoryItems'])) {
             if (!empty($map['HistoryItems'])) {
                 $model->historyItems = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['HistoryItems'] as $item1) {
                     $model->historyItems[$n1++] = historyItems::fromMap($item1);
                 }
@@ -247,7 +262,7 @@ class logicInstanceTopology extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Items'] as $item1) {
                     $model->items[$n1++] = items::fromMap($item1);
                 }

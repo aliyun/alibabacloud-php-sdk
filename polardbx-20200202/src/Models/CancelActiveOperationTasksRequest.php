@@ -12,12 +12,13 @@ class CancelActiveOperationTasksRequest extends Model
      * @var string
      */
     public $ids;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'ids'      => 'Ids',
+        'ids' => 'Ids',
         'regionId' => 'RegionId',
     ];
 

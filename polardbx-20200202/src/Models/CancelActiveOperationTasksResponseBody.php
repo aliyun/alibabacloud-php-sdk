@@ -12,12 +12,13 @@ class CancelActiveOperationTasksResponseBody extends Model
      * @var string
      */
     public $ids;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'ids'       => 'Ids',
+        'ids' => 'Ids',
         'requestId' => 'RequestId',
     ];
 

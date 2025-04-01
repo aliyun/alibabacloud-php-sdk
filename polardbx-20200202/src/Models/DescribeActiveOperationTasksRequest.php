@@ -12,46 +12,57 @@ class DescribeActiveOperationTasksRequest extends Model
      * @var int
      */
     public $allowCancel;
+
     /**
      * @var int
      */
     public $allowChange;
+
     /**
      * @var string
      */
     public $changeLevel;
+
     /**
      * @var string
      */
     public $dbType;
+
     /**
      * @var string
      */
     public $insName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $productId;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string
      */
@@ -60,15 +71,15 @@ class DescribeActiveOperationTasksRequest extends Model
         'allowCancel' => 'AllowCancel',
         'allowChange' => 'AllowChange',
         'changeLevel' => 'ChangeLevel',
-        'dbType'      => 'DbType',
-        'insName'     => 'InsName',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'productId'   => 'ProductId',
-        'region'      => 'Region',
-        'regionId'    => 'RegionId',
-        'status'      => 'Status',
-        'taskType'    => 'TaskType',
+        'dbType' => 'DbType',
+        'insName' => 'InsName',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'productId' => 'ProductId',
+        'region' => 'Region',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
+        'taskType' => 'TaskType',
     ];
 
     public function validate()

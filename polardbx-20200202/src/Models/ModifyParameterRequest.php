@@ -12,33 +12,38 @@ class ModifyParameterRequest extends Model
      * @var string
      */
     public $clientToken;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $paramLevel;
+
     /**
      * @var string
      */
     public $parameterGroupId;
+
     /**
      * @var string
      */
     public $parameters;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'clientToken'      => 'ClientToken',
-        'DBInstanceId'     => 'DBInstanceId',
-        'paramLevel'       => 'ParamLevel',
+        'clientToken' => 'ClientToken',
+        'DBInstanceId' => 'DBInstanceId',
+        'paramLevel' => 'ParamLevel',
         'parameterGroupId' => 'ParameterGroupId',
-        'parameters'       => 'Parameters',
-        'regionId'         => 'RegionId',
+        'parameters' => 'Parameters',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

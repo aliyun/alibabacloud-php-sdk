@@ -12,23 +12,26 @@ class DescribeAccountListRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountType;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'accountName'    => 'AccountName',
-        'accountType'    => 'AccountType',
+        'accountName' => 'AccountName',
+        'accountType' => 'AccountType',
         'DBInstanceName' => 'DBInstanceName',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

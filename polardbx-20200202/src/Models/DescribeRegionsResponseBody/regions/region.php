@@ -13,23 +13,26 @@ class region extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var bool
      */
     public $supportPolarx10;
+
     /**
      * @var bool
      */
     public $supportPolarx20;
+
     /**
      * @var zones
      */
     public $zones;
     protected $_name = [
-        'regionId'        => 'RegionId',
+        'regionId' => 'RegionId',
         'supportPolarx10' => 'SupportPolarx10',
         'supportPolarx20' => 'SupportPolarx20',
-        'zones'           => 'Zones',
+        'zones' => 'Zones',
     ];
 
     public function validate()

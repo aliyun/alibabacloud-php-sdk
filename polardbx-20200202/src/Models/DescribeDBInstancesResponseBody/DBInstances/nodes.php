@@ -12,23 +12,26 @@ class nodes extends Model
      * @var string
      */
     public $classCode;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'classCode' => 'ClassCode',
-        'id'        => 'Id',
-        'regionId'  => 'RegionId',
-        'zoneId'    => 'ZoneId',
+        'id' => 'Id',
+        'regionId' => 'RegionId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

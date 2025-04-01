@@ -12,38 +12,44 @@ class data extends Model
      * @var string
      */
     public $accountDescription;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountPrivilege;
+
     /**
      * @var string
      */
     public $accountType;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $gmtCreated;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
-        'accountName'        => 'AccountName',
-        'accountPrivilege'   => 'AccountPrivilege',
-        'accountType'        => 'AccountType',
-        'DBInstanceName'     => 'DBInstanceName',
-        'DBName'             => 'DBName',
-        'gmtCreated'         => 'GmtCreated',
+        'accountName' => 'AccountName',
+        'accountPrivilege' => 'AccountPrivilege',
+        'accountType' => 'AccountType',
+        'DBInstanceName' => 'DBInstanceName',
+        'DBName' => 'DBName',
+        'gmtCreated' => 'GmtCreated',
     ];
 
     public function validate()

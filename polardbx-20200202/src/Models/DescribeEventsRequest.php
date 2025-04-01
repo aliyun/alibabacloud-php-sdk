@@ -12,28 +12,32 @@ class DescribeEventsRequest extends Model
      * @var string
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'    => 'EndTime',
+        'endTime' => 'EndTime',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'regionId'   => 'RegionId',
-        'startTime'  => 'StartTime',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

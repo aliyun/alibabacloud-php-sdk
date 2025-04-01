@@ -12,32 +12,37 @@ class SwitchDBInstanceHARequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $switchTime;
+
     /**
      * @var string
      */
     public $switchTimeMode;
+
     /**
      * @var string
      */
     public $targetPrimaryAzoneId;
+
     /**
      * @var string
      */
     public $targetPrimaryRegionId;
     protected $_name = [
-        'DBInstanceName'        => 'DBInstanceName',
-        'regionId'              => 'RegionId',
-        'switchTime'            => 'SwitchTime',
-        'switchTimeMode'        => 'SwitchTimeMode',
-        'targetPrimaryAzoneId'  => 'TargetPrimaryAzoneId',
+        'DBInstanceName' => 'DBInstanceName',
+        'regionId' => 'RegionId',
+        'switchTime' => 'SwitchTime',
+        'switchTimeMode' => 'SwitchTimeMode',
+        'targetPrimaryAzoneId' => 'TargetPrimaryAzoneId',
         'targetPrimaryRegionId' => 'TargetPrimaryRegionId',
     ];
 

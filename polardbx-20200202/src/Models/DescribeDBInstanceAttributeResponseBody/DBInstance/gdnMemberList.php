@@ -12,18 +12,20 @@ class gdnMemberList extends Model
      * @var string
      */
     public $memberName;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $status;
     protected $_name = [
         'memberName' => 'MemberName',
-        'role'       => 'Role',
-        'status'     => 'Status',
+        'role' => 'Role',
+        'status' => 'Status',
     ];
 
     public function validate()

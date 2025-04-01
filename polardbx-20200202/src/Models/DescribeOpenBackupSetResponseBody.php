@@ -12,12 +12,13 @@ class DescribeOpenBackupSetResponseBody extends Model
      * @var mixed
      */
     public $data;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'requestId' => 'RequestId',
     ];
 

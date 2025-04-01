@@ -12,23 +12,26 @@ class OSSList extends Model
      * @var string
      */
     public $backupSetFile;
+
     /**
      * @var string
      */
     public $downloadLink;
+
     /**
      * @var string
      */
     public $intranetDownloadLink;
+
     /**
      * @var string
      */
     public $linkExpiredTime;
     protected $_name = [
-        'backupSetFile'        => 'BackupSetFile',
-        'downloadLink'         => 'DownloadLink',
+        'backupSetFile' => 'BackupSetFile',
+        'downloadLink' => 'DownloadLink',
         'intranetDownloadLink' => 'IntranetDownloadLink',
-        'linkExpiredTime'      => 'LinkExpiredTime',
+        'linkExpiredTime' => 'LinkExpiredTime',
     ];
 
     public function validate()

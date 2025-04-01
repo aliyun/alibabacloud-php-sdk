@@ -13,27 +13,31 @@ class DescribeEventsResponseBody extends Model
      * @var eventItems[]
      */
     public $eventItems;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'eventItems'       => 'EventItems',
-        'pageNumber'       => 'PageNumber',
-        'pageSize'         => 'PageSize',
-        'requestId'        => 'RequestId',
+        'eventItems' => 'EventItems',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
@@ -51,7 +55,7 @@ class DescribeEventsResponseBody extends Model
         if (null !== $this->eventItems) {
             if (\is_array($this->eventItems)) {
                 $res['EventItems'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->eventItems as $item1) {
                     $res['EventItems'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class DescribeEventsResponseBody extends Model
         if (isset($map['EventItems'])) {
             if (!empty($map['EventItems'])) {
                 $model->eventItems = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['EventItems'] as $item1) {
                     $model->eventItems[$n1++] = eventItems::fromMap($item1);
                 }

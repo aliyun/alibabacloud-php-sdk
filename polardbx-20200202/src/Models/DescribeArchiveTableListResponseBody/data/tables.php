@@ -12,38 +12,44 @@ class tables extends Model
      * @var string
      */
     public $archiveStatus;
+
     /**
      * @var int
      */
     public $createdDate;
+
     /**
      * @var int
      */
     public $fileCount;
+
     /**
      * @var int
      */
     public $lastSuccessArchiveTime;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var float
      */
     public $spaceSize;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
-        'archiveStatus'          => 'ArchiveStatus',
-        'createdDate'            => 'CreatedDate',
-        'fileCount'              => 'FileCount',
+        'archiveStatus' => 'ArchiveStatus',
+        'createdDate' => 'CreatedDate',
+        'fileCount' => 'FileCount',
         'lastSuccessArchiveTime' => 'LastSuccessArchiveTime',
-        'schemaName'             => 'SchemaName',
-        'spaceSize'              => 'SpaceSize',
-        'tableName'              => 'TableName',
+        'schemaName' => 'SchemaName',
+        'spaceSize' => 'SpaceSize',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

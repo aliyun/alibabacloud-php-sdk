@@ -12,23 +12,26 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $minorVersion;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $switchMode;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'minorVersion'   => 'MinorVersion',
-        'regionId'       => 'RegionId',
-        'switchMode'     => 'SwitchMode',
+        'minorVersion' => 'MinorVersion',
+        'regionId' => 'RegionId',
+        'switchMode' => 'SwitchMode',
     ];
 
     public function validate()

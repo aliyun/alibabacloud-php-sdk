@@ -13,16 +13,18 @@ class DescribeActiveOperationMaintainConfResponseBody extends Model
      * @var config
      */
     public $config;
+
     /**
      * @var int
      */
     public $hasConfig;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'config'    => 'Config',
+        'config' => 'Config',
         'hasConfig' => 'HasConfig',
         'requestId' => 'RequestId',
     ];

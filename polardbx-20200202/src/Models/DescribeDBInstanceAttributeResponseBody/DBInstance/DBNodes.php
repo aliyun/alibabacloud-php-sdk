@@ -12,33 +12,38 @@ class DBNodes extends Model
      * @var string
      */
     public $computeNodeId;
+
     /**
      * @var string
      */
     public $dataNodeId;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $nodeClass;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'computeNodeId' => 'ComputeNodeId',
-        'dataNodeId'    => 'DataNodeId',
-        'id'            => 'Id',
-        'nodeClass'     => 'NodeClass',
-        'regionId'      => 'RegionId',
-        'zoneId'        => 'ZoneId',
+        'dataNodeId' => 'DataNodeId',
+        'id' => 'Id',
+        'nodeClass' => 'NodeClass',
+        'regionId' => 'RegionId',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

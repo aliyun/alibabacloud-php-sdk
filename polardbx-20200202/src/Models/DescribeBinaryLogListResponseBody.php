@@ -13,27 +13,31 @@ class DescribeBinaryLogListResponseBody extends Model
      * @var logList[]
      */
     public $logList;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalNumber;
     protected $_name = [
-        'logList'     => 'LogList',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
+        'logList' => 'LogList',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalNumber' => 'TotalNumber',
     ];
 
@@ -51,7 +55,7 @@ class DescribeBinaryLogListResponseBody extends Model
         if (null !== $this->logList) {
             if (\is_array($this->logList)) {
                 $res['LogList'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->logList as $item1) {
                     $res['LogList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class DescribeBinaryLogListResponseBody extends Model
         if (isset($map['LogList'])) {
             if (!empty($map['LogList'])) {
                 $model->logList = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['LogList'] as $item1) {
                     $model->logList[$n1++] = logList::fromMap($item1);
                 }

@@ -12,18 +12,20 @@ class CheckCloudResourceAuthorizedRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $roleArn;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'regionId'       => 'RegionId',
-        'roleArn'        => 'RoleArn',
+        'regionId' => 'RegionId',
+        'roleArn' => 'RoleArn',
     ];
 
     public function validate()

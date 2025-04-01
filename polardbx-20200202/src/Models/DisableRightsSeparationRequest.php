@@ -12,23 +12,26 @@ class DisableRightsSeparationRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $dbaAccountName;
+
     /**
      * @var string
      */
     public $dbaAccountPassword;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'DBInstanceName'     => 'DBInstanceName',
-        'dbaAccountName'     => 'DbaAccountName',
+        'DBInstanceName' => 'DBInstanceName',
+        'dbaAccountName' => 'DbaAccountName',
         'dbaAccountPassword' => 'DbaAccountPassword',
-        'regionId'           => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

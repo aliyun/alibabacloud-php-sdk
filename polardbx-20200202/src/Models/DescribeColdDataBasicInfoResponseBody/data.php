@@ -12,53 +12,62 @@ class data extends Model
      * @var int
      */
     public $backupSetCount;
+
     /**
      * @var float
      */
     public $backupSetSpaceSize;
+
     /**
      * @var string
      */
     public $cloudProduct;
+
     /**
      * @var float
      */
     public $currentSpaceSize;
+
     /**
      * @var string
      */
     public $dataRedundancyType;
+
     /**
      * @var bool
      */
     public $enableStatus;
+
     /**
      * @var int
      */
     public $readAccessNum;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $volumeName;
+
     /**
      * @var float
      */
     public $writeAccessNum;
     protected $_name = [
-        'backupSetCount'     => 'BackupSetCount',
+        'backupSetCount' => 'BackupSetCount',
         'backupSetSpaceSize' => 'BackupSetSpaceSize',
-        'cloudProduct'       => 'CloudProduct',
-        'currentSpaceSize'   => 'CurrentSpaceSize',
+        'cloudProduct' => 'CloudProduct',
+        'currentSpaceSize' => 'CurrentSpaceSize',
         'dataRedundancyType' => 'DataRedundancyType',
-        'enableStatus'       => 'EnableStatus',
-        'readAccessNum'      => 'ReadAccessNum',
-        'regionId'           => 'RegionId',
-        'volumeName'         => 'VolumeName',
-        'writeAccessNum'     => 'WriteAccessNum',
+        'enableStatus' => 'EnableStatus',
+        'readAccessNum' => 'ReadAccessNum',
+        'regionId' => 'RegionId',
+        'volumeName' => 'VolumeName',
+        'writeAccessNum' => 'WriteAccessNum',
     ];
 
     public function validate()

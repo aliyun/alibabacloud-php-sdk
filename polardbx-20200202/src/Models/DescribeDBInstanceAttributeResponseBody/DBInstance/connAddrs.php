@@ -12,33 +12,38 @@ class connAddrs extends Model
      * @var string
      */
     public $connectionString;
+
     /**
      * @var int
      */
     public $port;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $vSwitchId;
+
     /**
      * @var string
      */
     public $vpcInstanceId;
     protected $_name = [
         'connectionString' => 'ConnectionString',
-        'port'             => 'Port',
-        'type'             => 'Type',
-        'VPCId'            => 'VPCId',
-        'vSwitchId'        => 'VSwitchId',
-        'vpcInstanceId'    => 'VpcInstanceId',
+        'port' => 'Port',
+        'type' => 'Type',
+        'VPCId' => 'VPCId',
+        'vSwitchId' => 'VSwitchId',
+        'vpcInstanceId' => 'VpcInstanceId',
     ];
 
     public function validate()

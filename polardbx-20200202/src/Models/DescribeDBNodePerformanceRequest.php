@@ -12,43 +12,50 @@ class DescribeDBNodePerformanceRequest extends Model
      * @var string
      */
     public $characterType;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $DBNodeIds;
+
     /**
      * @var string
      */
     public $DBNodeRole;
+
     /**
      * @var string
      */
     public $endTime;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'characterType'  => 'CharacterType',
+        'characterType' => 'CharacterType',
         'DBInstanceName' => 'DBInstanceName',
-        'DBNodeIds'      => 'DBNodeIds',
-        'DBNodeRole'     => 'DBNodeRole',
-        'endTime'        => 'EndTime',
-        'key'            => 'Key',
-        'regionId'       => 'RegionId',
-        'startTime'      => 'StartTime',
+        'DBNodeIds' => 'DBNodeIds',
+        'DBNodeRole' => 'DBNodeRole',
+        'endTime' => 'EndTime',
+        'key' => 'Key',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

@@ -12,13 +12,14 @@ class data extends Model
      * @var string
      */
     public $authorizationState;
+
     /**
      * @var string
      */
     public $roleArn;
     protected $_name = [
         'authorizationState' => 'AuthorizationState',
-        'roleArn'            => 'RoleArn',
+        'roleArn' => 'RoleArn',
     ];
 
     public function validate()

@@ -13,27 +13,31 @@ class DescribeTasksResponseBody extends Model
      * @var items[]
      */
     public $items;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageRecordCount;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalRecordCount;
     protected $_name = [
-        'items'            => 'Items',
-        'pageNumber'       => 'PageNumber',
-        'pageRecordCount'  => 'PageRecordCount',
-        'requestId'        => 'RequestId',
+        'items' => 'Items',
+        'pageNumber' => 'PageNumber',
+        'pageRecordCount' => 'PageRecordCount',
+        'requestId' => 'RequestId',
         'totalRecordCount' => 'TotalRecordCount',
     ];
 
@@ -51,7 +55,7 @@ class DescribeTasksResponseBody extends Model
         if (null !== $this->items) {
             if (\is_array($this->items)) {
                 $res['Items'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->items as $item1) {
                     $res['Items'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class DescribeTasksResponseBody extends Model
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Items'] as $item1) {
                     $model->items[$n1++] = items::fromMap($item1);
                 }

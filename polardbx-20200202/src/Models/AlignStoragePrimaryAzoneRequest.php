@@ -12,28 +12,32 @@ class AlignStoragePrimaryAzoneRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $storageInstanceName;
+
     /**
      * @var string
      */
     public $switchTime;
+
     /**
      * @var string
      */
     public $switchTimeMode;
     protected $_name = [
-        'DBInstanceName'      => 'DBInstanceName',
-        'regionId'            => 'RegionId',
+        'DBInstanceName' => 'DBInstanceName',
+        'regionId' => 'RegionId',
         'storageInstanceName' => 'StorageInstanceName',
-        'switchTime'          => 'SwitchTime',
-        'switchTimeMode'      => 'SwitchTimeMode',
+        'switchTime' => 'SwitchTime',
+        'switchTimeMode' => 'SwitchTimeMode',
     ];
 
     public function validate()

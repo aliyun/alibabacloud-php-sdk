@@ -13,28 +13,32 @@ class data extends Model
      * @var accounts[]
      */
     public $accounts;
+
     /**
      * @var string
      */
     public $characterSetName;
+
     /**
      * @var string
      */
     public $DBDescription;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $DBName;
     protected $_name = [
-        'accounts'         => 'Accounts',
+        'accounts' => 'Accounts',
         'characterSetName' => 'CharacterSetName',
-        'DBDescription'    => 'DBDescription',
-        'DBInstanceName'   => 'DBInstanceName',
-        'DBName'           => 'DBName',
+        'DBDescription' => 'DBDescription',
+        'DBInstanceName' => 'DBInstanceName',
+        'DBName' => 'DBName',
     ];
 
     public function validate()
@@ -51,7 +55,7 @@ class data extends Model
         if (null !== $this->accounts) {
             if (\is_array($this->accounts)) {
                 $res['Accounts'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->accounts as $item1) {
                     $res['Accounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class data extends Model
         if (isset($map['Accounts'])) {
             if (!empty($map['Accounts'])) {
                 $model->accounts = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Accounts'] as $item1) {
                     $model->accounts[$n1++] = accounts::fromMap($item1);
                 }

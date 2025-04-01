@@ -12,23 +12,26 @@ class ModifyActiveOperationTasksRequest extends Model
      * @var string
      */
     public $ids;
+
     /**
      * @var int
      */
     public $immediateStart;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $switchTime;
     protected $_name = [
-        'ids'            => 'Ids',
+        'ids' => 'Ids',
         'immediateStart' => 'ImmediateStart',
-        'regionId'       => 'RegionId',
-        'switchTime'     => 'SwitchTime',
+        'regionId' => 'RegionId',
+        'switchTime' => 'SwitchTime',
     ];
 
     public function validate()

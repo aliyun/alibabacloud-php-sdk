@@ -12,38 +12,44 @@ class DescribeBackupSetListRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $destCrossRegion;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'DBInstanceName'  => 'DBInstanceName',
+        'DBInstanceName' => 'DBInstanceName',
         'destCrossRegion' => 'DestCrossRegion',
-        'endTime'         => 'EndTime',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
-        'startTime'       => 'StartTime',
+        'endTime' => 'EndTime',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'startTime' => 'StartTime',
     ];
 
     public function validate()

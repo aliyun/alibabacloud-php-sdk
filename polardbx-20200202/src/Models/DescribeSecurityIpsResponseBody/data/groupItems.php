@@ -12,12 +12,13 @@ class groupItems extends Model
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $securityIPList;
     protected $_name = [
-        'groupName'      => 'GroupName',
+        'groupName' => 'GroupName',
         'securityIPList' => 'SecurityIPList',
     ];
 

@@ -12,47 +12,55 @@ class CreateAccountRequest extends Model
      * @var string
      */
     public $accountDescription;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountPassword;
+
     /**
      * @var string
      */
     public $accountPrivilege;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityAccountName;
+
     /**
      * @var string
      */
     public $securityAccountPassword;
     protected $_name = [
-        'accountDescription'      => 'AccountDescription',
-        'accountName'             => 'AccountName',
-        'accountPassword'         => 'AccountPassword',
-        'accountPrivilege'        => 'AccountPrivilege',
-        'DBInstanceName'          => 'DBInstanceName',
-        'DBName'                  => 'DBName',
-        'regionId'                => 'RegionId',
-        'securityAccountName'     => 'SecurityAccountName',
+        'accountDescription' => 'AccountDescription',
+        'accountName' => 'AccountName',
+        'accountPassword' => 'AccountPassword',
+        'accountPrivilege' => 'AccountPrivilege',
+        'DBInstanceName' => 'DBInstanceName',
+        'DBName' => 'DBName',
+        'regionId' => 'RegionId',
+        'securityAccountName' => 'SecurityAccountName',
         'securityAccountPassword' => 'SecurityAccountPassword',
     ];
 

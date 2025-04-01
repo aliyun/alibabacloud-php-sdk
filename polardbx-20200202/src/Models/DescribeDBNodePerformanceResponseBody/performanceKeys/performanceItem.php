@@ -13,23 +13,26 @@ class performanceItem extends Model
      * @var string
      */
     public $DBNodeId;
+
     /**
      * @var string
      */
     public $measurement;
+
     /**
      * @var string
      */
     public $metricName;
+
     /**
      * @var points
      */
     public $points;
     protected $_name = [
-        'DBNodeId'    => 'DBNodeId',
+        'DBNodeId' => 'DBNodeId',
         'measurement' => 'Measurement',
-        'metricName'  => 'MetricName',
-        'points'      => 'Points',
+        'metricName' => 'MetricName',
+        'points' => 'Points',
     ];
 
     public function validate()

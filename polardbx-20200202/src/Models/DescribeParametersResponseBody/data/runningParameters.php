@@ -12,18 +12,20 @@ class runningParameters extends Model
      * @var string
      */
     public $parameterDescription;
+
     /**
      * @var string
      */
     public $parameterName;
+
     /**
      * @var string
      */
     public $parameterValue;
     protected $_name = [
         'parameterDescription' => 'ParameterDescription',
-        'parameterName'        => 'ParameterName',
-        'parameterValue'       => 'ParameterValue',
+        'parameterName' => 'ParameterName',
+        'parameterValue' => 'ParameterValue',
     ];
 
     public function validate()

@@ -12,43 +12,50 @@ class EnableRightsSeparationRequest extends Model
      * @var string
      */
     public $auditAccountDescription;
+
     /**
      * @var string
      */
     public $auditAccountName;
+
     /**
      * @var string
      */
     public $auditAccountPassword;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityAccountDescription;
+
     /**
      * @var string
      */
     public $securityAccountName;
+
     /**
      * @var string
      */
     public $securityAccountPassword;
     protected $_name = [
-        'auditAccountDescription'    => 'AuditAccountDescription',
-        'auditAccountName'           => 'AuditAccountName',
-        'auditAccountPassword'       => 'AuditAccountPassword',
-        'DBInstanceName'             => 'DBInstanceName',
-        'regionId'                   => 'RegionId',
+        'auditAccountDescription' => 'AuditAccountDescription',
+        'auditAccountName' => 'AuditAccountName',
+        'auditAccountPassword' => 'AuditAccountPassword',
+        'DBInstanceName' => 'DBInstanceName',
+        'regionId' => 'RegionId',
         'securityAccountDescription' => 'SecurityAccountDescription',
-        'securityAccountName'        => 'SecurityAccountName',
-        'securityAccountPassword'    => 'SecurityAccountPassword',
+        'securityAccountName' => 'SecurityAccountName',
+        'securityAccountPassword' => 'SecurityAccountPassword',
     ];
 
     public function validate()

@@ -12,48 +12,56 @@ class DescribeDBInstancesRequest extends Model
      * @var string
      */
     public $dbVersion;
+
     /**
      * @var string
      */
     public $instanceId;
+
     /**
      * @var bool
      */
     public $mustHasCdc;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $series;
+
     /**
      * @var string
      */
     public $tags;
     protected $_name = [
-        'dbVersion'       => 'DbVersion',
-        'instanceId'      => 'InstanceId',
-        'mustHasCdc'      => 'MustHasCdc',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'regionId'        => 'RegionId',
+        'dbVersion' => 'DbVersion',
+        'instanceId' => 'InstanceId',
+        'mustHasCdc' => 'MustHasCdc',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
-        'series'          => 'Series',
-        'tags'            => 'Tags',
+        'series' => 'Series',
+        'tags' => 'Tags',
     ];
 
     public function validate()

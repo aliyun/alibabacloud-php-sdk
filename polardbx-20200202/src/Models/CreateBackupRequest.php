@@ -12,18 +12,20 @@ class CreateBackupRequest extends Model
      * @var string
      */
     public $backupType;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'backupType'     => 'BackupType',
+        'backupType' => 'BackupType',
         'DBInstanceName' => 'DBInstanceName',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

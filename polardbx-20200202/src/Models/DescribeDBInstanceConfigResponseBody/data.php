@@ -12,17 +12,19 @@ class data extends Model
      * @var string
      */
     public $configName;
+
     /**
      * @var string
      */
     public $configValue;
+
     /**
      * @var string
      */
     public $dbInstanceName;
     protected $_name = [
-        'configName'     => 'ConfigName',
-        'configValue'    => 'ConfigValue',
+        'configName' => 'ConfigName',
+        'configValue' => 'ConfigValue',
         'dbInstanceName' => 'DbInstanceName',
     ];
 

@@ -12,128 +12,158 @@ class items extends Model
      * @var string
      */
     public $CNname;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $extension;
+
     /**
      * @var string
      */
     public $fail;
+
     /**
      * @var string
      */
     public $frows;
+
     /**
      * @var string
      */
     public $hostAddress;
+
     /**
      * @var string
      */
     public $insName;
+
     /**
      * @var string
      */
     public $isBind;
+
     /**
      * @var string
      */
     public $lockTimeMS;
+
     /**
      * @var string
      */
     public $params;
+
     /**
      * @var string
      */
     public $parseRowCounts;
+
     /**
      * @var string
      */
     public $queryStartTime;
+
     /**
      * @var string
      */
     public $queryTime;
+
     /**
      * @var string
      */
     public $queryTimeMS;
+
     /**
      * @var string
      */
     public $returnRowCounts;
+
     /**
      * @var string
      */
     public $rows;
+
     /**
      * @var string
      */
     public $SCNT;
+
     /**
      * @var string
      */
     public $SQLHash;
+
     /**
      * @var string
      */
     public $SQLText;
+
     /**
      * @var string
      */
     public $sqlType;
+
+    /**
+     * @var string
+     */
+    public $templateId;
+
     /**
      * @var string
      */
     public $tooLong;
+
     /**
      * @var string
      */
     public $traceId;
+
     /**
      * @var string
      */
     public $transactionPolicy;
+
     /**
      * @var string
      */
     public $trxId;
+
     /**
      * @var string
      */
     public $WT;
     protected $_name = [
-        'CNname'            => 'CNname',
-        'DBName'            => 'DBName',
-        'extension'         => 'Extension',
-        'fail'              => 'Fail',
-        'frows'             => 'Frows',
-        'hostAddress'       => 'HostAddress',
-        'insName'           => 'InsName',
-        'isBind'            => 'IsBind',
-        'lockTimeMS'        => 'LockTimeMS',
-        'params'            => 'Params',
-        'parseRowCounts'    => 'ParseRowCounts',
-        'queryStartTime'    => 'QueryStartTime',
-        'queryTime'         => 'QueryTime',
-        'queryTimeMS'       => 'QueryTimeMS',
-        'returnRowCounts'   => 'ReturnRowCounts',
-        'rows'              => 'Rows',
-        'SCNT'              => 'SCNT',
-        'SQLHash'           => 'SQLHash',
-        'SQLText'           => 'SQLText',
-        'sqlType'           => 'SqlType',
-        'tooLong'           => 'TooLong',
-        'traceId'           => 'TraceId',
+        'CNname' => 'CNname',
+        'DBName' => 'DBName',
+        'extension' => 'Extension',
+        'fail' => 'Fail',
+        'frows' => 'Frows',
+        'hostAddress' => 'HostAddress',
+        'insName' => 'InsName',
+        'isBind' => 'IsBind',
+        'lockTimeMS' => 'LockTimeMS',
+        'params' => 'Params',
+        'parseRowCounts' => 'ParseRowCounts',
+        'queryStartTime' => 'QueryStartTime',
+        'queryTime' => 'QueryTime',
+        'queryTimeMS' => 'QueryTimeMS',
+        'returnRowCounts' => 'ReturnRowCounts',
+        'rows' => 'Rows',
+        'SCNT' => 'SCNT',
+        'SQLHash' => 'SQLHash',
+        'SQLText' => 'SQLText',
+        'sqlType' => 'SqlType',
+        'templateId' => 'TemplateId',
+        'tooLong' => 'TooLong',
+        'traceId' => 'TraceId',
         'transactionPolicy' => 'TransactionPolicy',
-        'trxId'             => 'TrxId',
-        'WT'                => 'WT',
+        'trxId' => 'TrxId',
+        'WT' => 'WT',
     ];
 
     public function validate()
@@ -222,6 +252,10 @@ class items extends Model
 
         if (null !== $this->sqlType) {
             $res['SqlType'] = $this->sqlType;
+        }
+
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         if (null !== $this->tooLong) {
@@ -333,6 +367,10 @@ class items extends Model
 
         if (isset($map['SqlType'])) {
             $model->sqlType = $map['SqlType'];
+        }
+
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         if (isset($map['TooLong'])) {

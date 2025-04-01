@@ -12,23 +12,26 @@ class DescribeBackupSetRequest extends Model
      * @var string
      */
     public $backupSetId;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $destCrossRegion;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'backupSetId'     => 'BackupSetId',
-        'DBInstanceName'  => 'DBInstanceName',
+        'backupSetId' => 'BackupSetId',
+        'DBInstanceName' => 'DBInstanceName',
         'destCrossRegion' => 'DestCrossRegion',
-        'regionId'        => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

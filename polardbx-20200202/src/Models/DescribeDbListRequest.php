@@ -12,18 +12,20 @@ class DescribeDbListRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'DBName'         => 'DBName',
-        'regionId'       => 'RegionId',
+        'DBName' => 'DBName',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

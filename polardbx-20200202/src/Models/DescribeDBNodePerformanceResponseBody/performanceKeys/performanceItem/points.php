@@ -31,7 +31,7 @@ class points extends Model
         if (null !== $this->performanceItemValue) {
             if (\is_array($this->performanceItemValue)) {
                 $res['PerformanceItemValue'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->performanceItemValue as $item1) {
                     $res['PerformanceItemValue'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -52,7 +52,7 @@ class points extends Model
         if (isset($map['PerformanceItemValue'])) {
             if (!empty($map['PerformanceItemValue'])) {
                 $model->performanceItemValue = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['PerformanceItemValue'] as $item1) {
                     $model->performanceItemValue[$n1++] = performanceItemValue::fromMap($item1);
                 }

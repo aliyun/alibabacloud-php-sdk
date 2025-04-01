@@ -12,6 +12,7 @@ class DescribeDBInstanceViaEndpointRequest extends Model
      * @var string
      */
     public $endpoint;
+
     /**
      * @var string
      */

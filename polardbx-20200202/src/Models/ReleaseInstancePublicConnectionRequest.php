@@ -12,18 +12,20 @@ class ReleaseInstancePublicConnectionRequest extends Model
      * @var string
      */
     public $currentConnectionString;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'currentConnectionString' => 'CurrentConnectionString',
-        'DBInstanceName'          => 'DBInstanceName',
-        'regionId'                => 'RegionId',
+        'DBInstanceName' => 'DBInstanceName',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class DescribeGdnInstancesRequest extends Model
      * @var string
      */
     public $filterType;
+
     /**
      * @var string
      */
     public $filterValue;
+
     /**
      * @var string
      */
     public $GDNId;
+
     /**
      * @var string
      */
     public $pageNum;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'filterType'  => 'FilterType',
+        'filterType' => 'FilterType',
         'filterValue' => 'FilterValue',
-        'GDNId'       => 'GDNId',
-        'pageNum'     => 'PageNum',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
+        'GDNId' => 'GDNId',
+        'pageNum' => 'PageNum',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

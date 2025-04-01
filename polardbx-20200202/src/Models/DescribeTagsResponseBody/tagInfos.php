@@ -12,18 +12,20 @@ class tagInfos extends Model
      * @var string[]
      */
     public $DBInstanceIds;
+
     /**
      * @var string
      */
     public $tagKey;
+
     /**
      * @var string
      */
     public $tagValue;
     protected $_name = [
         'DBInstanceIds' => 'DBInstanceIds',
-        'tagKey'        => 'TagKey',
-        'tagValue'      => 'TagValue',
+        'tagKey' => 'TagKey',
+        'tagValue' => 'TagValue',
     ];
 
     public function validate()
@@ -40,7 +42,7 @@ class tagInfos extends Model
         if (null !== $this->DBInstanceIds) {
             if (\is_array($this->DBInstanceIds)) {
                 $res['DBInstanceIds'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->DBInstanceIds as $item1) {
                     $res['DBInstanceIds'][$n1++] = $item1;
                 }
@@ -69,7 +71,7 @@ class tagInfos extends Model
         if (isset($map['DBInstanceIds'])) {
             if (!empty($map['DBInstanceIds'])) {
                 $model->DBInstanceIds = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['DBInstanceIds'] as $item1) {
                     $model->DBInstanceIds[$n1++] = $item1;
                 }

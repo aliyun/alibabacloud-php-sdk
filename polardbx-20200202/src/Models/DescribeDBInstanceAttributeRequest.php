@@ -12,17 +12,19 @@ class DescribeDBInstanceAttributeRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'DBInstanceName'  => 'DBInstanceName',
-        'regionId'        => 'RegionId',
+        'DBInstanceName' => 'DBInstanceName',
+        'regionId' => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
     ];
 

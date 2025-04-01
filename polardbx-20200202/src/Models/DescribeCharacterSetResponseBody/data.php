@@ -12,13 +12,14 @@ class data extends Model
      * @var string[]
      */
     public $characterSet;
+
     /**
      * @var string
      */
     public $engine;
     protected $_name = [
         'characterSet' => 'CharacterSet',
-        'engine'       => 'Engine',
+        'engine' => 'Engine',
     ];
 
     public function validate()
@@ -35,7 +36,7 @@ class data extends Model
         if (null !== $this->characterSet) {
             if (\is_array($this->characterSet)) {
                 $res['CharacterSet'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->characterSet as $item1) {
                     $res['CharacterSet'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class data extends Model
         if (isset($map['CharacterSet'])) {
             if (!empty($map['CharacterSet'])) {
                 $model->characterSet = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['CharacterSet'] as $item1) {
                     $model->characterSet[$n1++] = $item1;
                 }

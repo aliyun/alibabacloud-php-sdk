@@ -12,18 +12,20 @@ class CreateDBInstanceResponseBody extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'orderId'        => 'OrderId',
-        'requestId'      => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

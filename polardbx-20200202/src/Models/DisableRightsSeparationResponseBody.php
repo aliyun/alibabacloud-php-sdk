@@ -12,18 +12,20 @@ class DisableRightsSeparationResponseBody extends Model
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'message'   => 'Message',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

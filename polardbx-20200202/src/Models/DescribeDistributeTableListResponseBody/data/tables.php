@@ -12,23 +12,26 @@ class tables extends Model
      * @var string
      */
     public $dbKey;
+
     /**
      * @var string
      */
     public $tableName;
+
     /**
      * @var string
      */
     public $tableType;
+
     /**
      * @var string
      */
     public $tbKey;
     protected $_name = [
-        'dbKey'     => 'DbKey',
+        'dbKey' => 'DbKey',
         'tableName' => 'TableName',
         'tableType' => 'TableType',
-        'tbKey'     => 'TbKey',
+        'tbKey' => 'TbKey',
     ];
 
     public function validate()

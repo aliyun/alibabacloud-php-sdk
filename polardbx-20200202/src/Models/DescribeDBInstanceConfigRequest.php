@@ -12,18 +12,20 @@ class DescribeDBInstanceConfigRequest extends Model
      * @var string
      */
     public $configName;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'configName'     => 'ConfigName',
+        'configName' => 'ConfigName',
         'DBInstanceName' => 'DBInstanceName',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class ModifyAccountDescriptionRequest extends Model
      * @var string
      */
     public $accountDescription;
+
     /**
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'accountDescription' => 'AccountDescription',
-        'accountName'        => 'AccountName',
-        'DBInstanceName'     => 'DBInstanceName',
-        'regionId'           => 'RegionId',
+        'accountName' => 'AccountName',
+        'DBInstanceName' => 'DBInstanceName',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

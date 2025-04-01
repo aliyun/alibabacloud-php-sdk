@@ -12,28 +12,32 @@ class UpdateDBInstanceTDERequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $encryptionKey;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $roleArn;
+
     /**
      * @var int
      */
     public $TDEStatus;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'encryptionKey'  => 'EncryptionKey',
-        'regionId'       => 'RegionId',
-        'roleArn'        => 'RoleArn',
-        'TDEStatus'      => 'TDEStatus',
+        'encryptionKey' => 'EncryptionKey',
+        'regionId' => 'RegionId',
+        'roleArn' => 'RoleArn',
+        'TDEStatus' => 'TDEStatus',
     ];
 
     public function validate()

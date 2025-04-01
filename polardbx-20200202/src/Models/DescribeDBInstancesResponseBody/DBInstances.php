@@ -14,228 +14,272 @@ class DBInstances extends Model
      * @var string
      */
     public $cdcInstanceName;
+
     /**
      * @var string
      */
     public $cnNodeClassCode;
+
     /**
      * @var int
      */
     public $cnNodeCount;
+
     /**
      * @var string
      */
     public $columnarInstanceName;
+
     /**
      * @var string[]
      */
     public $columnarReadDBInstances;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var bool
      */
     public $containBinlogX;
+
     /**
      * @var string
      */
     public $cpuType;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $DBType;
+
     /**
      * @var string
      */
     public $DBVersion;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $dnNodeClassCode;
+
     /**
      * @var int
      */
     public $dnNodeCount;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var bool
      */
     public $expired;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $lockMode;
+
     /**
      * @var string
      */
     public $lockReason;
+
     /**
      * @var string
      */
     public $minorVersion;
+
     /**
      * @var string
      */
     public $network;
+
     /**
      * @var string
      */
     public $nodeClass;
+
     /**
      * @var int
      */
     public $nodeCount;
+
     /**
      * @var nodes[]
      */
     public $nodes;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $primaryInstanceId;
+
     /**
      * @var string
      */
     public $primaryZone;
+
     /**
      * @var string[]
      */
     public $readDBInstances;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $secondaryZone;
+
     /**
      * @var string
      */
     public $series;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $storageUsed;
+
     /**
      * @var bool
      */
     public $supportBinlogX;
+
     /**
      * @var tagSet[]
      */
     public $tagSet;
+
     /**
      * @var string
      */
     public $tertiaryZone;
+
     /**
      * @var string
      */
     public $topologyType;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $VPCId;
+
     /**
      * @var string
      */
     public $zoneId;
+
     /**
      * @var string
      */
     public $gdnRole;
+
     /**
      * @var bool
      */
     public $isInGdn;
     protected $_name = [
-        'cdcInstanceName'         => 'CdcInstanceName',
-        'cnNodeClassCode'         => 'CnNodeClassCode',
-        'cnNodeCount'             => 'CnNodeCount',
-        'columnarInstanceName'    => 'ColumnarInstanceName',
+        'cdcInstanceName' => 'CdcInstanceName',
+        'cnNodeClassCode' => 'CnNodeClassCode',
+        'cnNodeCount' => 'CnNodeCount',
+        'columnarInstanceName' => 'ColumnarInstanceName',
         'columnarReadDBInstances' => 'ColumnarReadDBInstances',
-        'commodityCode'           => 'CommodityCode',
-        'containBinlogX'          => 'ContainBinlogX',
-        'cpuType'                 => 'CpuType',
-        'createTime'              => 'CreateTime',
-        'DBInstanceName'          => 'DBInstanceName',
-        'DBType'                  => 'DBType',
-        'DBVersion'               => 'DBVersion',
-        'description'             => 'Description',
-        'dnNodeClassCode'         => 'DnNodeClassCode',
-        'dnNodeCount'             => 'DnNodeCount',
-        'engine'                  => 'Engine',
-        'expireTime'              => 'ExpireTime',
-        'expired'                 => 'Expired',
-        'id'                      => 'Id',
-        'lockMode'                => 'LockMode',
-        'lockReason'              => 'LockReason',
-        'minorVersion'            => 'MinorVersion',
-        'network'                 => 'Network',
-        'nodeClass'               => 'NodeClass',
-        'nodeCount'               => 'NodeCount',
-        'nodes'                   => 'Nodes',
-        'payType'                 => 'PayType',
-        'primaryInstanceId'       => 'PrimaryInstanceId',
-        'primaryZone'             => 'PrimaryZone',
-        'readDBInstances'         => 'ReadDBInstances',
-        'regionId'                => 'RegionId',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'secondaryZone'           => 'SecondaryZone',
-        'series'                  => 'Series',
-        'status'                  => 'Status',
-        'storageUsed'             => 'StorageUsed',
-        'supportBinlogX'          => 'SupportBinlogX',
-        'tagSet'                  => 'TagSet',
-        'tertiaryZone'            => 'TertiaryZone',
-        'topologyType'            => 'TopologyType',
-        'type'                    => 'Type',
-        'VPCId'                   => 'VPCId',
-        'zoneId'                  => 'ZoneId',
-        'gdnRole'                 => 'gdnRole',
-        'isInGdn'                 => 'isInGdn',
+        'commodityCode' => 'CommodityCode',
+        'containBinlogX' => 'ContainBinlogX',
+        'cpuType' => 'CpuType',
+        'createTime' => 'CreateTime',
+        'DBInstanceName' => 'DBInstanceName',
+        'DBType' => 'DBType',
+        'DBVersion' => 'DBVersion',
+        'description' => 'Description',
+        'dnNodeClassCode' => 'DnNodeClassCode',
+        'dnNodeCount' => 'DnNodeCount',
+        'engine' => 'Engine',
+        'expireTime' => 'ExpireTime',
+        'expired' => 'Expired',
+        'id' => 'Id',
+        'lockMode' => 'LockMode',
+        'lockReason' => 'LockReason',
+        'minorVersion' => 'MinorVersion',
+        'network' => 'Network',
+        'nodeClass' => 'NodeClass',
+        'nodeCount' => 'NodeCount',
+        'nodes' => 'Nodes',
+        'payType' => 'PayType',
+        'primaryInstanceId' => 'PrimaryInstanceId',
+        'primaryZone' => 'PrimaryZone',
+        'readDBInstances' => 'ReadDBInstances',
+        'regionId' => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'secondaryZone' => 'SecondaryZone',
+        'series' => 'Series',
+        'status' => 'Status',
+        'storageUsed' => 'StorageUsed',
+        'supportBinlogX' => 'SupportBinlogX',
+        'tagSet' => 'TagSet',
+        'tertiaryZone' => 'TertiaryZone',
+        'topologyType' => 'TopologyType',
+        'type' => 'Type',
+        'VPCId' => 'VPCId',
+        'zoneId' => 'ZoneId',
+        'gdnRole' => 'gdnRole',
+        'isInGdn' => 'isInGdn',
     ];
 
     public function validate()
@@ -277,7 +321,7 @@ class DBInstances extends Model
         if (null !== $this->columnarReadDBInstances) {
             if (\is_array($this->columnarReadDBInstances)) {
                 $res['ColumnarReadDBInstances'] = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($this->columnarReadDBInstances as $item1) {
                     $res['ColumnarReadDBInstances'][$n1++] = $item1;
                 }
@@ -367,7 +411,7 @@ class DBInstances extends Model
         if (null !== $this->nodes) {
             if (\is_array($this->nodes)) {
                 $res['Nodes'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->nodes as $item1) {
                     $res['Nodes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -389,7 +433,7 @@ class DBInstances extends Model
         if (null !== $this->readDBInstances) {
             if (\is_array($this->readDBInstances)) {
                 $res['ReadDBInstances'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->readDBInstances as $item1) {
                     $res['ReadDBInstances'][$n1++] = $item1;
                 }
@@ -427,7 +471,7 @@ class DBInstances extends Model
         if (null !== $this->tagSet) {
             if (\is_array($this->tagSet)) {
                 $res['TagSet'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->tagSet as $item1) {
                     $res['TagSet'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -492,7 +536,7 @@ class DBInstances extends Model
         if (isset($map['ColumnarReadDBInstances'])) {
             if (!empty($map['ColumnarReadDBInstances'])) {
                 $model->columnarReadDBInstances = [];
-                $n1                             = 0;
+                $n1 = 0;
                 foreach ($map['ColumnarReadDBInstances'] as $item1) {
                     $model->columnarReadDBInstances[$n1++] = $item1;
                 }
@@ -582,7 +626,7 @@ class DBInstances extends Model
         if (isset($map['Nodes'])) {
             if (!empty($map['Nodes'])) {
                 $model->nodes = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Nodes'] as $item1) {
                     $model->nodes[$n1++] = nodes::fromMap($item1);
                 }
@@ -604,7 +648,7 @@ class DBInstances extends Model
         if (isset($map['ReadDBInstances'])) {
             if (!empty($map['ReadDBInstances'])) {
                 $model->readDBInstances = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['ReadDBInstances'] as $item1) {
                     $model->readDBInstances[$n1++] = $item1;
                 }
@@ -642,7 +686,7 @@ class DBInstances extends Model
         if (isset($map['TagSet'])) {
             if (!empty($map['TagSet'])) {
                 $model->tagSet = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['TagSet'] as $item1) {
                     $model->tagSet[$n1++] = tagSet::fromMap($item1);
                 }

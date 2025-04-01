@@ -12,43 +12,50 @@ class historyItems extends Model
      * @var bool
      */
     public $activated;
+
     /**
      * @var string
      */
     public $azone;
+
     /**
      * @var string
      */
     public $characterType;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $phyInstanceName;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $role;
     protected $_name = [
-        'activated'       => 'Activated',
-        'azone'           => 'Azone',
-        'characterType'   => 'CharacterType',
-        'DBInstanceId'    => 'DBInstanceId',
-        'DBInstanceName'  => 'DBInstanceName',
+        'activated' => 'Activated',
+        'azone' => 'Azone',
+        'characterType' => 'CharacterType',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceName' => 'DBInstanceName',
         'phyInstanceName' => 'PhyInstanceName',
-        'region'          => 'Region',
-        'role'            => 'Role',
+        'region' => 'Region',
+        'role' => 'Role',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class ModifyActiveOperationMaintainConfRequest extends Model
      * @var string
      */
     public $cycleTime;
+
     /**
      * @var string
      */
     public $cycleType;
+
     /**
      * @var string
      */
     public $maintainEndTime;
+
     /**
      * @var string
      */
     public $maintainStartTime;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'cycleTime'         => 'CycleTime',
-        'cycleType'         => 'CycleType',
-        'maintainEndTime'   => 'MaintainEndTime',
+        'cycleTime' => 'CycleTime',
+        'cycleType' => 'CycleType',
+        'maintainEndTime' => 'MaintainEndTime',
         'maintainStartTime' => 'MaintainStartTime',
-        'regionId'          => 'RegionId',
-        'status'            => 'Status',
+        'regionId' => 'RegionId',
+        'status' => 'Status',
     ];
 
     public function validate()

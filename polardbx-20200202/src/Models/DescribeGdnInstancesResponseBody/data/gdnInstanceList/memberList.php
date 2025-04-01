@@ -12,98 +12,116 @@ class memberList extends Model
      * @var string
      */
     public $classCode;
+
     /**
      * @var string
      */
     public $cnNodeClassCode;
+
     /**
      * @var string
      */
     public $cnNodeCount;
+
     /**
      * @var string
      */
     public $commodityCode;
+
     /**
      * @var string
      */
     public $dnNodeClassCode;
+
     /**
      * @var string
      */
     public $dnNodeCount;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var string
      */
     public $gmtCreated;
+
     /**
      * @var string
      */
     public $memberName;
+
     /**
      * @var string
      */
     public $payType;
+
     /**
      * @var string
      */
     public $primaryZone;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $secondaryZone;
+
     /**
      * @var string
      */
     public $secondsBehindMaster;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskStatus;
+
     /**
      * @var string
      */
     public $tertiaryZone;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'classCode'           => 'ClassCode',
-        'cnNodeClassCode'     => 'CnNodeClassCode',
-        'cnNodeCount'         => 'CnNodeCount',
-        'commodityCode'       => 'CommodityCode',
-        'dnNodeClassCode'     => 'DnNodeClassCode',
-        'dnNodeCount'         => 'DnNodeCount',
-        'expireTime'          => 'ExpireTime',
-        'gmtCreated'          => 'GmtCreated',
-        'memberName'          => 'MemberName',
-        'payType'             => 'PayType',
-        'primaryZone'         => 'PrimaryZone',
-        'regionId'            => 'RegionId',
-        'role'                => 'Role',
-        'secondaryZone'       => 'SecondaryZone',
+        'classCode' => 'ClassCode',
+        'cnNodeClassCode' => 'CnNodeClassCode',
+        'cnNodeCount' => 'CnNodeCount',
+        'commodityCode' => 'CommodityCode',
+        'dnNodeClassCode' => 'DnNodeClassCode',
+        'dnNodeCount' => 'DnNodeCount',
+        'expireTime' => 'ExpireTime',
+        'gmtCreated' => 'GmtCreated',
+        'memberName' => 'MemberName',
+        'payType' => 'PayType',
+        'primaryZone' => 'PrimaryZone',
+        'regionId' => 'RegionId',
+        'role' => 'Role',
+        'secondaryZone' => 'SecondaryZone',
         'secondsBehindMaster' => 'SecondsBehindMaster',
-        'status'              => 'Status',
-        'taskStatus'          => 'TaskStatus',
-        'tertiaryZone'        => 'TertiaryZone',
-        'zoneId'              => 'ZoneId',
+        'status' => 'Status',
+        'taskStatus' => 'TaskStatus',
+        'tertiaryZone' => 'TertiaryZone',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()

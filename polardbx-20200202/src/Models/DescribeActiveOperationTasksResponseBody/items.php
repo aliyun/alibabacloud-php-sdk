@@ -12,138 +12,164 @@ class items extends Model
      * @var string
      */
     public $allowCancel;
+
     /**
      * @var string
      */
     public $allowChange;
+
     /**
      * @var string
      */
     public $changeLevel;
+
     /**
      * @var string
      */
     public $changeLevelEn;
+
     /**
      * @var string
      */
     public $changeLevelZh;
+
     /**
      * @var string
      */
     public $createdTime;
+
     /**
      * @var string
      */
     public $currentAVZ;
+
     /**
      * @var string
      */
     public $dbType;
+
     /**
      * @var string
      */
     public $dbVersion;
+
     /**
      * @var string
      */
     public $deadline;
+
     /**
      * @var int
      */
     public $id;
+
     /**
      * @var string
      */
     public $impact;
+
     /**
      * @var string
      */
     public $impactEn;
+
     /**
      * @var string
      */
     public $impactZh;
+
     /**
      * @var string
      */
     public $insComment;
+
     /**
      * @var string
      */
     public $insName;
+
     /**
      * @var string
      */
     public $modifiedTime;
+
     /**
      * @var string
      */
     public $prepareInterval;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $resultInfo;
+
     /**
      * @var string
      */
     public $startTime;
+
     /**
      * @var int
      */
     public $status;
+
     /**
      * @var string[]
      */
     public $subInsNames;
+
     /**
      * @var string
      */
     public $switchTime;
+
     /**
      * @var string
      */
     public $taskType;
+
     /**
      * @var string
      */
     public $taskTypeEn;
+
     /**
      * @var string
      */
     public $taskTypeZh;
     protected $_name = [
-        'allowCancel'     => 'AllowCancel',
-        'allowChange'     => 'AllowChange',
-        'changeLevel'     => 'ChangeLevel',
-        'changeLevelEn'   => 'ChangeLevelEn',
-        'changeLevelZh'   => 'ChangeLevelZh',
-        'createdTime'     => 'CreatedTime',
-        'currentAVZ'      => 'CurrentAVZ',
-        'dbType'          => 'DbType',
-        'dbVersion'       => 'DbVersion',
-        'deadline'        => 'Deadline',
-        'id'              => 'Id',
-        'impact'          => 'Impact',
-        'impactEn'        => 'ImpactEn',
-        'impactZh'        => 'ImpactZh',
-        'insComment'      => 'InsComment',
-        'insName'         => 'InsName',
-        'modifiedTime'    => 'ModifiedTime',
+        'allowCancel' => 'AllowCancel',
+        'allowChange' => 'AllowChange',
+        'changeLevel' => 'ChangeLevel',
+        'changeLevelEn' => 'ChangeLevelEn',
+        'changeLevelZh' => 'ChangeLevelZh',
+        'createdTime' => 'CreatedTime',
+        'currentAVZ' => 'CurrentAVZ',
+        'dbType' => 'DbType',
+        'dbVersion' => 'DbVersion',
+        'deadline' => 'Deadline',
+        'id' => 'Id',
+        'impact' => 'Impact',
+        'impactEn' => 'ImpactEn',
+        'impactZh' => 'ImpactZh',
+        'insComment' => 'InsComment',
+        'insName' => 'InsName',
+        'modifiedTime' => 'ModifiedTime',
         'prepareInterval' => 'PrepareInterval',
-        'region'          => 'Region',
-        'resultInfo'      => 'ResultInfo',
-        'startTime'       => 'StartTime',
-        'status'          => 'Status',
-        'subInsNames'     => 'SubInsNames',
-        'switchTime'      => 'SwitchTime',
-        'taskType'        => 'TaskType',
-        'taskTypeEn'      => 'TaskTypeEn',
-        'taskTypeZh'      => 'TaskTypeZh',
+        'region' => 'Region',
+        'resultInfo' => 'ResultInfo',
+        'startTime' => 'StartTime',
+        'status' => 'Status',
+        'subInsNames' => 'SubInsNames',
+        'switchTime' => 'SwitchTime',
+        'taskType' => 'TaskType',
+        'taskTypeEn' => 'TaskTypeEn',
+        'taskTypeZh' => 'TaskTypeZh',
     ];
 
     public function validate()
@@ -248,7 +274,7 @@ class items extends Model
         if (null !== $this->subInsNames) {
             if (\is_array($this->subInsNames)) {
                 $res['SubInsNames'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->subInsNames as $item1) {
                     $res['SubInsNames'][$n1++] = $item1;
                 }
@@ -373,7 +399,7 @@ class items extends Model
         if (isset($map['SubInsNames'])) {
             if (!empty($map['SubInsNames'])) {
                 $model->subInsNames = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['SubInsNames'] as $item1) {
                     $model->subInsNames[$n1++] = $item1;
                 }

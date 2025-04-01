@@ -13,33 +13,38 @@ class DescribeRegionsResponseBody extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var int
      */
     public $errorCode;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var regions
      */
     public $regions;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
+        'code' => 'Code',
         'errorCode' => 'ErrorCode',
-        'message'   => 'Message',
-        'regions'   => 'Regions',
+        'message' => 'Message',
+        'regions' => 'Regions',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'success' => 'Success',
     ];
 
     public function validate()

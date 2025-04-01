@@ -12,23 +12,26 @@ class ModifyDBInstanceConfigRequest extends Model
      * @var string
      */
     public $configName;
+
     /**
      * @var string
      */
     public $configValue;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
-        'configName'     => 'ConfigName',
-        'configValue'    => 'ConfigValue',
+        'configName' => 'ConfigName',
+        'configValue' => 'ConfigValue',
         'DBInstanceName' => 'DBInstanceName',
-        'regionId'       => 'RegionId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

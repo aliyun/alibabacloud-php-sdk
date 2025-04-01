@@ -14,143 +14,170 @@ class items extends Model
      * @var bool
      */
     public $activated;
+
     /**
      * @var string
      */
     public $azone;
+
     /**
      * @var azoneRoleList[]
      */
     public $azoneRoleList;
+
     /**
      * @var string
      */
     public $characterType;
+
     /**
      * @var connectionIp[]
      */
     public $connectionIp;
+
     /**
      * @var int
      */
     public $DBInstanceConnType;
+
     /**
      * @var string
      */
     public $DBInstanceCreateTime;
+
     /**
      * @var string
      */
     public $DBInstanceDescription;
+
     /**
      * @var string
      */
     public $DBInstanceId;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var int
      */
     public $DBInstanceStatus;
+
     /**
      * @var string
      */
     public $DBInstanceStatusDescription;
+
     /**
      * @var int
      */
     public $diskSize;
+
     /**
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var int
      */
     public $lockMode;
+
     /**
      * @var string
      */
     public $lockReason;
+
     /**
      * @var string
      */
     public $maintainEndTime;
+
     /**
      * @var string
      */
     public $maintainStartTime;
+
     /**
      * @var int
      */
     public $maxConnections;
+
     /**
      * @var int
      */
     public $maxIops;
+
     /**
      * @var string
      */
     public $nodeClass;
+
     /**
      * @var string
      */
     public $phyInstanceName;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $role;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $storageUsed;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'activated'                   => 'Activated',
-        'azone'                       => 'Azone',
-        'azoneRoleList'               => 'AzoneRoleList',
-        'characterType'               => 'CharacterType',
-        'connectionIp'                => 'ConnectionIp',
-        'DBInstanceConnType'          => 'DBInstanceConnType',
-        'DBInstanceCreateTime'        => 'DBInstanceCreateTime',
-        'DBInstanceDescription'       => 'DBInstanceDescription',
-        'DBInstanceId'                => 'DBInstanceId',
-        'DBInstanceName'              => 'DBInstanceName',
-        'DBInstanceStatus'            => 'DBInstanceStatus',
+        'activated' => 'Activated',
+        'azone' => 'Azone',
+        'azoneRoleList' => 'AzoneRoleList',
+        'characterType' => 'CharacterType',
+        'connectionIp' => 'ConnectionIp',
+        'DBInstanceConnType' => 'DBInstanceConnType',
+        'DBInstanceCreateTime' => 'DBInstanceCreateTime',
+        'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceName' => 'DBInstanceName',
+        'DBInstanceStatus' => 'DBInstanceStatus',
         'DBInstanceStatusDescription' => 'DBInstanceStatusDescription',
-        'diskSize'                    => 'DiskSize',
-        'engine'                      => 'Engine',
-        'engineVersion'               => 'EngineVersion',
-        'lockMode'                    => 'LockMode',
-        'lockReason'                  => 'LockReason',
-        'maintainEndTime'             => 'MaintainEndTime',
-        'maintainStartTime'           => 'MaintainStartTime',
-        'maxConnections'              => 'MaxConnections',
-        'maxIops'                     => 'MaxIops',
-        'nodeClass'                   => 'NodeClass',
-        'phyInstanceName'             => 'PhyInstanceName',
-        'region'                      => 'Region',
-        'role'                        => 'Role',
-        'status'                      => 'Status',
-        'storageUsed'                 => 'StorageUsed',
-        'version'                     => 'Version',
+        'diskSize' => 'DiskSize',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
+        'lockMode' => 'LockMode',
+        'lockReason' => 'LockReason',
+        'maintainEndTime' => 'MaintainEndTime',
+        'maintainStartTime' => 'MaintainStartTime',
+        'maxConnections' => 'MaxConnections',
+        'maxIops' => 'MaxIops',
+        'nodeClass' => 'NodeClass',
+        'phyInstanceName' => 'PhyInstanceName',
+        'region' => 'Region',
+        'role' => 'Role',
+        'status' => 'Status',
+        'storageUsed' => 'StorageUsed',
+        'version' => 'Version',
     ];
 
     public function validate()
@@ -178,7 +205,7 @@ class items extends Model
         if (null !== $this->azoneRoleList) {
             if (\is_array($this->azoneRoleList)) {
                 $res['AzoneRoleList'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->azoneRoleList as $item1) {
                     $res['AzoneRoleList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -192,7 +219,7 @@ class items extends Model
         if (null !== $this->connectionIp) {
             if (\is_array($this->connectionIp)) {
                 $res['ConnectionIp'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->connectionIp as $item1) {
                     $res['ConnectionIp'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -313,7 +340,7 @@ class items extends Model
         if (isset($map['AzoneRoleList'])) {
             if (!empty($map['AzoneRoleList'])) {
                 $model->azoneRoleList = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['AzoneRoleList'] as $item1) {
                     $model->azoneRoleList[$n1++] = azoneRoleList::fromMap($item1);
                 }
@@ -327,7 +354,7 @@ class items extends Model
         if (isset($map['ConnectionIp'])) {
             if (!empty($map['ConnectionIp'])) {
                 $model->connectionIp = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['ConnectionIp'] as $item1) {
                     $model->connectionIp[$n1++] = connectionIp::fromMap($item1);
                 }

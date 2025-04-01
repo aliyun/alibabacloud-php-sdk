@@ -12,38 +12,44 @@ class DescribeArchiveTableListRequest extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var int
      */
     public $pageIndex;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $schemaName;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $tableName;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
-        'pageIndex'      => 'PageIndex',
-        'pageSize'       => 'PageSize',
-        'regionId'       => 'RegionId',
-        'schemaName'     => 'SchemaName',
-        'status'         => 'Status',
-        'tableName'      => 'TableName',
+        'pageIndex' => 'PageIndex',
+        'pageSize' => 'PageSize',
+        'regionId' => 'RegionId',
+        'schemaName' => 'SchemaName',
+        'status' => 'Status',
+        'tableName' => 'TableName',
     ];
 
     public function validate()

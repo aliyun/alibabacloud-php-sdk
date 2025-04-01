@@ -13,23 +13,26 @@ class TagResourcesRequest extends Model
      * @var string
      */
     public $regionId;
+
     /**
      * @var string[]
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'regionId'     => 'RegionId',
-        'resourceId'   => 'ResourceId',
+        'regionId' => 'RegionId',
+        'resourceId' => 'ResourceId',
         'resourceType' => 'ResourceType',
-        'tag'          => 'Tag',
+        'tag' => 'Tag',
     ];
 
     public function validate()
@@ -53,7 +56,7 @@ class TagResourcesRequest extends Model
         if (null !== $this->resourceId) {
             if (\is_array($this->resourceId)) {
                 $res['ResourceId'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->resourceId as $item1) {
                     $res['ResourceId'][$n1++] = $item1;
                 }
@@ -67,7 +70,7 @@ class TagResourcesRequest extends Model
         if (null !== $this->tag) {
             if (\is_array($this->tag)) {
                 $res['Tag'] = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($this->tag as $item1) {
                     $res['Tag'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -92,7 +95,7 @@ class TagResourcesRequest extends Model
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['ResourceId'] as $item1) {
                     $model->resourceId[$n1++] = $item1;
                 }
@@ -106,7 +109,7 @@ class TagResourcesRequest extends Model
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];
-                $n1         = 0;
+                $n1 = 0;
                 foreach ($map['Tag'] as $item1) {
                     $model->tag[$n1++] = tag::fromMap($item1);
                 }

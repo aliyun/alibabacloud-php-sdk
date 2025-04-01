@@ -12,38 +12,44 @@ class data extends Model
      * @var int
      */
     public $backupModel;
+
     /**
      * @var string
      */
     public $backupSetId;
+
     /**
      * @var int
      */
     public $backupSetSize;
+
     /**
      * @var int
      */
     public $backupType;
+
     /**
      * @var int
      */
     public $beginTime;
+
     /**
      * @var int
      */
     public $endTime;
+
     /**
      * @var int
      */
     public $status;
     protected $_name = [
-        'backupModel'   => 'BackupModel',
-        'backupSetId'   => 'BackupSetId',
+        'backupModel' => 'BackupModel',
+        'backupSetId' => 'BackupSetId',
         'backupSetSize' => 'BackupSetSize',
-        'backupType'    => 'BackupType',
-        'beginTime'     => 'BeginTime',
-        'endTime'       => 'EndTime',
-        'status'        => 'Status',
+        'backupType' => 'BackupType',
+        'beginTime' => 'BeginTime',
+        'endTime' => 'EndTime',
+        'status' => 'Status',
     ];
 
     public function validate()

@@ -13,27 +13,31 @@ class DescribeDBInstancesResponseBody extends Model
      * @var DBInstances[]
      */
     public $DBInstances;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalNumber;
     protected $_name = [
         'DBInstances' => 'DBInstances',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'requestId'   => 'RequestId',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
         'totalNumber' => 'TotalNumber',
     ];
 
@@ -51,7 +55,7 @@ class DescribeDBInstancesResponseBody extends Model
         if (null !== $this->DBInstances) {
             if (\is_array($this->DBInstances)) {
                 $res['DBInstances'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->DBInstances as $item1) {
                     $res['DBInstances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -88,7 +92,7 @@ class DescribeDBInstancesResponseBody extends Model
         if (isset($map['DBInstances'])) {
             if (!empty($map['DBInstances'])) {
                 $model->DBInstances = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DBInstances'] as $item1) {
                     $model->DBInstances[$n1++] = DBInstances::fromMap($item1);
                 }

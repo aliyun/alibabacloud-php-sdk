@@ -12,14 +12,17 @@ class UpdateDBInstanceSSLRequest extends Model
      * @var string
      */
     public $certCommonName;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var bool
      */
     public $enableSSL;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class UpdateDBInstanceSSLRequest extends Model
     protected $_name = [
         'certCommonName' => 'CertCommonName',
         'DBInstanceName' => 'DBInstanceName',
-        'enableSSL'      => 'EnableSSL',
-        'regionId'       => 'RegionId',
+        'enableSSL' => 'EnableSSL',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()

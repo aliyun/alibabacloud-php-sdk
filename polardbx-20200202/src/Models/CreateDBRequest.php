@@ -12,58 +12,68 @@ class CreateDBRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $accountPrivilege;
+
     /**
      * @var string
      */
     public $charset;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $dbDescription;
+
     /**
      * @var string
      */
     public $dbName;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityAccountName;
+
     /**
      * @var string
      */
     public $securityAccountPassword;
+
     /**
      * @var string
      */
     public $storagePoolName;
     protected $_name = [
-        'accountName'             => 'AccountName',
-        'accountPrivilege'        => 'AccountPrivilege',
-        'charset'                 => 'Charset',
-        'DBInstanceName'          => 'DBInstanceName',
-        'dbDescription'           => 'DbDescription',
-        'dbName'                  => 'DbName',
-        'mode'                    => 'Mode',
-        'regionId'                => 'RegionId',
-        'securityAccountName'     => 'SecurityAccountName',
+        'accountName' => 'AccountName',
+        'accountPrivilege' => 'AccountPrivilege',
+        'charset' => 'Charset',
+        'DBInstanceName' => 'DBInstanceName',
+        'dbDescription' => 'DbDescription',
+        'dbName' => 'DbName',
+        'mode' => 'Mode',
+        'regionId' => 'RegionId',
+        'securityAccountName' => 'SecurityAccountName',
         'securityAccountPassword' => 'SecurityAccountPassword',
-        'storagePoolName'         => 'StoragePoolName',
+        'storagePoolName' => 'StoragePoolName',
     ];
 
     public function validate()

@@ -12,23 +12,26 @@ class UpgradeDBInstanceKernelVersionResponseBody extends Model
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $targetMinorVersion;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'DBInstanceName'     => 'DBInstanceName',
-        'requestId'          => 'RequestId',
+        'DBInstanceName' => 'DBInstanceName',
+        'requestId' => 'RequestId',
         'targetMinorVersion' => 'TargetMinorVersion',
-        'taskId'             => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

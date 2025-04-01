@@ -12,58 +12,68 @@ class items extends Model
      * @var string
      */
     public $beginTime;
+
     /**
      * @var string
      */
     public $DBName;
+
     /**
      * @var string
      */
     public $finishTime;
+
     /**
      * @var string
      */
     public $progress;
+
     /**
      * @var string
      */
     public $progressInfo;
+
     /**
      * @var string
      */
     public $scaleOutToken;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $taskAction;
+
     /**
      * @var string
      */
     public $taskErrorCode;
+
     /**
      * @var string
      */
     public $taskErrorMessage;
+
     /**
      * @var string
      */
     public $taskId;
     protected $_name = [
-        'beginTime'        => 'BeginTime',
-        'DBName'           => 'DBName',
-        'finishTime'       => 'FinishTime',
-        'progress'         => 'Progress',
-        'progressInfo'     => 'ProgressInfo',
-        'scaleOutToken'    => 'ScaleOutToken',
-        'status'           => 'Status',
-        'taskAction'       => 'TaskAction',
-        'taskErrorCode'    => 'TaskErrorCode',
+        'beginTime' => 'BeginTime',
+        'DBName' => 'DBName',
+        'finishTime' => 'FinishTime',
+        'progress' => 'Progress',
+        'progressInfo' => 'ProgressInfo',
+        'scaleOutToken' => 'ScaleOutToken',
+        'status' => 'Status',
+        'taskAction' => 'TaskAction',
+        'taskErrorCode' => 'TaskErrorCode',
         'taskErrorMessage' => 'TaskErrorMessage',
-        'taskId'           => 'TaskId',
+        'taskId' => 'TaskId',
     ];
 
     public function validate()

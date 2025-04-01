@@ -13,23 +13,26 @@ class data extends Model
      * @var string
      */
     public $engine;
+
     /**
      * @var string
      */
     public $engineVersion;
+
     /**
      * @var int
      */
     public $parameterCount;
+
     /**
      * @var parameters[]
      */
     public $parameters;
     protected $_name = [
-        'engine'         => 'Engine',
-        'engineVersion'  => 'EngineVersion',
+        'engine' => 'Engine',
+        'engineVersion' => 'EngineVersion',
         'parameterCount' => 'ParameterCount',
-        'parameters'     => 'Parameters',
+        'parameters' => 'Parameters',
     ];
 
     public function validate()
@@ -58,7 +61,7 @@ class data extends Model
         if (null !== $this->parameters) {
             if (\is_array($this->parameters)) {
                 $res['Parameters'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->parameters as $item1) {
                     $res['Parameters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -91,7 +94,7 @@ class data extends Model
         if (isset($map['Parameters'])) {
             if (!empty($map['Parameters'])) {
                 $model->parameters = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Parameters'] as $item1) {
                     $model->parameters[$n1++] = parameters::fromMap($item1);
                 }

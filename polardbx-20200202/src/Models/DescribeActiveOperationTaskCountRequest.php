@@ -12,17 +12,19 @@ class DescribeActiveOperationTaskCountRequest extends Model
      * @var string
      */
     public $category;
+
     /**
      * @var string
      */
     public $product;
+
     /**
      * @var string
      */
     public $regionId;
     protected $_name = [
         'category' => 'Category',
-        'product'  => 'Product',
+        'product' => 'Product',
         'regionId' => 'RegionId',
     ];
 

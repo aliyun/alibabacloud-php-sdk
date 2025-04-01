@@ -12,27 +12,31 @@ class DeleteAccountRequest extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $DBInstanceName;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $securityAccountName;
+
     /**
      * @var string
      */
     public $securityAccountPassword;
     protected $_name = [
-        'accountName'             => 'AccountName',
-        'DBInstanceName'          => 'DBInstanceName',
-        'regionId'                => 'RegionId',
-        'securityAccountName'     => 'SecurityAccountName',
+        'accountName' => 'AccountName',
+        'DBInstanceName' => 'DBInstanceName',
+        'regionId' => 'RegionId',
+        'securityAccountName' => 'SecurityAccountName',
         'securityAccountPassword' => 'SecurityAccountPassword',
     ];
 
