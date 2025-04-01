@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationInstancesResponseBody\data\instances;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class sidecarContainersStatus extends Model
 {
@@ -23,24 +23,27 @@ class sidecarContainersStatus extends Model
      */
     public $imageUrl;
     protected $_name = [
-        'containerId'     => 'ContainerId',
+        'containerId' => 'ContainerId',
         'containerStatus' => 'ContainerStatus',
-        'imageUrl'        => 'ImageUrl',
+        'imageUrl' => 'ImageUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->containerId) {
             $res['ContainerId'] = $this->containerId;
         }
+
         if (null !== $this->containerStatus) {
             $res['ContainerStatus'] = $this->containerStatus;
         }
+
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
@@ -48,20 +51,22 @@ class sidecarContainersStatus extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return sidecarContainersStatus
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContainerId'])) {
             $model->containerId = $map['ContainerId'];
         }
+
         if (isset($map['ContainerStatus'])) {
             $model->containerStatus = $map['ContainerStatus'];
         }
+
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }

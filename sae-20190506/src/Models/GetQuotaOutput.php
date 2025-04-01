@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class GetQuotaOutput extends Model
 {
@@ -23,24 +23,27 @@ class GetQuotaOutput extends Model
      */
     public $instanceUsed;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'instanceLimit' => 'instanceLimit',
-        'instanceUsed'  => 'instanceUsed',
+        'instanceUsed' => 'instanceUsed',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->instanceLimit) {
             $res['instanceLimit'] = $this->instanceLimit;
         }
+
         if (null !== $this->instanceUsed) {
             $res['instanceUsed'] = $this->instanceUsed;
         }
@@ -48,20 +51,22 @@ class GetQuotaOutput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return GetQuotaOutput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['instanceLimit'])) {
             $model->instanceLimit = $map['instanceLimit'];
         }
+
         if (isset($map['instanceUsed'])) {
             $model->instanceUsed = $map['instanceUsed'];
         }

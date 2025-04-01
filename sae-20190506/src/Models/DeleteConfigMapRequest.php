@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DeleteConfigMapRequest extends Model
 {
     /**
-     * @description 1
-     *
-     * This parameter is required.
-     * @example 1
-     *
      * @var int
      */
     public $configMapId;
@@ -23,9 +18,10 @@ class DeleteConfigMapRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configMapId) {
@@ -35,11 +31,11 @@ class DeleteConfigMapRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DeleteConfigMapRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

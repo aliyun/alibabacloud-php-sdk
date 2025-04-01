@@ -4,38 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\AppStackInstance;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class parameters extends Model
 {
     /**
-     * @example regionId
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $value;
     protected $_name = [
-        'name'  => 'Name',
+        'name' => 'Name',
         'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -43,17 +41,18 @@ class parameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return parameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

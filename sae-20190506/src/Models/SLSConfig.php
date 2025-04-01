@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\SLSConfig\collectConfigs;
-use AlibabaCloud\Tea\Model;
 
 class SLSConfig extends Model
 {
@@ -19,17 +19,21 @@ class SLSConfig extends Model
 
     public function validate()
     {
+        if (\is_array($this->collectConfigs)) {
+            Model::validateArray($this->collectConfigs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->collectConfigs) {
-            $res['collectConfigs'] = [];
-            if (null !== $this->collectConfigs && \is_array($this->collectConfigs)) {
-                $n = 0;
-                foreach ($this->collectConfigs as $item) {
-                    $res['collectConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->collectConfigs)) {
+                $res['collectConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->collectConfigs as $item1) {
+                    $res['collectConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class SLSConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SLSConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['collectConfigs'])) {
             if (!empty($map['collectConfigs'])) {
                 $model->collectConfigs = [];
-                $n                     = 0;
-                foreach ($map['collectConfigs'] as $item) {
-                    $model->collectConfigs[$n++] = null !== $item ? collectConfigs::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['collectConfigs'] as $item1) {
+                    $model->collectConfigs[$n1++] = collectConfigs::fromMap($item1);
                 }
             }
         }

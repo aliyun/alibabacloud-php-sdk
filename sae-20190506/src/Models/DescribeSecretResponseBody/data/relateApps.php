@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeSecretResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class relateApps extends Model
 {
     /**
-     * @description The application ID.
-     *
-     * @example f16b4000-9058-4c22-a49d-49a28f0b****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The name of the application.
-     *
-     * @example test-app
-     *
      * @var string
      */
     public $appName;
     protected $_name = [
-        'appId'   => 'AppId',
+        'appId' => 'AppId',
         'appName' => 'AppName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
@@ -47,17 +41,18 @@ class relateApps extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return relateApps
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }

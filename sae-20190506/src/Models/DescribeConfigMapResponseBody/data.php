@@ -4,129 +4,114 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigMapResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigMapResponseBody\data\relateApps;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The name of the ConfigMap instance.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $configMapId;
 
     /**
-     * @description The application that is associated with the instance.
-     *
-     * @example 1593746835111
-     *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description The ID of the namespace to which the instance belongs.
-     *
-     * @example {"k1":"v1","k2":"v2"}
-     *
      * @var mixed[]
      */
     public $data;
 
     /**
-     * @description The time when the instance was created.
-     *
-     * @example test-desc
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The returned error code. Valid values:
-     *
-     *   If the call is successful, the **ErrorCode** parameter is not returned.
-     *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
-     *
-     * @example test-configmap
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The description of the instance.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $namespaceId;
 
     /**
-     * @description The name of the application.
-     *
      * @var relateApps[]
      */
     public $relateApps;
 
     /**
-     * @description The data of ConfigMap key-value pairs. Format:
-     *
-     * k specifies a key and v specifies a value. For more information, see [Manage and use configurations](https://help.aliyun.com/document_detail/171326.html).
-     * @example 1593747274195
-     *
      * @var int
      */
     public $updateTime;
     protected $_name = [
         'configMapId' => 'ConfigMapId',
-        'createTime'  => 'CreateTime',
-        'data'        => 'Data',
+        'createTime' => 'CreateTime',
+        'data' => 'Data',
         'description' => 'Description',
-        'name'        => 'Name',
+        'name' => 'Name',
         'namespaceId' => 'NamespaceId',
-        'relateApps'  => 'RelateApps',
-        'updateTime'  => 'UpdateTime',
+        'relateApps' => 'RelateApps',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()
     {
+        if (\is_array($this->data)) {
+            Model::validateArray($this->data);
+        }
+        if (\is_array($this->relateApps)) {
+            Model::validateArray($this->relateApps);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->configMapId) {
             $res['ConfigMapId'] = $this->configMapId;
         }
+
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->namespaceId) {
-            $res['NamespaceId'] = $this->namespaceId;
-        }
-        if (null !== $this->relateApps) {
-            $res['RelateApps'] = [];
-            if (null !== $this->relateApps && \is_array($this->relateApps)) {
-                $n = 0;
-                foreach ($this->relateApps as $item) {
-                    $res['RelateApps'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->data)) {
+                $res['Data'] = [];
+                foreach ($this->data as $key1 => $value1) {
+                    $res['Data'][$key1] = $value1;
                 }
             }
         }
+
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+
+        if (null !== $this->namespaceId) {
+            $res['NamespaceId'] = $this->namespaceId;
+        }
+
+        if (null !== $this->relateApps) {
+            if (\is_array($this->relateApps)) {
+                $res['RelateApps'] = [];
+                $n1 = 0;
+                foreach ($this->relateApps as $item1) {
+                    $res['RelateApps'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
         }
@@ -134,41 +119,53 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ConfigMapId'])) {
             $model->configMapId = $map['ConfigMapId'];
         }
+
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['NamespaceId'])) {
-            $model->namespaceId = $map['NamespaceId'];
-        }
-        if (isset($map['RelateApps'])) {
-            if (!empty($map['RelateApps'])) {
-                $model->relateApps = [];
-                $n                 = 0;
-                foreach ($map['RelateApps'] as $item) {
-                    $model->relateApps[$n++] = null !== $item ? relateApps::fromMap($item) : $item;
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                foreach ($map['Data'] as $key1 => $value1) {
+                    $model->data[$key1] = $value1;
                 }
             }
         }
+
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+
+        if (isset($map['NamespaceId'])) {
+            $model->namespaceId = $map['NamespaceId'];
+        }
+
+        if (isset($map['RelateApps'])) {
+            if (!empty($map['RelateApps'])) {
+                $model->relateApps = [];
+                $n1 = 0;
+                foreach ($map['RelateApps'] as $item1) {
+                    $model->relateApps[$n1++] = relateApps::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
         }

@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class SLSCollectConfigs extends Model
 {
@@ -18,17 +18,21 @@ class SLSCollectConfigs extends Model
 
     public function validate()
     {
+        if (\is_array($this->collectConfigs)) {
+            Model::validateArray($this->collectConfigs);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->collectConfigs) {
-            $res['CollectConfigs'] = [];
-            if (null !== $this->collectConfigs && \is_array($this->collectConfigs)) {
-                $n = 0;
-                foreach ($this->collectConfigs as $item) {
-                    $res['CollectConfigs'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->collectConfigs)) {
+                $res['CollectConfigs'] = [];
+                $n1 = 0;
+                foreach ($this->collectConfigs as $item1) {
+                    $res['CollectConfigs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -36,20 +40,20 @@ class SLSCollectConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return SLSCollectConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CollectConfigs'])) {
             if (!empty($map['CollectConfigs'])) {
                 $model->collectConfigs = [];
-                $n                     = 0;
-                foreach ($map['CollectConfigs'] as $item) {
-                    $model->collectConfigs[$n++] = null !== $item ? SLSCollectConfig::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['CollectConfigs'] as $item1) {
+                    $model->collectConfigs[$n1++] = SLSCollectConfig::fromMap($item1);
                 }
             }
         }

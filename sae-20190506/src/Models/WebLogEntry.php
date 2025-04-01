@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class WebLogEntry extends Model
 {
@@ -18,9 +18,10 @@ class WebLogEntry extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->message) {
@@ -30,11 +31,11 @@ class WebLogEntry extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return WebLogEntry
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

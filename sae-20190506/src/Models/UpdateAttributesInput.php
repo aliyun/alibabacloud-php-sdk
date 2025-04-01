@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpdateAttributesInput extends Model
 {
@@ -23,24 +23,30 @@ class UpdateAttributesInput extends Model
      */
     public $versionID;
     protected $_name = [
-        'description'       => 'description',
+        'description' => 'description',
         'httpTriggerConfig' => 'httpTriggerConfig',
-        'versionID'         => 'versionID',
+        'versionID' => 'versionID',
     ];
 
     public function validate()
     {
+        if (null !== $this->httpTriggerConfig) {
+            $this->httpTriggerConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
+
         if (null !== $this->httpTriggerConfig) {
-            $res['httpTriggerConfig'] = null !== $this->httpTriggerConfig ? $this->httpTriggerConfig->toMap() : null;
+            $res['httpTriggerConfig'] = null !== $this->httpTriggerConfig ? $this->httpTriggerConfig->toArray($noStream) : $this->httpTriggerConfig;
         }
+
         if (null !== $this->versionID) {
             $res['versionID'] = $this->versionID;
         }
@@ -48,20 +54,22 @@ class UpdateAttributesInput extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpdateAttributesInput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }
+
         if (isset($map['httpTriggerConfig'])) {
             $model->httpTriggerConfig = HTTPTriggerConfig::fromMap($map['httpTriggerConfig']);
         }
+
         if (isset($map['versionID'])) {
             $model->versionID = $map['versionID'];
         }

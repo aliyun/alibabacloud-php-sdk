@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DeleteGreyTagRouteResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The returned error code. Valid values:
-     *
-     *   If the call is successful, the **ErrorCode** parameter is not returned.
-     *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
-     *
-     * @example 16
-     *
      * @var int
      */
     public $greyTagRouteId;
@@ -25,9 +18,10 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->greyTagRouteId) {
@@ -37,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

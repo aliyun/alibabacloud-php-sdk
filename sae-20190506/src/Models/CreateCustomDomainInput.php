@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateCustomDomainInput extends Model
 {
@@ -49,79 +49,103 @@ class CreateCustomDomainInput extends Model
     public $wafConfig;
     protected $_name = [
         'applicationName' => 'applicationName',
-        'certConfig'      => 'certConfig',
-        'domainName'      => 'domainName',
-        'keepFullPath'    => 'keepFullPath',
-        'namespaceID'     => 'namespaceID',
-        'protocol'        => 'protocol',
-        'tlsConfig'       => 'tlsConfig',
-        'wafConfig'       => 'wafConfig',
+        'certConfig' => 'certConfig',
+        'domainName' => 'domainName',
+        'keepFullPath' => 'keepFullPath',
+        'namespaceID' => 'namespaceID',
+        'protocol' => 'protocol',
+        'tlsConfig' => 'tlsConfig',
+        'wafConfig' => 'wafConfig',
     ];
 
     public function validate()
     {
+        if (null !== $this->certConfig) {
+            $this->certConfig->validate();
+        }
+        if (null !== $this->tlsConfig) {
+            $this->tlsConfig->validate();
+        }
+        if (null !== $this->wafConfig) {
+            $this->wafConfig->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationName) {
             $res['applicationName'] = $this->applicationName;
         }
+
         if (null !== $this->certConfig) {
-            $res['certConfig'] = null !== $this->certConfig ? $this->certConfig->toMap() : null;
+            $res['certConfig'] = null !== $this->certConfig ? $this->certConfig->toArray($noStream) : $this->certConfig;
         }
+
         if (null !== $this->domainName) {
             $res['domainName'] = $this->domainName;
         }
+
         if (null !== $this->keepFullPath) {
             $res['keepFullPath'] = $this->keepFullPath;
         }
+
         if (null !== $this->namespaceID) {
             $res['namespaceID'] = $this->namespaceID;
         }
+
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
         }
+
         if (null !== $this->tlsConfig) {
-            $res['tlsConfig'] = null !== $this->tlsConfig ? $this->tlsConfig->toMap() : null;
+            $res['tlsConfig'] = null !== $this->tlsConfig ? $this->tlsConfig->toArray($noStream) : $this->tlsConfig;
         }
+
         if (null !== $this->wafConfig) {
-            $res['wafConfig'] = null !== $this->wafConfig ? $this->wafConfig->toMap() : null;
+            $res['wafConfig'] = null !== $this->wafConfig ? $this->wafConfig->toArray($noStream) : $this->wafConfig;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateCustomDomainInput
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['applicationName'])) {
             $model->applicationName = $map['applicationName'];
         }
+
         if (isset($map['certConfig'])) {
             $model->certConfig = CertConfig::fromMap($map['certConfig']);
         }
+
         if (isset($map['domainName'])) {
             $model->domainName = $map['domainName'];
         }
+
         if (isset($map['keepFullPath'])) {
             $model->keepFullPath = $map['keepFullPath'];
         }
+
         if (isset($map['namespaceID'])) {
             $model->namespaceID = $map['namespaceID'];
         }
+
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
         }
+
         if (isset($map['tlsConfig'])) {
             $model->tlsConfig = TLSConfig::fromMap($map['tlsConfig']);
         }
+
         if (isset($map['wafConfig'])) {
             $model->wafConfig = WAFConfig::fromMap($map['wafConfig']);
         }

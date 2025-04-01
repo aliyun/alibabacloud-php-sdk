@@ -4,106 +4,104 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\ListConsumedServicesResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description A reserved parameter.
-     *
-     * @example b2a8a925-477a-4ed7-b825-d5e22500****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The subscription address of the service.
-     *
-     * @example {}
-     *
      * @var string
      */
     public $group2Ip;
 
     /**
-     * @description The version of the published service
-     *
      * @var string[]
      */
     public $groups;
 
     /**
-     * @description The name of the published service.
-     *
      * @var string[]
      */
     public $ips;
 
     /**
-     * @description The returned error code. Valid values:
-     *
-     *   If the call is successful, the **ErrorCode** parameter is not returned.
-     *   If the call fails, the **ErrorCode** parameter is returned. For more information, see the "**Error codes**" section of this topic.
-     *
-     * @example com.alibaba.nodejs.ItemService
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The service group that corresponds to the published service.
-     *
-     * @example RPC
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The ID of the application.
-     *
-     * @example 1.0.0
-     *
      * @var string
      */
     public $version;
     protected $_name = [
-        'appId'    => 'AppId',
+        'appId' => 'AppId',
         'group2Ip' => 'Group2Ip',
-        'groups'   => 'Groups',
-        'ips'      => 'Ips',
-        'name'     => 'Name',
-        'type'     => 'Type',
-        'version'  => 'Version',
+        'groups' => 'Groups',
+        'ips' => 'Ips',
+        'name' => 'Name',
+        'type' => 'Type',
+        'version' => 'Version',
     ];
 
     public function validate()
     {
+        if (\is_array($this->groups)) {
+            Model::validateArray($this->groups);
+        }
+        if (\is_array($this->ips)) {
+            Model::validateArray($this->ips);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->group2Ip) {
             $res['Group2Ip'] = $this->group2Ip;
         }
+
         if (null !== $this->groups) {
-            $res['Groups'] = $this->groups;
+            if (\is_array($this->groups)) {
+                $res['Groups'] = [];
+                $n1 = 0;
+                foreach ($this->groups as $item1) {
+                    $res['Groups'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->ips) {
-            $res['Ips'] = $this->ips;
+            if (\is_array($this->ips)) {
+                $res['Ips'] = [];
+                $n1 = 0;
+                foreach ($this->ips as $item1) {
+                    $res['Ips'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->version) {
             $res['Version'] = $this->version;
         }
@@ -111,36 +109,50 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['Group2Ip'])) {
             $model->group2Ip = $map['Group2Ip'];
         }
+
         if (isset($map['Groups'])) {
             if (!empty($map['Groups'])) {
-                $model->groups = $map['Groups'];
+                $model->groups = [];
+                $n1 = 0;
+                foreach ($map['Groups'] as $item1) {
+                    $model->groups[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Ips'])) {
             if (!empty($map['Ips'])) {
-                $model->ips = $map['Ips'];
+                $model->ips = [];
+                $n1 = 0;
+                foreach ($map['Ips'] as $item1) {
+                    $model->ips[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Version'])) {
             $model->version = $map['Version'];
         }

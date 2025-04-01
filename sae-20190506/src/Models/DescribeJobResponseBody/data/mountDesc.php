@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeJobResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class mountDesc extends Model
 {
     /**
-     * @description The path on which the NAS file system is mounted.
-     *
-     * @example /tmp
-     *
      * @var string
      */
     public $mountPath;
 
     /**
-     * @description The directory in the NAS file system.
-     *
-     * @example /
-     *
      * @var string
      */
     public $nasPath;
     protected $_name = [
         'mountPath' => 'MountPath',
-        'nasPath'   => 'NasPath',
+        'nasPath' => 'NasPath',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
         }
+
         if (null !== $this->nasPath) {
             $res['NasPath'] = $this->nasPath;
         }
@@ -47,17 +41,18 @@ class mountDesc extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return mountDesc
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];
         }
+
         if (isset($map['NasPath'])) {
             $model->nasPath = $map['NasPath'];
         }

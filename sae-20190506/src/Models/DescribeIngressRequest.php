@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeIngressRequest extends Model
 {
     /**
-     * @description The returned data.
-     *
-     * This parameter is required.
-     * @example 87
-     *
      * @var int
      */
     public $ingressId;
@@ -23,9 +18,10 @@ class DescribeIngressRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->ingressId) {
@@ -35,11 +31,11 @@ class DescribeIngressRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeIngressRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

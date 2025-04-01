@@ -4,9 +4,9 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigurationPriceResponseBody\data;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigurationPriceResponseBody\data\trafficPrice\order;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeConfigurationPriceResponseBody\data\trafficPrice\rules;
-use AlibabaCloud\Tea\Model;
 
 class trafficPrice extends Model
 {
@@ -26,20 +26,28 @@ class trafficPrice extends Model
 
     public function validate()
     {
+        if (null !== $this->order) {
+            $this->order->validate();
+        }
+        if (\is_array($this->rules)) {
+            Model::validateArray($this->rules);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->order) {
-            $res['Order'] = null !== $this->order ? $this->order->toMap() : null;
+            $res['Order'] = null !== $this->order ? $this->order->toArray($noStream) : $this->order;
         }
+
         if (null !== $this->rules) {
-            $res['Rules'] = [];
-            if (null !== $this->rules && \is_array($this->rules)) {
-                $n = 0;
-                foreach ($this->rules as $item) {
-                    $res['Rules'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->rules)) {
+                $res['Rules'] = [];
+                $n1 = 0;
+                foreach ($this->rules as $item1) {
+                    $res['Rules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -47,23 +55,24 @@ class trafficPrice extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return trafficPrice
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Order'])) {
             $model->order = order::fromMap($map['Order']);
         }
+
         if (isset($map['Rules'])) {
             if (!empty($map['Rules'])) {
                 $model->rules = [];
-                $n            = 0;
-                foreach ($map['Rules'] as $item) {
-                    $model->rules[$n++] = null !== $item ? rules::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Rules'] as $item1) {
+                    $model->rules[$n1++] = rules::fromMap($item1);
                 }
             }
         }

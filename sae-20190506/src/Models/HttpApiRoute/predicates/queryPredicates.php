@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\HttpApiRoute\predicates;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class queryPredicates extends Model
 {
@@ -14,8 +14,6 @@ class queryPredicates extends Model
     public $name;
 
     /**
-     * @example Prefix/Exact/Regex
-     *
      * @var string
      */
     public $type;
@@ -25,24 +23,27 @@ class queryPredicates extends Model
      */
     public $value;
     protected $_name = [
-        'name'  => 'Name',
-        'type'  => 'Type',
+        'name' => 'Name',
+        'type' => 'Type',
         'value' => 'Value',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -50,20 +51,22 @@ class queryPredicates extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return queryPredicates
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
+
         if (isset($map['Value'])) {
             $model->value = $map['Value'];
         }

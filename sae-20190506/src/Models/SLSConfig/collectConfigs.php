@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\SLSConfig;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class collectConfigs extends Model
 {
@@ -33,32 +33,37 @@ class collectConfigs extends Model
      */
     public $projectName;
     protected $_name = [
-        'logPath'      => 'logPath',
-        'logType'      => 'logType',
+        'logPath' => 'logPath',
+        'logType' => 'logType',
         'logstoreName' => 'logstoreName',
-        'logtailName'  => 'logtailName',
-        'projectName'  => 'projectName',
+        'logtailName' => 'logtailName',
+        'projectName' => 'projectName',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logPath) {
             $res['logPath'] = $this->logPath;
         }
+
         if (null !== $this->logType) {
             $res['logType'] = $this->logType;
         }
+
         if (null !== $this->logstoreName) {
             $res['logstoreName'] = $this->logstoreName;
         }
+
         if (null !== $this->logtailName) {
             $res['logtailName'] = $this->logtailName;
         }
+
         if (null !== $this->projectName) {
             $res['projectName'] = $this->projectName;
         }
@@ -66,26 +71,30 @@ class collectConfigs extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return collectConfigs
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['logPath'])) {
             $model->logPath = $map['logPath'];
         }
+
         if (isset($map['logType'])) {
             $model->logType = $map['logType'];
         }
+
         if (isset($map['logstoreName'])) {
             $model->logstoreName = $map['logstoreName'];
         }
+
         if (isset($map['logtailName'])) {
             $model->logtailName = $map['logtailName'];
         }
+
         if (isset($map['projectName'])) {
             $model->projectName = $map['projectName'];
         }

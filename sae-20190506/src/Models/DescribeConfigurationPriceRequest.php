@@ -4,24 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeConfigurationPriceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 2000
-     *
      * @var int
      */
     public $cpu;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example 4096
-     *
      * @var int
      */
     public $memory;
@@ -32,34 +24,36 @@ class DescribeConfigurationPriceRequest extends Model
     public $resourceType;
 
     /**
-     * @example Web
-     *
      * @var string
      */
     public $workload;
     protected $_name = [
-        'cpu'          => 'Cpu',
-        'memory'       => 'Memory',
+        'cpu' => 'Cpu',
+        'memory' => 'Memory',
         'resourceType' => 'ResourceType',
-        'workload'     => 'Workload',
+        'workload' => 'Workload',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
+
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
         }
+
         if (null !== $this->workload) {
             $res['Workload'] = $this->workload;
         }
@@ -67,23 +61,26 @@ class DescribeConfigurationPriceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeConfigurationPriceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }
+
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
         }
+
         if (isset($map['Workload'])) {
             $model->workload = $map['Workload'];
         }

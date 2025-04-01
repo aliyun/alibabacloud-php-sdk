@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class StartApplicationRequest extends Model
 {
     /**
-     * @description The application ID.
-     *
-     * This parameter is required.
-     * @example 0099b7be-5f5b-4512-a7fc-56049ef1****
-     *
      * @var string
      */
     public $appId;
@@ -23,9 +18,10 @@ class StartApplicationRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
@@ -35,11 +31,11 @@ class StartApplicationRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return StartApplicationRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

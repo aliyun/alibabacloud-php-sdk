@@ -4,110 +4,90 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\CreateGreyTagRouteResponseBody\data;
-use AlibabaCloud\Tea\Model;
 
 class CreateGreyTagRouteResponseBody extends Model
 {
     /**
-     * @description Indicates whether the information of the change order was queried. Valid values:
-     *
-     *   **true**: The information was queried.
-     *   **false**: The information failed to be queried.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @description The ID of the canary release rule. The ID is globally unique.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The HTTP status code. Valid values:
-     *
-     *   **2xx**: The call was successful.
-     *   **3xx**: The call was redirected.
-     *   **4xx**: The call failed.
-     *   **5xx**: A server error occurred.
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description The trace ID that is used to query the details of the request.
-     *
-     * @example success
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The returned information.
-     *
-     * @example 9D29CBD0-45D3-410B-9826-52F86F90****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @description The information about the canary release rule.
-     *
-     * @example 0a98a02315955564772843261e****
-     *
      * @var string
      */
     public $traceId;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
+        'code' => 'Code',
+        'data' => 'Data',
         'errorCode' => 'ErrorCode',
-        'message'   => 'Message',
+        'message' => 'Message',
         'requestId' => 'RequestId',
-        'success'   => 'Success',
-        'traceId'   => 'TraceId',
+        'success' => 'Success',
+        'traceId' => 'TraceId',
     ];
 
     public function validate()
     {
+        if (null !== $this->data) {
+            $this->data->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
+
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = null !== $this->data ? $this->data->toArray($noStream) : $this->data;
         }
+
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->success) {
             $res['Success'] = $this->success;
         }
+
         if (null !== $this->traceId) {
             $res['TraceId'] = $this->traceId;
         }
@@ -115,32 +95,38 @@ class CreateGreyTagRouteResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateGreyTagRouteResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
+
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
+
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
         }
+
         if (isset($map['TraceId'])) {
             $model->traceId = $map['TraceId'];
         }

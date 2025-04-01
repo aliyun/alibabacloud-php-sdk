@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class PathConfig extends Model
 {
@@ -19,19 +19,21 @@ class PathConfig extends Model
     public $path;
     protected $_name = [
         'applicationName' => 'applicationName',
-        'path'            => 'path',
+        'path' => 'path',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->applicationName) {
             $res['applicationName'] = $this->applicationName;
         }
+
         if (null !== $this->path) {
             $res['path'] = $this->path;
         }
@@ -39,17 +41,18 @@ class PathConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return PathConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['applicationName'])) {
             $model->applicationName = $map['applicationName'];
         }
+
         if (isset($map['path'])) {
             $model->path = $map['path'];
         }

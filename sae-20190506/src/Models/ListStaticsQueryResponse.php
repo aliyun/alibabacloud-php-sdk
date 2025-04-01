@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ListStaticsQueryResponse extends Model
 {
@@ -23,30 +23,36 @@ class ListStaticsQueryResponse extends Model
      */
     public $statics;
     protected $_name = [
-        'length'  => 'length',
-        'sort'    => 'sort',
+        'length' => 'length',
+        'sort' => 'sort',
         'statics' => 'statics',
     ];
 
     public function validate()
     {
+        if (\is_array($this->statics)) {
+            Model::validateArray($this->statics);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->length) {
             $res['length'] = $this->length;
         }
+
         if (null !== $this->sort) {
             $res['sort'] = $this->sort;
         }
+
         if (null !== $this->statics) {
-            $res['statics'] = [];
-            if (null !== $this->statics && \is_array($this->statics)) {
-                $n = 0;
-                foreach ($this->statics as $item) {
-                    $res['statics'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->statics)) {
+                $res['statics'] = [];
+                $n1 = 0;
+                foreach ($this->statics as $item1) {
+                    $res['statics'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -54,26 +60,28 @@ class ListStaticsQueryResponse extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ListStaticsQueryResponse
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['length'])) {
             $model->length = $map['length'];
         }
+
         if (isset($map['sort'])) {
             $model->sort = $map['sort'];
         }
+
         if (isset($map['statics'])) {
             if (!empty($map['statics'])) {
                 $model->statics = [];
-                $n              = 0;
-                foreach ($map['statics'] as $item) {
-                    $model->statics[$n++] = null !== $item ? StaticsInfo::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['statics'] as $item1) {
+                    $model->statics[$n1++] = StaticsInfo::fromMap($item1);
                 }
             }
         }

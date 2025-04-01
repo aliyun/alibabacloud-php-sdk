@@ -4,73 +4,66 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationInstancesResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Sae\V20190506\Models\DescribeApplicationInstancesResponseBody\data\instances;
-use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @description The number of the returned page.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The list of application instances.
-     *
      * @var instances[]
      */
     public $instances;
 
     /**
-     * @description The number of entries returned on each page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The total number of returned instances.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $totalSize;
     protected $_name = [
         'currentPage' => 'CurrentPage',
-        'instances'   => 'Instances',
-        'pageSize'    => 'PageSize',
-        'totalSize'   => 'TotalSize',
+        'instances' => 'Instances',
+        'pageSize' => 'PageSize',
+        'totalSize' => 'TotalSize',
     ];
 
     public function validate()
     {
+        if (\is_array($this->instances)) {
+            Model::validateArray($this->instances);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
         }
+
         if (null !== $this->instances) {
-            $res['Instances'] = [];
-            if (null !== $this->instances && \is_array($this->instances)) {
-                $n = 0;
-                foreach ($this->instances as $item) {
-                    $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->instances)) {
+                $res['Instances'] = [];
+                $n1 = 0;
+                foreach ($this->instances as $item1) {
+                    $res['Instances'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
+
         if (null !== $this->totalSize) {
             $res['TotalSize'] = $this->totalSize;
         }
@@ -78,29 +71,32 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
         }
+
         if (isset($map['Instances'])) {
             if (!empty($map['Instances'])) {
                 $model->instances = [];
-                $n                = 0;
-                foreach ($map['Instances'] as $item) {
-                    $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['Instances'] as $item1) {
+                    $model->instances[$n1++] = instances::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
+
         if (isset($map['TotalSize'])) {
             $model->totalSize = $map['TotalSize'];
         }

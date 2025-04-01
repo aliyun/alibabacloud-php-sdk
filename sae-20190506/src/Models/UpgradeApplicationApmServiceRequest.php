@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class UpgradeApplicationApmServiceRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 017f39b8-dfa4-4e16-a84b-1dcee4b1****
-     *
      * @var string
      */
     public $appId;
@@ -22,9 +18,10 @@ class UpgradeApplicationApmServiceRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
@@ -34,11 +31,11 @@ class UpgradeApplicationApmServiceRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return UpgradeApplicationApmServiceRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

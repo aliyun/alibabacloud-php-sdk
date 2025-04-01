@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class WebAclEntryConfig extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example 1.2.3.4/32
-     *
      * @var string
      */
     public $entry;
@@ -22,9 +18,10 @@ class WebAclEntryConfig extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->entry) {
@@ -34,11 +31,11 @@ class WebAclEntryConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return WebAclEntryConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

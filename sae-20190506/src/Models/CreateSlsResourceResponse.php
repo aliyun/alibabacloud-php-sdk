@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSlsResourceResponse extends Model
 {
@@ -23,24 +23,27 @@ class CreateSlsResourceResponse extends Model
      */
     public $requestId;
     protected $_name = [
-        'logStore'  => 'logStore',
-        'project'   => 'project',
+        'logStore' => 'logStore',
+        'project' => 'project',
         'requestId' => 'requestId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->logStore) {
             $res['logStore'] = $this->logStore;
         }
+
         if (null !== $this->project) {
             $res['project'] = $this->project;
         }
+
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
         }
@@ -48,20 +51,22 @@ class CreateSlsResourceResponse extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSlsResourceResponse
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['logStore'])) {
             $model->logStore = $map['logStore'];
         }
+
         if (isset($map['project'])) {
             $model->project = $map['project'];
         }
+
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
         }

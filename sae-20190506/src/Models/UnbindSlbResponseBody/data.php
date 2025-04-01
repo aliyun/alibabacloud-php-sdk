@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\UnbindSlbResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The error code.
-     *
-     *   The **ErrorCode** parameter is not returned when the request succeeds.
-     *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
-     *
-     * @example 4a815998-b468-4bea-b7d8-59f52a44****
-     *
      * @var string
      */
     public $changeOrderId;
@@ -25,9 +18,10 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeOrderId) {
@@ -37,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

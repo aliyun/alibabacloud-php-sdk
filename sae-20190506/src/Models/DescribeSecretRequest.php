@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeSecretRequest extends Model
 {
     /**
-     * @description The ID of the namespace in which the Secret instance resides. By default, the namespace ID is the same as the region ID.
-     *
-     * This parameter is required.
-     * @example cn-beijing:test
-     *
      * @var string
      */
     public $namespaceId;
 
     /**
-     * @description The ID of the Secret instance to be queried. You can call the [ListSecrets](https://help.aliyun.com/document_detail/466929.html) operation to view the IDs of Secrete instances.
-     *
-     * This parameter is required.
-     * @example 16
-     *
      * @var int
      */
     public $secretId;
     protected $_name = [
         'namespaceId' => 'NamespaceId',
-        'secretId'    => 'SecretId',
+        'secretId' => 'SecretId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
+
         if (null !== $this->secretId) {
             $res['SecretId'] = $this->secretId;
         }
@@ -49,17 +41,18 @@ class DescribeSecretRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeSecretRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
+
         if (isset($map['SecretId'])) {
             $model->secretId = $map['SecretId'];
         }

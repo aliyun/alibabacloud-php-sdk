@@ -4,47 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeNamespaceListRequest extends Model
 {
     /**
-     * @description Specifies whether to return custom namespaces. Valid values:
-     *
-     *   **true**: The system returns custom namespaces.
-     *   **false**: The system does not return custom namespaces.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $containCustom;
 
     /**
-     * @description Specifies whether to exclude hybrid cloud namespaces from the result. Valid values:
-     *
-     * - **true**: The system excludes hybrid cloud namespaces from the result.
-     * - **false**: The system does not exclude hybrid cloud namespaces from the result.
-     * @example true
-     *
      * @var bool
      */
     public $hybridCloudExclude;
     protected $_name = [
-        'containCustom'      => 'ContainCustom',
+        'containCustom' => 'ContainCustom',
         'hybridCloudExclude' => 'HybridCloudExclude',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->containCustom) {
             $res['ContainCustom'] = $this->containCustom;
         }
+
         if (null !== $this->hybridCloudExclude) {
             $res['HybridCloudExclude'] = $this->hybridCloudExclude;
         }
@@ -52,17 +41,18 @@ class DescribeNamespaceListRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeNamespaceListRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ContainCustom'])) {
             $model->containCustom = $map['ContainCustom'];
         }
+
         if (isset($map['HybridCloudExclude'])) {
             $model->hybridCloudExclude = $map['HybridCloudExclude'];
         }

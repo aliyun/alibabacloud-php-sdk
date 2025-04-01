@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ProbeHandler extends Model
 {
@@ -18,38 +18,47 @@ class ProbeHandler extends Model
      */
     public $tcpSocket;
     protected $_name = [
-        'httpGet'   => 'HttpGet',
+        'httpGet' => 'HttpGet',
         'tcpSocket' => 'TcpSocket',
     ];
 
     public function validate()
     {
+        if (null !== $this->httpGet) {
+            $this->httpGet->validate();
+        }
+        if (null !== $this->tcpSocket) {
+            $this->tcpSocket->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->httpGet) {
-            $res['HttpGet'] = null !== $this->httpGet ? $this->httpGet->toMap() : null;
+            $res['HttpGet'] = null !== $this->httpGet ? $this->httpGet->toArray($noStream) : $this->httpGet;
         }
+
         if (null !== $this->tcpSocket) {
-            $res['TcpSocket'] = null !== $this->tcpSocket ? $this->tcpSocket->toMap() : null;
+            $res['TcpSocket'] = null !== $this->tcpSocket ? $this->tcpSocket->toArray($noStream) : $this->tcpSocket;
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ProbeHandler
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HttpGet'])) {
             $model->httpGet = HTTPGetAction::fromMap($map['HttpGet']);
         }
+
         if (isset($map['TcpSocket'])) {
             $model->tcpSocket = TCPSocketAction::fromMap($map['TcpSocket']);
         }

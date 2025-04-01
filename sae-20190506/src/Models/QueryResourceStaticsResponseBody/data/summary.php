@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\QueryResourceStaticsResponseBody\data;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class summary extends Model
 {
@@ -14,10 +14,6 @@ class summary extends Model
     public $activeCpu;
 
     /**
-     * @description The CPU usage. Unit: core per minute.
-     *
-     * @example 3354
-     *
      * @var float
      */
     public $cpu;
@@ -28,36 +24,36 @@ class summary extends Model
     public $idleCpu;
 
     /**
-     * @description The memory usage. Unit: GiB per minute.
-     *
-     * @example 6708
-     *
      * @var float
      */
     public $memory;
     protected $_name = [
         'activeCpu' => 'ActiveCpu',
-        'cpu'       => 'Cpu',
-        'idleCpu'   => 'IdleCpu',
-        'memory'    => 'Memory',
+        'cpu' => 'Cpu',
+        'idleCpu' => 'IdleCpu',
+        'memory' => 'Memory',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->activeCpu) {
             $res['ActiveCpu'] = $this->activeCpu;
         }
+
         if (null !== $this->cpu) {
             $res['Cpu'] = $this->cpu;
         }
+
         if (null !== $this->idleCpu) {
             $res['IdleCpu'] = $this->idleCpu;
         }
+
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
         }
@@ -65,23 +61,26 @@ class summary extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return summary
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActiveCpu'])) {
             $model->activeCpu = $map['ActiveCpu'];
         }
+
         if (isset($map['Cpu'])) {
             $model->cpu = $map['Cpu'];
         }
+
         if (isset($map['IdleCpu'])) {
             $model->idleCpu = $map['IdleCpu'];
         }
+
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];
         }

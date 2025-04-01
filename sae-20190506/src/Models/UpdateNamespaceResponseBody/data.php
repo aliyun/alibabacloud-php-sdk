@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\UpdateNamespaceResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
@@ -14,80 +14,66 @@ class data extends Model
     public $enableMicroRegistration;
 
     /**
-     * @description The short ID of the namespace.
-     *
-     * @example test
-     *
      * @var string
      */
     public $nameSpaceShortId;
 
     /**
-     * @description The description of the namespace.
-     *
-     * @example desc
-     *
      * @var string
      */
     public $namespaceDescription;
 
     /**
-     * @description The ID of the namespace.
-     *
-     * @example cn-beijing:test
-     *
      * @var string
      */
     public $namespaceId;
 
     /**
-     * @description The name of the namespace.
-     *
-     * @example name
-     *
      * @var string
      */
     public $namespaceName;
 
     /**
-     * @description The region where the namespace resides.
-     *
-     * @example cn-beijing
-     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'enableMicroRegistration' => 'EnableMicroRegistration',
-        'nameSpaceShortId'        => 'NameSpaceShortId',
-        'namespaceDescription'    => 'NamespaceDescription',
-        'namespaceId'             => 'NamespaceId',
-        'namespaceName'           => 'NamespaceName',
-        'regionId'                => 'RegionId',
+        'nameSpaceShortId' => 'NameSpaceShortId',
+        'namespaceDescription' => 'NamespaceDescription',
+        'namespaceId' => 'NamespaceId',
+        'namespaceName' => 'NamespaceName',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->enableMicroRegistration) {
             $res['EnableMicroRegistration'] = $this->enableMicroRegistration;
         }
+
         if (null !== $this->nameSpaceShortId) {
             $res['NameSpaceShortId'] = $this->nameSpaceShortId;
         }
+
         if (null !== $this->namespaceDescription) {
             $res['NamespaceDescription'] = $this->namespaceDescription;
         }
+
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
+
         if (null !== $this->namespaceName) {
             $res['NamespaceName'] = $this->namespaceName;
         }
+
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -95,29 +81,34 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['EnableMicroRegistration'])) {
             $model->enableMicroRegistration = $map['EnableMicroRegistration'];
         }
+
         if (isset($map['NameSpaceShortId'])) {
             $model->nameSpaceShortId = $map['NameSpaceShortId'];
         }
+
         if (isset($map['NamespaceDescription'])) {
             $model->namespaceDescription = $map['NamespaceDescription'];
         }
+
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
+
         if (isset($map['NamespaceName'])) {
             $model->namespaceName = $map['NamespaceName'];
         }
+
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

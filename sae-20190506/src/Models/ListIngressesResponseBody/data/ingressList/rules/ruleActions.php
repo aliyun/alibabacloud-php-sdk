@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\ListIngressesResponseBody\data\ingressList\rules;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ruleActions extends Model
 {
@@ -19,19 +19,21 @@ class ruleActions extends Model
     public $actionType;
     protected $_name = [
         'actionConfig' => 'ActionConfig',
-        'actionType'   => 'ActionType',
+        'actionType' => 'ActionType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->actionConfig) {
             $res['ActionConfig'] = $this->actionConfig;
         }
+
         if (null !== $this->actionType) {
             $res['ActionType'] = $this->actionType;
         }
@@ -39,17 +41,18 @@ class ruleActions extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ruleActions
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActionConfig'])) {
             $model->actionConfig = $map['ActionConfig'];
         }
+
         if (isset($map['ActionType'])) {
             $model->actionType = $map['ActionType'];
         }

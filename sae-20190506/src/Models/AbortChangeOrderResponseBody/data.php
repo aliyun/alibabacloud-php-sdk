@@ -4,18 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\AbortChangeOrderResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class data extends Model
 {
     /**
-     * @description The error code.
-     *
-     *   The **ErrorCode** parameter is not returned when the request succeeds.
-     *   The **ErrorCode** parameter is returned when the request fails. For more information, see **Error codes** in this topic.
-     *
-     * @example be2e1c76-682b-4897-98d3-1d8d6478****
-     *
      * @var string
      */
     public $changeOrderId;
@@ -25,9 +18,10 @@ class data extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeOrderId) {
@@ -37,11 +31,11 @@ class data extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return data
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

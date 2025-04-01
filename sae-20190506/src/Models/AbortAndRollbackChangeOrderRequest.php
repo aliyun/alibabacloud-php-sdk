@@ -4,16 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AbortAndRollbackChangeOrderRequest extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * This parameter is required.
-     * @example ba386059-69b1-4e65-b1e5-0682d9fa****
-     *
      * @var string
      */
     public $changeOrderId;
@@ -23,9 +18,10 @@ class AbortAndRollbackChangeOrderRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->changeOrderId) {
@@ -35,11 +31,11 @@ class AbortAndRollbackChangeOrderRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AbortAndRollbackChangeOrderRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

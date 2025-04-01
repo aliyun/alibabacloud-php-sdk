@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models\BuildPipeline;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class imageConfig extends Model
 {
     /**
-     * @example ACR/ACREE
-     *
      * @var string
      */
     public $instanceType;
@@ -26,23 +24,26 @@ class imageConfig extends Model
     public $repository;
     protected $_name = [
         'instanceType' => 'InstanceType',
-        'namespace'    => 'Namespace',
-        'repository'   => 'Repository',
+        'namespace' => 'Namespace',
+        'repository' => 'Repository',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
+
         if (null !== $this->repository) {
             $res['Repository'] = $this->repository;
         }
@@ -50,20 +51,22 @@ class imageConfig extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return imageConfig
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
+
         if (isset($map['Repository'])) {
             $model->repository = $map['Repository'];
         }

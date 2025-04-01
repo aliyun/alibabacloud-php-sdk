@@ -4,66 +4,56 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateSecretShrinkRequest extends Model
 {
     /**
-     * @description This parameter is required.
-     *
-     * @example cn-beijing:test
-     *
      * @var string
      */
     public $namespaceId;
 
     /**
-     * @description This parameter is required.
-     *
      * @var string
      */
     public $secretDataShrink;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example registry-auth-acree
-     *
      * @var string
      */
     public $secretName;
 
     /**
-     * @description This parameter is required.
-     *
-     * @example kubernetes.io/dockerconfigjson
-     *
      * @var string
      */
     public $secretType;
     protected $_name = [
-        'namespaceId'      => 'NamespaceId',
+        'namespaceId' => 'NamespaceId',
         'secretDataShrink' => 'SecretData',
-        'secretName'       => 'SecretName',
-        'secretType'       => 'SecretType',
+        'secretName' => 'SecretName',
+        'secretType' => 'SecretType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->namespaceId) {
             $res['NamespaceId'] = $this->namespaceId;
         }
+
         if (null !== $this->secretDataShrink) {
             $res['SecretData'] = $this->secretDataShrink;
         }
+
         if (null !== $this->secretName) {
             $res['SecretName'] = $this->secretName;
         }
+
         if (null !== $this->secretType) {
             $res['SecretType'] = $this->secretType;
         }
@@ -71,23 +61,26 @@ class CreateSecretShrinkRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateSecretShrinkRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NamespaceId'])) {
             $model->namespaceId = $map['NamespaceId'];
         }
+
         if (isset($map['SecretData'])) {
             $model->secretDataShrink = $map['SecretData'];
         }
+
         if (isset($map['SecretName'])) {
             $model->secretName = $map['SecretName'];
         }
+
         if (isset($map['SecretType'])) {
             $model->secretType = $map['SecretType'];
         }

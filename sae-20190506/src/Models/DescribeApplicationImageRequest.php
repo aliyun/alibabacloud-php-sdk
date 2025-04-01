@@ -4,44 +4,36 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeApplicationImageRequest extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * This parameter is required.
-     * @example d700e680-aa4d-4ec1-afc2-6566b5ff****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The URL of the image.
-     *
-     * This parameter is required.
-     * @example registry-vpc.cn-hangzhou.aliyuncs.com/demo/demo:latest
-     *
      * @var string
      */
     public $imageUrl;
     protected $_name = [
-        'appId'    => 'AppId',
+        'appId' => 'AppId',
         'imageUrl' => 'ImageUrl',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
         }
@@ -49,17 +41,18 @@ class DescribeApplicationImageRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeApplicationImageRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
         }

@@ -4,25 +4,16 @@
 
 namespace AlibabaCloud\SDK\Sae\V20190506\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class DescribeJobRequest extends Model
 {
     /**
-     * @description The application ID.
-     *
-     * This parameter is required.
-     * @example 7171a6ca-d1cd-4928-8642-7d5cfe69****
-     *
      * @var string
      */
     public $appId;
 
     /**
-     * @description The job ID.
-     *
-     * @example event-b798157b-40a2-4388-b578-71fb897103**-**
-     *
      * @var string
      */
     public $jobId;
@@ -33,14 +24,16 @@ class DescribeJobRequest extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
+
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
@@ -48,17 +41,18 @@ class DescribeJobRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeJobRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
         }
+
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
