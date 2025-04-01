@@ -281,6 +281,8 @@ use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppLogRiverResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppResourceReserveRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppResourceReserveResponse;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppResourceStatusRequest;
+use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppResourceStatusResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppResponse;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppStatusRequest;
 use AlibabaCloud\SDK\ESA\V20240910\Models\GetEdgeContainerAppStatusResponse;
@@ -3909,6 +3911,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->originMtls) {
             @$query['OriginMtls'] = $request->originMtls;
+        }
+
+        if (null !== $request->originReadTimeout) {
+            @$query['OriginReadTimeout'] = $request->originReadTimeout;
         }
 
         if (null !== $request->originScheme) {
@@ -10269,6 +10275,66 @@ class ESA extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getEdgeContainerAppResourceReserveWithOptions($request, $runtime);
+    }
+
+    /**
+     * 获取边缘容器应用资源分布.
+     *
+     * @param request - GetEdgeContainerAppResourceStatusRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetEdgeContainerAppResourceStatusResponse
+     *
+     * @param GetEdgeContainerAppResourceStatusRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return GetEdgeContainerAppResourceStatusResponse
+     */
+    public function getEdgeContainerAppResourceStatusWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->appId) {
+            @$query['AppId'] = $request->appId;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'GetEdgeContainerAppResourceStatus',
+            'version' => '2024-09-10',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetEdgeContainerAppResourceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetEdgeContainerAppResourceStatusResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取边缘容器应用资源分布.
+     *
+     * @param request - GetEdgeContainerAppResourceStatusRequest
+     *
+     * @returns GetEdgeContainerAppResourceStatusResponse
+     *
+     * @param GetEdgeContainerAppResourceStatusRequest $request
+     *
+     * @return GetEdgeContainerAppResourceStatusResponse
+     */
+    public function getEdgeContainerAppResourceStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getEdgeContainerAppResourceStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -20438,6 +20504,10 @@ class ESA extends OpenApiClient
 
         if (null !== $request->originMtls) {
             @$query['OriginMtls'] = $request->originMtls;
+        }
+
+        if (null !== $request->originReadTimeout) {
+            @$query['OriginReadTimeout'] = $request->originReadTimeout;
         }
 
         if (null !== $request->originScheme) {

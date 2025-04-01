@@ -46,6 +46,11 @@ class GetOriginRuleResponseBody extends Model
     /**
      * @var string
      */
+    public $originReadTimeout;
+
+    /**
+     * @var string
+     */
     public $originScheme;
 
     /**
@@ -105,6 +110,7 @@ class GetOriginRuleResponseBody extends Model
         'originHttpPort' => 'OriginHttpPort',
         'originHttpsPort' => 'OriginHttpsPort',
         'originMtls' => 'OriginMtls',
+        'originReadTimeout' => 'OriginReadTimeout',
         'originScheme' => 'OriginScheme',
         'originSni' => 'OriginSni',
         'originVerify' => 'OriginVerify',
@@ -152,6 +158,10 @@ class GetOriginRuleResponseBody extends Model
 
         if (null !== $this->originMtls) {
             $res['OriginMtls'] = $this->originMtls;
+        }
+
+        if (null !== $this->originReadTimeout) {
+            $res['OriginReadTimeout'] = $this->originReadTimeout;
         }
 
         if (null !== $this->originScheme) {
@@ -235,6 +245,10 @@ class GetOriginRuleResponseBody extends Model
 
         if (isset($map['OriginMtls'])) {
             $model->originMtls = $map['OriginMtls'];
+        }
+
+        if (isset($map['OriginReadTimeout'])) {
+            $model->originReadTimeout = $map['OriginReadTimeout'];
         }
 
         if (isset($map['OriginScheme'])) {

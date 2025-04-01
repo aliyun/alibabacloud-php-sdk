@@ -46,6 +46,11 @@ class configs extends Model
     /**
      * @var string
      */
+    public $originReadTimeout;
+
+    /**
+     * @var string
+     */
     public $originScheme;
 
     /**
@@ -100,6 +105,7 @@ class configs extends Model
         'originHttpPort' => 'OriginHttpPort',
         'originHttpsPort' => 'OriginHttpsPort',
         'originMtls' => 'OriginMtls',
+        'originReadTimeout' => 'OriginReadTimeout',
         'originScheme' => 'OriginScheme',
         'originSni' => 'OriginSni',
         'originVerify' => 'OriginVerify',
@@ -146,6 +152,10 @@ class configs extends Model
 
         if (null !== $this->originMtls) {
             $res['OriginMtls'] = $this->originMtls;
+        }
+
+        if (null !== $this->originReadTimeout) {
+            $res['OriginReadTimeout'] = $this->originReadTimeout;
         }
 
         if (null !== $this->originScheme) {
@@ -225,6 +235,10 @@ class configs extends Model
 
         if (isset($map['OriginMtls'])) {
             $model->originMtls = $map['OriginMtls'];
+        }
+
+        if (isset($map['OriginReadTimeout'])) {
+            $model->originReadTimeout = $map['OriginReadTimeout'];
         }
 
         if (isset($map['OriginScheme'])) {
