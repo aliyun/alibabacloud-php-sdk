@@ -12,23 +12,26 @@ class CreateProductOrdersResponseBody extends Model
      * @var string
      */
     public $buyProductRequestId;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $orderId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'buyProductRequestId' => 'BuyProductRequestId',
-        'message'             => 'Message',
-        'orderId'             => 'OrderId',
-        'requestId'           => 'RequestId',
+        'message' => 'Message',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

@@ -12,12 +12,13 @@ class CreateModelResponseBody extends Model
      * @var string
      */
     public $modelId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'modelId'   => 'ModelId',
+        'modelId' => 'ModelId',
         'requestId' => 'RequestId',
     ];
 

@@ -12,17 +12,19 @@ class CreateDatasetJobConfigRequest extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $configType;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'config'      => 'Config',
-        'configType'  => 'ConfigType',
+        'config' => 'Config',
+        'configType' => 'ConfigType',
         'workspaceId' => 'WorkspaceId',
     ];
 

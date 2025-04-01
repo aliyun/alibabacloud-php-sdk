@@ -13,12 +13,13 @@ class CreateProductOrdersRequest extends Model
      * @var bool
      */
     public $autoPay;
+
     /**
      * @var products[]
      */
     public $products;
     protected $_name = [
-        'autoPay'  => 'AutoPay',
+        'autoPay' => 'AutoPay',
         'products' => 'Products',
     ];
 
@@ -40,7 +41,7 @@ class CreateProductOrdersRequest extends Model
         if (null !== $this->products) {
             if (\is_array($this->products)) {
                 $res['Products'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->products as $item1) {
                     $res['Products'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class CreateProductOrdersRequest extends Model
         if (isset($map['Products'])) {
             if (!empty($map['Products'])) {
                 $model->products = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Products'] as $item1) {
                     $model->products[$n1++] = products::fromMap($item1);
                 }

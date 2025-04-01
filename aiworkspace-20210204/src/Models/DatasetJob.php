@@ -12,73 +12,86 @@ class DatasetJob extends Model
      * @var int
      */
     public $completedFileCount;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $datasetJobId;
+
     /**
      * @var string
      */
     public $datasetVersion;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $failedFileCount;
+
     /**
      * @var string
      */
     public $finishTime;
+
     /**
      * @var string
      */
     public $jobAction;
+
     /**
      * @var string
      */
     public $jobMode;
+
     /**
      * @var string
      */
     public $jobSpec;
+
     /**
      * @var string[]
      */
     public $logs;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $totalFileCount;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'completedFileCount' => 'CompletedFileCount',
-        'createTime'         => 'CreateTime',
-        'datasetJobId'       => 'DatasetJobId',
-        'datasetVersion'     => 'DatasetVersion',
-        'description'        => 'Description',
-        'failedFileCount'    => 'FailedFileCount',
-        'finishTime'         => 'FinishTime',
-        'jobAction'          => 'JobAction',
-        'jobMode'            => 'JobMode',
-        'jobSpec'            => 'JobSpec',
-        'logs'               => 'Logs',
-        'status'             => 'Status',
-        'totalFileCount'     => 'TotalFileCount',
-        'workspaceId'        => 'WorkspaceId',
+        'createTime' => 'CreateTime',
+        'datasetJobId' => 'DatasetJobId',
+        'datasetVersion' => 'DatasetVersion',
+        'description' => 'Description',
+        'failedFileCount' => 'FailedFileCount',
+        'finishTime' => 'FinishTime',
+        'jobAction' => 'JobAction',
+        'jobMode' => 'JobMode',
+        'jobSpec' => 'JobSpec',
+        'logs' => 'Logs',
+        'status' => 'Status',
+        'totalFileCount' => 'TotalFileCount',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -135,7 +148,7 @@ class DatasetJob extends Model
         if (null !== $this->logs) {
             if (\is_array($this->logs)) {
                 $res['Logs'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->logs as $item1) {
                     $res['Logs'][$n1++] = $item1;
                 }
@@ -208,7 +221,7 @@ class DatasetJob extends Model
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
                 $model->logs = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Logs'] as $item1) {
                     $model->logs[$n1++] = $item1;
                 }

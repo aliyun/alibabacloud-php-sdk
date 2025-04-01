@@ -12,13 +12,14 @@ class GetMemberRequest extends Model
      * @var string
      */
     public $memberId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
         'memberId' => 'MemberId',
-        'userId'   => 'UserId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

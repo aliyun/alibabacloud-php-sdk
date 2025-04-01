@@ -12,73 +12,86 @@ class ListDatasetsRequest extends Model
      * @var string
      */
     public $dataSourceTypes;
+
     /**
      * @var string
      */
     public $dataTypes;
+
     /**
      * @var string
      */
     public $label;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $properties;
+
     /**
      * @var string
      */
     public $provider;
+
     /**
      * @var string
      */
     public $sortBy;
+
     /**
      * @var string
      */
     public $sourceDatasetId;
+
     /**
      * @var string
      */
     public $sourceId;
+
     /**
      * @var string
      */
     public $sourceTypes;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'dataSourceTypes' => 'DataSourceTypes',
-        'dataTypes'       => 'DataTypes',
-        'label'           => 'Label',
-        'name'            => 'Name',
-        'order'           => 'Order',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'properties'      => 'Properties',
-        'provider'        => 'Provider',
-        'sortBy'          => 'SortBy',
+        'dataTypes' => 'DataTypes',
+        'label' => 'Label',
+        'name' => 'Name',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'properties' => 'Properties',
+        'provider' => 'Provider',
+        'sortBy' => 'SortBy',
         'sourceDatasetId' => 'SourceDatasetId',
-        'sourceId'        => 'SourceId',
-        'sourceTypes'     => 'SourceTypes',
-        'workspaceId'     => 'WorkspaceId',
+        'sourceId' => 'SourceId',
+        'sourceTypes' => 'SourceTypes',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

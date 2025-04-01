@@ -13,17 +13,19 @@ class ListQuotasResponseBody extends Model
      * @var quotas[]
      */
     public $quotas;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'quotas'     => 'Quotas',
-        'requestId'  => 'RequestId',
+        'quotas' => 'Quotas',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -41,7 +43,7 @@ class ListQuotasResponseBody extends Model
         if (null !== $this->quotas) {
             if (\is_array($this->quotas)) {
                 $res['Quotas'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->quotas as $item1) {
                     $res['Quotas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListQuotasResponseBody extends Model
         if (isset($map['Quotas'])) {
             if (!empty($map['Quotas'])) {
                 $model->quotas = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Quotas'] as $item1) {
                     $model->quotas[$n1++] = quotas::fromMap($item1);
                 }

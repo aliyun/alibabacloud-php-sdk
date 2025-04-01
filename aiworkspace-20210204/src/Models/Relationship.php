@@ -12,21 +12,24 @@ class Relationship extends Model
      * @var mixed[]
      */
     public $attributes;
+
     /**
      * @var string
      */
     public $dataChannel;
+
     /**
      * @var string
      */
     public $relationshipGuid;
+
     /**
      * @var string
      */
     public $relationshipType;
     protected $_name = [
-        'attributes'       => 'Attributes',
-        'dataChannel'      => 'DataChannel',
+        'attributes' => 'Attributes',
+        'dataChannel' => 'DataChannel',
         'relationshipGuid' => 'RelationshipGuid',
         'relationshipType' => 'RelationshipType',
     ];

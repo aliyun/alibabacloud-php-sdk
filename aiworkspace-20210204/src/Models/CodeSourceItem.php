@@ -12,73 +12,86 @@ class CodeSourceItem extends Model
      * @var string
      */
     public $accessibility;
+
     /**
      * @var string
      */
     public $codeBranch;
+
     /**
      * @var string
      */
     public $codeCommit;
+
     /**
      * @var string
      */
     public $codeRepo;
+
     /**
      * @var string
      */
     public $codeRepoAccessToken;
+
     /**
      * @var string
      */
     public $codeRepoUserName;
+
     /**
      * @var string
      */
     public $codeSourceId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifyTime;
+
     /**
      * @var string
      */
     public $mountPath;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'accessibility'       => 'Accessibility',
-        'codeBranch'          => 'CodeBranch',
-        'codeCommit'          => 'CodeCommit',
-        'codeRepo'            => 'CodeRepo',
+        'accessibility' => 'Accessibility',
+        'codeBranch' => 'CodeBranch',
+        'codeCommit' => 'CodeCommit',
+        'codeRepo' => 'CodeRepo',
         'codeRepoAccessToken' => 'CodeRepoAccessToken',
-        'codeRepoUserName'    => 'CodeRepoUserName',
-        'codeSourceId'        => 'CodeSourceId',
-        'description'         => 'Description',
-        'displayName'         => 'DisplayName',
-        'gmtCreateTime'       => 'GmtCreateTime',
-        'gmtModifyTime'       => 'GmtModifyTime',
-        'mountPath'           => 'MountPath',
-        'userId'              => 'UserId',
-        'workspaceId'         => 'WorkspaceId',
+        'codeRepoUserName' => 'CodeRepoUserName',
+        'codeSourceId' => 'CodeSourceId',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'gmtCreateTime' => 'GmtCreateTime',
+        'gmtModifyTime' => 'GmtModifyTime',
+        'mountPath' => 'MountPath',
+        'userId' => 'UserId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

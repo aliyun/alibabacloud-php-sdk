@@ -12,53 +12,62 @@ class UpdateModelRequest extends Model
      * @var string
      */
     public $accessibility;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var mixed[]
      */
     public $extraInfo;
+
     /**
      * @var string
      */
     public $modelDescription;
+
     /**
      * @var string
      */
     public $modelDoc;
+
     /**
      * @var string
      */
     public $modelName;
+
     /**
      * @var string
      */
     public $modelType;
+
     /**
      * @var int
      */
     public $orderNumber;
+
     /**
      * @var string
      */
     public $origin;
+
     /**
      * @var string
      */
     public $task;
     protected $_name = [
-        'accessibility'    => 'Accessibility',
-        'domain'           => 'Domain',
-        'extraInfo'        => 'ExtraInfo',
+        'accessibility' => 'Accessibility',
+        'domain' => 'Domain',
+        'extraInfo' => 'ExtraInfo',
         'modelDescription' => 'ModelDescription',
-        'modelDoc'         => 'ModelDoc',
-        'modelName'        => 'ModelName',
-        'modelType'        => 'ModelType',
-        'orderNumber'      => 'OrderNumber',
-        'origin'           => 'Origin',
-        'task'             => 'Task',
+        'modelDoc' => 'ModelDoc',
+        'modelName' => 'ModelName',
+        'modelType' => 'ModelType',
+        'orderNumber' => 'OrderNumber',
+        'origin' => 'Origin',
+        'task' => 'Task',
     ];
 
     public function validate()

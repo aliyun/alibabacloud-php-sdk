@@ -12,63 +12,74 @@ class GetDatasetJobResponseBody extends Model
      * @var int
      */
     public $completedFileCount;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var int
      */
     public $failedFileCount;
+
     /**
      * @var string
      */
     public $finishTime;
+
     /**
      * @var string
      */
     public $jobAction;
+
     /**
      * @var string
      */
     public $jobMode;
+
     /**
      * @var string
      */
     public $jobSpec;
+
     /**
      * @var string[]
      */
     public $logs;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var int
      */
     public $totalFileCount;
     protected $_name = [
         'completedFileCount' => 'CompletedFileCount',
-        'createTime'         => 'CreateTime',
-        'description'        => 'Description',
-        'failedFileCount'    => 'FailedFileCount',
-        'finishTime'         => 'FinishTime',
-        'jobAction'          => 'JobAction',
-        'jobMode'            => 'JobMode',
-        'jobSpec'            => 'JobSpec',
-        'logs'               => 'Logs',
-        'requestId'          => 'RequestId',
-        'status'             => 'Status',
-        'totalFileCount'     => 'TotalFileCount',
+        'createTime' => 'CreateTime',
+        'description' => 'Description',
+        'failedFileCount' => 'FailedFileCount',
+        'finishTime' => 'FinishTime',
+        'jobAction' => 'JobAction',
+        'jobMode' => 'JobMode',
+        'jobSpec' => 'JobSpec',
+        'logs' => 'Logs',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'totalFileCount' => 'TotalFileCount',
     ];
 
     public function validate()
@@ -117,7 +128,7 @@ class GetDatasetJobResponseBody extends Model
         if (null !== $this->logs) {
             if (\is_array($this->logs)) {
                 $res['Logs'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->logs as $item1) {
                     $res['Logs'][$n1++] = $item1;
                 }
@@ -182,7 +193,7 @@ class GetDatasetJobResponseBody extends Model
         if (isset($map['Logs'])) {
             if (!empty($map['Logs'])) {
                 $model->logs = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Logs'] as $item1) {
                     $model->logs[$n1++] = $item1;
                 }

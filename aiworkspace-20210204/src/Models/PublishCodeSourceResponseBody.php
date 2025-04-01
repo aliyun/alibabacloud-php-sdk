@@ -12,13 +12,14 @@ class PublishCodeSourceResponseBody extends Model
      * @var string
      */
     public $codeSourceId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'codeSourceId' => 'CodeSourceId',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

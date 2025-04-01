@@ -12,18 +12,20 @@ class CreateDatasetFileMetasRequest extends Model
      * @var DatasetFileMetaContentCreate[]
      */
     public $datasetFileMetas;
+
     /**
      * @var string
      */
     public $datasetVersion;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'datasetFileMetas' => 'DatasetFileMetas',
-        'datasetVersion'   => 'DatasetVersion',
-        'workspaceId'      => 'WorkspaceId',
+        'datasetVersion' => 'DatasetVersion',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -40,7 +42,7 @@ class CreateDatasetFileMetasRequest extends Model
         if (null !== $this->datasetFileMetas) {
             if (\is_array($this->datasetFileMetas)) {
                 $res['DatasetFileMetas'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->datasetFileMetas as $item1) {
                     $res['DatasetFileMetas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -69,7 +71,7 @@ class CreateDatasetFileMetasRequest extends Model
         if (isset($map['DatasetFileMetas'])) {
             if (!empty($map['DatasetFileMetas'])) {
                 $model->datasetFileMetas = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['DatasetFileMetas'] as $item1) {
                     $model->datasetFileMetas[$n1++] = DatasetFileMetaContentCreate::fromMap($item1);
                 }

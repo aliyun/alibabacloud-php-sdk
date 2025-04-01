@@ -12,23 +12,26 @@ class UpdateDatasetRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string[]
      */
     public $mountAccessReadWriteRoleIdList;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $options;
     protected $_name = [
-        'description'                    => 'Description',
+        'description' => 'Description',
         'mountAccessReadWriteRoleIdList' => 'MountAccessReadWriteRoleIdList',
-        'name'                           => 'Name',
-        'options'                        => 'Options',
+        'name' => 'Name',
+        'options' => 'Options',
     ];
 
     public function validate()
@@ -49,7 +52,7 @@ class UpdateDatasetRequest extends Model
         if (null !== $this->mountAccessReadWriteRoleIdList) {
             if (\is_array($this->mountAccessReadWriteRoleIdList)) {
                 $res['MountAccessReadWriteRoleIdList'] = [];
-                $n1                                    = 0;
+                $n1 = 0;
                 foreach ($this->mountAccessReadWriteRoleIdList as $item1) {
                     $res['MountAccessReadWriteRoleIdList'][$n1++] = $item1;
                 }
@@ -82,7 +85,7 @@ class UpdateDatasetRequest extends Model
         if (isset($map['MountAccessReadWriteRoleIdList'])) {
             if (!empty($map['MountAccessReadWriteRoleIdList'])) {
                 $model->mountAccessReadWriteRoleIdList = [];
-                $n1                                    = 0;
+                $n1 = 0;
                 foreach ($map['MountAccessReadWriteRoleIdList'] as $item1) {
                     $model->mountAccessReadWriteRoleIdList[$n1++] = $item1;
                 }

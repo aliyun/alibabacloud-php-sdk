@@ -12,17 +12,19 @@ class owner extends Model
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userKp;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
-        'userId'   => 'UserId',
-        'userKp'   => 'UserKp',
+        'userId' => 'UserId',
+        'userKp' => 'UserKp',
         'userName' => 'UserName',
     ];
 

@@ -12,32 +12,37 @@ class ListCodeSourcesRequest extends Model
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sortBy;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'displayName' => 'DisplayName',
-        'order'       => 'Order',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'sortBy'      => 'SortBy',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
         'workspaceId' => 'WorkspaceId',
     ];
 

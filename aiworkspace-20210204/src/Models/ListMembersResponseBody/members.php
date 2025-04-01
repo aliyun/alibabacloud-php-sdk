@@ -12,38 +12,44 @@ class members extends Model
      * @var string
      */
     public $accountName;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $memberId;
+
     /**
      * @var string
      */
     public $memberName;
+
     /**
      * @var string[]
      */
     public $roles;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'accountName'   => 'AccountName',
-        'displayName'   => 'DisplayName',
+        'accountName' => 'AccountName',
+        'displayName' => 'DisplayName',
         'gmtCreateTime' => 'GmtCreateTime',
-        'memberId'      => 'MemberId',
-        'memberName'    => 'MemberName',
-        'roles'         => 'Roles',
-        'userId'        => 'UserId',
+        'memberId' => 'MemberId',
+        'memberName' => 'MemberName',
+        'roles' => 'Roles',
+        'userId' => 'UserId',
     ];
 
     public function validate()
@@ -80,7 +86,7 @@ class members extends Model
         if (null !== $this->roles) {
             if (\is_array($this->roles)) {
                 $res['Roles'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->roles as $item1) {
                     $res['Roles'][$n1++] = $item1;
                 }
@@ -125,7 +131,7 @@ class members extends Model
         if (isset($map['Roles'])) {
             if (!empty($map['Roles'])) {
                 $model->roles = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Roles'] as $item1) {
                     $model->roles[$n1++] = $item1;
                 }

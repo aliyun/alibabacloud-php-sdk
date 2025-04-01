@@ -12,28 +12,32 @@ class GetPermissionRequest extends Model
      * @var string
      */
     public $accessibility;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var mixed[]
      */
     public $labels;
+
     /**
      * @var string
      */
     public $option;
+
     /**
      * @var string
      */
     public $resource;
     protected $_name = [
         'accessibility' => 'Accessibility',
-        'creator'       => 'Creator',
-        'labels'        => 'Labels',
-        'option'        => 'Option',
-        'resource'      => 'Resource',
+        'creator' => 'Creator',
+        'labels' => 'Labels',
+        'option' => 'Option',
+        'resource' => 'Resource',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class conditions extends Model
      * @var int
      */
     public $code;
+
     /**
      * @var string
      */
     public $message;
+
     /**
      * @var string
      */
     public $type;
     protected $_name = [
-        'code'    => 'Code',
+        'code' => 'Code',
         'message' => 'Message',
-        'type'    => 'Type',
+        'type' => 'Type',
     ];
 
     public function validate()

@@ -12,33 +12,38 @@ class DatasetJobConfig extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $configType;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $datasetJobConfigId;
+
     /**
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'config'             => 'Config',
-        'configType'         => 'ConfigType',
-        'createTime'         => 'CreateTime',
+        'config' => 'Config',
+        'configType' => 'ConfigType',
+        'createTime' => 'CreateTime',
         'datasetJobConfigId' => 'DatasetJobConfigId',
-        'modifyTime'         => 'ModifyTime',
-        'workspaceId'        => 'WorkspaceId',
+        'modifyTime' => 'ModifyTime',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

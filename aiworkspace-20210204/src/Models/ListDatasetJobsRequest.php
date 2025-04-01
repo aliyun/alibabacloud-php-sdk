@@ -12,28 +12,32 @@ class ListDatasetJobsRequest extends Model
      * @var string
      */
     public $datasetVersion;
+
     /**
      * @var string
      */
     public $jobAction;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'datasetVersion' => 'DatasetVersion',
-        'jobAction'      => 'JobAction',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'workspaceId'    => 'WorkspaceId',
+        'jobAction' => 'JobAction',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

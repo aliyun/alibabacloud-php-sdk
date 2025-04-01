@@ -12,10 +12,12 @@ class ListProductsRequest extends Model
      * @var string
      */
     public $productCodes;
+
     /**
      * @var string
      */
     public $serviceCodes;
+
     /**
      * @var bool
      */
@@ -23,7 +25,7 @@ class ListProductsRequest extends Model
     protected $_name = [
         'productCodes' => 'ProductCodes',
         'serviceCodes' => 'ServiceCodes',
-        'verbose'      => 'Verbose',
+        'verbose' => 'Verbose',
     ];
 
     public function validate()

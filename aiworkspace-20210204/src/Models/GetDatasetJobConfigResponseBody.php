@@ -12,37 +12,43 @@ class GetDatasetJobConfigResponseBody extends Model
      * @var string
      */
     public $config;
+
     /**
      * @var string
      */
     public $configType;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $datasetId;
+
     /**
      * @var string
      */
     public $modifyTime;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'config'      => 'Config',
-        'configType'  => 'ConfigType',
-        'createTime'  => 'CreateTime',
-        'datasetId'   => 'DatasetId',
-        'modifyTime'  => 'ModifyTime',
-        'requestId'   => 'RequestId',
+        'config' => 'Config',
+        'configType' => 'ConfigType',
+        'createTime' => 'CreateTime',
+        'datasetId' => 'DatasetId',
+        'modifyTime' => 'ModifyTime',
+        'requestId' => 'RequestId',
         'workspaceId' => 'WorkspaceId',
     ];
 

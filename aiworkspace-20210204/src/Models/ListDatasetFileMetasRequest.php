@@ -12,63 +12,74 @@ class ListDatasetFileMetasRequest extends Model
      * @var string
      */
     public $datasetVersion;
+
     /**
      * @var string
      */
     public $endFileUpdateTime;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $queryText;
+
     /**
      * @var string
      */
     public $queryType;
+
     /**
      * @var float
      */
     public $scoreThreshold;
+
     /**
      * @var string
      */
     public $sortBy;
+
     /**
      * @var string
      */
     public $startFileUpdateTime;
+
     /**
      * @var int
      */
     public $topK;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'datasetVersion'      => 'DatasetVersion',
-        'endFileUpdateTime'   => 'EndFileUpdateTime',
-        'nextToken'           => 'NextToken',
-        'order'               => 'Order',
-        'pageSize'            => 'PageSize',
-        'queryText'           => 'QueryText',
-        'queryType'           => 'QueryType',
-        'scoreThreshold'      => 'ScoreThreshold',
-        'sortBy'              => 'SortBy',
+        'datasetVersion' => 'DatasetVersion',
+        'endFileUpdateTime' => 'EndFileUpdateTime',
+        'nextToken' => 'NextToken',
+        'order' => 'Order',
+        'pageSize' => 'PageSize',
+        'queryText' => 'QueryText',
+        'queryType' => 'QueryType',
+        'scoreThreshold' => 'ScoreThreshold',
+        'sortBy' => 'SortBy',
         'startFileUpdateTime' => 'StartFileUpdateTime',
-        'topK'                => 'TopK',
-        'workspaceId'         => 'WorkspaceId',
+        'topK' => 'TopK',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

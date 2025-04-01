@@ -12,28 +12,32 @@ class Collection extends Model
      * @var string
      */
     public $collectionName;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'collectionName'  => 'CollectionName',
-        'gmtCreateTime'   => 'GmtCreateTime',
+        'collectionName' => 'CollectionName',
+        'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
-        'ownerId'         => 'OwnerId',
-        'userId'          => 'UserId',
+        'ownerId' => 'OwnerId',
+        'userId' => 'UserId',
     ];
 
     public function validate()

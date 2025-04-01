@@ -12,63 +12,74 @@ class Trial extends Model
      * @var string
      */
     public $accessibility;
+
     /**
      * @var string
      */
     public $experimentId;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var mixed[][]
      */
     public $labels;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $sourceId;
+
     /**
      * @var string
      */
     public $sourceType;
+
     /**
      * @var string
      */
     public $trialId;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'accessibility'   => 'Accessibility',
-        'experimentId'    => 'ExperimentId',
-        'gmtCreateTime'   => 'GmtCreateTime',
+        'accessibility' => 'Accessibility',
+        'experimentId' => 'ExperimentId',
+        'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
-        'labels'          => 'Labels',
-        'name'            => 'Name',
-        'ownerId'         => 'OwnerId',
-        'sourceId'        => 'SourceId',
-        'sourceType'      => 'SourceType',
-        'trialId'         => 'TrialId',
-        'userId'          => 'UserId',
-        'workspaceId'     => 'WorkspaceId',
+        'labels' => 'Labels',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'sourceId' => 'SourceId',
+        'sourceType' => 'SourceType',
+        'trialId' => 'TrialId',
+        'userId' => 'UserId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -101,7 +112,7 @@ class Trial extends Model
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->labels as $item1) {
                     if (\is_array($item1)) {
                         $res['Labels'][$n1++] = [];
@@ -171,7 +182,7 @@ class Trial extends Model
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
                     if (!empty($item1)) {
                         $model->labels[$n1++] = [];

@@ -12,28 +12,32 @@ class TrialLabel extends Model
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $trialId;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'gmtCreateTime'   => 'GmtCreateTime',
+        'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
-        'key'             => 'Key',
-        'trialId'         => 'TrialId',
-        'value'           => 'Value',
+        'key' => 'Key',
+        'trialId' => 'TrialId',
+        'value' => 'Value',
     ];
 
     public function validate()

@@ -13,43 +13,62 @@ class AddImageRequest extends Model
      * @var string
      */
     public $accessibility;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $imageUri;
+
     /**
      * @var labels[]
      */
     public $labels;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var int
      */
     public $size;
+
+    /**
+     * @var string
+     */
+    public $sourceId;
+
+    /**
+     * @var string
+     */
+    public $sourceType;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'accessibility' => 'Accessibility',
-        'description'   => 'Description',
-        'imageId'       => 'ImageId',
-        'imageUri'      => 'ImageUri',
-        'labels'        => 'Labels',
-        'name'          => 'Name',
-        'size'          => 'Size',
-        'workspaceId'   => 'WorkspaceId',
+        'description' => 'Description',
+        'imageId' => 'ImageId',
+        'imageUri' => 'ImageUri',
+        'labels' => 'Labels',
+        'name' => 'Name',
+        'size' => 'Size',
+        'sourceId' => 'SourceId',
+        'sourceType' => 'SourceType',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -82,7 +101,7 @@ class AddImageRequest extends Model
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->labels as $item1) {
                     $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -95,6 +114,14 @@ class AddImageRequest extends Model
 
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+
+        if (null !== $this->sourceId) {
+            $res['SourceId'] = $this->sourceId;
+        }
+
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
 
         if (null !== $this->workspaceId) {
@@ -131,7 +158,7 @@ class AddImageRequest extends Model
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
                     $model->labels[$n1++] = labels::fromMap($item1);
                 }
@@ -144,6 +171,14 @@ class AddImageRequest extends Model
 
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+
+        if (isset($map['SourceId'])) {
+            $model->sourceId = $map['SourceId'];
+        }
+
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
 
         if (isset($map['WorkspaceId'])) {

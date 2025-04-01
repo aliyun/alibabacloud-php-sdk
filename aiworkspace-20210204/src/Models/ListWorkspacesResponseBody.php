@@ -13,23 +13,26 @@ class ListWorkspacesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var mixed[]
      */
     public $resourceLimits;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var workspaces[]
      */
     public $workspaces;
     protected $_name = [
-        'requestId'      => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceLimits' => 'ResourceLimits',
-        'totalCount'     => 'TotalCount',
-        'workspaces'     => 'Workspaces',
+        'totalCount' => 'TotalCount',
+        'workspaces' => 'Workspaces',
     ];
 
     public function validate()
@@ -66,7 +69,7 @@ class ListWorkspacesResponseBody extends Model
         if (null !== $this->workspaces) {
             if (\is_array($this->workspaces)) {
                 $res['Workspaces'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->workspaces as $item1) {
                     $res['Workspaces'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -104,7 +107,7 @@ class ListWorkspacesResponseBody extends Model
         if (isset($map['Workspaces'])) {
             if (!empty($map['Workspaces'])) {
                 $model->workspaces = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Workspaces'] as $item1) {
                     $model->workspaces[$n1++] = workspaces::fromMap($item1);
                 }

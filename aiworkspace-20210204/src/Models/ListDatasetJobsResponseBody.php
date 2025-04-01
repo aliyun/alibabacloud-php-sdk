@@ -12,18 +12,20 @@ class ListDatasetJobsResponseBody extends Model
      * @var DatasetJob[]
      */
     public $datasetJobs;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'datasetJobs' => 'DatasetJobs',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -40,7 +42,7 @@ class ListDatasetJobsResponseBody extends Model
         if (null !== $this->datasetJobs) {
             if (\is_array($this->datasetJobs)) {
                 $res['DatasetJobs'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->datasetJobs as $item1) {
                     $res['DatasetJobs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -69,7 +71,7 @@ class ListDatasetJobsResponseBody extends Model
         if (isset($map['DatasetJobs'])) {
             if (!empty($map['DatasetJobs'])) {
                 $model->datasetJobs = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['DatasetJobs'] as $item1) {
                     $model->datasetJobs[$n1++] = DatasetJob::fromMap($item1);
                 }

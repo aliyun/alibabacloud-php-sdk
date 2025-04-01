@@ -12,18 +12,20 @@ class DeleteDatasetFileMetasRequest extends Model
      * @var string
      */
     public $datasetFileMetaIds;
+
     /**
      * @var string
      */
     public $datasetVersion;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'datasetFileMetaIds' => 'DatasetFileMetaIds',
-        'datasetVersion'     => 'DatasetVersion',
-        'workspaceId'        => 'WorkspaceId',
+        'datasetVersion' => 'DatasetVersion',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

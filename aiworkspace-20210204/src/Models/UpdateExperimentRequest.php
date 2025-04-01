@@ -12,13 +12,14 @@ class UpdateExperimentRequest extends Model
      * @var string
      */
     public $accessibility;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
         'accessibility' => 'Accessibility',
-        'name'          => 'Name',
+        'name' => 'Name',
     ];
 
     public function validate()

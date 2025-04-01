@@ -12,28 +12,32 @@ class products extends Model
      * @var bool
      */
     public $hasPermissionToPurchase;
+
     /**
      * @var bool
      */
     public $isPurchased;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $productInstanceId;
+
     /**
      * @var string
      */
     public $purchaseUrl;
     protected $_name = [
         'hasPermissionToPurchase' => 'HasPermissionToPurchase',
-        'isPurchased'             => 'IsPurchased',
-        'productCode'             => 'ProductCode',
-        'productInstanceId'       => 'ProductInstanceId',
-        'purchaseUrl'             => 'PurchaseUrl',
+        'isPurchased' => 'IsPurchased',
+        'productCode' => 'ProductCode',
+        'productInstanceId' => 'ProductInstanceId',
+        'purchaseUrl' => 'PurchaseUrl',
     ];
 
     public function validate()

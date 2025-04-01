@@ -13,18 +13,20 @@ class ListPermissionsResponseBody extends Model
      * @var permissions[]
      */
     public $permissions;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'permissions' => 'Permissions',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,7 +43,7 @@ class ListPermissionsResponseBody extends Model
         if (null !== $this->permissions) {
             if (\is_array($this->permissions)) {
                 $res['Permissions'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->permissions as $item1) {
                     $res['Permissions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListPermissionsResponseBody extends Model
         if (isset($map['Permissions'])) {
             if (!empty($map['Permissions'])) {
                 $model->permissions = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['Permissions'] as $item1) {
                     $model->permissions[$n1++] = permissions::fromMap($item1);
                 }

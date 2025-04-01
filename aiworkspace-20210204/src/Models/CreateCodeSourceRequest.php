@@ -12,53 +12,62 @@ class CreateCodeSourceRequest extends Model
      * @var string
      */
     public $accessibility;
+
     /**
      * @var string
      */
     public $codeBranch;
+
     /**
      * @var string
      */
     public $codeCommit;
+
     /**
      * @var string
      */
     public $codeRepo;
+
     /**
      * @var string
      */
     public $codeRepoAccessToken;
+
     /**
      * @var string
      */
     public $codeRepoUserName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $mountPath;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'accessibility'       => 'Accessibility',
-        'codeBranch'          => 'CodeBranch',
-        'codeCommit'          => 'CodeCommit',
-        'codeRepo'            => 'CodeRepo',
+        'accessibility' => 'Accessibility',
+        'codeBranch' => 'CodeBranch',
+        'codeCommit' => 'CodeCommit',
+        'codeRepo' => 'CodeRepo',
         'codeRepoAccessToken' => 'CodeRepoAccessToken',
-        'codeRepoUserName'    => 'CodeRepoUserName',
-        'description'         => 'Description',
-        'displayName'         => 'DisplayName',
-        'mountPath'           => 'MountPath',
-        'workspaceId'         => 'WorkspaceId',
+        'codeRepoUserName' => 'CodeRepoUserName',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'mountPath' => 'MountPath',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

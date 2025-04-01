@@ -12,33 +12,38 @@ class CreateDatasetJobRequest extends Model
      * @var string
      */
     public $datasetVersion;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $jobAction;
+
     /**
      * @var string
      */
     public $jobMode;
+
     /**
      * @var string
      */
     public $jobSpec;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'datasetVersion' => 'DatasetVersion',
-        'description'    => 'Description',
-        'jobAction'      => 'JobAction',
-        'jobMode'        => 'JobMode',
-        'jobSpec'        => 'JobSpec',
-        'workspaceId'    => 'WorkspaceId',
+        'description' => 'Description',
+        'jobAction' => 'JobAction',
+        'jobMode' => 'JobMode',
+        'jobSpec' => 'JobSpec',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

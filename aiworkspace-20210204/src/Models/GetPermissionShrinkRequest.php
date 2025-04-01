@@ -12,28 +12,32 @@ class GetPermissionShrinkRequest extends Model
      * @var string
      */
     public $accessibility;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $labelsShrink;
+
     /**
      * @var string
      */
     public $option;
+
     /**
      * @var string
      */
     public $resource;
     protected $_name = [
         'accessibility' => 'Accessibility',
-        'creator'       => 'Creator',
-        'labelsShrink'  => 'Labels',
-        'option'        => 'Option',
-        'resource'      => 'Resource',
+        'creator' => 'Creator',
+        'labelsShrink' => 'Labels',
+        'option' => 'Option',
+        'resource' => 'Resource',
     ];
 
     public function validate()

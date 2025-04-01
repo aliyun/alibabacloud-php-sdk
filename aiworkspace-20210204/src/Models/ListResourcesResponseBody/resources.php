@@ -16,73 +16,86 @@ class resources extends Model
      * @var encryption
      */
     public $encryption;
+
     /**
      * @var string
      */
     public $envType;
+
     /**
      * @var executor
      */
     public $executor;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var labels[]
      */
     public $labels;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $productType;
+
     /**
      * @var quotas[]
      */
     public $quotas;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var mixed[]
      */
     public $spec;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'encryption'    => 'Encryption',
-        'envType'       => 'EnvType',
-        'executor'      => 'Executor',
+        'encryption' => 'Encryption',
+        'envType' => 'EnvType',
+        'executor' => 'Executor',
         'gmtCreateTime' => 'GmtCreateTime',
-        'groupName'     => 'GroupName',
-        'id'            => 'Id',
-        'isDefault'     => 'IsDefault',
-        'labels'        => 'Labels',
-        'name'          => 'Name',
-        'productType'   => 'ProductType',
-        'quotas'        => 'Quotas',
-        'resourceType'  => 'ResourceType',
-        'spec'          => 'Spec',
-        'workspaceId'   => 'WorkspaceId',
+        'groupName' => 'GroupName',
+        'id' => 'Id',
+        'isDefault' => 'IsDefault',
+        'labels' => 'Labels',
+        'name' => 'Name',
+        'productType' => 'ProductType',
+        'quotas' => 'Quotas',
+        'resourceType' => 'ResourceType',
+        'spec' => 'Spec',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -139,7 +152,7 @@ class resources extends Model
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->labels as $item1) {
                     $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -157,7 +170,7 @@ class resources extends Model
         if (null !== $this->quotas) {
             if (\is_array($this->quotas)) {
                 $res['Quotas'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->quotas as $item1) {
                     $res['Quotas'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -223,7 +236,7 @@ class resources extends Model
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
                     $model->labels[$n1++] = labels::fromMap($item1);
                 }
@@ -241,7 +254,7 @@ class resources extends Model
         if (isset($map['Quotas'])) {
             if (!empty($map['Quotas'])) {
                 $model->quotas = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Quotas'] as $item1) {
                     $model->quotas[$n1++] = quotas::fromMap($item1);
                 }

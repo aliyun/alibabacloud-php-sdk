@@ -12,18 +12,20 @@ class DatasetFileMetaResponse extends Model
      * @var string
      */
     public $datasetFileMetaId;
+
     /**
      * @var string
      */
     public $result;
+
     /**
      * @var string
      */
     public $uri;
     protected $_name = [
         'datasetFileMetaId' => 'DatasetFileMetaId',
-        'result'            => 'Result',
-        'uri'               => 'Uri',
+        'result' => 'Result',
+        'uri' => 'Uri',
     ];
 
     public function validate()

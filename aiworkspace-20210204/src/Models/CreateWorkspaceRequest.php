@@ -12,28 +12,32 @@ class CreateWorkspaceRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string[]
      */
     public $envTypes;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $workspaceName;
     protected $_name = [
-        'description'     => 'Description',
-        'displayName'     => 'DisplayName',
-        'envTypes'        => 'EnvTypes',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'envTypes' => 'EnvTypes',
         'resourceGroupId' => 'ResourceGroupId',
-        'workspaceName'   => 'WorkspaceName',
+        'workspaceName' => 'WorkspaceName',
     ];
 
     public function validate()
@@ -58,7 +62,7 @@ class CreateWorkspaceRequest extends Model
         if (null !== $this->envTypes) {
             if (\is_array($this->envTypes)) {
                 $res['EnvTypes'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->envTypes as $item1) {
                     $res['EnvTypes'][$n1++] = $item1;
                 }
@@ -95,7 +99,7 @@ class CreateWorkspaceRequest extends Model
         if (isset($map['EnvTypes'])) {
             if (!empty($map['EnvTypes'])) {
                 $model->envTypes = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['EnvTypes'] as $item1) {
                     $model->envTypes[$n1++] = $item1;
                 }

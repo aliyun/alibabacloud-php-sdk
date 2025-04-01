@@ -12,13 +12,14 @@ class CreateDatasetJobConfigResponseBody extends Model
      * @var string
      */
     public $datasetJobConfigId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'datasetJobConfigId' => 'DatasetJobConfigId',
-        'requestId'          => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

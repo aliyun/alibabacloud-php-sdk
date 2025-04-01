@@ -12,128 +12,152 @@ class Dataset extends Model
      * @var string
      */
     public $accessibility;
+
     /**
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var string
      */
     public $dataType;
+
     /**
      * @var string
      */
     public $datasetId;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var string
      */
     public $importInfo;
+
     /**
      * @var Label[]
      */
     public $labels;
+
     /**
      * @var DatasetVersion
      */
     public $latestVersion;
+
     /**
      * @var string
      */
     public $mountAccess;
+
     /**
      * @var string[]
      */
     public $mountAccessReadWriteRoleIdList;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $options;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $property;
+
     /**
      * @var string
      */
     public $providerType;
+
     /**
      * @var string
      */
     public $sourceDatasetId;
+
     /**
      * @var string
      */
     public $sourceDatasetVersion;
+
     /**
      * @var string
      */
     public $sourceId;
+
     /**
      * @var string
      */
     public $sourceType;
+
     /**
      * @var string
      */
     public $tagTemplateType;
+
     /**
      * @var string
      */
     public $uri;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'accessibility'                  => 'Accessibility',
-        'dataSourceType'                 => 'DataSourceType',
-        'dataType'                       => 'DataType',
-        'datasetId'                      => 'DatasetId',
-        'description'                    => 'Description',
-        'gmtCreateTime'                  => 'GmtCreateTime',
-        'gmtModifiedTime'                => 'GmtModifiedTime',
-        'importInfo'                     => 'ImportInfo',
-        'labels'                         => 'Labels',
-        'latestVersion'                  => 'LatestVersion',
-        'mountAccess'                    => 'MountAccess',
+        'accessibility' => 'Accessibility',
+        'dataSourceType' => 'DataSourceType',
+        'dataType' => 'DataType',
+        'datasetId' => 'DatasetId',
+        'description' => 'Description',
+        'gmtCreateTime' => 'GmtCreateTime',
+        'gmtModifiedTime' => 'GmtModifiedTime',
+        'importInfo' => 'ImportInfo',
+        'labels' => 'Labels',
+        'latestVersion' => 'LatestVersion',
+        'mountAccess' => 'MountAccess',
         'mountAccessReadWriteRoleIdList' => 'MountAccessReadWriteRoleIdList',
-        'name'                           => 'Name',
-        'options'                        => 'Options',
-        'ownerId'                        => 'OwnerId',
-        'property'                       => 'Property',
-        'providerType'                   => 'ProviderType',
-        'sourceDatasetId'                => 'SourceDatasetId',
-        'sourceDatasetVersion'           => 'SourceDatasetVersion',
-        'sourceId'                       => 'SourceId',
-        'sourceType'                     => 'SourceType',
-        'tagTemplateType'                => 'TagTemplateType',
-        'uri'                            => 'Uri',
-        'userId'                         => 'UserId',
-        'workspaceId'                    => 'WorkspaceId',
+        'name' => 'Name',
+        'options' => 'Options',
+        'ownerId' => 'OwnerId',
+        'property' => 'Property',
+        'providerType' => 'ProviderType',
+        'sourceDatasetId' => 'SourceDatasetId',
+        'sourceDatasetVersion' => 'SourceDatasetVersion',
+        'sourceId' => 'SourceId',
+        'sourceType' => 'SourceType',
+        'tagTemplateType' => 'TagTemplateType',
+        'uri' => 'Uri',
+        'userId' => 'UserId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -188,7 +212,7 @@ class Dataset extends Model
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->labels as $item1) {
                     $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -206,7 +230,7 @@ class Dataset extends Model
         if (null !== $this->mountAccessReadWriteRoleIdList) {
             if (\is_array($this->mountAccessReadWriteRoleIdList)) {
                 $res['MountAccessReadWriteRoleIdList'] = [];
-                $n1                                    = 0;
+                $n1 = 0;
                 foreach ($this->mountAccessReadWriteRoleIdList as $item1) {
                     $res['MountAccessReadWriteRoleIdList'][$n1++] = $item1;
                 }
@@ -311,7 +335,7 @@ class Dataset extends Model
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
                     $model->labels[$n1++] = Label::fromMap($item1);
                 }
@@ -329,7 +353,7 @@ class Dataset extends Model
         if (isset($map['MountAccessReadWriteRoleIdList'])) {
             if (!empty($map['MountAccessReadWriteRoleIdList'])) {
                 $model->mountAccessReadWriteRoleIdList = [];
-                $n1                                    = 0;
+                $n1 = 0;
                 foreach ($map['MountAccessReadWriteRoleIdList'] as $item1) {
                     $model->mountAccessReadWriteRoleIdList[$n1++] = $item1;
                 }

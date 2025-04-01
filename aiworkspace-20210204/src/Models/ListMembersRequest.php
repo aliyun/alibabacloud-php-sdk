@@ -12,14 +12,17 @@ class ListMembersRequest extends Model
      * @var string
      */
     public $memberName;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class ListMembersRequest extends Model
     protected $_name = [
         'memberName' => 'MemberName',
         'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'roles'      => 'Roles',
+        'pageSize' => 'PageSize',
+        'roles' => 'Roles',
     ];
 
     public function validate()

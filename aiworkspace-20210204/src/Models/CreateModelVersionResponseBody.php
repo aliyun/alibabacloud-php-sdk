@@ -12,12 +12,13 @@ class CreateModelVersionResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $versionName;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'versionName' => 'VersionName',
     ];
 

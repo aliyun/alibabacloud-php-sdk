@@ -12,58 +12,68 @@ class ListModelVersionsRequest extends Model
      * @var string
      */
     public $approvalStatus;
+
     /**
      * @var string
      */
     public $formatType;
+
     /**
      * @var string
      */
     public $frameworkType;
+
     /**
      * @var string
      */
     public $label;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $sortBy;
+
     /**
      * @var string
      */
     public $sourceId;
+
     /**
      * @var string
      */
     public $sourceType;
+
     /**
      * @var string
      */
     public $versionName;
     protected $_name = [
         'approvalStatus' => 'ApprovalStatus',
-        'formatType'     => 'FormatType',
-        'frameworkType'  => 'FrameworkType',
-        'label'          => 'Label',
-        'order'          => 'Order',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'sortBy'         => 'SortBy',
-        'sourceId'       => 'SourceId',
-        'sourceType'     => 'SourceType',
-        'versionName'    => 'VersionName',
+        'formatType' => 'FormatType',
+        'frameworkType' => 'FrameworkType',
+        'label' => 'Label',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'sortBy' => 'SortBy',
+        'sourceId' => 'SourceId',
+        'sourceType' => 'SourceType',
+        'versionName' => 'VersionName',
     ];
 
     public function validate()

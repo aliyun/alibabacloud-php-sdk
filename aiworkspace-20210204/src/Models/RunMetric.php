@@ -12,23 +12,26 @@ class RunMetric extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var int
      */
     public $step;
+
     /**
      * @var int
      */
     public $timestamp;
+
     /**
      * @var float
      */
     public $value;
     protected $_name = [
-        'key'       => 'Key',
-        'step'      => 'Step',
+        'key' => 'Key',
+        'step' => 'Step',
         'timestamp' => 'Timestamp',
-        'value'     => 'Value',
+        'value' => 'Value',
     ];
 
     public function validate()

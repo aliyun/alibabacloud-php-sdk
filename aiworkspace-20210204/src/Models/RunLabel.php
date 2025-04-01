@@ -12,28 +12,32 @@ class RunLabel extends Model
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $runId;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'gmtCreateTime'   => 'GmtCreateTime',
+        'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
-        'key'             => 'Key',
-        'runId'           => 'RunId',
-        'value'           => 'Value',
+        'key' => 'Key',
+        'runId' => 'RunId',
+        'value' => 'Value',
     ];
 
     public function validate()

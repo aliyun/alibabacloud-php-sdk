@@ -12,12 +12,13 @@ class permissionRules extends Model
      * @var string
      */
     public $accessibility;
+
     /**
      * @var string
      */
     public $entityAccessType;
     protected $_name = [
-        'accessibility'    => 'Accessibility',
+        'accessibility' => 'Accessibility',
         'entityAccessType' => 'EntityAccessType',
     ];
 

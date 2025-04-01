@@ -12,108 +12,128 @@ class GetModelVersionResponseBody extends Model
      * @var string
      */
     public $approvalStatus;
+
     /**
      * @var mixed[]
      */
     public $compressionSpec;
+
     /**
      * @var mixed[]
      */
     public $evaluationSpec;
+
     /**
      * @var mixed[]
      */
     public $extraInfo;
+
     /**
      * @var string
      */
     public $formatType;
+
     /**
      * @var string
      */
     public $frameworkType;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var mixed[]
      */
     public $inferenceSpec;
+
     /**
      * @var Label[]
      */
     public $labels;
+
     /**
      * @var mixed[]
      */
     public $metrics;
+
     /**
      * @var string
      */
     public $options;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $sourceId;
+
     /**
      * @var string
      */
     public $sourceType;
+
     /**
      * @var mixed[]
      */
     public $trainingSpec;
+
     /**
      * @var string
      */
     public $uri;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $versionDescription;
+
     /**
      * @var string
      */
     public $versionName;
     protected $_name = [
-        'approvalStatus'     => 'ApprovalStatus',
-        'compressionSpec'    => 'CompressionSpec',
-        'evaluationSpec'     => 'EvaluationSpec',
-        'extraInfo'          => 'ExtraInfo',
-        'formatType'         => 'FormatType',
-        'frameworkType'      => 'FrameworkType',
-        'gmtCreateTime'      => 'GmtCreateTime',
-        'gmtModifiedTime'    => 'GmtModifiedTime',
-        'inferenceSpec'      => 'InferenceSpec',
-        'labels'             => 'Labels',
-        'metrics'            => 'Metrics',
-        'options'            => 'Options',
-        'ownerId'            => 'OwnerId',
-        'requestId'          => 'RequestId',
-        'sourceId'           => 'SourceId',
-        'sourceType'         => 'SourceType',
-        'trainingSpec'       => 'TrainingSpec',
-        'uri'                => 'Uri',
-        'userId'             => 'UserId',
+        'approvalStatus' => 'ApprovalStatus',
+        'compressionSpec' => 'CompressionSpec',
+        'evaluationSpec' => 'EvaluationSpec',
+        'extraInfo' => 'ExtraInfo',
+        'formatType' => 'FormatType',
+        'frameworkType' => 'FrameworkType',
+        'gmtCreateTime' => 'GmtCreateTime',
+        'gmtModifiedTime' => 'GmtModifiedTime',
+        'inferenceSpec' => 'InferenceSpec',
+        'labels' => 'Labels',
+        'metrics' => 'Metrics',
+        'options' => 'Options',
+        'ownerId' => 'OwnerId',
+        'requestId' => 'RequestId',
+        'sourceId' => 'SourceId',
+        'sourceType' => 'SourceType',
+        'trainingSpec' => 'TrainingSpec',
+        'uri' => 'Uri',
+        'userId' => 'UserId',
         'versionDescription' => 'VersionDescription',
-        'versionName'        => 'VersionName',
+        'versionName' => 'VersionName',
     ];
 
     public function validate()
@@ -204,7 +224,7 @@ class GetModelVersionResponseBody extends Model
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->labels as $item1) {
                     $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -335,7 +355,7 @@ class GetModelVersionResponseBody extends Model
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
                     $model->labels[$n1++] = Label::fromMap($item1);
                 }

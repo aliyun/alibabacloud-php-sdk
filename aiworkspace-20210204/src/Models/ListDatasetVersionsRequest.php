@@ -12,47 +12,55 @@ class ListDatasetVersionsRequest extends Model
      * @var string
      */
     public $labelKeys;
+
     /**
      * @var string
      */
     public $labelValues;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $properties;
+
     /**
      * @var string
      */
     public $sortBy;
+
     /**
      * @var string
      */
     public $sourceId;
+
     /**
      * @var string
      */
     public $sourceTypes;
     protected $_name = [
-        'labelKeys'   => 'LabelKeys',
+        'labelKeys' => 'LabelKeys',
         'labelValues' => 'LabelValues',
-        'order'       => 'Order',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'properties'  => 'Properties',
-        'sortBy'      => 'SortBy',
-        'sourceId'    => 'SourceId',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'properties' => 'Properties',
+        'sortBy' => 'SortBy',
+        'sourceId' => 'SourceId',
         'sourceTypes' => 'SourceTypes',
     ];
 

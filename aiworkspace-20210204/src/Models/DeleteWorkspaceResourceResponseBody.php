@@ -12,12 +12,13 @@ class DeleteWorkspaceResourceResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
     public $resourceIds;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceIds' => 'ResourceIds',
     ];
 
@@ -39,7 +40,7 @@ class DeleteWorkspaceResourceResponseBody extends Model
         if (null !== $this->resourceIds) {
             if (\is_array($this->resourceIds)) {
                 $res['ResourceIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->resourceIds as $item1) {
                     $res['ResourceIds'][$n1++] = $item1;
                 }
@@ -64,7 +65,7 @@ class DeleteWorkspaceResourceResponseBody extends Model
         if (isset($map['ResourceIds'])) {
             if (!empty($map['ResourceIds'])) {
                 $model->resourceIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ResourceIds'] as $item1) {
                     $model->resourceIds[$n1++] = $item1;
                 }

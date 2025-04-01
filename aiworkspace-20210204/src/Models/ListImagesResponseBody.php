@@ -13,17 +13,19 @@ class ListImagesResponseBody extends Model
      * @var images[]
      */
     public $images;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'images'     => 'Images',
-        'requestId'  => 'RequestId',
+        'images' => 'Images',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -41,7 +43,7 @@ class ListImagesResponseBody extends Model
         if (null !== $this->images) {
             if (\is_array($this->images)) {
                 $res['Images'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->images as $item1) {
                     $res['Images'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -70,7 +72,7 @@ class ListImagesResponseBody extends Model
         if (isset($map['Images'])) {
             if (!empty($map['Images'])) {
                 $model->images = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Images'] as $item1) {
                     $model->images[$n1++] = images::fromMap($item1);
                 }

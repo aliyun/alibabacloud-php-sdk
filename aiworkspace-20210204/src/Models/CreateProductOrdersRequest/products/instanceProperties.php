@@ -12,17 +12,19 @@ class instanceProperties extends Model
      * @var string
      */
     public $code;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'code'  => 'Code',
-        'name'  => 'Name',
+        'code' => 'Code',
+        'name' => 'Name',
         'value' => 'Value',
     ];
 

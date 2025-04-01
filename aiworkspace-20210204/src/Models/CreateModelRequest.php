@@ -12,63 +12,74 @@ class CreateModelRequest extends Model
      * @var string
      */
     public $accessibility;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var mixed[]
      */
     public $extraInfo;
+
     /**
      * @var Label[]
      */
     public $labels;
+
     /**
      * @var string
      */
     public $modelDescription;
+
     /**
      * @var string
      */
     public $modelDoc;
+
     /**
      * @var string
      */
     public $modelName;
+
     /**
      * @var string
      */
     public $modelType;
+
     /**
      * @var int
      */
     public $orderNumber;
+
     /**
      * @var string
      */
     public $origin;
+
     /**
      * @var string
      */
     public $task;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'accessibility'    => 'Accessibility',
-        'domain'           => 'Domain',
-        'extraInfo'        => 'ExtraInfo',
-        'labels'           => 'Labels',
+        'accessibility' => 'Accessibility',
+        'domain' => 'Domain',
+        'extraInfo' => 'ExtraInfo',
+        'labels' => 'Labels',
         'modelDescription' => 'ModelDescription',
-        'modelDoc'         => 'ModelDoc',
-        'modelName'        => 'ModelName',
-        'modelType'        => 'ModelType',
-        'orderNumber'      => 'OrderNumber',
-        'origin'           => 'Origin',
-        'task'             => 'Task',
-        'workspaceId'      => 'WorkspaceId',
+        'modelDoc' => 'ModelDoc',
+        'modelName' => 'ModelName',
+        'modelType' => 'ModelType',
+        'orderNumber' => 'OrderNumber',
+        'origin' => 'Origin',
+        'task' => 'Task',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -105,7 +116,7 @@ class CreateModelRequest extends Model
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->labels as $item1) {
                     $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -175,7 +186,7 @@ class CreateModelRequest extends Model
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
                     $model->labels[$n1++] = Label::fromMap($item1);
                 }

@@ -12,12 +12,13 @@ class DatasetLabel extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'value' => 'Value',
     ];
 

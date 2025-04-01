@@ -12,17 +12,19 @@ class ListModelsResponseBody extends Model
      * @var Model_[]
      */
     public $models;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'models'     => 'Models',
-        'requestId'  => 'RequestId',
+        'models' => 'Models',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -40,7 +42,7 @@ class ListModelsResponseBody extends Model
         if (null !== $this->models) {
             if (\is_array($this->models)) {
                 $res['Models'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->models as $item1) {
                     $res['Models'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -69,7 +71,7 @@ class ListModelsResponseBody extends Model
         if (isset($map['Models'])) {
             if (!empty($map['Models'])) {
                 $model->models = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Models'] as $item1) {
                     $model->models[$n1++] = Model_::fromMap($item1);
                 }

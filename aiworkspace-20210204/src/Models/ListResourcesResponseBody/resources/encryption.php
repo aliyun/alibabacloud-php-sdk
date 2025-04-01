@@ -12,18 +12,20 @@ class encryption extends Model
      * @var string
      */
     public $algorithm;
+
     /**
      * @var bool
      */
     public $enabled;
+
     /**
      * @var string
      */
     public $key;
     protected $_name = [
         'algorithm' => 'Algorithm',
-        'enabled'   => 'Enabled',
-        'key'       => 'Key',
+        'enabled' => 'Enabled',
+        'key' => 'Key',
     ];
 
     public function validate()

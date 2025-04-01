@@ -13,38 +13,44 @@ class products extends Model
      * @var bool
      */
     public $autoRenew;
+
     /**
      * @var string
      */
     public $chargeType;
+
     /**
      * @var int
      */
     public $duration;
+
     /**
      * @var instanceProperties[]
      */
     public $instanceProperties;
+
     /**
      * @var string
      */
     public $orderType;
+
     /**
      * @var string
      */
     public $pricingCycle;
+
     /**
      * @var string
      */
     public $productCode;
     protected $_name = [
-        'autoRenew'          => 'AutoRenew',
-        'chargeType'         => 'ChargeType',
-        'duration'           => 'Duration',
+        'autoRenew' => 'AutoRenew',
+        'chargeType' => 'ChargeType',
+        'duration' => 'Duration',
         'instanceProperties' => 'InstanceProperties',
-        'orderType'          => 'OrderType',
-        'pricingCycle'       => 'PricingCycle',
-        'productCode'        => 'ProductCode',
+        'orderType' => 'OrderType',
+        'pricingCycle' => 'PricingCycle',
+        'productCode' => 'ProductCode',
     ];
 
     public function validate()
@@ -73,7 +79,7 @@ class products extends Model
         if (null !== $this->instanceProperties) {
             if (\is_array($this->instanceProperties)) {
                 $res['InstanceProperties'] = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($this->instanceProperties as $item1) {
                     $res['InstanceProperties'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -118,7 +124,7 @@ class products extends Model
         if (isset($map['InstanceProperties'])) {
             if (!empty($map['InstanceProperties'])) {
                 $model->instanceProperties = [];
-                $n1                        = 0;
+                $n1 = 0;
                 foreach ($map['InstanceProperties'] as $item1) {
                     $model->instanceProperties[$n1++] = instanceProperties::fromMap($item1);
                 }

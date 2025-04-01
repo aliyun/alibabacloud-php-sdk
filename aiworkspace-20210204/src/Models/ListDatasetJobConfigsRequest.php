@@ -12,22 +12,25 @@ class ListDatasetJobConfigsRequest extends Model
      * @var string
      */
     public $configType;
+
     /**
      * @var string
      */
     public $pageNumber;
+
     /**
      * @var string
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'configType'  => 'ConfigType',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
+        'configType' => 'ConfigType',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'workspaceId' => 'WorkspaceId',
     ];
 

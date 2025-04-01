@@ -12,18 +12,20 @@ class UpdateDatasetJobRequest extends Model
      * @var string
      */
     public $datasetVersion;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'datasetVersion' => 'DatasetVersion',
-        'description'    => 'Description',
-        'workspaceId'    => 'WorkspaceId',
+        'description' => 'Description',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

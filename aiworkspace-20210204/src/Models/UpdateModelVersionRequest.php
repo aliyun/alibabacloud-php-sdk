@@ -12,57 +12,67 @@ class UpdateModelVersionRequest extends Model
      * @var string
      */
     public $approvalStatus;
+
     /**
      * @var mixed[]
      */
     public $compressionSpec;
+
     /**
      * @var mixed[]
      */
     public $evaluationSpec;
+
     /**
      * @var mixed[]
      */
     public $extraInfo;
+
     /**
      * @var mixed[]
      */
     public $inferenceSpec;
+
     /**
      * @var mixed[]
      */
     public $metrics;
+
     /**
      * @var string
      */
     public $options;
+
     /**
      * @var string
      */
     public $sourceId;
+
     /**
      * @var string
      */
     public $sourceType;
+
     /**
      * @var mixed[]
      */
     public $trainingSpec;
+
     /**
      * @var string
      */
     public $versionDescription;
     protected $_name = [
-        'approvalStatus'     => 'ApprovalStatus',
-        'compressionSpec'    => 'CompressionSpec',
-        'evaluationSpec'     => 'EvaluationSpec',
-        'extraInfo'          => 'ExtraInfo',
-        'inferenceSpec'      => 'InferenceSpec',
-        'metrics'            => 'Metrics',
-        'options'            => 'Options',
-        'sourceId'           => 'SourceId',
-        'sourceType'         => 'SourceType',
-        'trainingSpec'       => 'TrainingSpec',
+        'approvalStatus' => 'ApprovalStatus',
+        'compressionSpec' => 'CompressionSpec',
+        'evaluationSpec' => 'EvaluationSpec',
+        'extraInfo' => 'ExtraInfo',
+        'inferenceSpec' => 'InferenceSpec',
+        'metrics' => 'Metrics',
+        'options' => 'Options',
+        'sourceId' => 'SourceId',
+        'sourceType' => 'SourceType',
+        'trainingSpec' => 'TrainingSpec',
         'versionDescription' => 'VersionDescription',
     ];
 

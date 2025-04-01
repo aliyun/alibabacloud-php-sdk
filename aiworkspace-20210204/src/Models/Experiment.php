@@ -12,68 +12,80 @@ class Experiment extends Model
      * @var string
      */
     public $accessibility;
+
     /**
      * @var string
      */
     public $artifactUri;
+
     /**
      * @var string
      */
     public $experimentId;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var ExperimentLabel[]
      */
     public $labels;
+
     /**
      * @var Run
      */
     public $latestRun;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $tensorboardLogUri;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'accessibility'     => 'Accessibility',
-        'artifactUri'       => 'ArtifactUri',
-        'experimentId'      => 'ExperimentId',
-        'gmtCreateTime'     => 'GmtCreateTime',
-        'gmtModifiedTime'   => 'GmtModifiedTime',
-        'labels'            => 'Labels',
-        'latestRun'         => 'LatestRun',
-        'name'              => 'Name',
-        'ownerId'           => 'OwnerId',
-        'requestId'         => 'RequestId',
+        'accessibility' => 'Accessibility',
+        'artifactUri' => 'ArtifactUri',
+        'experimentId' => 'ExperimentId',
+        'gmtCreateTime' => 'GmtCreateTime',
+        'gmtModifiedTime' => 'GmtModifiedTime',
+        'labels' => 'Labels',
+        'latestRun' => 'LatestRun',
+        'name' => 'Name',
+        'ownerId' => 'OwnerId',
+        'requestId' => 'RequestId',
         'tensorboardLogUri' => 'TensorboardLogUri',
-        'userId'            => 'UserId',
-        'workspaceId'       => 'WorkspaceId',
+        'userId' => 'UserId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -113,7 +125,7 @@ class Experiment extends Model
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->labels as $item1) {
                     $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -182,7 +194,7 @@ class Experiment extends Model
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
                     $model->labels[$n1++] = ExperimentLabel::fromMap($item1);
                 }

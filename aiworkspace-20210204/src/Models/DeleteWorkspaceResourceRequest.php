@@ -12,32 +12,37 @@ class DeleteWorkspaceResourceRequest extends Model
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $labels;
+
     /**
      * @var string
      */
     public $option;
+
     /**
      * @var string
      */
     public $productType;
+
     /**
      * @var string
      */
     public $resourceIds;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'groupName'    => 'GroupName',
-        'labels'       => 'Labels',
-        'option'       => 'Option',
-        'productType'  => 'ProductType',
-        'resourceIds'  => 'ResourceIds',
+        'groupName' => 'GroupName',
+        'labels' => 'Labels',
+        'option' => 'Option',
+        'productType' => 'ProductType',
+        'resourceIds' => 'ResourceIds',
         'resourceType' => 'ResourceType',
     ];
 

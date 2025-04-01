@@ -12,23 +12,26 @@ class UpdateDatasetVersionRequest extends Model
      * @var int
      */
     public $dataCount;
+
     /**
      * @var int
      */
     public $dataSize;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $options;
     protected $_name = [
-        'dataCount'   => 'DataCount',
-        'dataSize'    => 'DataSize',
+        'dataCount' => 'DataCount',
+        'dataSize' => 'DataSize',
         'description' => 'Description',
-        'options'     => 'Options',
+        'options' => 'Options',
     ];
 
     public function validate()

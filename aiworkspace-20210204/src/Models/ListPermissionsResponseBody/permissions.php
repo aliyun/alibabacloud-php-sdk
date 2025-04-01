@@ -13,12 +13,13 @@ class permissions extends Model
      * @var string
      */
     public $permissionCode;
+
     /**
      * @var permissionRules[]
      */
     public $permissionRules;
     protected $_name = [
-        'permissionCode'  => 'PermissionCode',
+        'permissionCode' => 'PermissionCode',
         'permissionRules' => 'PermissionRules',
     ];
 
@@ -40,7 +41,7 @@ class permissions extends Model
         if (null !== $this->permissionRules) {
             if (\is_array($this->permissionRules)) {
                 $res['PermissionRules'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->permissionRules as $item1) {
                     $res['PermissionRules'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class permissions extends Model
         if (isset($map['PermissionRules'])) {
             if (!empty($map['PermissionRules'])) {
                 $model->permissionRules = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['PermissionRules'] as $item1) {
                     $model->permissionRules[$n1++] = permissionRules::fromMap($item1);
                 }

@@ -12,53 +12,62 @@ class DatasetFileMetaConentUpdate extends Model
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $contentType;
+
     /**
      * @var int
      */
     public $dataSize;
+
     /**
      * @var string
      */
     public $datasetFileMetaId;
+
     /**
      * @var string
      */
     public $fileCreateTime;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $fileType;
+
     /**
      * @var string
      */
     public $fileUpdateTime;
+
     /**
      * @var string
      */
     public $metaAttributes;
+
     /**
      * @var string
      */
     public $tags;
     protected $_name = [
-        'comment'           => 'Comment',
-        'contentType'       => 'ContentType',
-        'dataSize'          => 'DataSize',
+        'comment' => 'Comment',
+        'contentType' => 'ContentType',
+        'dataSize' => 'DataSize',
         'datasetFileMetaId' => 'DatasetFileMetaId',
-        'fileCreateTime'    => 'FileCreateTime',
-        'fileName'          => 'FileName',
-        'fileType'          => 'FileType',
-        'fileUpdateTime'    => 'FileUpdateTime',
-        'metaAttributes'    => 'MetaAttributes',
-        'tags'              => 'Tags',
+        'fileCreateTime' => 'FileCreateTime',
+        'fileName' => 'FileName',
+        'fileType' => 'FileType',
+        'fileUpdateTime' => 'FileUpdateTime',
+        'metaAttributes' => 'MetaAttributes',
+        'tags' => 'Tags',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class ListCodeSourcesResponseBody extends Model
      * @var CodeSourceItem[]
      */
     public $codeSources;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'codeSources' => 'CodeSources',
-        'requestId'   => 'RequestId',
-        'totalCount'  => 'TotalCount',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -40,7 +42,7 @@ class ListCodeSourcesResponseBody extends Model
         if (null !== $this->codeSources) {
             if (\is_array($this->codeSources)) {
                 $res['CodeSources'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->codeSources as $item1) {
                     $res['CodeSources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -69,7 +71,7 @@ class ListCodeSourcesResponseBody extends Model
         if (isset($map['CodeSources'])) {
             if (!empty($map['CodeSources'])) {
                 $model->codeSources = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['CodeSources'] as $item1) {
                     $model->codeSources[$n1++] = CodeSourceItem::fromMap($item1);
                 }

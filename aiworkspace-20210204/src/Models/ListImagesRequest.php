@@ -12,58 +12,68 @@ class ListImagesRequest extends Model
      * @var string
      */
     public $accessibility;
+
     /**
      * @var string
      */
     public $imageUri;
+
     /**
      * @var string
      */
     public $labels;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $query;
+
     /**
      * @var string
      */
     public $sortBy;
+
     /**
      * @var bool
      */
     public $verbose;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'accessibility' => 'Accessibility',
-        'imageUri'      => 'ImageUri',
-        'labels'        => 'Labels',
-        'name'          => 'Name',
-        'order'         => 'Order',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'query'         => 'Query',
-        'sortBy'        => 'SortBy',
-        'verbose'       => 'Verbose',
-        'workspaceId'   => 'WorkspaceId',
+        'imageUri' => 'ImageUri',
+        'labels' => 'Labels',
+        'name' => 'Name',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'query' => 'Query',
+        'sortBy' => 'SortBy',
+        'verbose' => 'Verbose',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

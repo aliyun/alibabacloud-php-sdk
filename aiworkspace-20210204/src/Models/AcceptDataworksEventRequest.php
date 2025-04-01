@@ -12,12 +12,13 @@ class AcceptDataworksEventRequest extends Model
      * @var mixed[]
      */
     public $data;
+
     /**
      * @var string
      */
     public $messageId;
     protected $_name = [
-        'data'      => 'Data',
+        'data' => 'Data',
         'messageId' => 'MessageId',
     ];
 

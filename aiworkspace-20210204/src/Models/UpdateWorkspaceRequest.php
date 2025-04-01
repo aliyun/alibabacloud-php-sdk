@@ -12,6 +12,7 @@ class UpdateWorkspaceRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */

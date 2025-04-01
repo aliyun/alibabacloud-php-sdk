@@ -12,22 +12,25 @@ class LineageEntity extends Model
      * @var mixed[]
      */
     public $attributes;
+
     /**
      * @var string
      */
     public $entityType;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $qualifiedName;
     protected $_name = [
-        'attributes'    => 'Attributes',
-        'entityType'    => 'EntityType',
-        'name'          => 'Name',
+        'attributes' => 'Attributes',
+        'entityType' => 'EntityType',
+        'name' => 'Name',
         'qualifiedName' => 'QualifiedName',
     ];
 

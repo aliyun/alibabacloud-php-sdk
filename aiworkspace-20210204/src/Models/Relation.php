@@ -12,18 +12,20 @@ class Relation extends Model
      * @var string
      */
     public $errMsg;
+
     /**
      * @var LineageRelation
      */
     public $lineageRelation;
+
     /**
      * @var bool
      */
     public $result;
     protected $_name = [
-        'errMsg'          => 'ErrMsg',
+        'errMsg' => 'ErrMsg',
         'lineageRelation' => 'LineageRelation',
-        'result'          => 'Result',
+        'result' => 'Result',
     ];
 
     public function validate()

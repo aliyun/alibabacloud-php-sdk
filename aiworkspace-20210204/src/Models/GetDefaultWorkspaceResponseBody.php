@@ -14,63 +14,74 @@ class GetDefaultWorkspaceResponseBody extends Model
      * @var conditions[]
      */
     public $conditions;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string[]
      */
     public $envTypes;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var owner
      */
     public $owner;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $workspaceId;
+
     /**
      * @var string
      */
     public $workspaceName;
     protected $_name = [
-        'conditions'      => 'Conditions',
-        'creator'         => 'Creator',
-        'description'     => 'Description',
-        'displayName'     => 'DisplayName',
-        'envTypes'        => 'EnvTypes',
-        'gmtCreateTime'   => 'GmtCreateTime',
+        'conditions' => 'Conditions',
+        'creator' => 'Creator',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'envTypes' => 'EnvTypes',
+        'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
-        'owner'           => 'Owner',
-        'requestId'       => 'RequestId',
-        'status'          => 'Status',
-        'workspaceId'     => 'WorkspaceId',
-        'workspaceName'   => 'WorkspaceName',
+        'owner' => 'Owner',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
+        'workspaceId' => 'WorkspaceId',
+        'workspaceName' => 'WorkspaceName',
     ];
 
     public function validate()
@@ -93,7 +104,7 @@ class GetDefaultWorkspaceResponseBody extends Model
         if (null !== $this->conditions) {
             if (\is_array($this->conditions)) {
                 $res['Conditions'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->conditions as $item1) {
                     $res['Conditions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -115,7 +126,7 @@ class GetDefaultWorkspaceResponseBody extends Model
         if (null !== $this->envTypes) {
             if (\is_array($this->envTypes)) {
                 $res['EnvTypes'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->envTypes as $item1) {
                     $res['EnvTypes'][$n1++] = $item1;
                 }
@@ -164,7 +175,7 @@ class GetDefaultWorkspaceResponseBody extends Model
         if (isset($map['Conditions'])) {
             if (!empty($map['Conditions'])) {
                 $model->conditions = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['Conditions'] as $item1) {
                     $model->conditions[$n1++] = conditions::fromMap($item1);
                 }
@@ -186,7 +197,7 @@ class GetDefaultWorkspaceResponseBody extends Model
         if (isset($map['EnvTypes'])) {
             if (!empty($map['EnvTypes'])) {
                 $model->envTypes = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['EnvTypes'] as $item1) {
                     $model->envTypes[$n1++] = $item1;
                 }

@@ -12,43 +12,50 @@ class UpdateCodeSourceRequest extends Model
      * @var string
      */
     public $codeBranch;
+
     /**
      * @var string
      */
     public $codeCommit;
+
     /**
      * @var string
      */
     public $codeRepo;
+
     /**
      * @var string
      */
     public $codeRepoAccessToken;
+
     /**
      * @var string
      */
     public $codeRepoUserName;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $mountPath;
     protected $_name = [
-        'codeBranch'          => 'CodeBranch',
-        'codeCommit'          => 'CodeCommit',
-        'codeRepo'            => 'CodeRepo',
+        'codeBranch' => 'CodeBranch',
+        'codeCommit' => 'CodeCommit',
+        'codeRepo' => 'CodeRepo',
         'codeRepoAccessToken' => 'CodeRepoAccessToken',
-        'codeRepoUserName'    => 'CodeRepoUserName',
-        'description'         => 'Description',
-        'displayName'         => 'DisplayName',
-        'mountPath'           => 'MountPath',
+        'codeRepoUserName' => 'CodeRepoUserName',
+        'description' => 'Description',
+        'displayName' => 'DisplayName',
+        'mountPath' => 'MountPath',
     ];
 
     public function validate()

@@ -12,98 +12,116 @@ class Model_ extends Model
      * @var string
      */
     public $accessibility;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var mixed[]
      */
     public $extraInfo;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var Label[]
      */
     public $labels;
+
     /**
      * @var ModelVersion
      */
     public $latestVersion;
+
     /**
      * @var string
      */
     public $modelDescription;
+
     /**
      * @var string
      */
     public $modelDoc;
+
     /**
      * @var string
      */
     public $modelId;
+
     /**
      * @var string
      */
     public $modelName;
+
     /**
      * @var string
      */
     public $modelType;
+
     /**
      * @var int
      */
     public $orderNumber;
+
     /**
      * @var string
      */
     public $origin;
+
     /**
      * @var string
      */
     public $ownerId;
+
     /**
      * @var string
      */
     public $provider;
+
     /**
      * @var string
      */
     public $task;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'accessibility'    => 'Accessibility',
-        'domain'           => 'Domain',
-        'extraInfo'        => 'ExtraInfo',
-        'gmtCreateTime'    => 'GmtCreateTime',
-        'gmtModifiedTime'  => 'GmtModifiedTime',
-        'labels'           => 'Labels',
-        'latestVersion'    => 'LatestVersion',
+        'accessibility' => 'Accessibility',
+        'domain' => 'Domain',
+        'extraInfo' => 'ExtraInfo',
+        'gmtCreateTime' => 'GmtCreateTime',
+        'gmtModifiedTime' => 'GmtModifiedTime',
+        'labels' => 'Labels',
+        'latestVersion' => 'LatestVersion',
         'modelDescription' => 'ModelDescription',
-        'modelDoc'         => 'ModelDoc',
-        'modelId'          => 'ModelId',
-        'modelName'        => 'ModelName',
-        'modelType'        => 'ModelType',
-        'orderNumber'      => 'OrderNumber',
-        'origin'           => 'Origin',
-        'ownerId'          => 'OwnerId',
-        'provider'         => 'Provider',
-        'task'             => 'Task',
-        'userId'           => 'UserId',
-        'workspaceId'      => 'WorkspaceId',
+        'modelDoc' => 'ModelDoc',
+        'modelId' => 'ModelId',
+        'modelName' => 'ModelName',
+        'modelType' => 'ModelType',
+        'orderNumber' => 'OrderNumber',
+        'origin' => 'Origin',
+        'ownerId' => 'OwnerId',
+        'provider' => 'Provider',
+        'task' => 'Task',
+        'userId' => 'UserId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -151,7 +169,7 @@ class Model_ extends Model
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->labels as $item1) {
                     $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -249,7 +267,7 @@ class Model_ extends Model
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
                     $model->labels[$n1++] = Label::fromMap($item1);
                 }

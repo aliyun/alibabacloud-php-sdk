@@ -12,12 +12,13 @@ class CreateRunResponseBody extends Model
      * @var string
      */
     public $runId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'runId'     => 'RunId',
+        'runId' => 'RunId',
         'requestId' => 'requestId',
     ];
 

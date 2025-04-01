@@ -12,27 +12,31 @@ class ListImageLabelsRequest extends Model
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $labelFilter;
+
     /**
      * @var string
      */
     public $labelKeys;
+
     /**
      * @var string
      */
     public $region;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'imageId'     => 'ImageId',
+        'imageId' => 'ImageId',
         'labelFilter' => 'LabelFilter',
-        'labelKeys'   => 'LabelKeys',
-        'region'      => 'Region',
+        'labelKeys' => 'LabelKeys',
+        'region' => 'Region',
         'workspaceId' => 'WorkspaceId',
     ];
 

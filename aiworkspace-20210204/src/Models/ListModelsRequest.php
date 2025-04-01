@@ -12,72 +12,85 @@ class ListModelsRequest extends Model
      * @var string
      */
     public $collections;
+
     /**
      * @var string
      */
     public $domain;
+
     /**
      * @var string
      */
     public $label;
+
     /**
      * @var string
      */
     public $modelName;
+
     /**
      * @var string
      */
     public $modelType;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var string
      */
     public $origin;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $provider;
+
     /**
      * @var string
      */
     public $query;
+
     /**
      * @var string
      */
     public $sortBy;
+
     /**
      * @var string
      */
     public $task;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'collections' => 'Collections',
-        'domain'      => 'Domain',
-        'label'       => 'Label',
-        'modelName'   => 'ModelName',
-        'modelType'   => 'ModelType',
-        'order'       => 'Order',
-        'origin'      => 'Origin',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'provider'    => 'Provider',
-        'query'       => 'Query',
-        'sortBy'      => 'SortBy',
-        'task'        => 'Task',
+        'domain' => 'Domain',
+        'label' => 'Label',
+        'modelName' => 'ModelName',
+        'modelType' => 'ModelType',
+        'order' => 'Order',
+        'origin' => 'Origin',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'provider' => 'Provider',
+        'query' => 'Query',
+        'sortBy' => 'SortBy',
+        'task' => 'Task',
         'workspaceId' => 'WorkspaceId',
     ];
 

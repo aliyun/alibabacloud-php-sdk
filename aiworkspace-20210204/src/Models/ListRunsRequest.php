@@ -12,78 +12,92 @@ class ListRunsRequest extends Model
      * @var string
      */
     public $experimentId;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $labels;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $pageToken;
+
     /**
      * @var string
      */
     public $sortBy;
+
     /**
      * @var string
      */
     public $sourceId;
+
     /**
      * @var string
      */
     public $sourceType;
+
     /**
      * @var bool
      */
     public $verbose;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'experimentId'  => 'ExperimentId',
+        'experimentId' => 'ExperimentId',
         'gmtCreateTime' => 'GmtCreateTime',
-        'labels'        => 'Labels',
-        'maxResults'    => 'MaxResults',
-        'name'          => 'Name',
-        'order'         => 'Order',
-        'orderBy'       => 'OrderBy',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'pageToken'     => 'PageToken',
-        'sortBy'        => 'SortBy',
-        'sourceId'      => 'SourceId',
-        'sourceType'    => 'SourceType',
-        'verbose'       => 'Verbose',
-        'workspaceId'   => 'WorkspaceId',
+        'labels' => 'Labels',
+        'maxResults' => 'MaxResults',
+        'name' => 'Name',
+        'order' => 'Order',
+        'orderBy' => 'OrderBy',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'pageToken' => 'PageToken',
+        'sortBy' => 'SortBy',
+        'sourceId' => 'SourceId',
+        'sourceType' => 'SourceType',
+        'verbose' => 'Verbose',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

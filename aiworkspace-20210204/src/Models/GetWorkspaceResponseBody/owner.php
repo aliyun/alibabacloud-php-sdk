@@ -12,23 +12,26 @@ class owner extends Model
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $userKp;
+
     /**
      * @var string
      */
     public $userName;
     protected $_name = [
         'displayName' => 'DisplayName',
-        'userId'      => 'UserId',
-        'userKp'      => 'UserKp',
-        'userName'    => 'UserName',
+        'userId' => 'UserId',
+        'userKp' => 'UserKp',
+        'userName' => 'UserName',
     ];
 
     public function validate()

@@ -13,38 +13,44 @@ class quotas extends Model
      * @var string
      */
     public $displayName;
+
     /**
      * @var string
      */
     public $id;
+
     /**
      * @var string
      */
     public $mode;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $productCode;
+
     /**
      * @var string
      */
     public $quotaType;
+
     /**
      * @var specs[]
      */
     public $specs;
     protected $_name = [
         'displayName' => 'DisplayName',
-        'id'          => 'Id',
-        'mode'        => 'Mode',
-        'name'        => 'Name',
+        'id' => 'Id',
+        'mode' => 'Mode',
+        'name' => 'Name',
         'productCode' => 'ProductCode',
-        'quotaType'   => 'QuotaType',
-        'specs'       => 'Specs',
+        'quotaType' => 'QuotaType',
+        'specs' => 'Specs',
     ];
 
     public function validate()
@@ -85,7 +91,7 @@ class quotas extends Model
         if (null !== $this->specs) {
             if (\is_array($this->specs)) {
                 $res['Specs'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->specs as $item1) {
                     $res['Specs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -130,7 +136,7 @@ class quotas extends Model
         if (isset($map['Specs'])) {
             if (!empty($map['Specs'])) {
                 $model->specs = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Specs'] as $item1) {
                     $model->specs[$n1++] = specs::fromMap($item1);
                 }

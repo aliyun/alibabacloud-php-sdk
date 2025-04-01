@@ -12,18 +12,20 @@ class ListRunMetricsRequest extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var int
      */
     public $pageToken;
     protected $_name = [
-        'key'        => 'Key',
+        'key' => 'Key',
         'maxResults' => 'MaxResults',
-        'pageToken'  => 'PageToken',
+        'pageToken' => 'PageToken',
     ];
 
     public function validate()

@@ -12,63 +12,74 @@ class ListResourcesRequest extends Model
      * @var string
      */
     public $groupName;
+
     /**
      * @var string
      */
     public $labels;
+
     /**
      * @var string
      */
     public $option;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $productTypes;
+
     /**
      * @var string
      */
     public $quotaIds;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceTypes;
+
     /**
      * @var bool
      */
     public $verbose;
+
     /**
      * @var string
      */
     public $verboseFields;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'groupName'     => 'GroupName',
-        'labels'        => 'Labels',
-        'option'        => 'Option',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'productTypes'  => 'ProductTypes',
-        'quotaIds'      => 'QuotaIds',
-        'resourceName'  => 'ResourceName',
+        'groupName' => 'GroupName',
+        'labels' => 'Labels',
+        'option' => 'Option',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'productTypes' => 'ProductTypes',
+        'quotaIds' => 'QuotaIds',
+        'resourceName' => 'ResourceName',
         'resourceTypes' => 'ResourceTypes',
-        'verbose'       => 'Verbose',
+        'verbose' => 'Verbose',
         'verboseFields' => 'VerboseFields',
-        'workspaceId'   => 'WorkspaceId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

@@ -13,38 +13,44 @@ class UpdateWorkspaceResourceRequest extends Model
      * @var string
      */
     public $groupName;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var labels[]
      */
     public $labels;
+
     /**
      * @var string
      */
     public $productType;
+
     /**
      * @var string[]
      */
     public $resourceIds;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var mixed[]
      */
     public $spec;
     protected $_name = [
-        'groupName'    => 'GroupName',
-        'isDefault'    => 'IsDefault',
-        'labels'       => 'Labels',
-        'productType'  => 'ProductType',
-        'resourceIds'  => 'ResourceIds',
+        'groupName' => 'GroupName',
+        'isDefault' => 'IsDefault',
+        'labels' => 'Labels',
+        'productType' => 'ProductType',
+        'resourceIds' => 'ResourceIds',
         'resourceType' => 'ResourceType',
-        'spec'         => 'Spec',
+        'spec' => 'Spec',
     ];
 
     public function validate()
@@ -75,7 +81,7 @@ class UpdateWorkspaceResourceRequest extends Model
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->labels as $item1) {
                     $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -89,7 +95,7 @@ class UpdateWorkspaceResourceRequest extends Model
         if (null !== $this->resourceIds) {
             if (\is_array($this->resourceIds)) {
                 $res['ResourceIds'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->resourceIds as $item1) {
                     $res['ResourceIds'][$n1++] = $item1;
                 }
@@ -131,7 +137,7 @@ class UpdateWorkspaceResourceRequest extends Model
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
                     $model->labels[$n1++] = labels::fromMap($item1);
                 }
@@ -145,7 +151,7 @@ class UpdateWorkspaceResourceRequest extends Model
         if (isset($map['ResourceIds'])) {
             if (!empty($map['ResourceIds'])) {
                 $model->resourceIds = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['ResourceIds'] as $item1) {
                     $model->resourceIds[$n1++] = $item1;
                 }

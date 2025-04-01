@@ -12,23 +12,26 @@ class ListRunsResponseBody extends Model
      * @var int
      */
     public $nextPageToken;
+
     /**
      * @var Run[]
      */
     public $runs;
+
     /**
      * @var int
      */
     public $totalCount;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'nextPageToken' => 'NextPageToken',
-        'runs'          => 'Runs',
-        'totalCount'    => 'TotalCount',
-        'requestId'     => 'requestId',
+        'runs' => 'Runs',
+        'totalCount' => 'TotalCount',
+        'requestId' => 'requestId',
     ];
 
     public function validate()
@@ -49,7 +52,7 @@ class ListRunsResponseBody extends Model
         if (null !== $this->runs) {
             if (\is_array($this->runs)) {
                 $res['Runs'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->runs as $item1) {
                     $res['Runs'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -82,7 +85,7 @@ class ListRunsResponseBody extends Model
         if (isset($map['Runs'])) {
             if (!empty($map['Runs'])) {
                 $model->runs = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Runs'] as $item1) {
                     $model->runs[$n1++] = Run::fromMap($item1);
                 }

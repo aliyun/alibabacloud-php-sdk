@@ -12,17 +12,19 @@ class ListDatasetsResponseBody extends Model
      * @var Dataset[]
      */
     public $datasets;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'datasets'   => 'Datasets',
-        'requestId'  => 'RequestId',
+        'datasets' => 'Datasets',
+        'requestId' => 'RequestId',
         'totalCount' => 'TotalCount',
     ];
 
@@ -40,7 +42,7 @@ class ListDatasetsResponseBody extends Model
         if (null !== $this->datasets) {
             if (\is_array($this->datasets)) {
                 $res['Datasets'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->datasets as $item1) {
                     $res['Datasets'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -69,7 +71,7 @@ class ListDatasetsResponseBody extends Model
         if (isset($map['Datasets'])) {
             if (!empty($map['Datasets'])) {
                 $model->datasets = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Datasets'] as $item1) {
                     $model->datasets[$n1++] = Dataset::fromMap($item1);
                 }

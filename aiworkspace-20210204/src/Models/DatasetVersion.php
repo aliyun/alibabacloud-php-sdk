@@ -12,78 +12,92 @@ class DatasetVersion extends Model
      * @var int
      */
     public $dataCount;
+
     /**
      * @var int
      */
     public $dataSize;
+
     /**
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var string
      */
     public $importInfo;
+
     /**
      * @var Label[]
      */
     public $labels;
+
     /**
      * @var string
      */
     public $mountAccess;
+
     /**
      * @var string
      */
     public $options;
+
     /**
      * @var string
      */
     public $property;
+
     /**
      * @var string
      */
     public $sourceId;
+
     /**
      * @var string
      */
     public $sourceType;
+
     /**
      * @var string
      */
     public $uri;
+
     /**
      * @var string
      */
     public $versionName;
     protected $_name = [
-        'dataCount'       => 'DataCount',
-        'dataSize'        => 'DataSize',
-        'dataSourceType'  => 'DataSourceType',
-        'description'     => 'Description',
-        'gmtCreateTime'   => 'GmtCreateTime',
+        'dataCount' => 'DataCount',
+        'dataSize' => 'DataSize',
+        'dataSourceType' => 'DataSourceType',
+        'description' => 'Description',
+        'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
-        'importInfo'      => 'ImportInfo',
-        'labels'          => 'Labels',
-        'mountAccess'     => 'MountAccess',
-        'options'         => 'Options',
-        'property'        => 'Property',
-        'sourceId'        => 'SourceId',
-        'sourceType'      => 'SourceType',
-        'uri'             => 'Uri',
-        'versionName'     => 'VersionName',
+        'importInfo' => 'ImportInfo',
+        'labels' => 'Labels',
+        'mountAccess' => 'MountAccess',
+        'options' => 'Options',
+        'property' => 'Property',
+        'sourceId' => 'SourceId',
+        'sourceType' => 'SourceType',
+        'uri' => 'Uri',
+        'versionName' => 'VersionName',
     ];
 
     public function validate()
@@ -128,7 +142,7 @@ class DatasetVersion extends Model
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->labels as $item1) {
                     $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -205,7 +219,7 @@ class DatasetVersion extends Model
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
                     $model->labels[$n1++] = Label::fromMap($item1);
                 }

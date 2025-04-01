@@ -12,63 +12,74 @@ class DatasetFileMetaContentGet extends Model
      * @var string
      */
     public $comment;
+
     /**
      * @var string
      */
     public $contentType;
+
     /**
      * @var int
      */
     public $dataSize;
+
     /**
      * @var string
      */
     public $datasetFileMetaId;
+
     /**
      * @var string
      */
     public $fileCreateTime;
+
     /**
      * @var string
      */
     public $fileFingerPrint;
+
     /**
      * @var string
      */
     public $fileName;
+
     /**
      * @var string
      */
     public $fileType;
+
     /**
      * @var string
      */
     public $fileUpdateTime;
+
     /**
      * @var string
      */
     public $metaAttributes;
+
     /**
      * @var string
      */
     public $tags;
+
     /**
      * @var string
      */
     public $uri;
     protected $_name = [
-        'comment'           => 'Comment',
-        'contentType'       => 'ContentType',
-        'dataSize'          => 'DataSize',
+        'comment' => 'Comment',
+        'contentType' => 'ContentType',
+        'dataSize' => 'DataSize',
         'datasetFileMetaId' => 'DatasetFileMetaId',
-        'fileCreateTime'    => 'FileCreateTime',
-        'fileFingerPrint'   => 'FileFingerPrint',
-        'fileName'          => 'FileName',
-        'fileType'          => 'FileType',
-        'fileUpdateTime'    => 'FileUpdateTime',
-        'metaAttributes'    => 'MetaAttributes',
-        'tags'              => 'Tags',
-        'uri'               => 'Uri',
+        'fileCreateTime' => 'FileCreateTime',
+        'fileFingerPrint' => 'FileFingerPrint',
+        'fileName' => 'FileName',
+        'fileType' => 'FileType',
+        'fileUpdateTime' => 'FileUpdateTime',
+        'metaAttributes' => 'MetaAttributes',
+        'tags' => 'Tags',
+        'uri' => 'Uri',
     ];
 
     public function validate()

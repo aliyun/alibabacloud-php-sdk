@@ -12,12 +12,13 @@ class CreateWorkspaceResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'requestId'   => 'RequestId',
+        'requestId' => 'RequestId',
         'workspaceId' => 'WorkspaceId',
     ];
 

@@ -12,28 +12,32 @@ class ListDatasetVersionsResponseBody extends Model
      * @var DatasetVersion[]
      */
     public $datasetVersions;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var int
      */
     public $totalCount;
     protected $_name = [
         'datasetVersions' => 'DatasetVersions',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'requestId' => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -50,7 +54,7 @@ class ListDatasetVersionsResponseBody extends Model
         if (null !== $this->datasetVersions) {
             if (\is_array($this->datasetVersions)) {
                 $res['DatasetVersions'] = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($this->datasetVersions as $item1) {
                     $res['DatasetVersions'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -87,7 +91,7 @@ class ListDatasetVersionsResponseBody extends Model
         if (isset($map['DatasetVersions'])) {
             if (!empty($map['DatasetVersions'])) {
                 $model->datasetVersions = [];
-                $n1                     = 0;
+                $n1 = 0;
                 foreach ($map['DatasetVersions'] as $item1) {
                     $model->datasetVersions[$n1++] = DatasetVersion::fromMap($item1);
                 }

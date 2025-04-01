@@ -13,62 +13,73 @@ class ListExperimentRequest extends Model
      * @var string
      */
     public $labels;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var options
      */
     public $options;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var string
      */
     public $orderBy;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var int
      */
     public $pageToken;
+
     /**
      * @var string
      */
     public $sortBy;
+
     /**
      * @var bool
      */
     public $verbose;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'labels'      => 'Labels',
-        'maxResults'  => 'MaxResults',
-        'name'        => 'Name',
-        'options'     => 'Options',
-        'order'       => 'Order',
-        'orderBy'     => 'OrderBy',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'pageToken'   => 'PageToken',
-        'sortBy'      => 'SortBy',
-        'verbose'     => 'Verbose',
+        'labels' => 'Labels',
+        'maxResults' => 'MaxResults',
+        'name' => 'Name',
+        'options' => 'Options',
+        'order' => 'Order',
+        'orderBy' => 'OrderBy',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
+        'pageToken' => 'PageToken',
+        'sortBy' => 'SortBy',
+        'verbose' => 'Verbose',
         'workspaceId' => 'WorkspaceId',
     ];
 

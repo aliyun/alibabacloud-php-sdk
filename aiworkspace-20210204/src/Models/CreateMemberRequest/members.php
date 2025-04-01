@@ -12,12 +12,13 @@ class members extends Model
      * @var string[]
      */
     public $roles;
+
     /**
      * @var string
      */
     public $userId;
     protected $_name = [
-        'roles'  => 'Roles',
+        'roles' => 'Roles',
         'userId' => 'UserId',
     ];
 
@@ -35,7 +36,7 @@ class members extends Model
         if (null !== $this->roles) {
             if (\is_array($this->roles)) {
                 $res['Roles'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->roles as $item1) {
                     $res['Roles'][$n1++] = $item1;
                 }
@@ -60,7 +61,7 @@ class members extends Model
         if (isset($map['Roles'])) {
             if (!empty($map['Roles'])) {
                 $model->roles = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Roles'] as $item1) {
                     $model->roles[$n1++] = $item1;
                 }

@@ -12,17 +12,19 @@ class services extends Model
      * @var bool
      */
     public $isOpen;
+
     /**
      * @var string
      */
     public $openUrl;
+
     /**
      * @var string
      */
     public $serviceCode;
     protected $_name = [
-        'isOpen'      => 'IsOpen',
-        'openUrl'     => 'OpenUrl',
+        'isOpen' => 'IsOpen',
+        'openUrl' => 'OpenUrl',
         'serviceCode' => 'ServiceCode',
     ];
 

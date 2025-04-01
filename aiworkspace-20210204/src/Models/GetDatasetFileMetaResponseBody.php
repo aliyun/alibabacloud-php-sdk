@@ -12,28 +12,32 @@ class GetDatasetFileMetaResponseBody extends Model
      * @var DatasetFileMetaContentGet
      */
     public $datasetFileMeta;
+
     /**
      * @var string
      */
     public $datasetId;
+
     /**
      * @var string
      */
     public $datasetVersion;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'datasetFileMeta' => 'DatasetFileMeta',
-        'datasetId'       => 'DatasetId',
-        'datasetVersion'  => 'DatasetVersion',
-        'requestId'       => 'RequestId',
-        'workspaceId'     => 'WorkspaceId',
+        'datasetId' => 'DatasetId',
+        'datasetVersion' => 'DatasetVersion',
+        'requestId' => 'RequestId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()

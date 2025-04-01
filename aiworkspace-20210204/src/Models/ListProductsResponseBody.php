@@ -14,18 +14,20 @@ class ListProductsResponseBody extends Model
      * @var products[]
      */
     public $products;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var services[]
      */
     public $services;
     protected $_name = [
-        'products'  => 'Products',
+        'products' => 'Products',
         'requestId' => 'RequestId',
-        'services'  => 'Services',
+        'services' => 'Services',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class ListProductsResponseBody extends Model
         if (null !== $this->products) {
             if (\is_array($this->products)) {
                 $res['Products'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->products as $item1) {
                     $res['Products'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -59,7 +61,7 @@ class ListProductsResponseBody extends Model
         if (null !== $this->services) {
             if (\is_array($this->services)) {
                 $res['Services'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->services as $item1) {
                     $res['Services'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -80,7 +82,7 @@ class ListProductsResponseBody extends Model
         if (isset($map['Products'])) {
             if (!empty($map['Products'])) {
                 $model->products = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Products'] as $item1) {
                     $model->products[$n1++] = products::fromMap($item1);
                 }
@@ -94,7 +96,7 @@ class ListProductsResponseBody extends Model
         if (isset($map['Services'])) {
             if (!empty($map['Services'])) {
                 $model->services = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['Services'] as $item1) {
                     $model->services[$n1++] = services::fromMap($item1);
                 }

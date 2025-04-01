@@ -12,28 +12,32 @@ class ExperimentLabel extends Model
      * @var string
      */
     public $experimentId;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'experimentId'    => 'ExperimentId',
-        'gmtCreateTime'   => 'GmtCreateTime',
+        'experimentId' => 'ExperimentId',
+        'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
-        'key'             => 'Key',
-        'value'           => 'Value',
+        'key' => 'Key',
+        'value' => 'Value',
     ];
 
     public function validate()

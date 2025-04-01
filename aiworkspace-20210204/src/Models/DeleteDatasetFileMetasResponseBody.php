@@ -12,18 +12,20 @@ class DeleteDatasetFileMetasResponseBody extends Model
      * @var DatasetFileMetaResponse[]
      */
     public $failedDetails;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var bool
      */
     public $status;
     protected $_name = [
         'failedDetails' => 'FailedDetails',
-        'requestId'     => 'RequestId',
-        'status'        => 'Status',
+        'requestId' => 'RequestId',
+        'status' => 'Status',
     ];
 
     public function validate()
@@ -40,7 +42,7 @@ class DeleteDatasetFileMetasResponseBody extends Model
         if (null !== $this->failedDetails) {
             if (\is_array($this->failedDetails)) {
                 $res['FailedDetails'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->failedDetails as $item1) {
                     $res['FailedDetails'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -69,7 +71,7 @@ class DeleteDatasetFileMetasResponseBody extends Model
         if (isset($map['FailedDetails'])) {
             if (!empty($map['FailedDetails'])) {
                 $model->failedDetails = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['FailedDetails'] as $item1) {
                     $model->failedDetails[$n1++] = DatasetFileMetaResponse::fromMap($item1);
                 }

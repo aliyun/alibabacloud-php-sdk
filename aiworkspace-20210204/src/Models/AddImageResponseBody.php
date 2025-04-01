@@ -12,12 +12,13 @@ class AddImageResponseBody extends Model
      * @var string
      */
     public $imageId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'imageId'   => 'ImageId',
+        'imageId' => 'ImageId',
         'requestId' => 'RequestId',
     ];
 

@@ -12,62 +12,73 @@ class workspaces extends Model
      * @var string[]
      */
     public $adminNames;
+
     /**
      * @var string
      */
     public $creator;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string[]
      */
     public $envTypes;
+
     /**
      * @var mixed[]
      */
     public $extraInfos;
+
     /**
      * @var string
      */
     public $gmtCreateTime;
+
     /**
      * @var string
      */
     public $gmtModifiedTime;
+
     /**
      * @var bool
      */
     public $isDefault;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var string
      */
     public $workspaceId;
+
     /**
      * @var string
      */
     public $workspaceName;
+
     /**
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'adminNames'      => 'AdminNames',
-        'creator'         => 'Creator',
-        'description'     => 'Description',
-        'envTypes'        => 'EnvTypes',
-        'extraInfos'      => 'ExtraInfos',
-        'gmtCreateTime'   => 'GmtCreateTime',
+        'adminNames' => 'AdminNames',
+        'creator' => 'Creator',
+        'description' => 'Description',
+        'envTypes' => 'EnvTypes',
+        'extraInfos' => 'ExtraInfos',
+        'gmtCreateTime' => 'GmtCreateTime',
         'gmtModifiedTime' => 'GmtModifiedTime',
-        'isDefault'       => 'IsDefault',
-        'status'          => 'Status',
-        'workspaceId'     => 'WorkspaceId',
-        'workspaceName'   => 'WorkspaceName',
+        'isDefault' => 'IsDefault',
+        'status' => 'Status',
+        'workspaceId' => 'WorkspaceId',
+        'workspaceName' => 'WorkspaceName',
         'resourceGroupId' => 'resourceGroupId',
     ];
 
@@ -91,7 +102,7 @@ class workspaces extends Model
         if (null !== $this->adminNames) {
             if (\is_array($this->adminNames)) {
                 $res['AdminNames'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->adminNames as $item1) {
                     $res['AdminNames'][$n1++] = $item1;
                 }
@@ -109,7 +120,7 @@ class workspaces extends Model
         if (null !== $this->envTypes) {
             if (\is_array($this->envTypes)) {
                 $res['EnvTypes'] = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($this->envTypes as $item1) {
                     $res['EnvTypes'][$n1++] = $item1;
                 }
@@ -167,7 +178,7 @@ class workspaces extends Model
         if (isset($map['AdminNames'])) {
             if (!empty($map['AdminNames'])) {
                 $model->adminNames = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['AdminNames'] as $item1) {
                     $model->adminNames[$n1++] = $item1;
                 }
@@ -185,7 +196,7 @@ class workspaces extends Model
         if (isset($map['EnvTypes'])) {
             if (!empty($map['EnvTypes'])) {
                 $model->envTypes = [];
-                $n1              = 0;
+                $n1 = 0;
                 foreach ($map['EnvTypes'] as $item1) {
                     $model->envTypes[$n1++] = $item1;
                 }

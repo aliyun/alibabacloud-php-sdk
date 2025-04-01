@@ -227,6 +227,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - AcceptDataworksEventRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AcceptDataworksEventResponse
      *
      * @param AcceptDataworksEventRequest $request
@@ -249,18 +250,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AcceptDataworksEvent',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces/action/acceptdataworksevent',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AcceptDataworksEvent',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/action/acceptdataworksevent',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AcceptDataworksEventResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -273,6 +274,7 @@ class AIWorkSpace extends OpenApiClient
      * 接受并处理Dataworks发送的事件.
      *
      * @param request - AcceptDataworksEventRequest
+     *
      * @returns AcceptDataworksEventResponse
      *
      * @param AcceptDataworksEventRequest $request
@@ -293,6 +295,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - AddImageRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddImageResponse
      *
      * @param AddImageRequest $request
@@ -333,24 +336,32 @@ class AIWorkSpace extends OpenApiClient
             @$body['Size'] = $request->size;
         }
 
+        if (null !== $request->sourceId) {
+            @$body['SourceId'] = $request->sourceId;
+        }
+
+        if (null !== $request->sourceType) {
+            @$body['SourceType'] = $request->sourceType;
+        }
+
         if (null !== $request->workspaceId) {
             @$body['WorkspaceId'] = $request->workspaceId;
         }
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddImage',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/images',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddImage',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/images',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddImageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -363,6 +374,7 @@ class AIWorkSpace extends OpenApiClient
      * 增加 Image.
      *
      * @param request - AddImageRequest
+     *
      * @returns AddImageResponse
      *
      * @param AddImageRequest $request
@@ -383,6 +395,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - AddImageLabelsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddImageLabelsResponse
      *
      * @param string                $ImageId
@@ -402,18 +415,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'AddImageLabels',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/images/' . Url::percentEncode($ImageId) . '/labels',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddImageLabels',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/images/' . Url::percentEncode($ImageId) . '/labels',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddImageLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -426,6 +439,7 @@ class AIWorkSpace extends OpenApiClient
      * 增加 Image 的标签.
      *
      * @param request - AddImageLabelsRequest
+     *
      * @returns AddImageLabelsResponse
      *
      * @param string                $ImageId
@@ -446,6 +460,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AddMemberRoleResponse
      *
      * @param string         $WorkspaceId
@@ -462,15 +477,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'AddMemberRole',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/members/' . Url::percentEncode($MemberId) . '/roles/' . Url::percentEncode($RoleName) . '',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'AddMemberRole',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/members/' . Url::percentEncode($MemberId) . '/roles/' . Url::percentEncode($RoleName) . '',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AddMemberRoleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -504,6 +519,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ChangeResourceGroupRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -530,18 +546,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'ChangeResourceGroup',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/resourcegroups/action/changeresourcegroup',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ChangeResourceGroup',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/resourcegroups/action/changeresourcegroup',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -554,6 +570,7 @@ class AIWorkSpace extends OpenApiClient
      * 更改资源组.
      *
      * @param request - ChangeResourceGroupRequest
+     *
      * @returns ChangeResourceGroupResponse
      *
      * @param ChangeResourceGroupRequest $request
@@ -574,6 +591,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateCodeSourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateCodeSourceResponse
      *
      * @param CreateCodeSourceRequest $request
@@ -628,18 +646,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateCodeSource',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/codesources',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateCodeSource',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/codesources',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -652,6 +670,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建一个代码源配置.
      *
      * @param request - CreateCodeSourceRequest
+     *
      * @returns CreateCodeSourceResponse
      *
      * @param CreateCodeSourceRequest $request
@@ -672,6 +691,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateDatasetRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDatasetResponse
      *
      * @param CreateDatasetRequest $request
@@ -778,18 +798,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDataset',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDataset',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -802,6 +822,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建数据集.
      *
      * @param request - CreateDatasetRequest
+     *
      * @returns CreateDatasetResponse
      *
      * @param CreateDatasetRequest $request
@@ -822,6 +843,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateDatasetFileMetasRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDatasetFileMetasResponse
      *
      * @param string                        $DatasetId
@@ -849,18 +871,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDatasetFileMetas',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetfilemetas',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDatasetFileMetas',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetfilemetas',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDatasetFileMetasResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -873,6 +895,7 @@ class AIWorkSpace extends OpenApiClient
      * 批量创建数据集下的文件元数据记录.
      *
      * @param request - CreateDatasetFileMetasRequest
+     *
      * @returns CreateDatasetFileMetasResponse
      *
      * @param string                        $DatasetId
@@ -894,6 +917,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateDatasetJobRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDatasetJobResponse
      *
      * @param string                  $DatasetId
@@ -933,18 +957,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDatasetJob',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobs',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDatasetJob',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDatasetJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -957,6 +981,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建数据集任务
      *
      * @param request - CreateDatasetJobRequest
+     *
      * @returns CreateDatasetJobResponse
      *
      * @param string                  $DatasetId
@@ -978,6 +1003,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateDatasetJobConfigRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDatasetJobConfigResponse
      *
      * @param string                        $DatasetId
@@ -1005,18 +1031,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDatasetJobConfig',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobconfigs',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDatasetJobConfig',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobconfigs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDatasetJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1029,6 +1055,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建数据集任务配置.
      *
      * @param request - CreateDatasetJobConfigRequest
+     *
      * @returns CreateDatasetJobConfigResponse
      *
      * @param string                        $DatasetId
@@ -1050,6 +1077,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateDatasetLabelsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDatasetLabelsResponse
      *
      * @param string                     $DatasetId
@@ -1069,18 +1097,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDatasetLabels',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/labels',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDatasetLabels',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/labels',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDatasetLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1093,6 +1121,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建或更新 Dataset 的标签.
      *
      * @param request - CreateDatasetLabelsRequest
+     *
      * @returns CreateDatasetLabelsResponse
      *
      * @param string                     $DatasetId
@@ -1114,6 +1143,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateDatasetVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDatasetVersionResponse
      *
      * @param string                      $DatasetId
@@ -1173,18 +1203,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDatasetVersion',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/versions',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDatasetVersion',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/versions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1197,6 +1227,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建数据集版本.
      *
      * @param request - CreateDatasetVersionRequest
+     *
      * @returns CreateDatasetVersionResponse
      *
      * @param string                      $DatasetId
@@ -1218,6 +1249,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateDatasetVersionLabelsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateDatasetVersionLabelsResponse
      *
      * @param string                            $DatasetId
@@ -1238,18 +1270,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateDatasetVersionLabels',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/versions/' . Url::percentEncode($VersionName) . '/labels',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateDatasetVersionLabels',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/versions/' . Url::percentEncode($VersionName) . '/labels',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateDatasetVersionLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1262,6 +1294,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建数据集版本的标签.
      *
      * @param request - CreateDatasetVersionLabelsRequest
+     *
      * @returns CreateDatasetVersionLabelsResponse
      *
      * @param string                            $DatasetId
@@ -1284,6 +1317,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateExperimentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateExperimentResponse
      *
      * @param CreateExperimentRequest $request
@@ -1318,18 +1352,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateExperiment',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateExperiment',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1342,6 +1376,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建实验.
      *
      * @param request - CreateExperimentRequest
+     *
      * @returns CreateExperimentResponse
      *
      * @param CreateExperimentRequest $request
@@ -1362,6 +1397,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateMemberRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateMemberResponse
      *
      * @param string              $WorkspaceId
@@ -1381,18 +1417,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateMember',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/members',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateMember',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/members',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateMemberResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1405,6 +1441,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建成员.
      *
      * @param request - CreateMemberRequest
+     *
      * @returns CreateMemberResponse
      *
      * @param string              $WorkspaceId
@@ -1426,6 +1463,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateModelRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateModelResponse
      *
      * @param CreateModelRequest $request
@@ -1488,18 +1526,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateModel',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/models',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateModel',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/models',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateModelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1512,6 +1550,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建模型.
      *
      * @param request - CreateModelRequest
+     *
      * @returns CreateModelResponse
      *
      * @param CreateModelRequest $request
@@ -1532,6 +1571,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateModelLabelsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateModelLabelsResponse
      *
      * @param string                   $ModelId
@@ -1551,18 +1591,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateModelLabels',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/models/' . Url::percentEncode($ModelId) . '/labels',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateModelLabels',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/models/' . Url::percentEncode($ModelId) . '/labels',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateModelLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1575,6 +1615,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建或更新模型的标签.
      *
      * @param request - CreateModelLabelsRequest
+     *
      * @returns CreateModelLabelsResponse
      *
      * @param string                   $ModelId
@@ -1596,6 +1637,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateModelVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateModelVersionResponse
      *
      * @param string                    $ModelId
@@ -1675,18 +1717,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateModelVersion',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/models/' . Url::percentEncode($ModelId) . '/versions',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateModelVersion',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/models/' . Url::percentEncode($ModelId) . '/versions',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateModelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1699,6 +1741,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建模型版本.
      *
      * @param request - CreateModelVersionRequest
+     *
      * @returns CreateModelVersionResponse
      *
      * @param string                    $ModelId
@@ -1720,6 +1763,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateModelVersionLabelsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateModelVersionLabelsResponse
      *
      * @param string                          $ModelId
@@ -1740,18 +1784,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateModelVersionLabels',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/models/' . Url::percentEncode($ModelId) . '/versions/' . Url::percentEncode($VersionName) . '/labels',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateModelVersionLabels',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/models/' . Url::percentEncode($ModelId) . '/versions/' . Url::percentEncode($VersionName) . '/labels',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateModelVersionLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1764,6 +1808,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建或更新模型版本的标签.
      *
      * @param request - CreateModelVersionLabelsRequest
+     *
      * @returns CreateModelVersionLabelsResponse
      *
      * @param string                          $ModelId
@@ -1786,6 +1831,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateProductOrdersRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateProductOrdersResponse
      *
      * @param CreateProductOrdersRequest $request
@@ -1808,18 +1854,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateProductOrders',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/productorders',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateProductOrders',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/productorders',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateProductOrdersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1832,6 +1878,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建产品订单.
      *
      * @param request - CreateProductOrdersRequest
+     *
      * @returns CreateProductOrdersResponse
      *
      * @param CreateProductOrdersRequest $request
@@ -1852,6 +1899,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateRunRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateRunResponse
      *
      * @param CreateRunRequest $request
@@ -1890,18 +1938,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateRun',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/runs',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateRun',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/runs',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateRunResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1914,6 +1962,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建一次运行.
      *
      * @param request - CreateRunRequest
+     *
      * @returns CreateRunResponse
      *
      * @param CreateRunRequest $request
@@ -1934,6 +1983,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateWorkspaceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateWorkspaceResponse
      *
      * @param CreateWorkspaceRequest $request
@@ -1968,18 +2018,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateWorkspace',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateWorkspace',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1992,6 +2042,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建工作空间.
      *
      * @param request - CreateWorkspaceRequest
+     *
      * @returns CreateWorkspaceResponse
      *
      * @param CreateWorkspaceRequest $request
@@ -2012,6 +2063,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - CreateWorkspaceResourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateWorkspaceResourceResponse
      *
      * @param string                         $WorkspaceId
@@ -2035,18 +2087,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateWorkspaceResource',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/resources',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'CreateWorkspaceResource',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/resources',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateWorkspaceResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2059,6 +2111,7 @@ class AIWorkSpace extends OpenApiClient
      * 创建资源.
      *
      * @param request - CreateWorkspaceResourceRequest
+     *
      * @returns CreateWorkspaceResourceResponse
      *
      * @param string                         $WorkspaceId
@@ -2079,6 +2132,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteCodeSourceResponse
      *
      * @param string         $CodeSourceId
@@ -2093,15 +2147,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteCodeSource',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/codesources/' . Url::percentEncode($CodeSourceId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteCodeSource',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/codesources/' . Url::percentEncode($CodeSourceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2132,6 +2186,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDatasetResponse
      *
      * @param string         $DatasetId
@@ -2146,15 +2201,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteDataset',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDataset',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2186,6 +2241,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - DeleteDatasetFileMetasRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDatasetFileMetasResponse
      *
      * @param string                        $DatasetId
@@ -2213,18 +2269,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDatasetFileMetas',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetfilemetas',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDatasetFileMetas',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetfilemetas',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDatasetFileMetasResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2237,6 +2293,7 @@ class AIWorkSpace extends OpenApiClient
      * 批量删除数据集下的文件元数据记录.
      *
      * @param request - DeleteDatasetFileMetasRequest
+     *
      * @returns DeleteDatasetFileMetasResponse
      *
      * @param string                        $DatasetId
@@ -2257,6 +2314,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDatasetJobResponse
      *
      * @param string         $DatasetId
@@ -2272,15 +2330,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteDatasetJob',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobs/' . Url::percentEncode($DatasetJobId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDatasetJob',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobs/' . Url::percentEncode($DatasetJobId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDatasetJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2313,6 +2371,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - DeleteDatasetJobConfigRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDatasetJobConfigResponse
      *
      * @param string                        $DatasetId
@@ -2333,18 +2392,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDatasetJobConfig',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobconfigs/' . Url::percentEncode($DatasetJobConfigId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDatasetJobConfig',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobconfigs/' . Url::percentEncode($DatasetJobConfigId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDatasetJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2357,6 +2416,7 @@ class AIWorkSpace extends OpenApiClient
      * 删除数据集任务配置.
      *
      * @param request - DeleteDatasetJobConfigRequest
+     *
      * @returns DeleteDatasetJobConfigResponse
      *
      * @param string                        $DatasetId
@@ -2379,6 +2439,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - DeleteDatasetLabelsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDatasetLabelsResponse
      *
      * @param string                     $DatasetId
@@ -2398,18 +2459,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDatasetLabels',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/labels',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDatasetLabels',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/labels',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDatasetLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2422,6 +2483,7 @@ class AIWorkSpace extends OpenApiClient
      * 删除 Dataset 的标签.
      *
      * @param request - DeleteDatasetLabelsRequest
+     *
      * @returns DeleteDatasetLabelsResponse
      *
      * @param string                     $DatasetId
@@ -2442,6 +2504,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDatasetVersionResponse
      *
      * @param string         $DatasetId
@@ -2457,15 +2520,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteDatasetVersion',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/versions/' . Url::percentEncode($VersionName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDatasetVersion',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/versions/' . Url::percentEncode($VersionName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2498,6 +2561,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - DeleteDatasetVersionLabelsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteDatasetVersionLabelsResponse
      *
      * @param string                            $DatasetId
@@ -2518,18 +2582,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDatasetVersionLabels',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/versions/' . Url::percentEncode($VersionName) . '/labels',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteDatasetVersionLabels',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/versions/' . Url::percentEncode($VersionName) . '/labels',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteDatasetVersionLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2542,6 +2606,7 @@ class AIWorkSpace extends OpenApiClient
      * 删除数据集版本的标签。
      *
      * @param request - DeleteDatasetVersionLabelsRequest
+     *
      * @returns DeleteDatasetVersionLabelsResponse
      *
      * @param string                            $DatasetId
@@ -2563,6 +2628,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteExperimentResponse
      *
      * @param string         $ExperimentId
@@ -2577,15 +2643,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteExperiment',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteExperiment',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2616,6 +2682,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteExperimentLabelResponse
      *
      * @param string         $ExperimentId
@@ -2631,15 +2698,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteExperimentLabel',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '/labels/' . Url::percentEncode($Key) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteExperimentLabel',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '/labels/' . Url::percentEncode($Key) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteExperimentLabelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2672,6 +2739,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - DeleteMembersRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteMembersResponse
      *
      * @param string               $WorkspaceId
@@ -2691,18 +2759,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteMembers',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/members',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteMembers',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/members',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteMembersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2715,6 +2783,7 @@ class AIWorkSpace extends OpenApiClient
      * 删除工作空间成员.
      *
      * @param request - DeleteMembersRequest
+     *
      * @returns DeleteMembersResponse
      *
      * @param string               $WorkspaceId
@@ -2735,6 +2804,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteModelResponse
      *
      * @param string         $ModelId
@@ -2749,15 +2819,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteModel',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/models/' . Url::percentEncode($ModelId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteModel',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/models/' . Url::percentEncode($ModelId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteModelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2789,6 +2859,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - DeleteModelLabelsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteModelLabelsResponse
      *
      * @param string                   $ModelId
@@ -2808,18 +2879,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteModelLabels',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/models/' . Url::percentEncode($ModelId) . '/labels',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteModelLabels',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/models/' . Url::percentEncode($ModelId) . '/labels',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteModelLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2832,6 +2903,7 @@ class AIWorkSpace extends OpenApiClient
      * 删除模型的标签.
      *
      * @param request - DeleteModelLabelsRequest
+     *
      * @returns DeleteModelLabelsResponse
      *
      * @param string                   $ModelId
@@ -2852,6 +2924,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteModelVersionResponse
      *
      * @param string         $ModelId
@@ -2867,15 +2940,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteModelVersion',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/models/' . Url::percentEncode($ModelId) . '/versions/' . Url::percentEncode($VersionName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteModelVersion',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/models/' . Url::percentEncode($ModelId) . '/versions/' . Url::percentEncode($VersionName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteModelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2908,6 +2981,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - DeleteModelVersionLabelsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteModelVersionLabelsResponse
      *
      * @param string                          $ModelId
@@ -2928,18 +3002,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteModelVersionLabels',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/models/' . Url::percentEncode($ModelId) . '/versions/' . Url::percentEncode($VersionName) . '/labels',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteModelVersionLabels',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/models/' . Url::percentEncode($ModelId) . '/versions/' . Url::percentEncode($VersionName) . '/labels',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteModelVersionLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2952,6 +3026,7 @@ class AIWorkSpace extends OpenApiClient
      * 删除模型版本的标签.
      *
      * @param request - DeleteModelVersionLabelsRequest
+     *
      * @returns DeleteModelVersionLabelsResponse
      *
      * @param string                          $ModelId
@@ -2973,6 +3048,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRunResponse
      *
      * @param string         $RunId
@@ -2987,15 +3063,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteRun',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/runs/' . Url::percentEncode($RunId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteRun',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/runs/' . Url::percentEncode($RunId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteRunResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3026,6 +3102,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteRunLabelResponse
      *
      * @param string         $RunId
@@ -3041,15 +3118,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteRunLabel',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/runs/' . Url::percentEncode($RunId) . '/labels/' . Url::percentEncode($Key) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteRunLabel',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/runs/' . Url::percentEncode($RunId) . '/labels/' . Url::percentEncode($Key) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteRunLabelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3081,6 +3158,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteWorkspaceResponse
      *
      * @param string         $WorkspaceId
@@ -3095,15 +3173,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteWorkspace',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteWorkspace',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3135,6 +3213,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - DeleteWorkspaceResourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteWorkspaceResourceResponse
      *
      * @param string                         $WorkspaceId
@@ -3174,18 +3253,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteWorkspaceResource',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/resources',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'DeleteWorkspaceResource',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/resources',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteWorkspaceResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3198,6 +3277,7 @@ class AIWorkSpace extends OpenApiClient
      * 删除工作空间资源.
      *
      * @param request - DeleteWorkspaceResourceRequest
+     *
      * @returns DeleteWorkspaceResourceResponse
      *
      * @param string                         $WorkspaceId
@@ -3218,6 +3298,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetCodeSourceResponse
      *
      * @param string         $CodeSourceId
@@ -3232,15 +3313,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetCodeSource',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/codesources/' . Url::percentEncode($CodeSourceId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetCodeSource',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/codesources/' . Url::percentEncode($CodeSourceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3271,6 +3352,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDatasetResponse
      *
      * @param string         $DatasetId
@@ -3285,15 +3367,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetDataset',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDataset',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3325,6 +3407,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - GetDatasetFileMetaRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDatasetFileMetaResponse
      *
      * @param string                    $DatasetId
@@ -3349,18 +3432,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDatasetFileMeta',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetfilemetas/' . Url::percentEncode($DatasetFileMetaId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDatasetFileMeta',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetfilemetas/' . Url::percentEncode($DatasetFileMetaId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDatasetFileMetaResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3373,6 +3456,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取数据集下的指定文件元数据记录.
      *
      * @param request - GetDatasetFileMetaRequest
+     *
      * @returns GetDatasetFileMetaResponse
      *
      * @param string                    $DatasetId
@@ -3395,6 +3479,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - GetDatasetJobRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDatasetJobResponse
      *
      * @param string               $DatasetId
@@ -3419,18 +3504,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDatasetJob',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobs/' . Url::percentEncode($DatasetJobId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDatasetJob',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobs/' . Url::percentEncode($DatasetJobId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDatasetJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3443,6 +3528,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取数据集任务
      *
      * @param request - GetDatasetJobRequest
+     *
      * @returns GetDatasetJobResponse
      *
      * @param string               $DatasetId
@@ -3465,6 +3551,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - GetDatasetJobConfigRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDatasetJobConfigResponse
      *
      * @param string                     $DatasetId
@@ -3485,18 +3572,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDatasetJobConfig',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobconfigs/' . Url::percentEncode($DatasetJobConfigId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDatasetJobConfig',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobconfigs/' . Url::percentEncode($DatasetJobConfigId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDatasetJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3509,6 +3596,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取数据集任务配置.
      *
      * @param request - GetDatasetJobConfigRequest
+     *
      * @returns GetDatasetJobConfigResponse
      *
      * @param string                     $DatasetId
@@ -3530,6 +3618,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDatasetVersionResponse
      *
      * @param string         $DatasetId
@@ -3545,15 +3634,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetDatasetVersion',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/versions/' . Url::percentEncode($VersionName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDatasetVersion',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/versions/' . Url::percentEncode($VersionName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3586,6 +3675,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - GetDefaultWorkspaceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetDefaultWorkspaceResponse
      *
      * @param GetDefaultWorkspaceRequest $request
@@ -3604,18 +3694,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetDefaultWorkspace',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/defaultWorkspaces',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetDefaultWorkspace',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/defaultWorkspaces',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetDefaultWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3628,6 +3718,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取默认工作空间.
      *
      * @param request - GetDefaultWorkspaceRequest
+     *
      * @returns GetDefaultWorkspaceResponse
      *
      * @param GetDefaultWorkspaceRequest $request
@@ -3648,6 +3739,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - GetExperimentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetExperimentResponse
      *
      * @param string               $ExperimentId
@@ -3667,18 +3759,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetExperiment',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetExperiment',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3691,6 +3783,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取实验.
      *
      * @param request - GetExperimentRequest
+     *
      * @returns GetExperimentResponse
      *
      * @param string               $ExperimentId
@@ -3712,6 +3805,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - GetImageRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetImageResponse
      *
      * @param string          $ImageId
@@ -3731,18 +3825,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetImage',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/images/' . Url::percentEncode($ImageId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetImage',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/images/' . Url::percentEncode($ImageId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetImageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3755,6 +3849,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取镜像.
      *
      * @param request - GetImageRequest
+     *
      * @returns GetImageResponse
      *
      * @param string          $ImageId
@@ -3776,6 +3871,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - GetMemberRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMemberResponse
      *
      * @param string           $WorkspaceId
@@ -3799,18 +3895,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMember',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/member',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetMember',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/member',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMemberResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3823,6 +3919,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取成员.
      *
      * @param request - GetMemberRequest
+     *
      * @returns GetMemberResponse
      *
      * @param string           $WorkspaceId
@@ -3843,6 +3940,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetModelResponse
      *
      * @param string         $ModelId
@@ -3857,15 +3955,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetModel',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/models/' . Url::percentEncode($ModelId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetModel',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/models/' . Url::percentEncode($ModelId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetModelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3896,6 +3994,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetModelVersionResponse
      *
      * @param string         $ModelId
@@ -3911,15 +4010,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetModelVersion',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/models/' . Url::percentEncode($ModelId) . '/versions/' . Url::percentEncode($VersionName) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetModelVersion',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/models/' . Url::percentEncode($ModelId) . '/versions/' . Url::percentEncode($VersionName) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetModelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -3952,6 +4051,7 @@ class AIWorkSpace extends OpenApiClient
      * @param tmpReq - GetPermissionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetPermissionResponse
      *
      * @param string               $WorkspaceId
@@ -3994,18 +4094,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetPermission',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/permissions/' . Url::percentEncode($PermissionCode) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetPermission',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/permissions/' . Url::percentEncode($PermissionCode) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetPermissionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4018,6 +4118,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取权限，若无权限则返回错误.
      *
      * @param request - GetPermissionRequest
+     *
      * @returns GetPermissionResponse
      *
      * @param string               $WorkspaceId
@@ -4040,6 +4141,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - GetRunRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetRunResponse
      *
      * @param string         $RunId
@@ -4059,18 +4161,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetRun',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/runs/' . Url::percentEncode($RunId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetRun',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/runs/' . Url::percentEncode($RunId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetRunResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4083,6 +4185,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取Run详情.
      *
      * @param request - GetRunRequest
+     *
      * @returns GetRunResponse
      *
      * @param string        $RunId
@@ -4104,6 +4207,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - GetWorkspaceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetWorkspaceResponse
      *
      * @param string              $WorkspaceId
@@ -4123,18 +4227,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetWorkspace',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'GetWorkspace',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4147,6 +4251,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取工作空间.
      *
      * @param request - GetWorkspaceRequest
+     *
      * @returns GetWorkspaceResponse
      *
      * @param string              $WorkspaceId
@@ -4168,6 +4273,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListCodeSourcesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListCodeSourcesResponse
      *
      * @param ListCodeSourcesRequest $request
@@ -4206,18 +4312,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListCodeSources',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/codesources',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListCodeSources',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/codesources',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListCodeSourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4230,6 +4336,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取代码源配置列表.
      *
      * @param request - ListCodeSourcesRequest
+     *
      * @returns ListCodeSourcesResponse
      *
      * @param ListCodeSourcesRequest $request
@@ -4250,6 +4357,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListDatasetFileMetasRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDatasetFileMetasResponse
      *
      * @param string                      $DatasetId
@@ -4313,18 +4421,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDatasetFileMetas',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetfilemetas',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDatasetFileMetas',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetfilemetas',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDatasetFileMetasResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4337,6 +4445,7 @@ class AIWorkSpace extends OpenApiClient
      * 查询数据集文件列表.
      *
      * @param request - ListDatasetFileMetasRequest
+     *
      * @returns ListDatasetFileMetasResponse
      *
      * @param string                      $DatasetId
@@ -4358,6 +4467,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListDatasetJobConfigsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDatasetJobConfigsResponse
      *
      * @param string                       $DatasetId
@@ -4389,18 +4499,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDatasetJobConfigs',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobconfigs/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDatasetJobConfigs',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobconfigs/',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDatasetJobConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4413,6 +4523,7 @@ class AIWorkSpace extends OpenApiClient
      * 批量查询数据集任务配置.
      *
      * @param request - ListDatasetJobConfigsRequest
+     *
      * @returns ListDatasetJobConfigsResponse
      *
      * @param string                       $DatasetId
@@ -4434,6 +4545,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListDatasetJobsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDatasetJobsResponse
      *
      * @param string                 $DatasetId
@@ -4469,18 +4581,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDatasetJobs',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDatasetJobs',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDatasetJobsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4493,6 +4605,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取数据集任务
      *
      * @param request - ListDatasetJobsRequest
+     *
      * @returns ListDatasetJobsResponse
      *
      * @param string                 $DatasetId
@@ -4514,6 +4627,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListDatasetVersionsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDatasetVersionsResponse
      *
      * @param string                     $DatasetId
@@ -4565,18 +4679,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDatasetVersions',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/versions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDatasetVersions',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/versions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDatasetVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4589,6 +4703,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取数据集版本列表.
      *
      * @param request - ListDatasetVersionsRequest
+     *
      * @returns ListDatasetVersionsResponse
      *
      * @param string                     $DatasetId
@@ -4610,6 +4725,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListDatasetsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListDatasetsResponse
      *
      * @param ListDatasetsRequest $request
@@ -4680,18 +4796,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListDatasets',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListDatasets',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListDatasetsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4704,6 +4820,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取数据集列表.
      *
      * @param request - ListDatasetsRequest
+     *
      * @returns ListDatasetsResponse
      *
      * @param ListDatasetsRequest $request
@@ -4724,6 +4841,7 @@ class AIWorkSpace extends OpenApiClient
      * @param tmpReq - ListExperimentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListExperimentResponse
      *
      * @param ListExperimentRequest $tmpReq
@@ -4792,18 +4910,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListExperiment',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListExperiment',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4816,6 +4934,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取实验列表.
      *
      * @param request - ListExperimentRequest
+     *
      * @returns ListExperimentResponse
      *
      * @param ListExperimentRequest $request
@@ -4836,6 +4955,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListImageLabelsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListImageLabelsResponse
      *
      * @param ListImageLabelsRequest $request
@@ -4870,18 +4990,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListImageLabels',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/image/labels',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListImageLabels',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/image/labels',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListImageLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4894,6 +5014,7 @@ class AIWorkSpace extends OpenApiClient
      * 列举标签.
      *
      * @param request - ListImageLabelsRequest
+     *
      * @returns ListImageLabelsResponse
      *
      * @param ListImageLabelsRequest $request
@@ -4914,6 +5035,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListImagesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListImagesResponse
      *
      * @param ListImagesRequest $request
@@ -4972,18 +5094,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListImages',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/images',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListImages',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/images',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListImagesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -4996,6 +5118,7 @@ class AIWorkSpace extends OpenApiClient
      * 列举已注册镜像.
      *
      * @param request - ListImagesRequest
+     *
      * @returns ListImagesResponse
      *
      * @param ListImagesRequest $request
@@ -5016,6 +5139,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListMembersRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListMembersResponse
      *
      * @param string             $WorkspaceId
@@ -5047,18 +5171,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMembers',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/members',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListMembers',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/members',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMembersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5071,6 +5195,7 @@ class AIWorkSpace extends OpenApiClient
      * 列举工作空间成员.
      *
      * @param request - ListMembersRequest
+     *
      * @returns ListMembersResponse
      *
      * @param string             $WorkspaceId
@@ -5092,6 +5217,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListModelVersionsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListModelVersionsResponse
      *
      * @param string                   $ModelId
@@ -5151,18 +5277,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListModelVersions',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/models/' . Url::percentEncode($ModelId) . '/versions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListModelVersions',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/models/' . Url::percentEncode($ModelId) . '/versions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListModelVersionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5175,6 +5301,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取模型版本列表.
      *
      * @param request - ListModelVersionsRequest
+     *
      * @returns ListModelVersionsResponse
      *
      * @param string                   $ModelId
@@ -5196,6 +5323,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListModelsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListModelsResponse
      *
      * @param ListModelsRequest $request
@@ -5266,18 +5394,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListModels',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/models',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListModels',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/models',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListModelsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5290,6 +5418,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取模型列表.
      *
      * @param request - ListModelsRequest
+     *
      * @returns ListModelsResponse
      *
      * @param ListModelsRequest $request
@@ -5309,6 +5438,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListPermissionsResponse
      *
      * @param string         $WorkspaceId
@@ -5323,15 +5453,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'ListPermissions',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/permissions',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListPermissions',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/permissions',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5363,6 +5493,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListProductsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListProductsResponse
      *
      * @param ListProductsRequest $request
@@ -5389,18 +5520,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProducts',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/products',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListProducts',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/products',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListProductsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5413,6 +5544,7 @@ class AIWorkSpace extends OpenApiClient
      * 列举产品
      *
      * @param request - ListProductsRequest
+     *
      * @returns ListProductsResponse
      *
      * @param ListProductsRequest $request
@@ -5433,6 +5565,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListQuotasRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListQuotasResponse
      *
      * @param ListQuotasRequest $request
@@ -5451,18 +5584,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListQuotas',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/quotas',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListQuotas',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/quotas',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListQuotasResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5475,6 +5608,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取已有配额列表.
      *
      * @param request - ListQuotasRequest
+     *
      * @returns ListQuotasResponse
      *
      * @param ListQuotasRequest $request
@@ -5495,6 +5629,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListResourcesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResourcesResponse
      *
      * @param ListResourcesRequest $request
@@ -5557,18 +5692,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResources',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/resources',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListResources',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/resources',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5581,6 +5716,7 @@ class AIWorkSpace extends OpenApiClient
      * 列举工作空间资源.
      *
      * @param request - ListResourcesRequest
+     *
      * @returns ListResourcesResponse
      *
      * @param ListResourcesRequest $request
@@ -5601,6 +5737,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListRunMetricsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRunMetricsResponse
      *
      * @param string                $RunId
@@ -5628,18 +5765,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRunMetrics',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/runs/' . Url::percentEncode($RunId) . '/metrics',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListRunMetrics',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/runs/' . Url::percentEncode($RunId) . '/metrics',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListRunMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5652,6 +5789,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取Run的指标记录列表.
      *
      * @param request - ListRunMetricsRequest
+     *
      * @returns ListRunMetricsResponse
      *
      * @param string                $RunId
@@ -5673,6 +5811,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListRunsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListRunsResponse
      *
      * @param ListRunsRequest $request
@@ -5747,18 +5886,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListRuns',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/runs',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListRuns',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/runs',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListRunsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5771,6 +5910,7 @@ class AIWorkSpace extends OpenApiClient
      * 获取Run列表.
      *
      * @param request - ListRunsRequest
+     *
      * @returns ListRunsResponse
      *
      * @param ListRunsRequest $request
@@ -5791,6 +5931,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListWorkspaceUsersRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListWorkspaceUsersResponse
      *
      * @param string                    $WorkspaceId
@@ -5810,18 +5951,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListWorkspaceUsers',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/users',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListWorkspaceUsers',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/users',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListWorkspaceUsersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5834,6 +5975,7 @@ class AIWorkSpace extends OpenApiClient
      * 列出工作空间的可变为成员的用户.
      *
      * @param request - ListWorkspaceUsersRequest
+     *
      * @returns ListWorkspaceUsersResponse
      *
      * @param string                    $WorkspaceId
@@ -5855,6 +5997,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - ListWorkspacesRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListWorkspacesResponse
      *
      * @param ListWorkspacesRequest $request
@@ -5917,18 +6060,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => Utils::query($query),
+            'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListWorkspaces',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'ListWorkspaces',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListWorkspacesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -5941,6 +6084,7 @@ class AIWorkSpace extends OpenApiClient
      * 获得工作空间列表.
      *
      * @param request - ListWorkspacesRequest
+     *
      * @returns ListWorkspacesResponse
      *
      * @param ListWorkspacesRequest $request
@@ -5961,6 +6105,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - LogRunMetricsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns LogRunMetricsResponse
      *
      * @param string               $RunId
@@ -5980,18 +6125,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'LogRunMetrics',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/runs/' . Url::percentEncode($RunId) . '/metrics/action/log',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'LogRunMetrics',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/runs/' . Url::percentEncode($RunId) . '/metrics/action/log',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return LogRunMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6004,6 +6149,7 @@ class AIWorkSpace extends OpenApiClient
      * 批量记录Run的指标.
      *
      * @param request - LogRunMetricsRequest
+     *
      * @returns LogRunMetricsResponse
      *
      * @param string               $RunId
@@ -6024,6 +6170,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PublishCodeSourceResponse
      *
      * @param string         $CodeSourceId
@@ -6038,15 +6185,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'PublishCodeSource',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/codesources/' . Url::percentEncode($CodeSourceId) . '/publish',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PublishCodeSource',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/codesources/' . Url::percentEncode($CodeSourceId) . '/publish',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return PublishCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6077,6 +6224,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PublishDatasetResponse
      *
      * @param string         $DatasetId
@@ -6091,15 +6239,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'PublishDataset',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/publish',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PublishDataset',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/publish',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return PublishDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6130,6 +6278,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns PublishImageResponse
      *
      * @param string         $ImageId
@@ -6144,15 +6293,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'PublishImage',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/images/' . Url::percentEncode($ImageId) . '/publish',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'PublishImage',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/images/' . Url::percentEncode($ImageId) . '/publish',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return PublishImageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6183,6 +6332,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveImageResponse
      *
      * @param string         $ImageId
@@ -6197,15 +6347,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RemoveImage',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/images/' . Url::percentEncode($ImageId) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveImage',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/images/' . Url::percentEncode($ImageId) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveImageResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6236,6 +6386,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveImageLabelsResponse
      *
      * @param string         $ImageId
@@ -6251,15 +6402,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RemoveImageLabels',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/images/' . Url::percentEncode($ImageId) . '/labels/' . Url::percentEncode($LabelKey) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveImageLabels',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/images/' . Url::percentEncode($ImageId) . '/labels/' . Url::percentEncode($LabelKey) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveImageLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6291,6 +6442,7 @@ class AIWorkSpace extends OpenApiClient
      *
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns RemoveMemberRoleResponse
      *
      * @param string         $WorkspaceId
@@ -6307,15 +6459,15 @@ class AIWorkSpace extends OpenApiClient
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'RemoveMemberRole',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/members/' . Url::percentEncode($MemberId) . '/roles/' . Url::percentEncode($RoleName) . '',
-            'method'      => 'DELETE',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'RemoveMemberRole',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/members/' . Url::percentEncode($MemberId) . '/roles/' . Url::percentEncode($RoleName) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return RemoveMemberRoleResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6349,6 +6501,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - SetExperimentLabelsRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SetExperimentLabelsResponse
      *
      * @param string                     $ExperimentId
@@ -6368,18 +6521,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'SetExperimentLabels',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '/labels',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'SetExperimentLabels',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '/labels',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SetExperimentLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6392,6 +6545,7 @@ class AIWorkSpace extends OpenApiClient
      * 更新实验标签.
      *
      * @param request - SetExperimentLabelsRequest
+     *
      * @returns SetExperimentLabelsResponse
      *
      * @param string                     $ExperimentId
@@ -6413,6 +6567,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - StopDatasetJobRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns StopDatasetJobResponse
      *
      * @param string                $DatasetId
@@ -6437,18 +6592,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StopDatasetJob',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobs/' . Url::percentEncode($DatasetJobId) . '/action/stop',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'StopDatasetJob',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobs/' . Url::percentEncode($DatasetJobId) . '/action/stop',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return StopDatasetJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6461,6 +6616,7 @@ class AIWorkSpace extends OpenApiClient
      * 停止数据集任务
      *
      * @param request - StopDatasetJobRequest
+     *
      * @returns StopDatasetJobResponse
      *
      * @param string                $DatasetId
@@ -6483,6 +6639,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - UpdateCodeSourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateCodeSourceResponse
      *
      * @param string                  $CodeSourceId
@@ -6530,18 +6687,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateCodeSource',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/codesources/' . Url::percentEncode($CodeSourceId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateCodeSource',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/codesources/' . Url::percentEncode($CodeSourceId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateCodeSourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6554,6 +6711,7 @@ class AIWorkSpace extends OpenApiClient
      * 更新代码配置.
      *
      * @param request - UpdateCodeSourceRequest
+     *
      * @returns UpdateCodeSourceResponse
      *
      * @param string                  $CodeSourceId
@@ -6575,6 +6733,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - UpdateDatasetRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDatasetResponse
      *
      * @param string               $DatasetId
@@ -6606,18 +6765,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDataset',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateDataset',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDatasetResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6630,6 +6789,7 @@ class AIWorkSpace extends OpenApiClient
      * 更新数据集.
      *
      * @param request - UpdateDatasetRequest
+     *
      * @returns UpdateDatasetResponse
      *
      * @param string               $DatasetId
@@ -6651,6 +6811,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - UpdateDatasetFileMetasRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDatasetFileMetasResponse
      *
      * @param string                        $DatasetId
@@ -6682,18 +6843,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDatasetFileMetas',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetfilemetas',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateDatasetFileMetas',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetfilemetas',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDatasetFileMetasResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6706,6 +6867,7 @@ class AIWorkSpace extends OpenApiClient
      * 批量更新数据集下的文件元数据记录.
      *
      * @param request - UpdateDatasetFileMetasRequest
+     *
      * @returns UpdateDatasetFileMetasResponse
      *
      * @param string                        $DatasetId
@@ -6727,6 +6889,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - UpdateDatasetJobRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDatasetJobResponse
      *
      * @param string                  $DatasetId
@@ -6755,18 +6918,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDatasetJob',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobs/' . Url::percentEncode($DatasetJobId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateDatasetJob',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobs/' . Url::percentEncode($DatasetJobId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDatasetJobResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6779,6 +6942,7 @@ class AIWorkSpace extends OpenApiClient
      * 更新数据集任务
      *
      * @param request - UpdateDatasetJobRequest
+     *
      * @returns UpdateDatasetJobResponse
      *
      * @param string                  $DatasetId
@@ -6801,6 +6965,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - UpdateDatasetJobConfigRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDatasetJobConfigResponse
      *
      * @param string                        $DatasetId
@@ -6829,18 +6994,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDatasetJobConfig',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobconfigs/' . Url::percentEncode($DatasetJobConfigId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateDatasetJobConfig',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/datasetjobconfigs/' . Url::percentEncode($DatasetJobConfigId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDatasetJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6853,6 +7018,7 @@ class AIWorkSpace extends OpenApiClient
      * 更新数据集任务配置.
      *
      * @param request - UpdateDatasetJobConfigRequest
+     *
      * @returns UpdateDatasetJobConfigResponse
      *
      * @param string                        $DatasetId
@@ -6875,6 +7041,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - UpdateDatasetVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDatasetVersionResponse
      *
      * @param string                      $DatasetId
@@ -6907,18 +7074,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDatasetVersion',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/versions/' . Url::percentEncode($VersionName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateDatasetVersion',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/datasets/' . Url::percentEncode($DatasetId) . '/versions/' . Url::percentEncode($VersionName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDatasetVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6931,6 +7098,7 @@ class AIWorkSpace extends OpenApiClient
      * 更新指定版本的数据集信息.
      *
      * @param request - UpdateDatasetVersionRequest
+     *
      * @returns UpdateDatasetVersionResponse
      *
      * @param string                      $DatasetId
@@ -6953,6 +7121,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - UpdateDefaultWorkspaceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateDefaultWorkspaceResponse
      *
      * @param UpdateDefaultWorkspaceRequest $request
@@ -6971,18 +7140,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateDefaultWorkspace',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/defaultWorkspaces',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateDefaultWorkspace',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/defaultWorkspaces',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateDefaultWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -6995,6 +7164,7 @@ class AIWorkSpace extends OpenApiClient
      * 更新默认工作空间.
      *
      * @param request - UpdateDefaultWorkspaceRequest
+     *
      * @returns UpdateDefaultWorkspaceResponse
      *
      * @param UpdateDefaultWorkspaceRequest $request
@@ -7015,6 +7185,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - UpdateExperimentRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateExperimentResponse
      *
      * @param string                  $ExperimentId
@@ -7038,18 +7209,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateExperiment',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateExperiment',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/experiments/' . Url::percentEncode($ExperimentId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateExperimentResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7062,6 +7233,7 @@ class AIWorkSpace extends OpenApiClient
      * 更新实验.
      *
      * @param request - UpdateExperimentRequest
+     *
      * @returns UpdateExperimentResponse
      *
      * @param string                  $ExperimentId
@@ -7083,6 +7255,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - UpdateModelRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateModelResponse
      *
      * @param string             $ModelId
@@ -7138,18 +7311,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateModel',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/models/' . Url::percentEncode($ModelId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateModel',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/models/' . Url::percentEncode($ModelId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateModelResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7162,6 +7335,7 @@ class AIWorkSpace extends OpenApiClient
      * 更新模型.
      *
      * @param request - UpdateModelRequest
+     *
      * @returns UpdateModelResponse
      *
      * @param string             $ModelId
@@ -7183,6 +7357,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - UpdateModelVersionRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateModelVersionResponse
      *
      * @param string                    $ModelId
@@ -7243,18 +7418,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateModelVersion',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/models/' . Url::percentEncode($ModelId) . '/versions/' . Url::percentEncode($VersionName) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateModelVersion',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/models/' . Url::percentEncode($ModelId) . '/versions/' . Url::percentEncode($VersionName) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateModelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7267,6 +7442,7 @@ class AIWorkSpace extends OpenApiClient
      * 更新模型版本.
      *
      * @param request - UpdateModelVersionRequest
+     *
      * @returns UpdateModelVersionResponse
      *
      * @param string                    $ModelId
@@ -7289,6 +7465,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - UpdateRunRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateRunResponse
      *
      * @param string           $RunId
@@ -7316,18 +7493,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateRun',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/runs/' . Url::percentEncode($RunId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateRun',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/runs/' . Url::percentEncode($RunId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateRunResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7340,6 +7517,7 @@ class AIWorkSpace extends OpenApiClient
      * 更新Run.
      *
      * @param request - UpdateRunRequest
+     *
      * @returns UpdateRunResponse
      *
      * @param string           $RunId
@@ -7361,6 +7539,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - UpdateWorkspaceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateWorkspaceResponse
      *
      * @param string                 $WorkspaceId
@@ -7384,18 +7563,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateWorkspace',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateWorkspace',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateWorkspaceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7408,6 +7587,7 @@ class AIWorkSpace extends OpenApiClient
      * 更新工作空间.
      *
      * @param request - UpdateWorkspaceRequest
+     *
      * @returns UpdateWorkspaceResponse
      *
      * @param string                 $WorkspaceId
@@ -7429,6 +7609,7 @@ class AIWorkSpace extends OpenApiClient
      * @param request - UpdateWorkspaceResourceRequest
      * @param headers - map
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateWorkspaceResourceResponse
      *
      * @param string                         $WorkspaceId
@@ -7472,18 +7653,18 @@ class AIWorkSpace extends OpenApiClient
 
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => Utils::parseToMap($body),
+            'body' => Utils::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'UpdateWorkspaceResource',
-            'version'     => '2021-02-04',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/resources',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
+            'action' => 'UpdateWorkspaceResource',
+            'version' => '2021-02-04',
+            'protocol' => 'HTTPS',
+            'pathname' => '/api/v1/workspaces/' . Url::percentEncode($WorkspaceId) . '/resources',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateWorkspaceResourceResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -7496,6 +7677,7 @@ class AIWorkSpace extends OpenApiClient
      * 更新工作空间资源.
      *
      * @param request - UpdateWorkspaceResourceRequest
+     *
      * @returns UpdateWorkspaceResourceResponse
      *
      * @param string                         $WorkspaceId

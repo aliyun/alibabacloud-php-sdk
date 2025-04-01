@@ -12,17 +12,19 @@ class specs extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $type;
+
     /**
      * @var string
      */
     public $value;
     protected $_name = [
-        'name'  => 'Name',
-        'type'  => 'Type',
+        'name' => 'Name',
+        'type' => 'Type',
         'value' => 'Value',
     ];
 

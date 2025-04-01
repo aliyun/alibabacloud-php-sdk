@@ -12,63 +12,74 @@ class ListWorkspacesRequest extends Model
      * @var string
      */
     public $fields;
+
     /**
      * @var string
      */
     public $moduleList;
+
     /**
      * @var string
      */
     public $option;
+
     /**
      * @var string
      */
     public $order;
+
     /**
      * @var int
      */
     public $pageNumber;
+
     /**
      * @var int
      */
     public $pageSize;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $sortBy;
+
     /**
      * @var string
      */
     public $status;
+
     /**
      * @var bool
      */
     public $verbose;
+
     /**
      * @var string
      */
     public $workspaceIds;
+
     /**
      * @var string
      */
     public $workspaceName;
     protected $_name = [
-        'fields'          => 'Fields',
-        'moduleList'      => 'ModuleList',
-        'option'          => 'Option',
-        'order'           => 'Order',
-        'pageNumber'      => 'PageNumber',
-        'pageSize'        => 'PageSize',
+        'fields' => 'Fields',
+        'moduleList' => 'ModuleList',
+        'option' => 'Option',
+        'order' => 'Order',
+        'pageNumber' => 'PageNumber',
+        'pageSize' => 'PageSize',
         'resourceGroupId' => 'ResourceGroupId',
-        'sortBy'          => 'SortBy',
-        'status'          => 'Status',
-        'verbose'         => 'Verbose',
-        'workspaceIds'    => 'WorkspaceIds',
-        'workspaceName'   => 'WorkspaceName',
+        'sortBy' => 'SortBy',
+        'status' => 'Status',
+        'verbose' => 'Verbose',
+        'workspaceIds' => 'WorkspaceIds',
+        'workspaceName' => 'WorkspaceName',
     ];
 
     public function validate()

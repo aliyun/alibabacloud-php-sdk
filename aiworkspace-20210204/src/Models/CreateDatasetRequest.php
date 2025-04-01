@@ -12,118 +12,140 @@ class CreateDatasetRequest extends Model
      * @var string
      */
     public $accessibility;
+
     /**
      * @var int
      */
     public $dataCount;
+
     /**
      * @var int
      */
     public $dataSize;
+
     /**
      * @var string
      */
     public $dataSourceType;
+
     /**
      * @var string
      */
     public $dataType;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $importInfo;
+
     /**
      * @var Label[]
      */
     public $labels;
+
     /**
      * @var string[]
      */
     public $mountAccessReadWriteRoleIdList;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $options;
+
     /**
      * @var string
      */
     public $property;
+
     /**
      * @var string
      */
     public $provider;
+
     /**
      * @var string
      */
     public $providerType;
+
     /**
      * @var string
      */
     public $sourceDatasetId;
+
     /**
      * @var string
      */
     public $sourceDatasetVersion;
+
     /**
      * @var string
      */
     public $sourceId;
+
     /**
      * @var string
      */
     public $sourceType;
+
     /**
      * @var string
      */
     public $uri;
+
     /**
      * @var string
      */
     public $userId;
+
     /**
      * @var string
      */
     public $versionDescription;
+
     /**
      * @var Label[]
      */
     public $versionLabels;
+
     /**
      * @var string
      */
     public $workspaceId;
     protected $_name = [
-        'accessibility'                  => 'Accessibility',
-        'dataCount'                      => 'DataCount',
-        'dataSize'                       => 'DataSize',
-        'dataSourceType'                 => 'DataSourceType',
-        'dataType'                       => 'DataType',
-        'description'                    => 'Description',
-        'importInfo'                     => 'ImportInfo',
-        'labels'                         => 'Labels',
+        'accessibility' => 'Accessibility',
+        'dataCount' => 'DataCount',
+        'dataSize' => 'DataSize',
+        'dataSourceType' => 'DataSourceType',
+        'dataType' => 'DataType',
+        'description' => 'Description',
+        'importInfo' => 'ImportInfo',
+        'labels' => 'Labels',
         'mountAccessReadWriteRoleIdList' => 'MountAccessReadWriteRoleIdList',
-        'name'                           => 'Name',
-        'options'                        => 'Options',
-        'property'                       => 'Property',
-        'provider'                       => 'Provider',
-        'providerType'                   => 'ProviderType',
-        'sourceDatasetId'                => 'SourceDatasetId',
-        'sourceDatasetVersion'           => 'SourceDatasetVersion',
-        'sourceId'                       => 'SourceId',
-        'sourceType'                     => 'SourceType',
-        'uri'                            => 'Uri',
-        'userId'                         => 'UserId',
-        'versionDescription'             => 'VersionDescription',
-        'versionLabels'                  => 'VersionLabels',
-        'workspaceId'                    => 'WorkspaceId',
+        'name' => 'Name',
+        'options' => 'Options',
+        'property' => 'Property',
+        'provider' => 'Provider',
+        'providerType' => 'ProviderType',
+        'sourceDatasetId' => 'SourceDatasetId',
+        'sourceDatasetVersion' => 'SourceDatasetVersion',
+        'sourceId' => 'SourceId',
+        'sourceType' => 'SourceType',
+        'uri' => 'Uri',
+        'userId' => 'UserId',
+        'versionDescription' => 'VersionDescription',
+        'versionLabels' => 'VersionLabels',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -174,7 +196,7 @@ class CreateDatasetRequest extends Model
         if (null !== $this->labels) {
             if (\is_array($this->labels)) {
                 $res['Labels'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->labels as $item1) {
                     $res['Labels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -184,7 +206,7 @@ class CreateDatasetRequest extends Model
         if (null !== $this->mountAccessReadWriteRoleIdList) {
             if (\is_array($this->mountAccessReadWriteRoleIdList)) {
                 $res['MountAccessReadWriteRoleIdList'] = [];
-                $n1                                    = 0;
+                $n1 = 0;
                 foreach ($this->mountAccessReadWriteRoleIdList as $item1) {
                     $res['MountAccessReadWriteRoleIdList'][$n1++] = $item1;
                 }
@@ -242,7 +264,7 @@ class CreateDatasetRequest extends Model
         if (null !== $this->versionLabels) {
             if (\is_array($this->versionLabels)) {
                 $res['VersionLabels'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->versionLabels as $item1) {
                     $res['VersionLabels'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -295,7 +317,7 @@ class CreateDatasetRequest extends Model
         if (isset($map['Labels'])) {
             if (!empty($map['Labels'])) {
                 $model->labels = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Labels'] as $item1) {
                     $model->labels[$n1++] = Label::fromMap($item1);
                 }
@@ -305,7 +327,7 @@ class CreateDatasetRequest extends Model
         if (isset($map['MountAccessReadWriteRoleIdList'])) {
             if (!empty($map['MountAccessReadWriteRoleIdList'])) {
                 $model->mountAccessReadWriteRoleIdList = [];
-                $n1                                    = 0;
+                $n1 = 0;
                 foreach ($map['MountAccessReadWriteRoleIdList'] as $item1) {
                     $model->mountAccessReadWriteRoleIdList[$n1++] = $item1;
                 }
@@ -363,7 +385,7 @@ class CreateDatasetRequest extends Model
         if (isset($map['VersionLabels'])) {
             if (!empty($map['VersionLabels'])) {
                 $model->versionLabels = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['VersionLabels'] as $item1) {
                     $model->versionLabels[$n1++] = Label::fromMap($item1);
                 }
