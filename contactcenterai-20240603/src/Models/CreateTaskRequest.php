@@ -5,14 +5,21 @@
 namespace AlibabaCloud\SDK\ContactCenterAI\V20240603\Models;
 
 use AlibabaCloud\Dara\Model;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\categoryTags;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\dialogue;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\examples;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\fields;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\serviceInspection;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\transcription;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\CreateTaskRequest\variables;
 
 class CreateTaskRequest extends Model
 {
+    /**
+     * @var categoryTags[]
+     */
+    public $categoryTags;
+
     /**
      * @var string
      */
@@ -62,7 +69,13 @@ class CreateTaskRequest extends Model
      * @var transcription
      */
     public $transcription;
+
+    /**
+     * @var variables[]
+     */
+    public $variables;
     protected $_name = [
+        'categoryTags' => 'categoryTags',
         'customPrompt' => 'customPrompt',
         'dialogue' => 'dialogue',
         'examples' => 'examples',
@@ -73,10 +86,14 @@ class CreateTaskRequest extends Model
         'taskType' => 'taskType',
         'templateIds' => 'templateIds',
         'transcription' => 'transcription',
+        'variables' => 'variables',
     ];
 
     public function validate()
     {
+        if (\is_array($this->categoryTags)) {
+            Model::validateArray($this->categoryTags);
+        }
         if (null !== $this->dialogue) {
             $this->dialogue->validate();
         }
@@ -98,12 +115,25 @@ class CreateTaskRequest extends Model
         if (null !== $this->transcription) {
             $this->transcription->validate();
         }
+        if (\is_array($this->variables)) {
+            Model::validateArray($this->variables);
+        }
         parent::validate();
     }
 
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->categoryTags) {
+            if (\is_array($this->categoryTags)) {
+                $res['categoryTags'] = [];
+                $n1 = 0;
+                foreach ($this->categoryTags as $item1) {
+                    $res['categoryTags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         if (null !== $this->customPrompt) {
             $res['customPrompt'] = $this->customPrompt;
         }
@@ -162,6 +192,16 @@ class CreateTaskRequest extends Model
             $res['transcription'] = null !== $this->transcription ? $this->transcription->toArray($noStream) : $this->transcription;
         }
 
+        if (null !== $this->variables) {
+            if (\is_array($this->variables)) {
+                $res['variables'] = [];
+                $n1 = 0;
+                foreach ($this->variables as $item1) {
+                    $res['variables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
+        }
+
         return $res;
     }
 
@@ -173,6 +213,16 @@ class CreateTaskRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['categoryTags'])) {
+            if (!empty($map['categoryTags'])) {
+                $model->categoryTags = [];
+                $n1 = 0;
+                foreach ($map['categoryTags'] as $item1) {
+                    $model->categoryTags[$n1++] = categoryTags::fromMap($item1);
+                }
+            }
+        }
+
         if (isset($map['customPrompt'])) {
             $model->customPrompt = $map['customPrompt'];
         }
@@ -229,6 +279,16 @@ class CreateTaskRequest extends Model
 
         if (isset($map['transcription'])) {
             $model->transcription = transcription::fromMap($map['transcription']);
+        }
+
+        if (isset($map['variables'])) {
+            if (!empty($map['variables'])) {
+                $model->variables = [];
+                $n1 = 0;
+                foreach ($map['variables'] as $item1) {
+                    $model->variables[$n1++] = variables::fromMap($item1);
+                }
+            }
         }
 
         return $model;

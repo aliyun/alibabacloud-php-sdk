@@ -8,6 +8,7 @@ use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionRequest\dialogue;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionRequest\fields;
 use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionRequest\serviceInspection;
+use AlibabaCloud\SDK\ContactCenterAI\V20240603\Models\RunCompletionRequest\variables;
 
 class RunCompletionRequest extends Model
 {
@@ -40,6 +41,11 @@ class RunCompletionRequest extends Model
      * @var int[]
      */
     public $templateIds;
+
+    /**
+     * @var variables[]
+     */
+    public $variables;
     protected $_name = [
         'dialogue' => 'Dialogue',
         'fields' => 'Fields',
@@ -47,6 +53,7 @@ class RunCompletionRequest extends Model
         'serviceInspection' => 'ServiceInspection',
         'stream' => 'Stream',
         'templateIds' => 'TemplateIds',
+        'variables' => 'variables',
     ];
 
     public function validate()
@@ -62,6 +69,9 @@ class RunCompletionRequest extends Model
         }
         if (\is_array($this->templateIds)) {
             Model::validateArray($this->templateIds);
+        }
+        if (\is_array($this->variables)) {
+            Model::validateArray($this->variables);
         }
         parent::validate();
     }
@@ -101,6 +111,16 @@ class RunCompletionRequest extends Model
                 $n1 = 0;
                 foreach ($this->templateIds as $item1) {
                     $res['TemplateIds'][$n1++] = $item1;
+                }
+            }
+        }
+
+        if (null !== $this->variables) {
+            if (\is_array($this->variables)) {
+                $res['variables'] = [];
+                $n1 = 0;
+                foreach ($this->variables as $item1) {
+                    $res['variables'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -148,6 +168,16 @@ class RunCompletionRequest extends Model
                 $n1 = 0;
                 foreach ($map['TemplateIds'] as $item1) {
                     $model->templateIds[$n1++] = $item1;
+                }
+            }
+        }
+
+        if (isset($map['variables'])) {
+            if (!empty($map['variables'])) {
+                $model->variables = [];
+                $n1 = 0;
+                foreach ($map['variables'] as $item1) {
+                    $model->variables[$n1++] = variables::fromMap($item1);
                 }
             }
         }

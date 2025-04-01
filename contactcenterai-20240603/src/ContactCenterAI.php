@@ -281,6 +281,10 @@ class ContactCenterAI extends OpenApiClient
     {
         $request->validate();
         $body = [];
+        if (null !== $request->categoryTags) {
+            @$body['categoryTags'] = $request->categoryTags;
+        }
+
         if (null !== $request->customPrompt) {
             @$body['customPrompt'] = $request->customPrompt;
         }
@@ -319,6 +323,10 @@ class ContactCenterAI extends OpenApiClient
 
         if (null !== $request->transcription) {
             @$body['transcription'] = $request->transcription;
+        }
+
+        if (null !== $request->variables) {
+            @$body['variables'] = $request->variables;
         }
 
         $req = new OpenApiRequest([
@@ -761,6 +769,10 @@ class ContactCenterAI extends OpenApiClient
 
         if (null !== $request->templateIds) {
             @$body['TemplateIds'] = $request->templateIds;
+        }
+
+        if (null !== $request->variables) {
+            @$body['variables'] = $request->variables;
         }
 
         $req = new OpenApiRequest([
