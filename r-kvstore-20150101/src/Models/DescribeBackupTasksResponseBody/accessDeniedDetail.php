@@ -4,107 +4,86 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeBackupTasksResponseBody;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class accessDeniedDetail extends Model
 {
     /**
-     * @description This parameter is no longer used. Ignore this parameter.
-     *
-     * @example _
-     *
      * @var string
      */
     public $authAction;
 
     /**
-     * @description This parameter is no longer used. Ignore this parameter.
-     *
-     * @example _
-     *
      * @var string
      */
     public $authPrincipalDisplayName;
 
     /**
-     * @description This parameter is no longer used. Ignore this parameter.
-     *
-     * @example _
-     *
      * @var string
      */
     public $authPrincipalOwnerId;
 
     /**
-     * @description This parameter is no longer used. Ignore this parameter.
-     *
-     * @example _
-     *
      * @var string
      */
     public $authPrincipalType;
 
     /**
-     * @description This parameter is no longer used. Ignore this parameter.
-     *
-     * @example _
-     *
      * @var string
      */
     public $encodedDiagnosticMessage;
 
     /**
-     * @description This parameter is no longer used. Ignore this parameter.
-     *
-     * @example _
-     *
      * @var string
      */
     public $noPermissionType;
 
     /**
-     * @description This parameter is no longer used. Ignore this parameter.
-     *
-     * @example _
-     *
      * @var string
      */
     public $policyType;
     protected $_name = [
-        'authAction'               => 'AuthAction',
+        'authAction' => 'AuthAction',
         'authPrincipalDisplayName' => 'AuthPrincipalDisplayName',
-        'authPrincipalOwnerId'     => 'AuthPrincipalOwnerId',
-        'authPrincipalType'        => 'AuthPrincipalType',
+        'authPrincipalOwnerId' => 'AuthPrincipalOwnerId',
+        'authPrincipalType' => 'AuthPrincipalType',
         'encodedDiagnosticMessage' => 'EncodedDiagnosticMessage',
-        'noPermissionType'         => 'NoPermissionType',
-        'policyType'               => 'PolicyType',
+        'noPermissionType' => 'NoPermissionType',
+        'policyType' => 'PolicyType',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->authAction) {
             $res['AuthAction'] = $this->authAction;
         }
+
         if (null !== $this->authPrincipalDisplayName) {
             $res['AuthPrincipalDisplayName'] = $this->authPrincipalDisplayName;
         }
+
         if (null !== $this->authPrincipalOwnerId) {
             $res['AuthPrincipalOwnerId'] = $this->authPrincipalOwnerId;
         }
+
         if (null !== $this->authPrincipalType) {
             $res['AuthPrincipalType'] = $this->authPrincipalType;
         }
+
         if (null !== $this->encodedDiagnosticMessage) {
             $res['EncodedDiagnosticMessage'] = $this->encodedDiagnosticMessage;
         }
+
         if (null !== $this->noPermissionType) {
             $res['NoPermissionType'] = $this->noPermissionType;
         }
+
         if (null !== $this->policyType) {
             $res['PolicyType'] = $this->policyType;
         }
@@ -112,32 +91,38 @@ class accessDeniedDetail extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return accessDeniedDetail
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['AuthAction'])) {
             $model->authAction = $map['AuthAction'];
         }
+
         if (isset($map['AuthPrincipalDisplayName'])) {
             $model->authPrincipalDisplayName = $map['AuthPrincipalDisplayName'];
         }
+
         if (isset($map['AuthPrincipalOwnerId'])) {
             $model->authPrincipalOwnerId = $map['AuthPrincipalOwnerId'];
         }
+
         if (isset($map['AuthPrincipalType'])) {
             $model->authPrincipalType = $map['AuthPrincipalType'];
         }
+
         if (isset($map['EncodedDiagnosticMessage'])) {
             $model->encodedDiagnosticMessage = $map['EncodedDiagnosticMessage'];
         }
+
         if (isset($map['NoPermissionType'])) {
             $model->noPermissionType = $map['NoPermissionType'];
         }
+
         if (isset($map['PolicyType'])) {
             $model->policyType = $map['PolicyType'];
         }

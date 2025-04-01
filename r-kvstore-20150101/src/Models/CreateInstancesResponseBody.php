@@ -4,54 +4,50 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstancesResponseBody\instanceIds;
-use AlibabaCloud\Tea\Model;
 
 class CreateInstancesResponseBody extends Model
 {
     /**
-     * @description The IDs of instances that were created.
-     *
      * @var instanceIds
      */
     public $instanceIds;
 
     /**
-     * @description The ID of the order.
-     *
-     * @example 20905403119****
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 561AFBF1-BE20-44DB-9BD1-6988B53E****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'instanceIds' => 'InstanceIds',
-        'orderId'     => 'OrderId',
-        'requestId'   => 'RequestId',
+        'orderId' => 'OrderId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->instanceIds) {
+            $this->instanceIds->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->instanceIds) {
-            $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toMap() : null;
+            $res['InstanceIds'] = null !== $this->instanceIds ? $this->instanceIds->toArray($noStream) : $this->instanceIds;
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,20 +55,22 @@ class CreateInstancesResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateInstancesResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = instanceIds::fromMap($map['InstanceIds']);
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -4,111 +4,86 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class MasterNodeShutDownFailOverRequest extends Model
 {
     /**
-     * @description The resource category. Set the value to instance.
-     *
-     * @example instance
-     *
      * @var string
      */
     public $category;
 
     /**
-     * @description *   Specify: This mode allows you to specify a database node to use.
-     *   Random: In this mode, a random database node is selected when no database node is specified.
-     *
-     * @example Random
-     *
      * @var string
      */
     public $DBFaultMode;
 
     /**
-     * @description The IDs of the database nodes.
-     *
-     * @example r-rdsdavinx01003-db-0,r-rdsdavinx01003-db-1
-     *
      * @var string
      */
     public $DBNodes;
 
     /**
-     * @description *   Safe: safe shutdown. This mode involves using redis_safe to shut down the Redis process.
-     *   UnSafe: non-secure shutdown. This mode involves using the shutdown command to shut down the Redis process.
-     *
-     * @example Safe
-     *
      * @var string
      */
     public $failMode;
 
     /**
-     * @description The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/60933.html) operation to query the instance ID.
-     *
-     * This parameter is required.
-     * @example r-bp1zxszhcgatnx****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description *   Specify: This mode allows you to specify a proxy node to use.
-     *   Random: In this mode, a random proxy node is selected when no proxy node is specified.
-     *
-     * @example Specify
-     *
      * @var string
      */
     public $proxyFaultMode;
 
     /**
-     * @description The IDs of the proxy nodes.
-     *
-     * @example 6981,6982
-     *
      * @var string
      */
     public $proxyInstanceIds;
     protected $_name = [
-        'category'         => 'Category',
-        'DBFaultMode'      => 'DBFaultMode',
-        'DBNodes'          => 'DBNodes',
-        'failMode'         => 'FailMode',
-        'instanceId'       => 'InstanceId',
-        'proxyFaultMode'   => 'ProxyFaultMode',
+        'category' => 'Category',
+        'DBFaultMode' => 'DBFaultMode',
+        'DBNodes' => 'DBNodes',
+        'failMode' => 'FailMode',
+        'instanceId' => 'InstanceId',
+        'proxyFaultMode' => 'ProxyFaultMode',
         'proxyInstanceIds' => 'ProxyInstanceIds',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
+
         if (null !== $this->DBFaultMode) {
             $res['DBFaultMode'] = $this->DBFaultMode;
         }
+
         if (null !== $this->DBNodes) {
             $res['DBNodes'] = $this->DBNodes;
         }
+
         if (null !== $this->failMode) {
             $res['FailMode'] = $this->failMode;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->proxyFaultMode) {
             $res['ProxyFaultMode'] = $this->proxyFaultMode;
         }
+
         if (null !== $this->proxyInstanceIds) {
             $res['ProxyInstanceIds'] = $this->proxyInstanceIds;
         }
@@ -116,32 +91,38 @@ class MasterNodeShutDownFailOverRequest extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return MasterNodeShutDownFailOverRequest
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
+
         if (isset($map['DBFaultMode'])) {
             $model->DBFaultMode = $map['DBFaultMode'];
         }
+
         if (isset($map['DBNodes'])) {
             $model->DBNodes = $map['DBNodes'];
         }
+
         if (isset($map['FailMode'])) {
             $model->failMode = $map['FailMode'];
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['ProxyFaultMode'])) {
             $model->proxyFaultMode = $map['ProxyFaultMode'];
         }
+
         if (isset($map['ProxyInstanceIds'])) {
             $model->proxyInstanceIds = $map['ProxyInstanceIds'];
         }

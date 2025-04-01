@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class FlushInstanceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 8D0C0AFC-E9CD-47A4-8395-5C31BF9B3E7
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class FlushInstanceResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class FlushInstanceResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return FlushInstanceResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

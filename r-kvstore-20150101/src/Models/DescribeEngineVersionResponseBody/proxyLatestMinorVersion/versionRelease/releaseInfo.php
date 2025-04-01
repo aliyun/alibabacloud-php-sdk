@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEngineVersionResponseBody\proxyLatestMinorVersion\versionRelease;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEngineVersionResponseBody\proxyLatestMinorVersion\versionRelease\releaseInfo\releaseInfoList;
-use AlibabaCloud\Tea\Model;
 
 class releaseInfo extends Model
 {
@@ -19,17 +19,21 @@ class releaseInfo extends Model
 
     public function validate()
     {
+        if (\is_array($this->releaseInfoList)) {
+            Model::validateArray($this->releaseInfoList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->releaseInfoList) {
-            $res['ReleaseInfoList'] = [];
-            if (null !== $this->releaseInfoList && \is_array($this->releaseInfoList)) {
-                $n = 0;
-                foreach ($this->releaseInfoList as $item) {
-                    $res['ReleaseInfoList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->releaseInfoList)) {
+                $res['ReleaseInfoList'] = [];
+                $n1 = 0;
+                foreach ($this->releaseInfoList as $item1) {
+                    $res['ReleaseInfoList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class releaseInfo extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return releaseInfo
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReleaseInfoList'])) {
             if (!empty($map['ReleaseInfoList'])) {
                 $model->releaseInfoList = [];
-                $n                      = 0;
-                foreach ($map['ReleaseInfoList'] as $item) {
-                    $model->releaseInfoList[$n++] = null !== $item ? releaseInfoList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ReleaseInfoList'] as $item1) {
+                    $model->releaseInfoList[$n1++] = releaseInfoList::fromMap($item1);
                 }
             }
         }

@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\order\depreciateInfo;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribePriceResponseBody\order\depreciateInfo\contractActivity\optionIds;
-use AlibabaCloud\Tea\Model;
 
 class contractActivity extends Model
 {
@@ -44,40 +44,50 @@ class contractActivity extends Model
      */
     public $prodFee;
     protected $_name = [
-        'activityId'   => 'ActivityId',
+        'activityId' => 'ActivityId',
         'activityName' => 'ActivityName',
-        'finalFee'     => 'FinalFee',
+        'finalFee' => 'FinalFee',
         'finalPromFee' => 'FinalPromFee',
-        'optionCode'   => 'OptionCode',
-        'optionIds'    => 'OptionIds',
-        'prodFee'      => 'ProdFee',
+        'optionCode' => 'OptionCode',
+        'optionIds' => 'OptionIds',
+        'prodFee' => 'ProdFee',
     ];
 
     public function validate()
     {
+        if (null !== $this->optionIds) {
+            $this->optionIds->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->activityId) {
             $res['ActivityId'] = $this->activityId;
         }
+
         if (null !== $this->activityName) {
             $res['ActivityName'] = $this->activityName;
         }
+
         if (null !== $this->finalFee) {
             $res['FinalFee'] = $this->finalFee;
         }
+
         if (null !== $this->finalPromFee) {
             $res['FinalPromFee'] = $this->finalPromFee;
         }
+
         if (null !== $this->optionCode) {
             $res['OptionCode'] = $this->optionCode;
         }
+
         if (null !== $this->optionIds) {
-            $res['OptionIds'] = null !== $this->optionIds ? $this->optionIds->toMap() : null;
+            $res['OptionIds'] = null !== $this->optionIds ? $this->optionIds->toArray($noStream) : $this->optionIds;
         }
+
         if (null !== $this->prodFee) {
             $res['ProdFee'] = $this->prodFee;
         }
@@ -85,32 +95,38 @@ class contractActivity extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return contractActivity
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ActivityId'])) {
             $model->activityId = $map['ActivityId'];
         }
+
         if (isset($map['ActivityName'])) {
             $model->activityName = $map['ActivityName'];
         }
+
         if (isset($map['FinalFee'])) {
             $model->finalFee = $map['FinalFee'];
         }
+
         if (isset($map['FinalPromFee'])) {
             $model->finalPromFee = $map['FinalPromFee'];
         }
+
         if (isset($map['OptionCode'])) {
             $model->optionCode = $map['OptionCode'];
         }
+
         if (isset($map['OptionIds'])) {
             $model->optionIds = optionIds::fromMap($map['OptionIds']);
         }
+
         if (isset($map['ProdFee'])) {
             $model->prodFee = $map['ProdFee'];
         }

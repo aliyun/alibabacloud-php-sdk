@@ -4,15 +4,11 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class CreateGlobalDistributeCacheResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example E681E498-5A0D-44F2-B1A7-912DC3******
-     *
      * @var string
      */
     public $requestId;
@@ -22,9 +18,10 @@ class CreateGlobalDistributeCacheResponseBody extends Model
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
@@ -34,11 +31,11 @@ class CreateGlobalDistributeCacheResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return CreateGlobalDistributeCacheResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();

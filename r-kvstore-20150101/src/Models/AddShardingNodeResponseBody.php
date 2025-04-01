@@ -4,53 +4,55 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class AddShardingNodeResponseBody extends Model
 {
     /**
-     * @description The IDs of the data shards.
-     *
      * @var string[]
      */
     public $nodeIds;
 
     /**
-     * @description The ID of the order.
-     *
-     * @example 20741011111111
-     *
      * @var int
      */
     public $orderId;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example B79C1A90-495B-4E99-A2AA-A4DB13B8****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'nodeIds'   => 'NodeIds',
-        'orderId'   => 'OrderId',
+        'nodeIds' => 'NodeIds',
+        'orderId' => 'OrderId',
         'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->nodeIds)) {
+            Model::validateArray($this->nodeIds);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->nodeIds) {
-            $res['NodeIds'] = $this->nodeIds;
+            if (\is_array($this->nodeIds)) {
+                $res['NodeIds'] = [];
+                $n1 = 0;
+                foreach ($this->nodeIds as $item1) {
+                    $res['NodeIds'][$n1++] = $item1;
+                }
+            }
         }
+
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -58,22 +60,28 @@ class AddShardingNodeResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return AddShardingNodeResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['NodeIds'])) {
             if (!empty($map['NodeIds'])) {
-                $model->nodeIds = $map['NodeIds'];
+                $model->nodeIds = [];
+                $n1 = 0;
+                foreach ($map['NodeIds'] as $item1) {
+                    $model->nodeIds[$n1++] = $item1;
+                }
             }
         }
+
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

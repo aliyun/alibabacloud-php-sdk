@@ -4,47 +4,46 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeClusterMemberInfoResponseBody\clusterChildren;
-use AlibabaCloud\Tea\Model;
 
 class DescribeClusterMemberInfoResponseBody extends Model
 {
     /**
-     * @description Details of nodes in the cluster instance.
-     *
      * @var clusterChildren[]
      */
     public $clusterChildren;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 2D9F3768-EDA9-4811-943E-42C8006E****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'clusterChildren' => 'ClusterChildren',
-        'requestId'       => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (\is_array($this->clusterChildren)) {
+            Model::validateArray($this->clusterChildren);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->clusterChildren) {
-            $res['ClusterChildren'] = [];
-            if (null !== $this->clusterChildren && \is_array($this->clusterChildren)) {
-                $n = 0;
-                foreach ($this->clusterChildren as $item) {
-                    $res['ClusterChildren'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->clusterChildren)) {
+                $res['ClusterChildren'] = [];
+                $n1 = 0;
+                foreach ($this->clusterChildren as $item1) {
+                    $res['ClusterChildren'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -52,23 +51,24 @@ class DescribeClusterMemberInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeClusterMemberInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ClusterChildren'])) {
             if (!empty($map['ClusterChildren'])) {
                 $model->clusterChildren = [];
-                $n                      = 0;
-                foreach ($map['ClusterChildren'] as $item) {
-                    $model->clusterChildren[$n++] = null !== $item ? clusterChildren::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ClusterChildren'] as $item1) {
+                    $model->clusterChildren[$n1++] = clusterChildren::fromMap($item1);
                 }
             }
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

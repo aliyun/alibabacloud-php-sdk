@@ -4,42 +4,36 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeMonitorItemsResponseBody\monitorItems;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class KVStoreMonitorItem extends Model
 {
     /**
-     * @description The metric.
-     *
-     * @example select
-     *
      * @var string
      */
     public $monitorKey;
 
     /**
-     * @description The unit of the metric.
-     *
-     * @example Counts/s
-     *
      * @var string
      */
     public $unit;
     protected $_name = [
         'monitorKey' => 'MonitorKey',
-        'unit'       => 'Unit',
+        'unit' => 'Unit',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->monitorKey) {
             $res['MonitorKey'] = $this->monitorKey;
         }
+
         if (null !== $this->unit) {
             $res['Unit'] = $this->unit;
         }
@@ -47,17 +41,18 @@ class KVStoreMonitorItem extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return KVStoreMonitorItem
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['MonitorKey'])) {
             $model->monitorKey = $map['MonitorKey'];
         }
+
         if (isset($map['Unit'])) {
             $model->unit = $map['Unit'];
         }

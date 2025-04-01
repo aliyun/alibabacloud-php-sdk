@@ -4,54 +4,50 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeDBNodeDirectVipInfoResponseBody\directVipInfo;
-use AlibabaCloud\Tea\Model;
 
 class DescribeDBNodeDirectVipInfoResponseBody extends Model
 {
     /**
-     * @description The virtual IP addresses (VIPs) of shards in an ApsaraDB for Redis cluster instance.
-     *
      * @var directVipInfo
      */
     public $directVipInfo;
 
     /**
-     * @description The instance ID.
-     *
-     * @example r-bp1zxszhcgatnx****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The request ID.
-     *
-     * @example ABAF95F6-35C1-4177-AF3A-70969EBD****
-     *
      * @var string
      */
     public $requestId;
     protected $_name = [
         'directVipInfo' => 'DirectVipInfo',
-        'instanceId'    => 'InstanceId',
-        'requestId'     => 'RequestId',
+        'instanceId' => 'InstanceId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
     {
+        if (null !== $this->directVipInfo) {
+            $this->directVipInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->directVipInfo) {
-            $res['DirectVipInfo'] = null !== $this->directVipInfo ? $this->directVipInfo->toMap() : null;
+            $res['DirectVipInfo'] = null !== $this->directVipInfo ? $this->directVipInfo->toArray($noStream) : $this->directVipInfo;
         }
+
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -59,20 +55,22 @@ class DescribeDBNodeDirectVipInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeDBNodeDirectVipInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DirectVipInfo'])) {
             $model->directVipInfo = directVipInfo::fromMap($map['DirectVipInfo']);
         }
+
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

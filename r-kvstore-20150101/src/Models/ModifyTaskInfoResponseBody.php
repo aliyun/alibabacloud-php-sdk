@@ -4,60 +4,56 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class ModifyTaskInfoResponseBody extends Model
 {
     /**
-     * @example mst.errorcode.success.errormessage
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example t-0mqaj5hnyofczv****
-     *
      * @var string
      */
     public $errorTaskId;
 
     /**
-     * @example 2B98499B-E62B-56D4-8D7F-3D6D4DB260F2
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 2
-     *
      * @var string
      */
     public $successCount;
     protected $_name = [
-        'errorCode'    => 'ErrorCode',
-        'errorTaskId'  => 'ErrorTaskId',
-        'requestId'    => 'RequestId',
+        'errorCode' => 'ErrorCode',
+        'errorTaskId' => 'ErrorTaskId',
+        'requestId' => 'RequestId',
         'successCount' => 'SuccessCount',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
+
         if (null !== $this->errorTaskId) {
             $res['ErrorTaskId'] = $this->errorTaskId;
         }
+
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->successCount) {
             $res['SuccessCount'] = $this->successCount;
         }
@@ -65,23 +61,26 @@ class ModifyTaskInfoResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return ModifyTaskInfoResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }
+
         if (isset($map['ErrorTaskId'])) {
             $model->errorTaskId = $map['ErrorTaskId'];
         }
+
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['SuccessCount'])) {
             $model->successCount = $map['SuccessCount'];
         }

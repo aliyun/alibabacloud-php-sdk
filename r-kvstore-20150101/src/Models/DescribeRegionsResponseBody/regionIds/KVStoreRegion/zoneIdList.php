@@ -4,7 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeRegionsResponseBody\regionIds\KVStoreRegion;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class zoneIdList extends Model
 {
@@ -18,29 +18,43 @@ class zoneIdList extends Model
 
     public function validate()
     {
+        if (\is_array($this->zoneId)) {
+            Model::validateArray($this->zoneId);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
+            if (\is_array($this->zoneId)) {
+                $res['ZoneId'] = [];
+                $n1 = 0;
+                foreach ($this->zoneId as $item1) {
+                    $res['ZoneId'][$n1++] = $item1;
+                }
+            }
         }
 
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return zoneIdList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ZoneId'])) {
             if (!empty($map['ZoneId'])) {
-                $model->zoneId = $map['ZoneId'];
+                $model->zoneId = [];
+                $n1 = 0;
+                foreach ($map['ZoneId'] as $item1) {
+                    $model->zoneId[$n1++] = $item1;
+                }
             }
         }
 

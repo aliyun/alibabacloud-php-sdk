@@ -4,44 +4,40 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEngineVersionResponseBody\proxyLatestMinorVersion;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEngineVersionResponseBody\proxyLatestMinorVersion\versionRelease\releaseInfo;
-use AlibabaCloud\Tea\Model;
 
 class versionRelease extends Model
 {
     /**
-     * @description 小版本信息。
-     *
      * @var releaseInfo
      */
     public $releaseInfo;
 
     /**
-     * @description 版本升级的重要性（推荐升级程度），取值：
-     * 0：一般重要
-     * 1：比较重要
-     * 2：非常重要
-     *
-     * @example 0
-     *
      * @var string
      */
     public $versionChangesLevel;
     protected $_name = [
-        'releaseInfo'         => 'ReleaseInfo',
+        'releaseInfo' => 'ReleaseInfo',
         'versionChangesLevel' => 'VersionChangesLevel',
     ];
 
     public function validate()
     {
+        if (null !== $this->releaseInfo) {
+            $this->releaseInfo->validate();
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->releaseInfo) {
-            $res['ReleaseInfo'] = null !== $this->releaseInfo ? $this->releaseInfo->toMap() : null;
+            $res['ReleaseInfo'] = null !== $this->releaseInfo ? $this->releaseInfo->toArray($noStream) : $this->releaseInfo;
         }
+
         if (null !== $this->versionChangesLevel) {
             $res['VersionChangesLevel'] = $this->versionChangesLevel;
         }
@@ -49,17 +45,18 @@ class versionRelease extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return versionRelease
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['ReleaseInfo'])) {
             $model->releaseInfo = releaseInfo::fromMap($map['ReleaseInfo']);
         }
+
         if (isset($map['VersionChangesLevel'])) {
             $model->versionChangesLevel = $map['VersionChangesLevel'];
         }

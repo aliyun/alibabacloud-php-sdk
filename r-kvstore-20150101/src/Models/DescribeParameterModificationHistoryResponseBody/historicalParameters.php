@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterModificationHistoryResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterModificationHistoryResponseBody\historicalParameters\historicalParameter;
-use AlibabaCloud\Tea\Model;
 
 class historicalParameters extends Model
 {
@@ -19,17 +19,21 @@ class historicalParameters extends Model
 
     public function validate()
     {
+        if (\is_array($this->historicalParameter)) {
+            Model::validateArray($this->historicalParameter);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->historicalParameter) {
-            $res['HistoricalParameter'] = [];
-            if (null !== $this->historicalParameter && \is_array($this->historicalParameter)) {
-                $n = 0;
-                foreach ($this->historicalParameter as $item) {
-                    $res['HistoricalParameter'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->historicalParameter)) {
+                $res['HistoricalParameter'] = [];
+                $n1 = 0;
+                foreach ($this->historicalParameter as $item1) {
+                    $res['HistoricalParameter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class historicalParameters extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return historicalParameters
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['HistoricalParameter'])) {
             if (!empty($map['HistoricalParameter'])) {
                 $model->historicalParameter = [];
-                $n                          = 0;
-                foreach ($map['HistoricalParameter'] as $item) {
-                    $model->historicalParameter[$n++] = null !== $item ? historicalParameter::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['HistoricalParameter'] as $item1) {
+                    $model->historicalParameter[$n1++] = historicalParameter::fromMap($item1);
                 }
             }
         }

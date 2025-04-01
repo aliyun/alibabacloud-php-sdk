@@ -4,81 +4,66 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEngineVersionResponseBody\DBLatestMinorVersion\versionRelease\releaseInfo;
 
-use AlibabaCloud\Tea\Model;
+use AlibabaCloud\Dara\Model;
 
 class releaseInfoList extends Model
 {
     /**
-     * @description 实例的创建时间。
-     *
-     * @example 2022-11-21T13:28Z
-     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 重要等级。
-     *
-     * @example 0
-     *
      * @var string
      */
     public $level;
 
     /**
-     * @description 版本发布说明。
-     *
-     * @example 发布说明
-     *
      * @var string
      */
     public $releaseNote;
 
     /**
-     * @description 可升级的版本英文描述。
-     *
-     * @example 版本升级英文描述
-     *
      * @var string
      */
     public $releaseNoteEn;
 
     /**
-     * @description EMR发行版。
-     *
-     * @example EMR-5.7.0
-     *
      * @var string
      */
     public $releaseVersion;
     protected $_name = [
-        'createTime'     => 'CreateTime',
-        'level'          => 'Level',
-        'releaseNote'    => 'ReleaseNote',
-        'releaseNoteEn'  => 'ReleaseNoteEn',
+        'createTime' => 'CreateTime',
+        'level' => 'Level',
+        'releaseNote' => 'ReleaseNote',
+        'releaseNoteEn' => 'ReleaseNoteEn',
         'releaseVersion' => 'ReleaseVersion',
     ];
 
     public function validate()
     {
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+
         if (null !== $this->level) {
             $res['Level'] = $this->level;
         }
+
         if (null !== $this->releaseNote) {
             $res['ReleaseNote'] = $this->releaseNote;
         }
+
         if (null !== $this->releaseNoteEn) {
             $res['ReleaseNoteEn'] = $this->releaseNoteEn;
         }
+
         if (null !== $this->releaseVersion) {
             $res['ReleaseVersion'] = $this->releaseVersion;
         }
@@ -86,26 +71,30 @@ class releaseInfoList extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return releaseInfoList
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
         }
+
         if (isset($map['ReleaseNote'])) {
             $model->releaseNote = $map['ReleaseNote'];
         }
+
         if (isset($map['ReleaseNoteEn'])) {
             $model->releaseNoteEn = $map['ReleaseNoteEn'];
         }
+
         if (isset($map['ReleaseVersion'])) {
             $model->releaseVersion = $map['ReleaseVersion'];
         }

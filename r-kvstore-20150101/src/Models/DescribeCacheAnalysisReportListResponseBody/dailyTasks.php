@@ -4,8 +4,8 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeCacheAnalysisReportListResponseBody;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeCacheAnalysisReportListResponseBody\dailyTasks\dailyTask;
-use AlibabaCloud\Tea\Model;
 
 class dailyTasks extends Model
 {
@@ -19,17 +19,21 @@ class dailyTasks extends Model
 
     public function validate()
     {
+        if (\is_array($this->dailyTask)) {
+            Model::validateArray($this->dailyTask);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->dailyTask) {
-            $res['DailyTask'] = [];
-            if (null !== $this->dailyTask && \is_array($this->dailyTask)) {
-                $n = 0;
-                foreach ($this->dailyTask as $item) {
-                    $res['DailyTask'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->dailyTask)) {
+                $res['DailyTask'] = [];
+                $n1 = 0;
+                foreach ($this->dailyTask as $item1) {
+                    $res['DailyTask'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -37,20 +41,20 @@ class dailyTasks extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return dailyTasks
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['DailyTask'])) {
             if (!empty($map['DailyTask'])) {
                 $model->dailyTask = [];
-                $n                = 0;
-                foreach ($map['DailyTask'] as $item) {
-                    $model->dailyTask[$n++] = null !== $item ? dailyTask::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['DailyTask'] as $item1) {
+                    $model->dailyTask[$n1++] = dailyTask::fromMap($item1);
                 }
             }
         }

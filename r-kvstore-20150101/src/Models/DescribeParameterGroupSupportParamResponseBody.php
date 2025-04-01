@@ -4,47 +4,46 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
+use AlibabaCloud\Dara\Model;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterGroupSupportParamResponseBody\resourceList;
-use AlibabaCloud\Tea\Model;
 
 class DescribeParameterGroupSupportParamResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example BB73740C-23E2-4392-9DA4-2660C74C****
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The parameters.
-     *
      * @var resourceList[]
      */
     public $resourceList;
     protected $_name = [
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceList' => 'ResourceList',
     ];
 
     public function validate()
     {
+        if (\is_array($this->resourceList)) {
+            Model::validateArray($this->resourceList);
+        }
+        parent::validate();
     }
 
-    public function toMap()
+    public function toArray($noStream = false)
     {
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+
         if (null !== $this->resourceList) {
-            $res['ResourceList'] = [];
-            if (null !== $this->resourceList && \is_array($this->resourceList)) {
-                $n = 0;
-                foreach ($this->resourceList as $item) {
-                    $res['ResourceList'][$n++] = null !== $item ? $item->toMap() : $item;
+            if (\is_array($this->resourceList)) {
+                $res['ResourceList'] = [];
+                $n1 = 0;
+                foreach ($this->resourceList as $item1) {
+                    $res['ResourceList'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
             }
         }
@@ -52,23 +51,24 @@ class DescribeParameterGroupSupportParamResponseBody extends Model
         return $res;
     }
 
-    /**
-     * @param array $map
-     *
-     * @return DescribeParameterGroupSupportParamResponseBody
-     */
+    public function toMap($noStream = false)
+    {
+        return $this->toArray($noStream);
+    }
+
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+
         if (isset($map['ResourceList'])) {
             if (!empty($map['ResourceList'])) {
                 $model->resourceList = [];
-                $n                   = 0;
-                foreach ($map['ResourceList'] as $item) {
-                    $model->resourceList[$n++] = null !== $item ? resourceList::fromMap($item) : $item;
+                $n1 = 0;
+                foreach ($map['ResourceList'] as $item1) {
+                    $model->resourceList[$n1++] = resourceList::fromMap($item1);
                 }
             }
         }
