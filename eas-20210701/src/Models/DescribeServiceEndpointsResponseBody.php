@@ -15,7 +15,7 @@ class DescribeServiceEndpointsResponseBody extends Model
     public $accessToken;
 
     /**
-     * @var endpoints
+     * @var endpoints[]
      */
     public $endpoints;
 
@@ -37,8 +37,8 @@ class DescribeServiceEndpointsResponseBody extends Model
 
     public function validate()
     {
-        if (null !== $this->endpoints) {
-            $this->endpoints->validate();
+        if (\is_array($this->endpoints)) {
+            Model::validateArray($this->endpoints);
         }
         parent::validate();
     }
@@ -51,7 +51,13 @@ class DescribeServiceEndpointsResponseBody extends Model
         }
 
         if (null !== $this->endpoints) {
-            $res['Endpoints'] = null !== $this->endpoints ? $this->endpoints->toArray($noStream) : $this->endpoints;
+            if (\is_array($this->endpoints)) {
+                $res['Endpoints'] = [];
+                $n1 = 0;
+                foreach ($this->endpoints as $item1) {
+                    $res['Endpoints'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
+                }
+            }
         }
 
         if (null !== $this->message) {
@@ -78,7 +84,13 @@ class DescribeServiceEndpointsResponseBody extends Model
         }
 
         if (isset($map['Endpoints'])) {
-            $model->endpoints = endpoints::fromMap($map['Endpoints']);
+            if (!empty($map['Endpoints'])) {
+                $model->endpoints = [];
+                $n1 = 0;
+                foreach ($map['Endpoints'] as $item1) {
+                    $model->endpoints[$n1++] = endpoints::fromMap($item1);
+                }
+            }
         }
 
         if (isset($map['Message'])) {
