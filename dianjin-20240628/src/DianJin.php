@@ -83,6 +83,8 @@ use AlibabaCloud\SDK\DianJin\V20240628\Models\RunLibraryChatGenerationRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\RunLibraryChatGenerationResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\SubmitChatQuestionRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\SubmitChatQuestionResponse;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateDocumentChunkRequest;
+use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateDocumentChunkResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateDocumentRequest;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateDocumentResponse;
 use AlibabaCloud\SDK\DianJin\V20240628\Models\UpdateLibraryRequest;
@@ -3273,6 +3275,76 @@ class DianJin extends OpenApiClient
         $headers = [];
 
         return $this->updateDocumentWithOptions($workspaceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * 更新文档的chunk.
+     *
+     * @param request - UpdateDocumentChunkRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns UpdateDocumentChunkResponse
+     *
+     * @param string                     $workspaceId
+     * @param UpdateDocumentChunkRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UpdateDocumentChunkResponse
+     */
+    public function updateDocumentChunkWithOptions($workspaceId, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->chunks) {
+            @$body['chunks'] = $request->chunks;
+        }
+
+        if (null !== $request->libraryId) {
+            @$body['libraryId'] = $request->libraryId;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'UpdateDocumentChunk',
+            'version' => '2024-06-28',
+            'protocol' => 'HTTPS',
+            'pathname' => '/' . Url::percentEncode($workspaceId) . '/api/library/updateDocumentChunk',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return UpdateDocumentChunkResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return UpdateDocumentChunkResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新文档的chunk.
+     *
+     * @param request - UpdateDocumentChunkRequest
+     *
+     * @returns UpdateDocumentChunkResponse
+     *
+     * @param string                     $workspaceId
+     * @param UpdateDocumentChunkRequest $request
+     *
+     * @return UpdateDocumentChunkResponse
+     */
+    public function updateDocumentChunk($workspaceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateDocumentChunkWithOptions($workspaceId, $request, $headers, $runtime);
     }
 
     /**
