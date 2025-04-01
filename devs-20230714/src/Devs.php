@@ -8,6 +8,8 @@ use AlibabaCloud\Dara\Models\RuntimeOptions;
 use AlibabaCloud\Dara\Url;
 use AlibabaCloud\SDK\Devs\V20230714\Models\CancelPipelineResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\CancelTaskResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\CreateArtifactRequest;
+use AlibabaCloud\SDK\Devs\V20230714\Models\CreateArtifactResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\CreateEnvironmentRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\CreateEnvironmentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\CreatePipelineRequest;
@@ -16,16 +18,21 @@ use AlibabaCloud\SDK\Devs\V20230714\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\CreateTaskRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\CreateTaskResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteArtifactResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteEnvironmentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteProjectRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeployEnvironmentRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\DeployEnvironmentResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\FetchArtifactDownloadUrlResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\FetchArtifactTempBucketTokenResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\GetArtifactResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetEnvironmentDeploymentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetEnvironmentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetPipelineResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetRepositoryResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\GetServiceDeploymentResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\GetTaskResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListEnvironmentsRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListEnvironmentsResponse;
@@ -36,13 +43,21 @@ use AlibabaCloud\SDK\Devs\V20230714\Models\ListPipelinesShrinkRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListProjectsRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListProjectsResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListProjectsShrinkRequest;
+use AlibabaCloud\SDK\Devs\V20230714\Models\ListServiceDeploymentsRequest;
+use AlibabaCloud\SDK\Devs\V20230714\Models\ListServiceDeploymentsResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\ListServiceDeploymentsShrinkRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListTasksRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListTasksResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ListTasksShrinkRequest;
+use AlibabaCloud\SDK\Devs\V20230714\Models\PreviewEnvironmentResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\PutArtifactRequest;
+use AlibabaCloud\SDK\Devs\V20230714\Models\PutArtifactResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\PutPipelineStatusRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\PutPipelineStatusResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\PutTaskStatusRequest;
 use AlibabaCloud\SDK\Devs\V20230714\Models\PutTaskStatusResponse;
+use AlibabaCloud\SDK\Devs\V20230714\Models\RenderServicesByTemplateRequest;
+use AlibabaCloud\SDK\Devs\V20230714\Models\RenderServicesByTemplateResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\ResumeTaskResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\RetryTaskResponse;
 use AlibabaCloud\SDK\Devs\V20230714\Models\StartPipelineResponse;
@@ -196,6 +211,65 @@ class Devs extends OpenApiClient
         $headers = [];
 
         return $this->cancelTaskWithOptions($name, $headers, $runtime);
+    }
+
+    /**
+     * 创建交付物存储.
+     *
+     * @param request - CreateArtifactRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns CreateArtifactResponse
+     *
+     * @param CreateArtifactRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateArtifactResponse
+     */
+    public function createArtifactWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'CreateArtifact',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/artifacts',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return CreateArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return CreateArtifactResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 创建交付物存储.
+     *
+     * @param request - CreateArtifactRequest
+     *
+     * @returns CreateArtifactResponse
+     *
+     * @param CreateArtifactRequest $request
+     *
+     * @return CreateArtifactResponse
+     */
+    public function createArtifact($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createArtifactWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -437,6 +511,60 @@ class Devs extends OpenApiClient
     }
 
     /**
+     * 删除交付物.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns DeleteArtifactResponse
+     *
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteArtifactResponse
+     */
+    public function deleteArtifactWithOptions($name, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'DeleteArtifact',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/artifacts/' . Url::percentEncode($name) . '',
+            'method' => 'DELETE',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'none',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return DeleteArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return DeleteArtifactResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 删除交付物.
+     *
+     * @returns DeleteArtifactResponse
+     *
+     * @param string $name
+     *
+     * @return DeleteArtifactResponse
+     */
+    public function deleteArtifact($name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteArtifactWithOptions($name, $headers, $runtime);
+    }
+
+    /**
      * 删除环境.
      *
      * @param headers - map
@@ -619,6 +747,165 @@ class Devs extends OpenApiClient
         $headers = [];
 
         return $this->deployEnvironmentWithOptions($projectName, $name, $request, $headers, $runtime);
+    }
+
+    /**
+     * 获取交付物的zip包临时下载地址url.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FetchArtifactDownloadUrlResponse
+     *
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return FetchArtifactDownloadUrlResponse
+     */
+    public function fetchArtifactDownloadUrlWithOptions($name, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'FetchArtifactDownloadUrl',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/artifacts/' . Url::percentEncode($name) . '/fetchCode',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return FetchArtifactDownloadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return FetchArtifactDownloadUrlResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取交付物的zip包临时下载地址url.
+     *
+     * @returns FetchArtifactDownloadUrlResponse
+     *
+     * @param string $name
+     *
+     * @return FetchArtifactDownloadUrlResponse
+     */
+    public function fetchArtifactDownloadUrl($name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->fetchArtifactDownloadUrlWithOptions($name, $headers, $runtime);
+    }
+
+    /**
+     * 获取交付物临时上传的bucket、object和临时sts.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns FetchArtifactTempBucketTokenResponse
+     *
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return FetchArtifactTempBucketTokenResponse
+     */
+    public function fetchArtifactTempBucketTokenWithOptions($headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'FetchArtifactTempBucketToken',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/artifacts/action/fetchTempBucketToken',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return FetchArtifactTempBucketTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return FetchArtifactTempBucketTokenResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 获取交付物临时上传的bucket、object和临时sts.
+     *
+     * @returns FetchArtifactTempBucketTokenResponse
+     *
+     * @return FetchArtifactTempBucketTokenResponse
+     */
+    public function fetchArtifactTempBucketToken()
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->fetchArtifactTempBucketTokenWithOptions($headers, $runtime);
+    }
+
+    /**
+     * 查询交付物.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetArtifactResponse
+     *
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetArtifactResponse
+     */
+    public function getArtifactWithOptions($name, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetArtifact',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/artifacts/' . Url::percentEncode($name) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetArtifactResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询交付物.
+     *
+     * @returns GetArtifactResponse
+     *
+     * @param string $name
+     *
+     * @return GetArtifactResponse
+     */
+    public function getArtifact($name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getArtifactWithOptions($name, $headers, $runtime);
     }
 
     /**
@@ -891,6 +1178,60 @@ class Devs extends OpenApiClient
         $headers = [];
 
         return $this->getRepositoryWithOptions($name, $headers, $runtime);
+    }
+
+    /**
+     * 查询服务部署信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns GetServiceDeploymentResponse
+     *
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetServiceDeploymentResponse
+     */
+    public function getServiceDeploymentWithOptions($name, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'GetServiceDeployment',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/servicedeployments/' . Url::percentEncode($name) . '',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return GetServiceDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return GetServiceDeploymentResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 查询服务部署信息.
+     *
+     * @returns GetServiceDeploymentResponse
+     *
+     * @param string $name
+     *
+     * @return GetServiceDeploymentResponse
+     */
+    public function getServiceDeployment($name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getServiceDeploymentWithOptions($name, $headers, $runtime);
     }
 
     /**
@@ -1184,6 +1525,88 @@ class Devs extends OpenApiClient
     }
 
     /**
+     * 批量查询服务部署信息.
+     *
+     * @param tmpReq - ListServiceDeploymentsRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListServiceDeploymentsResponse
+     *
+     * @param ListServiceDeploymentsRequest $tmpReq
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListServiceDeploymentsResponse
+     */
+    public function listServiceDeploymentsWithOptions($tmpReq, $headers, $runtime)
+    {
+        $tmpReq->validate();
+        $request = new ListServiceDeploymentsShrinkRequest([]);
+        Utils::convert($tmpReq, $request);
+        if (null !== $tmpReq->labelSelector) {
+            $request->labelSelectorShrink = Utils::arrayToStringWithSpecifiedStyle($tmpReq->labelSelector, 'labelSelector', 'simple');
+        }
+
+        $query = [];
+        if (null !== $request->keyword) {
+            @$query['keyword'] = $request->keyword;
+        }
+
+        if (null !== $request->labelSelectorShrink) {
+            @$query['labelSelector'] = $request->labelSelectorShrink;
+        }
+
+        if (null !== $request->pageNumber) {
+            @$query['pageNumber'] = $request->pageNumber;
+        }
+
+        if (null !== $request->pageSize) {
+            @$query['pageSize'] = $request->pageSize;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListServiceDeployments',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/servicedeployments',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListServiceDeploymentsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListServiceDeploymentsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 批量查询服务部署信息.
+     *
+     * @param request - ListServiceDeploymentsRequest
+     *
+     * @returns ListServiceDeploymentsResponse
+     *
+     * @param ListServiceDeploymentsRequest $request
+     *
+     * @return ListServiceDeploymentsResponse
+     */
+    public function listServiceDeployments($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listServiceDeploymentsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * 批量查询任务
      *
      * @param tmpReq - ListTasksRequest
@@ -1251,6 +1674,129 @@ class Devs extends OpenApiClient
         $headers = [];
 
         return $this->listTasksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * 预览环境变更信息.
+     *
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PreviewEnvironmentResponse
+     *
+     * @param string         $projectName
+     * @param string         $name
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return PreviewEnvironmentResponse
+     */
+    public function previewEnvironmentWithOptions($projectName, $name, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action' => 'PreviewEnvironment',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/projects/' . Url::percentEncode($projectName) . '/environments/' . Url::percentEncode($name) . '/preview',
+            'method' => 'GET',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PreviewEnvironmentResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return PreviewEnvironmentResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 预览环境变更信息.
+     *
+     * @returns PreviewEnvironmentResponse
+     *
+     * @param string $projectName
+     * @param string $name
+     *
+     * @return PreviewEnvironmentResponse
+     */
+    public function previewEnvironment($projectName, $name)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->previewEnvironmentWithOptions($projectName, $name, $headers, $runtime);
+    }
+
+    /**
+     * 更新交付物.
+     *
+     * @param request - PutArtifactRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns PutArtifactResponse
+     *
+     * @param string             $name
+     * @param PutArtifactRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return PutArtifactResponse
+     */
+    public function putArtifactWithOptions($name, $request, $headers, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->force) {
+            @$query['force'] = $request->force;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query' => Utils::query($query),
+            'body' => Utils::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action' => 'PutArtifact',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/artifacts/' . Url::percentEncode($name) . '',
+            'method' => 'PUT',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return PutArtifactResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return PutArtifactResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 更新交付物.
+     *
+     * @param request - PutArtifactRequest
+     *
+     * @returns PutArtifactResponse
+     *
+     * @param string             $name
+     * @param PutArtifactRequest $request
+     *
+     * @return PutArtifactResponse
+     */
+    public function putArtifact($name, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->putArtifactWithOptions($name, $request, $headers, $runtime);
     }
 
     /**
@@ -1385,6 +1931,86 @@ class Devs extends OpenApiClient
         $headers = [];
 
         return $this->putTaskStatusWithOptions($name, $request, $headers, $runtime);
+    }
+
+    /**
+     * 解析模板中的服务、变量配置.
+     *
+     * @param request - RenderServicesByTemplateRequest
+     * @param headers - map
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns RenderServicesByTemplateResponse
+     *
+     * @param RenderServicesByTemplateRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return RenderServicesByTemplateResponse
+     */
+    public function renderServicesByTemplateWithOptions($request, $headers, $runtime)
+    {
+        $request->validate();
+        $body = [];
+        if (null !== $request->parameters) {
+            @$body['parameters'] = $request->parameters;
+        }
+
+        if (null !== $request->projectName) {
+            @$body['projectName'] = $request->projectName;
+        }
+
+        if (null !== $request->serviceNameChanges) {
+            @$body['serviceNameChanges'] = $request->serviceNameChanges;
+        }
+
+        if (null !== $request->templateName) {
+            @$body['templateName'] = $request->templateName;
+        }
+
+        if (null !== $request->variableValues) {
+            @$body['variableValues'] = $request->variableValues;
+        }
+
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body' => Utils::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action' => 'RenderServicesByTemplate',
+            'version' => '2023-07-14',
+            'protocol' => 'HTTPS',
+            'pathname' => '/2023-07-14/templates/action/renderServices',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return RenderServicesByTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return RenderServicesByTemplateResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 解析模板中的服务、变量配置.
+     *
+     * @param request - RenderServicesByTemplateRequest
+     *
+     * @returns RenderServicesByTemplateResponse
+     *
+     * @param RenderServicesByTemplateRequest $request
+     *
+     * @return RenderServicesByTemplateResponse
+     */
+    public function renderServicesByTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->renderServicesByTemplateWithOptions($request, $headers, $runtime);
     }
 
     /**
