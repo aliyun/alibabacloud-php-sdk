@@ -9,6 +9,11 @@ use AlibabaCloud\Dara\Model;
 class DeleteVSwitchRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -38,6 +43,7 @@ class DeleteVSwitchRequest extends Model
      */
     public $vSwitchId;
     protected $_name = [
+        'dryRun' => 'DryRun',
         'ownerAccount' => 'OwnerAccount',
         'ownerId' => 'OwnerId',
         'regionId' => 'RegionId',
@@ -54,6 +60,10 @@ class DeleteVSwitchRequest extends Model
     public function toArray($noStream = false)
     {
         $res = [];
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
+
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -89,6 +99,10 @@ class DeleteVSwitchRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
+
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }

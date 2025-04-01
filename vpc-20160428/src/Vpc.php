@@ -16200,6 +16200,10 @@ class Vpc extends OpenApiClient
     {
         $request->validate();
         $query = [];
+        if (null !== $request->dryRun) {
+            @$query['DryRun'] = $request->dryRun;
+        }
+
         if (null !== $request->ownerAccount) {
             @$query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -41361,7 +41365,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 撤回VPC已发布路由.
+     * Withdraw advertised Virtual Private Cloud (VPC) routes.
      *
      * @param request - WithdrawVpcPublishedRouteEntriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -41439,7 +41443,7 @@ class Vpc extends OpenApiClient
     }
 
     /**
-     * 撤回VPC已发布路由.
+     * Withdraw advertised Virtual Private Cloud (VPC) routes.
      *
      * @param request - WithdrawVpcPublishedRouteEntriesRequest
      *
