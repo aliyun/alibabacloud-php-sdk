@@ -12,12 +12,13 @@ class sortCriterion extends Model
      * @var string
      */
     public $key;
+
     /**
      * @var string
      */
     public $order;
     protected $_name = [
-        'key'   => 'Key',
+        'key' => 'Key',
         'order' => 'Order',
     ];
 

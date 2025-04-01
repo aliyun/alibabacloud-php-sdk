@@ -12,18 +12,20 @@ class ipAddressAttributes extends Model
      * @var string
      */
     public $ipAddress;
+
     /**
      * @var string
      */
     public $networkType;
+
     /**
      * @var string
      */
     public $version;
     protected $_name = [
-        'ipAddress'   => 'IpAddress',
+        'ipAddress' => 'IpAddress',
         'networkType' => 'NetworkType',
-        'version'     => 'Version',
+        'version' => 'Version',
     ];
 
     public function validate()

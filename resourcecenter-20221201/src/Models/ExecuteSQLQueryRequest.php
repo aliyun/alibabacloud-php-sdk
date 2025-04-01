@@ -12,14 +12,17 @@ class ExecuteSQLQueryRequest extends Model
      * @var string
      */
     public $expression;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
@@ -27,8 +30,8 @@ class ExecuteSQLQueryRequest extends Model
     protected $_name = [
         'expression' => 'Expression',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'scope'      => 'Scope',
+        'nextToken' => 'NextToken',
+        'scope' => 'Scope',
     ];
 
     public function validate()

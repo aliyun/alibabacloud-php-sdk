@@ -13,23 +13,26 @@ class ListExampleQueriesResponseBody extends Model
      * @var exampleQueries[]
      */
     public $exampleQueries;
+
     /**
      * @var string
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'exampleQueries' => 'ExampleQueries',
-        'maxResults'     => 'MaxResults',
-        'nextToken'      => 'NextToken',
-        'requestId'      => 'RequestId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -46,7 +49,7 @@ class ListExampleQueriesResponseBody extends Model
         if (null !== $this->exampleQueries) {
             if (\is_array($this->exampleQueries)) {
                 $res['ExampleQueries'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->exampleQueries as $item1) {
                     $res['ExampleQueries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -79,7 +82,7 @@ class ListExampleQueriesResponseBody extends Model
         if (isset($map['ExampleQueries'])) {
             if (!empty($map['ExampleQueries'])) {
                 $model->exampleQueries = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ExampleQueries'] as $item1) {
                     $model->exampleQueries[$n1++] = exampleQueries::fromMap($item1);
                 }

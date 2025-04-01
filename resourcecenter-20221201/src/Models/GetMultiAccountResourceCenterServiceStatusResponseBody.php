@@ -12,17 +12,19 @@ class GetMultiAccountResourceCenterServiceStatusResponseBody extends Model
      * @var string
      */
     public $initialStatus;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $serviceStatus;
     protected $_name = [
         'initialStatus' => 'InitialStatus',
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'serviceStatus' => 'ServiceStatus',
     ];
 

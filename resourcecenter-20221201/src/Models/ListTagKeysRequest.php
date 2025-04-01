@@ -12,23 +12,26 @@ class ListTagKeysRequest extends Model
      * @var string
      */
     public $matchType;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $tagKey;
     protected $_name = [
-        'matchType'  => 'MatchType',
+        'matchType' => 'MatchType',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'tagKey'     => 'TagKey',
+        'nextToken' => 'NextToken',
+        'tagKey' => 'TagKey',
     ];
 
     public function validate()

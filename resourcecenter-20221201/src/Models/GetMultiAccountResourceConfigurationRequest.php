@@ -12,23 +12,26 @@ class GetMultiAccountResourceConfigurationRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceRegionId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'accountId'        => 'AccountId',
-        'resourceId'       => 'ResourceId',
+        'accountId' => 'AccountId',
+        'resourceId' => 'ResourceId',
         'resourceRegionId' => 'ResourceRegionId',
-        'resourceType'     => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

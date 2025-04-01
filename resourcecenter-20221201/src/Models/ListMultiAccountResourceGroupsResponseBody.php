@@ -13,17 +13,19 @@ class ListMultiAccountResourceGroupsResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceGroups[]
      */
     public $resourceGroups;
     protected $_name = [
-        'nextToken'      => 'NextToken',
-        'requestId'      => 'RequestId',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'resourceGroups' => 'ResourceGroups',
     ];
 
@@ -49,7 +51,7 @@ class ListMultiAccountResourceGroupsResponseBody extends Model
         if (null !== $this->resourceGroups) {
             if (\is_array($this->resourceGroups)) {
                 $res['ResourceGroups'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->resourceGroups as $item1) {
                     $res['ResourceGroups'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -78,7 +80,7 @@ class ListMultiAccountResourceGroupsResponseBody extends Model
         if (isset($map['ResourceGroups'])) {
             if (!empty($map['ResourceGroups'])) {
                 $model->resourceGroups = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ResourceGroups'] as $item1) {
                     $model->resourceGroups[$n1++] = resourceGroups::fromMap($item1);
                 }

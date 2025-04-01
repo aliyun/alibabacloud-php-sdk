@@ -12,33 +12,38 @@ class savedQuery extends Model
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $expression;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $queryId;
+
     /**
      * @var string
      */
     public $updateTime;
     protected $_name = [
-        'createTime'  => 'CreateTime',
+        'createTime' => 'CreateTime',
         'description' => 'Description',
-        'expression'  => 'Expression',
-        'name'        => 'Name',
-        'queryId'     => 'QueryId',
-        'updateTime'  => 'UpdateTime',
+        'expression' => 'Expression',
+        'name' => 'Name',
+        'queryId' => 'QueryId',
+        'updateTime' => 'UpdateTime',
     ];
 
     public function validate()

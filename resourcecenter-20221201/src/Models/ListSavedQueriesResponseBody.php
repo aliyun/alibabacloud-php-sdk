@@ -13,22 +13,25 @@ class ListSavedQueriesResponseBody extends Model
      * @var string
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var savedQueries[]
      */
     public $savedQueries;
     protected $_name = [
-        'maxResults'   => 'MaxResults',
-        'nextToken'    => 'NextToken',
-        'requestId'    => 'RequestId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
         'savedQueries' => 'SavedQueries',
     ];
 
@@ -58,7 +61,7 @@ class ListSavedQueriesResponseBody extends Model
         if (null !== $this->savedQueries) {
             if (\is_array($this->savedQueries)) {
                 $res['SavedQueries'] = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($this->savedQueries as $item1) {
                     $res['SavedQueries'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -91,7 +94,7 @@ class ListSavedQueriesResponseBody extends Model
         if (isset($map['SavedQueries'])) {
             if (!empty($map['SavedQueries'])) {
                 $model->savedQueries = [];
-                $n1                  = 0;
+                $n1 = 0;
                 foreach ($map['SavedQueries'] as $item1) {
                     $model->savedQueries[$n1++] = savedQueries::fromMap($item1);
                 }

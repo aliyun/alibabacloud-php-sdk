@@ -14,28 +14,32 @@ class SearchResourcesRequest extends Model
      * @var filter[]
      */
     public $filter;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var sortCriterion
      */
     public $sortCriterion;
     protected $_name = [
-        'filter'          => 'Filter',
-        'maxResults'      => 'MaxResults',
-        'nextToken'       => 'NextToken',
+        'filter' => 'Filter',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'resourceGroupId' => 'ResourceGroupId',
-        'sortCriterion'   => 'SortCriterion',
+        'sortCriterion' => 'SortCriterion',
     ];
 
     public function validate()
@@ -55,7 +59,7 @@ class SearchResourcesRequest extends Model
         if (null !== $this->filter) {
             if (\is_array($this->filter)) {
                 $res['Filter'] = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($this->filter as $item1) {
                     $res['Filter'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -92,7 +96,7 @@ class SearchResourcesRequest extends Model
         if (isset($map['Filter'])) {
             if (!empty($map['Filter'])) {
                 $model->filter = [];
-                $n1            = 0;
+                $n1 = 0;
                 foreach ($map['Filter'] as $item1) {
                     $model->filter[$n1++] = filter::fromMap($item1);
                 }

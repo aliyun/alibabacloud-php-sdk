@@ -12,12 +12,13 @@ class CreateSavedQueryResponseBody extends Model
      * @var string
      */
     public $queryId;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'queryId'   => 'QueryId',
+        'queryId' => 'QueryId',
         'requestId' => 'RequestId',
     ];
 

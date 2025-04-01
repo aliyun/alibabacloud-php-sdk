@@ -12,13 +12,14 @@ class codeMapping extends Model
      * @var string
      */
     public $resourceGroup;
+
     /**
      * @var string
      */
     public $tag;
     protected $_name = [
         'resourceGroup' => 'ResourceGroup',
-        'tag'           => 'Tag',
+        'tag' => 'Tag',
     ];
 
     public function validate()

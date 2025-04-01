@@ -41,10 +41,14 @@ use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListExampleQueriesResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListFiltersResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountResourceGroupsRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountResourceGroupsResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountResourceRelationshipsRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountResourceRelationshipsResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountTagKeysRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountTagKeysResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountTagValuesRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountTagValuesResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListResourceRelationshipsRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListResourceRelationshipsResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListResourceTypesRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListResourceTypesResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListSavedQueriesRequest;
@@ -105,6 +109,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - AssociateDefaultFilterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns AssociateDefaultFilterResponse
      *
      * @param AssociateDefaultFilterRequest $request
@@ -124,15 +129,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'AssociateDefaultFilter',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'AssociateDefaultFilter',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return AssociateDefaultFilterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -145,6 +150,7 @@ class ResourceCenter extends OpenApiClient
      * Sets a default filter.
      *
      * @param request - AssociateDefaultFilterRequest
+     *
      * @returns AssociateDefaultFilterResponse
      *
      * @param AssociateDefaultFilterRequest $request
@@ -163,6 +169,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - CreateFilterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateFilterResponse
      *
      * @param CreateFilterRequest $request
@@ -186,15 +193,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateFilter',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateFilter',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateFilterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -207,6 +214,7 @@ class ResourceCenter extends OpenApiClient
      * Creates a filter.
      *
      * @param request - CreateFilterRequest
+     *
      * @returns CreateFilterResponse
      *
      * @param CreateFilterRequest $request
@@ -225,6 +233,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - CreateSavedQueryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns CreateSavedQueryResponse
      *
      * @param CreateSavedQueryRequest $request
@@ -252,15 +261,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateSavedQuery',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'CreateSavedQuery',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return CreateSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -273,6 +282,7 @@ class ResourceCenter extends OpenApiClient
      * Creates a custom query template.
      *
      * @param request - CreateSavedQueryRequest
+     *
      * @returns CreateSavedQueryResponse
      *
      * @param CreateSavedQueryRequest $request
@@ -291,6 +301,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - DeleteFilterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteFilterResponse
      *
      * @param DeleteFilterRequest $request
@@ -310,15 +321,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteFilter',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteFilter',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteFilterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -331,6 +342,7 @@ class ResourceCenter extends OpenApiClient
      * Deletes a filter.
      *
      * @param request - DeleteFilterRequest
+     *
      * @returns DeleteFilterResponse
      *
      * @param DeleteFilterRequest $request
@@ -349,6 +361,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - DeleteSavedQueryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DeleteSavedQueryResponse
      *
      * @param DeleteSavedQueryRequest $request
@@ -368,15 +381,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteSavedQuery',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DeleteSavedQuery',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DeleteSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -389,6 +402,7 @@ class ResourceCenter extends OpenApiClient
      * Deletes a custom query template.
      *
      * @param request - DeleteSavedQueryRequest
+     *
      * @returns DeleteSavedQueryResponse
      *
      * @param DeleteSavedQueryRequest $request
@@ -407,6 +421,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - DisableMultiAccountResourceCenterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableMultiAccountResourceCenterResponse
      *
      * @param RuntimeOptions $runtime
@@ -415,17 +430,17 @@ class ResourceCenter extends OpenApiClient
      */
     public function disableMultiAccountResourceCenterWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DisableMultiAccountResourceCenter',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableMultiAccountResourceCenter',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableMultiAccountResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -453,6 +468,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - DisableResourceCenterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisableResourceCenterResponse
      *
      * @param RuntimeOptions $runtime
@@ -461,17 +477,17 @@ class ResourceCenter extends OpenApiClient
      */
     public function disableResourceCenterWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DisableResourceCenter',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisableResourceCenter',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisableResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -499,6 +515,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - DisassociateDefaultFilterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns DisassociateDefaultFilterResponse
      *
      * @param RuntimeOptions $runtime
@@ -507,17 +524,17 @@ class ResourceCenter extends OpenApiClient
      */
     public function disassociateDefaultFilterWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'DisassociateDefaultFilter',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'DisassociateDefaultFilter',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return DisassociateDefaultFilterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -548,6 +565,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - EnableMultiAccountResourceCenterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableMultiAccountResourceCenterResponse
      *
      * @param RuntimeOptions $runtime
@@ -556,17 +574,17 @@ class ResourceCenter extends OpenApiClient
      */
     public function enableMultiAccountResourceCenterWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'EnableMultiAccountResourceCenter',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableMultiAccountResourceCenter',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableMultiAccountResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -580,6 +598,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @remarks
      * If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](https://help.aliyun.com/document_detail/200506.html).
+     *
      * @returns EnableMultiAccountResourceCenterResponse
      *
      * @return EnableMultiAccountResourceCenterResponse
@@ -596,6 +615,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - EnableResourceCenterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns EnableResourceCenterResponse
      *
      * @param RuntimeOptions $runtime
@@ -604,17 +624,17 @@ class ResourceCenter extends OpenApiClient
      */
     public function enableResourceCenterWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'EnableResourceCenter',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'EnableResourceCenter',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return EnableResourceCenterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -642,6 +662,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - ExecuteMultiAccountSQLQueryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExecuteMultiAccountSQLQueryResponse
      *
      * @param ExecuteMultiAccountSQLQueryRequest $request
@@ -673,15 +694,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExecuteMultiAccountSQLQuery',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExecuteMultiAccountSQLQuery',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExecuteMultiAccountSQLQueryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -694,6 +715,7 @@ class ResourceCenter extends OpenApiClient
      * Executes an SQL statement to query resources across accounts.
      *
      * @param request - ExecuteMultiAccountSQLQueryRequest
+     *
      * @returns ExecuteMultiAccountSQLQueryResponse
      *
      * @param ExecuteMultiAccountSQLQueryRequest $request
@@ -712,6 +734,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - ExecuteSQLQueryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ExecuteSQLQueryResponse
      *
      * @param ExecuteSQLQueryRequest $request
@@ -743,15 +766,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ExecuteSQLQuery',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ExecuteSQLQuery',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ExecuteSQLQueryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -764,6 +787,7 @@ class ResourceCenter extends OpenApiClient
      * Executes an SQL statement to query the resources that can be accessed within the current account.
      *
      * @param request - ExecuteSQLQueryRequest
+     *
      * @returns ExecuteSQLQueryResponse
      *
      * @param ExecuteSQLQueryRequest $request
@@ -782,6 +806,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - GetExampleQueryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetExampleQueryResponse
      *
      * @param GetExampleQueryRequest $request
@@ -801,15 +826,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetExampleQuery',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetExampleQuery',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetExampleQueryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -822,6 +847,7 @@ class ResourceCenter extends OpenApiClient
      * Queries the information about a sample query template.
      *
      * @param request - GetExampleQueryRequest
+     *
      * @returns GetExampleQueryResponse
      *
      * @param GetExampleQueryRequest $request
@@ -840,6 +866,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - GetMultiAccountResourceCenterServiceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMultiAccountResourceCenterServiceStatusResponse
      *
      * @param RuntimeOptions $runtime
@@ -848,17 +875,17 @@ class ResourceCenter extends OpenApiClient
      */
     public function getMultiAccountResourceCenterServiceStatusWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetMultiAccountResourceCenterServiceStatus',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMultiAccountResourceCenterServiceStatus',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMultiAccountResourceCenterServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -886,6 +913,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - GetMultiAccountResourceConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetMultiAccountResourceConfigurationResponse
      *
      * @param GetMultiAccountResourceConfigurationRequest $request
@@ -917,15 +945,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetMultiAccountResourceConfiguration',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetMultiAccountResourceConfiguration',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetMultiAccountResourceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -938,6 +966,7 @@ class ResourceCenter extends OpenApiClient
      * Queries the configurations of a resource within the management account or a member of a resource directory.
      *
      * @param request - GetMultiAccountResourceConfigurationRequest
+     *
      * @returns GetMultiAccountResourceConfigurationResponse
      *
      * @param GetMultiAccountResourceConfigurationRequest $request
@@ -956,6 +985,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - GetResourceCenterServiceStatusRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResourceCenterServiceStatusResponse
      *
      * @param RuntimeOptions $runtime
@@ -964,17 +994,17 @@ class ResourceCenter extends OpenApiClient
      */
     public function getResourceCenterServiceStatusWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'GetResourceCenterServiceStatus',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourceCenterServiceStatus',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetResourceCenterServiceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1002,6 +1032,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - GetResourceConfigurationRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResourceConfigurationResponse
      *
      * @param GetResourceConfigurationRequest $request
@@ -1029,15 +1060,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResourceConfiguration',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourceConfiguration',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetResourceConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1050,6 +1081,7 @@ class ResourceCenter extends OpenApiClient
      * Queries the configurations of a resource within the current account.
      *
      * @param request - GetResourceConfigurationRequest
+     *
      * @returns GetResourceConfigurationResponse
      *
      * @param GetResourceConfigurationRequest $request
@@ -1068,6 +1100,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - GetResourceCountsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetResourceCountsResponse
      *
      * @param GetResourceCountsRequest $request
@@ -1091,15 +1124,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetResourceCounts',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetResourceCounts',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetResourceCountsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1112,6 +1145,7 @@ class ResourceCenter extends OpenApiClient
      * Queries the numbers of resources on which the current account has access permissions.
      *
      * @param request - GetResourceCountsRequest
+     *
      * @returns GetResourceCountsResponse
      *
      * @param GetResourceCountsRequest $request
@@ -1130,6 +1164,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - GetSavedQueryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns GetSavedQueryResponse
      *
      * @param GetSavedQueryRequest $request
@@ -1149,15 +1184,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetSavedQuery',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'GetSavedQuery',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return GetSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1170,6 +1205,7 @@ class ResourceCenter extends OpenApiClient
      * Queries the information about a custom query template.
      *
      * @param request - GetSavedQueryRequest
+     *
      * @returns GetSavedQueryResponse
      *
      * @param GetSavedQueryRequest $request
@@ -1188,6 +1224,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - ListExampleQueriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListExampleQueriesResponse
      *
      * @param ListExampleQueriesRequest $request
@@ -1211,15 +1248,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListExampleQueries',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListExampleQueries',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListExampleQueriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1232,6 +1269,7 @@ class ResourceCenter extends OpenApiClient
      * Queries all sample query templates.
      *
      * @param request - ListExampleQueriesRequest
+     *
      * @returns ListExampleQueriesResponse
      *
      * @param ListExampleQueriesRequest $request
@@ -1250,6 +1288,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - ListFiltersRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListFiltersResponse
      *
      * @param RuntimeOptions $runtime
@@ -1258,17 +1297,17 @@ class ResourceCenter extends OpenApiClient
      */
     public function listFiltersWithOptions($runtime)
     {
-        $req    = new OpenApiRequest([]);
+        $req = new OpenApiRequest([]);
         $params = new Params([
-            'action'      => 'ListFilters',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListFilters',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListFiltersResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1296,6 +1335,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - ListMultiAccountResourceGroupsRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListMultiAccountResourceGroupsResponse
      *
      * @param ListMultiAccountResourceGroupsRequest $request
@@ -1327,15 +1367,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMultiAccountResourceGroups',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMultiAccountResourceGroups',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMultiAccountResourceGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1348,6 +1388,7 @@ class ResourceCenter extends OpenApiClient
      * Queries the resource groups within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
      *
      * @param request - ListMultiAccountResourceGroupsRequest
+     *
      * @returns ListMultiAccountResourceGroupsResponse
      *
      * @param ListMultiAccountResourceGroupsRequest $request
@@ -1362,10 +1403,95 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
+     * 跨账号列出资源关系.
+     *
+     * @param request - ListMultiAccountResourceRelationshipsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListMultiAccountResourceRelationshipsResponse
+     *
+     * @param ListMultiAccountResourceRelationshipsRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return ListMultiAccountResourceRelationshipsResponse
+     */
+    public function listMultiAccountResourceRelationshipsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->relatedResourceFilter) {
+            @$query['RelatedResourceFilter'] = $request->relatedResourceFilter;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        if (null !== $request->scope) {
+            @$query['Scope'] = $request->scope;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListMultiAccountResourceRelationships',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListMultiAccountResourceRelationshipsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListMultiAccountResourceRelationshipsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 跨账号列出资源关系.
+     *
+     * @param request - ListMultiAccountResourceRelationshipsRequest
+     *
+     * @returns ListMultiAccountResourceRelationshipsResponse
+     *
+     * @param ListMultiAccountResourceRelationshipsRequest $request
+     *
+     * @return ListMultiAccountResourceRelationshipsResponse
+     */
+    public function listMultiAccountResourceRelationships($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listMultiAccountResourceRelationshipsWithOptions($request, $runtime);
+    }
+
+    /**
      * Queries the tag keys of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
      *
      * @param request - ListMultiAccountTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListMultiAccountTagKeysResponse
      *
      * @param ListMultiAccountTagKeysRequest $request
@@ -1401,15 +1527,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMultiAccountTagKeys',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMultiAccountTagKeys',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMultiAccountTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1422,6 +1548,7 @@ class ResourceCenter extends OpenApiClient
      * Queries the tag keys of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
      *
      * @param request - ListMultiAccountTagKeysRequest
+     *
      * @returns ListMultiAccountTagKeysResponse
      *
      * @param ListMultiAccountTagKeysRequest $request
@@ -1440,6 +1567,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - ListMultiAccountTagValuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListMultiAccountTagValuesResponse
      *
      * @param ListMultiAccountTagValuesRequest $request
@@ -1479,15 +1607,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListMultiAccountTagValues',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListMultiAccountTagValues',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListMultiAccountTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1500,6 +1628,7 @@ class ResourceCenter extends OpenApiClient
      * Queries the tag values of resources within the management account or a member of a resource directory by using the management account of the resource directory or a delegated administrator account of Resource Center.
      *
      * @param request - ListMultiAccountTagValuesRequest
+     *
      * @returns ListMultiAccountTagValuesResponse
      *
      * @param ListMultiAccountTagValuesRequest $request
@@ -1514,10 +1643,91 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * Queries the resource types supported by Resource Center.
+     * 列出资源关系.
+     *
+     * @param request - ListResourceRelationshipsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     *
+     * @returns ListResourceRelationshipsResponse
+     *
+     * @param ListResourceRelationshipsRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListResourceRelationshipsResponse
+     */
+    public function listResourceRelationshipsWithOptions($request, $runtime)
+    {
+        $request->validate();
+        $query = [];
+        if (null !== $request->maxResults) {
+            @$query['MaxResults'] = $request->maxResults;
+        }
+
+        if (null !== $request->nextToken) {
+            @$query['NextToken'] = $request->nextToken;
+        }
+
+        if (null !== $request->regionId) {
+            @$query['RegionId'] = $request->regionId;
+        }
+
+        if (null !== $request->relatedResourceFilter) {
+            @$query['RelatedResourceFilter'] = $request->relatedResourceFilter;
+        }
+
+        if (null !== $request->resourceId) {
+            @$query['ResourceId'] = $request->resourceId;
+        }
+
+        if (null !== $request->resourceType) {
+            @$query['ResourceType'] = $request->resourceType;
+        }
+
+        $req = new OpenApiRequest([
+            'query' => Utils::query($query),
+        ]);
+        $params = new Params([
+            'action' => 'ListResourceRelationships',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType' => 'json',
+        ]);
+        if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
+            return ListResourceRelationshipsResponse::fromMap($this->callApi($params, $req, $runtime));
+        }
+
+        return ListResourceRelationshipsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * 列出资源关系.
+     *
+     * @param request - ListResourceRelationshipsRequest
+     *
+     * @returns ListResourceRelationshipsResponse
+     *
+     * @param ListResourceRelationshipsRequest $request
+     *
+     * @return ListResourceRelationshipsResponse
+     */
+    public function listResourceRelationships($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResourceRelationshipsWithOptions($request, $runtime);
+    }
+
+    /**
+     * Queries the metadata of resource types.
      *
      * @param request - ListResourceTypesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListResourceTypesResponse
      *
      * @param ListResourceTypesRequest $request
@@ -1545,15 +1755,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListResourceTypes',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListResourceTypes',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListResourceTypesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1563,9 +1773,10 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * Queries the resource types supported by Resource Center.
+     * Queries the metadata of resource types.
      *
      * @param request - ListResourceTypesRequest
+     *
      * @returns ListResourceTypesResponse
      *
      * @param ListResourceTypesRequest $request
@@ -1584,6 +1795,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - ListSavedQueriesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListSavedQueriesResponse
      *
      * @param ListSavedQueriesRequest $request
@@ -1607,15 +1819,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListSavedQueries',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListSavedQueries',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListSavedQueriesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1628,6 +1840,7 @@ class ResourceCenter extends OpenApiClient
      * Queries all custom query templates.
      *
      * @param request - ListSavedQueriesRequest
+     *
      * @returns ListSavedQueriesResponse
      *
      * @param ListSavedQueriesRequest $request
@@ -1646,6 +1859,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - ListTagKeysRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagKeysResponse
      *
      * @param ListTagKeysRequest $request
@@ -1677,15 +1891,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagKeys',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagKeys',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagKeysResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1698,6 +1912,7 @@ class ResourceCenter extends OpenApiClient
      * Queries the tag keys of resources within the current account.
      *
      * @param request - ListTagKeysRequest
+     *
      * @returns ListTagKeysResponse
      *
      * @param ListTagKeysRequest $request
@@ -1716,6 +1931,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - ListTagValuesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns ListTagValuesResponse
      *
      * @param ListTagValuesRequest $request
@@ -1751,15 +1967,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListTagValues',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'ListTagValues',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return ListTagValuesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1772,6 +1988,7 @@ class ResourceCenter extends OpenApiClient
      * Queries the tag values of resources within the current account.
      *
      * @param request - ListTagValuesRequest
+     *
      * @returns ListTagValuesResponse
      *
      * @param ListTagValuesRequest $request
@@ -1798,6 +2015,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - SearchMultiAccountResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchMultiAccountResourcesResponse
      *
      * @param SearchMultiAccountResourcesRequest $request
@@ -1833,15 +2051,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SearchMultiAccountResources',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchMultiAccountResources',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SearchMultiAccountResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1862,6 +2080,7 @@ class ResourceCenter extends OpenApiClient
      * *   You can visit [Sample Code Center](https://api.alibabacloud.com/api-tools/demo/ResourceCenter) to view more sample queries.
      *
      * @param request - SearchMultiAccountResourcesRequest
+     *
      * @returns SearchMultiAccountResourcesResponse
      *
      * @param SearchMultiAccountResourcesRequest $request
@@ -1887,6 +2106,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - SearchResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns SearchResourcesResponse
      *
      * @param SearchResourcesRequest $request
@@ -1922,15 +2142,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'SearchResources',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'SearchResources',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return SearchResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -1950,6 +2170,7 @@ class ResourceCenter extends OpenApiClient
      * *   You can visit [Sample Code Center](https://api.aliyun.com/api-tools/demo/ResourceCenter) to view more sample queries.
      *
      * @param request - SearchResourcesRequest
+     *
      * @returns SearchResourcesResponse
      *
      * @param SearchResourcesRequest $request
@@ -1968,6 +2189,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - UpdateFilterRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateFilterResponse
      *
      * @param UpdateFilterRequest $request
@@ -1991,15 +2213,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateFilter',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateFilter',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateFilterResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2012,6 +2234,7 @@ class ResourceCenter extends OpenApiClient
      * Updates a filter.
      *
      * @param request - UpdateFilterRequest
+     *
      * @returns UpdateFilterResponse
      *
      * @param UpdateFilterRequest $request
@@ -2030,6 +2253,7 @@ class ResourceCenter extends OpenApiClient
      *
      * @param request - UpdateSavedQueryRequest
      * @param runtime - runtime options for this request RuntimeOptions
+     *
      * @returns UpdateSavedQueryResponse
      *
      * @param UpdateSavedQueryRequest $request
@@ -2061,15 +2285,15 @@ class ResourceCenter extends OpenApiClient
             'query' => Utils::query($query),
         ]);
         $params = new Params([
-            'action'      => 'UpdateSavedQuery',
-            'version'     => '2022-12-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
+            'action' => 'UpdateSavedQuery',
+            'version' => '2022-12-01',
+            'protocol' => 'HTTPS',
+            'pathname' => '/',
+            'method' => 'POST',
+            'authType' => 'AK',
+            'style' => 'RPC',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType' => 'json',
         ]);
         if (null === $this->_signatureVersion || 'v4' != $this->_signatureVersion) {
             return UpdateSavedQueryResponse::fromMap($this->callApi($params, $req, $runtime));
@@ -2082,6 +2306,7 @@ class ResourceCenter extends OpenApiClient
      * Updates a custom query template.
      *
      * @param request - UpdateSavedQueryRequest
+     *
      * @returns UpdateSavedQueryResponse
      *
      * @param UpdateSavedQueryRequest $request

@@ -14,33 +14,38 @@ class SearchMultiAccountResourcesResponseBody extends Model
      * @var filters[]
      */
     public $filters;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var resources[]
      */
     public $resources;
+
     /**
      * @var string
      */
     public $scope;
     protected $_name = [
-        'filters'    => 'Filters',
+        'filters' => 'Filters',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
-        'resources'  => 'Resources',
-        'scope'      => 'Scope',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'resources' => 'Resources',
+        'scope' => 'Scope',
     ];
 
     public function validate()
@@ -60,7 +65,7 @@ class SearchMultiAccountResourcesResponseBody extends Model
         if (null !== $this->filters) {
             if (\is_array($this->filters)) {
                 $res['Filters'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->filters as $item1) {
                     $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -82,7 +87,7 @@ class SearchMultiAccountResourcesResponseBody extends Model
         if (null !== $this->resources) {
             if (\is_array($this->resources)) {
                 $res['Resources'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->resources as $item1) {
                     $res['Resources'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -107,7 +112,7 @@ class SearchMultiAccountResourcesResponseBody extends Model
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
                     $model->filters[$n1++] = filters::fromMap($item1);
                 }
@@ -129,7 +134,7 @@ class SearchMultiAccountResourcesResponseBody extends Model
         if (isset($map['Resources'])) {
             if (!empty($map['Resources'])) {
                 $model->resources = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['Resources'] as $item1) {
                     $model->resources[$n1++] = resources::fromMap($item1);
                 }

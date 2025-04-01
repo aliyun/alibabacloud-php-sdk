@@ -13,12 +13,13 @@ class ListResourceTypesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceTypes[]
      */
     public $resourceTypes;
     protected $_name = [
-        'requestId'     => 'RequestId',
+        'requestId' => 'RequestId',
         'resourceTypes' => 'ResourceTypes',
     ];
 
@@ -40,7 +41,7 @@ class ListResourceTypesResponseBody extends Model
         if (null !== $this->resourceTypes) {
             if (\is_array($this->resourceTypes)) {
                 $res['ResourceTypes'] = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($this->resourceTypes as $item1) {
                     $res['ResourceTypes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -65,7 +66,7 @@ class ListResourceTypesResponseBody extends Model
         if (isset($map['ResourceTypes'])) {
             if (!empty($map['ResourceTypes'])) {
                 $model->resourceTypes = [];
-                $n1                   = 0;
+                $n1 = 0;
                 foreach ($map['ResourceTypes'] as $item1) {
                     $model->resourceTypes[$n1++] = resourceTypes::fromMap($item1);
                 }

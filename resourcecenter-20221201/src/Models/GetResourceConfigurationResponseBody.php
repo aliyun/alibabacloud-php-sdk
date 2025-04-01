@@ -14,73 +14,86 @@ class GetResourceConfigurationResponseBody extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var mixed[]
      */
     public $configuration;
+
     /**
      * @var string
      */
     public $createTime;
+
     /**
      * @var string
      */
     public $expireTime;
+
     /**
      * @var ipAddressAttributes[]
      */
     public $ipAddressAttributes;
+
     /**
      * @var string[]
      */
     public $ipAddresses;
+
     /**
      * @var string
      */
     public $regionId;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string
      */
     public $resourceGroupId;
+
     /**
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceName;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var tags[]
      */
     public $tags;
+
     /**
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'accountId'           => 'AccountId',
-        'configuration'       => 'Configuration',
-        'createTime'          => 'CreateTime',
-        'expireTime'          => 'ExpireTime',
+        'accountId' => 'AccountId',
+        'configuration' => 'Configuration',
+        'createTime' => 'CreateTime',
+        'expireTime' => 'ExpireTime',
         'ipAddressAttributes' => 'IpAddressAttributes',
-        'ipAddresses'         => 'IpAddresses',
-        'regionId'            => 'RegionId',
-        'requestId'           => 'RequestId',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'resourceId'          => 'ResourceId',
-        'resourceName'        => 'ResourceName',
-        'resourceType'        => 'ResourceType',
-        'tags'                => 'Tags',
-        'zoneId'              => 'ZoneId',
+        'ipAddresses' => 'IpAddresses',
+        'regionId' => 'RegionId',
+        'requestId' => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'resourceId' => 'ResourceId',
+        'resourceName' => 'ResourceName',
+        'resourceType' => 'ResourceType',
+        'tags' => 'Tags',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -127,7 +140,7 @@ class GetResourceConfigurationResponseBody extends Model
         if (null !== $this->ipAddressAttributes) {
             if (\is_array($this->ipAddressAttributes)) {
                 $res['IpAddressAttributes'] = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($this->ipAddressAttributes as $item1) {
                     $res['IpAddressAttributes'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -137,7 +150,7 @@ class GetResourceConfigurationResponseBody extends Model
         if (null !== $this->ipAddresses) {
             if (\is_array($this->ipAddresses)) {
                 $res['IpAddresses'] = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($this->ipAddresses as $item1) {
                     $res['IpAddresses'][$n1++] = $item1;
                 }
@@ -171,7 +184,7 @@ class GetResourceConfigurationResponseBody extends Model
         if (null !== $this->tags) {
             if (\is_array($this->tags)) {
                 $res['Tags'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->tags as $item1) {
                     $res['Tags'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -217,7 +230,7 @@ class GetResourceConfigurationResponseBody extends Model
         if (isset($map['IpAddressAttributes'])) {
             if (!empty($map['IpAddressAttributes'])) {
                 $model->ipAddressAttributes = [];
-                $n1                         = 0;
+                $n1 = 0;
                 foreach ($map['IpAddressAttributes'] as $item1) {
                     $model->ipAddressAttributes[$n1++] = ipAddressAttributes::fromMap($item1);
                 }
@@ -227,7 +240,7 @@ class GetResourceConfigurationResponseBody extends Model
         if (isset($map['IpAddresses'])) {
             if (!empty($map['IpAddresses'])) {
                 $model->ipAddresses = [];
-                $n1                 = 0;
+                $n1 = 0;
                 foreach ($map['IpAddresses'] as $item1) {
                     $model->ipAddresses[$n1++] = $item1;
                 }
@@ -261,7 +274,7 @@ class GetResourceConfigurationResponseBody extends Model
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Tags'] as $item1) {
                     $model->tags[$n1++] = tags::fromMap($item1);
                 }

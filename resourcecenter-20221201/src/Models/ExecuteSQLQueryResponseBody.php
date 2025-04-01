@@ -13,28 +13,32 @@ class ExecuteSQLQueryResponseBody extends Model
      * @var columns[]
      */
     public $columns;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var mixed[]
      */
     public $rows;
     protected $_name = [
-        'columns'    => 'Columns',
+        'columns' => 'Columns',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'requestId'  => 'RequestId',
-        'rows'       => 'Rows',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
+        'rows' => 'Rows',
     ];
 
     public function validate()
@@ -54,7 +58,7 @@ class ExecuteSQLQueryResponseBody extends Model
         if (null !== $this->columns) {
             if (\is_array($this->columns)) {
                 $res['Columns'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->columns as $item1) {
                     $res['Columns'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -76,7 +80,7 @@ class ExecuteSQLQueryResponseBody extends Model
         if (null !== $this->rows) {
             if (\is_array($this->rows)) {
                 $res['Rows'] = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($this->rows as $item1) {
                     $res['Rows'][$n1++] = $item1;
                 }
@@ -97,7 +101,7 @@ class ExecuteSQLQueryResponseBody extends Model
         if (isset($map['Columns'])) {
             if (!empty($map['Columns'])) {
                 $model->columns = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Columns'] as $item1) {
                     $model->columns[$n1++] = columns::fromMap($item1);
                 }
@@ -119,7 +123,7 @@ class ExecuteSQLQueryResponseBody extends Model
         if (isset($map['Rows'])) {
             if (!empty($map['Rows'])) {
                 $model->rows = [];
-                $n1          = 0;
+                $n1 = 0;
                 foreach ($map['Rows'] as $item1) {
                     $model->rows[$n1++] = $item1;
                 }

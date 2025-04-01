@@ -12,12 +12,13 @@ class resourceCounts extends Model
      * @var int
      */
     public $count;
+
     /**
      * @var string
      */
     public $groupName;
     protected $_name = [
-        'count'     => 'Count',
+        'count' => 'Count',
         'groupName' => 'GroupName',
     ];
 

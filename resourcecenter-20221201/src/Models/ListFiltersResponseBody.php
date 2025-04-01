@@ -13,18 +13,20 @@ class ListFiltersResponseBody extends Model
      * @var string
      */
     public $defaultFilterName;
+
     /**
      * @var filters[]
      */
     public $filters;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'defaultFilterName' => 'DefaultFilterName',
-        'filters'           => 'Filters',
-        'requestId'         => 'RequestId',
+        'filters' => 'Filters',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -45,7 +47,7 @@ class ListFiltersResponseBody extends Model
         if (null !== $this->filters) {
             if (\is_array($this->filters)) {
                 $res['Filters'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->filters as $item1) {
                     $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -74,7 +76,7 @@ class ListFiltersResponseBody extends Model
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
                     $model->filters[$n1++] = filters::fromMap($item1);
                 }

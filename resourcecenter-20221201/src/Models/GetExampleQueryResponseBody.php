@@ -13,13 +13,14 @@ class GetExampleQueryResponseBody extends Model
      * @var exampleQuery
      */
     public $exampleQuery;
+
     /**
      * @var string
      */
     public $requestId;
     protected $_name = [
         'exampleQuery' => 'ExampleQuery',
-        'requestId'    => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()

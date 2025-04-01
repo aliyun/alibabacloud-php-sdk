@@ -13,33 +13,38 @@ class resourceTypes extends Model
      * @var codeMapping
      */
     public $codeMapping;
+
     /**
      * @var string[]
      */
     public $filterKeys;
+
     /**
      * @var string
      */
     public $productName;
+
     /**
      * @var string[]
      */
     public $relatedResourceTypes;
+
     /**
      * @var string
      */
     public $resourceType;
+
     /**
      * @var string
      */
     public $resourceTypeName;
     protected $_name = [
-        'codeMapping'          => 'CodeMapping',
-        'filterKeys'           => 'FilterKeys',
-        'productName'          => 'ProductName',
+        'codeMapping' => 'CodeMapping',
+        'filterKeys' => 'FilterKeys',
+        'productName' => 'ProductName',
         'relatedResourceTypes' => 'RelatedResourceTypes',
-        'resourceType'         => 'ResourceType',
-        'resourceTypeName'     => 'ResourceTypeName',
+        'resourceType' => 'ResourceType',
+        'resourceTypeName' => 'ResourceTypeName',
     ];
 
     public function validate()
@@ -66,7 +71,7 @@ class resourceTypes extends Model
         if (null !== $this->filterKeys) {
             if (\is_array($this->filterKeys)) {
                 $res['FilterKeys'] = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($this->filterKeys as $item1) {
                     $res['FilterKeys'][$n1++] = $item1;
                 }
@@ -80,7 +85,7 @@ class resourceTypes extends Model
         if (null !== $this->relatedResourceTypes) {
             if (\is_array($this->relatedResourceTypes)) {
                 $res['RelatedResourceTypes'] = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($this->relatedResourceTypes as $item1) {
                     $res['RelatedResourceTypes'][$n1++] = $item1;
                 }
@@ -113,7 +118,7 @@ class resourceTypes extends Model
         if (isset($map['FilterKeys'])) {
             if (!empty($map['FilterKeys'])) {
                 $model->filterKeys = [];
-                $n1                = 0;
+                $n1 = 0;
                 foreach ($map['FilterKeys'] as $item1) {
                     $model->filterKeys[$n1++] = $item1;
                 }
@@ -127,7 +132,7 @@ class resourceTypes extends Model
         if (isset($map['RelatedResourceTypes'])) {
             if (!empty($map['RelatedResourceTypes'])) {
                 $model->relatedResourceTypes = [];
-                $n1                          = 0;
+                $n1 = 0;
                 foreach ($map['RelatedResourceTypes'] as $item1) {
                     $model->relatedResourceTypes[$n1++] = $item1;
                 }

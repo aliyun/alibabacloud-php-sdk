@@ -12,33 +12,38 @@ class ListMultiAccountTagValuesRequest extends Model
      * @var string
      */
     public $matchType;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $scope;
+
     /**
      * @var string
      */
     public $tagKey;
+
     /**
      * @var string
      */
     public $tagValue;
     protected $_name = [
-        'matchType'  => 'MatchType',
+        'matchType' => 'MatchType',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'scope'      => 'Scope',
-        'tagKey'     => 'TagKey',
-        'tagValue'   => 'TagValue',
+        'nextToken' => 'NextToken',
+        'scope' => 'Scope',
+        'tagKey' => 'TagKey',
+        'tagValue' => 'TagValue',
     ];
 
     public function validate()

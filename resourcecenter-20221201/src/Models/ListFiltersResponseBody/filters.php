@@ -12,13 +12,14 @@ class filters extends Model
      * @var string
      */
     public $filterConfiguration;
+
     /**
      * @var string
      */
     public $filterName;
     protected $_name = [
         'filterConfiguration' => 'FilterConfiguration',
-        'filterName'          => 'FilterName',
+        'filterName' => 'FilterName',
     ];
 
     public function validate()

@@ -12,18 +12,20 @@ class GetResourceConfigurationRequest extends Model
      * @var string
      */
     public $resourceId;
+
     /**
      * @var string
      */
     public $resourceRegionId;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
-        'resourceId'       => 'ResourceId',
+        'resourceId' => 'ResourceId',
         'resourceRegionId' => 'ResourceRegionId',
-        'resourceType'     => 'ResourceType',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()

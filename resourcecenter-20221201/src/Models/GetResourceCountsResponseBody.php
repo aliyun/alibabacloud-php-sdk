@@ -14,22 +14,25 @@ class GetResourceCountsResponseBody extends Model
      * @var filters[]
      */
     public $filters;
+
     /**
      * @var string
      */
     public $groupByKey;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var resourceCounts[]
      */
     public $resourceCounts;
     protected $_name = [
-        'filters'        => 'Filters',
-        'groupByKey'     => 'GroupByKey',
-        'requestId'      => 'RequestId',
+        'filters' => 'Filters',
+        'groupByKey' => 'GroupByKey',
+        'requestId' => 'RequestId',
         'resourceCounts' => 'ResourceCounts',
     ];
 
@@ -50,7 +53,7 @@ class GetResourceCountsResponseBody extends Model
         if (null !== $this->filters) {
             if (\is_array($this->filters)) {
                 $res['Filters'] = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($this->filters as $item1) {
                     $res['Filters'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -68,7 +71,7 @@ class GetResourceCountsResponseBody extends Model
         if (null !== $this->resourceCounts) {
             if (\is_array($this->resourceCounts)) {
                 $res['ResourceCounts'] = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($this->resourceCounts as $item1) {
                     $res['ResourceCounts'][$n1++] = null !== $item1 ? $item1->toArray($noStream) : $item1;
                 }
@@ -89,7 +92,7 @@ class GetResourceCountsResponseBody extends Model
         if (isset($map['Filters'])) {
             if (!empty($map['Filters'])) {
                 $model->filters = [];
-                $n1             = 0;
+                $n1 = 0;
                 foreach ($map['Filters'] as $item1) {
                     $model->filters[$n1++] = filters::fromMap($item1);
                 }
@@ -107,7 +110,7 @@ class GetResourceCountsResponseBody extends Model
         if (isset($map['ResourceCounts'])) {
             if (!empty($map['ResourceCounts'])) {
                 $model->resourceCounts = [];
-                $n1                    = 0;
+                $n1 = 0;
                 foreach ($map['ResourceCounts'] as $item1) {
                     $model->resourceCounts[$n1++] = resourceCounts::fromMap($item1);
                 }

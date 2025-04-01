@@ -12,10 +12,12 @@ class ListMultiAccountTagValuesResponseBody extends Model
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $requestId;
+
     /**
      * @var string[]
      */
@@ -48,7 +50,7 @@ class ListMultiAccountTagValuesResponseBody extends Model
         if (null !== $this->tagValues) {
             if (\is_array($this->tagValues)) {
                 $res['TagValues'] = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($this->tagValues as $item1) {
                     $res['TagValues'][$n1++] = $item1;
                 }
@@ -77,7 +79,7 @@ class ListMultiAccountTagValuesResponseBody extends Model
         if (isset($map['TagValues'])) {
             if (!empty($map['TagValues'])) {
                 $model->tagValues = [];
-                $n1               = 0;
+                $n1 = 0;
                 foreach ($map['TagValues'] as $item1) {
                     $model->tagValues[$n1++] = $item1;
                 }

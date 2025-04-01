@@ -12,28 +12,32 @@ class ListMultiAccountTagKeysRequest extends Model
      * @var string
      */
     public $matchType;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string
      */
     public $scope;
+
     /**
      * @var string
      */
     public $tagKey;
     protected $_name = [
-        'matchType'  => 'MatchType',
+        'matchType' => 'MatchType',
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'scope'      => 'Scope',
-        'tagKey'     => 'TagKey',
+        'nextToken' => 'NextToken',
+        'scope' => 'Scope',
+        'tagKey' => 'TagKey',
     ];
 
     public function validate()

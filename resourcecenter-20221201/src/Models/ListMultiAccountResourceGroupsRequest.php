@@ -12,22 +12,25 @@ class ListMultiAccountResourceGroupsRequest extends Model
      * @var string
      */
     public $accountId;
+
     /**
      * @var int
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
+
     /**
      * @var string[]
      */
     public $resourceGroupIds;
     protected $_name = [
-        'accountId'        => 'AccountId',
-        'maxResults'       => 'MaxResults',
-        'nextToken'        => 'NextToken',
+        'accountId' => 'AccountId',
+        'maxResults' => 'MaxResults',
+        'nextToken' => 'NextToken',
         'resourceGroupIds' => 'ResourceGroupIds',
     ];
 
@@ -57,7 +60,7 @@ class ListMultiAccountResourceGroupsRequest extends Model
         if (null !== $this->resourceGroupIds) {
             if (\is_array($this->resourceGroupIds)) {
                 $res['ResourceGroupIds'] = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($this->resourceGroupIds as $item1) {
                     $res['ResourceGroupIds'][$n1++] = $item1;
                 }
@@ -90,7 +93,7 @@ class ListMultiAccountResourceGroupsRequest extends Model
         if (isset($map['ResourceGroupIds'])) {
             if (!empty($map['ResourceGroupIds'])) {
                 $model->resourceGroupIds = [];
-                $n1                      = 0;
+                $n1 = 0;
                 foreach ($map['ResourceGroupIds'] as $item1) {
                     $model->resourceGroupIds[$n1++] = $item1;
                 }

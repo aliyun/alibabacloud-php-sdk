@@ -12,23 +12,26 @@ class exampleQuery extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $expression;
+
     /**
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */
     public $queryId;
     protected $_name = [
         'description' => 'Description',
-        'expression'  => 'Expression',
-        'name'        => 'Name',
-        'queryId'     => 'QueryId',
+        'expression' => 'Expression',
+        'name' => 'Name',
+        'queryId' => 'QueryId',
     ];
 
     public function validate()

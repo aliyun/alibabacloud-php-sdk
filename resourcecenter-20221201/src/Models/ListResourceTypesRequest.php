@@ -12,18 +12,20 @@ class ListResourceTypesRequest extends Model
      * @var string
      */
     public $acceptLanguage;
+
     /**
      * @var string[]
      */
     public $query;
+
     /**
      * @var string
      */
     public $resourceType;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
-        'query'          => 'Query',
-        'resourceType'   => 'ResourceType',
+        'query' => 'Query',
+        'resourceType' => 'ResourceType',
     ];
 
     public function validate()
@@ -44,7 +46,7 @@ class ListResourceTypesRequest extends Model
         if (null !== $this->query) {
             if (\is_array($this->query)) {
                 $res['Query'] = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($this->query as $item1) {
                     $res['Query'][$n1++] = $item1;
                 }
@@ -73,7 +75,7 @@ class ListResourceTypesRequest extends Model
         if (isset($map['Query'])) {
             if (!empty($map['Query'])) {
                 $model->query = [];
-                $n1           = 0;
+                $n1 = 0;
                 foreach ($map['Query'] as $item1) {
                     $model->query[$n1++] = $item1;
                 }

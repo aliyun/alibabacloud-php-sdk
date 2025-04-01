@@ -12,6 +12,7 @@ class columns extends Model
      * @var string
      */
     public $name;
+
     /**
      * @var string
      */

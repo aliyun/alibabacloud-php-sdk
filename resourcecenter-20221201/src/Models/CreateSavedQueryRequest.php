@@ -12,18 +12,20 @@ class CreateSavedQueryRequest extends Model
      * @var string
      */
     public $description;
+
     /**
      * @var string
      */
     public $expression;
+
     /**
      * @var string
      */
     public $name;
     protected $_name = [
         'description' => 'Description',
-        'expression'  => 'Expression',
-        'name'        => 'Name',
+        'expression' => 'Expression',
+        'name' => 'Name',
     ];
 
     public function validate()

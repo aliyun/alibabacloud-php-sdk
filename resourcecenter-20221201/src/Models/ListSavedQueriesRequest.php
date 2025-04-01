@@ -12,13 +12,14 @@ class ListSavedQueriesRequest extends Model
      * @var string
      */
     public $maxResults;
+
     /**
      * @var string
      */
     public $nextToken;
     protected $_name = [
         'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
+        'nextToken' => 'NextToken',
     ];
 
     public function validate()
